@@ -6,11 +6,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'mq.freezed.dart';
 part 'mq.g.dart';
 
-class MQService {
+class MqService {
   final Options opts;
   var _client;
 
-  MQService(this.opts) {
+  MqService(this.opts) {
     _client = Client(opts);
   }
 

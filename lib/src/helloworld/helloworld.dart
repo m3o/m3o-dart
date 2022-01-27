@@ -6,11 +6,11 @@ import 'package:m3o/m3o.dart';
 part 'helloworld.freezed.dart';
 part 'helloworld.g.dart';
 
-class HelloWorldService {
+class HelloworldService {
   final Options opts;
   var _client;
 
-  HelloWorldService(this.opts) {
+  HelloworldService(this.opts) {
     _client = Client(opts);
   }
 
