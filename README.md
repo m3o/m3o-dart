@@ -9,7 +9,8 @@ This is the Dart client to access APIs on the M3O Platform
 M3O APIs includes DB, Cache, Stream, MQ, Events, Functions, App, SMS and more.
 
 ## Usage
-Call a service using the generated client. Populate the `M3O_API_TOKEN` environment variable. 
+
+Call a service using the generated client. Populate the `M3O_API_TOKEN` environment variable.
 
 Import the package and initialise the service with your API token.
 
@@ -48,6 +49,7 @@ void main() async {
   }
 }
 ```
+
 ## Generic Client
 
 The generic client enables you to call any endpoint by name.
@@ -83,6 +85,7 @@ void main() async {
     exit(0);
 }
 ```
+
 ## Widget
 
 Most M3O services have endpoints that return a Future and few that return Stream.
@@ -114,20 +117,32 @@ Future<NowResponse> londonCurrentWeather() async {
 and then use FutureBuilder to create a widget like this:
 
 ```dart
-class MyWidget extends StatelessWidget {
+class MyWidget extends StatefulWidget {
+  // code here ...
+
   @override
-  Widget build(context) {
-    return FutureBuilder<NowResponse>(
-      future: londonCurrentWeather(),
-      builder: (context, AsyncSnapshot<NowResponse> snapshot) {
+  _MyWidgetState creatState() => _MyWidgetState();
+}
+
+class _MyWidgetState extends State <MyWidget> {
+  late final nowResponse = londonCurrentWeather();
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: nowResponse,
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          // return a widget in case of an error
+        }
+
         if (snapshot.hasData) {
           // extract the data and return a widget
-        } else {
-          return CircularProgressIndicator();
         }
+
+        return CircularProgressIndicator();
       }
     );
   }
 }
 ```
-
