@@ -4,7 +4,7 @@ homepage: https://github.com/m3o/m3o-dart
 description: This is the Dart client to access APIs on the M3O Platform
 
 environment:
-  sdk: '>=2.14.0 <3.0.0'
+  sdk: '>=2.16.0 <3.0.0'
 
 dev_dependencies:
   test: ^1.16.0
