@@ -1,0 +1,204 @@
+name: Build Dart Clients
+on:
+  repository_dispatch:
+    types: [build_publish_dart]
+
+jobs:
+  generate:
+    name: build dart clients and create new release
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Set up Go 1.13
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.13
+        id: go
+
+      - name: Set up dart latest
+        uses: dart-lang/setup-dart@v1.3
+        with:
+          sdk:  stable
+        id: dart
+      
+      - name: Install Protoc
+        uses: arduino/setup-protoc@master
+      
+      - name: Check m3o repo
+        uses: actions/checkout@v2
+        with:
+          repository: 'm3o/m3o'
+          path: m3o
+          ref: ${{ github.ref }}
+
+      - name: Check micro/services repo
+        uses: actions/checkout@v2
+        with:
+          repository: 'micro/services'
+          path: services
+
+      - name: Check micro repo
+        uses: actions/checkout@v2
+        with:
+          repository: 'micro/micro'
+          path: 'micro'
+          ref: 'master'
+      
+      - name: Check m3o-dart repo
+        uses: actions/checkout@v2
+        with:
+          repository: 'm3o/m3o-dart'
+          path: m3o-dart
+      
+      - name: Enable caching
+        uses: actions/cache@v2
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
+      - name: Install protoc gen micro plugin
+        working-directory: micro/cmd/protoc-gen-micro
+        run: |
+          go get -u github.com/golang/protobuf/protoc-gen-go
+          go install
+      
+      - name: Install openapi plugin
+        working-directory: m3o/cmd/protoc-gen-openapi
+        run: |
+          go install
+
+      - name: Install generator
+        working-directory: m3o
+        run: |
+          # build the client generator
+          pwd
+          cd cmd/m3o-client-gen;
+          go install
+          cd ../../
+          # delete existing cmd directory
+          rm -rf ../services/cmd
+          # copy our command directory in
+          cp -r cmd ../services/
+      
+      - name: Generate Dart Clients
+        working-directory: services
+        if: github.ref == 'refs/heads/main'
+        run: |
+          rm -rf clients examples
+          m3o-client-gen dart
+
+      - name: Adjust generated things before pushing
+        working-directory: services
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
+        run: |
+          # sync the clients to m3o-dart/
+          rsync -avz clients/dart/* ../m3o-dart/
+          # sync the examples to m3o-dart/example
+          rsync -avz examples/dart/* ../m3o-dart/example/
+
+      - name: Install dependencies m3o-dart
+        working-directory: m3o-dart
+        run:  dart pub get
+
+      - name: format m3o-dart
+        working-directory: m3o-dart
+        run:  dart format .
+
+      - name: run generate Freezed m3o-dart
+        working-directory: m3o-dart
+        run:  dart pub run build_runner build --delete-conflicting-outputs
+
+      - name: update dart version number
+        working-directory: m3o-dart
+        run: |
+          oldver=$(cat pubspec.yaml | grep version | head -1) 
+          patch=$(echo $oldver | awk -F. '{ print $3}') 
+          newpatch=$(($patch+1)) 
+          seg1=$(echo $oldver | awk -F. '{ print $1}') 
+          seg2=$(echo $oldver | awk -F. '{ print $2}') 
+          newver="$seg1.$seg2.$newpatch" 
+          sed -i "s/$oldver/$newver/" pubspec.yaml
+          echo "##[set-output name=newver;]$(echo $newver)"
+        id: dart_new_version
+      
+      - name: house cleaning remove unnecessary files/folders
+        working-directory: m3o-dart
+        run: |
+          rm -rf .dart_tool .git .gitignore .packages pubspec.lock
+      
+      # https://stackoverflow.com/questions/58033366/how-to-get-current-branch-within-github-actions
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      
+      - name: Push Dart clients
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: 'm3o-dart/lib/'
+          destination_repo: 'm3o/m3o-dart'
+          destination_branch: ${{ steps.extract_branch.outputs.branch }}
+          destination_folder: 'lib/'
+          git_server: 'github.com'
+          user_name: 'm3o-actions'
+          use_rsync: true
+          commit_message: 'Commit from m3o/m3o-dart action'
+
+      - name: Push Dart examples
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: 'm3o-dart/example/'
+          destination_repo: 'm3o/m3o-dart'
+          destination_branch: ${{ steps.extract_branch.outputs.branch }}
+          destination_folder: 'example/'
+          git_server: 'github.com'
+          user_name: 'm3o-actions'
+          use_rsync: true
+          commit_message: 'Commit from m3o/m3o-dart action'
+
+      - name: Push Dart pubspec and changelog
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: 'm3o-dart/'
+          destination_repo: 'm3o/m3o-dart'
+          destination_branch: ${{ steps.extract_branch.outputs.branch }}
+          git_server: 'github.com'
+          user_name: 'm3o-actions'
+          use_rsync: true
+          commit_message: 'Commit from m3o/m3o-dart action'
+
+      - name: extract current version
+        working-directory: m3o-dart
+        run: |
+          curver=$(cat pubspec.yaml | grep version | head -1 | awk -F: '{ print$2}' | sed 's/^ *//g')
+          echo "##[set-output name=curver;]$(echo "v$curver")"
+        id: dart_cur_version
+
+      - name: generate latest release note from micro/services repo
+        working-directory: m3o
+        run: |
+          cd cmd/release-note
+          go install .
+          note=$(release-note .)
+          echo $note
+          echo "##[set-output name=note;]$(echo "$note")" 
+        id: micro_release_note
+
+      - uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.dart_cur_version.outputs.curver}} 
+          commit: main
+          body: |
+            ${{ steps.micro_release_note.outputs.note }}
+          token: ${{ secrets.API_TOKEN_GITHUB }}

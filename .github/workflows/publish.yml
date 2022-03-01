@@ -1,0 +1,49 @@
+name: Update Changelog and Publish
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.release.target_commitish }}
+
+      - name: Set up dart latest
+        uses: dart-lang/setup-dart@v1.3
+        with:
+          sdk:  stable
+        id: dart
+
+      - name: Update Changelog
+        uses: stefanzweifel/changelog-updater-action@v1
+        with:
+          latest-version: ${{ github.event.release.tag_name }}
+          release-notes: ${{ github.event.release.body }}
+
+      - name: Commit updated CHANGELOG
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: ${{ github.event.release.target_commitish }}
+          commit_message: Update CHANGELOG
+          file_pattern: CHANGELOG.md
+           
+      - name: Run the test against helloworld service
+        run:  M3O_API_TOKEN=$HW_TOKEN dart test .
+        env:
+          HW_TOKEN: ${{ secrets.M3O_API_TOKEN }}
+          
+      - name: dry run dart publish
+        run: |
+          dart pub publish --dry-run
+
+      # - name: publish m3o-dart package
+      #   uses: k-paxian/dart-package-publisher@master
+      #   with:
+      #     accessToken: ${{ secrets.OAUTH_ACCESS_TOKEN }}
+      #     refreshToken: ${{ secrets.OAUTH_REFRESH_TOKEN }}

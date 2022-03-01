@@ -165,3 +165,6 @@ bool isError(Map<String, dynamic> body) {
 
   return count == 4;
 }
+
+int? int64FromString(String? value) => value == null ? null : int.parse(value);
+String? int64ToString(int? value) => value == null ? null : value as String;

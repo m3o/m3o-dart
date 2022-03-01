@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:m3o/m3o.dart';
+import 'package:m3o/src/client/client.dart';
 import 'package:test/test.dart';
 
 void main() {
