@@ -17,7 +17,8 @@ Import the package and initialise the service with your API token.
 ```dart
 import 'dart:io';
 
-import 'package:m3o/m3o.dart';
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/helloworld/helloworld.dart';
 
 void main() async {
   final token = Platform.environment['M3O_API_TOKEN']!;
@@ -57,7 +58,7 @@ The generic client enables you to call any endpoint by name.
 ```dart
 import 'dart:io';
 
-import 'package:M3O/m3o.dart';
+import 'package:m3o/src/client/client.dart';
 
 void main() async {
 
