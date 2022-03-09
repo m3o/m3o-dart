@@ -155,10 +155,10 @@ class Merr with _$Merr {
 
 bool isError(Map<String, dynamic> body) {
   var count = 0;
-  const keys = ['Id', 'Code', 'Detail', 'Status'];
+  const keys = ['id', 'code', 'detail', 'status'];
 
   for (var key in body.keys) {
-    if (keys.contains(key)) {
+    if (keys.contains(key.toLowerCase())) {
       count++;
     }
   }
@@ -167,4 +167,4 @@ bool isError(Map<String, dynamic> body) {
 }
 
 int? int64FromString(String? value) => value == null ? null : int.parse(value);
-String? int64ToString(int? value) => value == null ? null : value as String;
+String? int64ToString(int? value) => value == null ? null : value.toString();
