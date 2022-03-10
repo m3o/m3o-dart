@@ -91,8 +91,8 @@ void main() {
       });
 
       try {
-      final st = await c.stream(request);
-      expect(st.first, null);
+        final st = await c.stream(request);
+        expect(st.first, null);
       } catch (_) {
         // do nothing
       }
