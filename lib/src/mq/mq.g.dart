@@ -21,14 +21,12 @@ Map<String, dynamic> _$$_PublishRequestToJson(_$_PublishRequest instance) =>
 _$PublishResponseData _$$PublishResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$PublishResponseData(
-      body: json['body'] as Map<String, dynamic>?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$PublishResponseDataToJson(
         _$PublishResponseData instance) =>
     <String, dynamic>{
-      'body': instance.body,
       'runtimeType': instance.$type,
     };
 

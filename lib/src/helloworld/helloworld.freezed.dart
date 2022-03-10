@@ -564,7 +564,9 @@ StreamRequest _$StreamRequestFromJson(Map<String, dynamic> json) {
 class _$StreamRequestTearOff {
   const _$StreamRequestTearOff();
 
-  _StreamRequest call({int? messages, String? name}) {
+  _StreamRequest call(
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? messages,
+      String? name}) {
     return _StreamRequest(
       messages: messages,
       name: name,
@@ -581,6 +583,8 @@ const $StreamRequest = _$StreamRequestTearOff();
 
 /// @nodoc
 mixin _$StreamRequest {
+  /// the number of messages to send back
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get messages => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
 
@@ -595,7 +599,9 @@ abstract class $StreamRequestCopyWith<$Res> {
   factory $StreamRequestCopyWith(
           StreamRequest value, $Res Function(StreamRequest) then) =
       _$StreamRequestCopyWithImpl<$Res>;
-  $Res call({int? messages, String? name});
+  $Res call(
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? messages,
+      String? name});
 }
 
 /// @nodoc
@@ -632,7 +638,9 @@ abstract class _$StreamRequestCopyWith<$Res>
           _StreamRequest value, $Res Function(_StreamRequest) then) =
       __$StreamRequestCopyWithImpl<$Res>;
   @override
-  $Res call({int? messages, String? name});
+  $Res call(
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? messages,
+      String? name});
 }
 
 /// @nodoc
@@ -667,12 +675,17 @@ class __$StreamRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_StreamRequest implements _StreamRequest {
-  const _$_StreamRequest({this.messages, this.name});
+  const _$_StreamRequest(
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.messages,
+      this.name});
 
   factory _$_StreamRequest.fromJson(Map<String, dynamic> json) =>
       _$$_StreamRequestFromJson(json);
 
   @override
+
+  /// the number of messages to send back
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? messages;
   @override
   final String? name;
@@ -709,13 +722,17 @@ class _$_StreamRequest implements _StreamRequest {
 }
 
 abstract class _StreamRequest implements StreamRequest {
-  const factory _StreamRequest({int? messages, String? name}) =
-      _$_StreamRequest;
+  const factory _StreamRequest(
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? messages,
+      String? name}) = _$_StreamRequest;
 
   factory _StreamRequest.fromJson(Map<String, dynamic> json) =
       _$_StreamRequest.fromJson;
 
   @override
+
+  /// the number of messages to send back
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get messages;
   @override
   String? get name;

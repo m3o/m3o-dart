@@ -39,7 +39,10 @@ const $PublishRequest = _$PublishRequestTearOff();
 
 /// @nodoc
 mixin _$PublishRequest {
+  /// The json message to publish
   Map<String, dynamic>? get message => throw _privateConstructorUsedError;
+
+  /// The topic to publish to
   String? get topic => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -131,8 +134,12 @@ class _$_PublishRequest implements _PublishRequest {
       _$$_PublishRequestFromJson(json);
 
   @override
+
+  /// The json message to publish
   final Map<String, dynamic>? message;
   @override
+
+  /// The topic to publish to
   final String? topic;
 
   @override
@@ -174,8 +181,12 @@ abstract class _PublishRequest implements PublishRequest {
       _$_PublishRequest.fromJson;
 
   @override
+
+  /// The json message to publish
   Map<String, dynamic>? get message;
   @override
+
+  /// The topic to publish to
   String? get topic;
   @override
   @JsonKey(ignore: true)
@@ -200,10 +211,8 @@ PublishResponse _$PublishResponseFromJson(Map<String, dynamic> json) {
 class _$PublishResponseTearOff {
   const _$PublishResponseTearOff();
 
-  PublishResponseData call({Map<String, dynamic>? body}) {
-    return PublishResponseData(
-      body: body,
-    );
+  PublishResponseData call() {
+    return const PublishResponseData();
   }
 
   PublishResponseMerr Merr({Map<String, dynamic>? body}) {
@@ -222,23 +231,21 @@ const $PublishResponse = _$PublishResponseTearOff();
 
 /// @nodoc
 mixin _$PublishResponse {
-  Map<String, dynamic>? get body => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? body) $default, {
+    TResult Function() $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? body)? $default, {
+    TResult Function()? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? body)? $default, {
+    TResult Function()? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -263,9 +270,6 @@ mixin _$PublishResponse {
   }) =>
       throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PublishResponseCopyWith<PublishResponse> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -273,7 +277,6 @@ abstract class $PublishResponseCopyWith<$Res> {
   factory $PublishResponseCopyWith(
           PublishResponse value, $Res Function(PublishResponse) then) =
       _$PublishResponseCopyWithImpl<$Res>;
-  $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
@@ -284,28 +287,13 @@ class _$PublishResponseCopyWithImpl<$Res>
   final PublishResponse _value;
   // ignore: unused_field
   final $Res Function(PublishResponse) _then;
-
-  @override
-  $Res call({
-    Object? body = freezed,
-  }) {
-    return _then(_value.copyWith(
-      body: body == freezed
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class $PublishResponseDataCopyWith<$Res>
-    implements $PublishResponseCopyWith<$Res> {
+abstract class $PublishResponseDataCopyWith<$Res> {
   factory $PublishResponseDataCopyWith(
           PublishResponseData value, $Res Function(PublishResponseData) then) =
       _$PublishResponseDataCopyWithImpl<$Res>;
-  @override
-  $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
@@ -318,84 +306,60 @@ class _$PublishResponseDataCopyWithImpl<$Res>
 
   @override
   PublishResponseData get _value => super._value as PublishResponseData;
-
-  @override
-  $Res call({
-    Object? body = freezed,
-  }) {
-    return _then(PublishResponseData(
-      body: body == freezed
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$PublishResponseData implements PublishResponseData {
-  const _$PublishResponseData({this.body, String? $type})
-      : $type = $type ?? 'default';
+  const _$PublishResponseData({String? $type}) : $type = $type ?? 'default';
 
   factory _$PublishResponseData.fromJson(Map<String, dynamic> json) =>
       _$$PublishResponseDataFromJson(json);
-
-  @override
-  final Map<String, dynamic>? body;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'PublishResponse(body: $body)';
+    return 'PublishResponse()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is PublishResponseData &&
-            const DeepCollectionEquality().equals(other.body, body));
+        (other.runtimeType == runtimeType && other is PublishResponseData);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
-
-  @JsonKey(ignore: true)
-  @override
-  $PublishResponseDataCopyWith<PublishResponseData> get copyWith =>
-      _$PublishResponseDataCopyWithImpl<PublishResponseData>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? body) $default, {
+    TResult Function() $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(body);
+    return $default();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? body)? $default, {
+    TResult Function()? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(body);
+    return $default?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? body)? $default, {
+    TResult Function()? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(body);
+      return $default();
     }
     return orElse();
   }
@@ -438,27 +402,17 @@ class _$PublishResponseData implements PublishResponseData {
 }
 
 abstract class PublishResponseData implements PublishResponse {
-  const factory PublishResponseData({Map<String, dynamic>? body}) =
-      _$PublishResponseData;
+  const factory PublishResponseData() = _$PublishResponseData;
 
   factory PublishResponseData.fromJson(Map<String, dynamic> json) =
       _$PublishResponseData.fromJson;
-
-  @override
-  Map<String, dynamic>? get body;
-  @override
-  @JsonKey(ignore: true)
-  $PublishResponseDataCopyWith<PublishResponseData> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PublishResponseMerrCopyWith<$Res>
-    implements $PublishResponseCopyWith<$Res> {
+abstract class $PublishResponseMerrCopyWith<$Res> {
   factory $PublishResponseMerrCopyWith(
           PublishResponseMerr value, $Res Function(PublishResponseMerr) then) =
       _$PublishResponseMerrCopyWithImpl<$Res>;
-  @override
   $Res call({Map<String, dynamic>? body});
 }
 
@@ -526,7 +480,7 @@ class _$PublishResponseMerr implements PublishResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? body) $default, {
+    TResult Function() $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -535,7 +489,7 @@ class _$PublishResponseMerr implements PublishResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? body)? $default, {
+    TResult Function()? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -544,7 +498,7 @@ class _$PublishResponseMerr implements PublishResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? body)? $default, {
+    TResult Function()? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
@@ -598,9 +552,7 @@ abstract class PublishResponseMerr implements PublishResponse {
   factory PublishResponseMerr.fromJson(Map<String, dynamic> json) =
       _$PublishResponseMerr.fromJson;
 
-  @override
   Map<String, dynamic>? get body;
-  @override
   @JsonKey(ignore: true)
   $PublishResponseMerrCopyWith<PublishResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
@@ -630,6 +582,7 @@ const $SubscribeRequest = _$SubscribeRequestTearOff();
 
 /// @nodoc
 mixin _$SubscribeRequest {
+  /// The topic to subscribe to
   String? get topic => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -711,6 +664,8 @@ class _$_SubscribeRequest implements _SubscribeRequest {
       _$$_SubscribeRequestFromJson(json);
 
   @override
+
+  /// The topic to subscribe to
   final String? topic;
 
   @override
@@ -748,6 +703,8 @@ abstract class _SubscribeRequest implements SubscribeRequest {
       _$_SubscribeRequest.fromJson;
 
   @override
+
+  /// The topic to subscribe to
   String? get topic;
   @override
   @JsonKey(ignore: true)
@@ -900,8 +857,12 @@ class _$SubscribeResponseData implements SubscribeResponseData {
       _$$SubscribeResponseDataFromJson(json);
 
   @override
+
+  /// The next json message on the topic
   final Map<String, dynamic>? message;
   @override
+
+  /// The topic subscribed to
   final String? topic;
 
   @JsonKey(name: 'runtimeType')
@@ -1008,7 +969,10 @@ abstract class SubscribeResponseData implements SubscribeResponse {
   factory SubscribeResponseData.fromJson(Map<String, dynamic> json) =
       _$SubscribeResponseData.fromJson;
 
+  /// The next json message on the topic
   Map<String, dynamic>? get message;
+
+  /// The topic subscribed to
   String? get topic;
   @JsonKey(ignore: true)
   $SubscribeResponseDataCopyWith<SubscribeResponseData> get copyWith =>

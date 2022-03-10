@@ -1,7 +1,6 @@
 import 'dart:convert';
-
-import 'package:m3o/m3o.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import '../client/client.dart';
 
 part 'mq.freezed.dart';
 part 'mq.g.dart';
@@ -14,6 +13,7 @@ class MqService {
     _client = Client(opts);
   }
 
+  /// Publish a message. Specify a topic to group messages for a specific topic.
   Future<PublishResponse> publish(PublishRequest req) async {
     Request request = Request(
       service: 'mq',
@@ -28,10 +28,13 @@ class MqService {
         return PublishResponse.Merr(body: err.b);
       }
       return PublishResponseData.fromJson(res.body);
-    } catch (e) {
+    } catch (e, stack) {
+      print(stack);
       throw Exception(e);
     }
   }
+
+  /// Subscribe to messages for a given topic.
 
   Stream<SubscribeResponse> subscribe(SubscribeRequest req) async* {
     Request request = Request(
@@ -50,7 +53,8 @@ class MqService {
           yield SubscribeResponseData.fromJson(vo);
         }
       }
-    } catch (e) {
+    } catch (e, stack) {
+      print(stack);
       throw Exception(e);
     }
   }
@@ -58,37 +62,47 @@ class MqService {
 
 @Freezed()
 class PublishRequest with _$PublishRequest {
-  const factory PublishRequest({Map<String, dynamic>? message, String? topic}) = _PublishRequest;
+  const factory PublishRequest({
+    /// The json message to publish
+    Map<String, dynamic>? message,
 
+    /// The topic to publish to
+    String? topic,
+  }) = _PublishRequest;
   factory PublishRequest.fromJson(Map<String, dynamic> json) =>
       _$PublishRequestFromJson(json);
 }
 
 @Freezed()
 class PublishResponse with _$PublishResponse {
-  const factory PublishResponse({Map<String, dynamic>? body}) = PublishResponseData;
-
+  const factory PublishResponse() = PublishResponseData;
   const factory PublishResponse.Merr({Map<String, dynamic>? body}) =
       PublishResponseMerr;
-
   factory PublishResponse.fromJson(Map<String, dynamic> json) =>
       _$PublishResponseFromJson(json);
 }
 
 @Freezed()
 class SubscribeRequest with _$SubscribeRequest {
-  const factory SubscribeRequest({String? topic}) = _SubscribeRequest;
-
+  const factory SubscribeRequest({
+    /// The topic to subscribe to
+    String? topic,
+  }) = _SubscribeRequest;
   factory SubscribeRequest.fromJson(Map<String, dynamic> json) =>
       _$SubscribeRequestFromJson(json);
 }
 
 @Freezed()
 class SubscribeResponse with _$SubscribeResponse {
-  const factory SubscribeResponse({Map<String, dynamic>? message, String? topic}) = SubscribeResponseData;
+  const factory SubscribeResponse({
+    /// The next json message on the topic
+    Map<String, dynamic>? message,
+
+    /// The topic subscribed to
+    String? topic,
+  }) = SubscribeResponseData;
   const factory SubscribeResponse.Merr({Map<String, dynamic>? body}) =
       SubscribeResponseMerr;
-
   factory SubscribeResponse.fromJson(Map<String, dynamic> json) =>
       _$SubscribeResponseFromJson(json);
 }
