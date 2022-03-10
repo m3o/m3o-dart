@@ -145,7 +145,7 @@ jobs:
           destination_branch: ${{ steps.extract_branch.outputs.branch }}
           destination_folder: 'lib/'
           git_server: 'github.com'
-          user_name: ${{ GITHUB_ACTOR }}
+          user_name: $GITHUB_ACTOR
           use_rsync: true
           commit_message: 'Commit from m3o/m3o-dart action'
 
@@ -160,7 +160,7 @@ jobs:
           destination_branch: ${{ steps.extract_branch.outputs.branch }}
           destination_folder: 'example/'
           git_server: 'github.com'
-          user_name: ${{ GITHUB_ACTOR }}
+          user_name: $GITHUB_ACTOR
           use_rsync: true
           commit_message: 'Commit from m3o/m3o-dart action'
 
@@ -174,7 +174,7 @@ jobs:
           destination_repo: 'm3o/m3o-dart'
           destination_branch: ${{ steps.extract_branch.outputs.branch }}
           git_server: 'github.com'
-          user_name: ${{ GITHUB_ACTOR }}
+          user_name: $GITHUB_ACTOR
           use_rsync: true
           commit_message: 'Commit from m3o/m3o-dart action'
 
