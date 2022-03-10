@@ -4,51 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/twitter/api](h
 
 Endpoints:
 
-## Timeline
-
-Get the timeline for a given user
-
-
-[https://m3o.com/twitter/api#Timeline](https://m3o.com/twitter/api#Timeline)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/twitter/twitter.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = TwitterService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "limit": 1,
-  "username": "m3oservices"
-,};
-
-  TimelineRequest req = TimelineRequest.fromJson(payload);
-
-  
-  try {
-
-	TimelineResponse res = await ser.timeline(req);
-
-    res.map((value) => print(value),
-	  Merr: (TimelineResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Search
 
 Search for tweets with a simple query
@@ -170,6 +125,51 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (UserResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Timeline
+
+Get the timeline for a given user
+
+
+[https://m3o.com/twitter/api#Timeline](https://m3o.com/twitter/api#Timeline)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/twitter/twitter.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = TwitterService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "limit": 1,
+  "username": "m3oservices"
+,};
+
+  TimelineRequest req = TimelineRequest.fromJson(payload);
+
+  
+  try {
+
+	TimelineResponse res = await ser.timeline(req);
+
+    res.map((value) => print(value),
+	  Merr: (TimelineResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
