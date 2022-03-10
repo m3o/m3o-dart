@@ -138,14 +138,14 @@ jobs:
         uses: dmnemec/copy_file_to_another_repo_action@main
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
         env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
         with:
           source_file: 'm3o-dart/lib/'
           destination_repo: 'm3o/m3o-dart'
           destination_branch: ${{ steps.extract_branch.outputs.branch }}
           destination_folder: 'lib/'
           git_server: 'github.com'
-          user_name: $API_TOKEN_GITHUB
+          user_name: ${{ GITHUB_ACTOR }}
           use_rsync: true
           commit_message: 'Commit from m3o/m3o-dart action'
 
@@ -153,14 +153,14 @@ jobs:
         uses: dmnemec/copy_file_to_another_repo_action@main
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
         env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
         with:
           source_file: 'm3o-dart/example/'
           destination_repo: 'm3o/m3o-dart'
           destination_branch: ${{ steps.extract_branch.outputs.branch }}
           destination_folder: 'example/'
           git_server: 'github.com'
-          user_name: $API_TOKEN_GITHUB
+          user_name: ${{ GITHUB_ACTOR }}
           use_rsync: true
           commit_message: 'Commit from m3o/m3o-dart action'
 
@@ -168,13 +168,13 @@ jobs:
         uses: dmnemec/copy_file_to_another_repo_action@main
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
         env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
         with:
           source_file: 'm3o-dart/'
           destination_repo: 'm3o/m3o-dart'
           destination_branch: ${{ steps.extract_branch.outputs.branch }}
           git_server: 'github.com'
-          user_name: $API_TOKEN_GITHUB
+          user_name: ${{ GITHUB_ACTOR }}
           use_rsync: true
           commit_message: 'Commit from m3o/m3o-dart action'
 
@@ -201,4 +201,4 @@ jobs:
           commit: main
           body: |
             ${{ steps.micro_release_note.outputs.note }}
-          token: ${{ secrets.API_TOKEN_GITHUB }}
+          token: ${{ secrets.GITHUB_TOKEN }}
