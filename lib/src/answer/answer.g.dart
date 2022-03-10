@@ -19,18 +19,18 @@ Map<String, dynamic> _$$_QuestionRequestToJson(_$_QuestionRequest instance) =>
 _$QuestionResponseData _$$QuestionResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$QuestionResponseData(
-      answer: json['answer'] as String?,
       image: json['image'] as String?,
       url: json['url'] as String?,
+      answer: json['answer'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$QuestionResponseDataToJson(
         _$QuestionResponseData instance) =>
     <String, dynamic>{
-      'answer': instance.answer,
       'image': instance.image,
       'url': instance.url,
+      'answer': instance.answer,
       'runtimeType': instance.$type,
     };
 
