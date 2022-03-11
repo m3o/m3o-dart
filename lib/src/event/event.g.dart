@@ -8,16 +8,16 @@ part of 'event.dart';
 
 _$_ConsumeRequest _$$_ConsumeRequestFromJson(Map<String, dynamic> json) =>
     _$_ConsumeRequest(
+      topic: json['topic'] as String?,
       group: json['group'] as String?,
       offset: json['offset'] as String?,
-      topic: json['topic'] as String?,
     );
 
 Map<String, dynamic> _$$_ConsumeRequestToJson(_$_ConsumeRequest instance) =>
     <String, dynamic>{
+      'topic': instance.topic,
       'group': instance.group,
       'offset': instance.offset,
-      'topic': instance.topic,
     };
 
 _$ConsumeResponseData _$$ConsumeResponseDataFromJson(
@@ -106,16 +106,16 @@ Map<String, dynamic> _$$PublishResponseMerrToJson(
 
 _$_ReadRequest _$$_ReadRequestFromJson(Map<String, dynamic> json) =>
     _$_ReadRequest(
+      topic: json['topic'] as String?,
       limit: json['limit'] as int?,
       offset: json['offset'] as int?,
-      topic: json['topic'] as String?,
     );
 
 Map<String, dynamic> _$$_ReadRequestToJson(_$_ReadRequest instance) =>
     <String, dynamic>{
+      'topic': instance.topic,
       'limit': instance.limit,
       'offset': instance.offset,
-      'topic': instance.topic,
     };
 
 _$ReadResponseData _$$ReadResponseDataFromJson(Map<String, dynamic> json) =>
