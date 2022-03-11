@@ -59,17 +59,20 @@ class WeatherService {
 @Freezed()
 class Forecast with _$Forecast {
   const factory Forecast({
-    /// date of the forecast
-    String? date,
+    /// will it rain
+    bool? will_it_rain,
+
+    /// forecast condition
+    String? condition,
+
+    /// max temp in celsius
+    double? max_temp_c,
 
     /// max temp in fahrenheit
     double? max_temp_f,
 
-    /// the average temp in celsius
-    double? avg_temp_c,
-
-    /// max wind speed mph
-    double? max_wind_mph,
+    /// max wind speed kph
+    double? max_wind_kph,
 
     /// minimum temp in celsius
     double? min_temp_c,
@@ -80,29 +83,26 @@ class Forecast with _$Forecast {
     /// time of sunrise
     String? sunrise,
 
-    /// the average temp in fahrenheit
-    double? avg_temp_f,
+    /// the average temp in celsius
+    double? avg_temp_c,
 
-    /// forecast condition
-    String? condition,
+    /// date of the forecast
+    String? date,
 
     /// time of sunset
     String? sunset,
 
-    /// will it rain
-    bool? will_it_rain,
-
     /// chance of rain (percentage)
     int? chance_of_rain,
 
-    /// max temp in celsius
-    double? max_temp_c,
-
-    /// max wind speed kph
-    double? max_wind_kph,
-
     /// the URL of forecast condition icon. Simply prefix with either http or https to use it
     String? icon_url,
+
+    /// the average temp in fahrenheit
+    double? avg_temp_f,
+
+    /// max wind speed mph
+    double? max_wind_mph,
   }) = _Forecast;
   factory Forecast.fromJson(Map<String, dynamic> json) =>
       _$ForecastFromJson(json);
@@ -167,41 +167,44 @@ class NowRequest with _$NowRequest {
 @Freezed()
 class NowResponse with _$NowResponse {
   const factory NowResponse({
-    /// temperature in fahrenheit
-    double? temp_f,
+    /// e.g -77.46
+    double? longitude,
 
     /// timezone of the location
     String? timezone,
 
-    /// wind degree
-    int? wind_degree,
+    /// the weather condition
+    String? condition,
 
-    /// feels like in fahrenheit
-    double? feels_like_f,
-
-    /// the URL of the related icon. Simply prefix with either http or https to use it
-    String? icon_url,
-
-    /// e.g 37.55
-    double? latitude,
-
-    /// the local time
-    String? local_time,
-
-    /// region related to the location
-    String? region,
-
-    /// wind in kph
-    double? wind_kph,
-
-    /// whether its daytime
-    bool? daytime,
+    /// feels like in celsius
+    double? feels_like_c,
 
     /// the humidity percentage
     int? humidity,
 
+    /// the local time
+    String? local_time,
+
+    /// whether its daytime
+    bool? daytime,
+
+    /// e.g 37.55
+    double? latitude,
+
+    /// temperature in fahrenheit
+    double? temp_f,
+
+    /// wind degree
+    int? wind_degree,
+
+    /// wind in kph
+    double? wind_kph,
+
     /// location of the request
     String? location,
+
+    /// region related to the location
+    String? region,
 
     /// temperature in celsius
     double? temp_c,
@@ -209,20 +212,17 @@ class NowResponse with _$NowResponse {
     /// wind direction
     String? wind_direction,
 
-    /// e.g -77.46
-    double? longitude,
-
     /// cloud cover percentage
     int? cloud,
-
-    /// the weather condition
-    String? condition,
 
     /// country of the request
     String? country,
 
-    /// feels like in celsius
-    double? feels_like_c,
+    /// feels like in fahrenheit
+    double? feels_like_f,
+
+    /// the URL of the related icon. Simply prefix with either http or https to use it
+    String? icon_url,
 
     /// wind in mph
     double? wind_mph,

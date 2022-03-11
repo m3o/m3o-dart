@@ -145,9 +145,6 @@ class ShortenResponse with _$ShortenResponse {
 @Freezed()
 class URLPair with _$URLPair {
   const factory URLPair({
-    /// destination url
-    String? destinationURL,
-
     /// The number of times the short URL has been resolved
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
 
@@ -156,6 +153,9 @@ class URLPair with _$URLPair {
 
     /// time of creation
     String? created,
+
+    /// destination url
+    String? destinationURL,
   }) = _URLPair;
   factory URLPair.fromJson(Map<String, dynamic> json) =>
       _$URLPairFromJson(json);
