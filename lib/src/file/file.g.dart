@@ -8,14 +8,14 @@ part of 'file.dart';
 
 _$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
     _$_DeleteRequest(
-      path: json['path'] as String?,
       project: json['project'] as String?,
+      path: json['path'] as String?,
     );
 
 Map<String, dynamic> _$$_DeleteRequestToJson(_$_DeleteRequest instance) =>
     <String, dynamic>{
-      'path': instance.path,
       'project': instance.project,
+      'path': instance.path,
     };
 
 _$DeleteResponseData _$$DeleteResponseDataFromJson(Map<String, dynamic> json) =>
@@ -44,14 +44,14 @@ Map<String, dynamic> _$$DeleteResponseMerrToJson(
 
 _$_ListRequest _$$_ListRequestFromJson(Map<String, dynamic> json) =>
     _$_ListRequest(
-      path: json['path'] as String?,
       project: json['project'] as String?,
+      path: json['path'] as String?,
     );
 
 Map<String, dynamic> _$$_ListRequestToJson(_$_ListRequest instance) =>
     <String, dynamic>{
-      'path': instance.path,
       'project': instance.project,
+      'path': instance.path,
     };
 
 _$ListResponseData _$$ListResponseDataFromJson(Map<String, dynamic> json) =>
@@ -82,14 +82,14 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
 
 _$_ReadRequest _$$_ReadRequestFromJson(Map<String, dynamic> json) =>
     _$_ReadRequest(
-      project: json['project'] as String?,
       path: json['path'] as String?,
+      project: json['project'] as String?,
     );
 
 Map<String, dynamic> _$$_ReadRequestToJson(_$_ReadRequest instance) =>
     <String, dynamic>{
-      'project': instance.project,
       'path': instance.path,
+      'project': instance.project,
     };
 
 _$ReadResponseData _$$ReadResponseDataFromJson(Map<String, dynamic> json) =>
@@ -119,6 +119,7 @@ Map<String, dynamic> _$$ReadResponseMerrToJson(_$ReadResponseMerr instance) =>
     };
 
 _$_Record _$$_RecordFromJson(Map<String, dynamic> json) => _$_Record(
+      content: json['content'] as String?,
       created: json['created'] as String?,
       metadata: (json['metadata'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
@@ -126,16 +127,15 @@ _$_Record _$$_RecordFromJson(Map<String, dynamic> json) => _$_Record(
       path: json['path'] as String?,
       project: json['project'] as String?,
       updated: json['updated'] as String?,
-      content: json['content'] as String?,
     );
 
 Map<String, dynamic> _$$_RecordToJson(_$_Record instance) => <String, dynamic>{
+      'content': instance.content,
       'created': instance.created,
       'metadata': instance.metadata,
       'path': instance.path,
       'project': instance.project,
       'updated': instance.updated,
-      'content': instance.content,
     };
 
 _$_SaveRequest _$$_SaveRequestFromJson(Map<String, dynamic> json) =>

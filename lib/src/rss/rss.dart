@@ -128,9 +128,6 @@ class AddResponse with _$AddResponse {
 @Freezed()
 class Entry with _$Entry {
   const factory Entry({
-    /// unique id of the entry
-    String? id,
-
     /// rss feed url of the entry
     String? link,
 
@@ -148,6 +145,9 @@ class Entry with _$Entry {
 
     /// the rss feed where it came from
     String? feed,
+
+    /// unique id of the entry
+    String? id,
   }) = _Entry;
   factory Entry.fromJson(Map<String, dynamic> json) => _$EntryFromJson(json);
 }

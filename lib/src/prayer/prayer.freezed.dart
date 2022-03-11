@@ -23,21 +23,21 @@ class _$PrayerTimeTearOff {
   const _$PrayerTimeTearOff();
 
   _PrayerTime call(
-      {String? fajr,
+      {String? zuhr,
+      String? asr,
+      String? date,
+      String? fajr,
       String? isha,
       String? maghrib,
-      String? sunrise,
-      String? zuhr,
-      String? asr,
-      String? date}) {
+      String? sunrise}) {
     return _PrayerTime(
+      zuhr: zuhr,
+      asr: asr,
+      date: date,
       fajr: fajr,
       isha: isha,
       maghrib: maghrib,
       sunrise: sunrise,
-      zuhr: zuhr,
-      asr: asr,
-      date: date,
     );
   }
 
@@ -51,6 +51,15 @@ const $PrayerTime = _$PrayerTimeTearOff();
 
 /// @nodoc
 mixin _$PrayerTime {
+  /// zuhr time
+  String? get zuhr => throw _privateConstructorUsedError;
+
+  /// asr time
+  String? get asr => throw _privateConstructorUsedError;
+
+  /// date for prayer times in YYYY-MM-DD format
+  String? get date => throw _privateConstructorUsedError;
+
   /// fajr time
   String? get fajr => throw _privateConstructorUsedError;
 
@@ -62,15 +71,6 @@ mixin _$PrayerTime {
 
   /// time of sunrise
   String? get sunrise => throw _privateConstructorUsedError;
-
-  /// zuhr time
-  String? get zuhr => throw _privateConstructorUsedError;
-
-  /// asr time
-  String? get asr => throw _privateConstructorUsedError;
-
-  /// date for prayer times in YYYY-MM-DD format
-  String? get date => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -84,13 +84,13 @@ abstract class $PrayerTimeCopyWith<$Res> {
           PrayerTime value, $Res Function(PrayerTime) then) =
       _$PrayerTimeCopyWithImpl<$Res>;
   $Res call(
-      {String? fajr,
+      {String? zuhr,
+      String? asr,
+      String? date,
+      String? fajr,
       String? isha,
       String? maghrib,
-      String? sunrise,
-      String? zuhr,
-      String? asr,
-      String? date});
+      String? sunrise});
 }
 
 /// @nodoc
@@ -103,15 +103,27 @@ class _$PrayerTimeCopyWithImpl<$Res> implements $PrayerTimeCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? zuhr = freezed,
+    Object? asr = freezed,
+    Object? date = freezed,
     Object? fajr = freezed,
     Object? isha = freezed,
     Object? maghrib = freezed,
     Object? sunrise = freezed,
-    Object? zuhr = freezed,
-    Object? asr = freezed,
-    Object? date = freezed,
   }) {
     return _then(_value.copyWith(
+      zuhr: zuhr == freezed
+          ? _value.zuhr
+          : zuhr // ignore: cast_nullable_to_non_nullable
+              as String?,
+      asr: asr == freezed
+          ? _value.asr
+          : asr // ignore: cast_nullable_to_non_nullable
+              as String?,
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String?,
       fajr: fajr == freezed
           ? _value.fajr
           : fajr // ignore: cast_nullable_to_non_nullable
@@ -128,18 +140,6 @@ class _$PrayerTimeCopyWithImpl<$Res> implements $PrayerTimeCopyWith<$Res> {
           ? _value.sunrise
           : sunrise // ignore: cast_nullable_to_non_nullable
               as String?,
-      zuhr: zuhr == freezed
-          ? _value.zuhr
-          : zuhr // ignore: cast_nullable_to_non_nullable
-              as String?,
-      asr: asr == freezed
-          ? _value.asr
-          : asr // ignore: cast_nullable_to_non_nullable
-              as String?,
-      date: date == freezed
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -151,13 +151,13 @@ abstract class _$PrayerTimeCopyWith<$Res> implements $PrayerTimeCopyWith<$Res> {
       __$PrayerTimeCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? fajr,
+      {String? zuhr,
+      String? asr,
+      String? date,
+      String? fajr,
       String? isha,
       String? maghrib,
-      String? sunrise,
-      String? zuhr,
-      String? asr,
-      String? date});
+      String? sunrise});
 }
 
 /// @nodoc
@@ -172,15 +172,27 @@ class __$PrayerTimeCopyWithImpl<$Res> extends _$PrayerTimeCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? zuhr = freezed,
+    Object? asr = freezed,
+    Object? date = freezed,
     Object? fajr = freezed,
     Object? isha = freezed,
     Object? maghrib = freezed,
     Object? sunrise = freezed,
-    Object? zuhr = freezed,
-    Object? asr = freezed,
-    Object? date = freezed,
   }) {
     return _then(_PrayerTime(
+      zuhr: zuhr == freezed
+          ? _value.zuhr
+          : zuhr // ignore: cast_nullable_to_non_nullable
+              as String?,
+      asr: asr == freezed
+          ? _value.asr
+          : asr // ignore: cast_nullable_to_non_nullable
+              as String?,
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String?,
       fajr: fajr == freezed
           ? _value.fajr
           : fajr // ignore: cast_nullable_to_non_nullable
@@ -197,18 +209,6 @@ class __$PrayerTimeCopyWithImpl<$Res> extends _$PrayerTimeCopyWithImpl<$Res>
           ? _value.sunrise
           : sunrise // ignore: cast_nullable_to_non_nullable
               as String?,
-      zuhr: zuhr == freezed
-          ? _value.zuhr
-          : zuhr // ignore: cast_nullable_to_non_nullable
-              as String?,
-      asr: asr == freezed
-          ? _value.asr
-          : asr // ignore: cast_nullable_to_non_nullable
-              as String?,
-      date: date == freezed
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -217,17 +217,29 @@ class __$PrayerTimeCopyWithImpl<$Res> extends _$PrayerTimeCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PrayerTime implements _PrayerTime {
   const _$_PrayerTime(
-      {this.fajr,
+      {this.zuhr,
+      this.asr,
+      this.date,
+      this.fajr,
       this.isha,
       this.maghrib,
-      this.sunrise,
-      this.zuhr,
-      this.asr,
-      this.date});
+      this.sunrise});
 
   factory _$_PrayerTime.fromJson(Map<String, dynamic> json) =>
       _$$_PrayerTimeFromJson(json);
 
+  @override
+
+  /// zuhr time
+  final String? zuhr;
+  @override
+
+  /// asr time
+  final String? asr;
+  @override
+
+  /// date for prayer times in YYYY-MM-DD format
+  final String? date;
   @override
 
   /// fajr time
@@ -244,22 +256,10 @@ class _$_PrayerTime implements _PrayerTime {
 
   /// time of sunrise
   final String? sunrise;
-  @override
-
-  /// zuhr time
-  final String? zuhr;
-  @override
-
-  /// asr time
-  final String? asr;
-  @override
-
-  /// date for prayer times in YYYY-MM-DD format
-  final String? date;
 
   @override
   String toString() {
-    return 'PrayerTime(fajr: $fajr, isha: $isha, maghrib: $maghrib, sunrise: $sunrise, zuhr: $zuhr, asr: $asr, date: $date)';
+    return 'PrayerTime(zuhr: $zuhr, asr: $asr, date: $date, fajr: $fajr, isha: $isha, maghrib: $maghrib, sunrise: $sunrise)';
   }
 
   @override
@@ -267,25 +267,25 @@ class _$_PrayerTime implements _PrayerTime {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PrayerTime &&
+            const DeepCollectionEquality().equals(other.zuhr, zuhr) &&
+            const DeepCollectionEquality().equals(other.asr, asr) &&
+            const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality().equals(other.fajr, fajr) &&
             const DeepCollectionEquality().equals(other.isha, isha) &&
             const DeepCollectionEquality().equals(other.maghrib, maghrib) &&
-            const DeepCollectionEquality().equals(other.sunrise, sunrise) &&
-            const DeepCollectionEquality().equals(other.zuhr, zuhr) &&
-            const DeepCollectionEquality().equals(other.asr, asr) &&
-            const DeepCollectionEquality().equals(other.date, date));
+            const DeepCollectionEquality().equals(other.sunrise, sunrise));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(zuhr),
+      const DeepCollectionEquality().hash(asr),
+      const DeepCollectionEquality().hash(date),
       const DeepCollectionEquality().hash(fajr),
       const DeepCollectionEquality().hash(isha),
       const DeepCollectionEquality().hash(maghrib),
-      const DeepCollectionEquality().hash(sunrise),
-      const DeepCollectionEquality().hash(zuhr),
-      const DeepCollectionEquality().hash(asr),
-      const DeepCollectionEquality().hash(date));
+      const DeepCollectionEquality().hash(sunrise));
 
   @JsonKey(ignore: true)
   @override
@@ -300,17 +300,29 @@ class _$_PrayerTime implements _PrayerTime {
 
 abstract class _PrayerTime implements PrayerTime {
   const factory _PrayerTime(
-      {String? fajr,
+      {String? zuhr,
+      String? asr,
+      String? date,
+      String? fajr,
       String? isha,
       String? maghrib,
-      String? sunrise,
-      String? zuhr,
-      String? asr,
-      String? date}) = _$_PrayerTime;
+      String? sunrise}) = _$_PrayerTime;
 
   factory _PrayerTime.fromJson(Map<String, dynamic> json) =
       _$_PrayerTime.fromJson;
 
+  @override
+
+  /// zuhr time
+  String? get zuhr;
+  @override
+
+  /// asr time
+  String? get asr;
+  @override
+
+  /// date for prayer times in YYYY-MM-DD format
+  String? get date;
   @override
 
   /// fajr time
@@ -327,18 +339,6 @@ abstract class _PrayerTime implements PrayerTime {
 
   /// time of sunrise
   String? get sunrise;
-  @override
-
-  /// zuhr time
-  String? get zuhr;
-  @override
-
-  /// asr time
-  String? get asr;
-  @override
-
-  /// date for prayer times in YYYY-MM-DD format
-  String? get date;
   @override
   @JsonKey(ignore: true)
   _$PrayerTimeCopyWith<_PrayerTime> get copyWith =>
