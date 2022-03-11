@@ -1864,11 +1864,11 @@ class _$IncrementRequestTearOff {
   const _$IncrementRequestTearOff();
 
   _IncrementRequest call(
-      {String? key,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value}) {
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
+      String? key}) {
     return _IncrementRequest(
-      key: key,
       value: value,
+      key: key,
     );
   }
 
@@ -1882,12 +1882,12 @@ const $IncrementRequest = _$IncrementRequestTearOff();
 
 /// @nodoc
 mixin _$IncrementRequest {
-  /// The key to increment
-  String? get key => throw _privateConstructorUsedError;
-
   /// The amount to increment the value by
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get value => throw _privateConstructorUsedError;
+
+  /// The key to increment
+  String? get key => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1901,8 +1901,8 @@ abstract class $IncrementRequestCopyWith<$Res> {
           IncrementRequest value, $Res Function(IncrementRequest) then) =
       _$IncrementRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? key,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
+      String? key});
 }
 
 /// @nodoc
@@ -1916,18 +1916,18 @@ class _$IncrementRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? key = freezed,
     Object? value = freezed,
+    Object? key = freezed,
   }) {
     return _then(_value.copyWith(
-      key: key == freezed
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String?,
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int?,
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1940,8 +1940,8 @@ abstract class _$IncrementRequestCopyWith<$Res>
       __$IncrementRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? key,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
+      String? key});
 }
 
 /// @nodoc
@@ -1957,18 +1957,18 @@ class __$IncrementRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? key = freezed,
     Object? value = freezed,
+    Object? key = freezed,
   }) {
     return _then(_IncrementRequest(
-      key: key == freezed
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String?,
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int?,
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1977,25 +1977,25 @@ class __$IncrementRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_IncrementRequest implements _IncrementRequest {
   const _$_IncrementRequest(
-      {this.key,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.value});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.value,
+      this.key});
 
   factory _$_IncrementRequest.fromJson(Map<String, dynamic> json) =>
       _$$_IncrementRequestFromJson(json);
 
   @override
 
-  /// The key to increment
-  final String? key;
-  @override
-
   /// The amount to increment the value by
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? value;
+  @override
+
+  /// The key to increment
+  final String? key;
 
   @override
   String toString() {
-    return 'IncrementRequest(key: $key, value: $value)';
+    return 'IncrementRequest(value: $value, key: $key)';
   }
 
   @override
@@ -2003,15 +2003,15 @@ class _$_IncrementRequest implements _IncrementRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _IncrementRequest &&
-            const DeepCollectionEquality().equals(other.key, key) &&
-            const DeepCollectionEquality().equals(other.value, value));
+            const DeepCollectionEquality().equals(other.value, value) &&
+            const DeepCollectionEquality().equals(other.key, key));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(key),
-      const DeepCollectionEquality().hash(value));
+      const DeepCollectionEquality().hash(value),
+      const DeepCollectionEquality().hash(key));
 
   @JsonKey(ignore: true)
   @override
@@ -2026,22 +2026,21 @@ class _$_IncrementRequest implements _IncrementRequest {
 
 abstract class _IncrementRequest implements IncrementRequest {
   const factory _IncrementRequest(
-      {String? key,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? value}) = _$_IncrementRequest;
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
+      String? key}) = _$_IncrementRequest;
 
   factory _IncrementRequest.fromJson(Map<String, dynamic> json) =
       _$_IncrementRequest.fromJson;
 
   @override
 
-  /// The key to increment
-  String? get key;
-  @override
-
   /// The amount to increment the value by
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get value;
+  @override
+
+  /// The key to increment
+  String? get key;
   @override
   @JsonKey(ignore: true)
   _$IncrementRequestCopyWith<_IncrementRequest> get copyWith =>
@@ -3017,13 +3016,13 @@ class _$SetRequestTearOff {
   const _$SetRequestTearOff();
 
   _SetRequest call(
-      {String? key,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
-      String? value}) {
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+      String? value,
+      String? key}) {
     return _SetRequest(
-      key: key,
       ttl: ttl,
       value: value,
+      key: key,
     );
   }
 
@@ -3037,15 +3036,15 @@ const $SetRequest = _$SetRequestTearOff();
 
 /// @nodoc
 mixin _$SetRequest {
-  /// The key to update
-  String? get key => throw _privateConstructorUsedError;
-
   /// Time to live in seconds
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get ttl => throw _privateConstructorUsedError;
 
   /// The value to set
   String? get value => throw _privateConstructorUsedError;
+
+  /// The key to update
+  String? get key => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -3059,9 +3058,9 @@ abstract class $SetRequestCopyWith<$Res> {
           SetRequest value, $Res Function(SetRequest) then) =
       _$SetRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? key,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
-      String? value});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+      String? value,
+      String? key});
 }
 
 /// @nodoc
@@ -3074,15 +3073,11 @@ class _$SetRequestCopyWithImpl<$Res> implements $SetRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? key = freezed,
     Object? ttl = freezed,
     Object? value = freezed,
+    Object? key = freezed,
   }) {
     return _then(_value.copyWith(
-      key: key == freezed
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String?,
       ttl: ttl == freezed
           ? _value.ttl
           : ttl // ignore: cast_nullable_to_non_nullable
@@ -3090,6 +3085,10 @@ class _$SetRequestCopyWithImpl<$Res> implements $SetRequestCopyWith<$Res> {
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
+              as String?,
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -3102,9 +3101,9 @@ abstract class _$SetRequestCopyWith<$Res> implements $SetRequestCopyWith<$Res> {
       __$SetRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? key,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
-      String? value});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+      String? value,
+      String? key});
 }
 
 /// @nodoc
@@ -3119,15 +3118,11 @@ class __$SetRequestCopyWithImpl<$Res> extends _$SetRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? key = freezed,
     Object? ttl = freezed,
     Object? value = freezed,
+    Object? key = freezed,
   }) {
     return _then(_SetRequest(
-      key: key == freezed
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String?,
       ttl: ttl == freezed
           ? _value.ttl
           : ttl // ignore: cast_nullable_to_non_nullable
@@ -3135,6 +3130,10 @@ class __$SetRequestCopyWithImpl<$Res> extends _$SetRequestCopyWithImpl<$Res>
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
+              as String?,
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -3144,17 +3143,13 @@ class __$SetRequestCopyWithImpl<$Res> extends _$SetRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SetRequest implements _SetRequest {
   const _$_SetRequest(
-      {this.key,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.ttl,
-      this.value});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.ttl,
+      this.value,
+      this.key});
 
   factory _$_SetRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SetRequestFromJson(json);
 
-  @override
-
-  /// The key to update
-  final String? key;
   @override
 
   /// Time to live in seconds
@@ -3164,10 +3159,14 @@ class _$_SetRequest implements _SetRequest {
 
   /// The value to set
   final String? value;
+  @override
+
+  /// The key to update
+  final String? key;
 
   @override
   String toString() {
-    return 'SetRequest(key: $key, ttl: $ttl, value: $value)';
+    return 'SetRequest(ttl: $ttl, value: $value, key: $key)';
   }
 
   @override
@@ -3175,17 +3174,17 @@ class _$_SetRequest implements _SetRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SetRequest &&
-            const DeepCollectionEquality().equals(other.key, key) &&
             const DeepCollectionEquality().equals(other.ttl, ttl) &&
-            const DeepCollectionEquality().equals(other.value, value));
+            const DeepCollectionEquality().equals(other.value, value) &&
+            const DeepCollectionEquality().equals(other.key, key));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(key),
       const DeepCollectionEquality().hash(ttl),
-      const DeepCollectionEquality().hash(value));
+      const DeepCollectionEquality().hash(value),
+      const DeepCollectionEquality().hash(key));
 
   @JsonKey(ignore: true)
   @override
@@ -3200,17 +3199,13 @@ class _$_SetRequest implements _SetRequest {
 
 abstract class _SetRequest implements SetRequest {
   const factory _SetRequest(
-      {String? key,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
-      String? value}) = _$_SetRequest;
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+      String? value,
+      String? key}) = _$_SetRequest;
 
   factory _SetRequest.fromJson(Map<String, dynamic> json) =
       _$_SetRequest.fromJson;
 
-  @override
-
-  /// The key to update
-  String? get key;
   @override
 
   /// Time to live in seconds
@@ -3220,6 +3215,10 @@ abstract class _SetRequest implements SetRequest {
 
   /// The value to set
   String? get value;
+  @override
+
+  /// The key to update
+  String? get key;
   @override
   @JsonKey(ignore: true)
   _$SetRequestCopyWith<_SetRequest> get copyWith =>
