@@ -147,11 +147,11 @@ class NotesService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// note title
-    String? title,
-
     /// note text
     String? text,
+
+    /// note title
+    String? title,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -237,6 +237,9 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Note with _$Note {
   const factory Note({
+    /// unique id for the note, generated if not specified
+    String? id,
+
     /// text within the note
     String? text,
 
@@ -248,9 +251,6 @@ class Note with _$Note {
 
     /// time at which the note was created
     String? created,
-
-    /// unique id for the note, generated if not specified
-    String? id,
   }) = _Note;
   factory Note.fromJson(Map<String, dynamic> json) => _$NoteFromJson(json);
 }

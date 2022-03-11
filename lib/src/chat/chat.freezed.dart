@@ -23,12 +23,12 @@ class _$CreateRequestTearOff {
   const _$CreateRequestTearOff();
 
   _CreateRequest call(
-      {bool? private, String? user_ids, String? description, String? name}) {
+      {String? description, String? name, bool? private, String? user_ids}) {
     return _CreateRequest(
-      private: private,
-      user_ids: user_ids,
       description: description,
       name: name,
+      private: private,
+      user_ids: user_ids,
     );
   }
 
@@ -42,17 +42,17 @@ const $CreateRequest = _$CreateRequestTearOff();
 
 /// @nodoc
 mixin _$CreateRequest {
-  /// whether its a private room
-  bool? get private => throw _privateConstructorUsedError;
-
-  /// optional list of user ids
-  String? get user_ids => throw _privateConstructorUsedError;
-
   /// chat description
   String? get description => throw _privateConstructorUsedError;
 
   /// name of the room
   String? get name => throw _privateConstructorUsedError;
+
+  /// whether its a private room
+  bool? get private => throw _privateConstructorUsedError;
+
+  /// optional list of user ids
+  String? get user_ids => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -66,7 +66,7 @@ abstract class $CreateRequestCopyWith<$Res> {
           CreateRequest value, $Res Function(CreateRequest) then) =
       _$CreateRequestCopyWithImpl<$Res>;
   $Res call(
-      {bool? private, String? user_ids, String? description, String? name});
+      {String? description, String? name, bool? private, String? user_ids});
 }
 
 /// @nodoc
@@ -80,20 +80,12 @@ class _$CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? private = freezed,
-    Object? user_ids = freezed,
     Object? description = freezed,
     Object? name = freezed,
+    Object? private = freezed,
+    Object? user_ids = freezed,
   }) {
     return _then(_value.copyWith(
-      private: private == freezed
-          ? _value.private
-          : private // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      user_ids: user_ids == freezed
-          ? _value.user_ids
-          : user_ids // ignore: cast_nullable_to_non_nullable
-              as String?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -101,6 +93,14 @@ class _$CreateRequestCopyWithImpl<$Res>
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      private: private == freezed
+          ? _value.private
+          : private // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      user_ids: user_ids == freezed
+          ? _value.user_ids
+          : user_ids // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -114,7 +114,7 @@ abstract class _$CreateRequestCopyWith<$Res>
       __$CreateRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool? private, String? user_ids, String? description, String? name});
+      {String? description, String? name, bool? private, String? user_ids});
 }
 
 /// @nodoc
@@ -130,20 +130,12 @@ class __$CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? private = freezed,
-    Object? user_ids = freezed,
     Object? description = freezed,
     Object? name = freezed,
+    Object? private = freezed,
+    Object? user_ids = freezed,
   }) {
     return _then(_CreateRequest(
-      private: private == freezed
-          ? _value.private
-          : private // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      user_ids: user_ids == freezed
-          ? _value.user_ids
-          : user_ids // ignore: cast_nullable_to_non_nullable
-              as String?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -151,6 +143,14 @@ class __$CreateRequestCopyWithImpl<$Res>
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      private: private == freezed
+          ? _value.private
+          : private // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      user_ids: user_ids == freezed
+          ? _value.user_ids
+          : user_ids // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -160,19 +160,11 @@ class __$CreateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_CreateRequest implements _CreateRequest {
   const _$_CreateRequest(
-      {this.private, this.user_ids, this.description, this.name});
+      {this.description, this.name, this.private, this.user_ids});
 
   factory _$_CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateRequestFromJson(json);
 
-  @override
-
-  /// whether its a private room
-  final bool? private;
-  @override
-
-  /// optional list of user ids
-  final String? user_ids;
   @override
 
   /// chat description
@@ -181,10 +173,18 @@ class _$_CreateRequest implements _CreateRequest {
 
   /// name of the room
   final String? name;
+  @override
+
+  /// whether its a private room
+  final bool? private;
+  @override
+
+  /// optional list of user ids
+  final String? user_ids;
 
   @override
   String toString() {
-    return 'CreateRequest(private: $private, user_ids: $user_ids, description: $description, name: $name)';
+    return 'CreateRequest(description: $description, name: $name, private: $private, user_ids: $user_ids)';
   }
 
   @override
@@ -192,20 +192,20 @@ class _$_CreateRequest implements _CreateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _CreateRequest &&
-            const DeepCollectionEquality().equals(other.private, private) &&
-            const DeepCollectionEquality().equals(other.user_ids, user_ids) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.private, private) &&
+            const DeepCollectionEquality().equals(other.user_ids, user_ids));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(private),
-      const DeepCollectionEquality().hash(user_ids),
       const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(private),
+      const DeepCollectionEquality().hash(user_ids));
 
   @JsonKey(ignore: true)
   @override
@@ -220,22 +220,14 @@ class _$_CreateRequest implements _CreateRequest {
 
 abstract class _CreateRequest implements CreateRequest {
   const factory _CreateRequest(
-      {bool? private,
-      String? user_ids,
-      String? description,
-      String? name}) = _$_CreateRequest;
+      {String? description,
+      String? name,
+      bool? private,
+      String? user_ids}) = _$_CreateRequest;
 
   factory _CreateRequest.fromJson(Map<String, dynamic> json) =
       _$_CreateRequest.fromJson;
 
-  @override
-
-  /// whether its a private room
-  bool? get private;
-  @override
-
-  /// optional list of user ids
-  String? get user_ids;
   @override
 
   /// chat description
@@ -244,6 +236,14 @@ abstract class _CreateRequest implements CreateRequest {
 
   /// name of the room
   String? get name;
+  @override
+
+  /// whether its a private room
+  bool? get private;
+  @override
+
+  /// optional list of user ids
+  String? get user_ids;
   @override
   @JsonKey(ignore: true)
   _$CreateRequestCopyWith<_CreateRequest> get copyWith =>
@@ -5009,19 +5009,19 @@ class _$RoomTearOff {
   const _$RoomTearOff();
 
   _Room call(
-      {String? id,
-      String? name,
+      {String? name,
       bool? private,
       String? user_ids,
       String? created_at,
-      String? description}) {
+      String? description,
+      String? id}) {
     return _Room(
-      id: id,
       name: name,
       private: private,
       user_ids: user_ids,
       created_at: created_at,
       description: description,
+      id: id,
     );
   }
 
@@ -5035,9 +5035,6 @@ const $Room = _$RoomTearOff();
 
 /// @nodoc
 mixin _$Room {
-  /// unique room id
-  String? get id => throw _privateConstructorUsedError;
-
   /// name of the chat
   String? get name => throw _privateConstructorUsedError;
 
@@ -5053,6 +5050,9 @@ mixin _$Room {
   /// description of the that
   String? get description => throw _privateConstructorUsedError;
 
+  /// unique room id
+  String? get id => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RoomCopyWith<Room> get copyWith => throw _privateConstructorUsedError;
@@ -5063,12 +5063,12 @@ abstract class $RoomCopyWith<$Res> {
   factory $RoomCopyWith(Room value, $Res Function(Room) then) =
       _$RoomCopyWithImpl<$Res>;
   $Res call(
-      {String? id,
-      String? name,
+      {String? name,
       bool? private,
       String? user_ids,
       String? created_at,
-      String? description});
+      String? description,
+      String? id});
 }
 
 /// @nodoc
@@ -5081,18 +5081,14 @@ class _$RoomCopyWithImpl<$Res> implements $RoomCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? name = freezed,
     Object? private = freezed,
     Object? user_ids = freezed,
     Object? created_at = freezed,
     Object? description = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -5113,6 +5109,10 @@ class _$RoomCopyWithImpl<$Res> implements $RoomCopyWith<$Res> {
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -5123,12 +5123,12 @@ abstract class _$RoomCopyWith<$Res> implements $RoomCopyWith<$Res> {
       __$RoomCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? id,
-      String? name,
+      {String? name,
       bool? private,
       String? user_ids,
       String? created_at,
-      String? description});
+      String? description,
+      String? id});
 }
 
 /// @nodoc
@@ -5142,18 +5142,14 @@ class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? name = freezed,
     Object? private = freezed,
     Object? user_ids = freezed,
     Object? created_at = freezed,
     Object? description = freezed,
+    Object? id = freezed,
   }) {
     return _then(_Room(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -5174,6 +5170,10 @@ class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -5182,19 +5182,15 @@ class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Room implements _Room {
   const _$_Room(
-      {this.id,
-      this.name,
+      {this.name,
       this.private,
       this.user_ids,
       this.created_at,
-      this.description});
+      this.description,
+      this.id});
 
   factory _$_Room.fromJson(Map<String, dynamic> json) => _$$_RoomFromJson(json);
 
-  @override
-
-  /// unique room id
-  final String? id;
   @override
 
   /// name of the chat
@@ -5215,10 +5211,14 @@ class _$_Room implements _Room {
 
   /// description of the that
   final String? description;
+  @override
+
+  /// unique room id
+  final String? id;
 
   @override
   String toString() {
-    return 'Room(id: $id, name: $name, private: $private, user_ids: $user_ids, created_at: $created_at, description: $description)';
+    return 'Room(name: $name, private: $private, user_ids: $user_ids, created_at: $created_at, description: $description, id: $id)';
   }
 
   @override
@@ -5226,25 +5226,25 @@ class _$_Room implements _Room {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Room &&
-            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.private, private) &&
             const DeepCollectionEquality().equals(other.user_ids, user_ids) &&
             const DeepCollectionEquality()
                 .equals(other.created_at, created_at) &&
             const DeepCollectionEquality()
-                .equals(other.description, description));
+                .equals(other.description, description) &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(private),
       const DeepCollectionEquality().hash(user_ids),
       const DeepCollectionEquality().hash(created_at),
-      const DeepCollectionEquality().hash(description));
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -5259,19 +5259,15 @@ class _$_Room implements _Room {
 
 abstract class _Room implements Room {
   const factory _Room(
-      {String? id,
-      String? name,
+      {String? name,
       bool? private,
       String? user_ids,
       String? created_at,
-      String? description}) = _$_Room;
+      String? description,
+      String? id}) = _$_Room;
 
   factory _Room.fromJson(Map<String, dynamic> json) = _$_Room.fromJson;
 
-  @override
-
-  /// unique room id
-  String? get id;
   @override
 
   /// name of the chat
@@ -5293,6 +5289,10 @@ abstract class _Room implements Room {
   /// description of the that
   String? get description;
   @override
+
+  /// unique room id
+  String? get id;
+  @override
   @JsonKey(ignore: true)
   _$RoomCopyWith<_Room> get copyWith => throw _privateConstructorUsedError;
 }
@@ -5306,17 +5306,17 @@ class _$SendRequestTearOff {
   const _$SendRequestTearOff();
 
   _SendRequest call(
-      {String? subject,
-      String? text,
-      String? user_id,
+      {String? user_id,
       String? client,
-      String? room_id}) {
+      String? room_id,
+      String? subject,
+      String? text}) {
     return _SendRequest(
-      subject: subject,
-      text: text,
       user_id: user_id,
       client: client,
       room_id: room_id,
+      subject: subject,
+      text: text,
     );
   }
 
@@ -5330,12 +5330,6 @@ const $SendRequest = _$SendRequestTearOff();
 
 /// @nodoc
 mixin _$SendRequest {
-  /// subject of the message
-  String? get subject => throw _privateConstructorUsedError;
-
-  /// text of the message
-  String? get text => throw _privateConstructorUsedError;
-
   /// id of the user who sent the message
   String? get user_id => throw _privateConstructorUsedError;
 
@@ -5344,6 +5338,12 @@ mixin _$SendRequest {
 
   /// id of the chat room the message is being sent to / from
   String? get room_id => throw _privateConstructorUsedError;
+
+  /// subject of the message
+  String? get subject => throw _privateConstructorUsedError;
+
+  /// text of the message
+  String? get text => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -5357,11 +5357,11 @@ abstract class $SendRequestCopyWith<$Res> {
           SendRequest value, $Res Function(SendRequest) then) =
       _$SendRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? subject,
-      String? text,
-      String? user_id,
+      {String? user_id,
       String? client,
-      String? room_id});
+      String? room_id,
+      String? subject,
+      String? text});
 }
 
 /// @nodoc
@@ -5374,21 +5374,13 @@ class _$SendRequestCopyWithImpl<$Res> implements $SendRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? subject = freezed,
-    Object? text = freezed,
     Object? user_id = freezed,
     Object? client = freezed,
     Object? room_id = freezed,
+    Object? subject = freezed,
+    Object? text = freezed,
   }) {
     return _then(_value.copyWith(
-      subject: subject == freezed
-          ? _value.subject
-          : subject // ignore: cast_nullable_to_non_nullable
-              as String?,
-      text: text == freezed
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
       user_id: user_id == freezed
           ? _value.user_id
           : user_id // ignore: cast_nullable_to_non_nullable
@@ -5400,6 +5392,14 @@ class _$SendRequestCopyWithImpl<$Res> implements $SendRequestCopyWith<$Res> {
       room_id: room_id == freezed
           ? _value.room_id
           : room_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subject: subject == freezed
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -5413,11 +5413,11 @@ abstract class _$SendRequestCopyWith<$Res>
       __$SendRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? subject,
-      String? text,
-      String? user_id,
+      {String? user_id,
       String? client,
-      String? room_id});
+      String? room_id,
+      String? subject,
+      String? text});
 }
 
 /// @nodoc
@@ -5432,21 +5432,13 @@ class __$SendRequestCopyWithImpl<$Res> extends _$SendRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? subject = freezed,
-    Object? text = freezed,
     Object? user_id = freezed,
     Object? client = freezed,
     Object? room_id = freezed,
+    Object? subject = freezed,
+    Object? text = freezed,
   }) {
     return _then(_SendRequest(
-      subject: subject == freezed
-          ? _value.subject
-          : subject // ignore: cast_nullable_to_non_nullable
-              as String?,
-      text: text == freezed
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
       user_id: user_id == freezed
           ? _value.user_id
           : user_id // ignore: cast_nullable_to_non_nullable
@@ -5459,6 +5451,14 @@ class __$SendRequestCopyWithImpl<$Res> extends _$SendRequestCopyWithImpl<$Res>
           ? _value.room_id
           : room_id // ignore: cast_nullable_to_non_nullable
               as String?,
+      subject: subject == freezed
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -5467,19 +5467,11 @@ class __$SendRequestCopyWithImpl<$Res> extends _$SendRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SendRequest implements _SendRequest {
   const _$_SendRequest(
-      {this.subject, this.text, this.user_id, this.client, this.room_id});
+      {this.user_id, this.client, this.room_id, this.subject, this.text});
 
   factory _$_SendRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SendRequestFromJson(json);
 
-  @override
-
-  /// subject of the message
-  final String? subject;
-  @override
-
-  /// text of the message
-  final String? text;
   @override
 
   /// id of the user who sent the message
@@ -5492,10 +5484,18 @@ class _$_SendRequest implements _SendRequest {
 
   /// id of the chat room the message is being sent to / from
   final String? room_id;
+  @override
+
+  /// subject of the message
+  final String? subject;
+  @override
+
+  /// text of the message
+  final String? text;
 
   @override
   String toString() {
-    return 'SendRequest(subject: $subject, text: $text, user_id: $user_id, client: $client, room_id: $room_id)';
+    return 'SendRequest(user_id: $user_id, client: $client, room_id: $room_id, subject: $subject, text: $text)';
   }
 
   @override
@@ -5503,21 +5503,21 @@ class _$_SendRequest implements _SendRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SendRequest &&
-            const DeepCollectionEquality().equals(other.subject, subject) &&
-            const DeepCollectionEquality().equals(other.text, text) &&
             const DeepCollectionEquality().equals(other.user_id, user_id) &&
             const DeepCollectionEquality().equals(other.client, client) &&
-            const DeepCollectionEquality().equals(other.room_id, room_id));
+            const DeepCollectionEquality().equals(other.room_id, room_id) &&
+            const DeepCollectionEquality().equals(other.subject, subject) &&
+            const DeepCollectionEquality().equals(other.text, text));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(subject),
-      const DeepCollectionEquality().hash(text),
       const DeepCollectionEquality().hash(user_id),
       const DeepCollectionEquality().hash(client),
-      const DeepCollectionEquality().hash(room_id));
+      const DeepCollectionEquality().hash(room_id),
+      const DeepCollectionEquality().hash(subject),
+      const DeepCollectionEquality().hash(text));
 
   @JsonKey(ignore: true)
   @override
@@ -5532,23 +5532,15 @@ class _$_SendRequest implements _SendRequest {
 
 abstract class _SendRequest implements SendRequest {
   const factory _SendRequest(
-      {String? subject,
-      String? text,
-      String? user_id,
+      {String? user_id,
       String? client,
-      String? room_id}) = _$_SendRequest;
+      String? room_id,
+      String? subject,
+      String? text}) = _$_SendRequest;
 
   factory _SendRequest.fromJson(Map<String, dynamic> json) =
       _$_SendRequest.fromJson;
 
-  @override
-
-  /// subject of the message
-  String? get subject;
-  @override
-
-  /// text of the message
-  String? get text;
   @override
 
   /// id of the user who sent the message
@@ -5561,6 +5553,14 @@ abstract class _SendRequest implements SendRequest {
 
   /// id of the chat room the message is being sent to / from
   String? get room_id;
+  @override
+
+  /// subject of the message
+  String? get subject;
+  @override
+
+  /// text of the message
+  String? get text;
   @override
   @JsonKey(ignore: true)
   _$SendRequestCopyWith<_SendRequest> get copyWith =>

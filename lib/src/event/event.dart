@@ -121,14 +121,14 @@ class ConsumeResponse with _$ConsumeResponse {
 @Freezed()
 class Ev with _$Ev {
   const factory Ev({
-    /// event id
-    String? id,
-
     /// event message
     Map<String, dynamic>? message,
 
     /// event timestamp
     String? timestamp,
+
+    /// event id
+    String? id,
   }) = _Ev;
   factory Ev.fromJson(Map<String, dynamic> json) => _$EvFromJson(json);
 }
@@ -136,11 +136,11 @@ class Ev with _$Ev {
 @Freezed()
 class PublishRequest with _$PublishRequest {
   const factory PublishRequest({
-    /// The topic to publish to
-    String? topic,
-
     /// The json message to publish
     Map<String, dynamic>? message,
+
+    /// The topic to publish to
+    String? topic,
   }) = _PublishRequest;
   factory PublishRequest.fromJson(Map<String, dynamic> json) =>
       _$PublishRequestFromJson(json);
