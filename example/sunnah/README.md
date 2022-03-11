@@ -4,6 +4,52 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/sunnah/api](ht
 
 Endpoints:
 
+## Hadiths
+
+Hadiths returns a list of hadiths and their corresponding text for a
+given book within a collection.
+
+
+[https://m3o.com/sunnah/api#Hadiths](https://m3o.com/sunnah/api#Hadiths)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/sunnah/sunnah.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = SunnahService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "book": 1,
+  "collection": "bukhari"
+,};
+
+  HadithsRequest req = HadithsRequest.fromJson(payload);
+
+  
+  try {
+
+	HadithsResponse res = await ser.hadiths(req);
+
+    res.map((value) => print(value),
+	  Merr: (HadithsResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Collections
 
 Get a list of available collections. A collection is
@@ -128,52 +174,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (ChaptersResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Hadiths
-
-Hadiths returns a list of hadiths and their corresponding text for a
-given book within a collection.
-
-
-[https://m3o.com/sunnah/api#Hadiths](https://m3o.com/sunnah/api#Hadiths)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/sunnah/sunnah.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = SunnahService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "book": 1,
-  "collection": "bukhari"
-,};
-
-  HadithsRequest req = HadithsRequest.fromJson(payload);
-
-  
-  try {
-
-	HadithsResponse res = await ser.hadiths(req);
-
-    res.map((value) => print(value),
-	  Merr: (HadithsResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);

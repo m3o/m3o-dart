@@ -4,6 +4,96 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/cache/api](htt
 
 Endpoints:
 
+## Increment
+
+Increment a value (if it's a number). If key not found it is equivalent to set.
+
+
+[https://m3o.com/cache/api#Increment](https://m3o.com/cache/api#Increment)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/cache/cache.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = CacheService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "key": "counter",
+  "value": 2
+,};
+
+  IncrementRequest req = IncrementRequest.fromJson(payload);
+
+  
+  try {
+
+	IncrementResponse res = await ser.increment(req);
+
+    res.map((value) => print(value),
+	  Merr: (IncrementResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Decrement
+
+Decrement a value (if it's a number). If key not found it is equivalent to set.
+
+
+[https://m3o.com/cache/api#Decrement](https://m3o.com/cache/api#Decrement)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/cache/cache.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = CacheService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "key": "counter",
+  "value": 2
+,};
+
+  DecrementRequest req = DecrementRequest.fromJson(payload);
+
+  
+  try {
+
+	DecrementResponse res = await ser.decrement(req);
+
+    res.map((value) => print(value),
+	  Merr: (DecrementResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## ListKeys
 
 List all the available keys
@@ -170,96 +260,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Increment
-
-Increment a value (if it's a number). If key not found it is equivalent to set.
-
-
-[https://m3o.com/cache/api#Increment](https://m3o.com/cache/api#Increment)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/cache/cache.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = CacheService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "key": "counter",
-  "value": 2
-,};
-
-  IncrementRequest req = IncrementRequest.fromJson(payload);
-
-  
-  try {
-
-	IncrementResponse res = await ser.increment(req);
-
-    res.map((value) => print(value),
-	  Merr: (IncrementResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Decrement
-
-Decrement a value (if it's a number). If key not found it is equivalent to set.
-
-
-[https://m3o.com/cache/api#Decrement](https://m3o.com/cache/api#Decrement)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/cache/cache.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = CacheService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "key": "counter",
-  "value": 2
-,};
-
-  DecrementRequest req = DecrementRequest.fromJson(payload);
-
-  
-  try {
-
-	DecrementResponse res = await ser.decrement(req);
-
-    res.map((value) => print(value),
-	  Merr: (DecrementResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
