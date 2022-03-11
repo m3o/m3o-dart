@@ -59,6 +59,15 @@ class MemegenService {
 @Freezed()
 class Box with _$Box {
   const factory Box({
+    /// outline color hex code
+    String? outline,
+
+    /// text to display
+    String? text,
+
+    /// width in pixels
+    int? width,
+
     /// x axis position
     int? x,
 
@@ -70,15 +79,6 @@ class Box with _$Box {
 
     /// height in pixels
     int? height,
-
-    /// outline color hex code
-    String? outline,
-
-    /// text to display
-    String? text,
-
-    /// width in pixels
-    int? width,
   }) = _Box;
   factory Box.fromJson(Map<String, dynamic> json) => _$BoxFromJson(json);
 }
