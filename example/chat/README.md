@@ -4,12 +4,12 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/chat/api](http
 
 Endpoints:
 
-## Kick
+## Create
 
-Kick a user from a chat room
+Create a new chat room
 
 
-[https://m3o.com/chat/api#Kick](https://m3o.com/chat/api#Kick)
+[https://m3o.com/chat/api#Create](https://m3o.com/chat/api#Create)
 
 ```dart
 import 'dart:io';
@@ -27,61 +27,19 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-1"
+  "description": "The general chat room",
+  "name": "general"
 ,};
 
-  KickRequest req = KickRequest.fromJson(payload);
+  CreateRequest req = CreateRequest.fromJson(payload);
 
   
   try {
 
-	KickResponse res = await ser.kick(req);
+	CreateResponse res = await ser.create(req);
 
     res.map((value) => print(value),
-	  Merr: (KickResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## List
-
-List available chats
-
-
-[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/chat/chat.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = ChatService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{};
-
-  ListRequest req = ListRequest.fromJson(payload);
-
-  
-  try {
-
-	ListResponse res = await ser.list(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
+	  Merr: (CreateResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -127,6 +85,50 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (InviteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## History
+
+List the messages in a chat
+
+
+[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/chat/chat.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = ChatService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
+,};
+
+  HistoryRequest req = HistoryRequest.fromJson(payload);
+
+  
+  try {
+
+	HistoryResponse res = await ser.history(req);
+
+    res.map((value) => print(value),
+	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -183,12 +185,12 @@ void main() async {
   }
 }
 ```
-## History
+## Kick
 
-List the messages in a chat
+Kick a user from a chat room
 
 
-[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
+[https://m3o.com/chat/api#Kick](https://m3o.com/chat/api#Kick)
 
 ```dart
 import 'dart:io';
@@ -206,18 +208,19 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-1"
 ,};
 
-  HistoryRequest req = HistoryRequest.fromJson(payload);
+  KickRequest req = KickRequest.fromJson(payload);
 
   
   try {
 
-	HistoryResponse res = await ser.history(req);
+	KickResponse res = await ser.kick(req);
 
     res.map((value) => print(value),
-	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
+	  Merr: (KickResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -272,12 +275,12 @@ void main() async {
   }
 }
 ```
-## Create
+## List
 
-Create a new chat room
+List available chats
 
 
-[https://m3o.com/chat/api#Create](https://m3o.com/chat/api#Create)
+[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
 
 ```dart
 import 'dart:io';
@@ -294,20 +297,17 @@ void main() async {
     ),
   );
  
-  final payload = <String, dynamic>{
-  "description": "The general chat room",
-  "name": "general"
-,};
+  final payload = <String, dynamic>{};
 
-  CreateRequest req = CreateRequest.fromJson(payload);
+  ListRequest req = ListRequest.fromJson(payload);
 
   
   try {
 
-	CreateResponse res = await ser.create(req);
+	ListResponse res = await ser.list(req);
 
     res.map((value) => print(value),
-	  Merr: (CreateResponseMerr err) => print(err.body!['body']));	
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);

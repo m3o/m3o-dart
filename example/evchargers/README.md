@@ -4,6 +4,48 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/evchargers/api
 
 Endpoints:
 
+## ReferenceData
+
+Retrieve reference data as used by this API and in conjunction with the Search endpoint
+
+
+[https://m3o.com/evchargers/api#ReferenceData](https://m3o.com/evchargers/api#ReferenceData)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/evchargers/evchargers.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = EvchargersService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{};
+
+  ReferenceDataRequest req = ReferenceDataRequest.fromJson(payload);
+
+  
+  try {
+
+	ReferenceDataResponse res = await ser.referenceData(req);
+
+    res.map((value) => print(value),
+	  Merr: (ReferenceDataResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Search
 
 Search by giving a coordinate and a max distance, or bounding box and optional filters
@@ -150,48 +192,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## ReferenceData
-
-Retrieve reference data as used by this API and in conjunction with the Search endpoint
-
-
-[https://m3o.com/evchargers/api#ReferenceData](https://m3o.com/evchargers/api#ReferenceData)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/evchargers/evchargers.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = EvchargersService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{};
-
-  ReferenceDataRequest req = ReferenceDataRequest.fromJson(payload);
-
-  
-  try {
-
-	ReferenceDataResponse res = await ser.referenceData(req);
-
-    res.map((value) => print(value),
-	  Merr: (ReferenceDataResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
