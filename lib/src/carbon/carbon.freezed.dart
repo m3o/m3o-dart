@@ -588,11 +588,11 @@ Project _$ProjectFromJson(Map<String, dynamic> json) {
 class _$ProjectTearOff {
   const _$ProjectTearOff();
 
-  _Project call({String? name, double? percentage, double? tonnes}) {
+  _Project call({double? percentage, double? tonnes, String? name}) {
     return _Project(
-      name: name,
       percentage: percentage,
       tonnes: tonnes,
+      name: name,
     );
   }
 
@@ -606,14 +606,14 @@ const $Project = _$ProjectTearOff();
 
 /// @nodoc
 mixin _$Project {
-  /// name of the project
-  String? get name => throw _privateConstructorUsedError;
-
   /// percentage that went to this
   double? get percentage => throw _privateConstructorUsedError;
 
   /// amount in tonnes
   double? get tonnes => throw _privateConstructorUsedError;
+
+  /// name of the project
+  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -624,7 +624,7 @@ mixin _$Project {
 abstract class $ProjectCopyWith<$Res> {
   factory $ProjectCopyWith(Project value, $Res Function(Project) then) =
       _$ProjectCopyWithImpl<$Res>;
-  $Res call({String? name, double? percentage, double? tonnes});
+  $Res call({double? percentage, double? tonnes, String? name});
 }
 
 /// @nodoc
@@ -637,15 +637,11 @@ class _$ProjectCopyWithImpl<$Res> implements $ProjectCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? percentage = freezed,
     Object? tonnes = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       percentage: percentage == freezed
           ? _value.percentage
           : percentage // ignore: cast_nullable_to_non_nullable
@@ -654,6 +650,10 @@ class _$ProjectCopyWithImpl<$Res> implements $ProjectCopyWith<$Res> {
           ? _value.tonnes
           : tonnes // ignore: cast_nullable_to_non_nullable
               as double?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -663,7 +663,7 @@ abstract class _$ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
   factory _$ProjectCopyWith(_Project value, $Res Function(_Project) then) =
       __$ProjectCopyWithImpl<$Res>;
   @override
-  $Res call({String? name, double? percentage, double? tonnes});
+  $Res call({double? percentage, double? tonnes, String? name});
 }
 
 /// @nodoc
@@ -677,15 +677,11 @@ class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? percentage = freezed,
     Object? tonnes = freezed,
+    Object? name = freezed,
   }) {
     return _then(_Project(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       percentage: percentage == freezed
           ? _value.percentage
           : percentage // ignore: cast_nullable_to_non_nullable
@@ -694,6 +690,10 @@ class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
           ? _value.tonnes
           : tonnes // ignore: cast_nullable_to_non_nullable
               as double?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -701,15 +701,11 @@ class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Project implements _Project {
-  const _$_Project({this.name, this.percentage, this.tonnes});
+  const _$_Project({this.percentage, this.tonnes, this.name});
 
   factory _$_Project.fromJson(Map<String, dynamic> json) =>
       _$$_ProjectFromJson(json);
 
-  @override
-
-  /// name of the project
-  final String? name;
   @override
 
   /// percentage that went to this
@@ -718,10 +714,14 @@ class _$_Project implements _Project {
 
   /// amount in tonnes
   final double? tonnes;
+  @override
+
+  /// name of the project
+  final String? name;
 
   @override
   String toString() {
-    return 'Project(name: $name, percentage: $percentage, tonnes: $tonnes)';
+    return 'Project(percentage: $percentage, tonnes: $tonnes, name: $name)';
   }
 
   @override
@@ -729,18 +729,18 @@ class _$_Project implements _Project {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Project &&
-            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
                 .equals(other.percentage, percentage) &&
-            const DeepCollectionEquality().equals(other.tonnes, tonnes));
+            const DeepCollectionEquality().equals(other.tonnes, tonnes) &&
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(percentage),
-      const DeepCollectionEquality().hash(tonnes));
+      const DeepCollectionEquality().hash(tonnes),
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
@@ -754,15 +754,11 @@ class _$_Project implements _Project {
 }
 
 abstract class _Project implements Project {
-  const factory _Project({String? name, double? percentage, double? tonnes}) =
+  const factory _Project({double? percentage, double? tonnes, String? name}) =
       _$_Project;
 
   factory _Project.fromJson(Map<String, dynamic> json) = _$_Project.fromJson;
 
-  @override
-
-  /// name of the project
-  String? get name;
   @override
 
   /// percentage that went to this
@@ -771,6 +767,10 @@ abstract class _Project implements Project {
 
   /// amount in tonnes
   double? get tonnes;
+  @override
+
+  /// name of the project
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$ProjectCopyWith<_Project> get copyWith =>

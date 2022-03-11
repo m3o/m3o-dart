@@ -101,11 +101,11 @@ class FileService {
 @Freezed()
 class DeleteRequest with _$DeleteRequest {
   const factory DeleteRequest({
-    /// The project name
-    String? project,
-
     /// Path to the file
     String? path,
+
+    /// The project name
+    String? project,
   }) = _DeleteRequest;
   factory DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$DeleteRequestFromJson(json);
@@ -123,14 +123,14 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class ListRequest with _$ListRequest {
   const factory ListRequest({
-    /// Project, required for listing.
-    String? project,
-
     /// Defaults to '/', ie. lists all files in a project.
     /// Supply path to a folder if you want to list
     /// files inside that folder
     /// eg. '/docs'
     String? path,
+
+    /// Project, required for listing.
+    String? project,
   }) = _ListRequest;
   factory ListRequest.fromJson(Map<String, dynamic> json) =>
       _$ListRequestFromJson(json);

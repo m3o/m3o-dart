@@ -367,18 +367,6 @@ class UserService {
 @Freezed()
 class Account with _$Account {
   const factory Account({
-    /// unique account id
-    String? id,
-
-    /// Store any custom data you want about your users in this fields.
-    Map<String, String>? profile,
-
-    /// unix timestamp
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? updated,
-
-    /// alphanumeric username
-    String? username,
-
     /// date of verification
     @JsonKey(fromJson: int64FromString, toJson: int64ToString)
         int? verification_date,
@@ -391,6 +379,18 @@ class Account with _$Account {
 
     /// an email address
     String? email,
+
+    /// unique account id
+    String? id,
+
+    /// Store any custom data you want about your users in this fields.
+    Map<String, String>? profile,
+
+    /// unix timestamp
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? updated,
+
+    /// alphanumeric username
+    String? username,
   }) = _Account;
   factory Account.fromJson(Map<String, dynamic> json) =>
       _$AccountFromJson(json);
@@ -399,9 +399,6 @@ class Account with _$Account {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// optional account id
-    String? id,
-
     /// the user password
     String? password,
 
@@ -413,6 +410,9 @@ class CreateRequest with _$CreateRequest {
 
     /// the email address
     String? email,
+
+    /// optional account id
+    String? id,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -617,14 +617,6 @@ class ResetPasswordResponse with _$ResetPasswordResponse {
 @Freezed()
 class SendMagicLinkRequest with _$SendMagicLinkRequest {
   const factory SendMagicLinkRequest({
-    /// Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
-    String? from_name,
-    String? subject,
-
-    /// Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
-    /// HTML emails are not available currently.
-    String? text_content,
-
     /// Your web site address, example www.example.com or user.example.com
     String? address,
 
@@ -635,6 +627,14 @@ class SendMagicLinkRequest with _$SendMagicLinkRequest {
     /// calling M3O VerifyToken endpoint. You can return as a result a success,
     /// failed or redirect to another page.
     String? endpoint,
+
+    /// Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
+    String? from_name,
+    String? subject,
+
+    /// Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
+    /// HTML emails are not available currently.
+    String? text_content,
   }) = _SendMagicLinkRequest;
   factory SendMagicLinkRequest.fromJson(Map<String, dynamic> json) =>
       _$SendMagicLinkRequestFromJson(json);
@@ -685,12 +685,6 @@ class SendPasswordResetEmailResponse with _$SendPasswordResetEmailResponse {
 @Freezed()
 class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
   const factory SendVerificationEmailRequest({
-    /// Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-    String? from_name,
-
-    /// The url to redirect to after successful verification
-    String? redirect_url,
-
     /// subject of the email
     String? subject,
 
@@ -703,6 +697,12 @@ class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
 
     /// The url to redirect to incase of failure
     String? failure_redirect_url,
+
+    /// Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
+    String? from_name,
+
+    /// The url to redirect to after successful verification
+    String? redirect_url,
   }) = _SendVerificationEmailRequest;
   factory SendVerificationEmailRequest.fromJson(Map<String, dynamic> json) =>
       _$SendVerificationEmailRequestFromJson(json);
