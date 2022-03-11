@@ -80,6 +80,12 @@ class RoutingService {
 @Freezed()
 class Direction with _$Direction {
   const factory Direction({
+    /// intersections on route
+    List<Intersection>? intersections,
+
+    /// maneuver to take
+    Maneuver? maneuver,
+
     /// street name or location
     String? name,
 
@@ -94,12 +100,6 @@ class Direction with _$Direction {
 
     /// human readable instruction
     String? instruction,
-
-    /// intersections on route
-    List<Intersection>? intersections,
-
-    /// maneuver to take
-    Maneuver? maneuver,
   }) = _Direction;
   factory Direction.fromJson(Map<String, dynamic> json) =>
       _$DirectionFromJson(json);
@@ -108,11 +108,11 @@ class Direction with _$Direction {
 @Freezed()
 class DirectionsRequest with _$DirectionsRequest {
   const factory DirectionsRequest({
-    /// The staring point for the journey
-    Point? origin,
-
     /// The destination of the journey
     Point? destination,
+
+    /// The staring point for the journey
+    Point? origin,
   }) = _DirectionsRequest;
   factory DirectionsRequest.fromJson(Map<String, dynamic> json) =>
       _$DirectionsRequestFromJson(json);
@@ -142,9 +142,6 @@ class DirectionsResponse with _$DirectionsResponse {
 @Freezed()
 class EtaRequest with _$EtaRequest {
   const factory EtaRequest({
-    /// type of transport. Only "car" is supported currently.
-    String? type,
-
     /// The end point for the eta calculation
     Point? destination,
 
@@ -153,6 +150,9 @@ class EtaRequest with _$EtaRequest {
 
     /// speed in kilometers
     double? speed,
+
+    /// type of transport. Only "car" is supported currently.
+    String? type,
   }) = _EtaRequest;
   factory EtaRequest.fromJson(Map<String, dynamic> json) =>
       _$EtaRequestFromJson(json);
@@ -183,11 +183,11 @@ class Intersection with _$Intersection {
 @Freezed()
 class Maneuver with _$Maneuver {
   const factory Maneuver({
+    String? action,
     double? bearing_after,
     double? bearing_before,
     String? direction,
     Point? location,
-    String? action,
   }) = _Maneuver;
   factory Maneuver.fromJson(Map<String, dynamic> json) =>
       _$ManeuverFromJson(json);

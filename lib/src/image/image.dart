@@ -111,12 +111,6 @@ class ImageService {
 @Freezed()
 class ConvertRequest with _$ConvertRequest {
   const factory ConvertRequest({
-    /// make output a URL and not a base64 response
-    bool? outputURL,
-
-    /// url of the image to resize
-    String? url,
-
     /// base64 encoded image to resize,
     String? base64,
 
@@ -125,6 +119,12 @@ class ConvertRequest with _$ConvertRequest {
 
     /// output name of the image including extension, ie. "cat.png"
     String? name,
+
+    /// make output a URL and not a base64 response
+    bool? outputURL,
+
+    /// url of the image to resize
+    String? url,
   }) = _ConvertRequest;
   factory ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$ConvertRequestFromJson(json);
@@ -202,13 +202,6 @@ class Rectangle with _$Rectangle {
 @Freezed()
 class ResizeRequest with _$ResizeRequest {
   const factory ResizeRequest({
-    /// make output a URL and not a base64 response
-    bool? outputURL,
-
-    /// url of the image to resize
-    String? url,
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
-
     /// base64 encoded image to resize,
     String? base64,
 
@@ -223,6 +216,13 @@ class ResizeRequest with _$ResizeRequest {
 
     /// output name of the image including extension, ie. "cat.png"
     String? name,
+
+    /// make output a URL and not a base64 response
+    bool? outputURL,
+
+    /// url of the image to resize
+    String? url,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
   }) = _ResizeRequest;
   factory ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$ResizeRequestFromJson(json);
@@ -243,9 +243,6 @@ class ResizeResponse with _$ResizeResponse {
 @Freezed()
 class UploadRequest with _$UploadRequest {
   const factory UploadRequest({
-    /// URL of the image to upload
-    String? url,
-
     /// Base64 encoded image to upload,
     String? base64,
 
@@ -254,6 +251,9 @@ class UploadRequest with _$UploadRequest {
 
     /// Output name of the image including extension, ie. "cat.png"
     String? name,
+
+    /// URL of the image to upload
+    String? url,
   }) = _UploadRequest;
   factory UploadRequest.fromJson(Map<String, dynamic> json) =>
       _$UploadRequestFromJson(json);

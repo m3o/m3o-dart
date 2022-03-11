@@ -43,23 +43,23 @@ Map<String, dynamic> _$$AddResponseMerrToJson(_$AddResponseMerr instance) =>
     };
 
 _$_Entry _$$_EntryFromJson(Map<String, dynamic> json) => _$_Entry(
-      feed: json['feed'] as String?,
       id: json['id'] as String?,
       link: json['link'] as String?,
       summary: json['summary'] as String?,
       title: json['title'] as String?,
       content: json['content'] as String?,
       date: json['date'] as String?,
+      feed: json['feed'] as String?,
     );
 
 Map<String, dynamic> _$$_EntryToJson(_$_Entry instance) => <String, dynamic>{
-      'feed': instance.feed,
       'id': instance.id,
       'link': instance.link,
       'summary': instance.summary,
       'title': instance.title,
       'content': instance.content,
       'date': instance.date,
+      'feed': instance.feed,
     };
 
 _$_Feed _$$_FeedFromJson(Map<String, dynamic> json) => _$_Feed(
