@@ -1192,27 +1192,27 @@ class _$ResultTearOff {
   const _$ResultTearOff();
 
   _Result call(
-      {String? address,
-      String? icon_url,
-      String? location,
+      {String? icon_url,
+      String? name,
       bool? open_now,
       String? opening_hours,
-      String? vicinity,
-      String? name,
       double? rating,
+      List<String>? types,
+      String? address,
+      String? location,
       String? type,
-      List<String>? types}) {
+      String? vicinity}) {
     return _Result(
-      address: address,
       icon_url: icon_url,
-      location: location,
+      name: name,
       open_now: open_now,
       opening_hours: opening_hours,
-      vicinity: vicinity,
-      name: name,
       rating: rating,
-      type: type,
       types: types,
+      address: address,
+      location: location,
+      type: type,
+      vicinity: vicinity,
     );
   }
 
@@ -1226,14 +1226,11 @@ const $Result = _$ResultTearOff();
 
 /// @nodoc
 mixin _$Result {
-  /// address of place
-  String? get address => throw _privateConstructorUsedError;
-
   /// url of an icon
   String? get icon_url => throw _privateConstructorUsedError;
 
-  /// lat/lng of place
-  String? get location => throw _privateConstructorUsedError;
+  /// name of the place
+  String? get name => throw _privateConstructorUsedError;
 
   /// open now
   bool? get open_now => throw _privateConstructorUsedError;
@@ -1241,20 +1238,23 @@ mixin _$Result {
   /// opening hours
   String? get opening_hours => throw _privateConstructorUsedError;
 
-  /// simplified address
-  String? get vicinity => throw _privateConstructorUsedError;
-
-  /// name of the place
-  String? get name => throw _privateConstructorUsedError;
-
   /// rating from 1.0 to 5.0
   double? get rating => throw _privateConstructorUsedError;
+
+  /// feature types
+  List<String>? get types => throw _privateConstructorUsedError;
+
+  /// address of place
+  String? get address => throw _privateConstructorUsedError;
+
+  /// lat/lng of place
+  String? get location => throw _privateConstructorUsedError;
 
   /// type of location
   String? get type => throw _privateConstructorUsedError;
 
-  /// feature types
-  List<String>? get types => throw _privateConstructorUsedError;
+  /// simplified address
+  String? get vicinity => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1266,16 +1266,16 @@ abstract class $ResultCopyWith<$Res> {
   factory $ResultCopyWith(Result value, $Res Function(Result) then) =
       _$ResultCopyWithImpl<$Res>;
   $Res call(
-      {String? address,
-      String? icon_url,
-      String? location,
+      {String? icon_url,
+      String? name,
       bool? open_now,
       String? opening_hours,
-      String? vicinity,
-      String? name,
       double? rating,
+      List<String>? types,
+      String? address,
+      String? location,
       String? type,
-      List<String>? types});
+      String? vicinity});
 }
 
 /// @nodoc
@@ -1288,29 +1288,25 @@ class _$ResultCopyWithImpl<$Res> implements $ResultCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? address = freezed,
     Object? icon_url = freezed,
-    Object? location = freezed,
+    Object? name = freezed,
     Object? open_now = freezed,
     Object? opening_hours = freezed,
-    Object? vicinity = freezed,
-    Object? name = freezed,
     Object? rating = freezed,
-    Object? type = freezed,
     Object? types = freezed,
+    Object? address = freezed,
+    Object? location = freezed,
+    Object? type = freezed,
+    Object? vicinity = freezed,
   }) {
     return _then(_value.copyWith(
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String?,
       icon_url: icon_url == freezed
           ? _value.icon_url
           : icon_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
       open_now: open_now == freezed
           ? _value.open_now
@@ -1320,26 +1316,30 @@ class _$ResultCopyWithImpl<$Res> implements $ResultCopyWith<$Res> {
           ? _value.opening_hours
           : opening_hours // ignore: cast_nullable_to_non_nullable
               as String?,
-      vicinity: vicinity == freezed
-          ? _value.vicinity
-          : vicinity // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       rating: rating == freezed
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double?,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
       types: types == freezed
           ? _value.types
           : types // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      vicinity: vicinity == freezed
+          ? _value.vicinity
+          : vicinity // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1350,16 +1350,16 @@ abstract class _$ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
       __$ResultCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? address,
-      String? icon_url,
-      String? location,
+      {String? icon_url,
+      String? name,
       bool? open_now,
       String? opening_hours,
-      String? vicinity,
-      String? name,
       double? rating,
+      List<String>? types,
+      String? address,
+      String? location,
       String? type,
-      List<String>? types});
+      String? vicinity});
 }
 
 /// @nodoc
@@ -1373,29 +1373,25 @@ class __$ResultCopyWithImpl<$Res> extends _$ResultCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? address = freezed,
     Object? icon_url = freezed,
-    Object? location = freezed,
+    Object? name = freezed,
     Object? open_now = freezed,
     Object? opening_hours = freezed,
-    Object? vicinity = freezed,
-    Object? name = freezed,
     Object? rating = freezed,
-    Object? type = freezed,
     Object? types = freezed,
+    Object? address = freezed,
+    Object? location = freezed,
+    Object? type = freezed,
+    Object? vicinity = freezed,
   }) {
     return _then(_Result(
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String?,
       icon_url: icon_url == freezed
           ? _value.icon_url
           : icon_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
       open_now: open_now == freezed
           ? _value.open_now
@@ -1405,26 +1401,30 @@ class __$ResultCopyWithImpl<$Res> extends _$ResultCopyWithImpl<$Res>
           ? _value.opening_hours
           : opening_hours // ignore: cast_nullable_to_non_nullable
               as String?,
-      vicinity: vicinity == freezed
-          ? _value.vicinity
-          : vicinity // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       rating: rating == freezed
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double?,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
       types: types == freezed
           ? _value.types
           : types // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      vicinity: vicinity == freezed
+          ? _value.vicinity
+          : vicinity // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1433,32 +1433,28 @@ class __$ResultCopyWithImpl<$Res> extends _$ResultCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Result implements _Result {
   const _$_Result(
-      {this.address,
-      this.icon_url,
-      this.location,
+      {this.icon_url,
+      this.name,
       this.open_now,
       this.opening_hours,
-      this.vicinity,
-      this.name,
       this.rating,
+      this.types,
+      this.address,
+      this.location,
       this.type,
-      this.types});
+      this.vicinity});
 
   factory _$_Result.fromJson(Map<String, dynamic> json) =>
       _$$_ResultFromJson(json);
 
   @override
 
-  /// address of place
-  final String? address;
-  @override
-
   /// url of an icon
   final String? icon_url;
   @override
 
-  /// lat/lng of place
-  final String? location;
+  /// name of the place
+  final String? name;
   @override
 
   /// open now
@@ -1469,28 +1465,32 @@ class _$_Result implements _Result {
   final String? opening_hours;
   @override
 
-  /// simplified address
-  final String? vicinity;
-  @override
-
-  /// name of the place
-  final String? name;
-  @override
-
   /// rating from 1.0 to 5.0
   final double? rating;
+  @override
+
+  /// feature types
+  final List<String>? types;
+  @override
+
+  /// address of place
+  final String? address;
+  @override
+
+  /// lat/lng of place
+  final String? location;
   @override
 
   /// type of location
   final String? type;
   @override
 
-  /// feature types
-  final List<String>? types;
+  /// simplified address
+  final String? vicinity;
 
   @override
   String toString() {
-    return 'Result(address: $address, icon_url: $icon_url, location: $location, open_now: $open_now, opening_hours: $opening_hours, vicinity: $vicinity, name: $name, rating: $rating, type: $type, types: $types)';
+    return 'Result(icon_url: $icon_url, name: $name, open_now: $open_now, opening_hours: $opening_hours, rating: $rating, types: $types, address: $address, location: $location, type: $type, vicinity: $vicinity)';
   }
 
   @override
@@ -1498,32 +1498,32 @@ class _$_Result implements _Result {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Result &&
-            const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.icon_url, icon_url) &&
-            const DeepCollectionEquality().equals(other.location, location) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.open_now, open_now) &&
             const DeepCollectionEquality()
                 .equals(other.opening_hours, opening_hours) &&
-            const DeepCollectionEquality().equals(other.vicinity, vicinity) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.rating, rating) &&
+            const DeepCollectionEquality().equals(other.types, types) &&
+            const DeepCollectionEquality().equals(other.address, address) &&
+            const DeepCollectionEquality().equals(other.location, location) &&
             const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.types, types));
+            const DeepCollectionEquality().equals(other.vicinity, vicinity));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(address),
       const DeepCollectionEquality().hash(icon_url),
-      const DeepCollectionEquality().hash(location),
+      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(open_now),
       const DeepCollectionEquality().hash(opening_hours),
-      const DeepCollectionEquality().hash(vicinity),
-      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(rating),
+      const DeepCollectionEquality().hash(types),
+      const DeepCollectionEquality().hash(address),
+      const DeepCollectionEquality().hash(location),
       const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(types));
+      const DeepCollectionEquality().hash(vicinity));
 
   @JsonKey(ignore: true)
   @override
@@ -1538,31 +1538,27 @@ class _$_Result implements _Result {
 
 abstract class _Result implements Result {
   const factory _Result(
-      {String? address,
-      String? icon_url,
-      String? location,
+      {String? icon_url,
+      String? name,
       bool? open_now,
       String? opening_hours,
-      String? vicinity,
-      String? name,
       double? rating,
+      List<String>? types,
+      String? address,
+      String? location,
       String? type,
-      List<String>? types}) = _$_Result;
+      String? vicinity}) = _$_Result;
 
   factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
 
-  @override
-
-  /// address of place
-  String? get address;
   @override
 
   /// url of an icon
   String? get icon_url;
   @override
 
-  /// lat/lng of place
-  String? get location;
+  /// name of the place
+  String? get name;
   @override
 
   /// open now
@@ -1573,24 +1569,28 @@ abstract class _Result implements Result {
   String? get opening_hours;
   @override
 
-  /// simplified address
-  String? get vicinity;
-  @override
-
-  /// name of the place
-  String? get name;
-  @override
-
   /// rating from 1.0 to 5.0
   double? get rating;
+  @override
+
+  /// feature types
+  List<String>? get types;
+  @override
+
+  /// address of place
+  String? get address;
+  @override
+
+  /// lat/lng of place
+  String? get location;
   @override
 
   /// type of location
   String? get type;
   @override
 
-  /// feature types
-  List<String>? get types;
+  /// simplified address
+  String? get vicinity;
   @override
   @JsonKey(ignore: true)
   _$ResultCopyWith<_Result> get copyWith => throw _privateConstructorUsedError;

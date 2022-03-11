@@ -18,21 +18,21 @@ Map<String, dynamic> _$$_NowRequestToJson(_$_NowRequest instance) =>
 
 _$NowResponseData _$$NowResponseDataFromJson(Map<String, dynamic> json) =>
     _$NowResponseData(
-      localtime: json['localtime'] as String?,
-      location: json['location'] as String?,
       timestamp: json['timestamp'] as String?,
       timezone: json['timezone'] as String?,
       unix: int64FromString(json['unix'] as String?),
+      localtime: json['localtime'] as String?,
+      location: json['location'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$NowResponseDataToJson(_$NowResponseData instance) =>
     <String, dynamic>{
-      'localtime': instance.localtime,
-      'location': instance.location,
       'timestamp': instance.timestamp,
       'timezone': instance.timezone,
       'unix': int64ToString(instance.unix),
+      'localtime': instance.localtime,
+      'location': instance.location,
       'runtimeType': instance.$type,
     };
 
@@ -60,31 +60,31 @@ Map<String, dynamic> _$$_ZoneRequestToJson(_$_ZoneRequest instance) =>
 
 _$ZoneResponseData _$$ZoneResponseDataFromJson(Map<String, dynamic> json) =>
     _$ZoneResponseData(
-      localtime: json['localtime'] as String?,
+      dst: json['dst'] as bool?,
+      latitude: (json['latitude'] as num?)?.toDouble(),
       location: json['location'] as String?,
       longitude: (json['longitude'] as num?)?.toDouble(),
-      region: json['region'] as String?,
-      country: json['country'] as String?,
-      dst: json['dst'] as bool?,
-      offset: json['offset'] as int?,
       timezone: json['timezone'] as String?,
       abbreviation: json['abbreviation'] as String?,
-      latitude: (json['latitude'] as num?)?.toDouble(),
+      localtime: json['localtime'] as String?,
+      offset: json['offset'] as int?,
+      region: json['region'] as String?,
+      country: json['country'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ZoneResponseDataToJson(_$ZoneResponseData instance) =>
     <String, dynamic>{
-      'localtime': instance.localtime,
+      'dst': instance.dst,
+      'latitude': instance.latitude,
       'location': instance.location,
       'longitude': instance.longitude,
-      'region': instance.region,
-      'country': instance.country,
-      'dst': instance.dst,
-      'offset': instance.offset,
       'timezone': instance.timezone,
       'abbreviation': instance.abbreviation,
-      'latitude': instance.latitude,
+      'localtime': instance.localtime,
+      'offset': instance.offset,
+      'region': instance.region,
+      'country': instance.country,
       'runtimeType': instance.$type,
     };
 
