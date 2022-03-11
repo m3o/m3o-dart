@@ -46,12 +46,12 @@ void main() async {
   }
 }
 ```
-## Invite
+## Delete
 
-Invite a user to a chat room
+Delete a chat room
 
 
-[https://m3o.com/chat/api#Invite](https://m3o.com/chat/api#Invite)
+[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
 
 ```dart
 import 'dart:io';
@@ -69,19 +69,67 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-1"
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
 ,};
 
-  InviteRequest req = InviteRequest.fromJson(payload);
+  DeleteRequest req = DeleteRequest.fromJson(payload);
 
   
   try {
 
-	InviteResponse res = await ser.invite(req);
+	DeleteResponse res = await ser.delete(req);
 
     res.map((value) => print(value),
-	  Merr: (InviteResponseMerr err) => print(err.body!['body']));	
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Send
+
+Connect to a chat to receive a stream of messages
+Send a message to a chat
+
+
+[https://m3o.com/chat/api#Send](https://m3o.com/chat/api#Send)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/chat/chat.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = ChatService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "client": "web",
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "subject": "Random",
+  "text": "Hey whats up?",
+  "user_id": "user-1"
+,};
+
+  SendRequest req = SendRequest.fromJson(payload);
+
+  
+  try {
+
+	SendResponse res = await ser.send(req);
+
+    res.map((value) => print(value),
+	  Merr: (SendResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -127,53 +175,6 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Join
-
-Join a chat room
-
-
-[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/chat/chat.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = ChatService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-2"
-,};
-
-  JoinRequest req = JoinRequest.fromJson(payload);
-
-  
-  	
-  try {
-
-    final res = await ser.join(req);
-
-	  await for (var sr in res) {
-	  sr.map((value) => print(value),
-		Merr: (JoinResponseMerr err) => print(err.body));
-	  }
   } catch (e, stack) {
     print(e);
 	print(stack);
@@ -317,12 +318,12 @@ void main() async {
   }
 }
 ```
-## Delete
+## Invite
 
-Delete a chat room
+Invite a user to a chat room
 
 
-[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
+[https://m3o.com/chat/api#Invite](https://m3o.com/chat/api#Invite)
 
 ```dart
 import 'dart:io';
@@ -340,18 +341,19 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-1"
 ,};
 
-  DeleteRequest req = DeleteRequest.fromJson(payload);
+  InviteRequest req = InviteRequest.fromJson(payload);
 
   
   try {
 
-	DeleteResponse res = await ser.delete(req);
+	InviteResponse res = await ser.invite(req);
 
     res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+	  Merr: (InviteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -361,13 +363,12 @@ void main() async {
   }
 }
 ```
-## Send
+## Join
 
-Connect to a chat to receive a stream of messages
-Send a message to a chat
+Join a chat room
 
 
-[https://m3o.com/chat/api#Send](https://m3o.com/chat/api#Send)
+[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
 
 ```dart
 import 'dart:io';
@@ -385,23 +386,22 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "client": "web",
   "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "subject": "Random",
-  "text": "Hey whats up?",
-  "user_id": "user-1"
+  "user_id": "user-2"
 ,};
 
-  SendRequest req = SendRequest.fromJson(payload);
+  JoinRequest req = JoinRequest.fromJson(payload);
 
   
+  	
   try {
 
-	SendResponse res = await ser.send(req);
+    final res = await ser.join(req);
 
-    res.map((value) => print(value),
-	  Merr: (SendResponseMerr err) => print(err.body!['body']));	
-  
+	  await for (var sr in res) {
+	  sr.map((value) => print(value),
+		Merr: (JoinResponseMerr err) => print(err.body));
+	  }
   } catch (e, stack) {
     print(e);
 	print(stack);
