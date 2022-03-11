@@ -90,11 +90,11 @@ class ParseRequest with _$ParseRequest {
 @Freezed()
 class ParseResponse with _$ParseResponse {
   const factory ParseResponse({
-    /// the email address
-    String? address,
-
     /// associated name e.g Joe Blogs
     String? name,
+
+    /// the email address
+    String? address,
   }) = ParseResponseData;
   const factory ParseResponse.Merr({Map<String, dynamic>? body}) =
       ParseResponseMerr;
