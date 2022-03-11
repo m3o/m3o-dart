@@ -347,6 +347,27 @@ class Service with _$Service {
     /// branch of code
     String? branch,
 
+    /// associated env vars
+    Map<String, String>? env_vars,
+
+    /// unique id
+    String? id,
+
+    /// region running in
+    String? region,
+
+    /// source repository
+    String? repo,
+
+    /// status of the app
+    String? status,
+
+    /// last updated
+    String? updated,
+
+    /// time of creation
+    String? created,
+
     /// custom domains
     String? custom_domains,
 
@@ -355,27 +376,6 @@ class Service with _$Service {
 
     /// port running on
     int? port,
-
-    /// region running in
-    String? region,
-
-    /// last updated
-    String? updated,
-
-    /// time of creation
-    String? created,
-
-    /// associated env vars
-    Map<String, String>? env_vars,
-
-    /// unique id
-    String? id,
-
-    /// source repository
-    String? repo,
-
-    /// status of the app
-    String? status,
 
     /// app url
     String? url,

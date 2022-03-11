@@ -7,30 +7,30 @@ part of 'twitter.dart';
 // **************************************************************************
 
 _$_Profile _$$_ProfileFromJson(Map<String, dynamic> json) => _$_Profile(
-      private: json['private'] as bool?,
-      verified: json['verified'] as bool?,
-      followers: int64FromString(json['followers'] as String?),
-      id: int64FromString(json['id'] as String?),
-      image_url: json['image_url'] as String?,
-      location: json['location'] as String?,
-      name: json['name'] as String?,
       created_at: json['created_at'] as String?,
       description: json['description'] as String?,
+      followers: int64FromString(json['followers'] as String?),
+      location: json['location'] as String?,
+      id: int64FromString(json['id'] as String?),
+      image_url: json['image_url'] as String?,
+      name: json['name'] as String?,
+      private: json['private'] as bool?,
       username: json['username'] as String?,
+      verified: json['verified'] as bool?,
     );
 
 Map<String, dynamic> _$$_ProfileToJson(_$_Profile instance) =>
     <String, dynamic>{
-      'private': instance.private,
-      'verified': instance.verified,
-      'followers': int64ToString(instance.followers),
-      'id': int64ToString(instance.id),
-      'image_url': instance.image_url,
-      'location': instance.location,
-      'name': instance.name,
       'created_at': instance.created_at,
       'description': instance.description,
+      'followers': int64ToString(instance.followers),
+      'location': instance.location,
+      'id': int64ToString(instance.id),
+      'image_url': instance.image_url,
+      'name': instance.name,
+      'private': instance.private,
       'username': instance.username,
+      'verified': instance.verified,
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
@@ -116,15 +116,15 @@ Map<String, dynamic> _$$TimelineResponseMerrToJson(
     };
 
 _$_Trend _$$_TrendFromJson(Map<String, dynamic> json) => _$_Trend(
+      url: json['url'] as String?,
       name: json['name'] as String?,
       tweet_volume: int64FromString(json['tweet_volume'] as String?),
-      url: json['url'] as String?,
     );
 
 Map<String, dynamic> _$$_TrendToJson(_$_Trend instance) => <String, dynamic>{
+      'url': instance.url,
       'name': instance.name,
       'tweet_volume': int64ToString(instance.tweet_volume),
-      'url': instance.url,
     };
 
 _$_TrendsRequest _$$_TrendsRequestFromJson(Map<String, dynamic> json) =>
@@ -191,19 +191,19 @@ Map<String, dynamic> _$$_UserRequestToJson(_$_UserRequest instance) =>
 
 _$UserResponseData _$$UserResponseDataFromJson(Map<String, dynamic> json) =>
     _$UserResponseData(
-      profile: json['profile'] == null
-          ? null
-          : Profile.fromJson(json['profile'] as Map<String, dynamic>),
       status: json['status'] == null
           ? null
           : Tweet.fromJson(json['status'] as Map<String, dynamic>),
+      profile: json['profile'] == null
+          ? null
+          : Profile.fromJson(json['profile'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$UserResponseDataToJson(_$UserResponseData instance) =>
     <String, dynamic>{
-      'profile': instance.profile,
       'status': instance.status,
+      'profile': instance.profile,
       'runtimeType': instance.$type,
     };
 

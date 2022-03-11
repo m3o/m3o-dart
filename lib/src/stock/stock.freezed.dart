@@ -212,21 +212,21 @@ class _$HistoryResponseTearOff {
   const _$HistoryResponseTearOff();
 
   HistoryResponseData call(
-      {double? high,
+      {double? close,
+      String? date,
+      double? high,
       double? low,
       double? open,
       String? symbol,
-      int? volume,
-      double? close,
-      String? date}) {
+      int? volume}) {
     return HistoryResponseData(
+      close: close,
+      date: date,
       high: high,
       low: low,
       open: open,
       symbol: symbol,
       volume: volume,
-      close: close,
-      date: date,
     );
   }
 
@@ -248,24 +248,24 @@ const $HistoryResponse = _$HistoryResponseTearOff();
 mixin _$HistoryResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? high, double? low, double? open, String? symbol,
-            int? volume, double? close, String? date)
+    TResult Function(double? close, String? date, double? high, double? low,
+            double? open, String? symbol, int? volume)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? high, double? low, double? open, String? symbol,
-            int? volume, double? close, String? date)?
+    TResult Function(double? close, String? date, double? high, double? low,
+            double? open, String? symbol, int? volume)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? high, double? low, double? open, String? symbol,
-            int? volume, double? close, String? date)?
+    TResult Function(double? close, String? date, double? high, double? low,
+            double? open, String? symbol, int? volume)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -316,13 +316,13 @@ abstract class $HistoryResponseDataCopyWith<$Res> {
           HistoryResponseData value, $Res Function(HistoryResponseData) then) =
       _$HistoryResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {double? high,
+      {double? close,
+      String? date,
+      double? high,
       double? low,
       double? open,
       String? symbol,
-      int? volume,
-      double? close,
-      String? date});
+      int? volume});
 }
 
 /// @nodoc
@@ -338,15 +338,23 @@ class _$HistoryResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? close = freezed,
+    Object? date = freezed,
     Object? high = freezed,
     Object? low = freezed,
     Object? open = freezed,
     Object? symbol = freezed,
     Object? volume = freezed,
-    Object? close = freezed,
-    Object? date = freezed,
   }) {
     return _then(HistoryResponseData(
+      close: close == freezed
+          ? _value.close
+          : close // ignore: cast_nullable_to_non_nullable
+              as double?,
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String?,
       high: high == freezed
           ? _value.high
           : high // ignore: cast_nullable_to_non_nullable
@@ -367,14 +375,6 @@ class _$HistoryResponseDataCopyWithImpl<$Res>
           ? _value.volume
           : volume // ignore: cast_nullable_to_non_nullable
               as int?,
-      close: close == freezed
-          ? _value.close
-          : close // ignore: cast_nullable_to_non_nullable
-              as double?,
-      date: date == freezed
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -383,19 +383,27 @@ class _$HistoryResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$HistoryResponseData implements HistoryResponseData {
   const _$HistoryResponseData(
-      {this.high,
+      {this.close,
+      this.date,
+      this.high,
       this.low,
       this.open,
       this.symbol,
       this.volume,
-      this.close,
-      this.date,
       String? $type})
       : $type = $type ?? 'default';
 
   factory _$HistoryResponseData.fromJson(Map<String, dynamic> json) =>
       _$$HistoryResponseDataFromJson(json);
 
+  @override
+
+  /// the close price
+  final double? close;
+  @override
+
+  /// the date
+  final String? date;
   @override
 
   /// the peak price
@@ -416,21 +424,13 @@ class _$HistoryResponseData implements HistoryResponseData {
 
   /// the volume
   final int? volume;
-  @override
-
-  /// the close price
-  final double? close;
-  @override
-
-  /// the date
-  final String? date;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'HistoryResponse(high: $high, low: $low, open: $open, symbol: $symbol, volume: $volume, close: $close, date: $date)';
+    return 'HistoryResponse(close: $close, date: $date, high: $high, low: $low, open: $open, symbol: $symbol, volume: $volume)';
   }
 
   @override
@@ -438,25 +438,25 @@ class _$HistoryResponseData implements HistoryResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is HistoryResponseData &&
+            const DeepCollectionEquality().equals(other.close, close) &&
+            const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality().equals(other.high, high) &&
             const DeepCollectionEquality().equals(other.low, low) &&
             const DeepCollectionEquality().equals(other.open, open) &&
             const DeepCollectionEquality().equals(other.symbol, symbol) &&
-            const DeepCollectionEquality().equals(other.volume, volume) &&
-            const DeepCollectionEquality().equals(other.close, close) &&
-            const DeepCollectionEquality().equals(other.date, date));
+            const DeepCollectionEquality().equals(other.volume, volume));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(close),
+      const DeepCollectionEquality().hash(date),
       const DeepCollectionEquality().hash(high),
       const DeepCollectionEquality().hash(low),
       const DeepCollectionEquality().hash(open),
       const DeepCollectionEquality().hash(symbol),
-      const DeepCollectionEquality().hash(volume),
-      const DeepCollectionEquality().hash(close),
-      const DeepCollectionEquality().hash(date));
+      const DeepCollectionEquality().hash(volume));
 
   @JsonKey(ignore: true)
   @override
@@ -466,36 +466,36 @@ class _$HistoryResponseData implements HistoryResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? high, double? low, double? open, String? symbol,
-            int? volume, double? close, String? date)
+    TResult Function(double? close, String? date, double? high, double? low,
+            double? open, String? symbol, int? volume)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(high, low, open, symbol, volume, close, date);
+    return $default(close, date, high, low, open, symbol, volume);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? high, double? low, double? open, String? symbol,
-            int? volume, double? close, String? date)?
+    TResult Function(double? close, String? date, double? high, double? low,
+            double? open, String? symbol, int? volume)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(high, low, open, symbol, volume, close, date);
+    return $default?.call(close, date, high, low, open, symbol, volume);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? high, double? low, double? open, String? symbol,
-            int? volume, double? close, String? date)?
+    TResult Function(double? close, String? date, double? high, double? low,
+            double? open, String? symbol, int? volume)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(high, low, open, symbol, volume, close, date);
+      return $default(close, date, high, low, open, symbol, volume);
     }
     return orElse();
   }
@@ -539,16 +539,22 @@ class _$HistoryResponseData implements HistoryResponseData {
 
 abstract class HistoryResponseData implements HistoryResponse {
   const factory HistoryResponseData(
-      {double? high,
+      {double? close,
+      String? date,
+      double? high,
       double? low,
       double? open,
       String? symbol,
-      int? volume,
-      double? close,
-      String? date}) = _$HistoryResponseData;
+      int? volume}) = _$HistoryResponseData;
 
   factory HistoryResponseData.fromJson(Map<String, dynamic> json) =
       _$HistoryResponseData.fromJson;
+
+  /// the close price
+  double? get close;
+
+  /// the date
+  String? get date;
 
   /// the peak price
   double? get high;
@@ -564,12 +570,6 @@ abstract class HistoryResponseData implements HistoryResponse {
 
   /// the volume
   int? get volume;
-
-  /// the close price
-  double? get close;
-
-  /// the date
-  String? get date;
   @JsonKey(ignore: true)
   $HistoryResponseDataCopyWith<HistoryResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -647,8 +647,8 @@ class _$HistoryResponseMerr implements HistoryResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? high, double? low, double? open, String? symbol,
-            int? volume, double? close, String? date)
+    TResult Function(double? close, String? date, double? high, double? low,
+            double? open, String? symbol, int? volume)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -658,8 +658,8 @@ class _$HistoryResponseMerr implements HistoryResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? high, double? low, double? open, String? symbol,
-            int? volume, double? close, String? date)?
+    TResult Function(double? close, String? date, double? high, double? low,
+            double? open, String? symbol, int? volume)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -669,8 +669,8 @@ class _$HistoryResponseMerr implements HistoryResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? high, double? low, double? open, String? symbol,
-            int? volume, double? close, String? date)?
+    TResult Function(double? close, String? date, double? high, double? low,
+            double? open, String? symbol, int? volume)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -740,17 +740,17 @@ class _$OrderTearOff {
   const _$OrderTearOff();
 
   _Order call(
-      {double? ask_price,
+      {int? bid_size,
+      String? timestamp,
+      double? ask_price,
       int? ask_size,
-      double? bid_price,
-      int? bid_size,
-      String? timestamp}) {
+      double? bid_price}) {
     return _Order(
+      bid_size: bid_size,
+      timestamp: timestamp,
       ask_price: ask_price,
       ask_size: ask_size,
       bid_price: bid_price,
-      bid_size: bid_size,
-      timestamp: timestamp,
     );
   }
 
@@ -764,6 +764,12 @@ const $Order = _$OrderTearOff();
 
 /// @nodoc
 mixin _$Order {
+  /// the bid size
+  int? get bid_size => throw _privateConstructorUsedError;
+
+  /// the UTC timestamp of the quote
+  String? get timestamp => throw _privateConstructorUsedError;
+
   /// the asking price
   double? get ask_price => throw _privateConstructorUsedError;
 
@@ -772,12 +778,6 @@ mixin _$Order {
 
   /// the bidding price
   double? get bid_price => throw _privateConstructorUsedError;
-
-  /// the bid size
-  int? get bid_size => throw _privateConstructorUsedError;
-
-  /// the UTC timestamp of the quote
-  String? get timestamp => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -789,11 +789,11 @@ abstract class $OrderCopyWith<$Res> {
   factory $OrderCopyWith(Order value, $Res Function(Order) then) =
       _$OrderCopyWithImpl<$Res>;
   $Res call(
-      {double? ask_price,
+      {int? bid_size,
+      String? timestamp,
+      double? ask_price,
       int? ask_size,
-      double? bid_price,
-      int? bid_size,
-      String? timestamp});
+      double? bid_price});
 }
 
 /// @nodoc
@@ -806,13 +806,21 @@ class _$OrderCopyWithImpl<$Res> implements $OrderCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? bid_size = freezed,
+    Object? timestamp = freezed,
     Object? ask_price = freezed,
     Object? ask_size = freezed,
     Object? bid_price = freezed,
-    Object? bid_size = freezed,
-    Object? timestamp = freezed,
   }) {
     return _then(_value.copyWith(
+      bid_size: bid_size == freezed
+          ? _value.bid_size
+          : bid_size // ignore: cast_nullable_to_non_nullable
+              as int?,
+      timestamp: timestamp == freezed
+          ? _value.timestamp
+          : timestamp // ignore: cast_nullable_to_non_nullable
+              as String?,
       ask_price: ask_price == freezed
           ? _value.ask_price
           : ask_price // ignore: cast_nullable_to_non_nullable
@@ -825,14 +833,6 @@ class _$OrderCopyWithImpl<$Res> implements $OrderCopyWith<$Res> {
           ? _value.bid_price
           : bid_price // ignore: cast_nullable_to_non_nullable
               as double?,
-      bid_size: bid_size == freezed
-          ? _value.bid_size
-          : bid_size // ignore: cast_nullable_to_non_nullable
-              as int?,
-      timestamp: timestamp == freezed
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -843,11 +843,11 @@ abstract class _$OrderCopyWith<$Res> implements $OrderCopyWith<$Res> {
       __$OrderCopyWithImpl<$Res>;
   @override
   $Res call(
-      {double? ask_price,
+      {int? bid_size,
+      String? timestamp,
+      double? ask_price,
       int? ask_size,
-      double? bid_price,
-      int? bid_size,
-      String? timestamp});
+      double? bid_price});
 }
 
 /// @nodoc
@@ -861,13 +861,21 @@ class __$OrderCopyWithImpl<$Res> extends _$OrderCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? bid_size = freezed,
+    Object? timestamp = freezed,
     Object? ask_price = freezed,
     Object? ask_size = freezed,
     Object? bid_price = freezed,
-    Object? bid_size = freezed,
-    Object? timestamp = freezed,
   }) {
     return _then(_Order(
+      bid_size: bid_size == freezed
+          ? _value.bid_size
+          : bid_size // ignore: cast_nullable_to_non_nullable
+              as int?,
+      timestamp: timestamp == freezed
+          ? _value.timestamp
+          : timestamp // ignore: cast_nullable_to_non_nullable
+              as String?,
       ask_price: ask_price == freezed
           ? _value.ask_price
           : ask_price // ignore: cast_nullable_to_non_nullable
@@ -880,14 +888,6 @@ class __$OrderCopyWithImpl<$Res> extends _$OrderCopyWithImpl<$Res>
           ? _value.bid_price
           : bid_price // ignore: cast_nullable_to_non_nullable
               as double?,
-      bid_size: bid_size == freezed
-          ? _value.bid_size
-          : bid_size // ignore: cast_nullable_to_non_nullable
-              as int?,
-      timestamp: timestamp == freezed
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -896,15 +896,23 @@ class __$OrderCopyWithImpl<$Res> extends _$OrderCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Order implements _Order {
   const _$_Order(
-      {this.ask_price,
+      {this.bid_size,
+      this.timestamp,
+      this.ask_price,
       this.ask_size,
-      this.bid_price,
-      this.bid_size,
-      this.timestamp});
+      this.bid_price});
 
   factory _$_Order.fromJson(Map<String, dynamic> json) =>
       _$$_OrderFromJson(json);
 
+  @override
+
+  /// the bid size
+  final int? bid_size;
+  @override
+
+  /// the UTC timestamp of the quote
+  final String? timestamp;
   @override
 
   /// the asking price
@@ -917,18 +925,10 @@ class _$_Order implements _Order {
 
   /// the bidding price
   final double? bid_price;
-  @override
-
-  /// the bid size
-  final int? bid_size;
-  @override
-
-  /// the UTC timestamp of the quote
-  final String? timestamp;
 
   @override
   String toString() {
-    return 'Order(ask_price: $ask_price, ask_size: $ask_size, bid_price: $bid_price, bid_size: $bid_size, timestamp: $timestamp)';
+    return 'Order(bid_size: $bid_size, timestamp: $timestamp, ask_price: $ask_price, ask_size: $ask_size, bid_price: $bid_price)';
   }
 
   @override
@@ -936,21 +936,21 @@ class _$_Order implements _Order {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Order &&
+            const DeepCollectionEquality().equals(other.bid_size, bid_size) &&
+            const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
             const DeepCollectionEquality().equals(other.ask_price, ask_price) &&
             const DeepCollectionEquality().equals(other.ask_size, ask_size) &&
-            const DeepCollectionEquality().equals(other.bid_price, bid_price) &&
-            const DeepCollectionEquality().equals(other.bid_size, bid_size) &&
-            const DeepCollectionEquality().equals(other.timestamp, timestamp));
+            const DeepCollectionEquality().equals(other.bid_price, bid_price));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(bid_size),
+      const DeepCollectionEquality().hash(timestamp),
       const DeepCollectionEquality().hash(ask_price),
       const DeepCollectionEquality().hash(ask_size),
-      const DeepCollectionEquality().hash(bid_price),
-      const DeepCollectionEquality().hash(bid_size),
-      const DeepCollectionEquality().hash(timestamp));
+      const DeepCollectionEquality().hash(bid_price));
 
   @JsonKey(ignore: true)
   @override
@@ -965,14 +965,22 @@ class _$_Order implements _Order {
 
 abstract class _Order implements Order {
   const factory _Order(
-      {double? ask_price,
+      {int? bid_size,
+      String? timestamp,
+      double? ask_price,
       int? ask_size,
-      double? bid_price,
-      int? bid_size,
-      String? timestamp}) = _$_Order;
+      double? bid_price}) = _$_Order;
 
   factory _Order.fromJson(Map<String, dynamic> json) = _$_Order.fromJson;
 
+  @override
+
+  /// the bid size
+  int? get bid_size;
+  @override
+
+  /// the UTC timestamp of the quote
+  String? get timestamp;
   @override
 
   /// the asking price
@@ -985,14 +993,6 @@ abstract class _Order implements Order {
 
   /// the bidding price
   double? get bid_price;
-  @override
-
-  /// the bid size
-  int? get bid_size;
-  @override
-
-  /// the UTC timestamp of the quote
-  String? get timestamp;
   @override
   @JsonKey(ignore: true)
   _$OrderCopyWith<_Order> get copyWith => throw _privateConstructorUsedError;
@@ -1007,13 +1007,13 @@ class _$OrderBookRequestTearOff {
   const _$OrderBookRequestTearOff();
 
   _OrderBookRequest call(
-      {String? start, String? stock, String? date, String? end, int? limit}) {
+      {int? limit, String? start, String? stock, String? date, String? end}) {
     return _OrderBookRequest(
+      limit: limit,
       start: start,
       stock: stock,
       date: date,
       end: end,
-      limit: limit,
     );
   }
 
@@ -1027,6 +1027,9 @@ const $OrderBookRequest = _$OrderBookRequestTearOff();
 
 /// @nodoc
 mixin _$OrderBookRequest {
+  /// limit number of prices
+  int? get limit => throw _privateConstructorUsedError;
+
   /// optional RFC3339Nano start time e.g 2006-01-02T15:04:05.999999999Z07:00
   String? get start => throw _privateConstructorUsedError;
 
@@ -1038,9 +1041,6 @@ mixin _$OrderBookRequest {
 
   /// optional RFC3339Nano end time e.g 2006-01-02T15:04:05.999999999Z07:00
   String? get end => throw _privateConstructorUsedError;
-
-  /// limit number of prices
-  int? get limit => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1054,7 +1054,7 @@ abstract class $OrderBookRequestCopyWith<$Res> {
           OrderBookRequest value, $Res Function(OrderBookRequest) then) =
       _$OrderBookRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? start, String? stock, String? date, String? end, int? limit});
+      {int? limit, String? start, String? stock, String? date, String? end});
 }
 
 /// @nodoc
@@ -1068,13 +1068,17 @@ class _$OrderBookRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? limit = freezed,
     Object? start = freezed,
     Object? stock = freezed,
     Object? date = freezed,
     Object? end = freezed,
-    Object? limit = freezed,
   }) {
     return _then(_value.copyWith(
+      limit: limit == freezed
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int?,
       start: start == freezed
           ? _value.start
           : start // ignore: cast_nullable_to_non_nullable
@@ -1091,10 +1095,6 @@ class _$OrderBookRequestCopyWithImpl<$Res>
           ? _value.end
           : end // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: limit == freezed
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -1107,7 +1107,7 @@ abstract class _$OrderBookRequestCopyWith<$Res>
       __$OrderBookRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? start, String? stock, String? date, String? end, int? limit});
+      {int? limit, String? start, String? stock, String? date, String? end});
 }
 
 /// @nodoc
@@ -1123,13 +1123,17 @@ class __$OrderBookRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? limit = freezed,
     Object? start = freezed,
     Object? stock = freezed,
     Object? date = freezed,
     Object? end = freezed,
-    Object? limit = freezed,
   }) {
     return _then(_OrderBookRequest(
+      limit: limit == freezed
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int?,
       start: start == freezed
           ? _value.start
           : start // ignore: cast_nullable_to_non_nullable
@@ -1146,10 +1150,6 @@ class __$OrderBookRequestCopyWithImpl<$Res>
           ? _value.end
           : end // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: limit == freezed
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -1158,11 +1158,15 @@ class __$OrderBookRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_OrderBookRequest implements _OrderBookRequest {
   const _$_OrderBookRequest(
-      {this.start, this.stock, this.date, this.end, this.limit});
+      {this.limit, this.start, this.stock, this.date, this.end});
 
   factory _$_OrderBookRequest.fromJson(Map<String, dynamic> json) =>
       _$$_OrderBookRequestFromJson(json);
 
+  @override
+
+  /// limit number of prices
+  final int? limit;
   @override
 
   /// optional RFC3339Nano start time e.g 2006-01-02T15:04:05.999999999Z07:00
@@ -1179,14 +1183,10 @@ class _$_OrderBookRequest implements _OrderBookRequest {
 
   /// optional RFC3339Nano end time e.g 2006-01-02T15:04:05.999999999Z07:00
   final String? end;
-  @override
-
-  /// limit number of prices
-  final int? limit;
 
   @override
   String toString() {
-    return 'OrderBookRequest(start: $start, stock: $stock, date: $date, end: $end, limit: $limit)';
+    return 'OrderBookRequest(limit: $limit, start: $start, stock: $stock, date: $date, end: $end)';
   }
 
   @override
@@ -1194,21 +1194,21 @@ class _$_OrderBookRequest implements _OrderBookRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _OrderBookRequest &&
+            const DeepCollectionEquality().equals(other.limit, limit) &&
             const DeepCollectionEquality().equals(other.start, start) &&
             const DeepCollectionEquality().equals(other.stock, stock) &&
             const DeepCollectionEquality().equals(other.date, date) &&
-            const DeepCollectionEquality().equals(other.end, end) &&
-            const DeepCollectionEquality().equals(other.limit, limit));
+            const DeepCollectionEquality().equals(other.end, end));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(limit),
       const DeepCollectionEquality().hash(start),
       const DeepCollectionEquality().hash(stock),
       const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(end),
-      const DeepCollectionEquality().hash(limit));
+      const DeepCollectionEquality().hash(end));
 
   @JsonKey(ignore: true)
   @override
@@ -1223,15 +1223,19 @@ class _$_OrderBookRequest implements _OrderBookRequest {
 
 abstract class _OrderBookRequest implements OrderBookRequest {
   const factory _OrderBookRequest(
-      {String? start,
+      {int? limit,
+      String? start,
       String? stock,
       String? date,
-      String? end,
-      int? limit}) = _$_OrderBookRequest;
+      String? end}) = _$_OrderBookRequest;
 
   factory _OrderBookRequest.fromJson(Map<String, dynamic> json) =
       _$_OrderBookRequest.fromJson;
 
+  @override
+
+  /// limit number of prices
+  int? get limit;
   @override
 
   /// optional RFC3339Nano start time e.g 2006-01-02T15:04:05.999999999Z07:00
@@ -1248,10 +1252,6 @@ abstract class _OrderBookRequest implements OrderBookRequest {
 
   /// optional RFC3339Nano end time e.g 2006-01-02T15:04:05.999999999Z07:00
   String? get end;
-  @override
-
-  /// limit number of prices
-  int? get limit;
   @override
   @JsonKey(ignore: true)
   _$OrderBookRequestCopyWith<_OrderBookRequest> get copyWith =>
