@@ -38,20 +38,20 @@ class MovieService {
 @Freezed()
 class MovieInfo with _$MovieInfo {
   const factory MovieInfo({
-    int? genre_ids,
+    String? original_title,
+    String? release_date,
+    String? title,
+    double? vote_average,
     int? id,
     String? overview,
-    String? release_date,
-    String? original_language,
-    String? original_title,
     double? popularity,
     String? poster_path,
-    String? title,
-    int? vote_count,
+    bool? video,
     bool? adult,
     String? backdrop_path,
-    bool? video,
-    double? vote_average,
+    int? genre_ids,
+    String? original_language,
+    int? vote_count,
   }) = _MovieInfo;
   factory MovieInfo.fromJson(Map<String, dynamic> json) =>
       _$MovieInfoFromJson(json);

@@ -38,11 +38,11 @@ class JokeService {
 @Freezed()
 class JokeInfo with _$JokeInfo {
   const factory JokeInfo({
-    String? id,
-    String? source,
     String? title,
     String? body,
     String? category,
+    String? id,
+    String? source,
   }) = _JokeInfo;
   factory JokeInfo.fromJson(Map<String, dynamic> json) =>
       _$JokeInfoFromJson(json);
