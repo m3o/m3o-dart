@@ -38,10 +38,6 @@ class TranslateService {
 @Freezed()
 class TextRequest with _$TextRequest {
   const factory TextRequest({
-    /// Target language, format in ISO-639-1 codes
-    /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
-    String? target,
-
     /// The contents to be translated
     String? content,
 
@@ -55,6 +51,10 @@ class TextRequest with _$TextRequest {
     /// Source language, format in ISO-639-1 codes
     /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
     String? source,
+
+    /// Target language, format in ISO-639-1 codes
+    /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
+    String? target,
   }) = _TextRequest;
   factory TextRequest.fromJson(Map<String, dynamic> json) =>
       _$TextRequestFromJson(json);

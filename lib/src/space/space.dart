@@ -295,13 +295,13 @@ class HeadResponse with _$HeadResponse {
 @Freezed()
 class ListObject with _$ListObject {
   const factory ListObject({
+    String? url,
+    String? visibility,
     String? created,
 
     /// when was this last modified
     String? modified,
     String? name,
-    String? url,
-    String? visibility,
   }) = _ListObject;
   factory ListObject.fromJson(Map<String, dynamic> json) =>
       _$ListObjectFromJson(json);
@@ -353,12 +353,6 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class SpaceObject with _$SpaceObject {
   const factory SpaceObject({
-    /// the data within the object
-    String? data,
-
-    /// when was this last modified
-    String? modified,
-
     /// name of object
     String? name,
 
@@ -370,6 +364,12 @@ class SpaceObject with _$SpaceObject {
 
     /// when was this created
     String? created,
+
+    /// the data within the object
+    String? data,
+
+    /// when was this last modified
+    String? modified,
   }) = _SpaceObject;
   factory SpaceObject.fromJson(Map<String, dynamic> json) =>
       _$SpaceObjectFromJson(json);

@@ -236,15 +236,15 @@ class _$ConsumeResponseTearOff {
   const _$ConsumeResponseTearOff();
 
   ConsumeResponseData call(
-      {String? id,
-      Map<String, dynamic>? message,
+      {Map<String, dynamic>? message,
       String? timestamp,
-      String? topic}) {
+      String? topic,
+      String? id}) {
     return ConsumeResponseData(
-      id: id,
       message: message,
       timestamp: timestamp,
       topic: topic,
+      id: id,
     );
   }
 
@@ -266,24 +266,24 @@ const $ConsumeResponse = _$ConsumeResponseTearOff();
 mixin _$ConsumeResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? id, Map<String, dynamic>? message,
-            String? timestamp, String? topic)
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? id, Map<String, dynamic>? message,
-            String? timestamp, String? topic)?
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? id, Map<String, dynamic>? message,
-            String? timestamp, String? topic)?
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -334,10 +334,10 @@ abstract class $ConsumeResponseDataCopyWith<$Res> {
           ConsumeResponseData value, $Res Function(ConsumeResponseData) then) =
       _$ConsumeResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {String? id,
-      Map<String, dynamic>? message,
+      {Map<String, dynamic>? message,
       String? timestamp,
-      String? topic});
+      String? topic,
+      String? id});
 }
 
 /// @nodoc
@@ -353,16 +353,12 @@ class _$ConsumeResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? message = freezed,
     Object? timestamp = freezed,
     Object? topic = freezed,
+    Object? id = freezed,
   }) {
     return _then(ConsumeResponseData(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -375,6 +371,10 @@ class _$ConsumeResponseDataCopyWithImpl<$Res>
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -383,16 +383,12 @@ class _$ConsumeResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ConsumeResponseData implements ConsumeResponseData {
   const _$ConsumeResponseData(
-      {this.id, this.message, this.timestamp, this.topic, String? $type})
+      {this.message, this.timestamp, this.topic, this.id, String? $type})
       : $type = $type ?? 'default';
 
   factory _$ConsumeResponseData.fromJson(Map<String, dynamic> json) =>
       _$$ConsumeResponseDataFromJson(json);
 
-  @override
-
-  /// Unique message id
-  final String? id;
   @override
 
   /// The next json message on the topic
@@ -405,13 +401,17 @@ class _$ConsumeResponseData implements ConsumeResponseData {
 
   /// The topic subscribed to
   final String? topic;
+  @override
+
+  /// Unique message id
+  final String? id;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'ConsumeResponse(id: $id, message: $message, timestamp: $timestamp, topic: $topic)';
+    return 'ConsumeResponse(message: $message, timestamp: $timestamp, topic: $topic, id: $id)';
   }
 
   @override
@@ -419,19 +419,19 @@ class _$ConsumeResponseData implements ConsumeResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ConsumeResponseData &&
-            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
-            const DeepCollectionEquality().equals(other.topic, topic));
+            const DeepCollectionEquality().equals(other.topic, topic) &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(message),
       const DeepCollectionEquality().hash(timestamp),
-      const DeepCollectionEquality().hash(topic));
+      const DeepCollectionEquality().hash(topic),
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -441,36 +441,36 @@ class _$ConsumeResponseData implements ConsumeResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? id, Map<String, dynamic>? message,
-            String? timestamp, String? topic)
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(id, message, timestamp, topic);
+    return $default(message, timestamp, topic, id);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? id, Map<String, dynamic>? message,
-            String? timestamp, String? topic)?
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(id, message, timestamp, topic);
+    return $default?.call(message, timestamp, topic, id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? id, Map<String, dynamic>? message,
-            String? timestamp, String? topic)?
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(id, message, timestamp, topic);
+      return $default(message, timestamp, topic, id);
     }
     return orElse();
   }
@@ -514,16 +514,13 @@ class _$ConsumeResponseData implements ConsumeResponseData {
 
 abstract class ConsumeResponseData implements ConsumeResponse {
   const factory ConsumeResponseData(
-      {String? id,
-      Map<String, dynamic>? message,
+      {Map<String, dynamic>? message,
       String? timestamp,
-      String? topic}) = _$ConsumeResponseData;
+      String? topic,
+      String? id}) = _$ConsumeResponseData;
 
   factory ConsumeResponseData.fromJson(Map<String, dynamic> json) =
       _$ConsumeResponseData.fromJson;
-
-  /// Unique message id
-  String? get id;
 
   /// The next json message on the topic
   Map<String, dynamic>? get message;
@@ -533,6 +530,9 @@ abstract class ConsumeResponseData implements ConsumeResponse {
 
   /// The topic subscribed to
   String? get topic;
+
+  /// Unique message id
+  String? get id;
   @JsonKey(ignore: true)
   $ConsumeResponseDataCopyWith<ConsumeResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -610,8 +610,8 @@ class _$ConsumeResponseMerr implements ConsumeResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? id, Map<String, dynamic>? message,
-            String? timestamp, String? topic)
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -621,8 +621,8 @@ class _$ConsumeResponseMerr implements ConsumeResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? id, Map<String, dynamic>? message,
-            String? timestamp, String? topic)?
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -632,8 +632,8 @@ class _$ConsumeResponseMerr implements ConsumeResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? id, Map<String, dynamic>? message,
-            String? timestamp, String? topic)?
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -702,11 +702,11 @@ Ev _$EvFromJson(Map<String, dynamic> json) {
 class _$EvTearOff {
   const _$EvTearOff();
 
-  _Ev call({Map<String, dynamic>? message, String? timestamp, String? id}) {
+  _Ev call({String? id, Map<String, dynamic>? message, String? timestamp}) {
     return _Ev(
+      id: id,
       message: message,
       timestamp: timestamp,
-      id: id,
     );
   }
 
@@ -720,14 +720,14 @@ const $Ev = _$EvTearOff();
 
 /// @nodoc
 mixin _$Ev {
+  /// event id
+  String? get id => throw _privateConstructorUsedError;
+
   /// event message
   Map<String, dynamic>? get message => throw _privateConstructorUsedError;
 
   /// event timestamp
   String? get timestamp => throw _privateConstructorUsedError;
-
-  /// event id
-  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -738,7 +738,7 @@ mixin _$Ev {
 abstract class $EvCopyWith<$Res> {
   factory $EvCopyWith(Ev value, $Res Function(Ev) then) =
       _$EvCopyWithImpl<$Res>;
-  $Res call({Map<String, dynamic>? message, String? timestamp, String? id});
+  $Res call({String? id, Map<String, dynamic>? message, String? timestamp});
 }
 
 /// @nodoc
@@ -751,11 +751,15 @@ class _$EvCopyWithImpl<$Res> implements $EvCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? message = freezed,
     Object? timestamp = freezed,
-    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -763,10 +767,6 @@ class _$EvCopyWithImpl<$Res> implements $EvCopyWith<$Res> {
       timestamp: timestamp == freezed
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -777,7 +777,7 @@ abstract class _$EvCopyWith<$Res> implements $EvCopyWith<$Res> {
   factory _$EvCopyWith(_Ev value, $Res Function(_Ev) then) =
       __$EvCopyWithImpl<$Res>;
   @override
-  $Res call({Map<String, dynamic>? message, String? timestamp, String? id});
+  $Res call({String? id, Map<String, dynamic>? message, String? timestamp});
 }
 
 /// @nodoc
@@ -791,11 +791,15 @@ class __$EvCopyWithImpl<$Res> extends _$EvCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? message = freezed,
     Object? timestamp = freezed,
-    Object? id = freezed,
   }) {
     return _then(_Ev(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -804,10 +808,6 @@ class __$EvCopyWithImpl<$Res> extends _$EvCopyWithImpl<$Res>
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -815,10 +815,14 @@ class __$EvCopyWithImpl<$Res> extends _$EvCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Ev implements _Ev {
-  const _$_Ev({this.message, this.timestamp, this.id});
+  const _$_Ev({this.id, this.message, this.timestamp});
 
   factory _$_Ev.fromJson(Map<String, dynamic> json) => _$$_EvFromJson(json);
 
+  @override
+
+  /// event id
+  final String? id;
   @override
 
   /// event message
@@ -827,14 +831,10 @@ class _$_Ev implements _Ev {
 
   /// event timestamp
   final String? timestamp;
-  @override
-
-  /// event id
-  final String? id;
 
   @override
   String toString() {
-    return 'Ev(message: $message, timestamp: $timestamp, id: $id)';
+    return 'Ev(id: $id, message: $message, timestamp: $timestamp)';
   }
 
   @override
@@ -842,17 +842,17 @@ class _$_Ev implements _Ev {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Ev &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.message, message) &&
-            const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.timestamp, timestamp));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(message),
-      const DeepCollectionEquality().hash(timestamp),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(timestamp));
 
   @JsonKey(ignore: true)
   @override
@@ -866,10 +866,14 @@ class _$_Ev implements _Ev {
 
 abstract class _Ev implements Ev {
   const factory _Ev(
-      {Map<String, dynamic>? message, String? timestamp, String? id}) = _$_Ev;
+      {String? id, Map<String, dynamic>? message, String? timestamp}) = _$_Ev;
 
   factory _Ev.fromJson(Map<String, dynamic> json) = _$_Ev.fromJson;
 
+  @override
+
+  /// event id
+  String? get id;
   @override
 
   /// event message
@@ -878,10 +882,6 @@ abstract class _Ev implements Ev {
 
   /// event timestamp
   String? get timestamp;
-  @override
-
-  /// event id
-  String? get id;
   @override
   @JsonKey(ignore: true)
   _$EvCopyWith<_Ev> get copyWith => throw _privateConstructorUsedError;
