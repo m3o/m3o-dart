@@ -69,12 +69,6 @@ class NowRequest with _$NowRequest {
 @Freezed()
 class NowResponse with _$NowResponse {
   const factory NowResponse({
-    /// the unix timestamp
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? unix,
-
-    /// the current time as HH:MM:SS
-    String? localtime,
-
     /// the location as Europe/London
     String? location,
 
@@ -83,6 +77,12 @@ class NowResponse with _$NowResponse {
 
     /// the timezone as BST
     String? timezone,
+
+    /// the unix timestamp
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? unix,
+
+    /// the current time as HH:MM:SS
+    String? localtime,
   }) = NowResponseData;
   const factory NowResponse.Merr({Map<String, dynamic>? body}) =
       NowResponseMerr;
@@ -103,6 +103,27 @@ class ZoneRequest with _$ZoneRequest {
 @Freezed()
 class ZoneResponse with _$ZoneResponse {
   const factory ZoneResponse({
+    /// the abbreviated code e.g BST
+    String? abbreviation,
+
+    /// country of the timezone
+    String? country,
+
+    /// is daylight savings
+    bool? dst,
+
+    /// the local time
+    String? localtime,
+
+    /// region of timezone
+    String? region,
+
+    /// the timezone e.g Europe/London
+    String? timezone,
+
+    /// e.g 51.42
+    double? latitude,
+
     /// location requested
     String? location,
 
@@ -111,27 +132,6 @@ class ZoneResponse with _$ZoneResponse {
 
     /// UTC offset in hours
     int? offset,
-
-    /// the timezone e.g Europe/London
-    String? timezone,
-
-    /// the abbreviated code e.g BST
-    String? abbreviation,
-
-    /// is daylight savings
-    bool? dst,
-
-    /// e.g 51.42
-    double? latitude,
-
-    /// country of the timezone
-    String? country,
-
-    /// the local time
-    String? localtime,
-
-    /// region of timezone
-    String? region,
   }) = ZoneResponseData;
   const factory ZoneResponse.Merr({Map<String, dynamic>? body}) =
       ZoneResponseMerr;

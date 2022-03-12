@@ -44,17 +44,11 @@ class Article with _$Article {
     /// categories
     List<String>? categories,
 
+    /// article description
+    String? description,
+
     /// image url
     String? image_url,
-
-    /// the article language
-    String? language,
-
-    /// the locale
-    String? locale,
-
-    /// first 60 characters of article body
-    String? snippet,
 
     /// source of news
     String? source,
@@ -62,14 +56,20 @@ class Article with _$Article {
     /// article title
     String? title,
 
-    /// article description
-    String? description,
+    /// first 60 characters of article body
+    String? snippet,
 
     /// article id
     String? id,
 
     /// related keywords
     String? keywords,
+
+    /// the article language
+    String? language,
+
+    /// the locale
+    String? locale,
 
     /// time it was published
     String? published_at,
@@ -81,14 +81,14 @@ class Article with _$Article {
 @Freezed()
 class HeadlinesRequest with _$HeadlinesRequest {
   const factory HeadlinesRequest({
-    /// comma separated list of languages to retrieve in e.g en,es
-    String? language,
-
     /// comma separated list of countries to include e.g us,ca
     String? locale,
 
     /// date published on in YYYY-MM-DD format
     String? date,
+
+    /// comma separated list of languages to retrieve in e.g en,es
+    String? language,
   }) = _HeadlinesRequest;
   factory HeadlinesRequest.fromJson(Map<String, dynamic> json) =>
       _$HeadlinesRequestFromJson(json);

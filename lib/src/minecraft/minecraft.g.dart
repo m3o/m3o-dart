@@ -18,6 +18,8 @@ Map<String, dynamic> _$$_PingRequestToJson(_$_PingRequest instance) =>
 
 _$PingResponseData _$$PingResponseDataFromJson(Map<String, dynamic> json) =>
     _$PingResponseData(
+      version: json['version'] as String?,
+      favicon: json['favicon'] as String?,
       latency: json['latency'] as int?,
       max_players: json['max_players'] as int?,
       motd: json['motd'] as String?,
@@ -26,21 +28,19 @@ _$PingResponseData _$$PingResponseDataFromJson(Map<String, dynamic> json) =>
       sample: (json['sample'] as List<dynamic>?)
           ?.map((e) => PlayerSample.fromJson(e as Map<String, dynamic>))
           .toList(),
-      version: json['version'] as String?,
-      favicon: json['favicon'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$PingResponseDataToJson(_$PingResponseData instance) =>
     <String, dynamic>{
+      'version': instance.version,
+      'favicon': instance.favicon,
       'latency': instance.latency,
       'max_players': instance.max_players,
       'motd': instance.motd,
       'players': instance.players,
       'protocol': instance.protocol,
       'sample': instance.sample,
-      'version': instance.version,
-      'favicon': instance.favicon,
       'runtimeType': instance.$type,
     };
 
