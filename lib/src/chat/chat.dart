@@ -285,11 +285,11 @@ class HistoryResponse with _$HistoryResponse {
 @Freezed()
 class InviteRequest with _$InviteRequest {
   const factory InviteRequest({
-    /// the user id
-    String? user_id,
-
     /// the room id
     String? room_id,
+
+    /// the user id
+    String? user_id,
   }) = _InviteRequest;
   factory InviteRequest.fromJson(Map<String, dynamic> json) =>
       _$InviteRequestFromJson(json);
@@ -309,11 +309,11 @@ class InviteResponse with _$InviteResponse {
 @Freezed()
 class JoinRequest with _$JoinRequest {
   const factory JoinRequest({
-    /// chat room to join
-    String? room_id,
-
     /// user id joining
     String? user_id,
+
+    /// chat room to join
+    String? room_id,
   }) = _JoinRequest;
   factory JoinRequest.fromJson(Map<String, dynamic> json) =>
       _$JoinRequestFromJson(json);
@@ -430,6 +430,9 @@ class Message with _$Message {
 @Freezed()
 class Room with _$Room {
   const factory Room({
+    /// unique room id
+    String? id,
+
     /// name of the chat
     String? name,
 
@@ -444,9 +447,6 @@ class Room with _$Room {
 
     /// description of the that
     String? description,
-
-    /// unique room id
-    String? id,
   }) = _Room;
   factory Room.fromJson(Map<String, dynamic> json) => _$RoomFromJson(json);
 }
@@ -454,9 +454,6 @@ class Room with _$Room {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
-    /// text of the message
-    String? text,
-
     /// id of the user who sent the message
     String? user_id,
 
@@ -468,6 +465,9 @@ class SendRequest with _$SendRequest {
 
     /// subject of the message
     String? subject,
+
+    /// text of the message
+    String? text,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);

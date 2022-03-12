@@ -115,16 +115,16 @@ Map<String, dynamic> _$$ShortenResponseMerrToJson(
     };
 
 _$_URLPair _$$_URLPairFromJson(Map<String, dynamic> json) => _$_URLPair(
+      hitCount: int64FromString(json['hitCount'] as String?),
       shortURL: json['shortURL'] as String?,
       created: json['created'] as String?,
       destinationURL: json['destinationURL'] as String?,
-      hitCount: int64FromString(json['hitCount'] as String?),
     );
 
 Map<String, dynamic> _$$_URLPairToJson(_$_URLPair instance) =>
     <String, dynamic>{
+      'hitCount': int64ToString(instance.hitCount),
       'shortURL': instance.shortURL,
       'created': instance.created,
       'destinationURL': instance.destinationURL,
-      'hitCount': int64ToString(instance.hitCount),
     };
