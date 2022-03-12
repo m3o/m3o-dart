@@ -83,10 +83,9 @@ class CallResponse with _$CallResponse {
 @Freezed()
 class StreamRequest with _$StreamRequest {
   const factory StreamRequest({
-    String? name,
-
     /// the number of messages to send back
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? messages,
+    String? name,
   }) = _StreamRequest;
   factory StreamRequest.fromJson(Map<String, dynamic> json) =>
       _$StreamRequestFromJson(json);
