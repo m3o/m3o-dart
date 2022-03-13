@@ -90,9 +90,6 @@ class LookupRequest with _$LookupRequest {
 @Freezed()
 class LookupResponse with _$LookupResponse {
   const factory LookupResponse({
-    /// e.g 51.50354
-    double? latitude,
-
     /// e.g -0.127695
     double? longitude,
 
@@ -110,6 +107,9 @@ class LookupResponse with _$LookupResponse {
 
     /// e.g Westminster
     String? district,
+
+    /// e.g 51.50354
+    double? latitude,
   }) = LookupResponseData;
   const factory LookupResponse.Merr({Map<String, dynamic>? body}) =
       LookupResponseMerr;

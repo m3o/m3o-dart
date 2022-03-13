@@ -69,6 +69,9 @@ class NowRequest with _$NowRequest {
 @Freezed()
 class NowResponse with _$NowResponse {
   const factory NowResponse({
+    /// the location as Europe/London
+    String? location,
+
     /// timestamp as 2006-01-02T15:04:05.999999999Z07:00
     String? timestamp,
 
@@ -80,9 +83,6 @@ class NowResponse with _$NowResponse {
 
     /// the current time as HH:MM:SS
     String? localtime,
-
-    /// the location as Europe/London
-    String? location,
   }) = NowResponseData;
   const factory NowResponse.Merr({Map<String, dynamic>? body}) =
       NowResponseMerr;
@@ -103,8 +103,11 @@ class ZoneRequest with _$ZoneRequest {
 @Freezed()
 class ZoneResponse with _$ZoneResponse {
   const factory ZoneResponse({
-    /// region of timezone
-    String? region,
+    /// location requested
+    String? location,
+
+    /// UTC offset in hours
+    int? offset,
 
     /// the timezone e.g Europe/London
     String? timezone,
@@ -112,17 +115,8 @@ class ZoneResponse with _$ZoneResponse {
     /// the abbreviated code e.g BST
     String? abbreviation,
 
-    /// country of the timezone
-    String? country,
-
     /// is daylight savings
     bool? dst,
-
-    /// e.g 51.42
-    double? latitude,
-
-    /// location requested
-    String? location,
 
     /// the local time
     String? localtime,
@@ -130,8 +124,14 @@ class ZoneResponse with _$ZoneResponse {
     /// e.g -0.37
     double? longitude,
 
-    /// UTC offset in hours
-    int? offset,
+    /// region of timezone
+    String? region,
+
+    /// country of the timezone
+    String? country,
+
+    /// e.g 51.42
+    double? latitude,
   }) = ZoneResponseData;
   const factory ZoneResponse.Merr({Map<String, dynamic>? body}) =
       ZoneResponseMerr;
