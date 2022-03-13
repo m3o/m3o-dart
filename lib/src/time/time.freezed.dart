@@ -880,27 +880,27 @@ class _$ZoneResponseTearOff {
   const _$ZoneResponseTearOff();
 
   ZoneResponseData call(
-      {bool? dst,
+      {String? country,
+      bool? dst,
       String? localtime,
+      int? offset,
       String? region,
+      String? timezone,
       String? abbreviation,
-      String? country,
       double? latitude,
       String? location,
-      double? longitude,
-      int? offset,
-      String? timezone}) {
+      double? longitude}) {
     return ZoneResponseData(
+      country: country,
       dst: dst,
       localtime: localtime,
+      offset: offset,
       region: region,
+      timezone: timezone,
       abbreviation: abbreviation,
-      country: country,
       latitude: latitude,
       location: location,
       longitude: longitude,
-      offset: offset,
-      timezone: timezone,
     );
   }
 
@@ -923,16 +923,16 @@ mixin _$ZoneResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? country,
             bool? dst,
             String? localtime,
+            int? offset,
             String? region,
+            String? timezone,
             String? abbreviation,
-            String? country,
             double? latitude,
             String? location,
-            double? longitude,
-            int? offset,
-            String? timezone)
+            double? longitude)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
@@ -940,16 +940,16 @@ mixin _$ZoneResponse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
+            String? country,
             bool? dst,
             String? localtime,
+            int? offset,
             String? region,
+            String? timezone,
             String? abbreviation,
-            String? country,
             double? latitude,
             String? location,
-            double? longitude,
-            int? offset,
-            String? timezone)?
+            double? longitude)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
@@ -957,16 +957,16 @@ mixin _$ZoneResponse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? country,
             bool? dst,
             String? localtime,
+            int? offset,
             String? region,
+            String? timezone,
             String? abbreviation,
-            String? country,
             double? latitude,
             String? location,
-            double? longitude,
-            int? offset,
-            String? timezone)?
+            double? longitude)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -1016,16 +1016,16 @@ abstract class $ZoneResponseDataCopyWith<$Res> {
           ZoneResponseData value, $Res Function(ZoneResponseData) then) =
       _$ZoneResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {bool? dst,
+      {String? country,
+      bool? dst,
       String? localtime,
+      int? offset,
       String? region,
+      String? timezone,
       String? abbreviation,
-      String? country,
       double? latitude,
       String? location,
-      double? longitude,
-      int? offset,
-      String? timezone});
+      double? longitude});
 }
 
 /// @nodoc
@@ -1041,18 +1041,22 @@ class _$ZoneResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? country = freezed,
     Object? dst = freezed,
     Object? localtime = freezed,
+    Object? offset = freezed,
     Object? region = freezed,
+    Object? timezone = freezed,
     Object? abbreviation = freezed,
-    Object? country = freezed,
     Object? latitude = freezed,
     Object? location = freezed,
     Object? longitude = freezed,
-    Object? offset = freezed,
-    Object? timezone = freezed,
   }) {
     return _then(ZoneResponseData(
+      country: country == freezed
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String?,
       dst: dst == freezed
           ? _value.dst
           : dst // ignore: cast_nullable_to_non_nullable
@@ -1061,17 +1065,21 @@ class _$ZoneResponseDataCopyWithImpl<$Res>
           ? _value.localtime
           : localtime // ignore: cast_nullable_to_non_nullable
               as String?,
+      offset: offset == freezed
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int?,
       region: region == freezed
           ? _value.region
           : region // ignore: cast_nullable_to_non_nullable
               as String?,
+      timezone: timezone == freezed
+          ? _value.timezone
+          : timezone // ignore: cast_nullable_to_non_nullable
+              as String?,
       abbreviation: abbreviation == freezed
           ? _value.abbreviation
           : abbreviation // ignore: cast_nullable_to_non_nullable
-              as String?,
-      country: country == freezed
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
               as String?,
       latitude: latitude == freezed
           ? _value.latitude
@@ -1085,14 +1093,6 @@ class _$ZoneResponseDataCopyWithImpl<$Res>
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as double?,
-      offset: offset == freezed
-          ? _value.offset
-          : offset // ignore: cast_nullable_to_non_nullable
-              as int?,
-      timezone: timezone == freezed
-          ? _value.timezone
-          : timezone // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1101,22 +1101,26 @@ class _$ZoneResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ZoneResponseData implements ZoneResponseData {
   const _$ZoneResponseData(
-      {this.dst,
+      {this.country,
+      this.dst,
       this.localtime,
+      this.offset,
       this.region,
+      this.timezone,
       this.abbreviation,
-      this.country,
       this.latitude,
       this.location,
       this.longitude,
-      this.offset,
-      this.timezone,
       String? $type})
       : $type = $type ?? 'default';
 
   factory _$ZoneResponseData.fromJson(Map<String, dynamic> json) =>
       _$$ZoneResponseDataFromJson(json);
 
+  @override
+
+  /// country of the timezone
+  final String? country;
   @override
 
   /// is daylight savings
@@ -1127,16 +1131,20 @@ class _$ZoneResponseData implements ZoneResponseData {
   final String? localtime;
   @override
 
+  /// UTC offset in hours
+  final int? offset;
+  @override
+
   /// region of timezone
   final String? region;
   @override
 
-  /// the abbreviated code e.g BST
-  final String? abbreviation;
+  /// the timezone e.g Europe/London
+  final String? timezone;
   @override
 
-  /// country of the timezone
-  final String? country;
+  /// the abbreviated code e.g BST
+  final String? abbreviation;
   @override
 
   /// e.g 51.42
@@ -1149,21 +1157,13 @@ class _$ZoneResponseData implements ZoneResponseData {
 
   /// e.g -0.37
   final double? longitude;
-  @override
-
-  /// UTC offset in hours
-  final int? offset;
-  @override
-
-  /// the timezone e.g Europe/London
-  final String? timezone;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'ZoneResponse(dst: $dst, localtime: $localtime, region: $region, abbreviation: $abbreviation, country: $country, latitude: $latitude, location: $location, longitude: $longitude, offset: $offset, timezone: $timezone)';
+    return 'ZoneResponse(country: $country, dst: $dst, localtime: $localtime, offset: $offset, region: $region, timezone: $timezone, abbreviation: $abbreviation, latitude: $latitude, location: $location, longitude: $longitude)';
   }
 
   @override
@@ -1171,32 +1171,32 @@ class _$ZoneResponseData implements ZoneResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ZoneResponseData &&
+            const DeepCollectionEquality().equals(other.country, country) &&
             const DeepCollectionEquality().equals(other.dst, dst) &&
             const DeepCollectionEquality().equals(other.localtime, localtime) &&
+            const DeepCollectionEquality().equals(other.offset, offset) &&
             const DeepCollectionEquality().equals(other.region, region) &&
+            const DeepCollectionEquality().equals(other.timezone, timezone) &&
             const DeepCollectionEquality()
                 .equals(other.abbreviation, abbreviation) &&
-            const DeepCollectionEquality().equals(other.country, country) &&
             const DeepCollectionEquality().equals(other.latitude, latitude) &&
             const DeepCollectionEquality().equals(other.location, location) &&
-            const DeepCollectionEquality().equals(other.longitude, longitude) &&
-            const DeepCollectionEquality().equals(other.offset, offset) &&
-            const DeepCollectionEquality().equals(other.timezone, timezone));
+            const DeepCollectionEquality().equals(other.longitude, longitude));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(country),
       const DeepCollectionEquality().hash(dst),
       const DeepCollectionEquality().hash(localtime),
+      const DeepCollectionEquality().hash(offset),
       const DeepCollectionEquality().hash(region),
+      const DeepCollectionEquality().hash(timezone),
       const DeepCollectionEquality().hash(abbreviation),
-      const DeepCollectionEquality().hash(country),
       const DeepCollectionEquality().hash(latitude),
       const DeepCollectionEquality().hash(location),
-      const DeepCollectionEquality().hash(longitude),
-      const DeepCollectionEquality().hash(offset),
-      const DeepCollectionEquality().hash(timezone));
+      const DeepCollectionEquality().hash(longitude));
 
   @JsonKey(ignore: true)
   @override
@@ -1207,65 +1207,65 @@ class _$ZoneResponseData implements ZoneResponseData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? country,
             bool? dst,
             String? localtime,
+            int? offset,
             String? region,
+            String? timezone,
             String? abbreviation,
-            String? country,
             double? latitude,
             String? location,
-            double? longitude,
-            int? offset,
-            String? timezone)
+            double? longitude)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(dst, localtime, region, abbreviation, country, latitude,
-        location, longitude, offset, timezone);
+    return $default(country, dst, localtime, offset, region, timezone,
+        abbreviation, latitude, location, longitude);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
+            String? country,
             bool? dst,
             String? localtime,
+            int? offset,
             String? region,
+            String? timezone,
             String? abbreviation,
-            String? country,
             double? latitude,
             String? location,
-            double? longitude,
-            int? offset,
-            String? timezone)?
+            double? longitude)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(dst, localtime, region, abbreviation, country,
-        latitude, location, longitude, offset, timezone);
+    return $default?.call(country, dst, localtime, offset, region, timezone,
+        abbreviation, latitude, location, longitude);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? country,
             bool? dst,
             String? localtime,
+            int? offset,
             String? region,
+            String? timezone,
             String? abbreviation,
-            String? country,
             double? latitude,
             String? location,
-            double? longitude,
-            int? offset,
-            String? timezone)?
+            double? longitude)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(dst, localtime, region, abbreviation, country, latitude,
-          location, longitude, offset, timezone);
+      return $default(country, dst, localtime, offset, region, timezone,
+          abbreviation, latitude, location, longitude);
     }
     return orElse();
   }
@@ -1309,19 +1309,22 @@ class _$ZoneResponseData implements ZoneResponseData {
 
 abstract class ZoneResponseData implements ZoneResponse {
   const factory ZoneResponseData(
-      {bool? dst,
+      {String? country,
+      bool? dst,
       String? localtime,
+      int? offset,
       String? region,
+      String? timezone,
       String? abbreviation,
-      String? country,
       double? latitude,
       String? location,
-      double? longitude,
-      int? offset,
-      String? timezone}) = _$ZoneResponseData;
+      double? longitude}) = _$ZoneResponseData;
 
   factory ZoneResponseData.fromJson(Map<String, dynamic> json) =
       _$ZoneResponseData.fromJson;
+
+  /// country of the timezone
+  String? get country;
 
   /// is daylight savings
   bool? get dst;
@@ -1329,14 +1332,17 @@ abstract class ZoneResponseData implements ZoneResponse {
   /// the local time
   String? get localtime;
 
+  /// UTC offset in hours
+  int? get offset;
+
   /// region of timezone
   String? get region;
 
+  /// the timezone e.g Europe/London
+  String? get timezone;
+
   /// the abbreviated code e.g BST
   String? get abbreviation;
-
-  /// country of the timezone
-  String? get country;
 
   /// e.g 51.42
   double? get latitude;
@@ -1346,12 +1352,6 @@ abstract class ZoneResponseData implements ZoneResponse {
 
   /// e.g -0.37
   double? get longitude;
-
-  /// UTC offset in hours
-  int? get offset;
-
-  /// the timezone e.g Europe/London
-  String? get timezone;
   @JsonKey(ignore: true)
   $ZoneResponseDataCopyWith<ZoneResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1430,16 +1430,16 @@ class _$ZoneResponseMerr implements ZoneResponseMerr {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? country,
             bool? dst,
             String? localtime,
+            int? offset,
             String? region,
+            String? timezone,
             String? abbreviation,
-            String? country,
             double? latitude,
             String? location,
-            double? longitude,
-            int? offset,
-            String? timezone)
+            double? longitude)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -1450,16 +1450,16 @@ class _$ZoneResponseMerr implements ZoneResponseMerr {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
+            String? country,
             bool? dst,
             String? localtime,
+            int? offset,
             String? region,
+            String? timezone,
             String? abbreviation,
-            String? country,
             double? latitude,
             String? location,
-            double? longitude,
-            int? offset,
-            String? timezone)?
+            double? longitude)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -1470,16 +1470,16 @@ class _$ZoneResponseMerr implements ZoneResponseMerr {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? country,
             bool? dst,
             String? localtime,
+            int? offset,
             String? region,
+            String? timezone,
             String? abbreviation,
-            String? country,
             double? latitude,
             String? location,
-            double? longitude,
-            int? offset,
-            String? timezone)?
+            double? longitude)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

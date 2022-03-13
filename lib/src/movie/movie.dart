@@ -38,20 +38,20 @@ class MovieService {
 @Freezed()
 class MovieInfo with _$MovieInfo {
   const factory MovieInfo({
-    int? id,
-    String? original_language,
-    String? original_title,
-    double? popularity,
-    String? backdrop_path,
     int? genre_ids,
-    double? vote_average,
-    int? vote_count,
-    bool? adult,
-    String? overview,
-    String? poster_path,
-    bool? video,
+    String? original_language,
+    String? backdrop_path,
     String? release_date,
+    bool? adult,
+    int? id,
+    String? original_title,
+    String? overview,
     String? title,
+    bool? video,
+    double? vote_average,
+    double? popularity,
+    String? poster_path,
+    int? vote_count,
   }) = _MovieInfo;
   factory MovieInfo.fromJson(Map<String, dynamic> json) =>
       _$MovieInfoFromJson(json);
@@ -60,15 +60,6 @@ class MovieInfo with _$MovieInfo {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// a text query to search
-    String? query,
-
-    /// a ISO 3166-1 code to filter release dates.
-    String? region,
-
-    /// year of making
-    int? year,
-
     /// a ISO 639-1 value to display translated data
     String? language,
 
@@ -77,6 +68,15 @@ class SearchRequest with _$SearchRequest {
 
     /// year of release
     int? primary_release_year,
+
+    /// a text query to search
+    String? query,
+
+    /// a ISO 3166-1 code to filter release dates.
+    String? region,
+
+    /// year of making
+    int? year,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);
@@ -85,10 +85,10 @@ class SearchRequest with _$SearchRequest {
 @Freezed()
 class SearchResponse with _$SearchResponse {
   const factory SearchResponse({
-    int? total_pages,
-    int? total_results,
     int? page,
     List<MovieInfo>? results,
+    int? total_pages,
+    int? total_results,
   }) = SearchResponseData;
   const factory SearchResponse.Merr({Map<String, dynamic>? body}) =
       SearchResponseMerr;

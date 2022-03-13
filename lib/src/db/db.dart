@@ -256,11 +256,11 @@ class CreateResponse with _$CreateResponse {
 @Freezed()
 class DeleteRequest with _$DeleteRequest {
   const factory DeleteRequest({
-    /// id of the record
-    String? id,
-
     /// Optional table name. Defaults to 'default'
     String? table,
+
+    /// id of the record
+    String? id,
   }) = _DeleteRequest;
   factory DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$DeleteRequestFromJson(json);
@@ -315,12 +315,6 @@ class ListTablesResponse with _$ListTablesResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
-    /// Read by id. Equivalent to 'id == "your-id"'
-    String? id,
-
-    /// Maximum number of records to return. Default limit is 25.
-    /// Maximum limit is 1000. Anything higher will return an error.
-    int? limit,
     int? offset,
 
     /// 'asc' (default), 'desc'
@@ -338,6 +332,13 @@ class ReadRequest with _$ReadRequest {
 
     /// Optional table name. Defaults to 'default'
     String? table,
+
+    /// Read by id. Equivalent to 'id == "your-id"'
+    String? id,
+
+    /// Maximum number of records to return. Default limit is 25.
+    /// Maximum limit is 1000. Anything higher will return an error.
+    int? limit,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);
@@ -398,14 +399,14 @@ class TruncateResponse with _$TruncateResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
+    /// The id of the record. If not specified it is inferred from the 'id' field of the record
+    String? id,
+
     /// record, JSON object
     Map<String, dynamic>? record,
 
     /// Optional table name. Defaults to 'default'
     String? table,
-
-    /// The id of the record. If not specified it is inferred from the 'id' field of the record
-    String? id,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

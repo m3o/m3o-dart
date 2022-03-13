@@ -7,17 +7,17 @@ part of 'sunnah.dart';
 // **************************************************************************
 
 _$_Book _$$_BookFromJson(Map<String, dynamic> json) => _$_Book(
-      arabic_name: json['arabic_name'] as String?,
-      hadiths: json['hadiths'] as int?,
       id: json['id'] as int?,
       name: json['name'] as String?,
+      arabic_name: json['arabic_name'] as String?,
+      hadiths: json['hadiths'] as int?,
     );
 
 Map<String, dynamic> _$$_BookToJson(_$_Book instance) => <String, dynamic>{
-      'arabic_name': instance.arabic_name,
-      'hadiths': instance.hadiths,
       'id': instance.id,
       'name': instance.name,
+      'arabic_name': instance.arabic_name,
+      'hadiths': instance.hadiths,
     };
 
 _$_BooksRequest _$$_BooksRequestFromJson(Map<String, dynamic> json) =>
@@ -104,26 +104,26 @@ Map<String, dynamic> _$$_ChaptersRequestToJson(_$_ChaptersRequest instance) =>
 _$ChaptersResponseData _$$ChaptersResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$ChaptersResponseData(
-      collection: json['collection'] as String?,
-      limit: json['limit'] as int?,
-      page: json['page'] as int?,
-      total: json['total'] as int?,
       book: json['book'] as int?,
       chapters: (json['chapters'] as List<dynamic>?)
           ?.map((e) => Chapter.fromJson(e as Map<String, dynamic>))
           .toList(),
+      collection: json['collection'] as String?,
+      limit: json['limit'] as int?,
+      page: json['page'] as int?,
+      total: json['total'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ChaptersResponseDataToJson(
         _$ChaptersResponseData instance) =>
     <String, dynamic>{
+      'book': instance.book,
+      'chapters': instance.chapters,
       'collection': instance.collection,
       'limit': instance.limit,
       'page': instance.page,
       'total': instance.total,
-      'book': instance.book,
-      'chapters': instance.chapters,
       'runtimeType': instance.$type,
     };
 
@@ -204,23 +204,23 @@ Map<String, dynamic> _$$CollectionsResponseMerrToJson(
     };
 
 _$_Hadith _$$_HadithFromJson(Map<String, dynamic> json) => _$_Hadith(
+      chapter: json['chapter'] as int?,
+      chapter_key: json['chapter_key'] as String?,
       chapter_title: json['chapter_title'] as String?,
       id: json['id'] as int?,
       text: json['text'] as String?,
       arabic_chapter_title: json['arabic_chapter_title'] as String?,
       arabic_text: json['arabic_text'] as String?,
-      chapter: json['chapter'] as int?,
-      chapter_key: json['chapter_key'] as String?,
     );
 
 Map<String, dynamic> _$$_HadithToJson(_$_Hadith instance) => <String, dynamic>{
+      'chapter': instance.chapter,
+      'chapter_key': instance.chapter_key,
       'chapter_title': instance.chapter_title,
       'id': instance.id,
       'text': instance.text,
       'arabic_chapter_title': instance.arabic_chapter_title,
       'arabic_text': instance.arabic_text,
-      'chapter': instance.chapter,
-      'chapter_key': instance.chapter_key,
     };
 
 _$_HadithsRequest _$$_HadithsRequestFromJson(Map<String, dynamic> json) =>
@@ -242,26 +242,26 @@ Map<String, dynamic> _$$_HadithsRequestToJson(_$_HadithsRequest instance) =>
 _$HadithsResponseData _$$HadithsResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$HadithsResponseData(
+      book: json['book'] as int?,
+      collection: json['collection'] as String?,
       hadiths: (json['hadiths'] as List<dynamic>?)
           ?.map((e) => Hadith.fromJson(e as Map<String, dynamic>))
           .toList(),
       limit: json['limit'] as int?,
       page: json['page'] as int?,
       total: json['total'] as int?,
-      book: json['book'] as int?,
-      collection: json['collection'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$HadithsResponseDataToJson(
         _$HadithsResponseData instance) =>
     <String, dynamic>{
+      'book': instance.book,
+      'collection': instance.collection,
       'hadiths': instance.hadiths,
       'limit': instance.limit,
       'page': instance.page,
       'total': instance.total,
-      'book': instance.book,
-      'collection': instance.collection,
       'runtimeType': instance.$type,
     };
 

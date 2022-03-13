@@ -90,6 +90,15 @@ class LookupRequest with _$LookupRequest {
 @Freezed()
 class LookupResponse with _$LookupResponse {
   const factory LookupResponse({
+    /// country e.g United Kingdom
+    String? country,
+
+    /// e.g Westminster
+    String? district,
+
+    /// e.g 51.50354
+    double? latitude,
+
     /// e.g -0.127695
     double? longitude,
 
@@ -101,15 +110,6 @@ class LookupResponse with _$LookupResponse {
 
     /// e.g St James's
     String? ward,
-
-    /// country e.g United Kingdom
-    String? country,
-
-    /// e.g Westminster
-    String? district,
-
-    /// e.g 51.50354
-    double? latitude,
   }) = LookupResponseData;
   const factory LookupResponse.Merr({Map<String, dynamic>? body}) =
       LookupResponseMerr;
@@ -127,15 +127,6 @@ class RandomRequest with _$RandomRequest {
 @Freezed()
 class RandomResponse with _$RandomResponse {
   const factory RandomResponse({
-    /// country e.g United Kingdom
-    String? country,
-
-    /// e.g Westminster
-    String? district,
-
-    /// e.g 51.50354
-    double? latitude,
-
     /// e.g -0.127695
     double? longitude,
 
@@ -147,6 +138,15 @@ class RandomResponse with _$RandomResponse {
 
     /// e.g St James's
     String? ward,
+
+    /// country e.g United Kingdom
+    String? country,
+
+    /// e.g Westminster
+    String? district,
+
+    /// e.g 51.50354
+    double? latitude,
   }) = RandomResponseData;
   const factory RandomResponse.Merr({Map<String, dynamic>? body}) =
       RandomResponseMerr;
