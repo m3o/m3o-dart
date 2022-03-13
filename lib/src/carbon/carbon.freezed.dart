@@ -128,12 +128,12 @@ class _$OffsetResponseTearOff {
   const _$OffsetResponseTearOff();
 
   OffsetResponseData call(
-      {double? tonnes, int? units, String? metric, List<Project>? projects}) {
+      {int? units, String? metric, List<Project>? projects, double? tonnes}) {
     return OffsetResponseData(
-      tonnes: tonnes,
       units: units,
       metric: metric,
       projects: projects,
+      tonnes: tonnes,
     );
   }
 
@@ -156,23 +156,23 @@ mixin _$OffsetResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            double? tonnes, int? units, String? metric, List<Project>? projects)
+            int? units, String? metric, List<Project>? projects, double? tonnes)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? tonnes, int? units, String? metric,
-            List<Project>? projects)?
+    TResult Function(int? units, String? metric, List<Project>? projects,
+            double? tonnes)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? tonnes, int? units, String? metric,
-            List<Project>? projects)?
+    TResult Function(int? units, String? metric, List<Project>? projects,
+            double? tonnes)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -223,7 +223,7 @@ abstract class $OffsetResponseDataCopyWith<$Res> {
           OffsetResponseData value, $Res Function(OffsetResponseData) then) =
       _$OffsetResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {double? tonnes, int? units, String? metric, List<Project>? projects});
+      {int? units, String? metric, List<Project>? projects, double? tonnes});
 }
 
 /// @nodoc
@@ -239,16 +239,12 @@ class _$OffsetResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? tonnes = freezed,
     Object? units = freezed,
     Object? metric = freezed,
     Object? projects = freezed,
+    Object? tonnes = freezed,
   }) {
     return _then(OffsetResponseData(
-      tonnes: tonnes == freezed
-          ? _value.tonnes
-          : tonnes // ignore: cast_nullable_to_non_nullable
-              as double?,
       units: units == freezed
           ? _value.units
           : units // ignore: cast_nullable_to_non_nullable
@@ -261,6 +257,10 @@ class _$OffsetResponseDataCopyWithImpl<$Res>
           ? _value.projects
           : projects // ignore: cast_nullable_to_non_nullable
               as List<Project>?,
+      tonnes: tonnes == freezed
+          ? _value.tonnes
+          : tonnes // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -269,16 +269,12 @@ class _$OffsetResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$OffsetResponseData implements OffsetResponseData {
   const _$OffsetResponseData(
-      {this.tonnes, this.units, this.metric, this.projects, String? $type})
+      {this.units, this.metric, this.projects, this.tonnes, String? $type})
       : $type = $type ?? 'default';
 
   factory _$OffsetResponseData.fromJson(Map<String, dynamic> json) =>
       _$$OffsetResponseDataFromJson(json);
 
-  @override
-
-  /// number of tonnes
-  final double? tonnes;
   @override
 
   /// number of units purchased
@@ -291,13 +287,17 @@ class _$OffsetResponseData implements OffsetResponseData {
 
   /// projects it was allocated to
   final List<Project>? projects;
+  @override
+
+  /// number of tonnes
+  final double? tonnes;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'OffsetResponse(tonnes: $tonnes, units: $units, metric: $metric, projects: $projects)';
+    return 'OffsetResponse(units: $units, metric: $metric, projects: $projects, tonnes: $tonnes)';
   }
 
   @override
@@ -305,19 +305,19 @@ class _$OffsetResponseData implements OffsetResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OffsetResponseData &&
-            const DeepCollectionEquality().equals(other.tonnes, tonnes) &&
             const DeepCollectionEquality().equals(other.units, units) &&
             const DeepCollectionEquality().equals(other.metric, metric) &&
-            const DeepCollectionEquality().equals(other.projects, projects));
+            const DeepCollectionEquality().equals(other.projects, projects) &&
+            const DeepCollectionEquality().equals(other.tonnes, tonnes));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(tonnes),
       const DeepCollectionEquality().hash(units),
       const DeepCollectionEquality().hash(metric),
-      const DeepCollectionEquality().hash(projects));
+      const DeepCollectionEquality().hash(projects),
+      const DeepCollectionEquality().hash(tonnes));
 
   @JsonKey(ignore: true)
   @override
@@ -328,35 +328,35 @@ class _$OffsetResponseData implements OffsetResponseData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            double? tonnes, int? units, String? metric, List<Project>? projects)
+            int? units, String? metric, List<Project>? projects, double? tonnes)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(tonnes, units, metric, projects);
+    return $default(units, metric, projects, tonnes);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? tonnes, int? units, String? metric,
-            List<Project>? projects)?
+    TResult Function(int? units, String? metric, List<Project>? projects,
+            double? tonnes)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(tonnes, units, metric, projects);
+    return $default?.call(units, metric, projects, tonnes);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? tonnes, int? units, String? metric,
-            List<Project>? projects)?
+    TResult Function(int? units, String? metric, List<Project>? projects,
+            double? tonnes)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(tonnes, units, metric, projects);
+      return $default(units, metric, projects, tonnes);
     }
     return orElse();
   }
@@ -400,16 +400,13 @@ class _$OffsetResponseData implements OffsetResponseData {
 
 abstract class OffsetResponseData implements OffsetResponse {
   const factory OffsetResponseData(
-      {double? tonnes,
-      int? units,
+      {int? units,
       String? metric,
-      List<Project>? projects}) = _$OffsetResponseData;
+      List<Project>? projects,
+      double? tonnes}) = _$OffsetResponseData;
 
   factory OffsetResponseData.fromJson(Map<String, dynamic> json) =
       _$OffsetResponseData.fromJson;
-
-  /// number of tonnes
-  double? get tonnes;
 
   /// number of units purchased
   int? get units;
@@ -419,6 +416,9 @@ abstract class OffsetResponseData implements OffsetResponse {
 
   /// projects it was allocated to
   List<Project>? get projects;
+
+  /// number of tonnes
+  double? get tonnes;
   @JsonKey(ignore: true)
   $OffsetResponseDataCopyWith<OffsetResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -497,7 +497,7 @@ class _$OffsetResponseMerr implements OffsetResponseMerr {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            double? tonnes, int? units, String? metric, List<Project>? projects)
+            int? units, String? metric, List<Project>? projects, double? tonnes)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -507,8 +507,8 @@ class _$OffsetResponseMerr implements OffsetResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? tonnes, int? units, String? metric,
-            List<Project>? projects)?
+    TResult Function(int? units, String? metric, List<Project>? projects,
+            double? tonnes)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -518,8 +518,8 @@ class _$OffsetResponseMerr implements OffsetResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? tonnes, int? units, String? metric,
-            List<Project>? projects)?
+    TResult Function(int? units, String? metric, List<Project>? projects,
+            double? tonnes)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

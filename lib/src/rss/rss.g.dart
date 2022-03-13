@@ -8,16 +8,16 @@ part of 'rss.dart';
 
 _$_AddRequest _$$_AddRequestFromJson(Map<String, dynamic> json) =>
     _$_AddRequest(
-      category: json['category'] as String?,
       name: json['name'] as String?,
       url: json['url'] as String?,
+      category: json['category'] as String?,
     );
 
 Map<String, dynamic> _$$_AddRequestToJson(_$_AddRequest instance) =>
     <String, dynamic>{
-      'category': instance.category,
       'name': instance.name,
       'url': instance.url,
+      'category': instance.category,
     };
 
 _$AddResponseData _$$AddResponseDataFromJson(Map<String, dynamic> json) =>
@@ -78,16 +78,16 @@ Map<String, dynamic> _$$_FeedToJson(_$_Feed instance) => <String, dynamic>{
 
 _$_FeedRequest _$$_FeedRequestFromJson(Map<String, dynamic> json) =>
     _$_FeedRequest(
-      limit: int64FromString(json['limit'] as String?),
       name: json['name'] as String?,
       offset: int64FromString(json['offset'] as String?),
+      limit: int64FromString(json['limit'] as String?),
     );
 
 Map<String, dynamic> _$$_FeedRequestToJson(_$_FeedRequest instance) =>
     <String, dynamic>{
-      'limit': int64ToString(instance.limit),
       'name': instance.name,
       'offset': int64ToString(instance.offset),
+      'limit': int64ToString(instance.limit),
     };
 
 _$FeedResponseData _$$FeedResponseDataFromJson(Map<String, dynamic> json) =>

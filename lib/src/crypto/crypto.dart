@@ -122,9 +122,6 @@ class CryptoService {
 @Freezed()
 class Article with _$Article {
   const factory Article({
-    /// the date published
-    String? date,
-
     /// its description
     String? description,
 
@@ -136,6 +133,9 @@ class Article with _$Article {
 
     /// the source url
     String? url,
+
+    /// the date published
+    String? date,
   }) = _Article;
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);
@@ -154,9 +154,6 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
-    /// the date
-    String? date,
-
     /// the peak price
     double? high,
 
@@ -174,6 +171,9 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the close price
     double? close,
+
+    /// the date
+    String? date,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -219,11 +219,11 @@ class PriceRequest with _$PriceRequest {
 @Freezed()
 class PriceResponse with _$PriceResponse {
   const factory PriceResponse({
-    /// the last price
-    double? price,
-
     /// the crypto symbol e.g BTCUSD
     String? symbol,
+
+    /// the last price
+    double? price,
   }) = PriceResponseData;
   const factory PriceResponse.Merr({Map<String, dynamic>? body}) =
       PriceResponseMerr;
@@ -244,6 +244,9 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
+    /// the bid size
+    double? bid_size,
+
     /// the crypto symbol
     String? symbol,
 
@@ -258,9 +261,6 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the bidding price
     double? bid_price,
-
-    /// the bid size
-    double? bid_size,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;
@@ -271,8 +271,8 @@ class QuoteResponse with _$QuoteResponse {
 @Freezed()
 class Symbol with _$Symbol {
   const factory Symbol({
-    String? name,
     String? symbol,
+    String? name,
   }) = _Symbol;
   factory Symbol.fromJson(Map<String, dynamic> json) => _$SymbolFromJson(json);
 }
