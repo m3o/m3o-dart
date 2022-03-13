@@ -109,20 +109,20 @@ Map<String, dynamic> _$$RegionsResponseMerrToJson(
 
 _$_Reservation _$$_ReservationFromJson(Map<String, dynamic> json) =>
     _$_Reservation(
-      token: json['token'] as String?,
       created: json['created'] as String?,
       expires: json['expires'] as String?,
       name: json['name'] as String?,
       owner: json['owner'] as String?,
+      token: json['token'] as String?,
     );
 
 Map<String, dynamic> _$$_ReservationToJson(_$_Reservation instance) =>
     <String, dynamic>{
-      'token': instance.token,
       'created': instance.created,
       'expires': instance.expires,
       'name': instance.name,
       'owner': instance.owner,
+      'token': instance.token,
     };
 
 _$_ReserveRequest _$$_ReserveRequestFromJson(Map<String, dynamic> json) =>
@@ -252,36 +252,36 @@ Map<String, dynamic> _$$RunResponseMerrToJson(_$RunResponseMerr instance) =>
     };
 
 _$_Service _$$_ServiceFromJson(Map<String, dynamic> json) => _$_Service(
-      env_vars: (json['env_vars'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      updated: json['updated'] as String?,
-      branch: json['branch'] as String?,
-      created: json['created'] as String?,
-      custom_domains: json['custom_domains'] as String?,
       region: json['region'] as String?,
       repo: json['repo'] as String?,
       status: json['status'] as String?,
-      url: json['url'] as String?,
+      branch: json['branch'] as String?,
+      created: json['created'] as String?,
+      custom_domains: json['custom_domains'] as String?,
+      env_vars: (json['env_vars'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
       id: json['id'] as String?,
       name: json['name'] as String?,
       port: json['port'] as int?,
+      updated: json['updated'] as String?,
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic> _$$_ServiceToJson(_$_Service instance) =>
     <String, dynamic>{
-      'env_vars': instance.env_vars,
-      'updated': instance.updated,
-      'branch': instance.branch,
-      'created': instance.created,
-      'custom_domains': instance.custom_domains,
       'region': instance.region,
       'repo': instance.repo,
       'status': instance.status,
-      'url': instance.url,
+      'branch': instance.branch,
+      'created': instance.created,
+      'custom_domains': instance.custom_domains,
+      'env_vars': instance.env_vars,
       'id': instance.id,
       'name': instance.name,
       'port': instance.port,
+      'updated': instance.updated,
+      'url': instance.url,
     };
 
 _$_StatusRequest _$$_StatusRequestFromJson(Map<String, dynamic> json) =>

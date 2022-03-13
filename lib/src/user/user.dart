@@ -367,9 +367,6 @@ class UserService {
 @Freezed()
 class Account with _$Account {
   const factory Account({
-    /// unix timestamp
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? created,
-
     /// an email address
     String? email,
 
@@ -391,6 +388,9 @@ class Account with _$Account {
 
     /// if the account is verified
     bool? verified,
+
+    /// unix timestamp
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? created,
   }) = _Account;
   factory Account.fromJson(Map<String, dynamic> json) =>
       _$AccountFromJson(json);
@@ -399,6 +399,9 @@ class Account with _$Account {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// the username
+    String? username,
+
     /// the email address
     String? email,
 
@@ -410,9 +413,6 @@ class CreateRequest with _$CreateRequest {
 
     /// optional user profile as map<string,string>
     Map<String, String>? profile,
-
-    /// the username
-    String? username,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -474,14 +474,14 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class LoginRequest with _$LoginRequest {
   const factory LoginRequest({
-    /// The email address of the user
-    String? email,
-
     /// The password of the user
     String? password,
 
     /// The username of the user
     String? username,
+
+    /// The email address of the user
+    String? email,
   }) = _LoginRequest;
   factory LoginRequest.fromJson(Map<String, dynamic> json) =>
       _$LoginRequestFromJson(json);
@@ -540,14 +540,14 @@ class LogoutResponse with _$LogoutResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
+    /// the account email
+    String? email,
+
     /// the account id
     String? id,
 
     /// the account username
     String? username,
-
-    /// the account email
-    String? email,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);
@@ -685,9 +685,6 @@ class SendPasswordResetEmailResponse with _$SendPasswordResetEmailResponse {
 @Freezed()
 class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
   const factory SendVerificationEmailRequest({
-    /// email address to send the verification code
-    String? email,
-
     /// The url to redirect to incase of failure
     String? failure_redirect_url,
 
@@ -703,6 +700,9 @@ class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
     /// Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
     /// HTML emails are not available currently.
     String? text_content,
+
+    /// email address to send the verification code
+    String? email,
   }) = _SendVerificationEmailRequest;
   factory SendVerificationEmailRequest.fromJson(Map<String, dynamic> json) =>
       _$SendVerificationEmailRequestFromJson(json);
@@ -722,6 +722,9 @@ class SendVerificationEmailResponse with _$SendVerificationEmailResponse {
 class Session with _$Session {
   const factory Session({
     /// unix timestamp
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? created,
+
+    /// unix timestamp
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? expires,
 
     /// the session id
@@ -729,9 +732,6 @@ class Session with _$Session {
 
     /// the associated user id
     String? userId,
-
-    /// unix timestamp
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? created,
   }) = _Session;
   factory Session.fromJson(Map<String, dynamic> json) =>
       _$SessionFromJson(json);
@@ -740,17 +740,17 @@ class Session with _$Session {
 @Freezed()
 class UpdatePasswordRequest with _$UpdatePasswordRequest {
   const factory UpdatePasswordRequest({
-    /// the old password
-    String? old_password,
-
-    /// the account id
-    String? userId,
-
     /// confirm new password
     String? confirm_password,
 
     /// the new password
     String? new_password,
+
+    /// the old password
+    String? old_password,
+
+    /// the account id
+    String? userId,
   }) = _UpdatePasswordRequest;
   factory UpdatePasswordRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdatePasswordRequestFromJson(json);
