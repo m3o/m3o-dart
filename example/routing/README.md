@@ -4,6 +4,57 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/routing/api](h
 
 Endpoints:
 
+## Route
+
+Retrieve a route as a simple list of gps points along with total distance and estimated duration
+
+
+[https://m3o.com/routing/api#Route](https://m3o.com/routing/api#Route)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/routing/routing.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = RoutingService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "destination": {
+    "latitude": 52.529407,
+    "longitude": 13.397634
+  ,},
+  "origin": {
+    "latitude": 52.517037,
+    "longitude": 13.38886
+  }
+};
+
+  RouteRequest req = RouteRequest.fromJson(payload);
+
+  
+  try {
+
+	RouteResponse res = await ser.route(req);
+
+    res.map((value) => print(value),
+	  Merr: (RouteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Eta
 
 Get the eta for a route from origin to destination. The eta is an estimated time based on car routes
@@ -97,57 +148,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (DirectionsResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Route
-
-Retrieve a route as a simple list of gps points along with total distance and estimated duration
-
-
-[https://m3o.com/routing/api#Route](https://m3o.com/routing/api#Route)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/routing/routing.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = RoutingService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "destination": {
-    "latitude": 52.529407,
-    "longitude": 13.397634
-  ,},
-  "origin": {
-    "latitude": 52.517037,
-    "longitude": 13.38886
-  }
-};
-
-  RouteRequest req = RouteRequest.fromJson(payload);
-
-  
-  try {
-
-	RouteResponse res = await ser.route(req);
-
-    res.map((value) => print(value),
-	  Merr: (RouteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
