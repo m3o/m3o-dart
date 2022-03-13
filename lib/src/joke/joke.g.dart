@@ -7,20 +7,20 @@ part of 'joke.dart';
 // **************************************************************************
 
 _$_JokeInfo _$$_JokeInfoFromJson(Map<String, dynamic> json) => _$_JokeInfo(
-      category: json['category'] as String?,
       id: json['id'] as String?,
       source: json['source'] as String?,
       title: json['title'] as String?,
       body: json['body'] as String?,
+      category: json['category'] as String?,
     );
 
 Map<String, dynamic> _$$_JokeInfoToJson(_$_JokeInfo instance) =>
     <String, dynamic>{
-      'category': instance.category,
       'id': instance.id,
       'source': instance.source,
       'title': instance.title,
       'body': instance.body,
+      'category': instance.category,
     };
 
 _$_RandomRequest _$$_RandomRequestFromJson(Map<String, dynamic> json) =>

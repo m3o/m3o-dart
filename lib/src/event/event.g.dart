@@ -55,15 +55,15 @@ Map<String, dynamic> _$$ConsumeResponseMerrToJson(
     };
 
 _$_Ev _$$_EvFromJson(Map<String, dynamic> json) => _$_Ev(
-      message: json['message'] as Map<String, dynamic>?,
       timestamp: json['timestamp'] as String?,
       id: json['id'] as String?,
+      message: json['message'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$$_EvToJson(_$_Ev instance) => <String, dynamic>{
-      'message': instance.message,
       'timestamp': instance.timestamp,
       'id': instance.id,
+      'message': instance.message,
     };
 
 _$_PublishRequest _$$_PublishRequestFromJson(Map<String, dynamic> json) =>
