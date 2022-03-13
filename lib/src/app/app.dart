@@ -241,12 +241,6 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
-    /// name of the app
-    String? name,
-
-    /// owner id
-    String? owner,
-
     /// associated token
     String? token,
 
@@ -255,6 +249,12 @@ class Reservation with _$Reservation {
 
     /// time reservation expires
     String? expires,
+
+    /// name of the app
+    String? name,
+
+    /// owner id
+    String? owner,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);
@@ -344,11 +344,11 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
-    /// name of the app
-    String? name,
-
     /// region running in
     String? region,
+
+    /// source repository
+    String? repo,
 
     /// status of the app
     String? status,
@@ -359,17 +359,17 @@ class Service with _$Service {
     /// app url
     String? url,
 
-    /// port running on
-    int? port,
-
-    /// source repository
-    String? repo,
-
     /// branch of code
     String? branch,
 
     /// time of creation
     String? created,
+
+    /// unique id
+    String? id,
+
+    /// port running on
+    int? port,
 
     /// custom domains
     String? custom_domains,
@@ -377,8 +377,8 @@ class Service with _$Service {
     /// associated env vars
     Map<String, String>? env_vars,
 
-    /// unique id
-    String? id,
+    /// name of the app
+    String? name,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);
@@ -409,11 +409,11 @@ class StatusResponse with _$StatusResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// name of the app
-    String? name,
-
     /// Additional env vars to update
     Map<String, String>? env_vars,
+
+    /// name of the app
+    String? name,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

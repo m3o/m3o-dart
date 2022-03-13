@@ -145,17 +145,17 @@ class ConvertResponse with _$ConvertResponse {
 @Freezed()
 class CropOptions with _$CropOptions {
   const factory CropOptions({
-    /// Crop anchor point: "top", "top left", "top right",
-    /// "left", "center", "right"
-    /// "bottom left", "bottom", "bottom right".
-    /// Optional. Defaults to center.
-    String? anchor,
-
     /// height to crop to
     int? height,
 
     /// width to crop to
     int? width,
+
+    /// Crop anchor point: "top", "top left", "top right",
+    /// "left", "center", "right"
+    /// "bottom left", "bottom", "bottom right".
+    /// Optional. Defaults to center.
+    String? anchor,
   }) = _CropOptions;
   factory CropOptions.fromJson(Map<String, dynamic> json) =>
       _$CropOptionsFromJson(json);
@@ -202,6 +202,10 @@ class Rectangle with _$Rectangle {
 @Freezed()
 class ResizeRequest with _$ResizeRequest {
   const factory ResizeRequest({
+    /// The image file to resize
+    String? file,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
+
     /// output name of the image including extension, ie. "cat.png"
     String? name,
 
@@ -219,10 +223,6 @@ class ResizeRequest with _$ResizeRequest {
     /// if provided, after resize, the image
     /// will be cropped
     CropOptions? cropOptions,
-
-    /// The image file to resize
-    String? file,
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
   }) = _ResizeRequest;
   factory ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$ResizeRequestFromJson(json);
