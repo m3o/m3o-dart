@@ -82,14 +82,14 @@ Map<String, dynamic> _$$CreateResponseMerrToJson(
 
 _$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
     _$_DeleteRequest(
-      table: json['table'] as String?,
       id: json['id'] as String?,
+      table: json['table'] as String?,
     );
 
 Map<String, dynamic> _$$_DeleteRequestToJson(_$_DeleteRequest instance) =>
     <String, dynamic>{
-      'table': instance.table,
       'id': instance.id,
+      'table': instance.table,
     };
 
 _$DeleteResponseData _$$DeleteResponseDataFromJson(Map<String, dynamic> json) =>
@@ -190,24 +190,24 @@ Map<String, dynamic> _$$ListTablesResponseMerrToJson(
 
 _$_ReadRequest _$$_ReadRequestFromJson(Map<String, dynamic> json) =>
     _$_ReadRequest(
+      offset: json['offset'] as int?,
+      order: json['order'] as String?,
       orderBy: json['orderBy'] as String?,
       query: json['query'] as String?,
       table: json['table'] as String?,
       id: json['id'] as String?,
       limit: json['limit'] as int?,
-      offset: json['offset'] as int?,
-      order: json['order'] as String?,
     );
 
 Map<String, dynamic> _$$_ReadRequestToJson(_$_ReadRequest instance) =>
     <String, dynamic>{
+      'offset': instance.offset,
+      'order': instance.order,
       'orderBy': instance.orderBy,
       'query': instance.query,
       'table': instance.table,
       'id': instance.id,
       'limit': instance.limit,
-      'offset': instance.offset,
-      'order': instance.order,
     };
 
 _$ReadResponseData _$$ReadResponseDataFromJson(Map<String, dynamic> json) =>
@@ -239,15 +239,15 @@ Map<String, dynamic> _$$ReadResponseMerrToJson(_$ReadResponseMerr instance) =>
 _$_RenameTableRequest _$$_RenameTableRequestFromJson(
         Map<String, dynamic> json) =>
     _$_RenameTableRequest(
-      from: json['from'] as String?,
       to: json['to'] as String?,
+      from: json['from'] as String?,
     );
 
 Map<String, dynamic> _$$_RenameTableRequestToJson(
         _$_RenameTableRequest instance) =>
     <String, dynamic>{
-      'from': instance.from,
       'to': instance.to,
+      'from': instance.from,
     };
 
 _$RenameTableResponseData _$$RenameTableResponseDataFromJson(

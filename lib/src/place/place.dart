@@ -114,11 +114,23 @@ class Result with _$Result {
     /// url of an icon
     String? icon_url,
 
-    /// rating from 1.0 to 5.0
-    double? rating,
+    /// name of the place
+    String? name,
 
     /// opening hours
     String? opening_hours,
+
+    /// rating from 1.0 to 5.0
+    double? rating,
+
+    /// address of place
+    String? address,
+
+    /// lat/lng of place
+    String? location,
+
+    /// open now
+    bool? open_now,
 
     /// type of location
     String? type,
@@ -128,18 +140,6 @@ class Result with _$Result {
 
     /// simplified address
     String? vicinity,
-
-    /// address of place
-    String? address,
-
-    /// lat/lng of place
-    String? location,
-
-    /// name of the place
-    String? name,
-
-    /// open now
-    bool? open_now,
   }) = _Result;
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
 }

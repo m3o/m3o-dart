@@ -7,7 +7,6 @@ part of 'twitter.dart';
 // **************************************************************************
 
 _$_Profile _$$_ProfileFromJson(Map<String, dynamic> json) => _$_Profile(
-      description: json['description'] as String?,
       followers: int64FromString(json['followers'] as String?),
       image_url: json['image_url'] as String?,
       name: json['name'] as String?,
@@ -17,11 +16,11 @@ _$_Profile _$$_ProfileFromJson(Map<String, dynamic> json) => _$_Profile(
       location: json['location'] as String?,
       username: json['username'] as String?,
       verified: json['verified'] as bool?,
+      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$$_ProfileToJson(_$_Profile instance) =>
     <String, dynamic>{
-      'description': instance.description,
       'followers': int64ToString(instance.followers),
       'image_url': instance.image_url,
       'name': instance.name,
@@ -31,6 +30,7 @@ Map<String, dynamic> _$$_ProfileToJson(_$_Profile instance) =>
       'location': instance.location,
       'username': instance.username,
       'verified': instance.verified,
+      'description': instance.description,
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
@@ -116,15 +116,15 @@ Map<String, dynamic> _$$TimelineResponseMerrToJson(
     };
 
 _$_Trend _$$_TrendFromJson(Map<String, dynamic> json) => _$_Trend(
-      tweet_volume: int64FromString(json['tweet_volume'] as String?),
       url: json['url'] as String?,
       name: json['name'] as String?,
+      tweet_volume: int64FromString(json['tweet_volume'] as String?),
     );
 
 Map<String, dynamic> _$$_TrendToJson(_$_Trend instance) => <String, dynamic>{
-      'tweet_volume': int64ToString(instance.tweet_volume),
       'url': instance.url,
       'name': instance.name,
+      'tweet_volume': int64ToString(instance.tweet_volume),
     };
 
 _$_TrendsRequest _$$_TrendsRequestFromJson(Map<String, dynamic> json) =>
@@ -162,21 +162,21 @@ Map<String, dynamic> _$$TrendsResponseMerrToJson(
     };
 
 _$_Tweet _$$_TweetFromJson(Map<String, dynamic> json) => _$_Tweet(
+      created_at: json['created_at'] as String?,
+      favourited_count: int64FromString(json['favourited_count'] as String?),
       id: int64FromString(json['id'] as String?),
       retweeted_count: int64FromString(json['retweeted_count'] as String?),
       text: json['text'] as String?,
       username: json['username'] as String?,
-      created_at: json['created_at'] as String?,
-      favourited_count: int64FromString(json['favourited_count'] as String?),
     );
 
 Map<String, dynamic> _$$_TweetToJson(_$_Tweet instance) => <String, dynamic>{
+      'created_at': instance.created_at,
+      'favourited_count': int64ToString(instance.favourited_count),
       'id': int64ToString(instance.id),
       'retweeted_count': int64ToString(instance.retweeted_count),
       'text': instance.text,
       'username': instance.username,
-      'created_at': instance.created_at,
-      'favourited_count': int64ToString(instance.favourited_count),
     };
 
 _$_UserRequest _$$_UserRequestFromJson(Map<String, dynamic> json) =>
