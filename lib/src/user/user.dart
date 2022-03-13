@@ -367,12 +367,6 @@ class UserService {
 @Freezed()
 class Account with _$Account {
   const factory Account({
-    /// Store any custom data you want about your users in this fields.
-    Map<String, String>? profile,
-
-    /// unix timestamp
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? updated,
-
     /// alphanumeric username
     String? username,
 
@@ -391,6 +385,12 @@ class Account with _$Account {
 
     /// unique account id
     String? id,
+
+    /// Store any custom data you want about your users in this fields.
+    Map<String, String>? profile,
+
+    /// unix timestamp
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? updated,
   }) = _Account;
   factory Account.fromJson(Map<String, dynamic> json) =>
       _$AccountFromJson(json);
@@ -589,17 +589,17 @@ class ReadSessionResponse with _$ReadSessionResponse {
 @Freezed()
 class ResetPasswordRequest with _$ResetPasswordRequest {
   const factory ResetPasswordRequest({
-    /// confirm new password
-    String? confirm_password,
-
-    /// the email to reset the password for
-    String? email,
-
     /// the new password
     String? new_password,
 
     /// The code from the verification email
     String? code,
+
+    /// confirm new password
+    String? confirm_password,
+
+    /// the email to reset the password for
+    String? email,
   }) = _ResetPasswordRequest;
   factory ResetPasswordRequest.fromJson(Map<String, dynamic> json) =>
       _$ResetPasswordRequestFromJson(json);
@@ -617,12 +617,6 @@ class ResetPasswordResponse with _$ResetPasswordResponse {
 @Freezed()
 class SendMagicLinkRequest with _$SendMagicLinkRequest {
   const factory SendMagicLinkRequest({
-    /// Your web site address, example www.example.com or user.example.com
-    String? address,
-
-    /// the email address of the user
-    String? email,
-
     /// Endpoint name where your http request handler handles MagicLink by
     /// calling M3O VerifyToken endpoint. You can return as a result a success,
     /// failed or redirect to another page.
@@ -635,6 +629,12 @@ class SendMagicLinkRequest with _$SendMagicLinkRequest {
     /// Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
     /// HTML emails are not available currently.
     String? text_content,
+
+    /// Your web site address, example www.example.com or user.example.com
+    String? address,
+
+    /// the email address of the user
+    String? email,
   }) = _SendMagicLinkRequest;
   factory SendMagicLinkRequest.fromJson(Map<String, dynamic> json) =>
       _$SendMagicLinkRequestFromJson(json);
@@ -740,6 +740,9 @@ class Session with _$Session {
 @Freezed()
 class UpdatePasswordRequest with _$UpdatePasswordRequest {
   const factory UpdatePasswordRequest({
+    /// confirm new password
+    String? confirm_password,
+
     /// the new password
     String? new_password,
 
@@ -748,9 +751,6 @@ class UpdatePasswordRequest with _$UpdatePasswordRequest {
 
     /// the account id
     String? userId,
-
-    /// confirm new password
-    String? confirm_password,
   }) = _UpdatePasswordRequest;
   factory UpdatePasswordRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdatePasswordRequestFromJson(json);

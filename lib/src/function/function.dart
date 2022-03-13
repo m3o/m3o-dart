@@ -274,22 +274,6 @@ class DeployRequest with _$DeployRequest {
     /// optional subfolder path
     String? subfolder,
 
-    /// entry point, ie. handler name in the source code
-    /// if not provided, defaults to the name parameter
-    String? entrypoint,
-
-    /// github url for a repo
-    String? repo,
-
-    /// runtime/lanaguage of the function e.g php74,
-    /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
-    /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
-    /// python37, python38, python39
-    String? runtime,
-
-    /// inline source code
-    String? source,
-
     /// branch to deploy. defaults to master
     String? branch,
 
@@ -301,6 +285,22 @@ class DeployRequest with _$DeployRequest {
 
     /// region to deploy in. defaults to europe-west1
     String? region,
+
+    /// runtime/lanaguage of the function e.g php74,
+    /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
+    /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
+    /// python37, python38, python39
+    String? runtime,
+
+    /// inline source code
+    String? source,
+
+    /// entry point, ie. handler name in the source code
+    /// if not provided, defaults to the name parameter
+    String? entrypoint,
+
+    /// github url for a repo
+    String? repo,
   }) = _DeployRequest;
   factory DeployRequest.fromJson(Map<String, dynamic> json) =>
       _$DeployRequestFromJson(json);
@@ -342,40 +342,6 @@ class DescribeResponse with _$DescribeResponse {
 @Freezed()
 class Func with _$Func {
   const factory Func({
-    /// function name
-    /// limitation: must be unique across projects
-    String? name,
-
-    /// unique url of the function
-    String? url,
-
-    /// name of handler in source code
-    String? entrypoint,
-
-    /// git repo address
-    String? repo,
-
-    /// subfolder path to entrypoint
-    String? subfolder,
-
-    /// time it was updated
-    String? updated,
-
-    /// id of the function
-    String? id,
-
-    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-    String? status,
-
-    /// runtime/language of the function e.g php74,
-    /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
-    /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
-    /// python37, python38, python39
-    String? runtime,
-
-    /// the source code
-    String? source,
-
     /// branch to deploy. defaults to master
     String? branch,
 
@@ -385,8 +351,42 @@ class Func with _$Func {
     /// associated env vars
     Map<String, String>? env_vars,
 
+    /// the source code
+    String? source,
+
+    /// unique url of the function
+    String? url,
+
+    /// name of handler in source code
+    String? entrypoint,
+
     /// region to deploy in. defaults to europe-west1
     String? region,
+
+    /// git repo address
+    String? repo,
+
+    /// runtime/language of the function e.g php74,
+    /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
+    /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
+    /// python37, python38, python39
+    String? runtime,
+
+    /// subfolder path to entrypoint
+    String? subfolder,
+
+    /// id of the function
+    String? id,
+
+    /// function name
+    /// limitation: must be unique across projects
+    String? name,
+
+    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+    String? status,
+
+    /// time it was updated
+    String? updated,
   }) = _Func;
   factory Func.fromJson(Map<String, dynamic> json) => _$FuncFromJson(json);
 }
@@ -515,11 +515,11 @@ class RuntimesResponse with _$RuntimesResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// function name
-    String? name,
-
     /// inline source code
     String? source,
+
+    /// function name
+    String? name,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

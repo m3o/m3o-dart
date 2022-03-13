@@ -309,11 +309,11 @@ class InviteResponse with _$InviteResponse {
 @Freezed()
 class JoinRequest with _$JoinRequest {
   const factory JoinRequest({
-    /// user id joining
-    String? user_id,
-
     /// chat room to join
     String? room_id,
+
+    /// user id joining
+    String? user_id,
   }) = _JoinRequest;
   factory JoinRequest.fromJson(Map<String, dynamic> json) =>
       _$JoinRequestFromJson(json);
@@ -333,11 +333,11 @@ class JoinResponse with _$JoinResponse {
 @Freezed()
 class KickRequest with _$KickRequest {
   const factory KickRequest({
-    /// the chat room id
-    String? room_id,
-
     /// the user id
     String? user_id,
+
+    /// the chat room id
+    String? room_id,
   }) = _KickRequest;
   factory KickRequest.fromJson(Map<String, dynamic> json) =>
       _$KickRequestFromJson(json);
@@ -402,9 +402,6 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
-    /// text of the message
-    String? text,
-
     /// id of the user who sent the message
     String? user_id,
 
@@ -422,6 +419,9 @@ class Message with _$Message {
 
     /// subject of the message
     String? subject,
+
+    /// text of the message
+    String? text,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
@@ -430,15 +430,6 @@ class Message with _$Message {
 @Freezed()
 class Room with _$Room {
   const factory Room({
-    /// list of users
-    String? user_ids,
-
-    /// time of creation
-    String? created_at,
-
-    /// description of the that
-    String? description,
-
     /// unique room id
     String? id,
 
@@ -447,6 +438,15 @@ class Room with _$Room {
 
     /// whether its a private room
     bool? private,
+
+    /// list of users
+    String? user_ids,
+
+    /// time of creation
+    String? created_at,
+
+    /// description of the that
+    String? description,
   }) = _Room;
   factory Room.fromJson(Map<String, dynamic> json) => _$RoomFromJson(json);
 }
@@ -454,9 +454,6 @@ class Room with _$Room {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
-    /// subject of the message
-    String? subject,
-
     /// text of the message
     String? text,
 
@@ -468,6 +465,9 @@ class SendRequest with _$SendRequest {
 
     /// id of the chat room the message is being sent to / from
     String? room_id,
+
+    /// subject of the message
+    String? subject,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);
