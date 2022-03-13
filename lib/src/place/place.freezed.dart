@@ -490,19 +490,19 @@ class _$NearbyRequestTearOff {
   const _$NearbyRequestTearOff();
 
   _NearbyRequest call(
-      {String? location,
+      {String? keyword,
+      String? location,
       String? name,
       bool? open_now,
       int? radius,
-      String? type,
-      String? keyword}) {
+      String? type}) {
     return _NearbyRequest(
+      keyword: keyword,
       location: location,
       name: name,
       open_now: open_now,
       radius: radius,
       type: type,
-      keyword: keyword,
     );
   }
 
@@ -516,6 +516,9 @@ const $NearbyRequest = _$NearbyRequestTearOff();
 
 /// @nodoc
 mixin _$NearbyRequest {
+  /// Keyword to include in the search
+  String? get keyword => throw _privateConstructorUsedError;
+
   /// specify the location by lat,lng e.g -33.8670522,-151.1957362
   String? get location => throw _privateConstructorUsedError;
 
@@ -531,9 +534,6 @@ mixin _$NearbyRequest {
   /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
   String? get type => throw _privateConstructorUsedError;
 
-  /// Keyword to include in the search
-  String? get keyword => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $NearbyRequestCopyWith<NearbyRequest> get copyWith =>
@@ -546,12 +546,12 @@ abstract class $NearbyRequestCopyWith<$Res> {
           NearbyRequest value, $Res Function(NearbyRequest) then) =
       _$NearbyRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? location,
+      {String? keyword,
+      String? location,
       String? name,
       bool? open_now,
       int? radius,
-      String? type,
-      String? keyword});
+      String? type});
 }
 
 /// @nodoc
@@ -565,14 +565,18 @@ class _$NearbyRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? keyword = freezed,
     Object? location = freezed,
     Object? name = freezed,
     Object? open_now = freezed,
     Object? radius = freezed,
     Object? type = freezed,
-    Object? keyword = freezed,
   }) {
     return _then(_value.copyWith(
+      keyword: keyword == freezed
+          ? _value.keyword
+          : keyword // ignore: cast_nullable_to_non_nullable
+              as String?,
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -593,10 +597,6 @@ class _$NearbyRequestCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      keyword: keyword == freezed
-          ? _value.keyword
-          : keyword // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -609,12 +609,12 @@ abstract class _$NearbyRequestCopyWith<$Res>
       __$NearbyRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? location,
+      {String? keyword,
+      String? location,
       String? name,
       bool? open_now,
       int? radius,
-      String? type,
-      String? keyword});
+      String? type});
 }
 
 /// @nodoc
@@ -630,14 +630,18 @@ class __$NearbyRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? keyword = freezed,
     Object? location = freezed,
     Object? name = freezed,
     Object? open_now = freezed,
     Object? radius = freezed,
     Object? type = freezed,
-    Object? keyword = freezed,
   }) {
     return _then(_NearbyRequest(
+      keyword: keyword == freezed
+          ? _value.keyword
+          : keyword // ignore: cast_nullable_to_non_nullable
+              as String?,
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -658,10 +662,6 @@ class __$NearbyRequestCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      keyword: keyword == freezed
-          ? _value.keyword
-          : keyword // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -670,16 +670,20 @@ class __$NearbyRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_NearbyRequest implements _NearbyRequest {
   const _$_NearbyRequest(
-      {this.location,
+      {this.keyword,
+      this.location,
       this.name,
       this.open_now,
       this.radius,
-      this.type,
-      this.keyword});
+      this.type});
 
   factory _$_NearbyRequest.fromJson(Map<String, dynamic> json) =>
       _$$_NearbyRequestFromJson(json);
 
+  @override
+
+  /// Keyword to include in the search
+  final String? keyword;
   @override
 
   /// specify the location by lat,lng e.g -33.8670522,-151.1957362
@@ -700,14 +704,10 @@ class _$_NearbyRequest implements _NearbyRequest {
 
   /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
   final String? type;
-  @override
-
-  /// Keyword to include in the search
-  final String? keyword;
 
   @override
   String toString() {
-    return 'NearbyRequest(location: $location, name: $name, open_now: $open_now, radius: $radius, type: $type, keyword: $keyword)';
+    return 'NearbyRequest(keyword: $keyword, location: $location, name: $name, open_now: $open_now, radius: $radius, type: $type)';
   }
 
   @override
@@ -715,23 +715,23 @@ class _$_NearbyRequest implements _NearbyRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _NearbyRequest &&
+            const DeepCollectionEquality().equals(other.keyword, keyword) &&
             const DeepCollectionEquality().equals(other.location, location) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.open_now, open_now) &&
             const DeepCollectionEquality().equals(other.radius, radius) &&
-            const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.keyword, keyword));
+            const DeepCollectionEquality().equals(other.type, type));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(keyword),
       const DeepCollectionEquality().hash(location),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(open_now),
       const DeepCollectionEquality().hash(radius),
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(keyword));
+      const DeepCollectionEquality().hash(type));
 
   @JsonKey(ignore: true)
   @override
@@ -746,16 +746,20 @@ class _$_NearbyRequest implements _NearbyRequest {
 
 abstract class _NearbyRequest implements NearbyRequest {
   const factory _NearbyRequest(
-      {String? location,
+      {String? keyword,
+      String? location,
       String? name,
       bool? open_now,
       int? radius,
-      String? type,
-      String? keyword}) = _$_NearbyRequest;
+      String? type}) = _$_NearbyRequest;
 
   factory _NearbyRequest.fromJson(Map<String, dynamic> json) =
       _$_NearbyRequest.fromJson;
 
+  @override
+
+  /// Keyword to include in the search
+  String? get keyword;
   @override
 
   /// specify the location by lat,lng e.g -33.8670522,-151.1957362
@@ -776,10 +780,6 @@ abstract class _NearbyRequest implements NearbyRequest {
 
   /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
   String? get type;
-  @override
-
-  /// Keyword to include in the search
-  String? get keyword;
   @override
   @JsonKey(ignore: true)
   _$NearbyRequestCopyWith<_NearbyRequest> get copyWith =>
@@ -1192,27 +1192,27 @@ class _$ResultTearOff {
   const _$ResultTearOff();
 
   _Result call(
-      {String? opening_hours,
-      double? rating,
-      String? type,
-      String? vicinity,
-      String? location,
-      String? name,
+      {String? location,
       bool? open_now,
+      String? opening_hours,
+      double? rating,
       List<String>? types,
       String? address,
-      String? icon_url}) {
+      String? icon_url,
+      String? vicinity,
+      String? name,
+      String? type}) {
     return _Result(
+      location: location,
+      open_now: open_now,
       opening_hours: opening_hours,
       rating: rating,
-      type: type,
-      vicinity: vicinity,
-      location: location,
-      name: name,
-      open_now: open_now,
       types: types,
       address: address,
       icon_url: icon_url,
+      vicinity: vicinity,
+      name: name,
+      type: type,
     );
   }
 
@@ -1226,26 +1226,17 @@ const $Result = _$ResultTearOff();
 
 /// @nodoc
 mixin _$Result {
+  /// lat/lng of place
+  String? get location => throw _privateConstructorUsedError;
+
+  /// open now
+  bool? get open_now => throw _privateConstructorUsedError;
+
   /// opening hours
   String? get opening_hours => throw _privateConstructorUsedError;
 
   /// rating from 1.0 to 5.0
   double? get rating => throw _privateConstructorUsedError;
-
-  /// type of location
-  String? get type => throw _privateConstructorUsedError;
-
-  /// simplified address
-  String? get vicinity => throw _privateConstructorUsedError;
-
-  /// lat/lng of place
-  String? get location => throw _privateConstructorUsedError;
-
-  /// name of the place
-  String? get name => throw _privateConstructorUsedError;
-
-  /// open now
-  bool? get open_now => throw _privateConstructorUsedError;
 
   /// feature types
   List<String>? get types => throw _privateConstructorUsedError;
@@ -1255,6 +1246,15 @@ mixin _$Result {
 
   /// url of an icon
   String? get icon_url => throw _privateConstructorUsedError;
+
+  /// simplified address
+  String? get vicinity => throw _privateConstructorUsedError;
+
+  /// name of the place
+  String? get name => throw _privateConstructorUsedError;
+
+  /// type of location
+  String? get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1266,16 +1266,16 @@ abstract class $ResultCopyWith<$Res> {
   factory $ResultCopyWith(Result value, $Res Function(Result) then) =
       _$ResultCopyWithImpl<$Res>;
   $Res call(
-      {String? opening_hours,
-      double? rating,
-      String? type,
-      String? vicinity,
-      String? location,
-      String? name,
+      {String? location,
       bool? open_now,
+      String? opening_hours,
+      double? rating,
       List<String>? types,
       String? address,
-      String? icon_url});
+      String? icon_url,
+      String? vicinity,
+      String? name,
+      String? type});
 }
 
 /// @nodoc
@@ -1288,18 +1288,26 @@ class _$ResultCopyWithImpl<$Res> implements $ResultCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? location = freezed,
+    Object? open_now = freezed,
     Object? opening_hours = freezed,
     Object? rating = freezed,
-    Object? type = freezed,
-    Object? vicinity = freezed,
-    Object? location = freezed,
-    Object? name = freezed,
-    Object? open_now = freezed,
     Object? types = freezed,
     Object? address = freezed,
     Object? icon_url = freezed,
+    Object? vicinity = freezed,
+    Object? name = freezed,
+    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
+      open_now: open_now == freezed
+          ? _value.open_now
+          : open_now // ignore: cast_nullable_to_non_nullable
+              as bool?,
       opening_hours: opening_hours == freezed
           ? _value.opening_hours
           : opening_hours // ignore: cast_nullable_to_non_nullable
@@ -1308,26 +1316,6 @@ class _$ResultCopyWithImpl<$Res> implements $ResultCopyWith<$Res> {
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double?,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
-      vicinity: vicinity == freezed
-          ? _value.vicinity
-          : vicinity // ignore: cast_nullable_to_non_nullable
-              as String?,
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      open_now: open_now == freezed
-          ? _value.open_now
-          : open_now // ignore: cast_nullable_to_non_nullable
-              as bool?,
       types: types == freezed
           ? _value.types
           : types // ignore: cast_nullable_to_non_nullable
@@ -1340,6 +1328,18 @@ class _$ResultCopyWithImpl<$Res> implements $ResultCopyWith<$Res> {
           ? _value.icon_url
           : icon_url // ignore: cast_nullable_to_non_nullable
               as String?,
+      vicinity: vicinity == freezed
+          ? _value.vicinity
+          : vicinity // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1350,16 +1350,16 @@ abstract class _$ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
       __$ResultCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? opening_hours,
-      double? rating,
-      String? type,
-      String? vicinity,
-      String? location,
-      String? name,
+      {String? location,
       bool? open_now,
+      String? opening_hours,
+      double? rating,
       List<String>? types,
       String? address,
-      String? icon_url});
+      String? icon_url,
+      String? vicinity,
+      String? name,
+      String? type});
 }
 
 /// @nodoc
@@ -1373,18 +1373,26 @@ class __$ResultCopyWithImpl<$Res> extends _$ResultCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? location = freezed,
+    Object? open_now = freezed,
     Object? opening_hours = freezed,
     Object? rating = freezed,
-    Object? type = freezed,
-    Object? vicinity = freezed,
-    Object? location = freezed,
-    Object? name = freezed,
-    Object? open_now = freezed,
     Object? types = freezed,
     Object? address = freezed,
     Object? icon_url = freezed,
+    Object? vicinity = freezed,
+    Object? name = freezed,
+    Object? type = freezed,
   }) {
     return _then(_Result(
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
+      open_now: open_now == freezed
+          ? _value.open_now
+          : open_now // ignore: cast_nullable_to_non_nullable
+              as bool?,
       opening_hours: opening_hours == freezed
           ? _value.opening_hours
           : opening_hours // ignore: cast_nullable_to_non_nullable
@@ -1393,26 +1401,6 @@ class __$ResultCopyWithImpl<$Res> extends _$ResultCopyWithImpl<$Res>
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double?,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
-      vicinity: vicinity == freezed
-          ? _value.vicinity
-          : vicinity // ignore: cast_nullable_to_non_nullable
-              as String?,
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      open_now: open_now == freezed
-          ? _value.open_now
-          : open_now // ignore: cast_nullable_to_non_nullable
-              as bool?,
       types: types == freezed
           ? _value.types
           : types // ignore: cast_nullable_to_non_nullable
@@ -1425,6 +1413,18 @@ class __$ResultCopyWithImpl<$Res> extends _$ResultCopyWithImpl<$Res>
           ? _value.icon_url
           : icon_url // ignore: cast_nullable_to_non_nullable
               as String?,
+      vicinity: vicinity == freezed
+          ? _value.vicinity
+          : vicinity // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1433,20 +1433,28 @@ class __$ResultCopyWithImpl<$Res> extends _$ResultCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Result implements _Result {
   const _$_Result(
-      {this.opening_hours,
-      this.rating,
-      this.type,
-      this.vicinity,
-      this.location,
-      this.name,
+      {this.location,
       this.open_now,
+      this.opening_hours,
+      this.rating,
       this.types,
       this.address,
-      this.icon_url});
+      this.icon_url,
+      this.vicinity,
+      this.name,
+      this.type});
 
   factory _$_Result.fromJson(Map<String, dynamic> json) =>
       _$$_ResultFromJson(json);
 
+  @override
+
+  /// lat/lng of place
+  final String? location;
+  @override
+
+  /// open now
+  final bool? open_now;
   @override
 
   /// opening hours
@@ -1455,26 +1463,6 @@ class _$_Result implements _Result {
 
   /// rating from 1.0 to 5.0
   final double? rating;
-  @override
-
-  /// type of location
-  final String? type;
-  @override
-
-  /// simplified address
-  final String? vicinity;
-  @override
-
-  /// lat/lng of place
-  final String? location;
-  @override
-
-  /// name of the place
-  final String? name;
-  @override
-
-  /// open now
-  final bool? open_now;
   @override
 
   /// feature types
@@ -1487,10 +1475,22 @@ class _$_Result implements _Result {
 
   /// url of an icon
   final String? icon_url;
+  @override
+
+  /// simplified address
+  final String? vicinity;
+  @override
+
+  /// name of the place
+  final String? name;
+  @override
+
+  /// type of location
+  final String? type;
 
   @override
   String toString() {
-    return 'Result(opening_hours: $opening_hours, rating: $rating, type: $type, vicinity: $vicinity, location: $location, name: $name, open_now: $open_now, types: $types, address: $address, icon_url: $icon_url)';
+    return 'Result(location: $location, open_now: $open_now, opening_hours: $opening_hours, rating: $rating, types: $types, address: $address, icon_url: $icon_url, vicinity: $vicinity, name: $name, type: $type)';
   }
 
   @override
@@ -1498,32 +1498,32 @@ class _$_Result implements _Result {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Result &&
+            const DeepCollectionEquality().equals(other.location, location) &&
+            const DeepCollectionEquality().equals(other.open_now, open_now) &&
             const DeepCollectionEquality()
                 .equals(other.opening_hours, opening_hours) &&
             const DeepCollectionEquality().equals(other.rating, rating) &&
-            const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.vicinity, vicinity) &&
-            const DeepCollectionEquality().equals(other.location, location) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.open_now, open_now) &&
             const DeepCollectionEquality().equals(other.types, types) &&
             const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.icon_url, icon_url));
+            const DeepCollectionEquality().equals(other.icon_url, icon_url) &&
+            const DeepCollectionEquality().equals(other.vicinity, vicinity) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.type, type));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(location),
+      const DeepCollectionEquality().hash(open_now),
       const DeepCollectionEquality().hash(opening_hours),
       const DeepCollectionEquality().hash(rating),
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(vicinity),
-      const DeepCollectionEquality().hash(location),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(open_now),
       const DeepCollectionEquality().hash(types),
       const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(icon_url));
+      const DeepCollectionEquality().hash(icon_url),
+      const DeepCollectionEquality().hash(vicinity),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(type));
 
   @JsonKey(ignore: true)
   @override
@@ -1538,19 +1538,27 @@ class _$_Result implements _Result {
 
 abstract class _Result implements Result {
   const factory _Result(
-      {String? opening_hours,
-      double? rating,
-      String? type,
-      String? vicinity,
-      String? location,
-      String? name,
+      {String? location,
       bool? open_now,
+      String? opening_hours,
+      double? rating,
       List<String>? types,
       String? address,
-      String? icon_url}) = _$_Result;
+      String? icon_url,
+      String? vicinity,
+      String? name,
+      String? type}) = _$_Result;
 
   factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
 
+  @override
+
+  /// lat/lng of place
+  String? get location;
+  @override
+
+  /// open now
+  bool? get open_now;
   @override
 
   /// opening hours
@@ -1559,26 +1567,6 @@ abstract class _Result implements Result {
 
   /// rating from 1.0 to 5.0
   double? get rating;
-  @override
-
-  /// type of location
-  String? get type;
-  @override
-
-  /// simplified address
-  String? get vicinity;
-  @override
-
-  /// lat/lng of place
-  String? get location;
-  @override
-
-  /// name of the place
-  String? get name;
-  @override
-
-  /// open now
-  bool? get open_now;
   @override
 
   /// feature types
@@ -1591,6 +1579,18 @@ abstract class _Result implements Result {
 
   /// url of an icon
   String? get icon_url;
+  @override
+
+  /// simplified address
+  String? get vicinity;
+  @override
+
+  /// name of the place
+  String? get name;
+  @override
+
+  /// type of location
+  String? get type;
   @override
   @JsonKey(ignore: true)
   _$ResultCopyWith<_Result> get copyWith => throw _privateConstructorUsedError;
@@ -1605,17 +1605,17 @@ class _$SearchRequestTearOff {
   const _$SearchRequestTearOff();
 
   _SearchRequest call(
-      {String? location,
-      bool? open_now,
-      String? query,
+      {String? query,
       int? radius,
-      String? type}) {
+      String? type,
+      String? location,
+      bool? open_now}) {
     return _SearchRequest(
-      location: location,
-      open_now: open_now,
       query: query,
       radius: radius,
       type: type,
+      location: location,
+      open_now: open_now,
     );
   }
 
@@ -1629,12 +1629,6 @@ const $SearchRequest = _$SearchRequestTearOff();
 
 /// @nodoc
 mixin _$SearchRequest {
-  /// the location by lat,lng e.g -33.8670522,-151.1957362
-  String? get location => throw _privateConstructorUsedError;
-
-  /// Whether the place is open now
-  bool? get open_now => throw _privateConstructorUsedError;
-
   /// the text string on which to search, for example: "restaurant"
   String? get query => throw _privateConstructorUsedError;
 
@@ -1643,6 +1637,12 @@ mixin _$SearchRequest {
 
   /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
   String? get type => throw _privateConstructorUsedError;
+
+  /// the location by lat,lng e.g -33.8670522,-151.1957362
+  String? get location => throw _privateConstructorUsedError;
+
+  /// Whether the place is open now
+  bool? get open_now => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1656,11 +1656,11 @@ abstract class $SearchRequestCopyWith<$Res> {
           SearchRequest value, $Res Function(SearchRequest) then) =
       _$SearchRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? location,
-      bool? open_now,
-      String? query,
+      {String? query,
       int? radius,
-      String? type});
+      String? type,
+      String? location,
+      bool? open_now});
 }
 
 /// @nodoc
@@ -1674,21 +1674,13 @@ class _$SearchRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? location = freezed,
-    Object? open_now = freezed,
     Object? query = freezed,
     Object? radius = freezed,
     Object? type = freezed,
+    Object? location = freezed,
+    Object? open_now = freezed,
   }) {
     return _then(_value.copyWith(
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String?,
-      open_now: open_now == freezed
-          ? _value.open_now
-          : open_now // ignore: cast_nullable_to_non_nullable
-              as bool?,
       query: query == freezed
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -1701,6 +1693,14 @@ class _$SearchRequestCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
+      open_now: open_now == freezed
+          ? _value.open_now
+          : open_now // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -1713,11 +1713,11 @@ abstract class _$SearchRequestCopyWith<$Res>
       __$SearchRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? location,
-      bool? open_now,
-      String? query,
+      {String? query,
       int? radius,
-      String? type});
+      String? type,
+      String? location,
+      bool? open_now});
 }
 
 /// @nodoc
@@ -1733,21 +1733,13 @@ class __$SearchRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? location = freezed,
-    Object? open_now = freezed,
     Object? query = freezed,
     Object? radius = freezed,
     Object? type = freezed,
+    Object? location = freezed,
+    Object? open_now = freezed,
   }) {
     return _then(_SearchRequest(
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String?,
-      open_now: open_now == freezed
-          ? _value.open_now
-          : open_now // ignore: cast_nullable_to_non_nullable
-              as bool?,
       query: query == freezed
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -1760,6 +1752,14 @@ class __$SearchRequestCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
+      open_now: open_now == freezed
+          ? _value.open_now
+          : open_now // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -1768,19 +1768,11 @@ class __$SearchRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SearchRequest implements _SearchRequest {
   const _$_SearchRequest(
-      {this.location, this.open_now, this.query, this.radius, this.type});
+      {this.query, this.radius, this.type, this.location, this.open_now});
 
   factory _$_SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SearchRequestFromJson(json);
 
-  @override
-
-  /// the location by lat,lng e.g -33.8670522,-151.1957362
-  final String? location;
-  @override
-
-  /// Whether the place is open now
-  final bool? open_now;
   @override
 
   /// the text string on which to search, for example: "restaurant"
@@ -1793,10 +1785,18 @@ class _$_SearchRequest implements _SearchRequest {
 
   /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
   final String? type;
+  @override
+
+  /// the location by lat,lng e.g -33.8670522,-151.1957362
+  final String? location;
+  @override
+
+  /// Whether the place is open now
+  final bool? open_now;
 
   @override
   String toString() {
-    return 'SearchRequest(location: $location, open_now: $open_now, query: $query, radius: $radius, type: $type)';
+    return 'SearchRequest(query: $query, radius: $radius, type: $type, location: $location, open_now: $open_now)';
   }
 
   @override
@@ -1804,21 +1804,21 @@ class _$_SearchRequest implements _SearchRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SearchRequest &&
-            const DeepCollectionEquality().equals(other.location, location) &&
-            const DeepCollectionEquality().equals(other.open_now, open_now) &&
             const DeepCollectionEquality().equals(other.query, query) &&
             const DeepCollectionEquality().equals(other.radius, radius) &&
-            const DeepCollectionEquality().equals(other.type, type));
+            const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality().equals(other.location, location) &&
+            const DeepCollectionEquality().equals(other.open_now, open_now));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(location),
-      const DeepCollectionEquality().hash(open_now),
       const DeepCollectionEquality().hash(query),
       const DeepCollectionEquality().hash(radius),
-      const DeepCollectionEquality().hash(type));
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(location),
+      const DeepCollectionEquality().hash(open_now));
 
   @JsonKey(ignore: true)
   @override
@@ -1833,23 +1833,15 @@ class _$_SearchRequest implements _SearchRequest {
 
 abstract class _SearchRequest implements SearchRequest {
   const factory _SearchRequest(
-      {String? location,
-      bool? open_now,
-      String? query,
+      {String? query,
       int? radius,
-      String? type}) = _$_SearchRequest;
+      String? type,
+      String? location,
+      bool? open_now}) = _$_SearchRequest;
 
   factory _SearchRequest.fromJson(Map<String, dynamic> json) =
       _$_SearchRequest.fromJson;
 
-  @override
-
-  /// the location by lat,lng e.g -33.8670522,-151.1957362
-  String? get location;
-  @override
-
-  /// Whether the place is open now
-  bool? get open_now;
   @override
 
   /// the text string on which to search, for example: "restaurant"
@@ -1862,6 +1854,14 @@ abstract class _SearchRequest implements SearchRequest {
 
   /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
   String? get type;
+  @override
+
+  /// the location by lat,lng e.g -33.8670522,-151.1957362
+  String? get location;
+  @override
+
+  /// Whether the place is open now
+  bool? get open_now;
   @override
   @JsonKey(ignore: true)
   _$SearchRequestCopyWith<_SearchRequest> get copyWith =>

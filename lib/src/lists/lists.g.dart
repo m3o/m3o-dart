@@ -127,21 +127,21 @@ Map<String, dynamic> _$$EventsResponseMerrToJson(
     };
 
 _$_List _$$_ListFromJson(Map<String, dynamic> json) => _$_List(
-      created: json['created'] as String?,
-      id: json['id'] as String?,
       items: json['items'] == null
           ? null
           : List.fromJson(json['items'] as Map<String, dynamic>),
       name: json['name'] as String?,
       updated: json['updated'] as String?,
+      created: json['created'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_ListToJson(_$_List instance) => <String, dynamic>{
-      'created': instance.created,
-      'id': instance.id,
       'items': instance.items,
       'name': instance.name,
       'updated': instance.updated,
+      'created': instance.created,
+      'id': instance.id,
     };
 
 _$_ListRequest _$$_ListRequestFromJson(Map<String, dynamic> json) =>

@@ -23,17 +23,17 @@ class _$TextRequestTearOff {
   const _$TextRequestTearOff();
 
   _TextRequest call(
-      {String? format,
+      {String? content,
+      String? format,
       String? model,
       String? source,
-      String? target,
-      String? content}) {
+      String? target}) {
     return _TextRequest(
+      content: content,
       format: format,
       model: model,
       source: source,
       target: target,
-      content: content,
     );
   }
 
@@ -47,6 +47,9 @@ const $TextRequest = _$TextRequestTearOff();
 
 /// @nodoc
 mixin _$TextRequest {
+  /// The contents to be translated
+  String? get content => throw _privateConstructorUsedError;
+
   /// The string format, `text` or `html`
   String? get format => throw _privateConstructorUsedError;
 
@@ -62,9 +65,6 @@ mixin _$TextRequest {
   /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
   String? get target => throw _privateConstructorUsedError;
 
-  /// The contents to be translated
-  String? get content => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TextRequestCopyWith<TextRequest> get copyWith =>
@@ -77,11 +77,11 @@ abstract class $TextRequestCopyWith<$Res> {
           TextRequest value, $Res Function(TextRequest) then) =
       _$TextRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? format,
+      {String? content,
+      String? format,
       String? model,
       String? source,
-      String? target,
-      String? content});
+      String? target});
 }
 
 /// @nodoc
@@ -94,13 +94,17 @@ class _$TextRequestCopyWithImpl<$Res> implements $TextRequestCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? content = freezed,
     Object? format = freezed,
     Object? model = freezed,
     Object? source = freezed,
     Object? target = freezed,
-    Object? content = freezed,
   }) {
     return _then(_value.copyWith(
+      content: content == freezed
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String?,
       format: format == freezed
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
@@ -117,10 +121,6 @@ class _$TextRequestCopyWithImpl<$Res> implements $TextRequestCopyWith<$Res> {
           ? _value.target
           : target // ignore: cast_nullable_to_non_nullable
               as String?,
-      content: content == freezed
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -133,11 +133,11 @@ abstract class _$TextRequestCopyWith<$Res>
       __$TextRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? format,
+      {String? content,
+      String? format,
       String? model,
       String? source,
-      String? target,
-      String? content});
+      String? target});
 }
 
 /// @nodoc
@@ -152,13 +152,17 @@ class __$TextRequestCopyWithImpl<$Res> extends _$TextRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? content = freezed,
     Object? format = freezed,
     Object? model = freezed,
     Object? source = freezed,
     Object? target = freezed,
-    Object? content = freezed,
   }) {
     return _then(_TextRequest(
+      content: content == freezed
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String?,
       format: format == freezed
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
@@ -175,10 +179,6 @@ class __$TextRequestCopyWithImpl<$Res> extends _$TextRequestCopyWithImpl<$Res>
           ? _value.target
           : target // ignore: cast_nullable_to_non_nullable
               as String?,
-      content: content == freezed
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -187,11 +187,15 @@ class __$TextRequestCopyWithImpl<$Res> extends _$TextRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TextRequest implements _TextRequest {
   const _$_TextRequest(
-      {this.format, this.model, this.source, this.target, this.content});
+      {this.content, this.format, this.model, this.source, this.target});
 
   factory _$_TextRequest.fromJson(Map<String, dynamic> json) =>
       _$$_TextRequestFromJson(json);
 
+  @override
+
+  /// The contents to be translated
+  final String? content;
   @override
 
   /// The string format, `text` or `html`
@@ -211,14 +215,10 @@ class _$_TextRequest implements _TextRequest {
   /// Target language, format in ISO-639-1 codes
   /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
   final String? target;
-  @override
-
-  /// The contents to be translated
-  final String? content;
 
   @override
   String toString() {
-    return 'TextRequest(format: $format, model: $model, source: $source, target: $target, content: $content)';
+    return 'TextRequest(content: $content, format: $format, model: $model, source: $source, target: $target)';
   }
 
   @override
@@ -226,21 +226,21 @@ class _$_TextRequest implements _TextRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TextRequest &&
+            const DeepCollectionEquality().equals(other.content, content) &&
             const DeepCollectionEquality().equals(other.format, format) &&
             const DeepCollectionEquality().equals(other.model, model) &&
             const DeepCollectionEquality().equals(other.source, source) &&
-            const DeepCollectionEquality().equals(other.target, target) &&
-            const DeepCollectionEquality().equals(other.content, content));
+            const DeepCollectionEquality().equals(other.target, target));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(content),
       const DeepCollectionEquality().hash(format),
       const DeepCollectionEquality().hash(model),
       const DeepCollectionEquality().hash(source),
-      const DeepCollectionEquality().hash(target),
-      const DeepCollectionEquality().hash(content));
+      const DeepCollectionEquality().hash(target));
 
   @JsonKey(ignore: true)
   @override
@@ -255,15 +255,19 @@ class _$_TextRequest implements _TextRequest {
 
 abstract class _TextRequest implements TextRequest {
   const factory _TextRequest(
-      {String? format,
+      {String? content,
+      String? format,
       String? model,
       String? source,
-      String? target,
-      String? content}) = _$_TextRequest;
+      String? target}) = _$_TextRequest;
 
   factory _TextRequest.fromJson(Map<String, dynamic> json) =
       _$_TextRequest.fromJson;
 
+  @override
+
+  /// The contents to be translated
+  String? get content;
   @override
 
   /// The string format, `text` or `html`
@@ -283,10 +287,6 @@ abstract class _TextRequest implements TextRequest {
   /// Target language, format in ISO-639-1 codes
   /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
   String? get target;
-  @override
-
-  /// The contents to be translated
-  String? get content;
   @override
   @JsonKey(ignore: true)
   _$TextRequestCopyWith<_TextRequest> get copyWith =>
