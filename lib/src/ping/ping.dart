@@ -90,11 +90,11 @@ class IpRequest with _$IpRequest {
 @Freezed()
 class IpResponse with _$IpResponse {
   const factory IpResponse({
-    /// average latency e.g 10ms
-    String? latency,
-
     /// response status
     String? status,
+
+    /// average latency e.g 10ms
+    String? latency,
   }) = IpResponseData;
   const factory IpResponse.Merr({Map<String, dynamic>? body}) = IpResponseMerr;
   factory IpResponse.fromJson(Map<String, dynamic> json) =>
@@ -104,11 +104,11 @@ class IpResponse with _$IpResponse {
 @Freezed()
 class TcpRequest with _$TcpRequest {
   const factory TcpRequest({
-    /// optional data to send
-    String? data,
-
     /// address to dial
     String? address,
+
+    /// optional data to send
+    String? data,
   }) = _TcpRequest;
   factory TcpRequest.fromJson(Map<String, dynamic> json) =>
       _$TcpRequestFromJson(json);
@@ -117,11 +117,11 @@ class TcpRequest with _$TcpRequest {
 @Freezed()
 class TcpResponse with _$TcpResponse {
   const factory TcpResponse({
-    /// response data if any
-    String? data,
-
     /// response status
     String? status,
+
+    /// response data if any
+    String? data,
   }) = TcpResponseData;
   const factory TcpResponse.Merr({Map<String, dynamic>? body}) =
       TcpResponseMerr;
@@ -132,11 +132,11 @@ class TcpResponse with _$TcpResponse {
 @Freezed()
 class UrlRequest with _$UrlRequest {
   const factory UrlRequest({
-    /// address to use
-    String? address,
-
     /// method of the call
     String? method,
+
+    /// address to use
+    String? address,
   }) = _UrlRequest;
   factory UrlRequest.fromJson(Map<String, dynamic> json) =>
       _$UrlRequestFromJson(json);
@@ -145,11 +145,11 @@ class UrlRequest with _$UrlRequest {
 @Freezed()
 class UrlResponse with _$UrlResponse {
   const factory UrlResponse({
-    /// the response code
-    int? code,
-
     /// the response status
     String? status,
+
+    /// the response code
+    int? code,
   }) = UrlResponseData;
   const factory UrlResponse.Merr({Map<String, dynamic>? body}) =
       UrlResponseMerr;
