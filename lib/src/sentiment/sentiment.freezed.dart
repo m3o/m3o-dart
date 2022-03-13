@@ -22,10 +22,10 @@ AnalyzeRequest _$AnalyzeRequestFromJson(Map<String, dynamic> json) {
 class _$AnalyzeRequestTearOff {
   const _$AnalyzeRequestTearOff();
 
-  _AnalyzeRequest call({String? lang, String? text}) {
+  _AnalyzeRequest call({String? text, String? lang}) {
     return _AnalyzeRequest(
-      lang: lang,
       text: text,
+      lang: lang,
     );
   }
 
@@ -39,11 +39,11 @@ const $AnalyzeRequest = _$AnalyzeRequestTearOff();
 
 /// @nodoc
 mixin _$AnalyzeRequest {
-  /// The language. Defaults to english.
-  String? get lang => throw _privateConstructorUsedError;
-
   /// The text to analyze
   String? get text => throw _privateConstructorUsedError;
+
+  /// The language. Defaults to english.
+  String? get lang => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,7 +56,7 @@ abstract class $AnalyzeRequestCopyWith<$Res> {
   factory $AnalyzeRequestCopyWith(
           AnalyzeRequest value, $Res Function(AnalyzeRequest) then) =
       _$AnalyzeRequestCopyWithImpl<$Res>;
-  $Res call({String? lang, String? text});
+  $Res call({String? text, String? lang});
 }
 
 /// @nodoc
@@ -70,17 +70,17 @@ class _$AnalyzeRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? lang = freezed,
     Object? text = freezed,
+    Object? lang = freezed,
   }) {
     return _then(_value.copyWith(
-      lang: lang == freezed
-          ? _value.lang
-          : lang // ignore: cast_nullable_to_non_nullable
-              as String?,
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lang: lang == freezed
+          ? _value.lang
+          : lang // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -93,7 +93,7 @@ abstract class _$AnalyzeRequestCopyWith<$Res>
           _AnalyzeRequest value, $Res Function(_AnalyzeRequest) then) =
       __$AnalyzeRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? lang, String? text});
+  $Res call({String? text, String? lang});
 }
 
 /// @nodoc
@@ -109,17 +109,17 @@ class __$AnalyzeRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? lang = freezed,
     Object? text = freezed,
+    Object? lang = freezed,
   }) {
     return _then(_AnalyzeRequest(
-      lang: lang == freezed
-          ? _value.lang
-          : lang // ignore: cast_nullable_to_non_nullable
-              as String?,
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lang: lang == freezed
+          ? _value.lang
+          : lang // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -128,23 +128,23 @@ class __$AnalyzeRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_AnalyzeRequest implements _AnalyzeRequest {
-  const _$_AnalyzeRequest({this.lang, this.text});
+  const _$_AnalyzeRequest({this.text, this.lang});
 
   factory _$_AnalyzeRequest.fromJson(Map<String, dynamic> json) =>
       _$$_AnalyzeRequestFromJson(json);
 
   @override
 
-  /// The language. Defaults to english.
-  final String? lang;
-  @override
-
   /// The text to analyze
   final String? text;
+  @override
+
+  /// The language. Defaults to english.
+  final String? lang;
 
   @override
   String toString() {
-    return 'AnalyzeRequest(lang: $lang, text: $text)';
+    return 'AnalyzeRequest(text: $text, lang: $lang)';
   }
 
   @override
@@ -152,15 +152,15 @@ class _$_AnalyzeRequest implements _AnalyzeRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AnalyzeRequest &&
-            const DeepCollectionEquality().equals(other.lang, lang) &&
-            const DeepCollectionEquality().equals(other.text, text));
+            const DeepCollectionEquality().equals(other.text, text) &&
+            const DeepCollectionEquality().equals(other.lang, lang));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(lang),
-      const DeepCollectionEquality().hash(text));
+      const DeepCollectionEquality().hash(text),
+      const DeepCollectionEquality().hash(lang));
 
   @JsonKey(ignore: true)
   @override
@@ -174,7 +174,7 @@ class _$_AnalyzeRequest implements _AnalyzeRequest {
 }
 
 abstract class _AnalyzeRequest implements AnalyzeRequest {
-  const factory _AnalyzeRequest({String? lang, String? text}) =
+  const factory _AnalyzeRequest({String? text, String? lang}) =
       _$_AnalyzeRequest;
 
   factory _AnalyzeRequest.fromJson(Map<String, dynamic> json) =
@@ -182,12 +182,12 @@ abstract class _AnalyzeRequest implements AnalyzeRequest {
 
   @override
 
-  /// The language. Defaults to english.
-  String? get lang;
-  @override
-
   /// The text to analyze
   String? get text;
+  @override
+
+  /// The language. Defaults to english.
+  String? get lang;
   @override
   @JsonKey(ignore: true)
   _$AnalyzeRequestCopyWith<_AnalyzeRequest> get copyWith =>
