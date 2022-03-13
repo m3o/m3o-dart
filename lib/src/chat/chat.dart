@@ -211,17 +211,17 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// chat description
-    String? description,
-
-    /// name of the room
-    String? name,
-
     /// whether its a private room
     bool? private,
 
     /// optional list of user ids
     String? user_ids,
+
+    /// chat description
+    String? description,
+
+    /// name of the room
+    String? name,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -454,9 +454,6 @@ class Room with _$Room {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
-    /// id of the chat room the message is being sent to / from
-    String? room_id,
-
     /// subject of the message
     String? subject,
 
@@ -468,6 +465,9 @@ class SendRequest with _$SendRequest {
 
     /// a client side id, should be validated by the server to make the request retry safe
     String? client,
+
+    /// id of the chat room the message is being sent to / from
+    String? room_id,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);
