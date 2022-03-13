@@ -59,11 +59,11 @@ class GeocodingService {
 @Freezed()
 class Address with _$Address {
   const factory Address({
+    String? postcode,
+    String? city,
     String? country,
     String? line_one,
     String? line_two,
-    String? postcode,
-    String? city,
   }) = _Address;
   factory Address.fromJson(Map<String, dynamic> json) =>
       _$AddressFromJson(json);

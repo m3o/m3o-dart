@@ -115,17 +115,17 @@ class SearchResult with _$SearchResult {
     /// the channel id
     String? channel_id,
 
-    /// the channel title
-    String? channel_title,
+    /// id of the result
+    String? id,
 
-    /// the result description
-    String? description,
+    /// title of the result
+    String? title,
 
     /// kind of result: "video", "channel", "playlist"
     String? kind,
 
-    /// title of the result
-    String? title,
+    /// published at time
+    String? published_at,
 
     /// the associated url
     String? url,
@@ -134,11 +134,11 @@ class SearchResult with _$SearchResult {
     /// none, upcoming, live, completed
     String? broadcasting,
 
-    /// id of the result
-    String? id,
+    /// the channel title
+    String? channel_title,
 
-    /// published at time
-    String? published_at,
+    /// the result description
+    String? description,
   }) = _SearchResult;
   factory SearchResult.fromJson(Map<String, dynamic> json) =>
       _$SearchResultFromJson(json);
