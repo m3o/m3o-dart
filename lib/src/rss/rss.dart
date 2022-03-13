@@ -101,16 +101,16 @@ class RssService {
 @Freezed()
 class AddRequest with _$AddRequest {
   const factory AddRequest({
+    /// rss feed url
+    /// eg. http://a16z.com/feed/
+    String? url,
+
     /// category to add e.g news
     String? category,
 
     /// rss feed name
     /// eg. a16z
     String? name,
-
-    /// rss feed url
-    /// eg. http://a16z.com/feed/
-    String? url,
   }) = _AddRequest;
   factory AddRequest.fromJson(Map<String, dynamic> json) =>
       _$AddRequestFromJson(json);
@@ -128,6 +128,9 @@ class AddResponse with _$AddResponse {
 @Freezed()
 class Entry with _$Entry {
   const factory Entry({
+    /// article content
+    String? content,
+
     /// data of the entry
     String? date,
 
@@ -145,9 +148,6 @@ class Entry with _$Entry {
 
     /// title of the entry
     String? title,
-
-    /// article content
-    String? content,
   }) = _Entry;
   factory Entry.fromJson(Map<String, dynamic> json) => _$EntryFromJson(json);
 }

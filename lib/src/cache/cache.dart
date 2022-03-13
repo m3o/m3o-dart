@@ -267,14 +267,14 @@ class ListKeysResponse with _$ListKeysResponse {
 @Freezed()
 class SetRequest with _$SetRequest {
   const factory SetRequest({
-    /// The value to set
-    String? value,
-
     /// The key to update
     String? key,
 
     /// Time to live in seconds
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+
+    /// The value to set
+    String? value,
   }) = _SetRequest;
   factory SetRequest.fromJson(Map<String, dynamic> json) =>
       _$SetRequestFromJson(json);
