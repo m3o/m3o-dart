@@ -4,12 +4,54 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/chat/api](http
 
 Endpoints:
 
-## Join
+## List
 
-Join a chat room
+List available chats
 
 
-[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
+[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/chat/chat.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = ChatService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{};
+
+  ListRequest req = ListRequest.fromJson(payload);
+
+  
+  try {
+
+	ListResponse res = await ser.list(req);
+
+    res.map((value) => print(value),
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Delete
+
+Delete a chat room
+
+
+[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
 
 ```dart
 import 'dart:io';
@@ -27,22 +69,19 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-2"
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
 ,};
 
-  JoinRequest req = JoinRequest.fromJson(payload);
+  DeleteRequest req = DeleteRequest.fromJson(payload);
 
   
-  	
   try {
 
-    final res = await ser.join(req);
+	DeleteResponse res = await ser.delete(req);
 
-	  await for (var sr in res) {
-	  sr.map((value) => print(value),
-		Merr: (JoinResponseMerr err) => print(err.body));
-	  }
+    res.map((value) => print(value),
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+  
   } catch (e, stack) {
     print(e);
 	print(stack);
@@ -51,12 +90,12 @@ void main() async {
   }
 }
 ```
-## Kick
+## Invite
 
-Kick a user from a chat room
+Invite a user to a chat room
 
 
-[https://m3o.com/chat/api#Kick](https://m3o.com/chat/api#Kick)
+[https://m3o.com/chat/api#Invite](https://m3o.com/chat/api#Invite)
 
 ```dart
 import 'dart:io';
@@ -78,15 +117,15 @@ void main() async {
   "user_id": "user-1"
 ,};
 
-  KickRequest req = KickRequest.fromJson(payload);
+  InviteRequest req = InviteRequest.fromJson(payload);
 
   
   try {
 
-	KickResponse res = await ser.kick(req);
+	InviteResponse res = await ser.invite(req);
 
     res.map((value) => print(value),
-	  Merr: (KickResponseMerr err) => print(err.body!['body']));	
+	  Merr: (InviteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -186,54 +225,13 @@ void main() async {
   }
 }
 ```
-## List
+## Send
 
-List available chats
-
-
-[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/chat/chat.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = ChatService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{};
-
-  ListRequest req = ListRequest.fromJson(payload);
-
-  
-  try {
-
-	ListResponse res = await ser.list(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Delete
-
-Delete a chat room
+Connect to a chat to receive a stream of messages
+Send a message to a chat
 
 
-[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
+[https://m3o.com/chat/api#Send](https://m3o.com/chat/api#Send)
 
 ```dart
 import 'dart:io';
@@ -251,18 +249,22 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
+  "client": "web",
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "subject": "Random",
+  "text": "Hey whats up?",
+  "user_id": "user-1"
 ,};
 
-  DeleteRequest req = DeleteRequest.fromJson(payload);
+  SendRequest req = SendRequest.fromJson(payload);
 
   
   try {
 
-	DeleteResponse res = await ser.delete(req);
+	SendResponse res = await ser.send(req);
 
     res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+	  Merr: (SendResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -316,12 +318,12 @@ void main() async {
   }
 }
 ```
-## Invite
+## Join
 
-Invite a user to a chat room
+Join a chat room
 
 
-[https://m3o.com/chat/api#Invite](https://m3o.com/chat/api#Invite)
+[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
 
 ```dart
 import 'dart:io';
@@ -340,19 +342,21 @@ void main() async {
  
   final payload = <String, dynamic>{
   "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-1"
+  "user_id": "user-2"
 ,};
 
-  InviteRequest req = InviteRequest.fromJson(payload);
+  JoinRequest req = JoinRequest.fromJson(payload);
 
   
+  	
   try {
 
-	InviteResponse res = await ser.invite(req);
+    final res = await ser.join(req);
 
-    res.map((value) => print(value),
-	  Merr: (InviteResponseMerr err) => print(err.body!['body']));	
-  
+	  await for (var sr in res) {
+	  sr.map((value) => print(value),
+		Merr: (JoinResponseMerr err) => print(err.body));
+	  }
   } catch (e, stack) {
     print(e);
 	print(stack);
@@ -361,13 +365,12 @@ void main() async {
   }
 }
 ```
-## Send
+## Kick
 
-Connect to a chat to receive a stream of messages
-Send a message to a chat
+Kick a user from a chat room
 
 
-[https://m3o.com/chat/api#Send](https://m3o.com/chat/api#Send)
+[https://m3o.com/chat/api#Kick](https://m3o.com/chat/api#Kick)
 
 ```dart
 import 'dart:io';
@@ -385,22 +388,19 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "client": "web",
   "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "subject": "Random",
-  "text": "Hey whats up?",
   "user_id": "user-1"
 ,};
 
-  SendRequest req = SendRequest.fromJson(payload);
+  KickRequest req = KickRequest.fromJson(payload);
 
   
   try {
 
-	SendResponse res = await ser.send(req);
+	KickResponse res = await ser.kick(req);
 
     res.map((value) => print(value),
-	  Merr: (SendResponseMerr err) => print(err.body!['body']));	
+	  Merr: (KickResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
