@@ -87,25 +87,25 @@ Map<String, dynamic> _$$SearchResponseMerrToJson(
 _$_SearchResult _$$_SearchResultFromJson(Map<String, dynamic> json) =>
     _$_SearchResult(
       channel_title: json['channel_title'] as String?,
-      id: json['id'] as String?,
-      published_at: json['published_at'] as String?,
+      description: json['description'] as String?,
+      title: json['title'] as String?,
       url: json['url'] as String?,
       broadcasting: json['broadcasting'] as String?,
       channel_id: json['channel_id'] as String?,
-      description: json['description'] as String?,
+      id: json['id'] as String?,
       kind: json['kind'] as String?,
-      title: json['title'] as String?,
+      published_at: json['published_at'] as String?,
     );
 
 Map<String, dynamic> _$$_SearchResultToJson(_$_SearchResult instance) =>
     <String, dynamic>{
       'channel_title': instance.channel_title,
-      'id': instance.id,
-      'published_at': instance.published_at,
+      'description': instance.description,
+      'title': instance.title,
       'url': instance.url,
       'broadcasting': instance.broadcasting,
       'channel_id': instance.channel_id,
-      'description': instance.description,
+      'id': instance.id,
       'kind': instance.kind,
-      'title': instance.title,
+      'published_at': instance.published_at,
     };

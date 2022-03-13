@@ -8,14 +8,14 @@ part of 'file.dart';
 
 _$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
     _$_DeleteRequest(
-      project: json['project'] as String?,
       path: json['path'] as String?,
+      project: json['project'] as String?,
     );
 
 Map<String, dynamic> _$$_DeleteRequestToJson(_$_DeleteRequest instance) =>
     <String, dynamic>{
-      'project': instance.project,
       'path': instance.path,
+      'project': instance.project,
     };
 
 _$DeleteResponseData _$$DeleteResponseDataFromJson(Map<String, dynamic> json) =>
@@ -119,6 +119,7 @@ Map<String, dynamic> _$$ReadResponseMerrToJson(_$ReadResponseMerr instance) =>
     };
 
 _$_Record _$$_RecordFromJson(Map<String, dynamic> json) => _$_Record(
+      path: json['path'] as String?,
       project: json['project'] as String?,
       updated: json['updated'] as String?,
       content: json['content'] as String?,
@@ -126,30 +127,29 @@ _$_Record _$$_RecordFromJson(Map<String, dynamic> json) => _$_Record(
       metadata: (json['metadata'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
-      path: json['path'] as String?,
     );
 
 Map<String, dynamic> _$$_RecordToJson(_$_Record instance) => <String, dynamic>{
+      'path': instance.path,
       'project': instance.project,
       'updated': instance.updated,
       'content': instance.content,
       'created': instance.created,
       'metadata': instance.metadata,
-      'path': instance.path,
     };
 
 _$_SaveRequest _$$_SaveRequestFromJson(Map<String, dynamic> json) =>
     _$_SaveRequest(
+      public: json['public'] as bool?,
       file: json['file'] == null
           ? null
           : Record.fromJson(json['file'] as Map<String, dynamic>),
-      public: json['public'] as bool?,
     );
 
 Map<String, dynamic> _$$_SaveRequestToJson(_$_SaveRequest instance) =>
     <String, dynamic>{
-      'file': instance.file,
       'public': instance.public,
+      'file': instance.file,
     };
 
 _$SaveResponseData _$$SaveResponseDataFromJson(Map<String, dynamic> json) =>
