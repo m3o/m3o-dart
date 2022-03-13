@@ -8,14 +8,14 @@ part of 'sentiment.dart';
 
 _$_AnalyzeRequest _$$_AnalyzeRequestFromJson(Map<String, dynamic> json) =>
     _$_AnalyzeRequest(
-      text: json['text'] as String?,
       lang: json['lang'] as String?,
+      text: json['text'] as String?,
     );
 
 Map<String, dynamic> _$$_AnalyzeRequestToJson(_$_AnalyzeRequest instance) =>
     <String, dynamic>{
-      'text': instance.text,
       'lang': instance.lang,
+      'text': instance.text,
     };
 
 _$AnalyzeResponseData _$$AnalyzeResponseDataFromJson(

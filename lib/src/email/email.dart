@@ -105,15 +105,6 @@ class ParseResponse with _$ParseResponse {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
-    /// the html body
-    String? html_body,
-
-    /// an optional reply to email address
-    String? reply_to,
-
-    /// the email subject
-    String? subject,
-
     /// the text body
     String? text_body,
 
@@ -122,6 +113,15 @@ class SendRequest with _$SendRequest {
 
     /// the display name of the sender
     String? from,
+
+    /// the html body
+    String? html_body,
+
+    /// an optional reply to email address
+    String? reply_to,
+
+    /// the email subject
+    String? subject,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);

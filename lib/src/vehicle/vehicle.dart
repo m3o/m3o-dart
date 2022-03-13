@@ -48,8 +48,26 @@ class LookupRequest with _$LookupRequest {
 @Freezed()
 class LookupResponse with _$LookupResponse {
   const factory LookupResponse({
+    /// date of last v5 issue
+    String? last_v5_issued,
+
+    /// make of vehicle
+    String? make,
+
     /// month of first registration
     String? month_of_first_registration,
+
+    /// registration number
+    String? registration,
+
+    /// tax due data
+    String? tax_due_date,
+
+    /// engine capacity
+    int? engine_capacity,
+
+    /// mot status
+    String? mot_status,
 
     /// wheel plan
     String? wheelplan,
@@ -57,38 +75,20 @@ class LookupResponse with _$LookupResponse {
     /// fuel type e.g petrol, diesel
     String? fuel_type,
 
-    /// engine capacity
-    int? engine_capacity,
-
-    /// url of logo for the make
-    String? logo_url,
-
-    /// make of vehicle
-    String? make,
-
-    /// mot expiry
-    String? mot_expiry,
-
-    /// registration number
-    String? registration,
+    /// tax status
+    String? tax_status,
 
     /// co2 emmissions
     double? co2_emissions,
 
-    /// mot status
-    String? mot_status,
+    /// url of logo for the make
+    String? logo_url,
 
-    /// tax due data
-    String? tax_due_date,
+    /// mot expiry
+    String? mot_expiry,
 
     /// type approvale
     String? type_approval,
-
-    /// date of last v5 issue
-    String? last_v5_issued,
-
-    /// tax status
-    String? tax_status,
 
     /// year of manufacture
     int? year_of_manufacture,
