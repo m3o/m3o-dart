@@ -90,9 +90,9 @@ class Entity with _$Entity {
 @Freezed()
 class Point with _$Point {
   const factory Point({
-    double? latitude,
     double? longitude,
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? timestamp,
+    double? latitude,
   }) = _Point;
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 }
@@ -139,9 +139,6 @@ class SaveResponse with _$SaveResponse {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// Maximum number of entities to return
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? numEntities,
-
     /// radius in meters
     double? radius,
 
@@ -150,6 +147,9 @@ class SearchRequest with _$SearchRequest {
 
     /// Central position to search from
     Point? center,
+
+    /// Maximum number of entities to return
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? numEntities,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);

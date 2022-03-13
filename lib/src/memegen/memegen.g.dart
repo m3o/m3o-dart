@@ -28,20 +28,20 @@ Map<String, dynamic> _$$_BoxToJson(_$_Box instance) => <String, dynamic>{
 
 _$_GenerateRequest _$$_GenerateRequestFromJson(Map<String, dynamic> json) =>
     _$_GenerateRequest(
+      bottom_text: json['bottom_text'] as String?,
       font: json['font'] as String?,
       id: json['id'] as String?,
       max_font_size: json['max_font_size'] as String?,
       top_text: json['top_text'] as String?,
-      bottom_text: json['bottom_text'] as String?,
     );
 
 Map<String, dynamic> _$$_GenerateRequestToJson(_$_GenerateRequest instance) =>
     <String, dynamic>{
+      'bottom_text': instance.bottom_text,
       'font': instance.font,
       'id': instance.id,
       'max_font_size': instance.max_font_size,
       'top_text': instance.top_text,
-      'bottom_text': instance.bottom_text,
     };
 
 _$GenerateResponseData _$$GenerateResponseDataFromJson(
@@ -73,22 +73,22 @@ Map<String, dynamic> _$$GenerateResponseMerrToJson(
     };
 
 _$_Template _$$_TemplateFromJson(Map<String, dynamic> json) => _$_Template(
+      box_count: json['box_count'] as int?,
       height: json['height'] as int?,
       id: json['id'] as String?,
       name: json['name'] as String?,
       url: json['url'] as String?,
       width: json['width'] as int?,
-      box_count: json['box_count'] as int?,
     );
 
 Map<String, dynamic> _$$_TemplateToJson(_$_Template instance) =>
     <String, dynamic>{
+      'box_count': instance.box_count,
       'height': instance.height,
       'id': instance.id,
       'name': instance.name,
       'url': instance.url,
       'width': instance.width,
-      'box_count': instance.box_count,
     };
 
 _$_TemplatesRequest _$$_TemplatesRequestFromJson(Map<String, dynamic> json) =>
