@@ -352,9 +352,6 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class SpaceObject with _$SpaceObject {
   const factory SpaceObject({
-    /// when was this created
-    String? created,
-
     /// the data within the object
     String? data,
 
@@ -369,6 +366,9 @@ class SpaceObject with _$SpaceObject {
 
     /// is this public or private
     String? visibility,
+
+    /// when was this created
+    String? created,
   }) = _SpaceObject;
   factory SpaceObject.fromJson(Map<String, dynamic> json) =>
       _$SpaceObjectFromJson(json);
