@@ -186,21 +186,21 @@ class _$LookupResponseTearOff {
   const _$LookupResponseTearOff();
 
   LookupResponseData call(
-      {String? ward,
-      String? country,
-      String? district,
-      double? latitude,
+      {double? latitude,
       double? longitude,
       String? postcode,
-      String? region}) {
+      String? region,
+      String? ward,
+      String? country,
+      String? district}) {
     return LookupResponseData(
-      ward: ward,
-      country: country,
-      district: district,
       latitude: latitude,
       longitude: longitude,
       postcode: postcode,
       region: region,
+      ward: ward,
+      country: country,
+      district: district,
     );
   }
 
@@ -222,42 +222,24 @@ const $LookupResponse = _$LookupResponseTearOff();
 mixin _$LookupResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(
-            String? ward,
-            String? country,
-            String? district,
-            double? latitude,
-            double? longitude,
-            String? postcode,
-            String? region)
+    TResult Function(double? latitude, double? longitude, String? postcode,
+            String? region, String? ward, String? country, String? district)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
-            String? ward,
-            String? country,
-            String? district,
-            double? latitude,
-            double? longitude,
-            String? postcode,
-            String? region)?
+    TResult Function(double? latitude, double? longitude, String? postcode,
+            String? region, String? ward, String? country, String? district)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            String? ward,
-            String? country,
-            String? district,
-            double? latitude,
-            double? longitude,
-            String? postcode,
-            String? region)?
+    TResult Function(double? latitude, double? longitude, String? postcode,
+            String? region, String? ward, String? country, String? district)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -308,13 +290,13 @@ abstract class $LookupResponseDataCopyWith<$Res> {
           LookupResponseData value, $Res Function(LookupResponseData) then) =
       _$LookupResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {String? ward,
-      String? country,
-      String? district,
-      double? latitude,
+      {double? latitude,
       double? longitude,
       String? postcode,
-      String? region});
+      String? region,
+      String? ward,
+      String? country,
+      String? district});
 }
 
 /// @nodoc
@@ -330,27 +312,15 @@ class _$LookupResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? ward = freezed,
-    Object? country = freezed,
-    Object? district = freezed,
     Object? latitude = freezed,
     Object? longitude = freezed,
     Object? postcode = freezed,
     Object? region = freezed,
+    Object? ward = freezed,
+    Object? country = freezed,
+    Object? district = freezed,
   }) {
     return _then(LookupResponseData(
-      ward: ward == freezed
-          ? _value.ward
-          : ward // ignore: cast_nullable_to_non_nullable
-              as String?,
-      country: country == freezed
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as String?,
-      district: district == freezed
-          ? _value.district
-          : district // ignore: cast_nullable_to_non_nullable
-              as String?,
       latitude: latitude == freezed
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
@@ -367,6 +337,18 @@ class _$LookupResponseDataCopyWithImpl<$Res>
           ? _value.region
           : region // ignore: cast_nullable_to_non_nullable
               as String?,
+      ward: ward == freezed
+          ? _value.ward
+          : ward // ignore: cast_nullable_to_non_nullable
+              as String?,
+      country: country == freezed
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String?,
+      district: district == freezed
+          ? _value.district
+          : district // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -375,31 +357,19 @@ class _$LookupResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$LookupResponseData implements LookupResponseData {
   const _$LookupResponseData(
-      {this.ward,
-      this.country,
-      this.district,
-      this.latitude,
+      {this.latitude,
       this.longitude,
       this.postcode,
       this.region,
+      this.ward,
+      this.country,
+      this.district,
       String? $type})
       : $type = $type ?? 'default';
 
   factory _$LookupResponseData.fromJson(Map<String, dynamic> json) =>
       _$$LookupResponseDataFromJson(json);
 
-  @override
-
-  /// e.g St James's
-  final String? ward;
-  @override
-
-  /// country e.g United Kingdom
-  final String? country;
-  @override
-
-  /// e.g Westminster
-  final String? district;
   @override
 
   /// e.g 51.50354
@@ -416,13 +386,25 @@ class _$LookupResponseData implements LookupResponseData {
 
   /// related region e.g London
   final String? region;
+  @override
+
+  /// e.g St James's
+  final String? ward;
+  @override
+
+  /// country e.g United Kingdom
+  final String? country;
+  @override
+
+  /// e.g Westminster
+  final String? district;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'LookupResponse(ward: $ward, country: $country, district: $district, latitude: $latitude, longitude: $longitude, postcode: $postcode, region: $region)';
+    return 'LookupResponse(latitude: $latitude, longitude: $longitude, postcode: $postcode, region: $region, ward: $ward, country: $country, district: $district)';
   }
 
   @override
@@ -430,25 +412,25 @@ class _$LookupResponseData implements LookupResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is LookupResponseData &&
-            const DeepCollectionEquality().equals(other.ward, ward) &&
-            const DeepCollectionEquality().equals(other.country, country) &&
-            const DeepCollectionEquality().equals(other.district, district) &&
             const DeepCollectionEquality().equals(other.latitude, latitude) &&
             const DeepCollectionEquality().equals(other.longitude, longitude) &&
             const DeepCollectionEquality().equals(other.postcode, postcode) &&
-            const DeepCollectionEquality().equals(other.region, region));
+            const DeepCollectionEquality().equals(other.region, region) &&
+            const DeepCollectionEquality().equals(other.ward, ward) &&
+            const DeepCollectionEquality().equals(other.country, country) &&
+            const DeepCollectionEquality().equals(other.district, district));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(ward),
-      const DeepCollectionEquality().hash(country),
-      const DeepCollectionEquality().hash(district),
       const DeepCollectionEquality().hash(latitude),
       const DeepCollectionEquality().hash(longitude),
       const DeepCollectionEquality().hash(postcode),
-      const DeepCollectionEquality().hash(region));
+      const DeepCollectionEquality().hash(region),
+      const DeepCollectionEquality().hash(ward),
+      const DeepCollectionEquality().hash(country),
+      const DeepCollectionEquality().hash(district));
 
   @JsonKey(ignore: true)
   @override
@@ -458,57 +440,39 @@ class _$LookupResponseData implements LookupResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(
-            String? ward,
-            String? country,
-            String? district,
-            double? latitude,
-            double? longitude,
-            String? postcode,
-            String? region)
+    TResult Function(double? latitude, double? longitude, String? postcode,
+            String? region, String? ward, String? country, String? district)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return $default(
-        ward, country, district, latitude, longitude, postcode, region);
+        latitude, longitude, postcode, region, ward, country, district);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
-            String? ward,
-            String? country,
-            String? district,
-            double? latitude,
-            double? longitude,
-            String? postcode,
-            String? region)?
+    TResult Function(double? latitude, double? longitude, String? postcode,
+            String? region, String? ward, String? country, String? district)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(
-        ward, country, district, latitude, longitude, postcode, region);
+        latitude, longitude, postcode, region, ward, country, district);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            String? ward,
-            String? country,
-            String? district,
-            double? latitude,
-            double? longitude,
-            String? postcode,
-            String? region)?
+    TResult Function(double? latitude, double? longitude, String? postcode,
+            String? region, String? ward, String? country, String? district)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
       return $default(
-          ward, country, district, latitude, longitude, postcode, region);
+          latitude, longitude, postcode, region, ward, country, district);
     }
     return orElse();
   }
@@ -552,25 +516,16 @@ class _$LookupResponseData implements LookupResponseData {
 
 abstract class LookupResponseData implements LookupResponse {
   const factory LookupResponseData(
-      {String? ward,
-      String? country,
-      String? district,
-      double? latitude,
+      {double? latitude,
       double? longitude,
       String? postcode,
-      String? region}) = _$LookupResponseData;
+      String? region,
+      String? ward,
+      String? country,
+      String? district}) = _$LookupResponseData;
 
   factory LookupResponseData.fromJson(Map<String, dynamic> json) =
       _$LookupResponseData.fromJson;
-
-  /// e.g St James's
-  String? get ward;
-
-  /// country e.g United Kingdom
-  String? get country;
-
-  /// e.g Westminster
-  String? get district;
 
   /// e.g 51.50354
   double? get latitude;
@@ -583,6 +538,15 @@ abstract class LookupResponseData implements LookupResponse {
 
   /// related region e.g London
   String? get region;
+
+  /// e.g St James's
+  String? get ward;
+
+  /// country e.g United Kingdom
+  String? get country;
+
+  /// e.g Westminster
+  String? get district;
   @JsonKey(ignore: true)
   $LookupResponseDataCopyWith<LookupResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -660,14 +624,8 @@ class _$LookupResponseMerr implements LookupResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(
-            String? ward,
-            String? country,
-            String? district,
-            double? latitude,
-            double? longitude,
-            String? postcode,
-            String? region)
+    TResult Function(double? latitude, double? longitude, String? postcode,
+            String? region, String? ward, String? country, String? district)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -677,14 +635,8 @@ class _$LookupResponseMerr implements LookupResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
-            String? ward,
-            String? country,
-            String? district,
-            double? latitude,
-            double? longitude,
-            String? postcode,
-            String? region)?
+    TResult Function(double? latitude, double? longitude, String? postcode,
+            String? region, String? ward, String? country, String? district)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -694,14 +646,8 @@ class _$LookupResponseMerr implements LookupResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            String? ward,
-            String? country,
-            String? district,
-            double? latitude,
-            double? longitude,
-            String? postcode,
-            String? region)?
+    TResult Function(double? latitude, double? longitude, String? postcode,
+            String? region, String? ward, String? country, String? district)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

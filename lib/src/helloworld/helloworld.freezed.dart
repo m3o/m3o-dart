@@ -565,11 +565,12 @@ class _$StreamRequestTearOff {
   const _$StreamRequestTearOff();
 
   _StreamRequest call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? messages,
-      String? name}) {
+      {String? name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? messages}) {
     return _StreamRequest(
-      messages: messages,
       name: name,
+      messages: messages,
     );
   }
 
@@ -583,10 +584,11 @@ const $StreamRequest = _$StreamRequestTearOff();
 
 /// @nodoc
 mixin _$StreamRequest {
+  String? get name => throw _privateConstructorUsedError;
+
   /// the number of messages to send back
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get messages => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -600,8 +602,9 @@ abstract class $StreamRequestCopyWith<$Res> {
           StreamRequest value, $Res Function(StreamRequest) then) =
       _$StreamRequestCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? messages,
-      String? name});
+      {String? name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? messages});
 }
 
 /// @nodoc
@@ -615,18 +618,18 @@ class _$StreamRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? messages = freezed,
     Object? name = freezed,
+    Object? messages = freezed,
   }) {
     return _then(_value.copyWith(
-      messages: messages == freezed
-          ? _value.messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as int?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      messages: messages == freezed
+          ? _value.messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -639,8 +642,9 @@ abstract class _$StreamRequestCopyWith<$Res>
       __$StreamRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? messages,
-      String? name});
+      {String? name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? messages});
 }
 
 /// @nodoc
@@ -656,18 +660,18 @@ class __$StreamRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? messages = freezed,
     Object? name = freezed,
+    Object? messages = freezed,
   }) {
     return _then(_StreamRequest(
-      messages: messages == freezed
-          ? _value.messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as int?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      messages: messages == freezed
+          ? _value.messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -676,23 +680,24 @@ class __$StreamRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_StreamRequest implements _StreamRequest {
   const _$_StreamRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.messages,
-      this.name});
+      {this.name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          this.messages});
 
   factory _$_StreamRequest.fromJson(Map<String, dynamic> json) =>
       _$$_StreamRequestFromJson(json);
 
   @override
+  final String? name;
+  @override
 
   /// the number of messages to send back
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? messages;
-  @override
-  final String? name;
 
   @override
   String toString() {
-    return 'StreamRequest(messages: $messages, name: $name)';
+    return 'StreamRequest(name: $name, messages: $messages)';
   }
 
   @override
@@ -700,15 +705,15 @@ class _$_StreamRequest implements _StreamRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _StreamRequest &&
-            const DeepCollectionEquality().equals(other.messages, messages) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.messages, messages));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(messages),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(messages));
 
   @JsonKey(ignore: true)
   @override
@@ -723,19 +728,20 @@ class _$_StreamRequest implements _StreamRequest {
 
 abstract class _StreamRequest implements StreamRequest {
   const factory _StreamRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? messages,
-      String? name}) = _$_StreamRequest;
+      {String? name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? messages}) = _$_StreamRequest;
 
   factory _StreamRequest.fromJson(Map<String, dynamic> json) =
       _$_StreamRequest.fromJson;
 
   @override
+  String? get name;
+  @override
 
   /// the number of messages to send back
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get messages;
-  @override
-  String? get name;
   @override
   @JsonKey(ignore: true)
   _$StreamRequestCopyWith<_StreamRequest> get copyWith =>
