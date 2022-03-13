@@ -4,6 +4,51 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/sunnah/api](ht
 
 Endpoints:
 
+## Books
+
+Get a list of books from within a collection. A book can contain many chapters
+each with its own hadiths.
+
+
+[https://m3o.com/sunnah/api#Books](https://m3o.com/sunnah/api#Books)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/sunnah/sunnah.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = SunnahService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "collection": "bukhari"
+,};
+
+  BooksRequest req = BooksRequest.fromJson(payload);
+
+  
+  try {
+
+	BooksResponse res = await ser.books(req);
+
+    res.map((value) => print(value),
+	  Merr: (BooksResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Chapters
 
 Get all the chapters of a given book within a collection.
@@ -129,51 +174,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (CollectionsResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Books
-
-Get a list of books from within a collection. A book can contain many chapters
-each with its own hadiths.
-
-
-[https://m3o.com/sunnah/api#Books](https://m3o.com/sunnah/api#Books)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/sunnah/sunnah.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = SunnahService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "collection": "bukhari"
-,};
-
-  BooksRequest req = BooksRequest.fromJson(payload);
-
-  
-  try {
-
-	BooksResponse res = await ser.books(req);
-
-    res.map((value) => print(value),
-	  Merr: (BooksResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
