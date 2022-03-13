@@ -307,12 +307,6 @@ class ResolveResponse with _$ResolveResponse {
 @Freezed()
 class RunRequest with _$RunRequest {
   const factory RunRequest({
-    /// region to run in
-    String? region,
-
-    /// source repository
-    String? repo,
-
     /// branch. defaults to master
     String? branch,
 
@@ -324,6 +318,12 @@ class RunRequest with _$RunRequest {
 
     /// port to run on
     int? port,
+
+    /// region to run in
+    String? region,
+
+    /// source repository
+    String? repo,
   }) = _RunRequest;
   factory RunRequest.fromJson(Map<String, dynamic> json) =>
       _$RunRequestFromJson(json);
@@ -344,6 +344,9 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
+    /// source repository
+    String? repo,
+
     /// status of the app
     String? status,
 
@@ -356,17 +359,17 @@ class Service with _$Service {
     /// time of creation
     String? created,
 
-    /// custom domains
-    String? custom_domains,
+    /// name of the app
+    String? name,
 
-    /// source repository
-    String? repo,
+    /// port running on
+    int? port,
 
     /// region running in
     String? region,
 
-    /// last updated
-    String? updated,
+    /// custom domains
+    String? custom_domains,
 
     /// associated env vars
     Map<String, String>? env_vars,
@@ -374,11 +377,8 @@ class Service with _$Service {
     /// unique id
     String? id,
 
-    /// name of the app
-    String? name,
-
-    /// port running on
-    int? port,
+    /// last updated
+    String? updated,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);

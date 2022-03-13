@@ -147,11 +147,11 @@ class NotesService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// note text
-    String? text,
-
     /// note title
     String? title,
+
+    /// note text
+    String? text,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -203,11 +203,11 @@ class EventsRequest with _$EventsRequest {
 @Freezed()
 class EventsResponse with _$EventsResponse {
   const factory EventsResponse({
-    /// the note which the operation occured on
-    Note? note,
-
     /// the event which occured; create, delete, update
     String? event,
+
+    /// the note which the operation occured on
+    Note? note,
   }) = EventsResponseData;
   const factory EventsResponse.Merr({Map<String, dynamic>? body}) =
       EventsResponseMerr;
@@ -237,12 +237,6 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Note with _$Note {
   const factory Note({
-    /// time at which the note was created
-    String? created,
-
-    /// unique id for the note, generated if not specified
-    String? id,
-
     /// text within the note
     String? text,
 
@@ -251,6 +245,12 @@ class Note with _$Note {
 
     /// time at which the note was updated
     String? updated,
+
+    /// time at which the note was created
+    String? created,
+
+    /// unique id for the note, generated if not specified
+    String? id,
   }) = _Note;
   factory Note.fromJson(Map<String, dynamic> json) => _$NoteFromJson(json);
 }

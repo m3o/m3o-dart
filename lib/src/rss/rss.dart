@@ -128,6 +128,9 @@ class AddResponse with _$AddResponse {
 @Freezed()
 class Entry with _$Entry {
   const factory Entry({
+    /// rss feed url of the entry
+    String? link,
+
     /// article summary
     String? summary,
 
@@ -145,9 +148,6 @@ class Entry with _$Entry {
 
     /// unique id of the entry
     String? id,
-
-    /// rss feed url of the entry
-    String? link,
   }) = _Entry;
   factory Entry.fromJson(Map<String, dynamic> json) => _$EntryFromJson(json);
 }
@@ -175,14 +175,14 @@ class Feed with _$Feed {
 @Freezed()
 class FeedRequest with _$FeedRequest {
   const factory FeedRequest({
+    /// rss feed name
+    String? name,
+
     /// offset entries
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? offset,
 
     /// limit entries returned
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit,
-
-    /// rss feed name
-    String? name,
   }) = _FeedRequest;
   factory FeedRequest.fromJson(Map<String, dynamic> json) =>
       _$FeedRequestFromJson(json);
