@@ -4,6 +4,50 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/crypto/api](ht
 
 Endpoints:
 
+## Quote
+
+Get the last quote for a given crypto ticker
+
+
+[https://m3o.com/crypto/api#Quote](https://m3o.com/crypto/api#Quote)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/crypto/crypto.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = CryptoService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "symbol": "BTCUSD"
+,};
+
+  QuoteRequest req = QuoteRequest.fromJson(payload);
+
+  
+  try {
+
+	QuoteResponse res = await ser.quote(req);
+
+    res.map((value) => print(value),
+	  Merr: (QuoteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## History
 
 Returns the history for the previous close
@@ -169,50 +213,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (PriceResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Quote
-
-Get the last quote for a given crypto ticker
-
-
-[https://m3o.com/crypto/api#Quote](https://m3o.com/crypto/api#Quote)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/crypto/crypto.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = CryptoService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "symbol": "BTCUSD"
-,};
-
-  QuoteRequest req = QuoteRequest.fromJson(payload);
-
-  
-  try {
-
-	QuoteResponse res = await ser.quote(req);
-
-    res.map((value) => print(value),
-	  Merr: (QuoteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
