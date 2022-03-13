@@ -7,6 +7,10 @@ part of 'routing.dart';
 // **************************************************************************
 
 _$_Direction _$$_DirectionFromJson(Map<String, dynamic> json) => _$_Direction(
+      maneuver: json['maneuver'] == null
+          ? null
+          : Maneuver.fromJson(json['maneuver'] as Map<String, dynamic>),
+      name: json['name'] as String?,
       reference: json['reference'] as String?,
       distance: (json['distance'] as num?)?.toDouble(),
       duration: (json['duration'] as num?)?.toDouble(),
@@ -14,21 +18,17 @@ _$_Direction _$$_DirectionFromJson(Map<String, dynamic> json) => _$_Direction(
       intersections: (json['intersections'] as List<dynamic>?)
           ?.map((e) => Intersection.fromJson(e as Map<String, dynamic>))
           .toList(),
-      maneuver: json['maneuver'] == null
-          ? null
-          : Maneuver.fromJson(json['maneuver'] as Map<String, dynamic>),
-      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_DirectionToJson(_$_Direction instance) =>
     <String, dynamic>{
+      'maneuver': instance.maneuver,
+      'name': instance.name,
       'reference': instance.reference,
       'distance': instance.distance,
       'duration': instance.duration,
       'instruction': instance.instruction,
       'intersections': instance.intersections,
-      'maneuver': instance.maneuver,
-      'name': instance.name,
     };
 
 _$_DirectionsRequest _$$_DirectionsRequestFromJson(Map<String, dynamic> json) =>
@@ -51,24 +51,24 @@ Map<String, dynamic> _$$_DirectionsRequestToJson(
 _$DirectionsResponseData _$$DirectionsResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$DirectionsResponseData(
+      waypoints: (json['waypoints'] as List<dynamic>?)
+          ?.map((e) => Waypoint.fromJson(e as Map<String, dynamic>))
+          .toList(),
       directions: (json['directions'] as List<dynamic>?)
           ?.map((e) => Direction.fromJson(e as Map<String, dynamic>))
           .toList(),
       distance: (json['distance'] as num?)?.toDouble(),
       duration: (json['duration'] as num?)?.toDouble(),
-      waypoints: (json['waypoints'] as List<dynamic>?)
-          ?.map((e) => Waypoint.fromJson(e as Map<String, dynamic>))
-          .toList(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$DirectionsResponseDataToJson(
         _$DirectionsResponseData instance) =>
     <String, dynamic>{
+      'waypoints': instance.waypoints,
       'directions': instance.directions,
       'distance': instance.distance,
       'duration': instance.duration,
-      'waypoints': instance.waypoints,
       'runtimeType': instance.$type,
     };
 
@@ -166,13 +166,13 @@ Map<String, dynamic> _$$_ManeuverToJson(_$_Maneuver instance) =>
     };
 
 _$_Point _$$_PointFromJson(Map<String, dynamic> json) => _$_Point(
-      latitude: (json['latitude'] as num?)?.toDouble(),
       longitude: (json['longitude'] as num?)?.toDouble(),
+      latitude: (json['latitude'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_PointToJson(_$_Point instance) => <String, dynamic>{
-      'latitude': instance.latitude,
       'longitude': instance.longitude,
+      'latitude': instance.latitude,
     };
 
 _$_RouteRequest _$$_RouteRequestFromJson(Map<String, dynamic> json) =>
@@ -193,19 +193,19 @@ Map<String, dynamic> _$$_RouteRequestToJson(_$_RouteRequest instance) =>
 
 _$RouteResponseData _$$RouteResponseDataFromJson(Map<String, dynamic> json) =>
     _$RouteResponseData(
-      distance: (json['distance'] as num?)?.toDouble(),
       duration: (json['duration'] as num?)?.toDouble(),
       waypoints: (json['waypoints'] as List<dynamic>?)
           ?.map((e) => Waypoint.fromJson(e as Map<String, dynamic>))
           .toList(),
+      distance: (json['distance'] as num?)?.toDouble(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$RouteResponseDataToJson(_$RouteResponseData instance) =>
     <String, dynamic>{
-      'distance': instance.distance,
       'duration': instance.duration,
       'waypoints': instance.waypoints,
+      'distance': instance.distance,
       'runtimeType': instance.$type,
     };
 

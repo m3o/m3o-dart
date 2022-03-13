@@ -84,14 +84,14 @@ class EventService {
 @Freezed()
 class ConsumeRequest with _$ConsumeRequest {
   const factory ConsumeRequest({
-    /// Optional group for the subscription
-    String? group,
-
     /// Optional offset to read from e.g "2006-01-02T15:04:05.999Z07:00"
     String? offset,
 
     /// The topic to subscribe to
     String? topic,
+
+    /// Optional group for the subscription
+    String? group,
   }) = _ConsumeRequest;
   factory ConsumeRequest.fromJson(Map<String, dynamic> json) =>
       _$ConsumeRequestFromJson(json);
@@ -100,17 +100,17 @@ class ConsumeRequest with _$ConsumeRequest {
 @Freezed()
 class ConsumeResponse with _$ConsumeResponse {
   const factory ConsumeResponse({
-    /// Unique message id
-    String? id,
-
-    /// The next json message on the topic
-    Map<String, dynamic>? message,
-
     /// Timestamp of publishing
     String? timestamp,
 
     /// The topic subscribed to
     String? topic,
+
+    /// Unique message id
+    String? id,
+
+    /// The next json message on the topic
+    Map<String, dynamic>? message,
   }) = ConsumeResponseData;
   const factory ConsumeResponse.Merr({Map<String, dynamic>? body}) =
       ConsumeResponseMerr;

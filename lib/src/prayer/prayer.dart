@@ -38,9 +38,6 @@ class PrayerService {
 @Freezed()
 class PrayerTime with _$PrayerTime {
   const factory PrayerTime({
-    /// zuhr time
-    String? zuhr,
-
     /// asr time
     String? asr,
 
@@ -58,6 +55,9 @@ class PrayerTime with _$PrayerTime {
 
     /// time of sunrise
     String? sunrise,
+
+    /// zuhr time
+    String? zuhr,
   }) = _PrayerTime;
   factory PrayerTime.fromJson(Map<String, dynamic> json) =>
       _$PrayerTimeFromJson(json);
@@ -66,6 +66,10 @@ class PrayerTime with _$PrayerTime {
 @Freezed()
 class TimesRequest with _$TimesRequest {
   const factory TimesRequest({
+    /// location to retrieve prayer times for.
+    /// this can be a specific address, city, etc
+    String? location,
+
     /// optional longitude used in place of location
     double? longitude,
 
@@ -77,10 +81,6 @@ class TimesRequest with _$TimesRequest {
 
     /// optional latitude used in place of location
     double? latitude,
-
-    /// location to retrieve prayer times for.
-    /// this can be a specific address, city, etc
-    String? location,
   }) = _TimesRequest;
   factory TimesRequest.fromJson(Map<String, dynamic> json) =>
       _$TimesRequestFromJson(json);
