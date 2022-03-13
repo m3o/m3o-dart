@@ -111,6 +111,12 @@ class ImageService {
 @Freezed()
 class ConvertRequest with _$ConvertRequest {
   const factory ConvertRequest({
+    /// base64 encoded image to resize,
+    String? base64,
+
+    /// The image file to convert
+    String? file,
+
     /// output name of the image including extension, ie. "cat.png"
     String? name,
 
@@ -119,12 +125,6 @@ class ConvertRequest with _$ConvertRequest {
 
     /// url of the image to resize
     String? url,
-
-    /// base64 encoded image to resize,
-    String? base64,
-
-    /// The image file to convert
-    String? file,
   }) = _ConvertRequest;
   factory ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$ConvertRequestFromJson(json);
@@ -243,9 +243,6 @@ class ResizeResponse with _$ResizeResponse {
 @Freezed()
 class UploadRequest with _$UploadRequest {
   const factory UploadRequest({
-    /// Base64 encoded image to upload,
-    String? base64,
-
     /// The image file to upload
     String? file,
 
@@ -254,6 +251,9 @@ class UploadRequest with _$UploadRequest {
 
     /// URL of the image to upload
     String? url,
+
+    /// Base64 encoded image to upload,
+    String? base64,
   }) = _UploadRequest;
   factory UploadRequest.fromJson(Map<String, dynamic> json) =>
       _$UploadRequestFromJson(json);

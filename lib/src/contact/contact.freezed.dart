@@ -22,10 +22,10 @@ Address _$AddressFromJson(Map<String, dynamic> json) {
 class _$AddressTearOff {
   const _$AddressTearOff();
 
-  _Address call({String? location, String? label}) {
+  _Address call({String? label, String? location}) {
     return _Address(
-      location: location,
       label: label,
+      location: location,
     );
   }
 
@@ -39,11 +39,11 @@ const $Address = _$AddressTearOff();
 
 /// @nodoc
 mixin _$Address {
-  /// the address location
-  String? get location => throw _privateConstructorUsedError;
-
   /// the label of the address
   String? get label => throw _privateConstructorUsedError;
+
+  /// the address location
+  String? get location => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -54,7 +54,7 @@ mixin _$Address {
 abstract class $AddressCopyWith<$Res> {
   factory $AddressCopyWith(Address value, $Res Function(Address) then) =
       _$AddressCopyWithImpl<$Res>;
-  $Res call({String? location, String? label});
+  $Res call({String? label, String? location});
 }
 
 /// @nodoc
@@ -67,17 +67,17 @@ class _$AddressCopyWithImpl<$Res> implements $AddressCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? location = freezed,
     Object? label = freezed,
+    Object? location = freezed,
   }) {
     return _then(_value.copyWith(
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String?,
       label: label == freezed
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
+              as String?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -88,7 +88,7 @@ abstract class _$AddressCopyWith<$Res> implements $AddressCopyWith<$Res> {
   factory _$AddressCopyWith(_Address value, $Res Function(_Address) then) =
       __$AddressCopyWithImpl<$Res>;
   @override
-  $Res call({String? location, String? label});
+  $Res call({String? label, String? location});
 }
 
 /// @nodoc
@@ -102,17 +102,17 @@ class __$AddressCopyWithImpl<$Res> extends _$AddressCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? location = freezed,
     Object? label = freezed,
+    Object? location = freezed,
   }) {
     return _then(_Address(
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String?,
       label: label == freezed
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
+              as String?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -121,23 +121,23 @@ class __$AddressCopyWithImpl<$Res> extends _$AddressCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Address implements _Address {
-  const _$_Address({this.location, this.label});
+  const _$_Address({this.label, this.location});
 
   factory _$_Address.fromJson(Map<String, dynamic> json) =>
       _$$_AddressFromJson(json);
 
   @override
 
-  /// the address location
-  final String? location;
-  @override
-
   /// the label of the address
   final String? label;
+  @override
+
+  /// the address location
+  final String? location;
 
   @override
   String toString() {
-    return 'Address(location: $location, label: $label)';
+    return 'Address(label: $label, location: $location)';
   }
 
   @override
@@ -145,15 +145,15 @@ class _$_Address implements _Address {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Address &&
-            const DeepCollectionEquality().equals(other.location, location) &&
-            const DeepCollectionEquality().equals(other.label, label));
+            const DeepCollectionEquality().equals(other.label, label) &&
+            const DeepCollectionEquality().equals(other.location, location));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(location),
-      const DeepCollectionEquality().hash(label));
+      const DeepCollectionEquality().hash(label),
+      const DeepCollectionEquality().hash(location));
 
   @JsonKey(ignore: true)
   @override
@@ -167,18 +167,18 @@ class _$_Address implements _Address {
 }
 
 abstract class _Address implements Address {
-  const factory _Address({String? location, String? label}) = _$_Address;
+  const factory _Address({String? label, String? location}) = _$_Address;
 
   factory _Address.fromJson(Map<String, dynamic> json) = _$_Address.fromJson;
 
   @override
 
-  /// the address location
-  String? get location;
-  @override
-
   /// the label of the address
   String? get label;
+  @override
+
+  /// the address location
+  String? get location;
   @override
   @JsonKey(ignore: true)
   _$AddressCopyWith<_Address> get copyWith =>
@@ -194,29 +194,29 @@ class _$ContactInfoTearOff {
   const _$ContactInfoTearOff();
 
   _ContactInfo call(
-      {String? note,
+      {List<Link>? links,
+      String? name,
       List<Phone>? phones,
-      SocialMedia? social_medias,
       String? updated_at,
+      List<Address>? addresses,
       String? birthday,
       String? created_at,
       List<Email>? emails,
-      List<Link>? links,
-      List<Address>? addresses,
       String? id,
-      String? name}) {
+      String? note,
+      SocialMedia? social_medias}) {
     return _ContactInfo(
-      note: note,
+      links: links,
+      name: name,
       phones: phones,
-      social_medias: social_medias,
       updated_at: updated_at,
+      addresses: addresses,
       birthday: birthday,
       created_at: created_at,
       emails: emails,
-      links: links,
-      addresses: addresses,
       id: id,
-      name: name,
+      note: note,
+      social_medias: social_medias,
     );
   }
 
@@ -230,17 +230,20 @@ const $ContactInfo = _$ContactInfoTearOff();
 
 /// @nodoc
 mixin _$ContactInfo {
-  /// note of the contact
-  String? get note => throw _privateConstructorUsedError;
+  /// the contact links
+  List<Link>? get links => throw _privateConstructorUsedError;
+
+  /// the contact name
+  String? get name => throw _privateConstructorUsedError;
 
   /// the phone numbers
   List<Phone>? get phones => throw _privateConstructorUsedError;
 
-  /// the social media username
-  SocialMedia? get social_medias => throw _privateConstructorUsedError;
-
   /// update date string in RFC3339
   String? get updated_at => throw _privateConstructorUsedError;
+
+  /// the address
+  List<Address>? get addresses => throw _privateConstructorUsedError;
 
   /// the birthday
   String? get birthday => throw _privateConstructorUsedError;
@@ -251,17 +254,14 @@ mixin _$ContactInfo {
   /// the emails
   List<Email>? get emails => throw _privateConstructorUsedError;
 
-  /// the contact links
-  List<Link>? get links => throw _privateConstructorUsedError;
-
-  /// the address
-  List<Address>? get addresses => throw _privateConstructorUsedError;
-
   /// contact id
   String? get id => throw _privateConstructorUsedError;
 
-  /// the contact name
-  String? get name => throw _privateConstructorUsedError;
+  /// note of the contact
+  String? get note => throw _privateConstructorUsedError;
+
+  /// the social media username
+  SocialMedia? get social_medias => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -275,17 +275,17 @@ abstract class $ContactInfoCopyWith<$Res> {
           ContactInfo value, $Res Function(ContactInfo) then) =
       _$ContactInfoCopyWithImpl<$Res>;
   $Res call(
-      {String? note,
+      {List<Link>? links,
+      String? name,
       List<Phone>? phones,
-      SocialMedia? social_medias,
       String? updated_at,
+      List<Address>? addresses,
       String? birthday,
       String? created_at,
       List<Email>? emails,
-      List<Link>? links,
-      List<Address>? addresses,
       String? id,
-      String? name});
+      String? note,
+      SocialMedia? social_medias});
 
   $SocialMediaCopyWith<$Res>? get social_medias;
 }
@@ -300,35 +300,39 @@ class _$ContactInfoCopyWithImpl<$Res> implements $ContactInfoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? note = freezed,
+    Object? links = freezed,
+    Object? name = freezed,
     Object? phones = freezed,
-    Object? social_medias = freezed,
     Object? updated_at = freezed,
+    Object? addresses = freezed,
     Object? birthday = freezed,
     Object? created_at = freezed,
     Object? emails = freezed,
-    Object? links = freezed,
-    Object? addresses = freezed,
     Object? id = freezed,
-    Object? name = freezed,
+    Object? note = freezed,
+    Object? social_medias = freezed,
   }) {
     return _then(_value.copyWith(
-      note: note == freezed
-          ? _value.note
-          : note // ignore: cast_nullable_to_non_nullable
+      links: links == freezed
+          ? _value.links
+          : links // ignore: cast_nullable_to_non_nullable
+              as List<Link>?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
       phones: phones == freezed
           ? _value.phones
           : phones // ignore: cast_nullable_to_non_nullable
               as List<Phone>?,
-      social_medias: social_medias == freezed
-          ? _value.social_medias
-          : social_medias // ignore: cast_nullable_to_non_nullable
-              as SocialMedia?,
       updated_at: updated_at == freezed
           ? _value.updated_at
           : updated_at // ignore: cast_nullable_to_non_nullable
               as String?,
+      addresses: addresses == freezed
+          ? _value.addresses
+          : addresses // ignore: cast_nullable_to_non_nullable
+              as List<Address>?,
       birthday: birthday == freezed
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
@@ -341,22 +345,18 @@ class _$ContactInfoCopyWithImpl<$Res> implements $ContactInfoCopyWith<$Res> {
           ? _value.emails
           : emails // ignore: cast_nullable_to_non_nullable
               as List<Email>?,
-      links: links == freezed
-          ? _value.links
-          : links // ignore: cast_nullable_to_non_nullable
-              as List<Link>?,
-      addresses: addresses == freezed
-          ? _value.addresses
-          : addresses // ignore: cast_nullable_to_non_nullable
-              as List<Address>?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      note: note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
               as String?,
+      social_medias: social_medias == freezed
+          ? _value.social_medias
+          : social_medias // ignore: cast_nullable_to_non_nullable
+              as SocialMedia?,
     ));
   }
 
@@ -380,17 +380,17 @@ abstract class _$ContactInfoCopyWith<$Res>
       __$ContactInfoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? note,
+      {List<Link>? links,
+      String? name,
       List<Phone>? phones,
-      SocialMedia? social_medias,
       String? updated_at,
+      List<Address>? addresses,
       String? birthday,
       String? created_at,
       List<Email>? emails,
-      List<Link>? links,
-      List<Address>? addresses,
       String? id,
-      String? name});
+      String? note,
+      SocialMedia? social_medias});
 
   @override
   $SocialMediaCopyWith<$Res>? get social_medias;
@@ -408,35 +408,39 @@ class __$ContactInfoCopyWithImpl<$Res> extends _$ContactInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? note = freezed,
+    Object? links = freezed,
+    Object? name = freezed,
     Object? phones = freezed,
-    Object? social_medias = freezed,
     Object? updated_at = freezed,
+    Object? addresses = freezed,
     Object? birthday = freezed,
     Object? created_at = freezed,
     Object? emails = freezed,
-    Object? links = freezed,
-    Object? addresses = freezed,
     Object? id = freezed,
-    Object? name = freezed,
+    Object? note = freezed,
+    Object? social_medias = freezed,
   }) {
     return _then(_ContactInfo(
-      note: note == freezed
-          ? _value.note
-          : note // ignore: cast_nullable_to_non_nullable
+      links: links == freezed
+          ? _value.links
+          : links // ignore: cast_nullable_to_non_nullable
+              as List<Link>?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
       phones: phones == freezed
           ? _value.phones
           : phones // ignore: cast_nullable_to_non_nullable
               as List<Phone>?,
-      social_medias: social_medias == freezed
-          ? _value.social_medias
-          : social_medias // ignore: cast_nullable_to_non_nullable
-              as SocialMedia?,
       updated_at: updated_at == freezed
           ? _value.updated_at
           : updated_at // ignore: cast_nullable_to_non_nullable
               as String?,
+      addresses: addresses == freezed
+          ? _value.addresses
+          : addresses // ignore: cast_nullable_to_non_nullable
+              as List<Address>?,
       birthday: birthday == freezed
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
@@ -449,22 +453,18 @@ class __$ContactInfoCopyWithImpl<$Res> extends _$ContactInfoCopyWithImpl<$Res>
           ? _value.emails
           : emails // ignore: cast_nullable_to_non_nullable
               as List<Email>?,
-      links: links == freezed
-          ? _value.links
-          : links // ignore: cast_nullable_to_non_nullable
-              as List<Link>?,
-      addresses: addresses == freezed
-          ? _value.addresses
-          : addresses // ignore: cast_nullable_to_non_nullable
-              as List<Address>?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      note: note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
               as String?,
+      social_medias: social_medias == freezed
+          ? _value.social_medias
+          : social_medias // ignore: cast_nullable_to_non_nullable
+              as SocialMedia?,
     ));
   }
 }
@@ -473,37 +473,41 @@ class __$ContactInfoCopyWithImpl<$Res> extends _$ContactInfoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ContactInfo implements _ContactInfo {
   const _$_ContactInfo(
-      {this.note,
+      {this.links,
+      this.name,
       this.phones,
-      this.social_medias,
       this.updated_at,
+      this.addresses,
       this.birthday,
       this.created_at,
       this.emails,
-      this.links,
-      this.addresses,
       this.id,
-      this.name});
+      this.note,
+      this.social_medias});
 
   factory _$_ContactInfo.fromJson(Map<String, dynamic> json) =>
       _$$_ContactInfoFromJson(json);
 
   @override
 
-  /// note of the contact
-  final String? note;
+  /// the contact links
+  final List<Link>? links;
+  @override
+
+  /// the contact name
+  final String? name;
   @override
 
   /// the phone numbers
   final List<Phone>? phones;
   @override
 
-  /// the social media username
-  final SocialMedia? social_medias;
-  @override
-
   /// update date string in RFC3339
   final String? updated_at;
+  @override
+
+  /// the address
+  final List<Address>? addresses;
   @override
 
   /// the birthday
@@ -518,24 +522,20 @@ class _$_ContactInfo implements _ContactInfo {
   final List<Email>? emails;
   @override
 
-  /// the contact links
-  final List<Link>? links;
-  @override
-
-  /// the address
-  final List<Address>? addresses;
-  @override
-
   /// contact id
   final String? id;
   @override
 
-  /// the contact name
-  final String? name;
+  /// note of the contact
+  final String? note;
+  @override
+
+  /// the social media username
+  final SocialMedia? social_medias;
 
   @override
   String toString() {
-    return 'ContactInfo(note: $note, phones: $phones, social_medias: $social_medias, updated_at: $updated_at, birthday: $birthday, created_at: $created_at, emails: $emails, links: $links, addresses: $addresses, id: $id, name: $name)';
+    return 'ContactInfo(links: $links, name: $name, phones: $phones, updated_at: $updated_at, addresses: $addresses, birthday: $birthday, created_at: $created_at, emails: $emails, id: $id, note: $note, social_medias: $social_medias)';
   }
 
   @override
@@ -543,36 +543,36 @@ class _$_ContactInfo implements _ContactInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ContactInfo &&
-            const DeepCollectionEquality().equals(other.note, note) &&
+            const DeepCollectionEquality().equals(other.links, links) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.phones, phones) &&
             const DeepCollectionEquality()
-                .equals(other.social_medias, social_medias) &&
-            const DeepCollectionEquality()
                 .equals(other.updated_at, updated_at) &&
+            const DeepCollectionEquality().equals(other.addresses, addresses) &&
             const DeepCollectionEquality().equals(other.birthday, birthday) &&
             const DeepCollectionEquality()
                 .equals(other.created_at, created_at) &&
             const DeepCollectionEquality().equals(other.emails, emails) &&
-            const DeepCollectionEquality().equals(other.links, links) &&
-            const DeepCollectionEquality().equals(other.addresses, addresses) &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.note, note) &&
+            const DeepCollectionEquality()
+                .equals(other.social_medias, social_medias));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(note),
+      const DeepCollectionEquality().hash(links),
+      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(phones),
-      const DeepCollectionEquality().hash(social_medias),
       const DeepCollectionEquality().hash(updated_at),
+      const DeepCollectionEquality().hash(addresses),
       const DeepCollectionEquality().hash(birthday),
       const DeepCollectionEquality().hash(created_at),
       const DeepCollectionEquality().hash(emails),
-      const DeepCollectionEquality().hash(links),
-      const DeepCollectionEquality().hash(addresses),
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(note),
+      const DeepCollectionEquality().hash(social_medias));
 
   @JsonKey(ignore: true)
   @override
@@ -587,37 +587,41 @@ class _$_ContactInfo implements _ContactInfo {
 
 abstract class _ContactInfo implements ContactInfo {
   const factory _ContactInfo(
-      {String? note,
+      {List<Link>? links,
+      String? name,
       List<Phone>? phones,
-      SocialMedia? social_medias,
       String? updated_at,
+      List<Address>? addresses,
       String? birthday,
       String? created_at,
       List<Email>? emails,
-      List<Link>? links,
-      List<Address>? addresses,
       String? id,
-      String? name}) = _$_ContactInfo;
+      String? note,
+      SocialMedia? social_medias}) = _$_ContactInfo;
 
   factory _ContactInfo.fromJson(Map<String, dynamic> json) =
       _$_ContactInfo.fromJson;
 
   @override
 
-  /// note of the contact
-  String? get note;
+  /// the contact links
+  List<Link>? get links;
+  @override
+
+  /// the contact name
+  String? get name;
   @override
 
   /// the phone numbers
   List<Phone>? get phones;
   @override
 
-  /// the social media username
-  SocialMedia? get social_medias;
-  @override
-
   /// update date string in RFC3339
   String? get updated_at;
+  @override
+
+  /// the address
+  List<Address>? get addresses;
   @override
 
   /// the birthday
@@ -632,20 +636,16 @@ abstract class _ContactInfo implements ContactInfo {
   List<Email>? get emails;
   @override
 
-  /// the contact links
-  List<Link>? get links;
-  @override
-
-  /// the address
-  List<Address>? get addresses;
-  @override
-
   /// contact id
   String? get id;
   @override
 
-  /// the contact name
-  String? get name;
+  /// note of the contact
+  String? get note;
+  @override
+
+  /// the social media username
+  SocialMedia? get social_medias;
   @override
   @JsonKey(ignore: true)
   _$ContactInfoCopyWith<_ContactInfo> get copyWith =>
@@ -1968,10 +1968,10 @@ Email _$EmailFromJson(Map<String, dynamic> json) {
 class _$EmailTearOff {
   const _$EmailTearOff();
 
-  _Email call({String? address, String? label}) {
+  _Email call({String? label, String? address}) {
     return _Email(
-      address: address,
       label: label,
+      address: address,
     );
   }
 
@@ -1985,11 +1985,11 @@ const $Email = _$EmailTearOff();
 
 /// @nodoc
 mixin _$Email {
-  /// the email address
-  String? get address => throw _privateConstructorUsedError;
-
   /// the label of the email
   String? get label => throw _privateConstructorUsedError;
+
+  /// the email address
+  String? get address => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2000,7 +2000,7 @@ mixin _$Email {
 abstract class $EmailCopyWith<$Res> {
   factory $EmailCopyWith(Email value, $Res Function(Email) then) =
       _$EmailCopyWithImpl<$Res>;
-  $Res call({String? address, String? label});
+  $Res call({String? label, String? address});
 }
 
 /// @nodoc
@@ -2013,17 +2013,17 @@ class _$EmailCopyWithImpl<$Res> implements $EmailCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? address = freezed,
     Object? label = freezed,
+    Object? address = freezed,
   }) {
     return _then(_value.copyWith(
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String?,
       label: label == freezed
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
+              as String?,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2034,7 +2034,7 @@ abstract class _$EmailCopyWith<$Res> implements $EmailCopyWith<$Res> {
   factory _$EmailCopyWith(_Email value, $Res Function(_Email) then) =
       __$EmailCopyWithImpl<$Res>;
   @override
-  $Res call({String? address, String? label});
+  $Res call({String? label, String? address});
 }
 
 /// @nodoc
@@ -2048,17 +2048,17 @@ class __$EmailCopyWithImpl<$Res> extends _$EmailCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? address = freezed,
     Object? label = freezed,
+    Object? address = freezed,
   }) {
     return _then(_Email(
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String?,
       label: label == freezed
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
+              as String?,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2067,23 +2067,23 @@ class __$EmailCopyWithImpl<$Res> extends _$EmailCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Email implements _Email {
-  const _$_Email({this.address, this.label});
+  const _$_Email({this.label, this.address});
 
   factory _$_Email.fromJson(Map<String, dynamic> json) =>
       _$$_EmailFromJson(json);
 
   @override
 
-  /// the email address
-  final String? address;
-  @override
-
   /// the label of the email
   final String? label;
+  @override
+
+  /// the email address
+  final String? address;
 
   @override
   String toString() {
-    return 'Email(address: $address, label: $label)';
+    return 'Email(label: $label, address: $address)';
   }
 
   @override
@@ -2091,15 +2091,15 @@ class _$_Email implements _Email {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Email &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.label, label));
+            const DeepCollectionEquality().equals(other.label, label) &&
+            const DeepCollectionEquality().equals(other.address, address));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(label));
+      const DeepCollectionEquality().hash(label),
+      const DeepCollectionEquality().hash(address));
 
   @JsonKey(ignore: true)
   @override
@@ -2113,18 +2113,18 @@ class _$_Email implements _Email {
 }
 
 abstract class _Email implements Email {
-  const factory _Email({String? address, String? label}) = _$_Email;
+  const factory _Email({String? label, String? address}) = _$_Email;
 
   factory _Email.fromJson(Map<String, dynamic> json) = _$_Email.fromJson;
 
   @override
 
-  /// the email address
-  String? get address;
-  @override
-
   /// the label of the email
   String? get label;
+  @override
+
+  /// the email address
+  String? get address;
   @override
   @JsonKey(ignore: true)
   _$EmailCopyWith<_Email> get copyWith => throw _privateConstructorUsedError;
@@ -3784,25 +3784,25 @@ class _$UpdateRequestTearOff {
   const _$UpdateRequestTearOff();
 
   _UpdateRequest call(
-      {List<Address>? addresses,
+      {List<Link>? links,
+      String? name,
+      List<Email>? emails,
       String? birthday,
       String? id,
-      String? name,
-      SocialMedia? social_medias,
-      List<Email>? emails,
-      List<Link>? links,
       String? note,
-      List<Phone>? phones}) {
+      List<Phone>? phones,
+      SocialMedia? social_medias,
+      List<Address>? addresses}) {
     return _UpdateRequest(
-      addresses: addresses,
+      links: links,
+      name: name,
+      emails: emails,
       birthday: birthday,
       id: id,
-      name: name,
-      social_medias: social_medias,
-      emails: emails,
-      links: links,
       note: note,
       phones: phones,
+      social_medias: social_medias,
+      addresses: addresses,
     );
   }
 
@@ -3816,8 +3816,14 @@ const $UpdateRequest = _$UpdateRequestTearOff();
 
 /// @nodoc
 mixin _$UpdateRequest {
-  /// optional, addresses
-  List<Address>? get addresses => throw _privateConstructorUsedError;
+  /// optional, links
+  List<Link>? get links => throw _privateConstructorUsedError;
+
+  /// required, the name
+  String? get name => throw _privateConstructorUsedError;
+
+  /// optional, emails
+  List<Email>? get emails => throw _privateConstructorUsedError;
 
   /// optional, birthday
   String? get birthday => throw _privateConstructorUsedError;
@@ -3825,23 +3831,17 @@ mixin _$UpdateRequest {
   /// required, the contact id
   String? get id => throw _privateConstructorUsedError;
 
-  /// required, the name
-  String? get name => throw _privateConstructorUsedError;
-
-  /// optional, social media
-  SocialMedia? get social_medias => throw _privateConstructorUsedError;
-
-  /// optional, emails
-  List<Email>? get emails => throw _privateConstructorUsedError;
-
-  /// optional, links
-  List<Link>? get links => throw _privateConstructorUsedError;
-
   /// optional, note
   String? get note => throw _privateConstructorUsedError;
 
   /// optional, phone number
   List<Phone>? get phones => throw _privateConstructorUsedError;
+
+  /// optional, social media
+  SocialMedia? get social_medias => throw _privateConstructorUsedError;
+
+  /// optional, addresses
+  List<Address>? get addresses => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -3855,15 +3855,15 @@ abstract class $UpdateRequestCopyWith<$Res> {
           UpdateRequest value, $Res Function(UpdateRequest) then) =
       _$UpdateRequestCopyWithImpl<$Res>;
   $Res call(
-      {List<Address>? addresses,
+      {List<Link>? links,
+      String? name,
+      List<Email>? emails,
       String? birthday,
       String? id,
-      String? name,
-      SocialMedia? social_medias,
-      List<Email>? emails,
-      List<Link>? links,
       String? note,
-      List<Phone>? phones});
+      List<Phone>? phones,
+      SocialMedia? social_medias,
+      List<Address>? addresses});
 
   $SocialMediaCopyWith<$Res>? get social_medias;
 }
@@ -3879,21 +3879,29 @@ class _$UpdateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? addresses = freezed,
+    Object? links = freezed,
+    Object? name = freezed,
+    Object? emails = freezed,
     Object? birthday = freezed,
     Object? id = freezed,
-    Object? name = freezed,
-    Object? social_medias = freezed,
-    Object? emails = freezed,
-    Object? links = freezed,
     Object? note = freezed,
     Object? phones = freezed,
+    Object? social_medias = freezed,
+    Object? addresses = freezed,
   }) {
     return _then(_value.copyWith(
-      addresses: addresses == freezed
-          ? _value.addresses
-          : addresses // ignore: cast_nullable_to_non_nullable
-              as List<Address>?,
+      links: links == freezed
+          ? _value.links
+          : links // ignore: cast_nullable_to_non_nullable
+              as List<Link>?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      emails: emails == freezed
+          ? _value.emails
+          : emails // ignore: cast_nullable_to_non_nullable
+              as List<Email>?,
       birthday: birthday == freezed
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
@@ -3902,22 +3910,6 @@ class _$UpdateRequestCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      social_medias: social_medias == freezed
-          ? _value.social_medias
-          : social_medias // ignore: cast_nullable_to_non_nullable
-              as SocialMedia?,
-      emails: emails == freezed
-          ? _value.emails
-          : emails // ignore: cast_nullable_to_non_nullable
-              as List<Email>?,
-      links: links == freezed
-          ? _value.links
-          : links // ignore: cast_nullable_to_non_nullable
-              as List<Link>?,
       note: note == freezed
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -3926,6 +3918,14 @@ class _$UpdateRequestCopyWithImpl<$Res>
           ? _value.phones
           : phones // ignore: cast_nullable_to_non_nullable
               as List<Phone>?,
+      social_medias: social_medias == freezed
+          ? _value.social_medias
+          : social_medias // ignore: cast_nullable_to_non_nullable
+              as SocialMedia?,
+      addresses: addresses == freezed
+          ? _value.addresses
+          : addresses // ignore: cast_nullable_to_non_nullable
+              as List<Address>?,
     ));
   }
 
@@ -3949,15 +3949,15 @@ abstract class _$UpdateRequestCopyWith<$Res>
       __$UpdateRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<Address>? addresses,
+      {List<Link>? links,
+      String? name,
+      List<Email>? emails,
       String? birthday,
       String? id,
-      String? name,
-      SocialMedia? social_medias,
-      List<Email>? emails,
-      List<Link>? links,
       String? note,
-      List<Phone>? phones});
+      List<Phone>? phones,
+      SocialMedia? social_medias,
+      List<Address>? addresses});
 
   @override
   $SocialMediaCopyWith<$Res>? get social_medias;
@@ -3976,21 +3976,29 @@ class __$UpdateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? addresses = freezed,
+    Object? links = freezed,
+    Object? name = freezed,
+    Object? emails = freezed,
     Object? birthday = freezed,
     Object? id = freezed,
-    Object? name = freezed,
-    Object? social_medias = freezed,
-    Object? emails = freezed,
-    Object? links = freezed,
     Object? note = freezed,
     Object? phones = freezed,
+    Object? social_medias = freezed,
+    Object? addresses = freezed,
   }) {
     return _then(_UpdateRequest(
-      addresses: addresses == freezed
-          ? _value.addresses
-          : addresses // ignore: cast_nullable_to_non_nullable
-              as List<Address>?,
+      links: links == freezed
+          ? _value.links
+          : links // ignore: cast_nullable_to_non_nullable
+              as List<Link>?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      emails: emails == freezed
+          ? _value.emails
+          : emails // ignore: cast_nullable_to_non_nullable
+              as List<Email>?,
       birthday: birthday == freezed
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
@@ -3999,22 +4007,6 @@ class __$UpdateRequestCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      social_medias: social_medias == freezed
-          ? _value.social_medias
-          : social_medias // ignore: cast_nullable_to_non_nullable
-              as SocialMedia?,
-      emails: emails == freezed
-          ? _value.emails
-          : emails // ignore: cast_nullable_to_non_nullable
-              as List<Email>?,
-      links: links == freezed
-          ? _value.links
-          : links // ignore: cast_nullable_to_non_nullable
-              as List<Link>?,
       note: note == freezed
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -4023,6 +4015,14 @@ class __$UpdateRequestCopyWithImpl<$Res>
           ? _value.phones
           : phones // ignore: cast_nullable_to_non_nullable
               as List<Phone>?,
+      social_medias: social_medias == freezed
+          ? _value.social_medias
+          : social_medias // ignore: cast_nullable_to_non_nullable
+              as SocialMedia?,
+      addresses: addresses == freezed
+          ? _value.addresses
+          : addresses // ignore: cast_nullable_to_non_nullable
+              as List<Address>?,
     ));
   }
 }
@@ -4031,23 +4031,31 @@ class __$UpdateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UpdateRequest implements _UpdateRequest {
   const _$_UpdateRequest(
-      {this.addresses,
+      {this.links,
+      this.name,
+      this.emails,
       this.birthday,
       this.id,
-      this.name,
-      this.social_medias,
-      this.emails,
-      this.links,
       this.note,
-      this.phones});
+      this.phones,
+      this.social_medias,
+      this.addresses});
 
   factory _$_UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateRequestFromJson(json);
 
   @override
 
-  /// optional, addresses
-  final List<Address>? addresses;
+  /// optional, links
+  final List<Link>? links;
+  @override
+
+  /// required, the name
+  final String? name;
+  @override
+
+  /// optional, emails
+  final List<Email>? emails;
   @override
 
   /// optional, birthday
@@ -4058,32 +4066,24 @@ class _$_UpdateRequest implements _UpdateRequest {
   final String? id;
   @override
 
-  /// required, the name
-  final String? name;
-  @override
-
-  /// optional, social media
-  final SocialMedia? social_medias;
-  @override
-
-  /// optional, emails
-  final List<Email>? emails;
-  @override
-
-  /// optional, links
-  final List<Link>? links;
-  @override
-
   /// optional, note
   final String? note;
   @override
 
   /// optional, phone number
   final List<Phone>? phones;
+  @override
+
+  /// optional, social media
+  final SocialMedia? social_medias;
+  @override
+
+  /// optional, addresses
+  final List<Address>? addresses;
 
   @override
   String toString() {
-    return 'UpdateRequest(addresses: $addresses, birthday: $birthday, id: $id, name: $name, social_medias: $social_medias, emails: $emails, links: $links, note: $note, phones: $phones)';
+    return 'UpdateRequest(links: $links, name: $name, emails: $emails, birthday: $birthday, id: $id, note: $note, phones: $phones, social_medias: $social_medias, addresses: $addresses)';
   }
 
   @override
@@ -4091,30 +4091,30 @@ class _$_UpdateRequest implements _UpdateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _UpdateRequest &&
-            const DeepCollectionEquality().equals(other.addresses, addresses) &&
+            const DeepCollectionEquality().equals(other.links, links) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.emails, emails) &&
             const DeepCollectionEquality().equals(other.birthday, birthday) &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.note, note) &&
+            const DeepCollectionEquality().equals(other.phones, phones) &&
             const DeepCollectionEquality()
                 .equals(other.social_medias, social_medias) &&
-            const DeepCollectionEquality().equals(other.emails, emails) &&
-            const DeepCollectionEquality().equals(other.links, links) &&
-            const DeepCollectionEquality().equals(other.note, note) &&
-            const DeepCollectionEquality().equals(other.phones, phones));
+            const DeepCollectionEquality().equals(other.addresses, addresses));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(addresses),
+      const DeepCollectionEquality().hash(links),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(emails),
       const DeepCollectionEquality().hash(birthday),
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(social_medias),
-      const DeepCollectionEquality().hash(emails),
-      const DeepCollectionEquality().hash(links),
       const DeepCollectionEquality().hash(note),
-      const DeepCollectionEquality().hash(phones));
+      const DeepCollectionEquality().hash(phones),
+      const DeepCollectionEquality().hash(social_medias),
+      const DeepCollectionEquality().hash(addresses));
 
   @JsonKey(ignore: true)
   @override
@@ -4129,23 +4129,31 @@ class _$_UpdateRequest implements _UpdateRequest {
 
 abstract class _UpdateRequest implements UpdateRequest {
   const factory _UpdateRequest(
-      {List<Address>? addresses,
+      {List<Link>? links,
+      String? name,
+      List<Email>? emails,
       String? birthday,
       String? id,
-      String? name,
-      SocialMedia? social_medias,
-      List<Email>? emails,
-      List<Link>? links,
       String? note,
-      List<Phone>? phones}) = _$_UpdateRequest;
+      List<Phone>? phones,
+      SocialMedia? social_medias,
+      List<Address>? addresses}) = _$_UpdateRequest;
 
   factory _UpdateRequest.fromJson(Map<String, dynamic> json) =
       _$_UpdateRequest.fromJson;
 
   @override
 
-  /// optional, addresses
-  List<Address>? get addresses;
+  /// optional, links
+  List<Link>? get links;
+  @override
+
+  /// required, the name
+  String? get name;
+  @override
+
+  /// optional, emails
+  List<Email>? get emails;
   @override
 
   /// optional, birthday
@@ -4156,28 +4164,20 @@ abstract class _UpdateRequest implements UpdateRequest {
   String? get id;
   @override
 
-  /// required, the name
-  String? get name;
-  @override
-
-  /// optional, social media
-  SocialMedia? get social_medias;
-  @override
-
-  /// optional, emails
-  List<Email>? get emails;
-  @override
-
-  /// optional, links
-  List<Link>? get links;
-  @override
-
   /// optional, note
   String? get note;
   @override
 
   /// optional, phone number
   List<Phone>? get phones;
+  @override
+
+  /// optional, social media
+  SocialMedia? get social_medias;
+  @override
+
+  /// optional, addresses
+  List<Address>? get addresses;
   @override
   @JsonKey(ignore: true)
   _$UpdateRequestCopyWith<_UpdateRequest> get copyWith =>

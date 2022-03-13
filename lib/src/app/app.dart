@@ -307,6 +307,12 @@ class ResolveResponse with _$ResolveResponse {
 @Freezed()
 class RunRequest with _$RunRequest {
   const factory RunRequest({
+    /// branch. defaults to master
+    String? branch,
+
+    /// associated env vars to pass in
+    Map<String, String>? env_vars,
+
     /// name of the app
     String? name,
 
@@ -318,12 +324,6 @@ class RunRequest with _$RunRequest {
 
     /// source repository
     String? repo,
-
-    /// branch. defaults to master
-    String? branch,
-
-    /// associated env vars to pass in
-    Map<String, String>? env_vars,
   }) = _RunRequest;
   factory RunRequest.fromJson(Map<String, dynamic> json) =>
       _$RunRequestFromJson(json);
@@ -347,8 +347,8 @@ class Service with _$Service {
     /// name of the app
     String? name,
 
-    /// source repository
-    String? repo,
+    /// region running in
+    String? region,
 
     /// status of the app
     String? status,
@@ -356,8 +356,20 @@ class Service with _$Service {
     /// last updated
     String? updated,
 
+    /// app url
+    String? url,
+
+    /// port running on
+    int? port,
+
+    /// source repository
+    String? repo,
+
     /// branch of code
     String? branch,
+
+    /// time of creation
+    String? created,
 
     /// custom domains
     String? custom_domains,
@@ -365,20 +377,8 @@ class Service with _$Service {
     /// associated env vars
     Map<String, String>? env_vars,
 
-    /// region running in
-    String? region,
-
-    /// app url
-    String? url,
-
-    /// time of creation
-    String? created,
-
     /// unique id
     String? id,
-
-    /// port running on
-    int? port,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);
@@ -409,11 +409,11 @@ class StatusResponse with _$StatusResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// Additional env vars to update
-    Map<String, String>? env_vars,
-
     /// name of the app
     String? name,
+
+    /// Additional env vars to update
+    Map<String, String>? env_vars,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);
