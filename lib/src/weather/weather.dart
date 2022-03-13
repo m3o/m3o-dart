@@ -59,47 +59,47 @@ class WeatherService {
 @Freezed()
 class Forecast with _$Forecast {
   const factory Forecast({
-    /// max temp in celsius
-    double? max_temp_c,
-
-    /// minimum temp in fahrenheit
-    double? min_temp_f,
+    /// chance of rain (percentage)
+    int? chance_of_rain,
 
     /// forecast condition
     String? condition,
 
-    /// the URL of forecast condition icon. Simply prefix with either http or https to use it
-    String? icon_url,
-
-    /// max wind speed mph
-    double? max_wind_mph,
+    /// max temp in fahrenheit
+    double? max_temp_f,
 
     /// minimum temp in celsius
     double? min_temp_c,
 
-    /// the average temp in celsius
-    double? avg_temp_c,
-
-    /// the average temp in fahrenheit
-    double? avg_temp_f,
+    /// minimum temp in fahrenheit
+    double? min_temp_f,
 
     /// time of sunset
     String? sunset,
 
-    /// chance of rain (percentage)
-    int? chance_of_rain,
+    /// the average temp in fahrenheit
+    double? avg_temp_f,
 
-    /// date of the forecast
-    String? date,
+    /// max temp in celsius
+    double? max_temp_c,
 
-    /// max temp in fahrenheit
-    double? max_temp_f,
+    /// max wind speed mph
+    double? max_wind_mph,
+
+    /// time of sunrise
+    String? sunrise,
+
+    /// the average temp in celsius
+    double? avg_temp_c,
+
+    /// the URL of forecast condition icon. Simply prefix with either http or https to use it
+    String? icon_url,
 
     /// max wind speed kph
     double? max_wind_kph,
 
-    /// time of sunrise
-    String? sunrise,
+    /// date of the forecast
+    String? date,
 
     /// will it rain
     bool? will_it_rain,
@@ -124,6 +124,9 @@ class ForecastRequest with _$ForecastRequest {
 @Freezed()
 class ForecastResponse with _$ForecastResponse {
   const factory ForecastResponse({
+    /// timezone of the location
+    String? timezone,
+
     /// country of the request
     String? country,
 
@@ -144,9 +147,6 @@ class ForecastResponse with _$ForecastResponse {
 
     /// region related to the location
     String? region,
-
-    /// timezone of the location
-    String? timezone,
   }) = ForecastResponseData;
   const factory ForecastResponse.Merr({Map<String, dynamic>? body}) =
       ForecastResponseMerr;
@@ -167,20 +167,32 @@ class NowRequest with _$NowRequest {
 @Freezed()
 class NowResponse with _$NowResponse {
   const factory NowResponse({
-    /// whether its daytime
-    bool? daytime,
+    /// e.g 37.55
+    double? latitude,
 
-    /// feels like in fahrenheit
-    double? feels_like_f,
-
-    /// the URL of the related icon. Simply prefix with either http or https to use it
-    String? icon_url,
+    /// location of the request
+    String? location,
 
     /// e.g -77.46
     double? longitude,
 
-    /// region related to the location
-    String? region,
+    /// temperature in celsius
+    double? temp_c,
+
+    /// country of the request
+    String? country,
+
+    /// whether its daytime
+    bool? daytime,
+
+    /// feels like in celsius
+    double? feels_like_c,
+
+    /// feels like in fahrenheit
+    double? feels_like_f,
+
+    /// the humidity percentage
+    int? humidity,
 
     /// cloud cover percentage
     int? cloud,
@@ -188,38 +200,26 @@ class NowResponse with _$NowResponse {
     /// the weather condition
     String? condition,
 
-    /// the humidity percentage
-    int? humidity,
-
-    /// e.g 37.55
-    double? latitude,
+    /// temperature in fahrenheit
+    double? temp_f,
 
     /// timezone of the location
     String? timezone,
 
-    /// feels like in celsius
-    double? feels_like_c,
-
-    /// temperature in fahrenheit
-    double? temp_f,
+    /// wind degree
+    int? wind_degree,
 
     /// wind in mph
     double? wind_mph,
 
-    /// country of the request
-    String? country,
+    /// the URL of the related icon. Simply prefix with either http or https to use it
+    String? icon_url,
 
     /// the local time
     String? local_time,
 
-    /// location of the request
-    String? location,
-
-    /// temperature in celsius
-    double? temp_c,
-
-    /// wind degree
-    int? wind_degree,
+    /// region related to the location
+    String? region,
 
     /// wind direction
     String? wind_direction,
