@@ -175,14 +175,14 @@ class Feed with _$Feed {
 @Freezed()
 class FeedRequest with _$FeedRequest {
   const factory FeedRequest({
-    /// rss feed name
-    String? name,
-
     /// offset entries
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? offset,
 
     /// limit entries returned
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit,
+
+    /// rss feed name
+    String? name,
   }) = _FeedRequest;
   factory FeedRequest.fromJson(Map<String, dynamic> json) =>
       _$FeedRequestFromJson(json);

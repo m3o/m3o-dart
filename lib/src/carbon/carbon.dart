@@ -66,14 +66,14 @@ class OffsetResponse with _$OffsetResponse {
 @Freezed()
 class Project with _$Project {
   const factory Project({
-    /// amount in tonnes
-    double? tonnes,
-
     /// name of the project
     String? name,
 
     /// percentage that went to this
     double? percentage,
+
+    /// amount in tonnes
+    double? tonnes,
   }) = _Project;
   factory Project.fromJson(Map<String, dynamic> json) =>
       _$ProjectFromJson(json);

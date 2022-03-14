@@ -1141,13 +1141,13 @@ class _$FeedRequestTearOff {
   const _$FeedRequestTearOff();
 
   _FeedRequest call(
-      {String? name,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? offset,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit}) {
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? offset,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit,
+      String? name}) {
     return _FeedRequest(
-      name: name,
       offset: offset,
       limit: limit,
+      name: name,
     );
   }
 
@@ -1161,9 +1161,6 @@ const $FeedRequest = _$FeedRequestTearOff();
 
 /// @nodoc
 mixin _$FeedRequest {
-  /// rss feed name
-  String? get name => throw _privateConstructorUsedError;
-
   /// offset entries
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get offset => throw _privateConstructorUsedError;
@@ -1171,6 +1168,9 @@ mixin _$FeedRequest {
   /// limit entries returned
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get limit => throw _privateConstructorUsedError;
+
+  /// rss feed name
+  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1184,9 +1184,9 @@ abstract class $FeedRequestCopyWith<$Res> {
           FeedRequest value, $Res Function(FeedRequest) then) =
       _$FeedRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? name,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? offset,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? offset,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit,
+      String? name});
 }
 
 /// @nodoc
@@ -1199,15 +1199,11 @@ class _$FeedRequestCopyWithImpl<$Res> implements $FeedRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? offset = freezed,
     Object? limit = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       offset: offset == freezed
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
@@ -1216,6 +1212,10 @@ class _$FeedRequestCopyWithImpl<$Res> implements $FeedRequestCopyWith<$Res> {
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1228,9 +1228,9 @@ abstract class _$FeedRequestCopyWith<$Res>
       __$FeedRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? name,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? offset,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? offset,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit,
+      String? name});
 }
 
 /// @nodoc
@@ -1245,15 +1245,11 @@ class __$FeedRequestCopyWithImpl<$Res> extends _$FeedRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? offset = freezed,
     Object? limit = freezed,
+    Object? name = freezed,
   }) {
     return _then(_FeedRequest(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       offset: offset == freezed
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
@@ -1262,6 +1258,10 @@ class __$FeedRequestCopyWithImpl<$Res> extends _$FeedRequestCopyWithImpl<$Res>
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1270,17 +1270,13 @@ class __$FeedRequestCopyWithImpl<$Res> extends _$FeedRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_FeedRequest implements _FeedRequest {
   const _$_FeedRequest(
-      {this.name,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.offset,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.limit});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.offset,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.limit,
+      this.name});
 
   factory _$_FeedRequest.fromJson(Map<String, dynamic> json) =>
       _$$_FeedRequestFromJson(json);
 
-  @override
-
-  /// rss feed name
-  final String? name;
   @override
 
   /// offset entries
@@ -1291,10 +1287,14 @@ class _$_FeedRequest implements _FeedRequest {
   /// limit entries returned
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? limit;
+  @override
+
+  /// rss feed name
+  final String? name;
 
   @override
   String toString() {
-    return 'FeedRequest(name: $name, offset: $offset, limit: $limit)';
+    return 'FeedRequest(offset: $offset, limit: $limit, name: $name)';
   }
 
   @override
@@ -1302,17 +1302,17 @@ class _$_FeedRequest implements _FeedRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _FeedRequest &&
-            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.offset, offset) &&
-            const DeepCollectionEquality().equals(other.limit, limit));
+            const DeepCollectionEquality().equals(other.limit, limit) &&
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(offset),
-      const DeepCollectionEquality().hash(limit));
+      const DeepCollectionEquality().hash(limit),
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
@@ -1327,19 +1327,13 @@ class _$_FeedRequest implements _FeedRequest {
 
 abstract class _FeedRequest implements FeedRequest {
   const factory _FeedRequest(
-      {String? name,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? offset,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? limit}) = _$_FeedRequest;
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? offset,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit,
+      String? name}) = _$_FeedRequest;
 
   factory _FeedRequest.fromJson(Map<String, dynamic> json) =
       _$_FeedRequest.fromJson;
 
-  @override
-
-  /// rss feed name
-  String? get name;
   @override
 
   /// offset entries
@@ -1350,6 +1344,10 @@ abstract class _FeedRequest implements FeedRequest {
   /// limit entries returned
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get limit;
+  @override
+
+  /// rss feed name
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$FeedRequestCopyWith<_FeedRequest> get copyWith =>

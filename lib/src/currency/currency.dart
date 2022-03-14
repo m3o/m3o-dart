@@ -101,11 +101,11 @@ class CurrencyService {
 @Freezed()
 class Code with _$Code {
   const factory Code({
-    /// e.g USD
-    String? name,
-
     /// e.g United States Dollar
     String? currency,
+
+    /// e.g USD
+    String? name,
   }) = _Code;
   factory Code.fromJson(Map<String, dynamic> json) => _$CodeFromJson(json);
 }
@@ -168,11 +168,11 @@ class ConvertResponse with _$ConvertResponse {
 @Freezed()
 class HistoryRequest with _$HistoryRequest {
   const factory HistoryRequest({
-    /// date formatted as YYYY-MM-DD
-    String? date,
-
     /// currency code e.g USD
     String? code,
+
+    /// date formatted as YYYY-MM-DD
+    String? date,
   }) = _HistoryRequest;
   factory HistoryRequest.fromJson(Map<String, dynamic> json) =>
       _$HistoryRequestFromJson(json);

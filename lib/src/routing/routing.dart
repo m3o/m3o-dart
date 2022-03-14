@@ -108,11 +108,11 @@ class Direction with _$Direction {
 @Freezed()
 class DirectionsRequest with _$DirectionsRequest {
   const factory DirectionsRequest({
-    /// The staring point for the journey
-    Point? origin,
-
     /// The destination of the journey
     Point? destination,
+
+    /// The staring point for the journey
+    Point? origin,
   }) = _DirectionsRequest;
   factory DirectionsRequest.fromJson(Map<String, dynamic> json) =>
       _$DirectionsRequestFromJson(json);
@@ -121,17 +121,17 @@ class DirectionsRequest with _$DirectionsRequest {
 @Freezed()
 class DirectionsResponse with _$DirectionsResponse {
   const factory DirectionsResponse({
-    /// Estimated duration of the route in seconds
-    double? duration,
-
-    /// The waypoints on the route
-    List<Waypoint>? waypoints,
-
     /// Turn by turn directions
     List<Direction>? directions,
 
     /// Estimated distance of the route in meters
     double? distance,
+
+    /// Estimated duration of the route in seconds
+    double? duration,
+
+    /// The waypoints on the route
+    List<Waypoint>? waypoints,
   }) = DirectionsResponseData;
   const factory DirectionsResponse.Merr({Map<String, dynamic>? body}) =
       DirectionsResponseMerr;
@@ -196,11 +196,11 @@ class Maneuver with _$Maneuver {
 @Freezed()
 class Point with _$Point {
   const factory Point({
-    /// Lat e.g 52.523219
-    double? latitude,
-
     /// Long e.g 13.428555
     double? longitude,
+
+    /// Lat e.g 52.523219
+    double? latitude,
   }) = _Point;
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 }
@@ -221,14 +221,14 @@ class RouteRequest with _$RouteRequest {
 @Freezed()
 class RouteResponse with _$RouteResponse {
   const factory RouteResponse({
+    /// waypoints on the route
+    List<Waypoint>? waypoints,
+
     /// estimated distance in meters
     double? distance,
 
     /// estimated duration in seconds
     double? duration,
-
-    /// waypoints on the route
-    List<Waypoint>? waypoints,
   }) = RouteResponseData;
   const factory RouteResponse.Merr({Map<String, dynamic>? body}) =
       RouteResponseMerr;

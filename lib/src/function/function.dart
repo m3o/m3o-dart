@@ -271,36 +271,36 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class DeployRequest with _$DeployRequest {
   const factory DeployRequest({
-    /// branch to deploy. defaults to master
-    String? branch,
-
-    /// function name
-    String? name,
-
-    /// github url for a repo
-    String? repo,
-
     /// runtime/lanaguage of the function e.g php74,
     /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
     /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
     /// python37, python38, python39
     String? runtime,
 
-    /// entry point, ie. handler name in the source code
-    /// if not provided, defaults to the name parameter
-    String? entrypoint,
-
-    /// environment variables to pass in at runtime
-    Map<String, String>? env_vars,
-
-    /// region to deploy in. defaults to europe-west1
-    String? region,
-
     /// inline source code
     String? source,
 
     /// optional subfolder path
     String? subfolder,
+
+    /// entry point, ie. handler name in the source code
+    /// if not provided, defaults to the name parameter
+    String? entrypoint,
+
+    /// github url for a repo
+    String? repo,
+
+    /// function name
+    String? name,
+
+    /// region to deploy in. defaults to europe-west1
+    String? region,
+
+    /// branch to deploy. defaults to master
+    String? branch,
+
+    /// environment variables to pass in at runtime
+    Map<String, String>? env_vars,
   }) = _DeployRequest;
   factory DeployRequest.fromJson(Map<String, dynamic> json) =>
       _$DeployRequestFromJson(json);
@@ -342,36 +342,23 @@ class DescribeResponse with _$DescribeResponse {
 @Freezed()
 class Func with _$Func {
   const factory Func({
-    /// id of the function
-    String? id,
+    /// git repo address
+    String? repo,
 
     /// the source code
     String? source,
 
-    /// unique url of the function
-    String? url,
-
-    /// name of handler in source code
-    String? entrypoint,
-
-    /// associated env vars
-    Map<String, String>? env_vars,
-
     /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
     String? status,
 
-    /// branch to deploy. defaults to master
-    String? branch,
+    /// subfolder path to entrypoint
+    String? subfolder,
 
     /// time of creation
     String? created,
 
-    /// function name
-    /// limitation: must be unique across projects
-    String? name,
-
-    /// region to deploy in. defaults to europe-west1
-    String? region,
+    /// name of handler in source code
+    String? entrypoint,
 
     /// runtime/language of the function e.g php74,
     /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
@@ -379,14 +366,27 @@ class Func with _$Func {
     /// python37, python38, python39
     String? runtime,
 
-    /// subfolder path to entrypoint
-    String? subfolder,
+    /// unique url of the function
+    String? url,
 
-    /// git repo address
-    String? repo,
+    /// id of the function
+    String? id,
+
+    /// region to deploy in. defaults to europe-west1
+    String? region,
 
     /// time it was updated
     String? updated,
+
+    /// branch to deploy. defaults to master
+    String? branch,
+
+    /// associated env vars
+    Map<String, String>? env_vars,
+
+    /// function name
+    /// limitation: must be unique across projects
+    String? name,
   }) = _Func;
   factory Func.fromJson(Map<String, dynamic> json) => _$FuncFromJson(json);
 }

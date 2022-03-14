@@ -33,42 +33,42 @@ Map<String, dynamic> _$$_DirectionToJson(_$_Direction instance) =>
 
 _$_DirectionsRequest _$$_DirectionsRequestFromJson(Map<String, dynamic> json) =>
     _$_DirectionsRequest(
-      origin: json['origin'] == null
-          ? null
-          : Point.fromJson(json['origin'] as Map<String, dynamic>),
       destination: json['destination'] == null
           ? null
           : Point.fromJson(json['destination'] as Map<String, dynamic>),
+      origin: json['origin'] == null
+          ? null
+          : Point.fromJson(json['origin'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_DirectionsRequestToJson(
         _$_DirectionsRequest instance) =>
     <String, dynamic>{
-      'origin': instance.origin,
       'destination': instance.destination,
+      'origin': instance.origin,
     };
 
 _$DirectionsResponseData _$$DirectionsResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$DirectionsResponseData(
-      duration: (json['duration'] as num?)?.toDouble(),
-      waypoints: (json['waypoints'] as List<dynamic>?)
-          ?.map((e) => Waypoint.fromJson(e as Map<String, dynamic>))
-          .toList(),
       directions: (json['directions'] as List<dynamic>?)
           ?.map((e) => Direction.fromJson(e as Map<String, dynamic>))
           .toList(),
       distance: (json['distance'] as num?)?.toDouble(),
+      duration: (json['duration'] as num?)?.toDouble(),
+      waypoints: (json['waypoints'] as List<dynamic>?)
+          ?.map((e) => Waypoint.fromJson(e as Map<String, dynamic>))
+          .toList(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$DirectionsResponseDataToJson(
         _$DirectionsResponseData instance) =>
     <String, dynamic>{
-      'duration': instance.duration,
-      'waypoints': instance.waypoints,
       'directions': instance.directions,
       'distance': instance.distance,
+      'duration': instance.duration,
+      'waypoints': instance.waypoints,
       'runtimeType': instance.$type,
     };
 
@@ -166,13 +166,13 @@ Map<String, dynamic> _$$_ManeuverToJson(_$_Maneuver instance) =>
     };
 
 _$_Point _$$_PointFromJson(Map<String, dynamic> json) => _$_Point(
-      latitude: (json['latitude'] as num?)?.toDouble(),
       longitude: (json['longitude'] as num?)?.toDouble(),
+      latitude: (json['latitude'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_PointToJson(_$_Point instance) => <String, dynamic>{
-      'latitude': instance.latitude,
       'longitude': instance.longitude,
+      'latitude': instance.latitude,
     };
 
 _$_RouteRequest _$$_RouteRequestFromJson(Map<String, dynamic> json) =>
@@ -193,19 +193,19 @@ Map<String, dynamic> _$$_RouteRequestToJson(_$_RouteRequest instance) =>
 
 _$RouteResponseData _$$RouteResponseDataFromJson(Map<String, dynamic> json) =>
     _$RouteResponseData(
-      distance: (json['distance'] as num?)?.toDouble(),
-      duration: (json['duration'] as num?)?.toDouble(),
       waypoints: (json['waypoints'] as List<dynamic>?)
           ?.map((e) => Waypoint.fromJson(e as Map<String, dynamic>))
           .toList(),
+      distance: (json['distance'] as num?)?.toDouble(),
+      duration: (json['duration'] as num?)?.toDouble(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$RouteResponseDataToJson(_$RouteResponseData instance) =>
     <String, dynamic>{
+      'waypoints': instance.waypoints,
       'distance': instance.distance,
       'duration': instance.duration,
-      'waypoints': instance.waypoints,
       'runtimeType': instance.$type,
     };
 
