@@ -32,11 +32,12 @@ jobs:
           branch: ${{ github.event.release.target_commitish }}
           commit_message: Update CHANGELOG
           file_pattern: CHANGELOG.md
-           
-      - name: Run the test against helloworld service
-        run:  M3O_API_TOKEN=$HW_TOKEN dart test .
-        env:
-          HW_TOKEN: ${{ secrets.M3O_API_TOKEN }}
+      
+      # TODO(daniel): try to mock server call   
+      # - name: Run the test against helloworld service
+      #   run:  M3O_API_TOKEN=$HW_TOKEN dart test .
+      #   env:
+      #     HW_TOKEN: ${{ secrets.M3O_API_TOKEN }}
           
       - name: dry run dart publish
         run: |
