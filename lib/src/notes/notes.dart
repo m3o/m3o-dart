@@ -203,11 +203,11 @@ class EventsRequest with _$EventsRequest {
 @Freezed()
 class EventsResponse with _$EventsResponse {
   const factory EventsResponse({
-    /// the note which the operation occured on
-    Note? note,
-
     /// the event which occured; create, delete, update
     String? event,
+
+    /// the note which the operation occured on
+    Note? note,
   }) = EventsResponseData;
   const factory EventsResponse.Merr({Map<String, dynamic>? body}) =
       EventsResponseMerr;
@@ -237,12 +237,6 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Note with _$Note {
   const factory Note({
-    /// title of the note
-    String? title,
-
-    /// time at which the note was updated
-    String? updated,
-
     /// time at which the note was created
     String? created,
 
@@ -251,6 +245,12 @@ class Note with _$Note {
 
     /// text within the note
     String? text,
+
+    /// title of the note
+    String? title,
+
+    /// time at which the note was updated
+    String? updated,
   }) = _Note;
   factory Note.fromJson(Map<String, dynamic> json) => _$NoteFromJson(json);
 }

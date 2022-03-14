@@ -23,17 +23,17 @@ class _$ArticleTearOff {
   const _$ArticleTearOff();
 
   _Article call(
-      {String? date,
+      {String? title,
+      String? url,
+      String? date,
       String? description,
-      String? source,
-      String? title,
-      String? url}) {
+      String? source}) {
     return _Article(
+      title: title,
+      url: url,
       date: date,
       description: description,
       source: source,
-      title: title,
-      url: url,
     );
   }
 
@@ -47,6 +47,12 @@ const $Article = _$ArticleTearOff();
 
 /// @nodoc
 mixin _$Article {
+  /// title of the article
+  String? get title => throw _privateConstructorUsedError;
+
+  /// the source url
+  String? get url => throw _privateConstructorUsedError;
+
   /// the date published
   String? get date => throw _privateConstructorUsedError;
 
@@ -55,12 +61,6 @@ mixin _$Article {
 
   /// the source
   String? get source => throw _privateConstructorUsedError;
-
-  /// title of the article
-  String? get title => throw _privateConstructorUsedError;
-
-  /// the source url
-  String? get url => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -72,11 +72,11 @@ abstract class $ArticleCopyWith<$Res> {
   factory $ArticleCopyWith(Article value, $Res Function(Article) then) =
       _$ArticleCopyWithImpl<$Res>;
   $Res call(
-      {String? date,
+      {String? title,
+      String? url,
+      String? date,
       String? description,
-      String? source,
-      String? title,
-      String? url});
+      String? source});
 }
 
 /// @nodoc
@@ -89,13 +89,21 @@ class _$ArticleCopyWithImpl<$Res> implements $ArticleCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? title = freezed,
+    Object? url = freezed,
     Object? date = freezed,
     Object? description = freezed,
     Object? source = freezed,
-    Object? title = freezed,
-    Object? url = freezed,
   }) {
     return _then(_value.copyWith(
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -108,14 +116,6 @@ class _$ArticleCopyWithImpl<$Res> implements $ArticleCopyWith<$Res> {
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -126,11 +126,11 @@ abstract class _$ArticleCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       __$ArticleCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? date,
+      {String? title,
+      String? url,
+      String? date,
       String? description,
-      String? source,
-      String? title,
-      String? url});
+      String? source});
 }
 
 /// @nodoc
@@ -144,13 +144,21 @@ class __$ArticleCopyWithImpl<$Res> extends _$ArticleCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? title = freezed,
+    Object? url = freezed,
     Object? date = freezed,
     Object? description = freezed,
     Object? source = freezed,
-    Object? title = freezed,
-    Object? url = freezed,
   }) {
     return _then(_Article(
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -163,14 +171,6 @@ class __$ArticleCopyWithImpl<$Res> extends _$ArticleCopyWithImpl<$Res>
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -179,11 +179,19 @@ class __$ArticleCopyWithImpl<$Res> extends _$ArticleCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Article implements _Article {
   const _$_Article(
-      {this.date, this.description, this.source, this.title, this.url});
+      {this.title, this.url, this.date, this.description, this.source});
 
   factory _$_Article.fromJson(Map<String, dynamic> json) =>
       _$$_ArticleFromJson(json);
 
+  @override
+
+  /// title of the article
+  final String? title;
+  @override
+
+  /// the source url
+  final String? url;
   @override
 
   /// the date published
@@ -196,18 +204,10 @@ class _$_Article implements _Article {
 
   /// the source
   final String? source;
-  @override
-
-  /// title of the article
-  final String? title;
-  @override
-
-  /// the source url
-  final String? url;
 
   @override
   String toString() {
-    return 'Article(date: $date, description: $description, source: $source, title: $title, url: $url)';
+    return 'Article(title: $title, url: $url, date: $date, description: $description, source: $source)';
   }
 
   @override
@@ -215,22 +215,22 @@ class _$_Article implements _Article {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Article &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.source, source) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.url, url));
+            const DeepCollectionEquality().equals(other.source, source));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(date),
       const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(source),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(url));
+      const DeepCollectionEquality().hash(source));
 
   @JsonKey(ignore: true)
   @override
@@ -245,14 +245,22 @@ class _$_Article implements _Article {
 
 abstract class _Article implements Article {
   const factory _Article(
-      {String? date,
+      {String? title,
+      String? url,
+      String? date,
       String? description,
-      String? source,
-      String? title,
-      String? url}) = _$_Article;
+      String? source}) = _$_Article;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$_Article.fromJson;
 
+  @override
+
+  /// title of the article
+  String? get title;
+  @override
+
+  /// the source url
+  String? get url;
   @override
 
   /// the date published
@@ -265,14 +273,6 @@ abstract class _Article implements Article {
 
   /// the source
   String? get source;
-  @override
-
-  /// title of the article
-  String? get title;
-  @override
-
-  /// the source url
-  String? get url;
   @override
   @JsonKey(ignore: true)
   _$ArticleCopyWith<_Article> get copyWith =>

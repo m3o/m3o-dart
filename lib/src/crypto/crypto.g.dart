@@ -7,20 +7,20 @@ part of 'crypto.dart';
 // **************************************************************************
 
 _$_Article _$$_ArticleFromJson(Map<String, dynamic> json) => _$_Article(
+      title: json['title'] as String?,
+      url: json['url'] as String?,
       date: json['date'] as String?,
       description: json['description'] as String?,
       source: json['source'] as String?,
-      title: json['title'] as String?,
-      url: json['url'] as String?,
     );
 
 Map<String, dynamic> _$$_ArticleToJson(_$_Article instance) =>
     <String, dynamic>{
+      'title': instance.title,
+      'url': instance.url,
       'date': instance.date,
       'description': instance.description,
       'source': instance.source,
-      'title': instance.title,
-      'url': instance.url,
     };
 
 _$_HistoryRequest _$$_HistoryRequestFromJson(Map<String, dynamic> json) =>

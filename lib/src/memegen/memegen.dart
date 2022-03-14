@@ -59,6 +59,12 @@ class MemegenService {
 @Freezed()
 class Box with _$Box {
   const factory Box({
+    /// height in pixels
+    int? height,
+
+    /// outline color hex code
+    String? outline,
+
     /// text to display
     String? text,
 
@@ -73,12 +79,6 @@ class Box with _$Box {
 
     /// colour hex code
     String? color,
-
-    /// height in pixels
-    int? height,
-
-    /// outline color hex code
-    String? outline,
   }) = _Box;
   factory Box.fromJson(Map<String, dynamic> json) => _$BoxFromJson(json);
 }
@@ -86,6 +86,9 @@ class Box with _$Box {
 @Freezed()
 class GenerateRequest with _$GenerateRequest {
   const factory GenerateRequest({
+    /// top text
+    String? top_text,
+
     /// bottom text
     String? bottom_text,
 
@@ -97,9 +100,6 @@ class GenerateRequest with _$GenerateRequest {
 
     /// font size; defaults to 50px
     String? max_font_size,
-
-    /// top text
-    String? top_text,
   }) = _GenerateRequest;
   factory GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$GenerateRequestFromJson(json);
