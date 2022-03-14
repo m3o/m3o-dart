@@ -102,12 +102,12 @@ void main() async {
   }
 }
 ```
-## DropTable
+## Count
 
-Drop a table in the DB
+Count records in a table
 
 
-[https://m3o.com/db/api#DropTable](https://m3o.com/db/api#DropTable)
+[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
 
 ```dart
 import 'dart:io';
@@ -128,15 +128,15 @@ void main() async {
   "table": "example"
 ,};
 
-  DropTableRequest req = DropTableRequest.fromJson(payload);
+  CountRequest req = CountRequest.fromJson(payload);
 
   
   try {
 
-	DropTableResponse res = await ser.dropTable(req);
+	CountResponse res = await ser.count(req);
 
     res.map((value) => print(value),
-	  Merr: (DropTableResponseMerr err) => print(err.body!['body']));	
+	  Merr: (CountResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -367,12 +367,12 @@ void main() async {
   }
 }
 ```
-## Count
+## DropTable
 
-Count records in a table
+Drop a table in the DB
 
 
-[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
+[https://m3o.com/db/api#DropTable](https://m3o.com/db/api#DropTable)
 
 ```dart
 import 'dart:io';
@@ -393,15 +393,15 @@ void main() async {
   "table": "example"
 ,};
 
-  CountRequest req = CountRequest.fromJson(payload);
+  DropTableRequest req = DropTableRequest.fromJson(payload);
 
   
   try {
 
-	CountResponse res = await ser.count(req);
+	DropTableResponse res = await ser.dropTable(req);
 
     res.map((value) => print(value),
-	  Merr: (CountResponseMerr err) => print(err.body!['body']));	
+	  Merr: (DropTableResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
