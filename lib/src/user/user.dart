@@ -367,18 +367,6 @@ class UserService {
 @Freezed()
 class Account with _$Account {
   const factory Account({
-    /// an email address
-    String? email,
-
-    /// unique account id
-    String? id,
-
-    /// Store any custom data you want about your users in this fields.
-    Map<String, String>? profile,
-
-    /// unix timestamp
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? updated,
-
     /// alphanumeric username
     String? username,
 
@@ -391,6 +379,18 @@ class Account with _$Account {
 
     /// unix timestamp
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? created,
+
+    /// an email address
+    String? email,
+
+    /// unique account id
+    String? id,
+
+    /// Store any custom data you want about your users in this fields.
+    Map<String, String>? profile,
+
+    /// unix timestamp
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? updated,
   }) = _Account;
   factory Account.fromJson(Map<String, dynamic> json) =>
       _$AccountFromJson(json);
@@ -399,6 +399,12 @@ class Account with _$Account {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// the email address
+    String? email,
+
+    /// optional account id
+    String? id,
+
     /// the user password
     String? password,
 
@@ -407,12 +413,6 @@ class CreateRequest with _$CreateRequest {
 
     /// the username
     String? username,
-
-    /// the email address
-    String? email,
-
-    /// optional account id
-    String? id,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -474,14 +474,14 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class LoginRequest with _$LoginRequest {
   const factory LoginRequest({
-    /// The username of the user
-    String? username,
-
     /// The email address of the user
     String? email,
 
     /// The password of the user
     String? password,
+
+    /// The username of the user
+    String? username,
   }) = _LoginRequest;
   factory LoginRequest.fromJson(Map<String, dynamic> json) =>
       _$LoginRequestFromJson(json);
@@ -540,14 +540,14 @@ class LogoutResponse with _$LogoutResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
-    /// the account email
-    String? email,
-
     /// the account id
     String? id,
 
     /// the account username
     String? username,
+
+    /// the account email
+    String? email,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);
@@ -686,9 +686,6 @@ class SendPasswordResetEmailResponse with _$SendPasswordResetEmailResponse {
 @Freezed()
 class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
   const factory SendVerificationEmailRequest({
-    /// email address to send the verification code
-    String? email,
-
     /// The url to redirect to incase of failure
     String? failure_redirect_url,
 
@@ -704,6 +701,9 @@ class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
     /// Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
     /// HTML emails are not available currently.
     String? text_content,
+
+    /// email address to send the verification code
+    String? email,
   }) = _SendVerificationEmailRequest;
   factory SendVerificationEmailRequest.fromJson(Map<String, dynamic> json) =>
       _$SendVerificationEmailRequestFromJson(json);
@@ -769,6 +769,9 @@ class UpdatePasswordResponse with _$UpdatePasswordResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
+    /// the new username
+    String? username,
+
     /// the new email address
     String? email,
 
@@ -777,9 +780,6 @@ class UpdateRequest with _$UpdateRequest {
 
     /// the user profile as map<string,string>
     Map<String, String>? profile,
-
-    /// the new username
-    String? username,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);
@@ -825,9 +825,9 @@ class VerifyTokenRequest with _$VerifyTokenRequest {
 @Freezed()
 class VerifyTokenResponse with _$VerifyTokenResponse {
   const factory VerifyTokenResponse({
-    Session? session,
     bool? is_valid,
     String? message,
+    Session? session,
   }) = VerifyTokenResponseData;
   const factory VerifyTokenResponse.Merr({Map<String, dynamic>? body}) =
       VerifyTokenResponseMerr;

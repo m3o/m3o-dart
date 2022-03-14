@@ -143,11 +143,11 @@ class CacheService {
 @Freezed()
 class DecrementRequest with _$DecrementRequest {
   const factory DecrementRequest({
-    /// The amount to decrement the value by
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
-
     /// The key to decrement
     String? key,
+
+    /// The amount to decrement the value by
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
   }) = _DecrementRequest;
   factory DecrementRequest.fromJson(Map<String, dynamic> json) =>
       _$DecrementRequestFromJson(json);
@@ -156,11 +156,11 @@ class DecrementRequest with _$DecrementRequest {
 @Freezed()
 class DecrementResponse with _$DecrementResponse {
   const factory DecrementResponse({
-    /// The new value
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
-
     /// The key decremented
     String? key,
+
+    /// The new value
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
   }) = DecrementResponseData;
   const factory DecrementResponse.Merr({Map<String, dynamic>? body}) =
       DecrementResponseMerr;
@@ -221,11 +221,11 @@ class GetResponse with _$GetResponse {
 @Freezed()
 class IncrementRequest with _$IncrementRequest {
   const factory IncrementRequest({
-    /// The key to increment
-    String? key,
-
     /// The amount to increment the value by
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
+
+    /// The key to increment
+    String? key,
   }) = _IncrementRequest;
   factory IncrementRequest.fromJson(Map<String, dynamic> json) =>
       _$IncrementRequestFromJson(json);

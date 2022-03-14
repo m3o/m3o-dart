@@ -22,10 +22,10 @@ Code _$CodeFromJson(Map<String, dynamic> json) {
 class _$CodeTearOff {
   const _$CodeTearOff();
 
-  _Code call({String? currency, String? name}) {
+  _Code call({String? name, String? currency}) {
     return _Code(
-      currency: currency,
       name: name,
+      currency: currency,
     );
   }
 
@@ -39,11 +39,11 @@ const $Code = _$CodeTearOff();
 
 /// @nodoc
 mixin _$Code {
-  /// e.g United States Dollar
-  String? get currency => throw _privateConstructorUsedError;
-
   /// e.g USD
   String? get name => throw _privateConstructorUsedError;
+
+  /// e.g United States Dollar
+  String? get currency => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -54,7 +54,7 @@ mixin _$Code {
 abstract class $CodeCopyWith<$Res> {
   factory $CodeCopyWith(Code value, $Res Function(Code) then) =
       _$CodeCopyWithImpl<$Res>;
-  $Res call({String? currency, String? name});
+  $Res call({String? name, String? currency});
 }
 
 /// @nodoc
@@ -67,17 +67,17 @@ class _$CodeCopyWithImpl<$Res> implements $CodeCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? currency = freezed,
     Object? name = freezed,
+    Object? currency = freezed,
   }) {
     return _then(_value.copyWith(
-      currency: currency == freezed
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      currency: currency == freezed
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -88,7 +88,7 @@ abstract class _$CodeCopyWith<$Res> implements $CodeCopyWith<$Res> {
   factory _$CodeCopyWith(_Code value, $Res Function(_Code) then) =
       __$CodeCopyWithImpl<$Res>;
   @override
-  $Res call({String? currency, String? name});
+  $Res call({String? name, String? currency});
 }
 
 /// @nodoc
@@ -102,17 +102,17 @@ class __$CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? currency = freezed,
     Object? name = freezed,
+    Object? currency = freezed,
   }) {
     return _then(_Code(
-      currency: currency == freezed
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      currency: currency == freezed
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -121,22 +121,22 @@ class __$CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Code implements _Code {
-  const _$_Code({this.currency, this.name});
+  const _$_Code({this.name, this.currency});
 
   factory _$_Code.fromJson(Map<String, dynamic> json) => _$$_CodeFromJson(json);
 
   @override
 
-  /// e.g United States Dollar
-  final String? currency;
-  @override
-
   /// e.g USD
   final String? name;
+  @override
+
+  /// e.g United States Dollar
+  final String? currency;
 
   @override
   String toString() {
-    return 'Code(currency: $currency, name: $name)';
+    return 'Code(name: $name, currency: $currency)';
   }
 
   @override
@@ -144,15 +144,15 @@ class _$_Code implements _Code {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Code &&
-            const DeepCollectionEquality().equals(other.currency, currency) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.currency, currency));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(currency),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(currency));
 
   @JsonKey(ignore: true)
   @override
@@ -166,18 +166,18 @@ class _$_Code implements _Code {
 }
 
 abstract class _Code implements Code {
-  const factory _Code({String? currency, String? name}) = _$_Code;
+  const factory _Code({String? name, String? currency}) = _$_Code;
 
   factory _Code.fromJson(Map<String, dynamic> json) = _$_Code.fromJson;
 
   @override
 
-  /// e.g United States Dollar
-  String? get currency;
-  @override
-
   /// e.g USD
   String? get name;
+  @override
+
+  /// e.g United States Dollar
+  String? get currency;
   @override
   @JsonKey(ignore: true)
   _$CodeCopyWith<_Code> get copyWith => throw _privateConstructorUsedError;

@@ -101,11 +101,11 @@ class CurrencyService {
 @Freezed()
 class Code with _$Code {
   const factory Code({
-    /// e.g United States Dollar
-    String? currency,
-
     /// e.g USD
     String? name,
+
+    /// e.g United States Dollar
+    String? currency,
   }) = _Code;
   factory Code.fromJson(Map<String, dynamic> json) => _$CodeFromJson(json);
 }
