@@ -4,97 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/lists/api](htt
 
 Endpoints:
 
-## Events
-
-Subscribe to lists events
-
-
-[https://m3o.com/lists/api#Events](https://m3o.com/lists/api#Events)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/lists/lists.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = ListsService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
-,};
-
-  EventsRequest req = EventsRequest.fromJson(payload);
-
-  
-  	
-  try {
-
-    final res = await ser.events(req);
-
-	  await for (var sr in res) {
-	  sr.map((value) => print(value),
-		Merr: (EventsResponseMerr err) => print(err.body));
-	  }
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Create
-
-Create a new list
-
-
-[https://m3o.com/lists/api#Create](https://m3o.com/lists/api#Create)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/lists/lists.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = ListsService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "text": "This is my list",
-  "title": "New List"
-,};
-
-  CreateRequest req = CreateRequest.fromJson(payload);
-
-  
-  try {
-
-	CreateResponse res = await ser.create(req);
-
-    res.map((value) => print(value),
-	  Merr: (CreateResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Read
 
 Read a list
@@ -264,6 +173,97 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Events
+
+Subscribe to lists events
+
+
+[https://m3o.com/lists/api#Events](https://m3o.com/lists/api#Events)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/lists/lists.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = ListsService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
+,};
+
+  EventsRequest req = EventsRequest.fromJson(payload);
+
+  
+  	
+  try {
+
+    final res = await ser.events(req);
+
+	  await for (var sr in res) {
+	  sr.map((value) => print(value),
+		Merr: (EventsResponseMerr err) => print(err.body));
+	  }
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Create
+
+Create a new list
+
+
+[https://m3o.com/lists/api#Create](https://m3o.com/lists/api#Create)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/lists/lists.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = ListsService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "text": "This is my list",
+  "title": "New List"
+,};
+
+  CreateRequest req = CreateRequest.fromJson(payload);
+
+  
+  try {
+
+	CreateResponse res = await ser.create(req);
+
+    res.map((value) => print(value),
+	  Merr: (CreateResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
