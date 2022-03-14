@@ -201,4 +201,4 @@ jobs:
           commit: main
           body: |
             ${{ steps.micro_release_note.outputs.note }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.API_TOKEN_GITHUB }}
