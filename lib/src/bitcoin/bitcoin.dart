@@ -48,8 +48,8 @@ class PriceRequest with _$PriceRequest {
 @Freezed()
 class PriceResponse with _$PriceResponse {
   const factory PriceResponse({
-    double? price,
     String? symbol,
+    double? price,
   }) = PriceResponseData;
   const factory PriceResponse.Merr({Map<String, dynamic>? body}) =
       PriceResponseMerr;
