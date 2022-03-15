@@ -168,11 +168,11 @@ class ConvertResponse with _$ConvertResponse {
 @Freezed()
 class HistoryRequest with _$HistoryRequest {
   const factory HistoryRequest({
-    /// currency code e.g USD
-    String? code,
-
     /// date formatted as YYYY-MM-DD
     String? date,
+
+    /// currency code e.g USD
+    String? code,
   }) = _HistoryRequest;
   factory HistoryRequest.fromJson(Map<String, dynamic> json) =>
       _$HistoryRequestFromJson(json);
@@ -181,14 +181,14 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
+    /// The code of the request
+    String? code,
+
     /// The date requested
     String? date,
 
     /// The rate for the day as code:rate
     Map<String, double>? rates,
-
-    /// The code of the request
-    String? code,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -209,11 +209,11 @@ class RatesRequest with _$RatesRequest {
 @Freezed()
 class RatesResponse with _$RatesResponse {
   const factory RatesResponse({
-    /// The code requested e.g USD
-    String? code,
-
     /// The rates for the given code as key-value pairs code:rate
     Map<String, double>? rates,
+
+    /// The code requested e.g USD
+    String? code,
   }) = RatesResponseData;
   const factory RatesResponse.Merr({Map<String, dynamic>? body}) =
       RatesResponseMerr;

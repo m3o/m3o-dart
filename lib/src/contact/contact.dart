@@ -135,8 +135,8 @@ class Address with _$Address {
 @Freezed()
 class ContactInfo with _$ContactInfo {
   const factory ContactInfo({
-    /// the birthday
-    String? birthday,
+    /// update date string in RFC3339
+    String? updated_at,
 
     /// create date string in RFC3339
     String? created_at,
@@ -147,20 +147,20 @@ class ContactInfo with _$ContactInfo {
     /// contact id
     String? id,
 
-    /// the phone numbers
-    List<Phone>? phones,
-
-    /// update date string in RFC3339
-    String? updated_at,
-
-    /// the address
-    List<Address>? addresses,
-
     /// the contact links
     List<Link>? links,
 
     /// the contact name
     String? name,
+
+    /// the phone numbers
+    List<Phone>? phones,
+
+    /// the address
+    List<Address>? addresses,
+
+    /// the birthday
+    String? birthday,
 
     /// note of the contact
     String? note,
@@ -175,6 +175,12 @@ class ContactInfo with _$ContactInfo {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// optional, social media
+    SocialMedia? social_medias,
+
+    /// optional, location
+    List<Address>? addresses,
+
     /// optional, birthday
     String? birthday,
 
@@ -192,12 +198,6 @@ class CreateRequest with _$CreateRequest {
 
     /// optional, phone numbers
     List<Phone>? phones,
-
-    /// optional, social media
-    SocialMedia? social_medias,
-
-    /// optional, location
-    List<Address>? addresses,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -316,11 +316,11 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class SocialMedia with _$SocialMedia {
   const factory SocialMedia({
-    /// the label of the social
-    String? label,
-
     /// the username of social media
     String? username,
+
+    /// the label of the social
+    String? label,
   }) = _SocialMedia;
   factory SocialMedia.fromJson(Map<String, dynamic> json) =>
       _$SocialMediaFromJson(json);
@@ -329,20 +329,8 @@ class SocialMedia with _$SocialMedia {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// required, the contact id
-    String? id,
-
-    /// optional, links
-    List<Link>? links,
-
     /// optional, phone number
     List<Phone>? phones,
-
-    /// optional, emails
-    List<Email>? emails,
-
-    /// optional, birthday
-    String? birthday,
 
     /// required, the name
     String? name,
@@ -350,11 +338,23 @@ class UpdateRequest with _$UpdateRequest {
     /// optional, note
     String? note,
 
+    /// optional, emails
+    List<Email>? emails,
+
+    /// required, the contact id
+    String? id,
+
+    /// optional, links
+    List<Link>? links,
+
     /// optional, social media
     SocialMedia? social_medias,
 
     /// optional, addresses
     List<Address>? addresses,
+
+    /// optional, birthday
+    String? birthday,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

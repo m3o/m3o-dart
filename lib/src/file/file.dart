@@ -150,11 +150,11 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
-    /// Path to the file
-    String? path,
-
     /// Project name
     String? project,
+
+    /// Path to the file
+    String? path,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);
@@ -175,10 +175,6 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class Record with _$Record {
   const factory Record({
-    /// A custom project to group files
-    /// eg. file-of-mywebsite.com
-    String? project,
-
     /// Time the file was updated e.g 2021-05-20T13:37:21Z
     String? updated,
 
@@ -193,6 +189,10 @@ class Record with _$Record {
 
     /// Path to file or folder eg. '/documents/text-files/file.txt'.
     String? path,
+
+    /// A custom project to group files
+    /// eg. file-of-mywebsite.com
+    String? project,
   }) = _Record;
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }
