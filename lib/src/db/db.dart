@@ -228,14 +228,14 @@ class CountResponse with _$CountResponse {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// optional record id to use
+    String? id,
+
     /// JSON encoded record or records (can be array or object)
     Map<String, dynamic>? record,
 
     /// Optional table name. Defaults to 'default'
     String? table,
-
-    /// optional record id to use
-    String? id,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -256,11 +256,11 @@ class CreateResponse with _$CreateResponse {
 @Freezed()
 class DeleteRequest with _$DeleteRequest {
   const factory DeleteRequest({
-    /// Optional table name. Defaults to 'default'
-    String? table,
-
     /// id of the record
     String? id,
+
+    /// Optional table name. Defaults to 'default'
+    String? table,
   }) = _DeleteRequest;
   factory DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$DeleteRequestFromJson(json);
@@ -315,6 +315,9 @@ class ListTablesResponse with _$ListTablesResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
+    /// 'asc' (default), 'desc'
+    String? order,
+
     /// field name to order by
     String? orderBy,
 
@@ -335,9 +338,6 @@ class ReadRequest with _$ReadRequest {
     /// Maximum limit is 1000. Anything higher will return an error.
     int? limit,
     int? offset,
-
-    /// 'asc' (default), 'desc'
-    String? order,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);

@@ -48,6 +48,9 @@ class PingRequest with _$PingRequest {
 @Freezed()
 class PingResponse with _$PingResponse {
   const factory PingResponse({
+    /// Favicon in base64
+    String? favicon,
+
     /// Latency (ms) between us and the server (EU)
     int? latency,
 
@@ -68,9 +71,6 @@ class PingResponse with _$PingResponse {
 
     /// Version of the server
     String? version,
-
-    /// Favicon in base64
-    String? favicon,
   }) = PingResponseData;
   const factory PingResponse.Merr({Map<String, dynamic>? body}) =
       PingResponseMerr;

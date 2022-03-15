@@ -19,49 +19,46 @@ Map<String, dynamic> _$$_AddressToJson(_$_Address instance) =>
 
 _$_ContactInfo _$$_ContactInfoFromJson(Map<String, dynamic> json) =>
     _$_ContactInfo(
-      id: json['id'] as String?,
-      links: (json['links'] as List<dynamic>?)
-          ?.map((e) => Link.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      name: json['name'] as String?,
-      note: json['note'] as String?,
-      phones: (json['phones'] as List<dynamic>?)
-          ?.map((e) => Phone.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      social_medias: json['social_medias'] == null
-          ? null
-          : SocialMedia.fromJson(json['social_medias'] as Map<String, dynamic>),
-      addresses: (json['addresses'] as List<dynamic>?)
-          ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
-          .toList(),
       birthday: json['birthday'] as String?,
       created_at: json['created_at'] as String?,
       emails: (json['emails'] as List<dynamic>?)
           ?.map((e) => Email.fromJson(e as Map<String, dynamic>))
           .toList(),
+      id: json['id'] as String?,
+      phones: (json['phones'] as List<dynamic>?)
+          ?.map((e) => Phone.fromJson(e as Map<String, dynamic>))
+          .toList(),
       updated_at: json['updated_at'] as String?,
+      addresses: (json['addresses'] as List<dynamic>?)
+          ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      links: (json['links'] as List<dynamic>?)
+          ?.map((e) => Link.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      name: json['name'] as String?,
+      note: json['note'] as String?,
+      social_medias: json['social_medias'] == null
+          ? null
+          : SocialMedia.fromJson(json['social_medias'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_ContactInfoToJson(_$_ContactInfo instance) =>
     <String, dynamic>{
-      'id': instance.id,
-      'links': instance.links,
-      'name': instance.name,
-      'note': instance.note,
-      'phones': instance.phones,
-      'social_medias': instance.social_medias,
-      'addresses': instance.addresses,
       'birthday': instance.birthday,
       'created_at': instance.created_at,
       'emails': instance.emails,
+      'id': instance.id,
+      'phones': instance.phones,
       'updated_at': instance.updated_at,
+      'addresses': instance.addresses,
+      'links': instance.links,
+      'name': instance.name,
+      'note': instance.note,
+      'social_medias': instance.social_medias,
     };
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      addresses: (json['addresses'] as List<dynamic>?)
-          ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
-          .toList(),
       birthday: json['birthday'] as String?,
       emails: (json['emails'] as List<dynamic>?)
           ?.map((e) => Email.fromJson(e as Map<String, dynamic>))
@@ -77,11 +74,13 @@ _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
       social_medias: json['social_medias'] == null
           ? null
           : SocialMedia.fromJson(json['social_medias'] as Map<String, dynamic>),
+      addresses: (json['addresses'] as List<dynamic>?)
+          ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
-      'addresses': instance.addresses,
       'birthday': instance.birthday,
       'emails': instance.emails,
       'links': instance.links,
@@ -89,6 +88,7 @@ Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
       'note': instance.note,
       'phones': instance.phones,
       'social_medias': instance.social_medias,
+      'addresses': instance.addresses,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -259,50 +259,50 @@ Map<String, dynamic> _$$ReadResponseMerrToJson(_$ReadResponseMerr instance) =>
 
 _$_SocialMedia _$$_SocialMediaFromJson(Map<String, dynamic> json) =>
     _$_SocialMedia(
-      username: json['username'] as String?,
       label: json['label'] as String?,
+      username: json['username'] as String?,
     );
 
 Map<String, dynamic> _$$_SocialMediaToJson(_$_SocialMedia instance) =>
     <String, dynamic>{
-      'username': instance.username,
       'label': instance.label,
+      'username': instance.username,
     };
 
 _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>
     _$_UpdateRequest(
+      id: json['id'] as String?,
       links: (json['links'] as List<dynamic>?)
           ?.map((e) => Link.fromJson(e as Map<String, dynamic>))
           .toList(),
+      phones: (json['phones'] as List<dynamic>?)
+          ?.map((e) => Phone.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      emails: (json['emails'] as List<dynamic>?)
+          ?.map((e) => Email.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      birthday: json['birthday'] as String?,
       name: json['name'] as String?,
+      note: json['note'] as String?,
       social_medias: json['social_medias'] == null
           ? null
           : SocialMedia.fromJson(json['social_medias'] as Map<String, dynamic>),
       addresses: (json['addresses'] as List<dynamic>?)
           ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
           .toList(),
-      birthday: json['birthday'] as String?,
-      emails: (json['emails'] as List<dynamic>?)
-          ?.map((e) => Email.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      id: json['id'] as String?,
-      note: json['note'] as String?,
-      phones: (json['phones'] as List<dynamic>?)
-          ?.map((e) => Phone.fromJson(e as Map<String, dynamic>))
-          .toList(),
     );
 
 Map<String, dynamic> _$$_UpdateRequestToJson(_$_UpdateRequest instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'links': instance.links,
+      'phones': instance.phones,
+      'emails': instance.emails,
+      'birthday': instance.birthday,
       'name': instance.name,
+      'note': instance.note,
       'social_medias': instance.social_medias,
       'addresses': instance.addresses,
-      'birthday': instance.birthday,
-      'emails': instance.emails,
-      'id': instance.id,
-      'note': instance.note,
-      'phones': instance.phones,
     };
 
 _$UpdateResponseData _$$UpdateResponseDataFromJson(Map<String, dynamic> json) =>

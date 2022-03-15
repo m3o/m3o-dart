@@ -114,6 +114,9 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
+    /// the close price
+    double? close,
+
     /// the date
     String? date,
 
@@ -131,9 +134,6 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the volume
     int? volume,
-
-    /// the close price
-    double? close,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -144,6 +144,9 @@ class HistoryResponse with _$HistoryResponse {
 @Freezed()
 class Order with _$Order {
   const factory Order({
+    /// the asking price
+    double? ask_price,
+
     /// the ask size
     int? ask_size,
 
@@ -155,9 +158,6 @@ class Order with _$Order {
 
     /// the UTC timestamp of the quote
     String? timestamp,
-
-    /// the asking price
-    double? ask_price,
   }) = _Order;
   factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);
 }
@@ -165,6 +165,12 @@ class Order with _$Order {
 @Freezed()
 class OrderBookRequest with _$OrderBookRequest {
   const factory OrderBookRequest({
+    /// optional RFC3339Nano start time e.g 2006-01-02T15:04:05.999999999Z07:00
+    String? start,
+
+    /// stock to retrieve e.g AAPL
+    String? stock,
+
     /// the date in format YYYY-MM-dd
     String? date,
 
@@ -173,12 +179,6 @@ class OrderBookRequest with _$OrderBookRequest {
 
     /// limit number of prices
     int? limit,
-
-    /// optional RFC3339Nano start time e.g 2006-01-02T15:04:05.999999999Z07:00
-    String? start,
-
-    /// stock to retrieve e.g AAPL
-    String? stock,
   }) = _OrderBookRequest;
   factory OrderBookRequest.fromJson(Map<String, dynamic> json) =>
       _$OrderBookRequestFromJson(json);
@@ -187,14 +187,14 @@ class OrderBookRequest with _$OrderBookRequest {
 @Freezed()
 class OrderBookResponse with _$OrderBookResponse {
   const factory OrderBookResponse({
-    /// date of the request
-    String? date,
-
     /// list of orders
     List<Order>? orders,
 
     /// the stock symbol
     String? symbol,
+
+    /// date of the request
+    String? date,
   }) = OrderBookResponseData;
   const factory OrderBookResponse.Merr({Map<String, dynamic>? body}) =
       OrderBookResponseMerr;
@@ -240,15 +240,6 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
-    /// the bid size
-    int? bid_size,
-
-    /// the stock symbol
-    String? symbol,
-
-    /// the UTC timestamp of the quote
-    String? timestamp,
-
     /// the asking price
     double? ask_price,
 
@@ -257,6 +248,15 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the bidding price
     double? bid_price,
+
+    /// the bid size
+    int? bid_size,
+
+    /// the stock symbol
+    String? symbol,
+
+    /// the UTC timestamp of the quote
+    String? timestamp,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;

@@ -217,13 +217,14 @@ class _$PointTearOff {
   const _$PointTearOff();
 
   _Point call(
-      {double? longitude,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? timestamp,
-      double? latitude}) {
+      {double? latitude,
+      double? longitude,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? timestamp}) {
     return _Point(
+      latitude: latitude,
       longitude: longitude,
       timestamp: timestamp,
-      latitude: latitude,
     );
   }
 
@@ -237,10 +238,10 @@ const $Point = _$PointTearOff();
 
 /// @nodoc
 mixin _$Point {
+  double? get latitude => throw _privateConstructorUsedError;
   double? get longitude => throw _privateConstructorUsedError;
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get timestamp => throw _privateConstructorUsedError;
-  double? get latitude => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -252,9 +253,10 @@ abstract class $PointCopyWith<$Res> {
   factory $PointCopyWith(Point value, $Res Function(Point) then) =
       _$PointCopyWithImpl<$Res>;
   $Res call(
-      {double? longitude,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? timestamp,
-      double? latitude});
+      {double? latitude,
+      double? longitude,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? timestamp});
 }
 
 /// @nodoc
@@ -267,11 +269,15 @@ class _$PointCopyWithImpl<$Res> implements $PointCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? latitude = freezed,
     Object? longitude = freezed,
     Object? timestamp = freezed,
-    Object? latitude = freezed,
   }) {
     return _then(_value.copyWith(
+      latitude: latitude == freezed
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double?,
       longitude: longitude == freezed
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
@@ -280,10 +286,6 @@ class _$PointCopyWithImpl<$Res> implements $PointCopyWith<$Res> {
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as int?,
-      latitude: latitude == freezed
-          ? _value.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as double?,
     ));
   }
 }
@@ -294,9 +296,10 @@ abstract class _$PointCopyWith<$Res> implements $PointCopyWith<$Res> {
       __$PointCopyWithImpl<$Res>;
   @override
   $Res call(
-      {double? longitude,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? timestamp,
-      double? latitude});
+      {double? latitude,
+      double? longitude,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? timestamp});
 }
 
 /// @nodoc
@@ -310,11 +313,15 @@ class __$PointCopyWithImpl<$Res> extends _$PointCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? latitude = freezed,
     Object? longitude = freezed,
     Object? timestamp = freezed,
-    Object? latitude = freezed,
   }) {
     return _then(_Point(
+      latitude: latitude == freezed
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double?,
       longitude: longitude == freezed
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
@@ -323,10 +330,6 @@ class __$PointCopyWithImpl<$Res> extends _$PointCopyWithImpl<$Res>
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as int?,
-      latitude: latitude == freezed
-          ? _value.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as double?,
     ));
   }
 }
@@ -335,24 +338,25 @@ class __$PointCopyWithImpl<$Res> extends _$PointCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Point implements _Point {
   const _$_Point(
-      {this.longitude,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.timestamp,
-      this.latitude});
+      {this.latitude,
+      this.longitude,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          this.timestamp});
 
   factory _$_Point.fromJson(Map<String, dynamic> json) =>
       _$$_PointFromJson(json);
 
   @override
+  final double? latitude;
+  @override
   final double? longitude;
   @override
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? timestamp;
-  @override
-  final double? latitude;
 
   @override
   String toString() {
-    return 'Point(longitude: $longitude, timestamp: $timestamp, latitude: $latitude)';
+    return 'Point(latitude: $latitude, longitude: $longitude, timestamp: $timestamp)';
   }
 
   @override
@@ -360,17 +364,17 @@ class _$_Point implements _Point {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Point &&
+            const DeepCollectionEquality().equals(other.latitude, latitude) &&
             const DeepCollectionEquality().equals(other.longitude, longitude) &&
-            const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
-            const DeepCollectionEquality().equals(other.latitude, latitude));
+            const DeepCollectionEquality().equals(other.timestamp, timestamp));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(latitude),
       const DeepCollectionEquality().hash(longitude),
-      const DeepCollectionEquality().hash(timestamp),
-      const DeepCollectionEquality().hash(latitude));
+      const DeepCollectionEquality().hash(timestamp));
 
   @JsonKey(ignore: true)
   @override
@@ -385,19 +389,20 @@ class _$_Point implements _Point {
 
 abstract class _Point implements Point {
   const factory _Point(
-      {double? longitude,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? timestamp,
-      double? latitude}) = _$_Point;
+      {double? latitude,
+      double? longitude,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? timestamp}) = _$_Point;
 
   factory _Point.fromJson(Map<String, dynamic> json) = _$_Point.fromJson;
 
+  @override
+  double? get latitude;
   @override
   double? get longitude;
   @override
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get timestamp;
-  @override
-  double? get latitude;
   @override
   @JsonKey(ignore: true)
   _$PointCopyWith<_Point> get copyWith => throw _privateConstructorUsedError;
@@ -1498,16 +1503,16 @@ class _$SearchRequestTearOff {
   const _$SearchRequestTearOff();
 
   _SearchRequest call(
-      {String? type,
+      {double? radius,
+      String? type,
       Point? center,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? numEntities,
-      double? radius}) {
+          int? numEntities}) {
     return _SearchRequest(
+      radius: radius,
       type: type,
       center: center,
       numEntities: numEntities,
-      radius: radius,
     );
   }
 
@@ -1521,6 +1526,9 @@ const $SearchRequest = _$SearchRequestTearOff();
 
 /// @nodoc
 mixin _$SearchRequest {
+  /// radius in meters
+  double? get radius => throw _privateConstructorUsedError;
+
   /// type of entities to filter
   String? get type => throw _privateConstructorUsedError;
 
@@ -1530,9 +1538,6 @@ mixin _$SearchRequest {
   /// Maximum number of entities to return
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get numEntities => throw _privateConstructorUsedError;
-
-  /// radius in meters
-  double? get radius => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1546,11 +1551,11 @@ abstract class $SearchRequestCopyWith<$Res> {
           SearchRequest value, $Res Function(SearchRequest) then) =
       _$SearchRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? type,
+      {double? radius,
+      String? type,
       Point? center,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? numEntities,
-      double? radius});
+          int? numEntities});
 
   $PointCopyWith<$Res>? get center;
 }
@@ -1566,12 +1571,16 @@ class _$SearchRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? radius = freezed,
     Object? type = freezed,
     Object? center = freezed,
     Object? numEntities = freezed,
-    Object? radius = freezed,
   }) {
     return _then(_value.copyWith(
+      radius: radius == freezed
+          ? _value.radius
+          : radius // ignore: cast_nullable_to_non_nullable
+              as double?,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -1584,10 +1593,6 @@ class _$SearchRequestCopyWithImpl<$Res>
           ? _value.numEntities
           : numEntities // ignore: cast_nullable_to_non_nullable
               as int?,
-      radius: radius == freezed
-          ? _value.radius
-          : radius // ignore: cast_nullable_to_non_nullable
-              as double?,
     ));
   }
 
@@ -1611,11 +1616,11 @@ abstract class _$SearchRequestCopyWith<$Res>
       __$SearchRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? type,
+      {double? radius,
+      String? type,
       Point? center,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? numEntities,
-      double? radius});
+          int? numEntities});
 
   @override
   $PointCopyWith<$Res>? get center;
@@ -1634,12 +1639,16 @@ class __$SearchRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? radius = freezed,
     Object? type = freezed,
     Object? center = freezed,
     Object? numEntities = freezed,
-    Object? radius = freezed,
   }) {
     return _then(_SearchRequest(
+      radius: radius == freezed
+          ? _value.radius
+          : radius // ignore: cast_nullable_to_non_nullable
+              as double?,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -1652,10 +1661,6 @@ class __$SearchRequestCopyWithImpl<$Res>
           ? _value.numEntities
           : numEntities // ignore: cast_nullable_to_non_nullable
               as int?,
-      radius: radius == freezed
-          ? _value.radius
-          : radius // ignore: cast_nullable_to_non_nullable
-              as double?,
     ));
   }
 }
@@ -1664,15 +1669,19 @@ class __$SearchRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SearchRequest implements _SearchRequest {
   const _$_SearchRequest(
-      {this.type,
+      {this.radius,
+      this.type,
       this.center,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.numEntities,
-      this.radius});
+          this.numEntities});
 
   factory _$_SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SearchRequestFromJson(json);
 
+  @override
+
+  /// radius in meters
+  final double? radius;
   @override
 
   /// type of entities to filter
@@ -1686,14 +1695,10 @@ class _$_SearchRequest implements _SearchRequest {
   /// Maximum number of entities to return
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? numEntities;
-  @override
-
-  /// radius in meters
-  final double? radius;
 
   @override
   String toString() {
-    return 'SearchRequest(type: $type, center: $center, numEntities: $numEntities, radius: $radius)';
+    return 'SearchRequest(radius: $radius, type: $type, center: $center, numEntities: $numEntities)';
   }
 
   @override
@@ -1701,20 +1706,20 @@ class _$_SearchRequest implements _SearchRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SearchRequest &&
+            const DeepCollectionEquality().equals(other.radius, radius) &&
             const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality().equals(other.center, center) &&
             const DeepCollectionEquality()
-                .equals(other.numEntities, numEntities) &&
-            const DeepCollectionEquality().equals(other.radius, radius));
+                .equals(other.numEntities, numEntities));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(radius),
       const DeepCollectionEquality().hash(type),
       const DeepCollectionEquality().hash(center),
-      const DeepCollectionEquality().hash(numEntities),
-      const DeepCollectionEquality().hash(radius));
+      const DeepCollectionEquality().hash(numEntities));
 
   @JsonKey(ignore: true)
   @override
@@ -1729,15 +1734,19 @@ class _$_SearchRequest implements _SearchRequest {
 
 abstract class _SearchRequest implements SearchRequest {
   const factory _SearchRequest(
-      {String? type,
+      {double? radius,
+      String? type,
       Point? center,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? numEntities,
-      double? radius}) = _$_SearchRequest;
+          int? numEntities}) = _$_SearchRequest;
 
   factory _SearchRequest.fromJson(Map<String, dynamic> json) =
       _$_SearchRequest.fromJson;
 
+  @override
+
+  /// radius in meters
+  double? get radius;
   @override
 
   /// type of entities to filter
@@ -1751,10 +1760,6 @@ abstract class _SearchRequest implements SearchRequest {
   /// Maximum number of entities to return
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get numEntities;
-  @override
-
-  /// radius in meters
-  double? get radius;
   @override
   @JsonKey(ignore: true)
   _$SearchRequestCopyWith<_SearchRequest> get copyWith =>
