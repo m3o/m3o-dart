@@ -111,9 +111,6 @@ class ImageService {
 @Freezed()
 class ConvertRequest with _$ConvertRequest {
   const factory ConvertRequest({
-    /// url of the image to resize
-    String? url,
-
     /// base64 encoded image to resize,
     String? base64,
 
@@ -125,6 +122,9 @@ class ConvertRequest with _$ConvertRequest {
 
     /// make output a URL and not a base64 response
     bool? outputURL,
+
+    /// url of the image to resize
+    String? url,
   }) = _ConvertRequest;
   factory ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$ConvertRequestFromJson(json);
@@ -192,8 +192,8 @@ class Point with _$Point {
 @Freezed()
 class Rectangle with _$Rectangle {
   const factory Rectangle({
-    Point? min,
     Point? max,
+    Point? min,
   }) = _Rectangle;
   factory Rectangle.fromJson(Map<String, dynamic> json) =>
       _$RectangleFromJson(json);

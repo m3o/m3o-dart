@@ -237,9 +237,6 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Note with _$Note {
   const factory Note({
-    /// title of the note
-    String? title,
-
     /// time at which the note was updated
     String? updated,
 
@@ -251,6 +248,9 @@ class Note with _$Note {
 
     /// text within the note
     String? text,
+
+    /// title of the note
+    String? title,
   }) = _Note;
   factory Note.fromJson(Map<String, dynamic> json) => _$NoteFromJson(json);
 }

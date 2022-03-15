@@ -23,17 +23,17 @@ class _$ConvertRequestTearOff {
   const _$ConvertRequestTearOff();
 
   _ConvertRequest call(
-      {String? url,
-      String? base64,
+      {String? base64,
       String? file,
       String? name,
-      bool? outputURL}) {
+      bool? outputURL,
+      String? url}) {
     return _ConvertRequest(
-      url: url,
       base64: base64,
       file: file,
       name: name,
       outputURL: outputURL,
+      url: url,
     );
   }
 
@@ -47,9 +47,6 @@ const $ConvertRequest = _$ConvertRequestTearOff();
 
 /// @nodoc
 mixin _$ConvertRequest {
-  /// url of the image to resize
-  String? get url => throw _privateConstructorUsedError;
-
   /// base64 encoded image to resize,
   String? get base64 => throw _privateConstructorUsedError;
 
@@ -61,6 +58,9 @@ mixin _$ConvertRequest {
 
   /// make output a URL and not a base64 response
   bool? get outputURL => throw _privateConstructorUsedError;
+
+  /// url of the image to resize
+  String? get url => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -74,11 +74,11 @@ abstract class $ConvertRequestCopyWith<$Res> {
           ConvertRequest value, $Res Function(ConvertRequest) then) =
       _$ConvertRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? url,
-      String? base64,
+      {String? base64,
       String? file,
       String? name,
-      bool? outputURL});
+      bool? outputURL,
+      String? url});
 }
 
 /// @nodoc
@@ -92,17 +92,13 @@ class _$ConvertRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? url = freezed,
     Object? base64 = freezed,
     Object? file = freezed,
     Object? name = freezed,
     Object? outputURL = freezed,
+    Object? url = freezed,
   }) {
     return _then(_value.copyWith(
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
       base64: base64 == freezed
           ? _value.base64
           : base64 // ignore: cast_nullable_to_non_nullable
@@ -119,6 +115,10 @@ class _$ConvertRequestCopyWithImpl<$Res>
           ? _value.outputURL
           : outputURL // ignore: cast_nullable_to_non_nullable
               as bool?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -131,11 +131,11 @@ abstract class _$ConvertRequestCopyWith<$Res>
       __$ConvertRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? url,
-      String? base64,
+      {String? base64,
       String? file,
       String? name,
-      bool? outputURL});
+      bool? outputURL,
+      String? url});
 }
 
 /// @nodoc
@@ -151,17 +151,13 @@ class __$ConvertRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? url = freezed,
     Object? base64 = freezed,
     Object? file = freezed,
     Object? name = freezed,
     Object? outputURL = freezed,
+    Object? url = freezed,
   }) {
     return _then(_ConvertRequest(
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
       base64: base64 == freezed
           ? _value.base64
           : base64 // ignore: cast_nullable_to_non_nullable
@@ -178,6 +174,10 @@ class __$ConvertRequestCopyWithImpl<$Res>
           ? _value.outputURL
           : outputURL // ignore: cast_nullable_to_non_nullable
               as bool?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -186,15 +186,11 @@ class __$ConvertRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ConvertRequest implements _ConvertRequest {
   const _$_ConvertRequest(
-      {this.url, this.base64, this.file, this.name, this.outputURL});
+      {this.base64, this.file, this.name, this.outputURL, this.url});
 
   factory _$_ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ConvertRequestFromJson(json);
 
-  @override
-
-  /// url of the image to resize
-  final String? url;
   @override
 
   /// base64 encoded image to resize,
@@ -211,10 +207,14 @@ class _$_ConvertRequest implements _ConvertRequest {
 
   /// make output a URL and not a base64 response
   final bool? outputURL;
+  @override
+
+  /// url of the image to resize
+  final String? url;
 
   @override
   String toString() {
-    return 'ConvertRequest(url: $url, base64: $base64, file: $file, name: $name, outputURL: $outputURL)';
+    return 'ConvertRequest(base64: $base64, file: $file, name: $name, outputURL: $outputURL, url: $url)';
   }
 
   @override
@@ -222,21 +222,21 @@ class _$_ConvertRequest implements _ConvertRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ConvertRequest &&
-            const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality().equals(other.base64, base64) &&
             const DeepCollectionEquality().equals(other.file, file) &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.outputURL, outputURL));
+            const DeepCollectionEquality().equals(other.outputURL, outputURL) &&
+            const DeepCollectionEquality().equals(other.url, url));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(base64),
       const DeepCollectionEquality().hash(file),
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(outputURL));
+      const DeepCollectionEquality().hash(outputURL),
+      const DeepCollectionEquality().hash(url));
 
   @JsonKey(ignore: true)
   @override
@@ -251,19 +251,15 @@ class _$_ConvertRequest implements _ConvertRequest {
 
 abstract class _ConvertRequest implements ConvertRequest {
   const factory _ConvertRequest(
-      {String? url,
-      String? base64,
+      {String? base64,
       String? file,
       String? name,
-      bool? outputURL}) = _$_ConvertRequest;
+      bool? outputURL,
+      String? url}) = _$_ConvertRequest;
 
   factory _ConvertRequest.fromJson(Map<String, dynamic> json) =
       _$_ConvertRequest.fromJson;
 
-  @override
-
-  /// url of the image to resize
-  String? get url;
   @override
 
   /// base64 encoded image to resize,
@@ -280,6 +276,10 @@ abstract class _ConvertRequest implements ConvertRequest {
 
   /// make output a URL and not a base64 response
   bool? get outputURL;
+  @override
+
+  /// url of the image to resize
+  String? get url;
   @override
   @JsonKey(ignore: true)
   _$ConvertRequestCopyWith<_ConvertRequest> get copyWith =>
@@ -1591,10 +1591,10 @@ Rectangle _$RectangleFromJson(Map<String, dynamic> json) {
 class _$RectangleTearOff {
   const _$RectangleTearOff();
 
-  _Rectangle call({Point? min, Point? max}) {
+  _Rectangle call({Point? max, Point? min}) {
     return _Rectangle(
-      min: min,
       max: max,
+      min: min,
     );
   }
 
@@ -1608,8 +1608,8 @@ const $Rectangle = _$RectangleTearOff();
 
 /// @nodoc
 mixin _$Rectangle {
-  Point? get min => throw _privateConstructorUsedError;
   Point? get max => throw _privateConstructorUsedError;
+  Point? get min => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1621,10 +1621,10 @@ mixin _$Rectangle {
 abstract class $RectangleCopyWith<$Res> {
   factory $RectangleCopyWith(Rectangle value, $Res Function(Rectangle) then) =
       _$RectangleCopyWithImpl<$Res>;
-  $Res call({Point? min, Point? max});
+  $Res call({Point? max, Point? min});
 
-  $PointCopyWith<$Res>? get min;
   $PointCopyWith<$Res>? get max;
+  $PointCopyWith<$Res>? get min;
 }
 
 /// @nodoc
@@ -1637,30 +1637,19 @@ class _$RectangleCopyWithImpl<$Res> implements $RectangleCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? min = freezed,
     Object? max = freezed,
+    Object? min = freezed,
   }) {
     return _then(_value.copyWith(
-      min: min == freezed
-          ? _value.min
-          : min // ignore: cast_nullable_to_non_nullable
-              as Point?,
       max: max == freezed
           ? _value.max
           : max // ignore: cast_nullable_to_non_nullable
               as Point?,
+      min: min == freezed
+          ? _value.min
+          : min // ignore: cast_nullable_to_non_nullable
+              as Point?,
     ));
-  }
-
-  @override
-  $PointCopyWith<$Res>? get min {
-    if (_value.min == null) {
-      return null;
-    }
-
-    return $PointCopyWith<$Res>(_value.min!, (value) {
-      return _then(_value.copyWith(min: value));
-    });
   }
 
   @override
@@ -1673,6 +1662,17 @@ class _$RectangleCopyWithImpl<$Res> implements $RectangleCopyWith<$Res> {
       return _then(_value.copyWith(max: value));
     });
   }
+
+  @override
+  $PointCopyWith<$Res>? get min {
+    if (_value.min == null) {
+      return null;
+    }
+
+    return $PointCopyWith<$Res>(_value.min!, (value) {
+      return _then(_value.copyWith(min: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -1681,12 +1681,12 @@ abstract class _$RectangleCopyWith<$Res> implements $RectangleCopyWith<$Res> {
           _Rectangle value, $Res Function(_Rectangle) then) =
       __$RectangleCopyWithImpl<$Res>;
   @override
-  $Res call({Point? min, Point? max});
+  $Res call({Point? max, Point? min});
 
   @override
-  $PointCopyWith<$Res>? get min;
-  @override
   $PointCopyWith<$Res>? get max;
+  @override
+  $PointCopyWith<$Res>? get min;
 }
 
 /// @nodoc
@@ -1700,17 +1700,17 @@ class __$RectangleCopyWithImpl<$Res> extends _$RectangleCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? min = freezed,
     Object? max = freezed,
+    Object? min = freezed,
   }) {
     return _then(_Rectangle(
-      min: min == freezed
-          ? _value.min
-          : min // ignore: cast_nullable_to_non_nullable
-              as Point?,
       max: max == freezed
           ? _value.max
           : max // ignore: cast_nullable_to_non_nullable
+              as Point?,
+      min: min == freezed
+          ? _value.min
+          : min // ignore: cast_nullable_to_non_nullable
               as Point?,
     ));
   }
@@ -1719,19 +1719,19 @@ class __$RectangleCopyWithImpl<$Res> extends _$RectangleCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Rectangle implements _Rectangle {
-  const _$_Rectangle({this.min, this.max});
+  const _$_Rectangle({this.max, this.min});
 
   factory _$_Rectangle.fromJson(Map<String, dynamic> json) =>
       _$$_RectangleFromJson(json);
 
   @override
-  final Point? min;
-  @override
   final Point? max;
+  @override
+  final Point? min;
 
   @override
   String toString() {
-    return 'Rectangle(min: $min, max: $max)';
+    return 'Rectangle(max: $max, min: $min)';
   }
 
   @override
@@ -1739,15 +1739,15 @@ class _$_Rectangle implements _Rectangle {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Rectangle &&
-            const DeepCollectionEquality().equals(other.min, min) &&
-            const DeepCollectionEquality().equals(other.max, max));
+            const DeepCollectionEquality().equals(other.max, max) &&
+            const DeepCollectionEquality().equals(other.min, min));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(min),
-      const DeepCollectionEquality().hash(max));
+      const DeepCollectionEquality().hash(max),
+      const DeepCollectionEquality().hash(min));
 
   @JsonKey(ignore: true)
   @override
@@ -1761,15 +1761,15 @@ class _$_Rectangle implements _Rectangle {
 }
 
 abstract class _Rectangle implements Rectangle {
-  const factory _Rectangle({Point? min, Point? max}) = _$_Rectangle;
+  const factory _Rectangle({Point? max, Point? min}) = _$_Rectangle;
 
   factory _Rectangle.fromJson(Map<String, dynamic> json) =
       _$_Rectangle.fromJson;
 
   @override
-  Point? get min;
-  @override
   Point? get max;
+  @override
+  Point? get min;
   @override
   @JsonKey(ignore: true)
   _$RectangleCopyWith<_Rectangle> get copyWith =>

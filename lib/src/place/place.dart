@@ -111,17 +111,14 @@ class NearbyResponse with _$NearbyResponse {
 @Freezed()
 class Result with _$Result {
   const factory Result({
-    /// opening hours
-    String? opening_hours,
-
     /// rating from 1.0 to 5.0
     double? rating,
 
+    /// type of location
+    String? type,
+
     /// feature types
     List<String>? types,
-
-    /// simplified address
-    String? vicinity,
 
     /// address of place
     String? address,
@@ -129,17 +126,20 @@ class Result with _$Result {
     /// lat/lng of place
     String? location,
 
-    /// open now
-    bool? open_now,
-
-    /// url of an icon
-    String? icon_url,
-
     /// name of the place
     String? name,
 
-    /// type of location
-    String? type,
+    /// open now
+    bool? open_now,
+
+    /// opening hours
+    String? opening_hours,
+
+    /// simplified address
+    String? vicinity,
+
+    /// url of an icon
+    String? icon_url,
   }) = _Result;
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
 }
@@ -147,6 +147,9 @@ class Result with _$Result {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
+    /// the text string on which to search, for example: "restaurant"
+    String? query,
+
     /// radius in meters within which to search
     int? radius,
 
@@ -158,9 +161,6 @@ class SearchRequest with _$SearchRequest {
 
     /// Whether the place is open now
     bool? open_now,
-
-    /// the text string on which to search, for example: "restaurant"
-    String? query,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);

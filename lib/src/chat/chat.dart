@@ -211,9 +211,6 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// optional list of user ids
-    String? user_ids,
-
     /// chat description
     String? description,
 
@@ -222,6 +219,9 @@ class CreateRequest with _$CreateRequest {
 
     /// whether its a private room
     bool? private,
+
+    /// optional list of user ids
+    String? user_ids,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -357,11 +357,11 @@ class KickResponse with _$KickResponse {
 @Freezed()
 class LeaveRequest with _$LeaveRequest {
   const factory LeaveRequest({
-    /// the user id
-    String? user_id,
-
     /// the chat room id
     String? room_id,
+
+    /// the user id
+    String? user_id,
   }) = _LeaveRequest;
   factory LeaveRequest.fromJson(Map<String, dynamic> json) =>
       _$LeaveRequestFromJson(json);
@@ -430,9 +430,6 @@ class Message with _$Message {
 @Freezed()
 class Room with _$Room {
   const factory Room({
-    /// time of creation
-    String? created_at,
-
     /// description of the that
     String? description,
 
@@ -447,6 +444,9 @@ class Room with _$Room {
 
     /// list of users
     String? user_ids,
+
+    /// time of creation
+    String? created_at,
   }) = _Room;
   factory Room.fromJson(Map<String, dynamic> json) => _$RoomFromJson(json);
 }
@@ -454,6 +454,9 @@ class Room with _$Room {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
+    /// a client side id, should be validated by the server to make the request retry safe
+    String? client,
+
     /// id of the chat room the message is being sent to / from
     String? room_id,
 
@@ -465,9 +468,6 @@ class SendRequest with _$SendRequest {
 
     /// id of the user who sent the message
     String? user_id,
-
-    /// a client side id, should be validated by the server to make the request retry safe
-    String? client,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);

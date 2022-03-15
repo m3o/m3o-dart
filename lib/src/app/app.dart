@@ -241,12 +241,6 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
-    /// time of reservation
-    String? created,
-
-    /// time reservation expires
-    String? expires,
-
     /// name of the app
     String? name,
 
@@ -255,6 +249,12 @@ class Reservation with _$Reservation {
 
     /// associated token
     String? token,
+
+    /// time of reservation
+    String? created,
+
+    /// time reservation expires
+    String? expires,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);
@@ -307,9 +307,6 @@ class ResolveResponse with _$ResolveResponse {
 @Freezed()
 class RunRequest with _$RunRequest {
   const factory RunRequest({
-    /// port to run on
-    int? port,
-
     /// region to run in
     String? region,
 
@@ -324,6 +321,9 @@ class RunRequest with _$RunRequest {
 
     /// name of the app
     String? name,
+
+    /// port to run on
+    int? port,
   }) = _RunRequest;
   factory RunRequest.fromJson(Map<String, dynamic> json) =>
       _$RunRequestFromJson(json);
@@ -344,17 +344,14 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
-    /// region running in
-    String? region,
-
     /// status of the app
     String? status,
 
-    /// app url
-    String? url,
-
     /// branch of code
     String? branch,
+
+    /// custom domains
+    String? custom_domains,
 
     /// associated env vars
     Map<String, String>? env_vars,
@@ -362,23 +359,26 @@ class Service with _$Service {
     /// unique id
     String? id,
 
-    /// name of the app
-    String? name,
-
     /// port running on
     int? port,
-
-    /// time of creation
-    String? created,
-
-    /// custom domains
-    String? custom_domains,
 
     /// source repository
     String? repo,
 
+    /// time of creation
+    String? created,
+
+    /// name of the app
+    String? name,
+
+    /// region running in
+    String? region,
+
     /// last updated
     String? updated,
+
+    /// app url
+    String? url,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);
