@@ -100,6 +100,9 @@ class ConsumeRequest with _$ConsumeRequest {
 @Freezed()
 class ConsumeResponse with _$ConsumeResponse {
   const factory ConsumeResponse({
+    /// The topic subscribed to
+    String? topic,
+
     /// Unique message id
     String? id,
 
@@ -108,9 +111,6 @@ class ConsumeResponse with _$ConsumeResponse {
 
     /// Timestamp of publishing
     String? timestamp,
-
-    /// The topic subscribed to
-    String? topic,
   }) = ConsumeResponseData;
   const factory ConsumeResponse.Merr({Map<String, dynamic>? body}) =
       ConsumeResponseMerr;
@@ -121,14 +121,14 @@ class ConsumeResponse with _$ConsumeResponse {
 @Freezed()
 class Ev with _$Ev {
   const factory Ev({
-    /// event id
-    String? id,
-
     /// event message
     Map<String, dynamic>? message,
 
     /// event timestamp
     String? timestamp,
+
+    /// event id
+    String? id,
   }) = _Ev;
   factory Ev.fromJson(Map<String, dynamic> json) => _$EvFromJson(json);
 }

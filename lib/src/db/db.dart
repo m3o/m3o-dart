@@ -256,11 +256,11 @@ class CreateResponse with _$CreateResponse {
 @Freezed()
 class DeleteRequest with _$DeleteRequest {
   const factory DeleteRequest({
-    /// id of the record
-    String? id,
-
     /// Optional table name. Defaults to 'default'
     String? table,
+
+    /// id of the record
+    String? id,
   }) = _DeleteRequest;
   factory DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$DeleteRequestFromJson(json);

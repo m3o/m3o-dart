@@ -111,6 +111,9 @@ class ImageService {
 @Freezed()
 class ConvertRequest with _$ConvertRequest {
   const factory ConvertRequest({
+    /// url of the image to resize
+    String? url,
+
     /// base64 encoded image to resize,
     String? base64,
 
@@ -122,9 +125,6 @@ class ConvertRequest with _$ConvertRequest {
 
     /// make output a URL and not a base64 response
     bool? outputURL,
-
-    /// url of the image to resize
-    String? url,
   }) = _ConvertRequest;
   factory ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$ConvertRequestFromJson(json);
@@ -192,8 +192,8 @@ class Point with _$Point {
 @Freezed()
 class Rectangle with _$Rectangle {
   const factory Rectangle({
-    Point? max,
     Point? min,
+    Point? max,
   }) = _Rectangle;
   factory Rectangle.fromJson(Map<String, dynamic> json) =>
       _$RectangleFromJson(json);
@@ -202,6 +202,13 @@ class Rectangle with _$Rectangle {
 @Freezed()
 class ResizeRequest with _$ResizeRequest {
   const factory ResizeRequest({
+    /// make output a URL and not a base64 response
+    bool? outputURL,
+
+    /// url of the image to resize
+    String? url,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
+
     /// base64 encoded image to resize,
     String? base64,
 
@@ -216,13 +223,6 @@ class ResizeRequest with _$ResizeRequest {
 
     /// output name of the image including extension, ie. "cat.png"
     String? name,
-
-    /// make output a URL and not a base64 response
-    bool? outputURL,
-
-    /// url of the image to resize
-    String? url,
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
   }) = _ResizeRequest;
   factory ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$ResizeRequestFromJson(json);
