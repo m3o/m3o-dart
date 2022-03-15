@@ -23,17 +23,17 @@ class _$TextRequestTearOff {
   const _$TextRequestTearOff();
 
   _TextRequest call(
-      {String? model,
+      {String? format,
+      String? model,
       String? source,
       String? target,
-      String? content,
-      String? format}) {
+      String? content}) {
     return _TextRequest(
+      format: format,
       model: model,
       source: source,
       target: target,
       content: content,
-      format: format,
     );
   }
 
@@ -47,6 +47,9 @@ const $TextRequest = _$TextRequestTearOff();
 
 /// @nodoc
 mixin _$TextRequest {
+  /// The string format, `text` or `html`
+  String? get format => throw _privateConstructorUsedError;
+
   /// The model to use for translation, `nmt` or `base`,
   /// See https://cloud.google.com/translate/docs/advanced/translating-text-v3#comparing-models for more information
   String? get model => throw _privateConstructorUsedError;
@@ -62,9 +65,6 @@ mixin _$TextRequest {
   /// The contents to be translated
   String? get content => throw _privateConstructorUsedError;
 
-  /// The string format, `text` or `html`
-  String? get format => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TextRequestCopyWith<TextRequest> get copyWith =>
@@ -77,11 +77,11 @@ abstract class $TextRequestCopyWith<$Res> {
           TextRequest value, $Res Function(TextRequest) then) =
       _$TextRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? model,
+      {String? format,
+      String? model,
       String? source,
       String? target,
-      String? content,
-      String? format});
+      String? content});
 }
 
 /// @nodoc
@@ -94,13 +94,17 @@ class _$TextRequestCopyWithImpl<$Res> implements $TextRequestCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? format = freezed,
     Object? model = freezed,
     Object? source = freezed,
     Object? target = freezed,
     Object? content = freezed,
-    Object? format = freezed,
   }) {
     return _then(_value.copyWith(
+      format: format == freezed
+          ? _value.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as String?,
       model: model == freezed
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
@@ -117,10 +121,6 @@ class _$TextRequestCopyWithImpl<$Res> implements $TextRequestCopyWith<$Res> {
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String?,
-      format: format == freezed
-          ? _value.format
-          : format // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -133,11 +133,11 @@ abstract class _$TextRequestCopyWith<$Res>
       __$TextRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? model,
+      {String? format,
+      String? model,
       String? source,
       String? target,
-      String? content,
-      String? format});
+      String? content});
 }
 
 /// @nodoc
@@ -152,13 +152,17 @@ class __$TextRequestCopyWithImpl<$Res> extends _$TextRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? format = freezed,
     Object? model = freezed,
     Object? source = freezed,
     Object? target = freezed,
     Object? content = freezed,
-    Object? format = freezed,
   }) {
     return _then(_TextRequest(
+      format: format == freezed
+          ? _value.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as String?,
       model: model == freezed
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
@@ -175,10 +179,6 @@ class __$TextRequestCopyWithImpl<$Res> extends _$TextRequestCopyWithImpl<$Res>
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String?,
-      format: format == freezed
-          ? _value.format
-          : format // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -187,11 +187,15 @@ class __$TextRequestCopyWithImpl<$Res> extends _$TextRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TextRequest implements _TextRequest {
   const _$_TextRequest(
-      {this.model, this.source, this.target, this.content, this.format});
+      {this.format, this.model, this.source, this.target, this.content});
 
   factory _$_TextRequest.fromJson(Map<String, dynamic> json) =>
       _$$_TextRequestFromJson(json);
 
+  @override
+
+  /// The string format, `text` or `html`
+  final String? format;
   @override
 
   /// The model to use for translation, `nmt` or `base`,
@@ -211,14 +215,10 @@ class _$_TextRequest implements _TextRequest {
 
   /// The contents to be translated
   final String? content;
-  @override
-
-  /// The string format, `text` or `html`
-  final String? format;
 
   @override
   String toString() {
-    return 'TextRequest(model: $model, source: $source, target: $target, content: $content, format: $format)';
+    return 'TextRequest(format: $format, model: $model, source: $source, target: $target, content: $content)';
   }
 
   @override
@@ -226,21 +226,21 @@ class _$_TextRequest implements _TextRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TextRequest &&
+            const DeepCollectionEquality().equals(other.format, format) &&
             const DeepCollectionEquality().equals(other.model, model) &&
             const DeepCollectionEquality().equals(other.source, source) &&
             const DeepCollectionEquality().equals(other.target, target) &&
-            const DeepCollectionEquality().equals(other.content, content) &&
-            const DeepCollectionEquality().equals(other.format, format));
+            const DeepCollectionEquality().equals(other.content, content));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(format),
       const DeepCollectionEquality().hash(model),
       const DeepCollectionEquality().hash(source),
       const DeepCollectionEquality().hash(target),
-      const DeepCollectionEquality().hash(content),
-      const DeepCollectionEquality().hash(format));
+      const DeepCollectionEquality().hash(content));
 
   @JsonKey(ignore: true)
   @override
@@ -255,15 +255,19 @@ class _$_TextRequest implements _TextRequest {
 
 abstract class _TextRequest implements TextRequest {
   const factory _TextRequest(
-      {String? model,
+      {String? format,
+      String? model,
       String? source,
       String? target,
-      String? content,
-      String? format}) = _$_TextRequest;
+      String? content}) = _$_TextRequest;
 
   factory _TextRequest.fromJson(Map<String, dynamic> json) =
       _$_TextRequest.fromJson;
 
+  @override
+
+  /// The string format, `text` or `html`
+  String? get format;
   @override
 
   /// The model to use for translation, `nmt` or `base`,
@@ -283,10 +287,6 @@ abstract class _TextRequest implements TextRequest {
 
   /// The contents to be translated
   String? get content;
-  @override
-
-  /// The string format, `text` or `html`
-  String? get format;
   @override
   @JsonKey(ignore: true)
   _$TextRequestCopyWith<_TextRequest> get copyWith =>

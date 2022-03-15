@@ -180,10 +180,10 @@ IpResponse _$IpResponseFromJson(Map<String, dynamic> json) {
 class _$IpResponseTearOff {
   const _$IpResponseTearOff();
 
-  IpResponseData call({String? latency, String? status}) {
+  IpResponseData call({String? status, String? latency}) {
     return IpResponseData(
-      latency: latency,
       status: status,
+      latency: latency,
     );
   }
 
@@ -205,19 +205,19 @@ const $IpResponse = _$IpResponseTearOff();
 mixin _$IpResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? latency, String? status) $default, {
+    TResult Function(String? status, String? latency) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? latency, String? status)? $default, {
+    TResult Function(String? status, String? latency)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? latency, String? status)? $default, {
+    TResult Function(String? status, String? latency)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -265,7 +265,7 @@ abstract class $IpResponseDataCopyWith<$Res> {
   factory $IpResponseDataCopyWith(
           IpResponseData value, $Res Function(IpResponseData) then) =
       _$IpResponseDataCopyWithImpl<$Res>;
-  $Res call({String? latency, String? status});
+  $Res call({String? status, String? latency});
 }
 
 /// @nodoc
@@ -280,17 +280,17 @@ class _$IpResponseDataCopyWithImpl<$Res> extends _$IpResponseCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? latency = freezed,
     Object? status = freezed,
+    Object? latency = freezed,
   }) {
     return _then(IpResponseData(
-      latency: latency == freezed
-          ? _value.latency
-          : latency // ignore: cast_nullable_to_non_nullable
-              as String?,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
+              as String?,
+      latency: latency == freezed
+          ? _value.latency
+          : latency // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -299,7 +299,7 @@ class _$IpResponseDataCopyWithImpl<$Res> extends _$IpResponseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$IpResponseData implements IpResponseData {
-  const _$IpResponseData({this.latency, this.status, String? $type})
+  const _$IpResponseData({this.status, this.latency, String? $type})
       : $type = $type ?? 'default';
 
   factory _$IpResponseData.fromJson(Map<String, dynamic> json) =>
@@ -307,19 +307,19 @@ class _$IpResponseData implements IpResponseData {
 
   @override
 
-  /// average latency e.g 10ms
-  final String? latency;
-  @override
-
   /// response status
   final String? status;
+  @override
+
+  /// average latency e.g 10ms
+  final String? latency;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'IpResponse(latency: $latency, status: $status)';
+    return 'IpResponse(status: $status, latency: $latency)';
   }
 
   @override
@@ -327,15 +327,15 @@ class _$IpResponseData implements IpResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is IpResponseData &&
-            const DeepCollectionEquality().equals(other.latency, latency) &&
-            const DeepCollectionEquality().equals(other.status, status));
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality().equals(other.latency, latency));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(latency),
-      const DeepCollectionEquality().hash(status));
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(latency));
 
   @JsonKey(ignore: true)
   @override
@@ -345,30 +345,30 @@ class _$IpResponseData implements IpResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? latency, String? status) $default, {
+    TResult Function(String? status, String? latency) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(latency, status);
+    return $default(status, latency);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? latency, String? status)? $default, {
+    TResult Function(String? status, String? latency)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(latency, status);
+    return $default?.call(status, latency);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? latency, String? status)? $default, {
+    TResult Function(String? status, String? latency)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(latency, status);
+      return $default(status, latency);
     }
     return orElse();
   }
@@ -411,17 +411,17 @@ class _$IpResponseData implements IpResponseData {
 }
 
 abstract class IpResponseData implements IpResponse {
-  const factory IpResponseData({String? latency, String? status}) =
+  const factory IpResponseData({String? status, String? latency}) =
       _$IpResponseData;
 
   factory IpResponseData.fromJson(Map<String, dynamic> json) =
       _$IpResponseData.fromJson;
 
-  /// average latency e.g 10ms
-  String? get latency;
-
   /// response status
   String? get status;
+
+  /// average latency e.g 10ms
+  String? get latency;
   @JsonKey(ignore: true)
   $IpResponseDataCopyWith<IpResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -497,7 +497,7 @@ class _$IpResponseMerr implements IpResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? latency, String? status) $default, {
+    TResult Function(String? status, String? latency) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -506,7 +506,7 @@ class _$IpResponseMerr implements IpResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? latency, String? status)? $default, {
+    TResult Function(String? status, String? latency)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -515,7 +515,7 @@ class _$IpResponseMerr implements IpResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? latency, String? status)? $default, {
+    TResult Function(String? status, String? latency)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
@@ -767,10 +767,10 @@ TcpResponse _$TcpResponseFromJson(Map<String, dynamic> json) {
 class _$TcpResponseTearOff {
   const _$TcpResponseTearOff();
 
-  TcpResponseData call({String? status, String? data}) {
+  TcpResponseData call({String? data, String? status}) {
     return TcpResponseData(
-      status: status,
       data: data,
+      status: status,
     );
   }
 
@@ -792,19 +792,19 @@ const $TcpResponse = _$TcpResponseTearOff();
 mixin _$TcpResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? status, String? data) $default, {
+    TResult Function(String? data, String? status) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? status, String? data)? $default, {
+    TResult Function(String? data, String? status)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? status, String? data)? $default, {
+    TResult Function(String? data, String? status)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -852,7 +852,7 @@ abstract class $TcpResponseDataCopyWith<$Res> {
   factory $TcpResponseDataCopyWith(
           TcpResponseData value, $Res Function(TcpResponseData) then) =
       _$TcpResponseDataCopyWithImpl<$Res>;
-  $Res call({String? status, String? data});
+  $Res call({String? data, String? status});
 }
 
 /// @nodoc
@@ -868,17 +868,17 @@ class _$TcpResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? status = freezed,
     Object? data = freezed,
+    Object? status = freezed,
   }) {
     return _then(TcpResponseData(
-      status: status == freezed
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String?,
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
+              as String?,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -887,7 +887,7 @@ class _$TcpResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$TcpResponseData implements TcpResponseData {
-  const _$TcpResponseData({this.status, this.data, String? $type})
+  const _$TcpResponseData({this.data, this.status, String? $type})
       : $type = $type ?? 'default';
 
   factory _$TcpResponseData.fromJson(Map<String, dynamic> json) =>
@@ -895,19 +895,19 @@ class _$TcpResponseData implements TcpResponseData {
 
   @override
 
-  /// response status
-  final String? status;
-  @override
-
   /// response data if any
   final String? data;
+  @override
+
+  /// response status
+  final String? status;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'TcpResponse(status: $status, data: $data)';
+    return 'TcpResponse(data: $data, status: $status)';
   }
 
   @override
@@ -915,15 +915,15 @@ class _$TcpResponseData implements TcpResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is TcpResponseData &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.data, data));
+            const DeepCollectionEquality().equals(other.data, data) &&
+            const DeepCollectionEquality().equals(other.status, status));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(data));
+      const DeepCollectionEquality().hash(data),
+      const DeepCollectionEquality().hash(status));
 
   @JsonKey(ignore: true)
   @override
@@ -933,30 +933,30 @@ class _$TcpResponseData implements TcpResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? status, String? data) $default, {
+    TResult Function(String? data, String? status) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(status, data);
+    return $default(data, status);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? status, String? data)? $default, {
+    TResult Function(String? data, String? status)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(status, data);
+    return $default?.call(data, status);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? status, String? data)? $default, {
+    TResult Function(String? data, String? status)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(status, data);
+      return $default(data, status);
     }
     return orElse();
   }
@@ -999,17 +999,17 @@ class _$TcpResponseData implements TcpResponseData {
 }
 
 abstract class TcpResponseData implements TcpResponse {
-  const factory TcpResponseData({String? status, String? data}) =
+  const factory TcpResponseData({String? data, String? status}) =
       _$TcpResponseData;
 
   factory TcpResponseData.fromJson(Map<String, dynamic> json) =
       _$TcpResponseData.fromJson;
 
-  /// response status
-  String? get status;
-
   /// response data if any
   String? get data;
+
+  /// response status
+  String? get status;
   @JsonKey(ignore: true)
   $TcpResponseDataCopyWith<TcpResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1086,7 +1086,7 @@ class _$TcpResponseMerr implements TcpResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? status, String? data) $default, {
+    TResult Function(String? data, String? status) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -1095,7 +1095,7 @@ class _$TcpResponseMerr implements TcpResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? status, String? data)? $default, {
+    TResult Function(String? data, String? status)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -1104,7 +1104,7 @@ class _$TcpResponseMerr implements TcpResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? status, String? data)? $default, {
+    TResult Function(String? data, String? status)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
@@ -1357,10 +1357,10 @@ UrlResponse _$UrlResponseFromJson(Map<String, dynamic> json) {
 class _$UrlResponseTearOff {
   const _$UrlResponseTearOff();
 
-  UrlResponseData call({int? code, String? status}) {
+  UrlResponseData call({String? status, int? code}) {
     return UrlResponseData(
-      code: code,
       status: status,
+      code: code,
     );
   }
 
@@ -1382,19 +1382,19 @@ const $UrlResponse = _$UrlResponseTearOff();
 mixin _$UrlResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(int? code, String? status) $default, {
+    TResult Function(String? status, int? code) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(int? code, String? status)? $default, {
+    TResult Function(String? status, int? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int? code, String? status)? $default, {
+    TResult Function(String? status, int? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -1442,7 +1442,7 @@ abstract class $UrlResponseDataCopyWith<$Res> {
   factory $UrlResponseDataCopyWith(
           UrlResponseData value, $Res Function(UrlResponseData) then) =
       _$UrlResponseDataCopyWithImpl<$Res>;
-  $Res call({int? code, String? status});
+  $Res call({String? status, int? code});
 }
 
 /// @nodoc
@@ -1458,18 +1458,18 @@ class _$UrlResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? code = freezed,
     Object? status = freezed,
+    Object? code = freezed,
   }) {
     return _then(UrlResponseData(
-      code: code == freezed
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as int?,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String?,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -1477,7 +1477,7 @@ class _$UrlResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$UrlResponseData implements UrlResponseData {
-  const _$UrlResponseData({this.code, this.status, String? $type})
+  const _$UrlResponseData({this.status, this.code, String? $type})
       : $type = $type ?? 'default';
 
   factory _$UrlResponseData.fromJson(Map<String, dynamic> json) =>
@@ -1485,19 +1485,19 @@ class _$UrlResponseData implements UrlResponseData {
 
   @override
 
-  /// the response code
-  final int? code;
-  @override
-
   /// the response status
   final String? status;
+  @override
+
+  /// the response code
+  final int? code;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'UrlResponse(code: $code, status: $status)';
+    return 'UrlResponse(status: $status, code: $code)';
   }
 
   @override
@@ -1505,15 +1505,15 @@ class _$UrlResponseData implements UrlResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is UrlResponseData &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality().equals(other.status, status));
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality().equals(other.code, code));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(status));
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(code));
 
   @JsonKey(ignore: true)
   @override
@@ -1523,30 +1523,30 @@ class _$UrlResponseData implements UrlResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(int? code, String? status) $default, {
+    TResult Function(String? status, int? code) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(code, status);
+    return $default(status, code);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(int? code, String? status)? $default, {
+    TResult Function(String? status, int? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(code, status);
+    return $default?.call(status, code);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int? code, String? status)? $default, {
+    TResult Function(String? status, int? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(code, status);
+      return $default(status, code);
     }
     return orElse();
   }
@@ -1589,17 +1589,17 @@ class _$UrlResponseData implements UrlResponseData {
 }
 
 abstract class UrlResponseData implements UrlResponse {
-  const factory UrlResponseData({int? code, String? status}) =
+  const factory UrlResponseData({String? status, int? code}) =
       _$UrlResponseData;
 
   factory UrlResponseData.fromJson(Map<String, dynamic> json) =
       _$UrlResponseData.fromJson;
 
-  /// the response code
-  int? get code;
-
   /// the response status
   String? get status;
+
+  /// the response code
+  int? get code;
   @JsonKey(ignore: true)
   $UrlResponseDataCopyWith<UrlResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1676,7 +1676,7 @@ class _$UrlResponseMerr implements UrlResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(int? code, String? status) $default, {
+    TResult Function(String? status, int? code) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -1685,7 +1685,7 @@ class _$UrlResponseMerr implements UrlResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(int? code, String? status)? $default, {
+    TResult Function(String? status, int? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -1694,7 +1694,7 @@ class _$UrlResponseMerr implements UrlResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int? code, String? status)? $default, {
+    TResult Function(String? status, int? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {

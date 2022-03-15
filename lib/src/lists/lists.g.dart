@@ -8,16 +8,16 @@ part of 'lists.dart';
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      name: json['name'] as String?,
       items: json['items'] == null
           ? null
           : List.fromJson(json['items'] as Map<String, dynamic>),
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
-      'name': instance.name,
       'items': instance.items,
+      'name': instance.name,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -98,18 +98,18 @@ Map<String, dynamic> _$$_EventsRequestToJson(_$_EventsRequest instance) =>
 
 _$EventsResponseData _$$EventsResponseDataFromJson(Map<String, dynamic> json) =>
     _$EventsResponseData(
+      event: json['event'] as String?,
       list: json['list'] == null
           ? null
           : List.fromJson(json['list'] as Map<String, dynamic>),
-      event: json['event'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$EventsResponseDataToJson(
         _$EventsResponseData instance) =>
     <String, dynamic>{
-      'list': instance.list,
       'event': instance.event,
+      'list': instance.list,
       'runtimeType': instance.$type,
     };
 
@@ -127,21 +127,21 @@ Map<String, dynamic> _$$EventsResponseMerrToJson(
     };
 
 _$_List _$$_ListFromJson(Map<String, dynamic> json) => _$_List(
+      id: json['id'] as String?,
       items: json['items'] == null
           ? null
           : List.fromJson(json['items'] as Map<String, dynamic>),
       name: json['name'] as String?,
       updated: json['updated'] as String?,
       created: json['created'] as String?,
-      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_ListToJson(_$_List instance) => <String, dynamic>{
+      'id': instance.id,
       'items': instance.items,
       'name': instance.name,
       'updated': instance.updated,
       'created': instance.created,
-      'id': instance.id,
     };
 
 _$_ListRequest _$$_ListRequestFromJson(Map<String, dynamic> json) =>

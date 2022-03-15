@@ -19,16 +19,16 @@ Map<String, dynamic> _$$_GenerateRequestToJson(_$_GenerateRequest instance) =>
 _$GenerateResponseData _$$GenerateResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$GenerateResponseData(
-      id: json['id'] as String?,
       type: json['type'] as String?,
+      id: json['id'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$GenerateResponseDataToJson(
         _$GenerateResponseData instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'type': instance.type,
+      'id': instance.id,
       'runtimeType': instance.$type,
     };
 
