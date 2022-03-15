@@ -8,16 +8,16 @@ part of 'sms.dart';
 
 _$_SendRequest _$$_SendRequestFromJson(Map<String, dynamic> json) =>
     _$_SendRequest(
-      message: json['message'] as String?,
       to: json['to'] as String?,
       from: json['from'] as String?,
+      message: json['message'] as String?,
     );
 
 Map<String, dynamic> _$$_SendRequestToJson(_$_SendRequest instance) =>
     <String, dynamic>{
-      'message': instance.message,
       'to': instance.to,
       'from': instance.from,
+      'message': instance.message,
     };
 
 _$SendResponseData _$$SendResponseDataFromJson(Map<String, dynamic> json) =>

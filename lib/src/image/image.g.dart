@@ -129,28 +129,28 @@ Map<String, dynamic> _$$_RectangleToJson(_$_Rectangle instance) =>
 
 _$_ResizeRequest _$$_ResizeRequestFromJson(Map<String, dynamic> json) =>
     _$_ResizeRequest(
-      height: int64FromString(json['height'] as String?),
-      name: json['name'] as String?,
-      outputURL: json['outputURL'] as bool?,
-      url: json['url'] as String?,
-      width: int64FromString(json['width'] as String?),
       base64: json['base64'] as String?,
       cropOptions: json['cropOptions'] == null
           ? null
           : CropOptions.fromJson(json['cropOptions'] as Map<String, dynamic>),
       file: json['file'] as String?,
+      height: int64FromString(json['height'] as String?),
+      name: json['name'] as String?,
+      outputURL: json['outputURL'] as bool?,
+      url: json['url'] as String?,
+      width: int64FromString(json['width'] as String?),
     );
 
 Map<String, dynamic> _$$_ResizeRequestToJson(_$_ResizeRequest instance) =>
     <String, dynamic>{
+      'base64': instance.base64,
+      'cropOptions': instance.cropOptions,
+      'file': instance.file,
       'height': int64ToString(instance.height),
       'name': instance.name,
       'outputURL': instance.outputURL,
       'url': instance.url,
       'width': int64ToString(instance.width),
-      'base64': instance.base64,
-      'cropOptions': instance.cropOptions,
-      'file': instance.file,
     };
 
 _$ResizeResponseData _$$ResizeResponseDataFromJson(Map<String, dynamic> json) =>

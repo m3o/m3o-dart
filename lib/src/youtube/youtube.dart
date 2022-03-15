@@ -69,9 +69,6 @@ class EmbedRequest with _$EmbedRequest {
 @Freezed()
 class EmbedResponse with _$EmbedResponse {
   const factory EmbedResponse({
-    /// the short url
-    String? short_url,
-
     /// the embeddable link
     String? embed_url,
 
@@ -80,6 +77,9 @@ class EmbedResponse with _$EmbedResponse {
 
     /// the full url
     String? long_url,
+
+    /// the short url
+    String? short_url,
   }) = EmbedResponseData;
   const factory EmbedResponse.Merr({Map<String, dynamic>? body}) =
       EmbedResponseMerr;
@@ -112,33 +112,33 @@ class SearchResponse with _$SearchResponse {
 @Freezed()
 class SearchResult with _$SearchResult {
   const factory SearchResult({
-    /// the channel title
-    String? channel_title,
-
     /// the result description
     String? description,
 
     /// id of the result
     String? id,
 
-    /// kind of result: "video", "channel", "playlist"
-    String? kind,
-
     /// published at time
     String? published_at,
 
-    /// if live broadcast then indicates activity:
-    /// none, upcoming, live, completed
-    String? broadcasting,
+    /// the channel title
+    String? channel_title,
 
     /// the channel id
     String? channel_id,
+
+    /// kind of result: "video", "channel", "playlist"
+    String? kind,
 
     /// title of the result
     String? title,
 
     /// the associated url
     String? url,
+
+    /// if live broadcast then indicates activity:
+    /// none, upcoming, live, completed
+    String? broadcasting,
   }) = _SearchResult;
   factory SearchResult.fromJson(Map<String, dynamic> json) =>
       _$SearchResultFromJson(json);

@@ -307,6 +307,12 @@ class ResolveResponse with _$ResolveResponse {
 @Freezed()
 class RunRequest with _$RunRequest {
   const factory RunRequest({
+    /// name of the app
+    String? name,
+
+    /// port to run on
+    int? port,
+
     /// region to run in
     String? region,
 
@@ -318,12 +324,6 @@ class RunRequest with _$RunRequest {
 
     /// associated env vars to pass in
     Map<String, String>? env_vars,
-
-    /// name of the app
-    String? name,
-
-    /// port to run on
-    int? port,
   }) = _RunRequest;
   factory RunRequest.fromJson(Map<String, dynamic> json) =>
       _$RunRequestFromJson(json);
@@ -344,29 +344,23 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
+    /// name of the app
+    String? name,
+
+    /// status of the app
+    String? status,
+
     /// branch of code
     String? branch,
+
+    /// custom domains
+    String? custom_domains,
 
     /// associated env vars
     Map<String, String>? env_vars,
 
     /// unique id
     String? id,
-
-    /// status of the app
-    String? status,
-
-    /// last updated
-    String? updated,
-
-    /// time of creation
-    String? created,
-
-    /// custom domains
-    String? custom_domains,
-
-    /// name of the app
-    String? name,
 
     /// port running on
     int? port,
@@ -376,6 +370,12 @@ class Service with _$Service {
 
     /// source repository
     String? repo,
+
+    /// last updated
+    String? updated,
+
+    /// time of creation
+    String? created,
 
     /// app url
     String? url,
@@ -409,11 +409,11 @@ class StatusResponse with _$StatusResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// Additional env vars to update
-    Map<String, String>? env_vars,
-
     /// name of the app
     String? name,
+
+    /// Additional env vars to update
+    Map<String, String>? env_vars,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

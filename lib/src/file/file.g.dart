@@ -82,14 +82,14 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
 
 _$_ReadRequest _$$_ReadRequestFromJson(Map<String, dynamic> json) =>
     _$_ReadRequest(
-      path: json['path'] as String?,
       project: json['project'] as String?,
+      path: json['path'] as String?,
     );
 
 Map<String, dynamic> _$$_ReadRequestToJson(_$_ReadRequest instance) =>
     <String, dynamic>{
-      'path': instance.path,
       'project': instance.project,
+      'path': instance.path,
     };
 
 _$ReadResponseData _$$ReadResponseDataFromJson(Map<String, dynamic> json) =>

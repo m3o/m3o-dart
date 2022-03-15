@@ -211,17 +211,17 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// whether its a private room
-    bool? private,
-
-    /// optional list of user ids
-    String? user_ids,
-
     /// chat description
     String? description,
 
     /// name of the room
     String? name,
+
+    /// whether its a private room
+    bool? private,
+
+    /// optional list of user ids
+    String? user_ids,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -285,11 +285,11 @@ class HistoryResponse with _$HistoryResponse {
 @Freezed()
 class InviteRequest with _$InviteRequest {
   const factory InviteRequest({
-    /// the user id
-    String? user_id,
-
     /// the room id
     String? room_id,
+
+    /// the user id
+    String? user_id,
   }) = _InviteRequest;
   factory InviteRequest.fromJson(Map<String, dynamic> json) =>
       _$InviteRequestFromJson(json);
@@ -333,11 +333,11 @@ class JoinResponse with _$JoinResponse {
 @Freezed()
 class KickRequest with _$KickRequest {
   const factory KickRequest({
-    /// the user id
-    String? user_id,
-
     /// the chat room id
     String? room_id,
+
+    /// the user id
+    String? user_id,
   }) = _KickRequest;
   factory KickRequest.fromJson(Map<String, dynamic> json) =>
       _$KickRequestFromJson(json);
@@ -357,11 +357,11 @@ class KickResponse with _$KickResponse {
 @Freezed()
 class LeaveRequest with _$LeaveRequest {
   const factory LeaveRequest({
-    /// the user id
-    String? user_id,
-
     /// the chat room id
     String? room_id,
+
+    /// the user id
+    String? user_id,
   }) = _LeaveRequest;
   factory LeaveRequest.fromJson(Map<String, dynamic> json) =>
       _$LeaveRequestFromJson(json);
@@ -402,6 +402,15 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
+    /// id of the user who sent the message
+    String? user_id,
+
+    /// a client side id, should be validated by the server to make the request retry safe
+    String? client,
+
+    /// id of the message, allocated by the server
+    String? id,
+
     /// id of the chat the message is being sent to / from
     String? room_id,
 
@@ -413,15 +422,6 @@ class Message with _$Message {
 
     /// text of the message
     String? text,
-
-    /// id of the user who sent the message
-    String? user_id,
-
-    /// a client side id, should be validated by the server to make the request retry safe
-    String? client,
-
-    /// id of the message, allocated by the server
-    String? id,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
@@ -430,6 +430,9 @@ class Message with _$Message {
 @Freezed()
 class Room with _$Room {
   const factory Room({
+    /// unique room id
+    String? id,
+
     /// name of the chat
     String? name,
 
@@ -444,9 +447,6 @@ class Room with _$Room {
 
     /// description of the that
     String? description,
-
-    /// unique room id
-    String? id,
   }) = _Room;
   factory Room.fromJson(Map<String, dynamic> json) => _$RoomFromJson(json);
 }
