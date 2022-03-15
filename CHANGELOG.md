@@ -1,3 +1,13 @@
+## v1.0.26 - 2022-03-15
+
+[bc3335](https://github.com/micro/services/commit/bc3335e6bf43a4b0f646f12aeb87e94a32bfce29) update proto
+
+## What's Changed
+
+- update ncipollo/release-action to v1.9.0 by @lambdaR in https://github.com/m3o/m3o-dart/pull/10
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.25...v1.0.26
+
 ## v1.0.24 - 2022-03-15
 
 [2a3f48](https://github.com/micro/services/commit/2a3f481f03730086758b056891cbca0451a00cab) Update README.md
