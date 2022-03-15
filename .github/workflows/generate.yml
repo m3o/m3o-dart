@@ -195,10 +195,11 @@ jobs:
           echo "##[set-output name=note;]$(echo "$note")" 
         id: micro_release_note
 
-      - uses: ncipollo/release-action@v1
+      - uses: ncipollo/release-action@v1.9.0
         with:
           tag: ${{ steps.dart_cur_version.outputs.curver}} 
           commit: main
+          generateReleaseNotes: true
           body: |
             ${{ steps.micro_release_note.outputs.note }}
           token: ${{ secrets.API_TOKEN_GITHUB }}
