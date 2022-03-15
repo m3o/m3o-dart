@@ -184,15 +184,16 @@ class _$PingResponseTearOff {
   const _$PingResponseTearOff();
 
   PingResponseData call(
-      {int? latency,
+      {String? favicon,
+      int? latency,
       int? max_players,
       String? motd,
       int? players,
       int? protocol,
       List<PlayerSample>? sample,
-      String? version,
-      String? favicon}) {
+      String? version}) {
     return PingResponseData(
+      favicon: favicon,
       latency: latency,
       max_players: max_players,
       motd: motd,
@@ -200,7 +201,6 @@ class _$PingResponseTearOff {
       protocol: protocol,
       sample: sample,
       version: version,
-      favicon: favicon,
     );
   }
 
@@ -223,14 +223,14 @@ mixin _$PingResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
             List<PlayerSample>? sample,
-            String? version,
-            String? favicon)
+            String? version)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
@@ -238,14 +238,14 @@ mixin _$PingResponse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
             List<PlayerSample>? sample,
-            String? version,
-            String? favicon)?
+            String? version)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
@@ -253,14 +253,14 @@ mixin _$PingResponse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
             List<PlayerSample>? sample,
-            String? version,
-            String? favicon)?
+            String? version)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -310,14 +310,14 @@ abstract class $PingResponseDataCopyWith<$Res> {
           PingResponseData value, $Res Function(PingResponseData) then) =
       _$PingResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {int? latency,
+      {String? favicon,
+      int? latency,
       int? max_players,
       String? motd,
       int? players,
       int? protocol,
       List<PlayerSample>? sample,
-      String? version,
-      String? favicon});
+      String? version});
 }
 
 /// @nodoc
@@ -333,6 +333,7 @@ class _$PingResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? favicon = freezed,
     Object? latency = freezed,
     Object? max_players = freezed,
     Object? motd = freezed,
@@ -340,9 +341,12 @@ class _$PingResponseDataCopyWithImpl<$Res>
     Object? protocol = freezed,
     Object? sample = freezed,
     Object? version = freezed,
-    Object? favicon = freezed,
   }) {
     return _then(PingResponseData(
+      favicon: favicon == freezed
+          ? _value.favicon
+          : favicon // ignore: cast_nullable_to_non_nullable
+              as String?,
       latency: latency == freezed
           ? _value.latency
           : latency // ignore: cast_nullable_to_non_nullable
@@ -371,10 +375,6 @@ class _$PingResponseDataCopyWithImpl<$Res>
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
               as String?,
-      favicon: favicon == freezed
-          ? _value.favicon
-          : favicon // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -383,20 +383,24 @@ class _$PingResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PingResponseData implements PingResponseData {
   const _$PingResponseData(
-      {this.latency,
+      {this.favicon,
+      this.latency,
       this.max_players,
       this.motd,
       this.players,
       this.protocol,
       this.sample,
       this.version,
-      this.favicon,
       String? $type})
       : $type = $type ?? 'default';
 
   factory _$PingResponseData.fromJson(Map<String, dynamic> json) =>
       _$$PingResponseDataFromJson(json);
 
+  @override
+
+  /// Favicon in base64
+  final String? favicon;
   @override
 
   /// Latency (ms) between us and the server (EU)
@@ -425,17 +429,13 @@ class _$PingResponseData implements PingResponseData {
 
   /// Version of the server
   final String? version;
-  @override
-
-  /// Favicon in base64
-  final String? favicon;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'PingResponse(latency: $latency, max_players: $max_players, motd: $motd, players: $players, protocol: $protocol, sample: $sample, version: $version, favicon: $favicon)';
+    return 'PingResponse(favicon: $favicon, latency: $latency, max_players: $max_players, motd: $motd, players: $players, protocol: $protocol, sample: $sample, version: $version)';
   }
 
   @override
@@ -443,6 +443,7 @@ class _$PingResponseData implements PingResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is PingResponseData &&
+            const DeepCollectionEquality().equals(other.favicon, favicon) &&
             const DeepCollectionEquality().equals(other.latency, latency) &&
             const DeepCollectionEquality()
                 .equals(other.max_players, max_players) &&
@@ -450,21 +451,20 @@ class _$PingResponseData implements PingResponseData {
             const DeepCollectionEquality().equals(other.players, players) &&
             const DeepCollectionEquality().equals(other.protocol, protocol) &&
             const DeepCollectionEquality().equals(other.sample, sample) &&
-            const DeepCollectionEquality().equals(other.version, version) &&
-            const DeepCollectionEquality().equals(other.favicon, favicon));
+            const DeepCollectionEquality().equals(other.version, version));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(favicon),
       const DeepCollectionEquality().hash(latency),
       const DeepCollectionEquality().hash(max_players),
       const DeepCollectionEquality().hash(motd),
       const DeepCollectionEquality().hash(players),
       const DeepCollectionEquality().hash(protocol),
       const DeepCollectionEquality().hash(sample),
-      const DeepCollectionEquality().hash(version),
-      const DeepCollectionEquality().hash(favicon));
+      const DeepCollectionEquality().hash(version));
 
   @JsonKey(ignore: true)
   @override
@@ -475,59 +475,59 @@ class _$PingResponseData implements PingResponseData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
             List<PlayerSample>? sample,
-            String? version,
-            String? favicon)
+            String? version)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(latency, max_players, motd, players, protocol, sample,
-        version, favicon);
+    return $default(favicon, latency, max_players, motd, players, protocol,
+        sample, version);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
             List<PlayerSample>? sample,
-            String? version,
-            String? favicon)?
+            String? version)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(latency, max_players, motd, players, protocol, sample,
-        version, favicon);
+    return $default?.call(favicon, latency, max_players, motd, players,
+        protocol, sample, version);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
             List<PlayerSample>? sample,
-            String? version,
-            String? favicon)?
+            String? version)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(latency, max_players, motd, players, protocol, sample,
-          version, favicon);
+      return $default(favicon, latency, max_players, motd, players, protocol,
+          sample, version);
     }
     return orElse();
   }
@@ -571,17 +571,20 @@ class _$PingResponseData implements PingResponseData {
 
 abstract class PingResponseData implements PingResponse {
   const factory PingResponseData(
-      {int? latency,
+      {String? favicon,
+      int? latency,
       int? max_players,
       String? motd,
       int? players,
       int? protocol,
       List<PlayerSample>? sample,
-      String? version,
-      String? favicon}) = _$PingResponseData;
+      String? version}) = _$PingResponseData;
 
   factory PingResponseData.fromJson(Map<String, dynamic> json) =
       _$PingResponseData.fromJson;
+
+  /// Favicon in base64
+  String? get favicon;
 
   /// Latency (ms) between us and the server (EU)
   int? get latency;
@@ -603,9 +606,6 @@ abstract class PingResponseData implements PingResponse {
 
   /// Version of the server
   String? get version;
-
-  /// Favicon in base64
-  String? get favicon;
   @JsonKey(ignore: true)
   $PingResponseDataCopyWith<PingResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -684,14 +684,14 @@ class _$PingResponseMerr implements PingResponseMerr {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
             List<PlayerSample>? sample,
-            String? version,
-            String? favicon)
+            String? version)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -702,14 +702,14 @@ class _$PingResponseMerr implements PingResponseMerr {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
             List<PlayerSample>? sample,
-            String? version,
-            String? favicon)?
+            String? version)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -720,14 +720,14 @@ class _$PingResponseMerr implements PingResponseMerr {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
             List<PlayerSample>? sample,
-            String? version,
-            String? favicon)?
+            String? version)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -796,10 +796,10 @@ PlayerSample _$PlayerSampleFromJson(Map<String, dynamic> json) {
 class _$PlayerSampleTearOff {
   const _$PlayerSampleTearOff();
 
-  _PlayerSample call({String? name, String? uuid}) {
+  _PlayerSample call({String? uuid, String? name}) {
     return _PlayerSample(
-      name: name,
       uuid: uuid,
+      name: name,
     );
   }
 
@@ -813,11 +813,11 @@ const $PlayerSample = _$PlayerSampleTearOff();
 
 /// @nodoc
 mixin _$PlayerSample {
-  /// name of the player
-  String? get name => throw _privateConstructorUsedError;
-
   /// unique id of player
   String? get uuid => throw _privateConstructorUsedError;
+
+  /// name of the player
+  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -830,7 +830,7 @@ abstract class $PlayerSampleCopyWith<$Res> {
   factory $PlayerSampleCopyWith(
           PlayerSample value, $Res Function(PlayerSample) then) =
       _$PlayerSampleCopyWithImpl<$Res>;
-  $Res call({String? name, String? uuid});
+  $Res call({String? uuid, String? name});
 }
 
 /// @nodoc
@@ -843,17 +843,17 @@ class _$PlayerSampleCopyWithImpl<$Res> implements $PlayerSampleCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? uuid = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       uuid: uuid == freezed
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -866,7 +866,7 @@ abstract class _$PlayerSampleCopyWith<$Res>
           _PlayerSample value, $Res Function(_PlayerSample) then) =
       __$PlayerSampleCopyWithImpl<$Res>;
   @override
-  $Res call({String? name, String? uuid});
+  $Res call({String? uuid, String? name});
 }
 
 /// @nodoc
@@ -881,17 +881,17 @@ class __$PlayerSampleCopyWithImpl<$Res> extends _$PlayerSampleCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? uuid = freezed,
+    Object? name = freezed,
   }) {
     return _then(_PlayerSample(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       uuid: uuid == freezed
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -900,23 +900,23 @@ class __$PlayerSampleCopyWithImpl<$Res> extends _$PlayerSampleCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PlayerSample implements _PlayerSample {
-  const _$_PlayerSample({this.name, this.uuid});
+  const _$_PlayerSample({this.uuid, this.name});
 
   factory _$_PlayerSample.fromJson(Map<String, dynamic> json) =>
       _$$_PlayerSampleFromJson(json);
 
   @override
 
-  /// name of the player
-  final String? name;
-  @override
-
   /// unique id of player
   final String? uuid;
+  @override
+
+  /// name of the player
+  final String? name;
 
   @override
   String toString() {
-    return 'PlayerSample(name: $name, uuid: $uuid)';
+    return 'PlayerSample(uuid: $uuid, name: $name)';
   }
 
   @override
@@ -924,15 +924,15 @@ class _$_PlayerSample implements _PlayerSample {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PlayerSample &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.uuid, uuid));
+            const DeepCollectionEquality().equals(other.uuid, uuid) &&
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(uuid));
+      const DeepCollectionEquality().hash(uuid),
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
@@ -946,19 +946,19 @@ class _$_PlayerSample implements _PlayerSample {
 }
 
 abstract class _PlayerSample implements PlayerSample {
-  const factory _PlayerSample({String? name, String? uuid}) = _$_PlayerSample;
+  const factory _PlayerSample({String? uuid, String? name}) = _$_PlayerSample;
 
   factory _PlayerSample.fromJson(Map<String, dynamic> json) =
       _$_PlayerSample.fromJson;
 
   @override
 
-  /// name of the player
-  String? get name;
-  @override
-
   /// unique id of player
   String? get uuid;
+  @override
+
+  /// name of the player
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$PlayerSampleCopyWith<_PlayerSample> get copyWith =>

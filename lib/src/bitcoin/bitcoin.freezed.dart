@@ -311,8 +311,12 @@ class _$PriceResponseData implements PriceResponseData {
       _$$PriceResponseDataFromJson(json);
 
   @override
+
+  /// The price of bitcoin
   final double? price;
   @override
+
+  /// The symbol of pricing e.g BTCUSD
   final String? symbol;
 
   @JsonKey(name: 'runtimeType')
@@ -418,7 +422,10 @@ abstract class PriceResponseData implements PriceResponse {
   factory PriceResponseData.fromJson(Map<String, dynamic> json) =
       _$PriceResponseData.fromJson;
 
+  /// The price of bitcoin
   double? get price;
+
+  /// The symbol of pricing e.g BTCUSD
   String? get symbol;
   @JsonKey(ignore: true)
   $PriceResponseDataCopyWith<PriceResponseData> get copyWith =>

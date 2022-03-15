@@ -22,16 +22,16 @@ Map<String, dynamic> _$$_BookToJson(_$_Book instance) => <String, dynamic>{
 
 _$_BooksRequest _$$_BooksRequestFromJson(Map<String, dynamic> json) =>
     _$_BooksRequest(
-      page: json['page'] as int?,
       collection: json['collection'] as String?,
       limit: json['limit'] as int?,
+      page: json['page'] as int?,
     );
 
 Map<String, dynamic> _$$_BooksRequestToJson(_$_BooksRequest instance) =>
     <String, dynamic>{
-      'page': instance.page,
       'collection': instance.collection,
       'limit': instance.limit,
+      'page': instance.page,
     };
 
 _$BooksResponseData _$$BooksResponseDataFromJson(Map<String, dynamic> json) =>
@@ -225,24 +225,23 @@ Map<String, dynamic> _$$_HadithToJson(_$_Hadith instance) => <String, dynamic>{
 
 _$_HadithsRequest _$$_HadithsRequestFromJson(Map<String, dynamic> json) =>
     _$_HadithsRequest(
-      page: json['page'] as int?,
       book: json['book'] as int?,
       collection: json['collection'] as String?,
       limit: json['limit'] as int?,
+      page: json['page'] as int?,
     );
 
 Map<String, dynamic> _$$_HadithsRequestToJson(_$_HadithsRequest instance) =>
     <String, dynamic>{
-      'page': instance.page,
       'book': instance.book,
       'collection': instance.collection,
       'limit': instance.limit,
+      'page': instance.page,
     };
 
 _$HadithsResponseData _$$HadithsResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$HadithsResponseData(
-      total: json['total'] as int?,
       book: json['book'] as int?,
       collection: json['collection'] as String?,
       hadiths: (json['hadiths'] as List<dynamic>?)
@@ -250,18 +249,19 @@ _$HadithsResponseData _$$HadithsResponseDataFromJson(
           .toList(),
       limit: json['limit'] as int?,
       page: json['page'] as int?,
+      total: json['total'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$HadithsResponseDataToJson(
         _$HadithsResponseData instance) =>
     <String, dynamic>{
-      'total': instance.total,
       'book': instance.book,
       'collection': instance.collection,
       'hadiths': instance.hadiths,
       'limit': instance.limit,
       'page': instance.page,
+      'total': instance.total,
       'runtimeType': instance.$type,
     };
 

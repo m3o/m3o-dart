@@ -48,7 +48,10 @@ class PriceRequest with _$PriceRequest {
 @Freezed()
 class PriceResponse with _$PriceResponse {
   const factory PriceResponse({
+    /// The price of bitcoin
     double? price,
+
+    /// The symbol of pricing e.g BTCUSD
     String? symbol,
   }) = PriceResponseData;
   const factory PriceResponse.Merr({Map<String, dynamic>? body}) =

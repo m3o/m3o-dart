@@ -33,22 +33,22 @@ Map<String, dynamic> _$$_AccountToJson(_$_Account instance) =>
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      email: json['email'] as String?,
       id: json['id'] as String?,
       password: json['password'] as String?,
       profile: (json['profile'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
       username: json['username'] as String?,
+      email: json['email'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
-      'email': instance.email,
       'id': instance.id,
       'password': instance.password,
       'profile': instance.profile,
       'username': instance.username,
+      'email': instance.email,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -153,16 +153,16 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
 
 _$_LoginRequest _$$_LoginRequestFromJson(Map<String, dynamic> json) =>
     _$_LoginRequest(
-      email: json['email'] as String?,
       password: json['password'] as String?,
       username: json['username'] as String?,
+      email: json['email'] as String?,
     );
 
 Map<String, dynamic> _$$_LoginRequestToJson(_$_LoginRequest instance) =>
     <String, dynamic>{
-      'email': instance.email,
       'password': instance.password,
       'username': instance.username,
+      'email': instance.email,
     };
 
 _$LoginResponseData _$$LoginResponseDataFromJson(Map<String, dynamic> json) =>
@@ -263,16 +263,16 @@ Map<String, dynamic> _$$LogoutResponseMerrToJson(
 
 _$_ReadRequest _$$_ReadRequestFromJson(Map<String, dynamic> json) =>
     _$_ReadRequest(
-      username: json['username'] as String?,
       email: json['email'] as String?,
       id: json['id'] as String?,
+      username: json['username'] as String?,
     );
 
 Map<String, dynamic> _$$_ReadRequestToJson(_$_ReadRequest instance) =>
     <String, dynamic>{
-      'username': instance.username,
       'email': instance.email,
       'id': instance.id,
+      'username': instance.username,
     };
 
 _$ReadResponseData _$$ReadResponseDataFromJson(Map<String, dynamic> json) =>
@@ -346,19 +346,19 @@ Map<String, dynamic> _$$ReadSessionResponseMerrToJson(
 _$_ResetPasswordRequest _$$_ResetPasswordRequestFromJson(
         Map<String, dynamic> json) =>
     _$_ResetPasswordRequest(
+      email: json['email'] as String?,
       new_password: json['new_password'] as String?,
       code: json['code'] as String?,
       confirm_password: json['confirm_password'] as String?,
-      email: json['email'] as String?,
     );
 
 Map<String, dynamic> _$$_ResetPasswordRequestToJson(
         _$_ResetPasswordRequest instance) =>
     <String, dynamic>{
+      'email': instance.email,
       'new_password': instance.new_password,
       'code': instance.code,
       'confirm_password': instance.confirm_password,
-      'email': instance.email,
     };
 
 _$ResetPasswordResponseData _$$ResetPasswordResponseDataFromJson(
@@ -390,23 +390,23 @@ Map<String, dynamic> _$$ResetPasswordResponseMerrToJson(
 _$_SendMagicLinkRequest _$$_SendMagicLinkRequestFromJson(
         Map<String, dynamic> json) =>
     _$_SendMagicLinkRequest(
-      address: json['address'] as String?,
-      email: json['email'] as String?,
-      endpoint: json['endpoint'] as String?,
       from_name: json['from_name'] as String?,
       subject: json['subject'] as String?,
       text_content: json['text_content'] as String?,
+      address: json['address'] as String?,
+      email: json['email'] as String?,
+      endpoint: json['endpoint'] as String?,
     );
 
 Map<String, dynamic> _$$_SendMagicLinkRequestToJson(
         _$_SendMagicLinkRequest instance) =>
     <String, dynamic>{
-      'address': instance.address,
-      'email': instance.email,
-      'endpoint': instance.endpoint,
       'from_name': instance.from_name,
       'subject': instance.subject,
       'text_content': instance.text_content,
+      'address': instance.address,
+      'email': instance.email,
+      'endpoint': instance.endpoint,
     };
 
 _$SendMagicLinkResponseData _$$SendMagicLinkResponseDataFromJson(
@@ -484,23 +484,23 @@ Map<String, dynamic> _$$SendPasswordResetEmailResponseMerrToJson(
 _$_SendVerificationEmailRequest _$$_SendVerificationEmailRequestFromJson(
         Map<String, dynamic> json) =>
     _$_SendVerificationEmailRequest(
+      email: json['email'] as String?,
       failure_redirect_url: json['failure_redirect_url'] as String?,
       from_name: json['from_name'] as String?,
       redirect_url: json['redirect_url'] as String?,
       subject: json['subject'] as String?,
       text_content: json['text_content'] as String?,
-      email: json['email'] as String?,
     );
 
 Map<String, dynamic> _$$_SendVerificationEmailRequestToJson(
         _$_SendVerificationEmailRequest instance) =>
     <String, dynamic>{
+      'email': instance.email,
       'failure_redirect_url': instance.failure_redirect_url,
       'from_name': instance.from_name,
       'redirect_url': instance.redirect_url,
       'subject': instance.subject,
       'text_content': instance.text_content,
-      'email': instance.email,
     };
 
 _$SendVerificationEmailResponseData
