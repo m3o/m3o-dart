@@ -1,3 +1,7 @@
+## v1.0.24 - 2022-03-15
+
+[2a3f48](https://github.com/micro/services/commit/2a3f481f03730086758b056891cbca0451a00cab) Update README.md
+
 ## v1.0.23 - 2022-03-15
 
 [d22aa6](https://github.com/micro/services/commit/d22aa60bc7a26cb0d034d48acbc44984837065c0) Update README.md
