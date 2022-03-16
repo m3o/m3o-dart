@@ -147,11 +147,11 @@ class ListsService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// list name
-    String? name,
-
     /// list items
     List<String>? items,
+
+    /// list name
+    String? name,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -218,6 +218,9 @@ class EventsResponse with _$EventsResponse {
 @Freezed()
 class List with _$List {
   const factory List({
+    /// time at which the list was updated
+    String? updated,
+
     /// time at which the list was created
     String? created,
 
@@ -229,9 +232,6 @@ class List with _$List {
 
     /// name of the list
     String? name,
-
-    /// time at which the list was updated
-    String? updated,
   }) = _List;
   factory List.fromJson(Map<String, dynamic> json) => _$ListFromJson(json);
 }

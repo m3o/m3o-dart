@@ -8,16 +8,16 @@ part of 'space.dart';
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      object: json['object'] as String?,
       visibility: json['visibility'] as String?,
       name: json['name'] as String?,
+      object: json['object'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
-      'object': instance.object,
       'visibility': instance.visibility,
       'name': instance.name,
+      'object': instance.object,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -120,20 +120,20 @@ Map<String, dynamic> _$$DownloadResponseMerrToJson(
 
 _$_HeadObject _$$_HeadObjectFromJson(Map<String, dynamic> json) =>
     _$_HeadObject(
+      url: json['url'] as String?,
+      visibility: json['visibility'] as String?,
       created: json['created'] as String?,
       modified: json['modified'] as String?,
       name: json['name'] as String?,
-      url: json['url'] as String?,
-      visibility: json['visibility'] as String?,
     );
 
 Map<String, dynamic> _$$_HeadObjectToJson(_$_HeadObject instance) =>
     <String, dynamic>{
+      'url': instance.url,
+      'visibility': instance.visibility,
       'created': instance.created,
       'modified': instance.modified,
       'name': instance.name,
-      'url': instance.url,
-      'visibility': instance.visibility,
     };
 
 _$_HeadRequest _$$_HeadRequestFromJson(Map<String, dynamic> json) =>
@@ -264,36 +264,36 @@ Map<String, dynamic> _$$ReadResponseMerrToJson(_$ReadResponseMerr instance) =>
 
 _$_SpaceObject _$$_SpaceObjectFromJson(Map<String, dynamic> json) =>
     _$_SpaceObject(
-      created: json['created'] as String?,
-      data: json['data'] as String?,
       modified: json['modified'] as String?,
       name: json['name'] as String?,
       url: json['url'] as String?,
       visibility: json['visibility'] as String?,
+      created: json['created'] as String?,
+      data: json['data'] as String?,
     );
 
 Map<String, dynamic> _$$_SpaceObjectToJson(_$_SpaceObject instance) =>
     <String, dynamic>{
-      'created': instance.created,
-      'data': instance.data,
       'modified': instance.modified,
       'name': instance.name,
       'url': instance.url,
       'visibility': instance.visibility,
+      'created': instance.created,
+      'data': instance.data,
     };
 
 _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>
     _$_UpdateRequest(
-      visibility: json['visibility'] as String?,
       name: json['name'] as String?,
       object: json['object'] as String?,
+      visibility: json['visibility'] as String?,
     );
 
 Map<String, dynamic> _$$_UpdateRequestToJson(_$_UpdateRequest instance) =>
     <String, dynamic>{
-      'visibility': instance.visibility,
       'name': instance.name,
       'object': instance.object,
+      'visibility': instance.visibility,
     };
 
 _$UpdateResponseData _$$UpdateResponseDataFromJson(Map<String, dynamic> json) =>

@@ -17,15 +17,15 @@ Map<String, dynamic> _$$_IpRequestToJson(_$_IpRequest instance) =>
 
 _$IpResponseData _$$IpResponseDataFromJson(Map<String, dynamic> json) =>
     _$IpResponseData(
-      latency: json['latency'] as String?,
       status: json['status'] as String?,
+      latency: json['latency'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$IpResponseDataToJson(_$IpResponseData instance) =>
     <String, dynamic>{
-      'latency': instance.latency,
       'status': instance.status,
+      'latency': instance.latency,
       'runtimeType': instance.$type,
     };
 
@@ -81,14 +81,14 @@ Map<String, dynamic> _$$TcpResponseMerrToJson(_$TcpResponseMerr instance) =>
 
 _$_UrlRequest _$$_UrlRequestFromJson(Map<String, dynamic> json) =>
     _$_UrlRequest(
-      address: json['address'] as String?,
       method: json['method'] as String?,
+      address: json['address'] as String?,
     );
 
 Map<String, dynamic> _$$_UrlRequestToJson(_$_UrlRequest instance) =>
     <String, dynamic>{
-      'address': instance.address,
       'method': instance.method,
+      'address': instance.address,
     };
 
 _$UrlResponseData _$$UrlResponseDataFromJson(Map<String, dynamic> json) =>
