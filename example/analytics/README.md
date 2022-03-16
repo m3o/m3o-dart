@@ -1,25 +1,25 @@
-# Rss
+# Analytics
 
-An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/rss/api](https://m3o.com/rss/api).
+An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/analytics/api](https://m3o.com/analytics/api).
 
 Endpoints:
 
-## Add
+## Track
 
-Add a new RSS feed with a name, url, and category
+Track an event, it will be created if it doesn't exist
 
 
-[https://m3o.com/rss/api#Add](https://m3o.com/rss/api#Add)
+[https://m3o.com/analytics/api#Track](https://m3o.com/analytics/api#Track)
 
 ```dart
 import 'dart:io';
 
 import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/rss/rss.dart';
+import 'package:m3o/src/analytics/analytics.dart';
 
 void main() async {
   final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = RssService(
+  final ser = AnalyticsService(
     Options(
       token: token,
       address: liveAddress,
@@ -27,20 +27,18 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "category": "news",
-  "name": "bbc",
-  "url": "http://feeds.bbci.co.uk/news/rss.xml"
+  "name": "click"
 ,};
 
-  AddRequest req = AddRequest.fromJson(payload);
+  TrackRequest req = TrackRequest.fromJson(payload);
 
   
   try {
 
-	AddResponse res = await ser.add(req);
+	TrackResponse res = await ser.track(req);
 
     res.map((value) => print(value),
-	  Merr: (AddResponseMerr err) => print(err.body!['body']));	
+	  Merr: (TrackResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -50,22 +48,22 @@ void main() async {
   }
 }
 ```
-## Feed
+## Read
 
-Get an RSS feed by name. If no name is given, all feeds are returned. Default limit is 25 entries.
+Get a single event
 
 
-[https://m3o.com/rss/api#Feed](https://m3o.com/rss/api#Feed)
+[https://m3o.com/analytics/api#Read](https://m3o.com/analytics/api#Read)
 
 ```dart
 import 'dart:io';
 
 import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/rss/rss.dart';
+import 'package:m3o/src/analytics/analytics.dart';
 
 void main() async {
   final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = RssService(
+  final ser = AnalyticsService(
     Options(
       token: token,
       address: liveAddress,
@@ -73,18 +71,18 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "name": "bbc"
+  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
 ,};
 
-  FeedRequest req = FeedRequest.fromJson(payload);
+  ReadRequest req = ReadRequest.fromJson(payload);
 
   
   try {
 
-	FeedResponse res = await ser.feed(req);
+	ReadResponse res = await ser.read(req);
 
     res.map((value) => print(value),
-	  Merr: (FeedResponseMerr err) => print(err.body!['body']));	
+	  Merr: (ReadResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -96,20 +94,20 @@ void main() async {
 ```
 ## List
 
-List the saved RSS fields
+List all events
 
 
-[https://m3o.com/rss/api#List](https://m3o.com/rss/api#List)
+[https://m3o.com/analytics/api#List](https://m3o.com/analytics/api#List)
 
 ```dart
 import 'dart:io';
 
 import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/rss/rss.dart';
+import 'package:m3o/src/analytics/analytics.dart';
 
 void main() async {
   final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = RssService(
+  final ser = AnalyticsService(
     Options(
       token: token,
       address: liveAddress,
@@ -136,22 +134,22 @@ void main() async {
   }
 }
 ```
-## Remove
+## Delete
 
-Remove an RSS feed by name
+Delete an event
 
 
-[https://m3o.com/rss/api#Remove](https://m3o.com/rss/api#Remove)
+[https://m3o.com/analytics/api#Delete](https://m3o.com/analytics/api#Delete)
 
 ```dart
 import 'dart:io';
 
 import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/rss/rss.dart';
+import 'package:m3o/src/analytics/analytics.dart';
 
 void main() async {
   final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = RssService(
+  final ser = AnalyticsService(
     Options(
       token: token,
       address: liveAddress,
@@ -159,18 +157,18 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "name": "bbc"
+  "name": "click"
 ,};
 
-  RemoveRequest req = RemoveRequest.fromJson(payload);
+  DeleteRequest req = DeleteRequest.fromJson(payload);
 
   
   try {
 
-	RemoveResponse res = await ser.remove(req);
+	DeleteResponse res = await ser.delete(req);
 
     res.map((value) => print(value),
-	  Merr: (RemoveResponseMerr err) => print(err.body!['body']));	
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
