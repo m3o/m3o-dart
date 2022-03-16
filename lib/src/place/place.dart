@@ -114,6 +114,24 @@ class Result with _$Result {
     /// address of place
     String? address,
 
+    /// url of an icon
+    String? icon_url,
+
+    /// name of the place
+    String? name,
+
+    /// feature types
+    List<String>? types,
+
+    /// simplified address
+    String? vicinity,
+
+    /// lat/lng of place
+    String? location,
+
+    /// open now
+    bool? open_now,
+
     /// opening hours
     String? opening_hours,
 
@@ -122,24 +140,6 @@ class Result with _$Result {
 
     /// type of location
     String? type,
-
-    /// feature types
-    List<String>? types,
-
-    /// url of an icon
-    String? icon_url,
-
-    /// lat/lng of place
-    String? location,
-
-    /// name of the place
-    String? name,
-
-    /// open now
-    bool? open_now,
-
-    /// simplified address
-    String? vicinity,
   }) = _Result;
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
 }

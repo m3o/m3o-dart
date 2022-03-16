@@ -89,9 +89,6 @@ class TimesRequest with _$TimesRequest {
 @Freezed()
 class TimesResponse with _$TimesResponse {
   const factory TimesResponse({
-    /// date of request
-    String? date,
-
     /// number of days
     int? days,
 
@@ -106,6 +103,9 @@ class TimesResponse with _$TimesResponse {
 
     /// prayer times for the given location
     List<PrayerTime>? times,
+
+    /// date of request
+    String? date,
   }) = TimesResponseData;
   const factory TimesResponse.Merr({Map<String, dynamic>? body}) =
       TimesResponseMerr;

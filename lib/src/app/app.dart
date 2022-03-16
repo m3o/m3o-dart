@@ -307,6 +307,9 @@ class ResolveResponse with _$ResolveResponse {
 @Freezed()
 class RunRequest with _$RunRequest {
   const factory RunRequest({
+    /// source repository
+    String? repo,
+
     /// branch. defaults to master
     String? branch,
 
@@ -321,9 +324,6 @@ class RunRequest with _$RunRequest {
 
     /// region to run in
     String? region,
-
-    /// source repository
-    String? repo,
   }) = _RunRequest;
   factory RunRequest.fromJson(Map<String, dynamic> json) =>
       _$RunRequestFromJson(json);
@@ -344,18 +344,6 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
-    /// source repository
-    String? repo,
-
-    /// branch of code
-    String? branch,
-
-    /// time of creation
-    String? created,
-
-    /// custom domains
-    String? custom_domains,
-
     /// associated env vars
     Map<String, String>? env_vars,
 
@@ -365,20 +353,32 @@ class Service with _$Service {
     /// name of the app
     String? name,
 
-    /// region running in
-    String? region,
+    /// port running on
+    int? port,
 
     /// app url
     String? url,
 
-    /// port running on
-    int? port,
+    /// branch of code
+    String? branch,
+
+    /// time of creation
+    String? created,
+
+    /// source repository
+    String? repo,
 
     /// status of the app
     String? status,
 
     /// last updated
     String? updated,
+
+    /// custom domains
+    String? custom_domains,
+
+    /// region running in
+    String? region,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);
@@ -409,11 +409,11 @@ class StatusResponse with _$StatusResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// Additional env vars to update
-    Map<String, String>? env_vars,
-
     /// name of the app
     String? name,
+
+    /// Additional env vars to update
+    Map<String, String>? env_vars,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);
