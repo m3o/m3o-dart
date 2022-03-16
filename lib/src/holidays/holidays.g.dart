@@ -43,35 +43,35 @@ Map<String, dynamic> _$$CountriesResponseMerrToJson(
     };
 
 _$_Country _$$_CountryFromJson(Map<String, dynamic> json) => _$_Country(
-      code: json['code'] as String?,
       name: json['name'] as String?,
+      code: json['code'] as String?,
     );
 
 Map<String, dynamic> _$$_CountryToJson(_$_Country instance) =>
     <String, dynamic>{
-      'code': instance.code,
       'name': instance.name,
+      'code': instance.code,
     };
 
 _$_Holiday _$$_HolidayFromJson(Map<String, dynamic> json) => _$_Holiday(
+      country_code: json['country_code'] as String?,
+      date: json['date'] as String?,
+      local_name: json['local_name'] as String?,
       name: json['name'] as String?,
       regions:
           (json['regions'] as List<dynamic>?)?.map((e) => e as String).toList(),
       types:
           (json['types'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      country_code: json['country_code'] as String?,
-      date: json['date'] as String?,
-      local_name: json['local_name'] as String?,
     );
 
 Map<String, dynamic> _$$_HolidayToJson(_$_Holiday instance) =>
     <String, dynamic>{
-      'name': instance.name,
-      'regions': instance.regions,
-      'types': instance.types,
       'country_code': instance.country_code,
       'date': instance.date,
       'local_name': instance.local_name,
+      'name': instance.name,
+      'regions': instance.regions,
+      'types': instance.types,
     };
 
 _$_ListRequest _$$_ListRequestFromJson(Map<String, dynamic> json) =>

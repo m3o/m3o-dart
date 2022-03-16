@@ -319,24 +319,24 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
     };
 
 _$_Message _$$_MessageFromJson(Map<String, dynamic> json) => _$_Message(
-      client: json['client'] as String?,
-      id: json['id'] as String?,
       room_id: json['room_id'] as String?,
       sent_at: json['sent_at'] as String?,
       subject: json['subject'] as String?,
       text: json['text'] as String?,
       user_id: json['user_id'] as String?,
+      client: json['client'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_MessageToJson(_$_Message instance) =>
     <String, dynamic>{
-      'client': instance.client,
-      'id': instance.id,
       'room_id': instance.room_id,
       'sent_at': instance.sent_at,
       'subject': instance.subject,
       'text': instance.text,
       'user_id': instance.user_id,
+      'client': instance.client,
+      'id': instance.id,
     };
 
 _$_Room _$$_RoomFromJson(Map<String, dynamic> json) => _$_Room(
