@@ -4,6 +4,92 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/twitter/api](h
 
 Endpoints:
 
+## Search
+
+Search for tweets with a simple query
+
+
+[https://m3o.com/twitter/api#Search](https://m3o.com/twitter/api#Search)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/twitter/twitter.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = TwitterService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "query": "cats"
+,};
+
+  SearchRequest req = SearchRequest.fromJson(payload);
+
+  
+  try {
+
+	SearchResponse res = await ser.search(req);
+
+    res.map((value) => print(value),
+	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Trends
+
+Get the current global trending topics
+
+
+[https://m3o.com/twitter/api#Trends](https://m3o.com/twitter/api#Trends)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/twitter/twitter.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = TwitterService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{};
+
+  TrendsRequest req = TrendsRequest.fromJson(payload);
+
+  
+  try {
+
+	TrendsResponse res = await ser.trends(req);
+
+    res.map((value) => print(value),
+	  Merr: (TrendsResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## User
 
 Get a user's twitter profile
@@ -84,92 +170,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (TimelineResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Search
-
-Search for tweets with a simple query
-
-
-[https://m3o.com/twitter/api#Search](https://m3o.com/twitter/api#Search)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/twitter/twitter.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = TwitterService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "query": "cats"
-,};
-
-  SearchRequest req = SearchRequest.fromJson(payload);
-
-  
-  try {
-
-	SearchResponse res = await ser.search(req);
-
-    res.map((value) => print(value),
-	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Trends
-
-Get the current global trending topics
-
-
-[https://m3o.com/twitter/api#Trends](https://m3o.com/twitter/api#Trends)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/twitter/twitter.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = TwitterService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{};
-
-  TrendsRequest req = TrendsRequest.fromJson(payload);
-
-  
-  try {
-
-	TrendsResponse res = await ser.trends(req);
-
-    res.map((value) => print(value),
-	  Merr: (TrendsResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);

@@ -4,55 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/search/api](ht
 
 Endpoints:
 
-## Index
-
-Index a record i.e. insert a document to search for.
-
-
-[https://m3o.com/search/api#Index](https://m3o.com/search/api#Index)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/search/search.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = SearchService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "data": {
-    "age": 37,
-    "name": "John Doe",
-    "starsign": "Leo"
-  ,},
-  "index": "customers"
-};
-
-  IndexRequest req = IndexRequest.fromJson(payload);
-
-  
-  try {
-
-	IndexResponse res = await ser.index(req);
-
-    res.map((value) => print(value),
-	  Merr: (IndexResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Search
 
 Search for records in a given in index
@@ -312,6 +263,55 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (DeleteIndexResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Index
+
+Index a record i.e. insert a document to search for.
+
+
+[https://m3o.com/search/api#Index](https://m3o.com/search/api#Index)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/search/search.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = SearchService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "data": {
+    "age": 37,
+    "name": "John Doe",
+    "starsign": "Leo"
+  ,},
+  "index": "customers"
+};
+
+  IndexRequest req = IndexRequest.fromJson(payload);
+
+  
+  try {
+
+	IndexResponse res = await ser.index(req);
+
+    res.map((value) => print(value),
+	  Merr: (IndexResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
