@@ -1,9 +1,3 @@
-## v1.0.32 - 2022-03-16
-
-[d4b404](https://github.com/micro/services/commit/d4b4049ace8c104703c4ee73d4c92dfdd9a80fa7) fix cruft
-
-**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.31...v1.0.32
-
 ## v1.0.31 - 2022-03-16
 
 [f9c5fe](https://github.com/micro/services/commit/f9c5fe05399d349601b34cc77be06f4d97100254) fix read example
