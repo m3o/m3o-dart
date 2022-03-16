@@ -1,3 +1,9 @@
+## v1.0.35 - 2022-03-16
+
+[139ccf](https://github.com/micro/services/commit/139ccfc7471d63f5d1774156026c59b873e80d42) return the base64 code
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.34...v1.0.35
+
 ## v1.0.34 - 2022-03-16
 
 [139ccf](https://github.com/micro/services/commit/139ccfc7471d63f5d1774156026c59b873e80d42) return the base64 code
