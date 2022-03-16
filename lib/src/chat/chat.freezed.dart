@@ -3548,10 +3548,10 @@ LeaveRequest _$LeaveRequestFromJson(Map<String, dynamic> json) {
 class _$LeaveRequestTearOff {
   const _$LeaveRequestTearOff();
 
-  _LeaveRequest call({String? user_id, String? room_id}) {
+  _LeaveRequest call({String? room_id, String? user_id}) {
     return _LeaveRequest(
-      user_id: user_id,
       room_id: room_id,
+      user_id: user_id,
     );
   }
 
@@ -3565,11 +3565,11 @@ const $LeaveRequest = _$LeaveRequestTearOff();
 
 /// @nodoc
 mixin _$LeaveRequest {
-  /// the user id
-  String? get user_id => throw _privateConstructorUsedError;
-
   /// the chat room id
   String? get room_id => throw _privateConstructorUsedError;
+
+  /// the user id
+  String? get user_id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -3582,7 +3582,7 @@ abstract class $LeaveRequestCopyWith<$Res> {
   factory $LeaveRequestCopyWith(
           LeaveRequest value, $Res Function(LeaveRequest) then) =
       _$LeaveRequestCopyWithImpl<$Res>;
-  $Res call({String? user_id, String? room_id});
+  $Res call({String? room_id, String? user_id});
 }
 
 /// @nodoc
@@ -3595,17 +3595,17 @@ class _$LeaveRequestCopyWithImpl<$Res> implements $LeaveRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? user_id = freezed,
     Object? room_id = freezed,
+    Object? user_id = freezed,
   }) {
     return _then(_value.copyWith(
-      user_id: user_id == freezed
-          ? _value.user_id
-          : user_id // ignore: cast_nullable_to_non_nullable
-              as String?,
       room_id: room_id == freezed
           ? _value.room_id
           : room_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      user_id: user_id == freezed
+          ? _value.user_id
+          : user_id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -3618,7 +3618,7 @@ abstract class _$LeaveRequestCopyWith<$Res>
           _LeaveRequest value, $Res Function(_LeaveRequest) then) =
       __$LeaveRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? user_id, String? room_id});
+  $Res call({String? room_id, String? user_id});
 }
 
 /// @nodoc
@@ -3633,17 +3633,17 @@ class __$LeaveRequestCopyWithImpl<$Res> extends _$LeaveRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? user_id = freezed,
     Object? room_id = freezed,
+    Object? user_id = freezed,
   }) {
     return _then(_LeaveRequest(
-      user_id: user_id == freezed
-          ? _value.user_id
-          : user_id // ignore: cast_nullable_to_non_nullable
-              as String?,
       room_id: room_id == freezed
           ? _value.room_id
           : room_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      user_id: user_id == freezed
+          ? _value.user_id
+          : user_id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -3652,23 +3652,23 @@ class __$LeaveRequestCopyWithImpl<$Res> extends _$LeaveRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_LeaveRequest implements _LeaveRequest {
-  const _$_LeaveRequest({this.user_id, this.room_id});
+  const _$_LeaveRequest({this.room_id, this.user_id});
 
   factory _$_LeaveRequest.fromJson(Map<String, dynamic> json) =>
       _$$_LeaveRequestFromJson(json);
 
   @override
 
-  /// the user id
-  final String? user_id;
-  @override
-
   /// the chat room id
   final String? room_id;
+  @override
+
+  /// the user id
+  final String? user_id;
 
   @override
   String toString() {
-    return 'LeaveRequest(user_id: $user_id, room_id: $room_id)';
+    return 'LeaveRequest(room_id: $room_id, user_id: $user_id)';
   }
 
   @override
@@ -3676,15 +3676,15 @@ class _$_LeaveRequest implements _LeaveRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LeaveRequest &&
-            const DeepCollectionEquality().equals(other.user_id, user_id) &&
-            const DeepCollectionEquality().equals(other.room_id, room_id));
+            const DeepCollectionEquality().equals(other.room_id, room_id) &&
+            const DeepCollectionEquality().equals(other.user_id, user_id));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(user_id),
-      const DeepCollectionEquality().hash(room_id));
+      const DeepCollectionEquality().hash(room_id),
+      const DeepCollectionEquality().hash(user_id));
 
   @JsonKey(ignore: true)
   @override
@@ -3698,7 +3698,7 @@ class _$_LeaveRequest implements _LeaveRequest {
 }
 
 abstract class _LeaveRequest implements LeaveRequest {
-  const factory _LeaveRequest({String? user_id, String? room_id}) =
+  const factory _LeaveRequest({String? room_id, String? user_id}) =
       _$_LeaveRequest;
 
   factory _LeaveRequest.fromJson(Map<String, dynamic> json) =
@@ -3706,12 +3706,12 @@ abstract class _LeaveRequest implements LeaveRequest {
 
   @override
 
-  /// the user id
-  String? get user_id;
-  @override
-
   /// the chat room id
   String? get room_id;
+  @override
+
+  /// the user id
+  String? get user_id;
   @override
   @JsonKey(ignore: true)
   _$LeaveRequestCopyWith<_LeaveRequest> get copyWith =>
@@ -4683,21 +4683,21 @@ class _$MessageTearOff {
   const _$MessageTearOff();
 
   _Message call(
-      {String? text,
+      {String? subject,
+      String? text,
       String? user_id,
       String? client,
       String? id,
       String? room_id,
-      String? sent_at,
-      String? subject}) {
+      String? sent_at}) {
     return _Message(
+      subject: subject,
       text: text,
       user_id: user_id,
       client: client,
       id: id,
       room_id: room_id,
       sent_at: sent_at,
-      subject: subject,
     );
   }
 
@@ -4711,6 +4711,9 @@ const $Message = _$MessageTearOff();
 
 /// @nodoc
 mixin _$Message {
+  /// subject of the message
+  String? get subject => throw _privateConstructorUsedError;
+
   /// text of the message
   String? get text => throw _privateConstructorUsedError;
 
@@ -4729,9 +4732,6 @@ mixin _$Message {
   /// time the message was sent in RFC3339 format
   String? get sent_at => throw _privateConstructorUsedError;
 
-  /// subject of the message
-  String? get subject => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MessageCopyWith<Message> get copyWith => throw _privateConstructorUsedError;
@@ -4742,13 +4742,13 @@ abstract class $MessageCopyWith<$Res> {
   factory $MessageCopyWith(Message value, $Res Function(Message) then) =
       _$MessageCopyWithImpl<$Res>;
   $Res call(
-      {String? text,
+      {String? subject,
+      String? text,
       String? user_id,
       String? client,
       String? id,
       String? room_id,
-      String? sent_at,
-      String? subject});
+      String? sent_at});
 }
 
 /// @nodoc
@@ -4761,15 +4761,19 @@ class _$MessageCopyWithImpl<$Res> implements $MessageCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? subject = freezed,
     Object? text = freezed,
     Object? user_id = freezed,
     Object? client = freezed,
     Object? id = freezed,
     Object? room_id = freezed,
     Object? sent_at = freezed,
-    Object? subject = freezed,
   }) {
     return _then(_value.copyWith(
+      subject: subject == freezed
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String?,
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -4794,10 +4798,6 @@ class _$MessageCopyWithImpl<$Res> implements $MessageCopyWith<$Res> {
           ? _value.sent_at
           : sent_at // ignore: cast_nullable_to_non_nullable
               as String?,
-      subject: subject == freezed
-          ? _value.subject
-          : subject // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -4808,13 +4808,13 @@ abstract class _$MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
       __$MessageCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? text,
+      {String? subject,
+      String? text,
       String? user_id,
       String? client,
       String? id,
       String? room_id,
-      String? sent_at,
-      String? subject});
+      String? sent_at});
 }
 
 /// @nodoc
@@ -4828,15 +4828,19 @@ class __$MessageCopyWithImpl<$Res> extends _$MessageCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? subject = freezed,
     Object? text = freezed,
     Object? user_id = freezed,
     Object? client = freezed,
     Object? id = freezed,
     Object? room_id = freezed,
     Object? sent_at = freezed,
-    Object? subject = freezed,
   }) {
     return _then(_Message(
+      subject: subject == freezed
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String?,
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -4861,10 +4865,6 @@ class __$MessageCopyWithImpl<$Res> extends _$MessageCopyWithImpl<$Res>
           ? _value.sent_at
           : sent_at // ignore: cast_nullable_to_non_nullable
               as String?,
-      subject: subject == freezed
-          ? _value.subject
-          : subject // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -4873,17 +4873,21 @@ class __$MessageCopyWithImpl<$Res> extends _$MessageCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Message implements _Message {
   const _$_Message(
-      {this.text,
+      {this.subject,
+      this.text,
       this.user_id,
       this.client,
       this.id,
       this.room_id,
-      this.sent_at,
-      this.subject});
+      this.sent_at});
 
   factory _$_Message.fromJson(Map<String, dynamic> json) =>
       _$$_MessageFromJson(json);
 
+  @override
+
+  /// subject of the message
+  final String? subject;
   @override
 
   /// text of the message
@@ -4908,14 +4912,10 @@ class _$_Message implements _Message {
 
   /// time the message was sent in RFC3339 format
   final String? sent_at;
-  @override
-
-  /// subject of the message
-  final String? subject;
 
   @override
   String toString() {
-    return 'Message(text: $text, user_id: $user_id, client: $client, id: $id, room_id: $room_id, sent_at: $sent_at, subject: $subject)';
+    return 'Message(subject: $subject, text: $text, user_id: $user_id, client: $client, id: $id, room_id: $room_id, sent_at: $sent_at)';
   }
 
   @override
@@ -4923,25 +4923,25 @@ class _$_Message implements _Message {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Message &&
+            const DeepCollectionEquality().equals(other.subject, subject) &&
             const DeepCollectionEquality().equals(other.text, text) &&
             const DeepCollectionEquality().equals(other.user_id, user_id) &&
             const DeepCollectionEquality().equals(other.client, client) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.room_id, room_id) &&
-            const DeepCollectionEquality().equals(other.sent_at, sent_at) &&
-            const DeepCollectionEquality().equals(other.subject, subject));
+            const DeepCollectionEquality().equals(other.sent_at, sent_at));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(subject),
       const DeepCollectionEquality().hash(text),
       const DeepCollectionEquality().hash(user_id),
       const DeepCollectionEquality().hash(client),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(room_id),
-      const DeepCollectionEquality().hash(sent_at),
-      const DeepCollectionEquality().hash(subject));
+      const DeepCollectionEquality().hash(sent_at));
 
   @JsonKey(ignore: true)
   @override
@@ -4956,16 +4956,20 @@ class _$_Message implements _Message {
 
 abstract class _Message implements Message {
   const factory _Message(
-      {String? text,
+      {String? subject,
+      String? text,
       String? user_id,
       String? client,
       String? id,
       String? room_id,
-      String? sent_at,
-      String? subject}) = _$_Message;
+      String? sent_at}) = _$_Message;
 
   factory _Message.fromJson(Map<String, dynamic> json) = _$_Message.fromJson;
 
+  @override
+
+  /// subject of the message
+  String? get subject;
   @override
 
   /// text of the message
@@ -4990,10 +4994,6 @@ abstract class _Message implements Message {
 
   /// time the message was sent in RFC3339 format
   String? get sent_at;
-  @override
-
-  /// subject of the message
-  String? get subject;
   @override
   @JsonKey(ignore: true)
   _$MessageCopyWith<_Message> get copyWith =>

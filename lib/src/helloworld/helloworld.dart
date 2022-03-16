@@ -13,7 +13,7 @@ class HelloworldService {
     _client = Client(opts);
   }
 
-  /// Call returns a personalised "Hello $name" response
+  /// Return a personalised Hello message
   Future<CallResponse> call(CallRequest req) async {
     Request request = Request(
       service: 'helloworld',
@@ -34,7 +34,7 @@ class HelloworldService {
     }
   }
 
-  /// Stream returns a stream of "Hello $name" responses
+  /// Stream a personalised Hello message
 
   Stream<StreamResponse> stream(StreamRequest req) async* {
     Request request = Request(
@@ -63,6 +63,7 @@ class HelloworldService {
 @Freezed()
 class CallRequest with _$CallRequest {
   const factory CallRequest({
+    /// name to append to the message e.g Alice
     String? name,
   }) = _CallRequest;
   factory CallRequest.fromJson(Map<String, dynamic> json) =>
@@ -72,6 +73,7 @@ class CallRequest with _$CallRequest {
 @Freezed()
 class CallResponse with _$CallResponse {
   const factory CallResponse({
+    /// message including name e.g Hello Alice
     String? message,
   }) = CallResponseData;
   const factory CallResponse.Merr({Map<String, dynamic>? body}) =
@@ -85,6 +87,8 @@ class StreamRequest with _$StreamRequest {
   const factory StreamRequest({
     /// the number of messages to send back
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? messages,
+
+    /// name to append to the message e.g Alice
     String? name,
   }) = _StreamRequest;
   factory StreamRequest.fromJson(Map<String, dynamic> json) =>
@@ -94,6 +98,7 @@ class StreamRequest with _$StreamRequest {
 @Freezed()
 class StreamResponse with _$StreamResponse {
   const factory StreamResponse({
+    /// message including name e.g Hello Alice
     String? message,
   }) = StreamResponseData;
   const factory StreamResponse.Merr({Map<String, dynamic>? body}) =

@@ -38,6 +38,7 @@ const $CallRequest = _$CallRequestTearOff();
 
 /// @nodoc
 mixin _$CallRequest {
+  /// name to append to the message e.g Alice
   String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -117,6 +118,8 @@ class _$_CallRequest implements _CallRequest {
       _$$_CallRequestFromJson(json);
 
   @override
+
+  /// name to append to the message e.g Alice
   final String? name;
 
   @override
@@ -154,6 +157,8 @@ abstract class _CallRequest implements CallRequest {
       _$_CallRequest.fromJson;
 
   @override
+
+  /// name to append to the message e.g Alice
   String? get name;
   @override
   @JsonKey(ignore: true)
@@ -299,6 +304,8 @@ class _$CallResponseData implements CallResponseData {
       _$$CallResponseDataFromJson(json);
 
   @override
+
+  /// message including name e.g Hello Alice
   final String? message;
 
   @JsonKey(name: 'runtimeType')
@@ -400,6 +407,7 @@ abstract class CallResponseData implements CallResponse {
   factory CallResponseData.fromJson(Map<String, dynamic> json) =
       _$CallResponseData.fromJson;
 
+  /// message including name e.g Hello Alice
   String? get message;
   @JsonKey(ignore: true)
   $CallResponseDataCopyWith<CallResponseData> get copyWith =>
@@ -586,6 +594,8 @@ mixin _$StreamRequest {
   /// the number of messages to send back
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get messages => throw _privateConstructorUsedError;
+
+  /// name to append to the message e.g Alice
   String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -688,6 +698,8 @@ class _$_StreamRequest implements _StreamRequest {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? messages;
   @override
+
+  /// name to append to the message e.g Alice
   final String? name;
 
   @override
@@ -735,6 +747,8 @@ abstract class _StreamRequest implements StreamRequest {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get messages;
   @override
+
+  /// name to append to the message e.g Alice
   String? get name;
   @override
   @JsonKey(ignore: true)
@@ -881,6 +895,8 @@ class _$StreamResponseData implements StreamResponseData {
       _$$StreamResponseDataFromJson(json);
 
   @override
+
+  /// message including name e.g Hello Alice
   final String? message;
 
   @JsonKey(name: 'runtimeType')
@@ -982,6 +998,7 @@ abstract class StreamResponseData implements StreamResponse {
   factory StreamResponseData.fromJson(Map<String, dynamic> json) =
       _$StreamResponseData.fromJson;
 
+  /// message including name e.g Hello Alice
   String? get message;
   @JsonKey(ignore: true)
   $StreamResponseDataCopyWith<StreamResponseData> get copyWith =>

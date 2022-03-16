@@ -110,12 +110,6 @@ class Profile with _$Profile {
     /// display name of the user
     String? name,
 
-    /// the username
-    String? username,
-
-    /// if the account is verified
-    bool? verified,
-
     /// the account creation date
     String? created_at,
 
@@ -130,6 +124,12 @@ class Profile with _$Profile {
 
     /// if the account is private
     bool? private,
+
+    /// the username
+    String? username,
+
+    /// if the account is verified
+    bool? verified,
   }) = _Profile;
   factory Profile.fromJson(Map<String, dynamic> json) =>
       _$ProfileFromJson(json);
@@ -138,11 +138,11 @@ class Profile with _$Profile {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// number of tweets to return. default: 20
-    int? limit,
-
     /// the query to search for
     String? query,
+
+    /// number of tweets to return. default: 20
+    int? limit,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);

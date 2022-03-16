@@ -10,13 +10,13 @@ _$_Profile _$$_ProfileFromJson(Map<String, dynamic> json) => _$_Profile(
       followers: int64FromString(json['followers'] as String?),
       id: int64FromString(json['id'] as String?),
       name: json['name'] as String?,
-      username: json['username'] as String?,
-      verified: json['verified'] as bool?,
       created_at: json['created_at'] as String?,
       description: json['description'] as String?,
       image_url: json['image_url'] as String?,
       location: json['location'] as String?,
       private: json['private'] as bool?,
+      username: json['username'] as String?,
+      verified: json['verified'] as bool?,
     );
 
 Map<String, dynamic> _$$_ProfileToJson(_$_Profile instance) =>
@@ -24,25 +24,25 @@ Map<String, dynamic> _$$_ProfileToJson(_$_Profile instance) =>
       'followers': int64ToString(instance.followers),
       'id': int64ToString(instance.id),
       'name': instance.name,
-      'username': instance.username,
-      'verified': instance.verified,
       'created_at': instance.created_at,
       'description': instance.description,
       'image_url': instance.image_url,
       'location': instance.location,
       'private': instance.private,
+      'username': instance.username,
+      'verified': instance.verified,
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
     _$_SearchRequest(
-      limit: json['limit'] as int?,
       query: json['query'] as String?,
+      limit: json['limit'] as int?,
     );
 
 Map<String, dynamic> _$$_SearchRequestToJson(_$_SearchRequest instance) =>
     <String, dynamic>{
-      'limit': instance.limit,
       'query': instance.query,
+      'limit': instance.limit,
     };
 
 _$SearchResponseData _$$SearchResponseDataFromJson(Map<String, dynamic> json) =>
