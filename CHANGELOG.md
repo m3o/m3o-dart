@@ -1,3 +1,9 @@
+## v1.0.36 - 2022-03-16
+
+[8ee80a](https://github.com/micro/services/commit/8ee80a672fe29c93a999e918b3ccfacaf53604d6) add gcloud ignore files
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.35...v1.0.36
+
 ## v1.0.35 - 2022-03-16
 
 [139ccf](https://github.com/micro/services/commit/139ccfc7471d63f5d1774156026c59b873e80d42) return the base64 code
