@@ -1,3 +1,9 @@
+## v1.0.28 - 2022-03-16
+
+[f9c5fe](https://github.com/micro/services/commit/f9c5fe05399d349601b34cc77be06f4d97100254) fix read example
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.27...v1.0.28
+
 ## v1.0.26 - 2022-03-15
 
 [bc3335](https://github.com/micro/services/commit/bc3335e6bf43a4b0f646f12aeb87e94a32bfce29) update proto
