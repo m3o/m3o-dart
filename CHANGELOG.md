@@ -1,3 +1,13 @@
+## v1.0.34 - 2022-03-16
+
+[139ccf](https://github.com/micro/services/commit/139ccfc7471d63f5d1774156026c59b873e80d42) return the base64 code
+
+## What's Changed
+
+- changed some commit messages and changed the trigger to created/publi… by @lambdaR in https://github.com/m3o/m3o-dart/pull/11
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.33...v1.0.34
+
 ## v1.0.33 - 2022-03-16
 
 [d4b404](https://github.com/micro/services/commit/d4b4049ace8c104703c4ee73d4c92dfdd9a80fa7) fix cruft
