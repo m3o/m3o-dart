@@ -188,38 +188,38 @@ class _$LookupResponseTearOff {
 
   LookupResponseData call(
       {int? engine_capacity,
-      String? last_v5_issued,
-      String? mot_status,
-      String? colour,
-      String? month_of_first_registration,
-      String? mot_expiry,
       String? registration,
-      String? tax_status,
-      double? co2_emissions,
-      String? fuel_type,
-      String? logo_url,
-      String? make,
       String? tax_due_date,
-      String? type_approval,
       String? wheelplan,
-      int? year_of_manufacture}) {
+      int? year_of_manufacture,
+      String? month_of_first_registration,
+      double? co2_emissions,
+      String? last_v5_issued,
+      String? logo_url,
+      String? tax_status,
+      String? colour,
+      String? fuel_type,
+      String? make,
+      String? mot_expiry,
+      String? mot_status,
+      String? type_approval}) {
     return LookupResponseData(
       engine_capacity: engine_capacity,
-      last_v5_issued: last_v5_issued,
-      mot_status: mot_status,
-      colour: colour,
-      month_of_first_registration: month_of_first_registration,
-      mot_expiry: mot_expiry,
       registration: registration,
-      tax_status: tax_status,
-      co2_emissions: co2_emissions,
-      fuel_type: fuel_type,
-      logo_url: logo_url,
-      make: make,
       tax_due_date: tax_due_date,
-      type_approval: type_approval,
       wheelplan: wheelplan,
       year_of_manufacture: year_of_manufacture,
+      month_of_first_registration: month_of_first_registration,
+      co2_emissions: co2_emissions,
+      last_v5_issued: last_v5_issued,
+      logo_url: logo_url,
+      tax_status: tax_status,
+      colour: colour,
+      fuel_type: fuel_type,
+      make: make,
+      mot_expiry: mot_expiry,
+      mot_status: mot_status,
+      type_approval: type_approval,
     );
   }
 
@@ -243,21 +243,21 @@ mixin _$LookupResponse {
   TResult when<TResult extends Object?>(
     TResult Function(
             int? engine_capacity,
-            String? last_v5_issued,
-            String? mot_status,
-            String? colour,
-            String? month_of_first_registration,
-            String? mot_expiry,
             String? registration,
-            String? tax_status,
-            double? co2_emissions,
-            String? fuel_type,
-            String? logo_url,
-            String? make,
             String? tax_due_date,
-            String? type_approval,
             String? wheelplan,
-            int? year_of_manufacture)
+            int? year_of_manufacture,
+            String? month_of_first_registration,
+            double? co2_emissions,
+            String? last_v5_issued,
+            String? logo_url,
+            String? tax_status,
+            String? colour,
+            String? fuel_type,
+            String? make,
+            String? mot_expiry,
+            String? mot_status,
+            String? type_approval)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
@@ -266,21 +266,21 @@ mixin _$LookupResponse {
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
             int? engine_capacity,
-            String? last_v5_issued,
-            String? mot_status,
-            String? colour,
-            String? month_of_first_registration,
-            String? mot_expiry,
             String? registration,
-            String? tax_status,
-            double? co2_emissions,
-            String? fuel_type,
-            String? logo_url,
-            String? make,
             String? tax_due_date,
-            String? type_approval,
             String? wheelplan,
-            int? year_of_manufacture)?
+            int? year_of_manufacture,
+            String? month_of_first_registration,
+            double? co2_emissions,
+            String? last_v5_issued,
+            String? logo_url,
+            String? tax_status,
+            String? colour,
+            String? fuel_type,
+            String? make,
+            String? mot_expiry,
+            String? mot_status,
+            String? type_approval)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
@@ -289,21 +289,21 @@ mixin _$LookupResponse {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
             int? engine_capacity,
-            String? last_v5_issued,
-            String? mot_status,
-            String? colour,
-            String? month_of_first_registration,
-            String? mot_expiry,
             String? registration,
-            String? tax_status,
-            double? co2_emissions,
-            String? fuel_type,
-            String? logo_url,
-            String? make,
             String? tax_due_date,
-            String? type_approval,
             String? wheelplan,
-            int? year_of_manufacture)?
+            int? year_of_manufacture,
+            String? month_of_first_registration,
+            double? co2_emissions,
+            String? last_v5_issued,
+            String? logo_url,
+            String? tax_status,
+            String? colour,
+            String? fuel_type,
+            String? make,
+            String? mot_expiry,
+            String? mot_status,
+            String? type_approval)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -355,21 +355,21 @@ abstract class $LookupResponseDataCopyWith<$Res> {
       _$LookupResponseDataCopyWithImpl<$Res>;
   $Res call(
       {int? engine_capacity,
-      String? last_v5_issued,
-      String? mot_status,
-      String? colour,
-      String? month_of_first_registration,
-      String? mot_expiry,
       String? registration,
-      String? tax_status,
-      double? co2_emissions,
-      String? fuel_type,
-      String? logo_url,
-      String? make,
       String? tax_due_date,
-      String? type_approval,
       String? wheelplan,
-      int? year_of_manufacture});
+      int? year_of_manufacture,
+      String? month_of_first_registration,
+      double? co2_emissions,
+      String? last_v5_issued,
+      String? logo_url,
+      String? tax_status,
+      String? colour,
+      String? fuel_type,
+      String? make,
+      String? mot_expiry,
+      String? mot_status,
+      String? type_approval});
 }
 
 /// @nodoc
@@ -386,78 +386,34 @@ class _$LookupResponseDataCopyWithImpl<$Res>
   @override
   $Res call({
     Object? engine_capacity = freezed,
-    Object? last_v5_issued = freezed,
-    Object? mot_status = freezed,
-    Object? colour = freezed,
-    Object? month_of_first_registration = freezed,
-    Object? mot_expiry = freezed,
     Object? registration = freezed,
-    Object? tax_status = freezed,
-    Object? co2_emissions = freezed,
-    Object? fuel_type = freezed,
-    Object? logo_url = freezed,
-    Object? make = freezed,
     Object? tax_due_date = freezed,
-    Object? type_approval = freezed,
     Object? wheelplan = freezed,
     Object? year_of_manufacture = freezed,
+    Object? month_of_first_registration = freezed,
+    Object? co2_emissions = freezed,
+    Object? last_v5_issued = freezed,
+    Object? logo_url = freezed,
+    Object? tax_status = freezed,
+    Object? colour = freezed,
+    Object? fuel_type = freezed,
+    Object? make = freezed,
+    Object? mot_expiry = freezed,
+    Object? mot_status = freezed,
+    Object? type_approval = freezed,
   }) {
     return _then(LookupResponseData(
       engine_capacity: engine_capacity == freezed
           ? _value.engine_capacity
           : engine_capacity // ignore: cast_nullable_to_non_nullable
               as int?,
-      last_v5_issued: last_v5_issued == freezed
-          ? _value.last_v5_issued
-          : last_v5_issued // ignore: cast_nullable_to_non_nullable
-              as String?,
-      mot_status: mot_status == freezed
-          ? _value.mot_status
-          : mot_status // ignore: cast_nullable_to_non_nullable
-              as String?,
-      colour: colour == freezed
-          ? _value.colour
-          : colour // ignore: cast_nullable_to_non_nullable
-              as String?,
-      month_of_first_registration: month_of_first_registration == freezed
-          ? _value.month_of_first_registration
-          : month_of_first_registration // ignore: cast_nullable_to_non_nullable
-              as String?,
-      mot_expiry: mot_expiry == freezed
-          ? _value.mot_expiry
-          : mot_expiry // ignore: cast_nullable_to_non_nullable
-              as String?,
       registration: registration == freezed
           ? _value.registration
           : registration // ignore: cast_nullable_to_non_nullable
               as String?,
-      tax_status: tax_status == freezed
-          ? _value.tax_status
-          : tax_status // ignore: cast_nullable_to_non_nullable
-              as String?,
-      co2_emissions: co2_emissions == freezed
-          ? _value.co2_emissions
-          : co2_emissions // ignore: cast_nullable_to_non_nullable
-              as double?,
-      fuel_type: fuel_type == freezed
-          ? _value.fuel_type
-          : fuel_type // ignore: cast_nullable_to_non_nullable
-              as String?,
-      logo_url: logo_url == freezed
-          ? _value.logo_url
-          : logo_url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      make: make == freezed
-          ? _value.make
-          : make // ignore: cast_nullable_to_non_nullable
-              as String?,
       tax_due_date: tax_due_date == freezed
           ? _value.tax_due_date
           : tax_due_date // ignore: cast_nullable_to_non_nullable
-              as String?,
-      type_approval: type_approval == freezed
-          ? _value.type_approval
-          : type_approval // ignore: cast_nullable_to_non_nullable
               as String?,
       wheelplan: wheelplan == freezed
           ? _value.wheelplan
@@ -467,6 +423,50 @@ class _$LookupResponseDataCopyWithImpl<$Res>
           ? _value.year_of_manufacture
           : year_of_manufacture // ignore: cast_nullable_to_non_nullable
               as int?,
+      month_of_first_registration: month_of_first_registration == freezed
+          ? _value.month_of_first_registration
+          : month_of_first_registration // ignore: cast_nullable_to_non_nullable
+              as String?,
+      co2_emissions: co2_emissions == freezed
+          ? _value.co2_emissions
+          : co2_emissions // ignore: cast_nullable_to_non_nullable
+              as double?,
+      last_v5_issued: last_v5_issued == freezed
+          ? _value.last_v5_issued
+          : last_v5_issued // ignore: cast_nullable_to_non_nullable
+              as String?,
+      logo_url: logo_url == freezed
+          ? _value.logo_url
+          : logo_url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tax_status: tax_status == freezed
+          ? _value.tax_status
+          : tax_status // ignore: cast_nullable_to_non_nullable
+              as String?,
+      colour: colour == freezed
+          ? _value.colour
+          : colour // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fuel_type: fuel_type == freezed
+          ? _value.fuel_type
+          : fuel_type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      make: make == freezed
+          ? _value.make
+          : make // ignore: cast_nullable_to_non_nullable
+              as String?,
+      mot_expiry: mot_expiry == freezed
+          ? _value.mot_expiry
+          : mot_expiry // ignore: cast_nullable_to_non_nullable
+              as String?,
+      mot_status: mot_status == freezed
+          ? _value.mot_status
+          : mot_status // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type_approval: type_approval == freezed
+          ? _value.type_approval
+          : type_approval // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -476,21 +476,21 @@ class _$LookupResponseDataCopyWithImpl<$Res>
 class _$LookupResponseData implements LookupResponseData {
   const _$LookupResponseData(
       {this.engine_capacity,
-      this.last_v5_issued,
-      this.mot_status,
-      this.colour,
-      this.month_of_first_registration,
-      this.mot_expiry,
       this.registration,
-      this.tax_status,
-      this.co2_emissions,
-      this.fuel_type,
-      this.logo_url,
-      this.make,
       this.tax_due_date,
-      this.type_approval,
       this.wheelplan,
       this.year_of_manufacture,
+      this.month_of_first_registration,
+      this.co2_emissions,
+      this.last_v5_issued,
+      this.logo_url,
+      this.tax_status,
+      this.colour,
+      this.fuel_type,
+      this.make,
+      this.mot_expiry,
+      this.mot_status,
+      this.type_approval,
       String? $type})
       : $type = $type ?? 'default';
 
@@ -503,56 +503,12 @@ class _$LookupResponseData implements LookupResponseData {
   final int? engine_capacity;
   @override
 
-  /// date of last v5 issue
-  final String? last_v5_issued;
-  @override
-
-  /// mot status
-  final String? mot_status;
-  @override
-
-  /// colour of vehicle
-  final String? colour;
-  @override
-
-  /// month of first registration
-  final String? month_of_first_registration;
-  @override
-
-  /// mot expiry
-  final String? mot_expiry;
-  @override
-
   /// registration number
   final String? registration;
   @override
 
-  /// tax status
-  final String? tax_status;
-  @override
-
-  /// co2 emmissions
-  final double? co2_emissions;
-  @override
-
-  /// fuel type e.g petrol, diesel
-  final String? fuel_type;
-  @override
-
-  /// url of logo for the make
-  final String? logo_url;
-  @override
-
-  /// make of vehicle
-  final String? make;
-  @override
-
   /// tax due data
   final String? tax_due_date;
-  @override
-
-  /// type approvale
-  final String? type_approval;
   @override
 
   /// wheel plan
@@ -561,13 +517,57 @@ class _$LookupResponseData implements LookupResponseData {
 
   /// year of manufacture
   final int? year_of_manufacture;
+  @override
+
+  /// month of first registration
+  final String? month_of_first_registration;
+  @override
+
+  /// co2 emmissions
+  final double? co2_emissions;
+  @override
+
+  /// date of last v5 issue
+  final String? last_v5_issued;
+  @override
+
+  /// url of logo for the make
+  final String? logo_url;
+  @override
+
+  /// tax status
+  final String? tax_status;
+  @override
+
+  /// colour of vehicle
+  final String? colour;
+  @override
+
+  /// fuel type e.g petrol, diesel
+  final String? fuel_type;
+  @override
+
+  /// make of vehicle
+  final String? make;
+  @override
+
+  /// mot expiry
+  final String? mot_expiry;
+  @override
+
+  /// mot status
+  final String? mot_status;
+  @override
+
+  /// type approvale
+  final String? type_approval;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'LookupResponse(engine_capacity: $engine_capacity, last_v5_issued: $last_v5_issued, mot_status: $mot_status, colour: $colour, month_of_first_registration: $month_of_first_registration, mot_expiry: $mot_expiry, registration: $registration, tax_status: $tax_status, co2_emissions: $co2_emissions, fuel_type: $fuel_type, logo_url: $logo_url, make: $make, tax_due_date: $tax_due_date, type_approval: $type_approval, wheelplan: $wheelplan, year_of_manufacture: $year_of_manufacture)';
+    return 'LookupResponse(engine_capacity: $engine_capacity, registration: $registration, tax_due_date: $tax_due_date, wheelplan: $wheelplan, year_of_manufacture: $year_of_manufacture, month_of_first_registration: $month_of_first_registration, co2_emissions: $co2_emissions, last_v5_issued: $last_v5_issued, logo_url: $logo_url, tax_status: $tax_status, colour: $colour, fuel_type: $fuel_type, make: $make, mot_expiry: $mot_expiry, mot_status: $mot_status, type_approval: $type_approval)';
   }
 
   @override
@@ -578,52 +578,52 @@ class _$LookupResponseData implements LookupResponseData {
             const DeepCollectionEquality()
                 .equals(other.engine_capacity, engine_capacity) &&
             const DeepCollectionEquality()
-                .equals(other.last_v5_issued, last_v5_issued) &&
+                .equals(other.registration, registration) &&
             const DeepCollectionEquality()
-                .equals(other.mot_status, mot_status) &&
-            const DeepCollectionEquality().equals(other.colour, colour) &&
+                .equals(other.tax_due_date, tax_due_date) &&
+            const DeepCollectionEquality().equals(other.wheelplan, wheelplan) &&
+            const DeepCollectionEquality()
+                .equals(other.year_of_manufacture, year_of_manufacture) &&
             const DeepCollectionEquality().equals(
                 other.month_of_first_registration,
                 month_of_first_registration) &&
             const DeepCollectionEquality()
-                .equals(other.mot_expiry, mot_expiry) &&
+                .equals(other.co2_emissions, co2_emissions) &&
             const DeepCollectionEquality()
-                .equals(other.registration, registration) &&
+                .equals(other.last_v5_issued, last_v5_issued) &&
+            const DeepCollectionEquality().equals(other.logo_url, logo_url) &&
             const DeepCollectionEquality()
                 .equals(other.tax_status, tax_status) &&
-            const DeepCollectionEquality()
-                .equals(other.co2_emissions, co2_emissions) &&
+            const DeepCollectionEquality().equals(other.colour, colour) &&
             const DeepCollectionEquality().equals(other.fuel_type, fuel_type) &&
-            const DeepCollectionEquality().equals(other.logo_url, logo_url) &&
             const DeepCollectionEquality().equals(other.make, make) &&
             const DeepCollectionEquality()
-                .equals(other.tax_due_date, tax_due_date) &&
+                .equals(other.mot_expiry, mot_expiry) &&
             const DeepCollectionEquality()
-                .equals(other.type_approval, type_approval) &&
-            const DeepCollectionEquality().equals(other.wheelplan, wheelplan) &&
+                .equals(other.mot_status, mot_status) &&
             const DeepCollectionEquality()
-                .equals(other.year_of_manufacture, year_of_manufacture));
+                .equals(other.type_approval, type_approval));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(engine_capacity),
-      const DeepCollectionEquality().hash(last_v5_issued),
-      const DeepCollectionEquality().hash(mot_status),
-      const DeepCollectionEquality().hash(colour),
-      const DeepCollectionEquality().hash(month_of_first_registration),
-      const DeepCollectionEquality().hash(mot_expiry),
       const DeepCollectionEquality().hash(registration),
-      const DeepCollectionEquality().hash(tax_status),
-      const DeepCollectionEquality().hash(co2_emissions),
-      const DeepCollectionEquality().hash(fuel_type),
-      const DeepCollectionEquality().hash(logo_url),
-      const DeepCollectionEquality().hash(make),
       const DeepCollectionEquality().hash(tax_due_date),
-      const DeepCollectionEquality().hash(type_approval),
       const DeepCollectionEquality().hash(wheelplan),
-      const DeepCollectionEquality().hash(year_of_manufacture));
+      const DeepCollectionEquality().hash(year_of_manufacture),
+      const DeepCollectionEquality().hash(month_of_first_registration),
+      const DeepCollectionEquality().hash(co2_emissions),
+      const DeepCollectionEquality().hash(last_v5_issued),
+      const DeepCollectionEquality().hash(logo_url),
+      const DeepCollectionEquality().hash(tax_status),
+      const DeepCollectionEquality().hash(colour),
+      const DeepCollectionEquality().hash(fuel_type),
+      const DeepCollectionEquality().hash(make),
+      const DeepCollectionEquality().hash(mot_expiry),
+      const DeepCollectionEquality().hash(mot_status),
+      const DeepCollectionEquality().hash(type_approval));
 
   @JsonKey(ignore: true)
   @override
@@ -635,41 +635,41 @@ class _$LookupResponseData implements LookupResponseData {
   TResult when<TResult extends Object?>(
     TResult Function(
             int? engine_capacity,
-            String? last_v5_issued,
-            String? mot_status,
-            String? colour,
-            String? month_of_first_registration,
-            String? mot_expiry,
             String? registration,
-            String? tax_status,
-            double? co2_emissions,
-            String? fuel_type,
-            String? logo_url,
-            String? make,
             String? tax_due_date,
-            String? type_approval,
             String? wheelplan,
-            int? year_of_manufacture)
+            int? year_of_manufacture,
+            String? month_of_first_registration,
+            double? co2_emissions,
+            String? last_v5_issued,
+            String? logo_url,
+            String? tax_status,
+            String? colour,
+            String? fuel_type,
+            String? make,
+            String? mot_expiry,
+            String? mot_status,
+            String? type_approval)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return $default(
         engine_capacity,
-        last_v5_issued,
-        mot_status,
-        colour,
-        month_of_first_registration,
-        mot_expiry,
         registration,
-        tax_status,
-        co2_emissions,
-        fuel_type,
-        logo_url,
-        make,
         tax_due_date,
-        type_approval,
         wheelplan,
-        year_of_manufacture);
+        year_of_manufacture,
+        month_of_first_registration,
+        co2_emissions,
+        last_v5_issued,
+        logo_url,
+        tax_status,
+        colour,
+        fuel_type,
+        make,
+        mot_expiry,
+        mot_status,
+        type_approval);
   }
 
   @override
@@ -677,41 +677,41 @@ class _$LookupResponseData implements LookupResponseData {
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
             int? engine_capacity,
-            String? last_v5_issued,
-            String? mot_status,
-            String? colour,
-            String? month_of_first_registration,
-            String? mot_expiry,
             String? registration,
-            String? tax_status,
-            double? co2_emissions,
-            String? fuel_type,
-            String? logo_url,
-            String? make,
             String? tax_due_date,
-            String? type_approval,
             String? wheelplan,
-            int? year_of_manufacture)?
+            int? year_of_manufacture,
+            String? month_of_first_registration,
+            double? co2_emissions,
+            String? last_v5_issued,
+            String? logo_url,
+            String? tax_status,
+            String? colour,
+            String? fuel_type,
+            String? make,
+            String? mot_expiry,
+            String? mot_status,
+            String? type_approval)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(
         engine_capacity,
-        last_v5_issued,
-        mot_status,
-        colour,
-        month_of_first_registration,
-        mot_expiry,
         registration,
-        tax_status,
-        co2_emissions,
-        fuel_type,
-        logo_url,
-        make,
         tax_due_date,
-        type_approval,
         wheelplan,
-        year_of_manufacture);
+        year_of_manufacture,
+        month_of_first_registration,
+        co2_emissions,
+        last_v5_issued,
+        logo_url,
+        tax_status,
+        colour,
+        fuel_type,
+        make,
+        mot_expiry,
+        mot_status,
+        type_approval);
   }
 
   @override
@@ -719,21 +719,21 @@ class _$LookupResponseData implements LookupResponseData {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
             int? engine_capacity,
-            String? last_v5_issued,
-            String? mot_status,
-            String? colour,
-            String? month_of_first_registration,
-            String? mot_expiry,
             String? registration,
-            String? tax_status,
-            double? co2_emissions,
-            String? fuel_type,
-            String? logo_url,
-            String? make,
             String? tax_due_date,
-            String? type_approval,
             String? wheelplan,
-            int? year_of_manufacture)?
+            int? year_of_manufacture,
+            String? month_of_first_registration,
+            double? co2_emissions,
+            String? last_v5_issued,
+            String? logo_url,
+            String? tax_status,
+            String? colour,
+            String? fuel_type,
+            String? make,
+            String? mot_expiry,
+            String? mot_status,
+            String? type_approval)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -741,21 +741,21 @@ class _$LookupResponseData implements LookupResponseData {
     if ($default != null) {
       return $default(
           engine_capacity,
-          last_v5_issued,
-          mot_status,
-          colour,
-          month_of_first_registration,
-          mot_expiry,
           registration,
-          tax_status,
-          co2_emissions,
-          fuel_type,
-          logo_url,
-          make,
           tax_due_date,
-          type_approval,
           wheelplan,
-          year_of_manufacture);
+          year_of_manufacture,
+          month_of_first_registration,
+          co2_emissions,
+          last_v5_issued,
+          logo_url,
+          tax_status,
+          colour,
+          fuel_type,
+          make,
+          mot_expiry,
+          mot_status,
+          type_approval);
     }
     return orElse();
   }
@@ -800,21 +800,21 @@ class _$LookupResponseData implements LookupResponseData {
 abstract class LookupResponseData implements LookupResponse {
   const factory LookupResponseData(
       {int? engine_capacity,
-      String? last_v5_issued,
-      String? mot_status,
-      String? colour,
-      String? month_of_first_registration,
-      String? mot_expiry,
       String? registration,
-      String? tax_status,
-      double? co2_emissions,
-      String? fuel_type,
-      String? logo_url,
-      String? make,
       String? tax_due_date,
-      String? type_approval,
       String? wheelplan,
-      int? year_of_manufacture}) = _$LookupResponseData;
+      int? year_of_manufacture,
+      String? month_of_first_registration,
+      double? co2_emissions,
+      String? last_v5_issued,
+      String? logo_url,
+      String? tax_status,
+      String? colour,
+      String? fuel_type,
+      String? make,
+      String? mot_expiry,
+      String? mot_status,
+      String? type_approval}) = _$LookupResponseData;
 
   factory LookupResponseData.fromJson(Map<String, dynamic> json) =
       _$LookupResponseData.fromJson;
@@ -822,50 +822,50 @@ abstract class LookupResponseData implements LookupResponse {
   /// engine capacity
   int? get engine_capacity;
 
-  /// date of last v5 issue
-  String? get last_v5_issued;
-
-  /// mot status
-  String? get mot_status;
-
-  /// colour of vehicle
-  String? get colour;
-
-  /// month of first registration
-  String? get month_of_first_registration;
-
-  /// mot expiry
-  String? get mot_expiry;
-
   /// registration number
   String? get registration;
 
-  /// tax status
-  String? get tax_status;
-
-  /// co2 emmissions
-  double? get co2_emissions;
-
-  /// fuel type e.g petrol, diesel
-  String? get fuel_type;
-
-  /// url of logo for the make
-  String? get logo_url;
-
-  /// make of vehicle
-  String? get make;
-
   /// tax due data
   String? get tax_due_date;
-
-  /// type approvale
-  String? get type_approval;
 
   /// wheel plan
   String? get wheelplan;
 
   /// year of manufacture
   int? get year_of_manufacture;
+
+  /// month of first registration
+  String? get month_of_first_registration;
+
+  /// co2 emmissions
+  double? get co2_emissions;
+
+  /// date of last v5 issue
+  String? get last_v5_issued;
+
+  /// url of logo for the make
+  String? get logo_url;
+
+  /// tax status
+  String? get tax_status;
+
+  /// colour of vehicle
+  String? get colour;
+
+  /// fuel type e.g petrol, diesel
+  String? get fuel_type;
+
+  /// make of vehicle
+  String? get make;
+
+  /// mot expiry
+  String? get mot_expiry;
+
+  /// mot status
+  String? get mot_status;
+
+  /// type approvale
+  String? get type_approval;
   @JsonKey(ignore: true)
   $LookupResponseDataCopyWith<LookupResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -945,21 +945,21 @@ class _$LookupResponseMerr implements LookupResponseMerr {
   TResult when<TResult extends Object?>(
     TResult Function(
             int? engine_capacity,
-            String? last_v5_issued,
-            String? mot_status,
-            String? colour,
-            String? month_of_first_registration,
-            String? mot_expiry,
             String? registration,
-            String? tax_status,
-            double? co2_emissions,
-            String? fuel_type,
-            String? logo_url,
-            String? make,
             String? tax_due_date,
-            String? type_approval,
             String? wheelplan,
-            int? year_of_manufacture)
+            int? year_of_manufacture,
+            String? month_of_first_registration,
+            double? co2_emissions,
+            String? last_v5_issued,
+            String? logo_url,
+            String? tax_status,
+            String? colour,
+            String? fuel_type,
+            String? make,
+            String? mot_expiry,
+            String? mot_status,
+            String? type_approval)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -971,21 +971,21 @@ class _$LookupResponseMerr implements LookupResponseMerr {
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
             int? engine_capacity,
-            String? last_v5_issued,
-            String? mot_status,
-            String? colour,
-            String? month_of_first_registration,
-            String? mot_expiry,
             String? registration,
-            String? tax_status,
-            double? co2_emissions,
-            String? fuel_type,
-            String? logo_url,
-            String? make,
             String? tax_due_date,
-            String? type_approval,
             String? wheelplan,
-            int? year_of_manufacture)?
+            int? year_of_manufacture,
+            String? month_of_first_registration,
+            double? co2_emissions,
+            String? last_v5_issued,
+            String? logo_url,
+            String? tax_status,
+            String? colour,
+            String? fuel_type,
+            String? make,
+            String? mot_expiry,
+            String? mot_status,
+            String? type_approval)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -997,21 +997,21 @@ class _$LookupResponseMerr implements LookupResponseMerr {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
             int? engine_capacity,
-            String? last_v5_issued,
-            String? mot_status,
-            String? colour,
-            String? month_of_first_registration,
-            String? mot_expiry,
             String? registration,
-            String? tax_status,
-            double? co2_emissions,
-            String? fuel_type,
-            String? logo_url,
-            String? make,
             String? tax_due_date,
-            String? type_approval,
             String? wheelplan,
-            int? year_of_manufacture)?
+            int? year_of_manufacture,
+            String? month_of_first_registration,
+            double? co2_emissions,
+            String? last_v5_issued,
+            String? logo_url,
+            String? tax_status,
+            String? colour,
+            String? fuel_type,
+            String? make,
+            String? mot_expiry,
+            String? mot_status,
+            String? type_approval)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

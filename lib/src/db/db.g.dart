@@ -314,16 +314,16 @@ Map<String, dynamic> _$$TruncateResponseMerrToJson(
 
 _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>
     _$_UpdateRequest(
-      id: json['id'] as String?,
       record: json['record'] as Map<String, dynamic>?,
       table: json['table'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_UpdateRequestToJson(_$_UpdateRequest instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'record': instance.record,
       'table': instance.table,
+      'id': instance.id,
     };
 
 _$UpdateResponseData _$$UpdateResponseDataFromJson(Map<String, dynamic> json) =>

@@ -21,16 +21,16 @@ Map<String, dynamic> _$$_DecrementRequestToJson(_$_DecrementRequest instance) =>
 _$DecrementResponseData _$$DecrementResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$DecrementResponseData(
-      value: int64FromString(json['value'] as String?),
       key: json['key'] as String?,
+      value: int64FromString(json['value'] as String?),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$DecrementResponseDataToJson(
         _$DecrementResponseData instance) =>
     <String, dynamic>{
-      'value': int64ToString(instance.value),
       'key': instance.key,
+      'value': int64ToString(instance.value),
       'runtimeType': instance.$type,
     };
 
@@ -137,16 +137,16 @@ Map<String, dynamic> _$$_IncrementRequestToJson(_$_IncrementRequest instance) =>
 _$IncrementResponseData _$$IncrementResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$IncrementResponseData(
-      key: json['key'] as String?,
       value: int64FromString(json['value'] as String?),
+      key: json['key'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$IncrementResponseDataToJson(
         _$IncrementResponseData instance) =>
     <String, dynamic>{
-      'key': instance.key,
       'value': int64ToString(instance.value),
+      'key': instance.key,
       'runtimeType': instance.$type,
     };
 

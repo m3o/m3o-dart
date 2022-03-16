@@ -135,29 +135,8 @@ class Address with _$Address {
 @Freezed()
 class ContactInfo with _$ContactInfo {
   const factory ContactInfo({
-    /// the birthday
-    String? birthday,
-
     /// create date string in RFC3339
     String? created_at,
-
-    /// note of the contact
-    String? note,
-
-    /// the phone numbers
-    List<Phone>? phones,
-
-    /// the social media username
-    SocialMedia? social_medias,
-
-    /// update date string in RFC3339
-    String? updated_at,
-
-    /// the address
-    List<Address>? addresses,
-
-    /// the emails
-    List<Email>? emails,
 
     /// contact id
     String? id,
@@ -167,6 +146,27 @@ class ContactInfo with _$ContactInfo {
 
     /// the contact name
     String? name,
+
+    /// note of the contact
+    String? note,
+
+    /// update date string in RFC3339
+    String? updated_at,
+
+    /// the address
+    List<Address>? addresses,
+
+    /// the birthday
+    String? birthday,
+
+    /// the emails
+    List<Email>? emails,
+
+    /// the phone numbers
+    List<Phone>? phones,
+
+    /// the social media username
+    SocialMedia? social_medias,
   }) = _ContactInfo;
   factory ContactInfo.fromJson(Map<String, dynamic> json) =>
       _$ContactInfoFromJson(json);
@@ -175,15 +175,6 @@ class ContactInfo with _$ContactInfo {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// optional, location
-    List<Address>? addresses,
-
-    /// optional, birthday
-    String? birthday,
-
-    /// optional, emails
-    List<Email>? emails,
-
     /// optional, links
     List<Link>? links,
 
@@ -198,6 +189,15 @@ class CreateRequest with _$CreateRequest {
 
     /// optional, social media
     SocialMedia? social_medias,
+
+    /// optional, location
+    List<Address>? addresses,
+
+    /// optional, birthday
+    String? birthday,
+
+    /// optional, emails
+    List<Email>? emails,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -236,11 +236,11 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Email with _$Email {
   const factory Email({
-    /// the email address
-    String? address,
-
     /// the label of the email
     String? label,
+
+    /// the email address
+    String? address,
   }) = _Email;
   factory Email.fromJson(Map<String, dynamic> json) => _$EmailFromJson(json);
 }
@@ -329,14 +329,17 @@ class SocialMedia with _$SocialMedia {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// optional, phone number
-    List<Phone>? phones,
+    /// optional, note
+    String? note,
 
-    /// optional, birthday
-    String? birthday,
+    /// optional, social media
+    SocialMedia? social_medias,
 
     /// optional, emails
     List<Email>? emails,
+
+    /// optional, birthday
+    String? birthday,
 
     /// required, the contact id
     String? id,
@@ -347,11 +350,8 @@ class UpdateRequest with _$UpdateRequest {
     /// required, the name
     String? name,
 
-    /// optional, note
-    String? note,
-
-    /// optional, social media
-    SocialMedia? social_medias,
+    /// optional, phone number
+    List<Phone>? phones,
 
     /// optional, addresses
     List<Address>? addresses,
