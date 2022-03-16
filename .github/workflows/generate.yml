@@ -147,7 +147,7 @@ jobs:
           git_server: 'github.com'
           user_name: $GITHUB_ACTOR
           use_rsync: true
-          commit_message: 'Commit from m3o/m3o-dart action'
+          commit_message: 'Push Dart clients'
 
       - name: Push Dart examples
         uses: dmnemec/copy_file_to_another_repo_action@main
@@ -162,7 +162,7 @@ jobs:
           git_server: 'github.com'
           user_name: $GITHUB_ACTOR
           use_rsync: true
-          commit_message: 'Commit from m3o/m3o-dart action'
+          commit_message: 'Push Dart examples'
 
       - name: Push Dart pubspec and changelog
         uses: dmnemec/copy_file_to_another_repo_action@main
@@ -176,7 +176,7 @@ jobs:
           git_server: 'github.com'
           user_name: $GITHUB_ACTOR
           use_rsync: true
-          commit_message: 'Commit from m3o/m3o-dart action'
+          commit_message: 'Push Dart pubspec and changelog'
 
       - name: extract current version
         working-directory: m3o-dart
