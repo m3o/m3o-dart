@@ -1,9 +1,3 @@
-## v1.0.30 - 2022-03-16
-
-[f9c5fe](https://github.com/micro/services/commit/f9c5fe05399d349601b34cc77be06f4d97100254) fix read example
-
-**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.29...v1.0.30
-
 ## v1.0.29 - 2022-03-16
 
 [f9c5fe](https://github.com/micro/services/commit/f9c5fe05399d349601b34cc77be06f4d97100254) fix read example
