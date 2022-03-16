@@ -1,3 +1,9 @@
+## v1.0.27 - 2022-03-16
+
+[7d4c60](https://github.com/micro/services/commit/7d4c6020e77db9c4c0233da9a9270e89f869829e) fix imports
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.26...v1.0.27
+
 ## v1.0.26 - 2022-03-15
 
 [bc3335](https://github.com/micro/services/commit/bc3335e6bf43a4b0f646f12aeb87e94a32bfce29) update proto
