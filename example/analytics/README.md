@@ -4,50 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/analytics/api]
 
 Endpoints:
 
-## Track
-
-Track an event, it will be created if it doesn't exist
-
-
-[https://m3o.com/analytics/api#Track](https://m3o.com/analytics/api#Track)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/analytics/analytics.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = AnalyticsService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "name": "click"
-,};
-
-  TrackRequest req = TrackRequest.fromJson(payload);
-
-  
-  try {
-
-	TrackResponse res = await ser.track(req);
-
-    res.map((value) => print(value),
-	  Merr: (TrackResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Read
 
 Get a single event
@@ -71,7 +27,7 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
+  "name": "click"
 ,};
 
   ReadRequest req = ReadRequest.fromJson(payload);
@@ -169,6 +125,50 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Track
+
+Track an event, it will be created if it doesn't exist
+
+
+[https://m3o.com/analytics/api#Track](https://m3o.com/analytics/api#Track)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/analytics/analytics.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = AnalyticsService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "name": "click"
+,};
+
+  TrackRequest req = TrackRequest.fromJson(payload);
+
+  
+  try {
+
+	TrackResponse res = await ser.track(req);
+
+    res.map((value) => print(value),
+	  Merr: (TrackResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);

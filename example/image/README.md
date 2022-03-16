@@ -4,102 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/image/api](htt
 
 Endpoints:
 
-## Upload
-
-Upload an image by either sending a base64 encoded image to this endpoint or a URL.
-To resize an image before uploading, see the Resize endpoint.
-To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
-with each parameter as a form field.
-
-
-[https://m3o.com/image/api#Upload](https://m3o.com/image/api#Upload)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/image/image.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = ImageService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "base64": "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAx0lEQVR4nOzaMaoDMQyE4ZHj+x82vVdhwQoTkzKQEcwP5r0ihT7sbjUTeAJ4HCegXQJYfOYefOyjDuBiz3yjwJBoCIl6QZOeUjTC1Ix1IxEJXF9+0KWsf2bD4bn37OO/c/wuQ9QyRC1D1DJELUPUMkQtQ9QyRC1D1DJELUPUMkQtQ9QyRC1D1DJELUPUMkQtQ9Sa/NG94Tf3j4WBdaxudMEkn4IM2rZBA0wBrvo7aOcpj2emXvLeVt0IGm0GVXUj91mvAAAA//+V2CZl+4AKXwAAAABJRU5ErkJggg==",
-  "name": "cat.jpeg"
-,};
-
-  UploadRequest req = UploadRequest.fromJson(payload);
-
-  
-  try {
-
-	UploadResponse res = await ser.upload(req);
-
-    res.map((value) => print(value),
-	  Merr: (UploadResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Upload
-
-Upload an image by either sending a base64 encoded image to this endpoint or a URL.
-To resize an image before uploading, see the Resize endpoint.
-To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
-with each parameter as a form field.
-
-
-[https://m3o.com/image/api#Upload](https://m3o.com/image/api#Upload)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/image/image.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = ImageService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "name": "cat.jpeg",
-  "url": "somewebsite.com/cat.png"
-,};
-
-  UploadRequest req = UploadRequest.fromJson(payload);
-
-  
-  try {
-
-	UploadResponse res = await ser.upload(req);
-
-    res.map((value) => print(value),
-	  Merr: (UploadResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Delete
 
 Delete an image previously uploaded.
@@ -340,6 +244,102 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (ConvertResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Upload
+
+Upload an image by either sending a base64 encoded image to this endpoint or a URL.
+To resize an image before uploading, see the Resize endpoint.
+To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
+with each parameter as a form field.
+
+
+[https://m3o.com/image/api#Upload](https://m3o.com/image/api#Upload)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/image/image.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = ImageService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "base64": "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAx0lEQVR4nOzaMaoDMQyE4ZHj+x82vVdhwQoTkzKQEcwP5r0ihT7sbjUTeAJ4HCegXQJYfOYefOyjDuBiz3yjwJBoCIl6QZOeUjTC1Ix1IxEJXF9+0KWsf2bD4bn37OO/c/wuQ9QyRC1D1DJELUPUMkQtQ9QyRC1D1DJELUPUMkQtQ9QyRC1D1DJELUPUMkQtQ9Sa/NG94Tf3j4WBdaxudMEkn4IM2rZBA0wBrvo7aOcpj2emXvLeVt0IGm0GVXUj91mvAAAA//+V2CZl+4AKXwAAAABJRU5ErkJggg==",
+  "name": "cat.jpeg"
+,};
+
+  UploadRequest req = UploadRequest.fromJson(payload);
+
+  
+  try {
+
+	UploadResponse res = await ser.upload(req);
+
+    res.map((value) => print(value),
+	  Merr: (UploadResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Upload
+
+Upload an image by either sending a base64 encoded image to this endpoint or a URL.
+To resize an image before uploading, see the Resize endpoint.
+To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
+with each parameter as a form field.
+
+
+[https://m3o.com/image/api#Upload](https://m3o.com/image/api#Upload)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/image/image.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = ImageService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "name": "cat.jpeg",
+  "url": "somewebsite.com/cat.png"
+,};
+
+  UploadRequest req = UploadRequest.fromJson(payload);
+
+  
+  try {
+
+	UploadResponse res = await ser.upload(req);
+
+    res.map((value) => print(value),
+	  Merr: (UploadResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
