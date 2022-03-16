@@ -333,11 +333,11 @@ class JoinResponse with _$JoinResponse {
 @Freezed()
 class KickRequest with _$KickRequest {
   const factory KickRequest({
-    /// the chat room id
-    String? room_id,
-
     /// the user id
     String? user_id,
+
+    /// the chat room id
+    String? room_id,
   }) = _KickRequest;
   factory KickRequest.fromJson(Map<String, dynamic> json) =>
       _$KickRequestFromJson(json);
@@ -402,15 +402,6 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
-    /// a client side id, should be validated by the server to make the request retry safe
-    String? client,
-
-    /// id of the message, allocated by the server
-    String? id,
-
-    /// id of the chat the message is being sent to / from
-    String? room_id,
-
     /// time the message was sent in RFC3339 format
     String? sent_at,
 
@@ -422,6 +413,15 @@ class Message with _$Message {
 
     /// id of the user who sent the message
     String? user_id,
+
+    /// a client side id, should be validated by the server to make the request retry safe
+    String? client,
+
+    /// id of the message, allocated by the server
+    String? id,
+
+    /// id of the chat the message is being sent to / from
+    String? room_id,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
@@ -454,9 +454,6 @@ class Room with _$Room {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
-    /// a client side id, should be validated by the server to make the request retry safe
-    String? client,
-
     /// id of the chat room the message is being sent to / from
     String? room_id,
 
@@ -468,6 +465,9 @@ class SendRequest with _$SendRequest {
 
     /// id of the user who sent the message
     String? user_id,
+
+    /// a client side id, should be validated by the server to make the request retry safe
+    String? client,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);
