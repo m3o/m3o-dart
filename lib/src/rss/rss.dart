@@ -101,6 +101,9 @@ class RssService {
 @Freezed()
 class AddRequest with _$AddRequest {
   const factory AddRequest({
+    /// category to add e.g news
+    String? category,
+
     /// rss feed name
     /// eg. a16z
     String? name,
@@ -108,9 +111,6 @@ class AddRequest with _$AddRequest {
     /// rss feed url
     /// eg. http://a16z.com/feed/
     String? url,
-
-    /// category to add e.g news
-    String? category,
   }) = _AddRequest;
   factory AddRequest.fromJson(Map<String, dynamic> json) =>
       _$AddRequestFromJson(json);
@@ -128,6 +128,15 @@ class AddResponse with _$AddResponse {
 @Freezed()
 class Entry with _$Entry {
   const factory Entry({
+    /// article summary
+    String? summary,
+
+    /// title of the entry
+    String? title,
+
+    /// article content
+    String? content,
+
     /// data of the entry
     String? date,
 
@@ -139,15 +148,6 @@ class Entry with _$Entry {
 
     /// rss feed url of the entry
     String? link,
-
-    /// article summary
-    String? summary,
-
-    /// title of the entry
-    String? title,
-
-    /// article content
-    String? content,
   }) = _Entry;
   factory Entry.fromJson(Map<String, dynamic> json) => _$EntryFromJson(json);
 }
@@ -155,6 +155,9 @@ class Entry with _$Entry {
 @Freezed()
 class Feed with _$Feed {
   const factory Feed({
+    /// unique id
+    String? id,
+
     /// rss feed name
     /// eg. a16z
     String? name,
@@ -165,9 +168,6 @@ class Feed with _$Feed {
 
     /// category of the feed e.g news
     String? category,
-
-    /// unique id
-    String? id,
   }) = _Feed;
   factory Feed.fromJson(Map<String, dynamic> json) => _$FeedFromJson(json);
 }

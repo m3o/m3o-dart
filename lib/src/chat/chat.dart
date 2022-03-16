@@ -309,11 +309,11 @@ class InviteResponse with _$InviteResponse {
 @Freezed()
 class JoinRequest with _$JoinRequest {
   const factory JoinRequest({
-    /// user id joining
-    String? user_id,
-
     /// chat room to join
     String? room_id,
+
+    /// user id joining
+    String? user_id,
   }) = _JoinRequest;
   factory JoinRequest.fromJson(Map<String, dynamic> json) =>
       _$JoinRequestFromJson(json);
@@ -430,12 +430,6 @@ class Message with _$Message {
 @Freezed()
 class Room with _$Room {
   const factory Room({
-    /// unique room id
-    String? id,
-
-    /// name of the chat
-    String? name,
-
     /// whether its a private room
     bool? private,
 
@@ -447,6 +441,12 @@ class Room with _$Room {
 
     /// description of the that
     String? description,
+
+    /// unique room id
+    String? id,
+
+    /// name of the chat
+    String? name,
   }) = _Room;
   factory Room.fromJson(Map<String, dynamic> json) => _$RoomFromJson(json);
 }

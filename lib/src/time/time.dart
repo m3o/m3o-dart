@@ -109,29 +109,29 @@ class ZoneResponse with _$ZoneResponse {
     /// is daylight savings
     bool? dst,
 
-    /// location requested
-    String? location,
+    /// e.g 51.42
+    double? latitude,
 
-    /// UTC offset in hours
-    int? offset,
+    /// the timezone e.g Europe/London
+    String? timezone,
 
     /// country of the timezone
     String? country,
 
-    /// e.g 51.42
-    double? latitude,
-
     /// the local time
     String? localtime,
+
+    /// location requested
+    String? location,
 
     /// e.g -0.37
     double? longitude,
 
+    /// UTC offset in hours
+    int? offset,
+
     /// region of timezone
     String? region,
-
-    /// the timezone e.g Europe/London
-    String? timezone,
   }) = ZoneResponseData;
   const factory ZoneResponse.Merr({Map<String, dynamic>? body}) =
       ZoneResponseMerr;
