@@ -7,38 +7,38 @@ part of 'movie.dart';
 // **************************************************************************
 
 _$_MovieInfo _$$_MovieInfoFromJson(Map<String, dynamic> json) => _$_MovieInfo(
+      poster_path: json['poster_path'] as String?,
+      release_date: json['release_date'] as String?,
+      vote_average: (json['vote_average'] as num?)?.toDouble(),
+      vote_count: json['vote_count'] as int?,
+      adult: json['adult'] as bool?,
       backdrop_path: json['backdrop_path'] as String?,
-      genre_ids: json['genre_ids'] as int?,
+      id: json['id'] as int?,
+      popularity: (json['popularity'] as num?)?.toDouble(),
+      title: json['title'] as String?,
       original_language: json['original_language'] as String?,
       original_title: json['original_title'] as String?,
-      vote_average: (json['vote_average'] as num?)?.toDouble(),
-      adult: json['adult'] as bool?,
-      title: json['title'] as String?,
-      video: json['video'] as bool?,
-      release_date: json['release_date'] as String?,
-      popularity: (json['popularity'] as num?)?.toDouble(),
-      id: json['id'] as int?,
-      poster_path: json['poster_path'] as String?,
-      vote_count: json['vote_count'] as int?,
+      genre_ids: json['genre_ids'] as int?,
       overview: json['overview'] as String?,
+      video: json['video'] as bool?,
     );
 
 Map<String, dynamic> _$$_MovieInfoToJson(_$_MovieInfo instance) =>
     <String, dynamic>{
+      'poster_path': instance.poster_path,
+      'release_date': instance.release_date,
+      'vote_average': instance.vote_average,
+      'vote_count': instance.vote_count,
+      'adult': instance.adult,
       'backdrop_path': instance.backdrop_path,
-      'genre_ids': instance.genre_ids,
+      'id': instance.id,
+      'popularity': instance.popularity,
+      'title': instance.title,
       'original_language': instance.original_language,
       'original_title': instance.original_title,
-      'vote_average': instance.vote_average,
-      'adult': instance.adult,
-      'title': instance.title,
-      'video': instance.video,
-      'release_date': instance.release_date,
-      'popularity': instance.popularity,
-      'id': instance.id,
-      'poster_path': instance.poster_path,
-      'vote_count': instance.vote_count,
+      'genre_ids': instance.genre_ids,
       'overview': instance.overview,
+      'video': instance.video,
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>

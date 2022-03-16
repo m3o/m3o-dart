@@ -517,10 +517,10 @@ Country _$CountryFromJson(Map<String, dynamic> json) {
 class _$CountryTearOff {
   const _$CountryTearOff();
 
-  _Country call({String? name, String? code}) {
+  _Country call({String? code, String? name}) {
     return _Country(
-      name: name,
       code: code,
+      name: name,
     );
   }
 
@@ -534,11 +534,11 @@ const $Country = _$CountryTearOff();
 
 /// @nodoc
 mixin _$Country {
-  /// The English name of the country
-  String? get name => throw _privateConstructorUsedError;
-
   /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
   String? get code => throw _privateConstructorUsedError;
+
+  /// The English name of the country
+  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -549,7 +549,7 @@ mixin _$Country {
 abstract class $CountryCopyWith<$Res> {
   factory $CountryCopyWith(Country value, $Res Function(Country) then) =
       _$CountryCopyWithImpl<$Res>;
-  $Res call({String? name, String? code});
+  $Res call({String? code, String? name});
 }
 
 /// @nodoc
@@ -562,17 +562,17 @@ class _$CountryCopyWithImpl<$Res> implements $CountryCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? code = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -583,7 +583,7 @@ abstract class _$CountryCopyWith<$Res> implements $CountryCopyWith<$Res> {
   factory _$CountryCopyWith(_Country value, $Res Function(_Country) then) =
       __$CountryCopyWithImpl<$Res>;
   @override
-  $Res call({String? name, String? code});
+  $Res call({String? code, String? name});
 }
 
 /// @nodoc
@@ -597,17 +597,17 @@ class __$CountryCopyWithImpl<$Res> extends _$CountryCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? code = freezed,
+    Object? name = freezed,
   }) {
     return _then(_Country(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -616,23 +616,23 @@ class __$CountryCopyWithImpl<$Res> extends _$CountryCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Country implements _Country {
-  const _$_Country({this.name, this.code});
+  const _$_Country({this.code, this.name});
 
   factory _$_Country.fromJson(Map<String, dynamic> json) =>
       _$$_CountryFromJson(json);
 
   @override
 
-  /// The English name of the country
-  final String? name;
-  @override
-
   /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
   final String? code;
+  @override
+
+  /// The English name of the country
+  final String? name;
 
   @override
   String toString() {
-    return 'Country(name: $name, code: $code)';
+    return 'Country(code: $code, name: $name)';
   }
 
   @override
@@ -640,15 +640,15 @@ class _$_Country implements _Country {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Country &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.code, code));
+            const DeepCollectionEquality().equals(other.code, code) &&
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(code));
+      const DeepCollectionEquality().hash(code),
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
@@ -662,18 +662,18 @@ class _$_Country implements _Country {
 }
 
 abstract class _Country implements Country {
-  const factory _Country({String? name, String? code}) = _$_Country;
+  const factory _Country({String? code, String? name}) = _$_Country;
 
   factory _Country.fromJson(Map<String, dynamic> json) = _$_Country.fromJson;
 
   @override
 
-  /// The English name of the country
-  String? get name;
-  @override
-
   /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
   String? get code;
+  @override
+
+  /// The English name of the country
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$CountryCopyWith<_Country> get copyWith =>

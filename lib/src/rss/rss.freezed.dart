@@ -22,11 +22,11 @@ AddRequest _$AddRequestFromJson(Map<String, dynamic> json) {
 class _$AddRequestTearOff {
   const _$AddRequestTearOff();
 
-  _AddRequest call({String? url, String? category, String? name}) {
+  _AddRequest call({String? name, String? url, String? category}) {
     return _AddRequest(
+      name: name,
       url: url,
       category: category,
-      name: name,
     );
   }
 
@@ -40,16 +40,16 @@ const $AddRequest = _$AddRequestTearOff();
 
 /// @nodoc
 mixin _$AddRequest {
+  /// rss feed name
+  /// eg. a16z
+  String? get name => throw _privateConstructorUsedError;
+
   /// rss feed url
   /// eg. http://a16z.com/feed/
   String? get url => throw _privateConstructorUsedError;
 
   /// category to add e.g news
   String? get category => throw _privateConstructorUsedError;
-
-  /// rss feed name
-  /// eg. a16z
-  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -62,7 +62,7 @@ abstract class $AddRequestCopyWith<$Res> {
   factory $AddRequestCopyWith(
           AddRequest value, $Res Function(AddRequest) then) =
       _$AddRequestCopyWithImpl<$Res>;
-  $Res call({String? url, String? category, String? name});
+  $Res call({String? name, String? url, String? category});
 }
 
 /// @nodoc
@@ -75,11 +75,15 @@ class _$AddRequestCopyWithImpl<$Res> implements $AddRequestCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? name = freezed,
     Object? url = freezed,
     Object? category = freezed,
-    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -87,10 +91,6 @@ class _$AddRequestCopyWithImpl<$Res> implements $AddRequestCopyWith<$Res> {
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -102,7 +102,7 @@ abstract class _$AddRequestCopyWith<$Res> implements $AddRequestCopyWith<$Res> {
           _AddRequest value, $Res Function(_AddRequest) then) =
       __$AddRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? url, String? category, String? name});
+  $Res call({String? name, String? url, String? category});
 }
 
 /// @nodoc
@@ -117,11 +117,15 @@ class __$AddRequestCopyWithImpl<$Res> extends _$AddRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? name = freezed,
     Object? url = freezed,
     Object? category = freezed,
-    Object? name = freezed,
   }) {
     return _then(_AddRequest(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -130,10 +134,6 @@ class __$AddRequestCopyWithImpl<$Res> extends _$AddRequestCopyWithImpl<$Res>
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -141,11 +141,16 @@ class __$AddRequestCopyWithImpl<$Res> extends _$AddRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_AddRequest implements _AddRequest {
-  const _$_AddRequest({this.url, this.category, this.name});
+  const _$_AddRequest({this.name, this.url, this.category});
 
   factory _$_AddRequest.fromJson(Map<String, dynamic> json) =>
       _$$_AddRequestFromJson(json);
 
+  @override
+
+  /// rss feed name
+  /// eg. a16z
+  final String? name;
   @override
 
   /// rss feed url
@@ -155,15 +160,10 @@ class _$_AddRequest implements _AddRequest {
 
   /// category to add e.g news
   final String? category;
-  @override
-
-  /// rss feed name
-  /// eg. a16z
-  final String? name;
 
   @override
   String toString() {
-    return 'AddRequest(url: $url, category: $category, name: $name)';
+    return 'AddRequest(name: $name, url: $url, category: $category)';
   }
 
   @override
@@ -171,17 +171,17 @@ class _$_AddRequest implements _AddRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AddRequest &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality().equals(other.category, category) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.category, category));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(category),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(category));
 
   @JsonKey(ignore: true)
   @override
@@ -195,12 +195,17 @@ class _$_AddRequest implements _AddRequest {
 }
 
 abstract class _AddRequest implements AddRequest {
-  const factory _AddRequest({String? url, String? category, String? name}) =
+  const factory _AddRequest({String? name, String? url, String? category}) =
       _$_AddRequest;
 
   factory _AddRequest.fromJson(Map<String, dynamic> json) =
       _$_AddRequest.fromJson;
 
+  @override
+
+  /// rss feed name
+  /// eg. a16z
+  String? get name;
   @override
 
   /// rss feed url
@@ -210,11 +215,6 @@ abstract class _AddRequest implements AddRequest {
 
   /// category to add e.g news
   String? get category;
-  @override
-
-  /// rss feed name
-  /// eg. a16z
-  String? get name;
   @override
   @JsonKey(ignore: true)
   _$AddRequestCopyWith<_AddRequest> get copyWith =>
@@ -916,12 +916,12 @@ Feed _$FeedFromJson(Map<String, dynamic> json) {
 class _$FeedTearOff {
   const _$FeedTearOff();
 
-  _Feed call({String? url, String? category, String? id, String? name}) {
+  _Feed call({String? category, String? id, String? name, String? url}) {
     return _Feed(
-      url: url,
       category: category,
       id: id,
       name: name,
+      url: url,
     );
   }
 
@@ -935,10 +935,6 @@ const $Feed = _$FeedTearOff();
 
 /// @nodoc
 mixin _$Feed {
-  /// rss feed url
-  /// eg. http://a16z.com/feed/
-  String? get url => throw _privateConstructorUsedError;
-
   /// category of the feed e.g news
   String? get category => throw _privateConstructorUsedError;
 
@@ -949,6 +945,10 @@ mixin _$Feed {
   /// eg. a16z
   String? get name => throw _privateConstructorUsedError;
 
+  /// rss feed url
+  /// eg. http://a16z.com/feed/
+  String? get url => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FeedCopyWith<Feed> get copyWith => throw _privateConstructorUsedError;
@@ -958,7 +958,7 @@ mixin _$Feed {
 abstract class $FeedCopyWith<$Res> {
   factory $FeedCopyWith(Feed value, $Res Function(Feed) then) =
       _$FeedCopyWithImpl<$Res>;
-  $Res call({String? url, String? category, String? id, String? name});
+  $Res call({String? category, String? id, String? name, String? url});
 }
 
 /// @nodoc
@@ -971,16 +971,12 @@ class _$FeedCopyWithImpl<$Res> implements $FeedCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? url = freezed,
     Object? category = freezed,
     Object? id = freezed,
     Object? name = freezed,
+    Object? url = freezed,
   }) {
     return _then(_value.copyWith(
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -993,6 +989,10 @@ class _$FeedCopyWithImpl<$Res> implements $FeedCopyWith<$Res> {
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1002,7 +1002,7 @@ abstract class _$FeedCopyWith<$Res> implements $FeedCopyWith<$Res> {
   factory _$FeedCopyWith(_Feed value, $Res Function(_Feed) then) =
       __$FeedCopyWithImpl<$Res>;
   @override
-  $Res call({String? url, String? category, String? id, String? name});
+  $Res call({String? category, String? id, String? name, String? url});
 }
 
 /// @nodoc
@@ -1016,16 +1016,12 @@ class __$FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? url = freezed,
     Object? category = freezed,
     Object? id = freezed,
     Object? name = freezed,
+    Object? url = freezed,
   }) {
     return _then(_Feed(
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -1038,6 +1034,10 @@ class __$FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1045,15 +1045,10 @@ class __$FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Feed implements _Feed {
-  const _$_Feed({this.url, this.category, this.id, this.name});
+  const _$_Feed({this.category, this.id, this.name, this.url});
 
   factory _$_Feed.fromJson(Map<String, dynamic> json) => _$$_FeedFromJson(json);
 
-  @override
-
-  /// rss feed url
-  /// eg. http://a16z.com/feed/
-  final String? url;
   @override
 
   /// category of the feed e.g news
@@ -1067,10 +1062,15 @@ class _$_Feed implements _Feed {
   /// rss feed name
   /// eg. a16z
   final String? name;
+  @override
+
+  /// rss feed url
+  /// eg. http://a16z.com/feed/
+  final String? url;
 
   @override
   String toString() {
-    return 'Feed(url: $url, category: $category, id: $id, name: $name)';
+    return 'Feed(category: $category, id: $id, name: $name, url: $url)';
   }
 
   @override
@@ -1078,19 +1078,19 @@ class _$_Feed implements _Feed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Feed &&
-            const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality().equals(other.category, category) &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.url, url));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(category),
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(url));
 
   @JsonKey(ignore: true)
   @override
@@ -1105,15 +1105,10 @@ class _$_Feed implements _Feed {
 
 abstract class _Feed implements Feed {
   const factory _Feed(
-      {String? url, String? category, String? id, String? name}) = _$_Feed;
+      {String? category, String? id, String? name, String? url}) = _$_Feed;
 
   factory _Feed.fromJson(Map<String, dynamic> json) = _$_Feed.fromJson;
 
-  @override
-
-  /// rss feed url
-  /// eg. http://a16z.com/feed/
-  String? get url;
   @override
 
   /// category of the feed e.g news
@@ -1127,6 +1122,11 @@ abstract class _Feed implements Feed {
   /// rss feed name
   /// eg. a16z
   String? get name;
+  @override
+
+  /// rss feed url
+  /// eg. http://a16z.com/feed/
+  String? get url;
   @override
   @JsonKey(ignore: true)
   _$FeedCopyWith<_Feed> get copyWith => throw _privateConstructorUsedError;
