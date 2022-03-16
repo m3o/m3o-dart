@@ -367,6 +367,13 @@ class UserService {
 @Freezed()
 class Account with _$Account {
   const factory Account({
+    /// alphanumeric username
+    String? username,
+
+    /// date of verification
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+        int? verification_date,
+
     /// if the account is verified
     bool? verified,
 
@@ -384,13 +391,6 @@ class Account with _$Account {
 
     /// unix timestamp
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? updated,
-
-    /// alphanumeric username
-    String? username,
-
-    /// date of verification
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-        int? verification_date,
   }) = _Account;
   factory Account.fromJson(Map<String, dynamic> json) =>
       _$AccountFromJson(json);
@@ -399,9 +399,6 @@ class Account with _$Account {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// the username
-    String? username,
-
     /// the email address
     String? email,
 
@@ -413,6 +410,9 @@ class CreateRequest with _$CreateRequest {
 
     /// optional user profile as map<string,string>
     Map<String, String>? profile,
+
+    /// the username
+    String? username,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -617,6 +617,12 @@ class ResetPasswordResponse with _$ResetPasswordResponse {
 @Freezed()
 class SendMagicLinkRequest with _$SendMagicLinkRequest {
   const factory SendMagicLinkRequest({
+    /// Your web site address, example www.example.com or user.example.com
+    String? address,
+
+    /// the email address of the user
+    String? email,
+
     /// Endpoint name where your http request handler handles MagicLink by
     /// calling M3O VerifyToken endpoint. You can return as a result a success,
     /// failed or redirect to another page.
@@ -629,12 +635,6 @@ class SendMagicLinkRequest with _$SendMagicLinkRequest {
     /// Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
     /// HTML emails are not available currently.
     String? text_content,
-
-    /// Your web site address, example www.example.com or user.example.com
-    String? address,
-
-    /// the email address of the user
-    String? email,
   }) = _SendMagicLinkRequest;
   factory SendMagicLinkRequest.fromJson(Map<String, dynamic> json) =>
       _$SendMagicLinkRequestFromJson(json);
@@ -652,6 +652,10 @@ class SendMagicLinkResponse with _$SendMagicLinkResponse {
 @Freezed()
 class SendPasswordResetEmailRequest with _$SendPasswordResetEmailRequest {
   const factory SendPasswordResetEmailRequest({
+    /// Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
+    /// HTML emails are not available currently.
+    String? text_content,
+
     /// email address to send reset for
     String? email,
 
@@ -663,10 +667,6 @@ class SendPasswordResetEmailRequest with _$SendPasswordResetEmailRequest {
 
     /// subject of the email
     String? subject,
-
-    /// Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
-    /// HTML emails are not available currently.
-    String? text_content,
   }) = _SendPasswordResetEmailRequest;
   factory SendPasswordResetEmailRequest.fromJson(Map<String, dynamic> json) =>
       _$SendPasswordResetEmailRequestFromJson(json);
@@ -685,6 +685,9 @@ class SendPasswordResetEmailResponse with _$SendPasswordResetEmailResponse {
 @Freezed()
 class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
   const factory SendVerificationEmailRequest({
+    /// Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
+    String? from_name,
+
     /// The url to redirect to after successful verification
     String? redirect_url,
 
@@ -700,9 +703,6 @@ class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
 
     /// The url to redirect to incase of failure
     String? failure_redirect_url,
-
-    /// Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-    String? from_name,
   }) = _SendVerificationEmailRequest;
   factory SendVerificationEmailRequest.fromJson(Map<String, dynamic> json) =>
       _$SendVerificationEmailRequestFromJson(json);
@@ -768,17 +768,17 @@ class UpdatePasswordResponse with _$UpdatePasswordResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// the new email address
-    String? email,
-
-    /// the account id
-    String? id,
-
     /// the user profile as map<string,string>
     Map<String, String>? profile,
 
     /// the new username
     String? username,
+
+    /// the new email address
+    String? email,
+
+    /// the account id
+    String? id,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);
@@ -824,9 +824,9 @@ class VerifyTokenRequest with _$VerifyTokenRequest {
 @Freezed()
 class VerifyTokenResponse with _$VerifyTokenResponse {
   const factory VerifyTokenResponse({
+    Session? session,
     bool? is_valid,
     String? message,
-    Session? session,
   }) = VerifyTokenResponseData;
   const factory VerifyTokenResponse.Merr({Map<String, dynamic>? body}) =
       VerifyTokenResponseMerr;
