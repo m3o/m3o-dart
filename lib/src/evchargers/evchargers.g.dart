@@ -7,52 +7,52 @@ part of 'evchargers.dart';
 // **************************************************************************
 
 _$_Address _$$_AddressFromJson(Map<String, dynamic> json) => _$_Address(
-      state_or_province: json['state_or_province'] as String?,
-      title: json['title'] as String?,
-      town: json['town'] as String?,
-      address_line_2: json['address_line_2'] as String?,
-      country_id: json['country_id'] as String?,
       country: json['country'] == null
           ? null
           : Country.fromJson(json['country'] as Map<String, dynamic>),
+      postcode: json['postcode'] as String?,
+      address_line_1: json['address_line_1'] as String?,
+      address_line_2: json['address_line_2'] as String?,
+      country_id: json['country_id'] as String?,
       lat_lng: json['lat_lng'] as String?,
       location: json['location'] == null
           ? null
           : Coordinates.fromJson(json['location'] as Map<String, dynamic>),
-      postcode: json['postcode'] as String?,
+      state_or_province: json['state_or_province'] as String?,
+      title: json['title'] as String?,
+      town: json['town'] as String?,
       access_comments: json['access_comments'] as String?,
-      address_line_1: json['address_line_1'] as String?,
     );
 
 Map<String, dynamic> _$$_AddressToJson(_$_Address instance) =>
     <String, dynamic>{
+      'country': instance.country,
+      'postcode': instance.postcode,
+      'address_line_1': instance.address_line_1,
+      'address_line_2': instance.address_line_2,
+      'country_id': instance.country_id,
+      'lat_lng': instance.lat_lng,
+      'location': instance.location,
       'state_or_province': instance.state_or_province,
       'title': instance.title,
       'town': instance.town,
-      'address_line_2': instance.address_line_2,
-      'country_id': instance.country_id,
-      'country': instance.country,
-      'lat_lng': instance.lat_lng,
-      'location': instance.location,
-      'postcode': instance.postcode,
       'access_comments': instance.access_comments,
-      'address_line_1': instance.address_line_1,
     };
 
 _$_BoundingBox _$$_BoundingBoxFromJson(Map<String, dynamic> json) =>
     _$_BoundingBox(
-      top_right: json['top_right'] == null
-          ? null
-          : Coordinates.fromJson(json['top_right'] as Map<String, dynamic>),
       bottom_left: json['bottom_left'] == null
           ? null
           : Coordinates.fromJson(json['bottom_left'] as Map<String, dynamic>),
+      top_right: json['top_right'] == null
+          ? null
+          : Coordinates.fromJson(json['top_right'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_BoundingBoxToJson(_$_BoundingBox instance) =>
     <String, dynamic>{
-      'top_right': instance.top_right,
       'bottom_left': instance.bottom_left,
+      'top_right': instance.top_right,
     };
 
 _$_ChargerType _$$_ChargerTypeFromJson(Map<String, dynamic> json) =>
@@ -73,68 +73,68 @@ Map<String, dynamic> _$$_ChargerTypeToJson(_$_ChargerType instance) =>
 
 _$_CheckinStatusType _$$_CheckinStatusTypeFromJson(Map<String, dynamic> json) =>
     _$_CheckinStatusType(
+      is_positive: json['is_positive'] as bool?,
       title: json['title'] as String?,
       id: json['id'] as String?,
       is_automated: json['is_automated'] as bool?,
-      is_positive: json['is_positive'] as bool?,
     );
 
 Map<String, dynamic> _$$_CheckinStatusTypeToJson(
         _$_CheckinStatusType instance) =>
     <String, dynamic>{
+      'is_positive': instance.is_positive,
       'title': instance.title,
       'id': instance.id,
       'is_automated': instance.is_automated,
-      'is_positive': instance.is_positive,
     };
 
 _$_Connection _$$_ConnectionFromJson(Map<String, dynamic> json) =>
     _$_Connection(
-      amps: (json['amps'] as num?)?.toDouble(),
       current: json['current'] as String?,
-      level: json['level'] == null
-          ? null
-          : ChargerType.fromJson(json['level'] as Map<String, dynamic>),
       reference: json['reference'] as String?,
       voltage: (json['voltage'] as num?)?.toDouble(),
+      amps: (json['amps'] as num?)?.toDouble(),
       connection_type: json['connection_type'] == null
           ? null
           : ConnectionType.fromJson(
               json['connection_type'] as Map<String, dynamic>),
       connection_type_id: json['connection_type_id'] as String?,
+      level: json['level'] == null
+          ? null
+          : ChargerType.fromJson(json['level'] as Map<String, dynamic>),
       level_id: json['level_id'] as String?,
       power: (json['power'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_ConnectionToJson(_$_Connection instance) =>
     <String, dynamic>{
-      'amps': instance.amps,
       'current': instance.current,
-      'level': instance.level,
       'reference': instance.reference,
       'voltage': instance.voltage,
+      'amps': instance.amps,
       'connection_type': instance.connection_type,
       'connection_type_id': instance.connection_type_id,
+      'level': instance.level,
       'level_id': instance.level_id,
       'power': instance.power,
     };
 
 _$_ConnectionType _$$_ConnectionTypeFromJson(Map<String, dynamic> json) =>
     _$_ConnectionType(
+      formal_name: json['formal_name'] as String?,
       id: json['id'] as String?,
       is_discontinued: json['is_discontinued'] as bool?,
       is_obsolete: json['is_obsolete'] as bool?,
       title: json['title'] as String?,
-      formal_name: json['formal_name'] as String?,
     );
 
 Map<String, dynamic> _$$_ConnectionTypeToJson(_$_ConnectionType instance) =>
     <String, dynamic>{
+      'formal_name': instance.formal_name,
       'id': instance.id,
       'is_discontinued': instance.is_discontinued,
       'is_obsolete': instance.is_obsolete,
       'title': instance.title,
-      'formal_name': instance.formal_name,
     };
 
 _$_Coordinates _$$_CoordinatesFromJson(Map<String, dynamic> json) =>
@@ -180,6 +180,7 @@ Map<String, dynamic> _$$_CurrentTypeToJson(_$_CurrentType instance) =>
 
 _$_DataProvider _$$_DataProviderFromJson(Map<String, dynamic> json) =>
     _$_DataProvider(
+      comments: json['comments'] as String?,
       data_provider_status_type: json['data_provider_status_type'] == null
           ? null
           : DataProviderStatusType.fromJson(
@@ -188,91 +189,90 @@ _$_DataProvider _$$_DataProviderFromJson(Map<String, dynamic> json) =>
       license: json['license'] as String?,
       title: json['title'] as String?,
       website: json['website'] as String?,
-      comments: json['comments'] as String?,
     );
 
 Map<String, dynamic> _$$_DataProviderToJson(_$_DataProvider instance) =>
     <String, dynamic>{
+      'comments': instance.comments,
       'data_provider_status_type': instance.data_provider_status_type,
       'id': instance.id,
       'license': instance.license,
       'title': instance.title,
       'website': instance.website,
-      'comments': instance.comments,
     };
 
 _$_DataProviderStatusType _$$_DataProviderStatusTypeFromJson(
         Map<String, dynamic> json) =>
     _$_DataProviderStatusType(
-      title: json['title'] as String?,
       id: json['id'] as String?,
       is_provider_enabled: json['is_provider_enabled'] as bool?,
+      title: json['title'] as String?,
     );
 
 Map<String, dynamic> _$$_DataProviderStatusTypeToJson(
         _$_DataProviderStatusType instance) =>
     <String, dynamic>{
-      'title': instance.title,
       'id': instance.id,
       'is_provider_enabled': instance.is_provider_enabled,
+      'title': instance.title,
     };
 
 _$_Operator _$$_OperatorFromJson(Map<String, dynamic> json) => _$_Operator(
-      title: json['title'] as String?,
-      contact_email: json['contact_email'] as String?,
-      phone_primary: json['phone_primary'] as String?,
-      phone_secondary: json['phone_secondary'] as String?,
       is_private_individual: json['is_private_individual'] as bool?,
+      title: json['title'] as String?,
       website: json['website'] as String?,
       comments: json['comments'] as String?,
-      fault_report_email: json['fault_report_email'] as String?,
       id: json['id'] as String?,
+      phone_primary: json['phone_primary'] as String?,
+      phone_secondary: json['phone_secondary'] as String?,
+      contact_email: json['contact_email'] as String?,
+      fault_report_email: json['fault_report_email'] as String?,
     );
 
 Map<String, dynamic> _$$_OperatorToJson(_$_Operator instance) =>
     <String, dynamic>{
-      'title': instance.title,
-      'contact_email': instance.contact_email,
-      'phone_primary': instance.phone_primary,
-      'phone_secondary': instance.phone_secondary,
       'is_private_individual': instance.is_private_individual,
+      'title': instance.title,
       'website': instance.website,
       'comments': instance.comments,
-      'fault_report_email': instance.fault_report_email,
       'id': instance.id,
+      'phone_primary': instance.phone_primary,
+      'phone_secondary': instance.phone_secondary,
+      'contact_email': instance.contact_email,
+      'fault_report_email': instance.fault_report_email,
     };
 
 _$_Poi _$$_PoiFromJson(Map<String, dynamic> json) => _$_Poi(
+      usage_type_id: json['usage_type_id'] as String?,
+      address: json['address'] == null
+          ? null
+          : Address.fromJson(json['address'] as Map<String, dynamic>),
       connections: (json['connections'] as List<dynamic>?)
           ?.map((e) => Connection.fromJson(e as Map<String, dynamic>))
           .toList(),
-      usage_type_id: json['usage_type_id'] as String?,
+      num_points: int64FromString(json['num_points'] as String?),
       operator_id: json['operator_id'] as String?,
       usage_type: json['usage_type'] == null
           ? null
           : UsageType.fromJson(json['usage_type'] as Map<String, dynamic>),
-      address: json['address'] == null
-          ? null
-          : Address.fromJson(json['address'] as Map<String, dynamic>),
       cost: json['cost'] as String?,
       data_provider_id: json['data_provider_id'] as String?,
       id: json['id'] as String?,
-      num_points: int64FromString(json['num_points'] as String?),
       operator: json['operator'] == null
           ? null
           : Operator.fromJson(json['operator'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_PoiToJson(_$_Poi instance) => <String, dynamic>{
-      'connections': instance.connections,
       'usage_type_id': instance.usage_type_id,
+      'address': instance.address,
+      'connections': instance.connections,
+      'num_points': int64ToString(instance.num_points),
       'operator_id': instance.operator_id,
       'usage_type': instance.usage_type,
-      'address': instance.address,
       'cost': instance.cost,
       'data_provider_id': instance.data_provider_id,
       'id': instance.id,
-      'num_points': int64ToString(instance.num_points),
       'operator': instance.operator,
     };
 
@@ -287,19 +287,9 @@ Map<String, dynamic> _$$_ReferenceDataRequestToJson(
 _$ReferenceDataResponseData _$$ReferenceDataResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$ReferenceDataResponseData(
-      countries: (json['countries'] as List<dynamic>?)
-          ?.map((e) => Country.fromJson(e as Map<String, dynamic>))
-          .toList(),
       current_types: json['current_types'] == null
           ? null
           : CurrentType.fromJson(json['current_types'] as Map<String, dynamic>),
-      data_providers: json['data_providers'] == null
-          ? null
-          : DataProvider.fromJson(
-              json['data_providers'] as Map<String, dynamic>),
-      operators: (json['operators'] as List<dynamic>?)
-          ?.map((e) => Operator.fromJson(e as Map<String, dynamic>))
-          .toList(),
       submission_status_types: json['submission_status_types'] == null
           ? null
           : SubmissionStatusType.fromJson(
@@ -307,41 +297,51 @@ _$ReferenceDataResponseData _$$ReferenceDataResponseDataFromJson(
       usage_types: json['usage_types'] == null
           ? null
           : UsageType.fromJson(json['usage_types'] as Map<String, dynamic>),
-      charger_types: json['charger_types'] == null
-          ? null
-          : ChargerType.fromJson(json['charger_types'] as Map<String, dynamic>),
       checkin_status_types: json['checkin_status_types'] == null
           ? null
           : CheckinStatusType.fromJson(
               json['checkin_status_types'] as Map<String, dynamic>),
-      user_comment_types: json['user_comment_types'] == null
-          ? null
-          : UserCommentType.fromJson(
-              json['user_comment_types'] as Map<String, dynamic>),
       connection_types: json['connection_types'] == null
           ? null
           : ConnectionType.fromJson(
               json['connection_types'] as Map<String, dynamic>),
+      data_providers: json['data_providers'] == null
+          ? null
+          : DataProvider.fromJson(
+              json['data_providers'] as Map<String, dynamic>),
+      operators: (json['operators'] as List<dynamic>?)
+          ?.map((e) => Operator.fromJson(e as Map<String, dynamic>))
+          .toList(),
       status_types: json['status_types'] == null
           ? null
           : StatusType.fromJson(json['status_types'] as Map<String, dynamic>),
+      user_comment_types: json['user_comment_types'] == null
+          ? null
+          : UserCommentType.fromJson(
+              json['user_comment_types'] as Map<String, dynamic>),
+      charger_types: json['charger_types'] == null
+          ? null
+          : ChargerType.fromJson(json['charger_types'] as Map<String, dynamic>),
+      countries: (json['countries'] as List<dynamic>?)
+          ?.map((e) => Country.fromJson(e as Map<String, dynamic>))
+          .toList(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ReferenceDataResponseDataToJson(
         _$ReferenceDataResponseData instance) =>
     <String, dynamic>{
-      'countries': instance.countries,
       'current_types': instance.current_types,
-      'data_providers': instance.data_providers,
-      'operators': instance.operators,
       'submission_status_types': instance.submission_status_types,
       'usage_types': instance.usage_types,
-      'charger_types': instance.charger_types,
       'checkin_status_types': instance.checkin_status_types,
-      'user_comment_types': instance.user_comment_types,
       'connection_types': instance.connection_types,
+      'data_providers': instance.data_providers,
+      'operators': instance.operators,
       'status_types': instance.status_types,
+      'user_comment_types': instance.user_comment_types,
+      'charger_types': instance.charger_types,
+      'countries': instance.countries,
       'runtimeType': instance.$type,
     };
 
@@ -361,37 +361,37 @@ Map<String, dynamic> _$$ReferenceDataResponseMerrToJson(
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
     _$_SearchRequest(
-      max_results: int64FromString(json['max_results'] as String?),
-      box: json['box'] == null
-          ? null
-          : BoundingBox.fromJson(json['box'] as Map<String, dynamic>),
+      connection_types: json['connection_types'] as String?,
+      country_id: json['country_id'] as String?,
+      distance: int64FromString(json['distance'] as String?),
       location: json['location'] == null
           ? null
           : Coordinates.fromJson(json['location'] as Map<String, dynamic>),
-      distance: int64FromString(json['distance'] as String?),
-      levels:
-          (json['levels'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      min_power: int64FromString(json['min_power'] as String?),
       operators: (json['operators'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
+      box: json['box'] == null
+          ? null
+          : BoundingBox.fromJson(json['box'] as Map<String, dynamic>),
+      max_results: int64FromString(json['max_results'] as String?),
+      min_power: int64FromString(json['min_power'] as String?),
       usage_types: json['usage_types'] as String?,
-      connection_types: json['connection_types'] as String?,
-      country_id: json['country_id'] as String?,
+      levels:
+          (json['levels'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$$_SearchRequestToJson(_$_SearchRequest instance) =>
     <String, dynamic>{
-      'max_results': int64ToString(instance.max_results),
-      'box': instance.box,
-      'location': instance.location,
-      'distance': int64ToString(instance.distance),
-      'levels': instance.levels,
-      'min_power': int64ToString(instance.min_power),
-      'operators': instance.operators,
-      'usage_types': instance.usage_types,
       'connection_types': instance.connection_types,
       'country_id': instance.country_id,
+      'distance': int64ToString(instance.distance),
+      'location': instance.location,
+      'operators': instance.operators,
+      'box': instance.box,
+      'max_results': int64ToString(instance.max_results),
+      'min_power': int64ToString(instance.min_power),
+      'usage_types': instance.usage_types,
+      'levels': instance.levels,
     };
 
 _$SearchResponseData _$$SearchResponseDataFromJson(Map<String, dynamic> json) =>

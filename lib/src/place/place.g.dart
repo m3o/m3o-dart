@@ -89,48 +89,48 @@ Map<String, dynamic> _$$NearbyResponseMerrToJson(
     };
 
 _$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
-      open_now: json['open_now'] as bool?,
-      type: json['type'] as String?,
-      vicinity: json['vicinity'] as String?,
+      opening_hours: json['opening_hours'] as String?,
       types:
           (json['types'] as List<dynamic>?)?.map((e) => e as String).toList(),
       address: json['address'] as String?,
-      icon_url: json['icon_url'] as String?,
       location: json['location'] as String?,
       name: json['name'] as String?,
-      opening_hours: json['opening_hours'] as String?,
+      open_now: json['open_now'] as bool?,
       rating: (json['rating'] as num?)?.toDouble(),
+      type: json['type'] as String?,
+      vicinity: json['vicinity'] as String?,
+      icon_url: json['icon_url'] as String?,
     );
 
 Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
-      'open_now': instance.open_now,
-      'type': instance.type,
-      'vicinity': instance.vicinity,
+      'opening_hours': instance.opening_hours,
       'types': instance.types,
       'address': instance.address,
-      'icon_url': instance.icon_url,
       'location': instance.location,
       'name': instance.name,
-      'opening_hours': instance.opening_hours,
+      'open_now': instance.open_now,
       'rating': instance.rating,
+      'type': instance.type,
+      'vicinity': instance.vicinity,
+      'icon_url': instance.icon_url,
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
     _$_SearchRequest(
+      location: json['location'] as String?,
       open_now: json['open_now'] as bool?,
       query: json['query'] as String?,
       radius: json['radius'] as int?,
       type: json['type'] as String?,
-      location: json['location'] as String?,
     );
 
 Map<String, dynamic> _$$_SearchRequestToJson(_$_SearchRequest instance) =>
     <String, dynamic>{
+      'location': instance.location,
       'open_now': instance.open_now,
       'query': instance.query,
       'radius': instance.radius,
       'type': instance.type,
-      'location': instance.location,
     };
 
 _$SearchResponseData _$$SearchResponseDataFromJson(Map<String, dynamic> json) =>
