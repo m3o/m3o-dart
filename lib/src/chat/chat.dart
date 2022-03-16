@@ -211,6 +211,9 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// chat description
+    String? description,
+
     /// name of the room
     String? name,
 
@@ -219,9 +222,6 @@ class CreateRequest with _$CreateRequest {
 
     /// optional list of user ids
     String? user_ids,
-
-    /// chat description
-    String? description,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -357,11 +357,11 @@ class KickResponse with _$KickResponse {
 @Freezed()
 class LeaveRequest with _$LeaveRequest {
   const factory LeaveRequest({
-    /// the chat room id
-    String? room_id,
-
     /// the user id
     String? user_id,
+
+    /// the chat room id
+    String? room_id,
   }) = _LeaveRequest;
   factory LeaveRequest.fromJson(Map<String, dynamic> json) =>
       _$LeaveRequestFromJson(json);
@@ -402,6 +402,15 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
+    /// time the message was sent in RFC3339 format
+    String? sent_at,
+
+    /// subject of the message
+    String? subject,
+
+    /// text of the message
+    String? text,
+
     /// id of the user who sent the message
     String? user_id,
 
@@ -413,15 +422,6 @@ class Message with _$Message {
 
     /// id of the chat the message is being sent to / from
     String? room_id,
-
-    /// time the message was sent in RFC3339 format
-    String? sent_at,
-
-    /// subject of the message
-    String? subject,
-
-    /// text of the message
-    String? text,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);

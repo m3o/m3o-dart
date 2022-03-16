@@ -130,16 +130,16 @@ Map<String, dynamic> _$$_FieldToJson(_$_Field instance) => <String, dynamic>{
 
 _$_IndexRequest _$$_IndexRequestFromJson(Map<String, dynamic> json) =>
     _$_IndexRequest(
-      index: json['index'] as String?,
       data: json['data'] as Map<String, dynamic>?,
       id: json['id'] as String?,
+      index: json['index'] as String?,
     );
 
 Map<String, dynamic> _$$_IndexRequestToJson(_$_IndexRequest instance) =>
     <String, dynamic>{
-      'index': instance.index,
       'data': instance.data,
       'id': instance.id,
+      'index': instance.index,
     };
 
 _$IndexResponseData _$$IndexResponseDataFromJson(Map<String, dynamic> json) =>
@@ -180,14 +180,14 @@ Map<String, dynamic> _$$_RecordToJson(_$_Record instance) => <String, dynamic>{
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
     _$_SearchRequest(
-      query: json['query'] as String?,
       index: json['index'] as String?,
+      query: json['query'] as String?,
     );
 
 Map<String, dynamic> _$$_SearchRequestToJson(_$_SearchRequest instance) =>
     <String, dynamic>{
-      'query': instance.query,
       'index': instance.index,
+      'query': instance.query,
     };
 
 _$SearchResponseData _$$SearchResponseDataFromJson(Map<String, dynamic> json) =>

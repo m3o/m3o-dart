@@ -101,11 +101,17 @@ class TwitterService {
 @Freezed()
 class Profile with _$Profile {
   const factory Profile({
+    /// the follower count
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
+
+    /// the user id
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
+
     /// The user's profile picture
     String? image_url,
 
-    /// if the account is private
-    bool? private,
+    /// display name of the user
+    String? name,
 
     /// if the account is verified
     bool? verified,
@@ -116,20 +122,14 @@ class Profile with _$Profile {
     /// the user description
     String? description,
 
-    /// the user id
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
-
     /// the username
     String? username,
-
-    /// the follower count
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
 
     /// the user's location
     String? location,
 
-    /// display name of the user
-    String? name,
+    /// if the account is private
+    bool? private,
   }) = _Profile;
   factory Profile.fromJson(Map<String, dynamic> json) =>
       _$ProfileFromJson(json);
@@ -188,15 +188,15 @@ class TimelineResponse with _$TimelineResponse {
 @Freezed()
 class Trend with _$Trend {
   const factory Trend({
+    /// the twitter url
+    String? url,
+
     /// name of the trend
     String? name,
 
     /// the volume of tweets in last 24 hours
     @JsonKey(fromJson: int64FromString, toJson: int64ToString)
         int? tweet_volume,
-
-    /// the twitter url
-    String? url,
   }) = _Trend;
   factory Trend.fromJson(Map<String, dynamic> json) => _$TrendFromJson(json);
 }
