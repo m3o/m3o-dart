@@ -147,11 +147,11 @@ class ListsService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// list name
-    String? name,
-
     /// list items
     List<String>? items,
+
+    /// list name
+    String? name,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);

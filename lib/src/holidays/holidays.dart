@@ -90,9 +90,6 @@ class Country with _$Country {
 @Freezed()
 class Holiday with _$Holiday {
   const factory Holiday({
-    /// the country this holiday occurs in
-    String? country_code,
-
     /// date of the holiday in yyyy-mm-dd format
     String? date,
 
@@ -107,6 +104,9 @@ class Holiday with _$Holiday {
 
     /// the type of holiday Public, Bank, School, Authorities, Optional, Observance
     List<String>? types,
+
+    /// the country this holiday occurs in
+    String? country_code,
   }) = _Holiday;
   factory Holiday.fromJson(Map<String, dynamic> json) =>
       _$HolidayFromJson(json);
