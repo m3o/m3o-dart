@@ -2,7 +2,7 @@ name: Update Changelog and Publish
 
 on:
   release:
-    types: [released]
+    types: [created,published]
 
 jobs:
   update:
