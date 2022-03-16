@@ -38,20 +38,8 @@ class NewsService {
 @Freezed()
 class Article with _$Article {
   const factory Article({
-    /// article id
-    String? id,
-
-    /// source of news
-    String? source,
-
     /// article title
     String? title,
-
-    /// time it was published
-    String? published_at,
-
-    /// first 60 characters of article body
-    String? snippet,
 
     /// categories
     List<String>? categories,
@@ -68,8 +56,20 @@ class Article with _$Article {
     /// the article language
     String? language,
 
+    /// first 60 characters of article body
+    String? snippet,
+
+    /// source of news
+    String? source,
+
+    /// article id
+    String? id,
+
     /// the locale
     String? locale,
+
+    /// time it was published
+    String? published_at,
 
     /// url of the article
     String? url,

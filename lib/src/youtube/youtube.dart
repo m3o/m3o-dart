@@ -112,15 +112,6 @@ class SearchResponse with _$SearchResponse {
 @Freezed()
 class SearchResult with _$SearchResult {
   const factory SearchResult({
-    /// id of the result
-    String? id,
-
-    /// published at time
-    String? published_at,
-
-    /// title of the result
-    String? title,
-
     /// the result description
     String? description,
 
@@ -129,6 +120,12 @@ class SearchResult with _$SearchResult {
 
     /// the associated url
     String? url,
+
+    /// published at time
+    String? published_at,
+
+    /// title of the result
+    String? title,
 
     /// if live broadcast then indicates activity:
     /// none, upcoming, live, completed
@@ -139,6 +136,9 @@ class SearchResult with _$SearchResult {
 
     /// the channel title
     String? channel_title,
+
+    /// id of the result
+    String? id,
   }) = _SearchResult;
   factory SearchResult.fromJson(Map<String, dynamic> json) =>
       _$SearchResultFromJson(json);

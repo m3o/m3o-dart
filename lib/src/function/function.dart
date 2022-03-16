@@ -271,15 +271,6 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class DeployRequest with _$DeployRequest {
   const factory DeployRequest({
-    /// inline source code
-    String? source,
-
-    /// branch to deploy. defaults to master
-    String? branch,
-
-    /// region to deploy in. defaults to europe-west1
-    String? region,
-
     /// github url for a repo
     String? repo,
 
@@ -289,18 +280,27 @@ class DeployRequest with _$DeployRequest {
     /// python37, python38, python39
     String? runtime,
 
-    /// optional subfolder path
-    String? subfolder,
+    /// function name
+    String? name,
 
-    /// entry point, ie. handler name in the source code
-    /// if not provided, defaults to the name parameter
-    String? entrypoint,
+    /// region to deploy in. defaults to europe-west1
+    String? region,
 
     /// environment variables to pass in at runtime
     Map<String, String>? env_vars,
 
-    /// function name
-    String? name,
+    /// inline source code
+    String? source,
+
+    /// optional subfolder path
+    String? subfolder,
+
+    /// branch to deploy. defaults to master
+    String? branch,
+
+    /// entry point, ie. handler name in the source code
+    /// if not provided, defaults to the name parameter
+    String? entrypoint,
   }) = _DeployRequest;
   factory DeployRequest.fromJson(Map<String, dynamic> json) =>
       _$DeployRequestFromJson(json);
@@ -345,17 +345,15 @@ class Func with _$Func {
     /// name of handler in source code
     String? entrypoint,
 
-    /// the source code
-    String? source,
-
-    /// branch to deploy. defaults to master
-    String? branch,
+    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+    String? status,
 
     /// associated env vars
     Map<String, String>? env_vars,
 
-    /// id of the function
-    String? id,
+    /// function name
+    /// limitation: must be unique across projects
+    String? name,
 
     /// region to deploy in. defaults to europe-west1
     String? region,
@@ -363,8 +361,20 @@ class Func with _$Func {
     /// git repo address
     String? repo,
 
-    /// unique url of the function
-    String? url,
+    /// subfolder path to entrypoint
+    String? subfolder,
+
+    /// time of creation
+    String? created,
+
+    /// time it was updated
+    String? updated,
+
+    /// branch to deploy. defaults to master
+    String? branch,
+
+    /// id of the function
+    String? id,
 
     /// runtime/language of the function e.g php74,
     /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
@@ -372,21 +382,11 @@ class Func with _$Func {
     /// python37, python38, python39
     String? runtime,
 
-    /// subfolder path to entrypoint
-    String? subfolder,
+    /// the source code
+    String? source,
 
-    /// time of creation
-    String? created,
-
-    /// function name
-    /// limitation: must be unique across projects
-    String? name,
-
-    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-    String? status,
-
-    /// time it was updated
-    String? updated,
+    /// unique url of the function
+    String? url,
   }) = _Func;
   factory Func.fromJson(Map<String, dynamic> json) => _$FuncFromJson(json);
 }
@@ -453,12 +453,6 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
-    /// owner id
-    String? owner,
-
-    /// associated token
-    String? token,
-
     /// time of reservation
     String? created,
 
@@ -467,6 +461,12 @@ class Reservation with _$Reservation {
 
     /// name of the app
     String? name,
+
+    /// owner id
+    String? owner,
+
+    /// associated token
+    String? token,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);
@@ -515,11 +515,11 @@ class RuntimesResponse with _$RuntimesResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// function name
-    String? name,
-
     /// inline source code
     String? source,
+
+    /// function name
+    String? name,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

@@ -49,29 +49,29 @@ Map<String, dynamic> _$$LookupPostcodeResponseMerrToJson(
     };
 
 _$_Record _$$_RecordFromJson(Map<String, dynamic> json) => _$_Record(
-      building_name: json['building_name'] as String?,
-      line_one: json['line_one'] as String?,
       line_two: json['line_two'] as String?,
-      organisation: json['organisation'] as String?,
+      locality: json['locality'] as String?,
       premise: json['premise'] as String?,
       street: json['street'] as String?,
       summary: json['summary'] as String?,
+      building_name: json['building_name'] as String?,
       county: json['county'] as String?,
-      locality: json['locality'] as String?,
       postcode: json['postcode'] as String?,
       town: json['town'] as String?,
+      line_one: json['line_one'] as String?,
+      organisation: json['organisation'] as String?,
     );
 
 Map<String, dynamic> _$$_RecordToJson(_$_Record instance) => <String, dynamic>{
-      'building_name': instance.building_name,
-      'line_one': instance.line_one,
       'line_two': instance.line_two,
-      'organisation': instance.organisation,
+      'locality': instance.locality,
       'premise': instance.premise,
       'street': instance.street,
       'summary': instance.summary,
+      'building_name': instance.building_name,
       'county': instance.county,
-      'locality': instance.locality,
       'postcode': instance.postcode,
       'town': instance.town,
+      'line_one': instance.line_one,
+      'organisation': instance.organisation,
     };
