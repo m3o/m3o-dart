@@ -271,15 +271,17 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class DeployRequest with _$DeployRequest {
   const factory DeployRequest({
+    /// inline source code
+    String? source,
+
     /// branch to deploy. defaults to master
     String? branch,
 
-    /// entry point, ie. handler name in the source code
-    /// if not provided, defaults to the name parameter
-    String? entrypoint,
-
     /// region to deploy in. defaults to europe-west1
     String? region,
+
+    /// github url for a repo
+    String? repo,
 
     /// runtime/lanaguage of the function e.g php74,
     /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
@@ -290,17 +292,15 @@ class DeployRequest with _$DeployRequest {
     /// optional subfolder path
     String? subfolder,
 
+    /// entry point, ie. handler name in the source code
+    /// if not provided, defaults to the name parameter
+    String? entrypoint,
+
     /// environment variables to pass in at runtime
     Map<String, String>? env_vars,
 
     /// function name
     String? name,
-
-    /// github url for a repo
-    String? repo,
-
-    /// inline source code
-    String? source,
   }) = _DeployRequest;
   factory DeployRequest.fromJson(Map<String, dynamic> json) =>
       _$DeployRequestFromJson(json);
@@ -342,35 +342,41 @@ class DescribeResponse with _$DescribeResponse {
 @Freezed()
 class Func with _$Func {
   const factory Func({
-    /// time of creation
-    String? created,
-
     /// name of handler in source code
     String? entrypoint,
-
-    /// git repo address
-    String? repo,
 
     /// the source code
     String? source,
 
-    /// subfolder path to entrypoint
-    String? subfolder,
-
-    /// time it was updated
-    String? updated,
-
-    /// unique url of the function
-    String? url,
-
     /// branch to deploy. defaults to master
     String? branch,
+
+    /// associated env vars
+    Map<String, String>? env_vars,
+
+    /// id of the function
+    String? id,
 
     /// region to deploy in. defaults to europe-west1
     String? region,
 
-    /// associated env vars
-    Map<String, String>? env_vars,
+    /// git repo address
+    String? repo,
+
+    /// unique url of the function
+    String? url,
+
+    /// runtime/language of the function e.g php74,
+    /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
+    /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
+    /// python37, python38, python39
+    String? runtime,
+
+    /// subfolder path to entrypoint
+    String? subfolder,
+
+    /// time of creation
+    String? created,
 
     /// function name
     /// limitation: must be unique across projects
@@ -379,14 +385,8 @@ class Func with _$Func {
     /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
     String? status,
 
-    /// id of the function
-    String? id,
-
-    /// runtime/language of the function e.g php74,
-    /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
-    /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
-    /// python37, python38, python39
-    String? runtime,
+    /// time it was updated
+    String? updated,
   }) = _Func;
   factory Func.fromJson(Map<String, dynamic> json) => _$FuncFromJson(json);
 }
@@ -453,6 +453,12 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
+    /// owner id
+    String? owner,
+
+    /// associated token
+    String? token,
+
     /// time of reservation
     String? created,
 
@@ -461,12 +467,6 @@ class Reservation with _$Reservation {
 
     /// name of the app
     String? name,
-
-    /// owner id
-    String? owner,
-
-    /// associated token
-    String? token,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);

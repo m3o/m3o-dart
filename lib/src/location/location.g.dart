@@ -104,20 +104,20 @@ Map<String, dynamic> _$$SaveResponseMerrToJson(_$SaveResponseMerr instance) =>
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
     _$_SearchRequest(
-      center: json['center'] == null
-          ? null
-          : Point.fromJson(json['center'] as Map<String, dynamic>),
       numEntities: int64FromString(json['numEntities'] as String?),
       radius: (json['radius'] as num?)?.toDouble(),
       type: json['type'] as String?,
+      center: json['center'] == null
+          ? null
+          : Point.fromJson(json['center'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_SearchRequestToJson(_$_SearchRequest instance) =>
     <String, dynamic>{
-      'center': instance.center,
       'numEntities': int64ToString(instance.numEntities),
       'radius': instance.radius,
       'type': instance.type,
+      'center': instance.center,
     };
 
 _$SearchResponseData _$$SearchResponseDataFromJson(Map<String, dynamic> json) =>

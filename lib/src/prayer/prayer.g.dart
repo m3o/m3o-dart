@@ -48,25 +48,25 @@ Map<String, dynamic> _$$_TimesRequestToJson(_$_TimesRequest instance) =>
 
 _$TimesResponseData _$$TimesResponseDataFromJson(Map<String, dynamic> json) =>
     _$TimesResponseData(
-      date: json['date'] as String?,
-      days: json['days'] as int?,
       latitude: (json['latitude'] as num?)?.toDouble(),
       location: json['location'] as String?,
       longitude: (json['longitude'] as num?)?.toDouble(),
       times: (json['times'] as List<dynamic>?)
           ?.map((e) => PrayerTime.fromJson(e as Map<String, dynamic>))
           .toList(),
+      date: json['date'] as String?,
+      days: json['days'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$TimesResponseDataToJson(_$TimesResponseData instance) =>
     <String, dynamic>{
-      'date': instance.date,
-      'days': instance.days,
       'latitude': instance.latitude,
       'location': instance.location,
       'longitude': instance.longitude,
       'times': instance.times,
+      'date': instance.date,
+      'days': instance.days,
       'runtimeType': instance.$type,
     };
 

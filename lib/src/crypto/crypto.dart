@@ -154,12 +154,6 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
-    /// the open price
-    double? open,
-
-    /// the crypto symbol
-    String? symbol,
-
     /// the volume
     double? volume,
 
@@ -174,6 +168,12 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the low price
     double? low,
+
+    /// the open price
+    double? open,
+
+    /// the crypto symbol
+    String? symbol,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -194,11 +194,11 @@ class NewsRequest with _$NewsRequest {
 @Freezed()
 class NewsResponse with _$NewsResponse {
   const factory NewsResponse({
-    /// list of articles
-    List<Article>? articles,
-
     /// symbol requested for
     String? symbol,
+
+    /// list of articles
+    List<Article>? articles,
   }) = NewsResponseData;
   const factory NewsResponse.Merr({Map<String, dynamic>? body}) =
       NewsResponseMerr;
@@ -219,11 +219,11 @@ class PriceRequest with _$PriceRequest {
 @Freezed()
 class PriceResponse with _$PriceResponse {
   const factory PriceResponse({
-    /// the last price
-    double? price,
-
     /// the crypto symbol e.g BTCUSD
     String? symbol,
+
+    /// the last price
+    double? price,
   }) = PriceResponseData;
   const factory PriceResponse.Merr({Map<String, dynamic>? body}) =
       PriceResponseMerr;

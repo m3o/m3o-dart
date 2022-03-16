@@ -38,14 +38,14 @@ class SmsService {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
-    /// who is the message from? The message will be suffixed with "Sent from <from>"
-    String? from,
-
     /// the main body of the message to send
     String? message,
 
     /// the destination phone number including the international dialling code (e.g. +44)
     String? to,
+
+    /// who is the message from? The message will be suffixed with "Sent from <from>"
+    String? from,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);
@@ -54,11 +54,11 @@ class SendRequest with _$SendRequest {
 @Freezed()
 class SendResponse with _$SendResponse {
   const factory SendResponse({
-    /// any additional info
-    String? info,
-
     /// will return "ok" if successful
     String? status,
+
+    /// any additional info
+    String? info,
   }) = SendResponseData;
   const factory SendResponse.Merr({Map<String, dynamic>? body}) =
       SendResponseMerr;

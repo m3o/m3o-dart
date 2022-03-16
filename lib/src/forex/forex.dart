@@ -90,6 +90,12 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
+    /// the forex symbol
+    String? symbol,
+
+    /// the volume
+    double? volume,
+
     /// the close price
     double? close,
 
@@ -104,12 +110,6 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the open price
     double? open,
-
-    /// the forex symbol
-    String? symbol,
-
-    /// the volume
-    double? volume,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -130,11 +130,11 @@ class PriceRequest with _$PriceRequest {
 @Freezed()
 class PriceResponse with _$PriceResponse {
   const factory PriceResponse({
-    /// the forex symbol e.g GBPUSD
-    String? symbol,
-
     /// the last price
     double? price,
+
+    /// the forex symbol e.g GBPUSD
+    String? symbol,
   }) = PriceResponseData;
   const factory PriceResponse.Merr({Map<String, dynamic>? body}) =
       PriceResponseMerr;
@@ -155,9 +155,6 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
-    /// the forex symbol
-    String? symbol,
-
     /// the UTC timestamp of the quote
     String? timestamp,
 
@@ -166,6 +163,9 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the bidding price
     double? bid_price,
+
+    /// the forex symbol
+    String? symbol,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;
