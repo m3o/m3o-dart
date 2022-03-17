@@ -8,20 +8,20 @@ part of 'password.dart';
 
 _$_GenerateRequest _$$_GenerateRequestFromJson(Map<String, dynamic> json) =>
     _$_GenerateRequest(
-      length: json['length'] as int?,
-      lowercase: json['lowercase'] as bool?,
       numbers: json['numbers'] as bool?,
       special: json['special'] as bool?,
       uppercase: json['uppercase'] as bool?,
+      length: json['length'] as int?,
+      lowercase: json['lowercase'] as bool?,
     );
 
 Map<String, dynamic> _$$_GenerateRequestToJson(_$_GenerateRequest instance) =>
     <String, dynamic>{
-      'length': instance.length,
-      'lowercase': instance.lowercase,
       'numbers': instance.numbers,
       'special': instance.special,
       'uppercase': instance.uppercase,
+      'length': instance.length,
+      'lowercase': instance.lowercase,
     };
 
 _$GenerateResponseData _$$GenerateResponseDataFromJson(

@@ -128,9 +128,6 @@ class AddResponse with _$AddResponse {
 @Freezed()
 class Entry with _$Entry {
   const factory Entry({
-    /// title of the entry
-    String? title,
-
     /// article content
     String? content,
 
@@ -148,6 +145,9 @@ class Entry with _$Entry {
 
     /// article summary
     String? summary,
+
+    /// title of the entry
+    String? title,
   }) = _Entry;
   factory Entry.fromJson(Map<String, dynamic> json) => _$EntryFromJson(json);
 }
@@ -155,6 +155,9 @@ class Entry with _$Entry {
 @Freezed()
 class Feed with _$Feed {
   const factory Feed({
+    /// unique id
+    String? id,
+
     /// rss feed name
     /// eg. a16z
     String? name,
@@ -165,9 +168,6 @@ class Feed with _$Feed {
 
     /// category of the feed e.g news
     String? category,
-
-    /// unique id
-    String? id,
   }) = _Feed;
   factory Feed.fromJson(Map<String, dynamic> json) => _$FeedFromJson(json);
 }
