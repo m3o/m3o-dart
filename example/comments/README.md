@@ -4,6 +4,96 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/comments/api](
 
 Endpoints:
 
+## Delete
+
+Delete a comment
+
+
+[https://m3o.com/comments/api#Delete](https://m3o.com/comments/api#Delete)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/comments/comments.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = CommentsService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
+,};
+
+  DeleteRequest req = DeleteRequest.fromJson(payload);
+
+  
+  try {
+
+	DeleteResponse res = await ser.delete(req);
+
+    res.map((value) => print(value),
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Events
+
+Subscribe to comments events
+
+
+[https://m3o.com/comments/api#Events](https://m3o.com/comments/api#Events)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/comments/comments.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = CommentsService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
+,};
+
+  EventsRequest req = EventsRequest.fromJson(payload);
+
+  
+  	
+  try {
+
+    final res = await ser.events(req);
+
+	  await for (var sr in res) {
+	  sr.map((value) => print(value),
+		Merr: (EventsResponseMerr err) => print(err.body));
+	  }
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Create
 
 Create a new comment
@@ -175,96 +265,6 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Delete
-
-Delete a comment
-
-
-[https://m3o.com/comments/api#Delete](https://m3o.com/comments/api#Delete)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/comments/comments.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = CommentsService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
-,};
-
-  DeleteRequest req = DeleteRequest.fromJson(payload);
-
-  
-  try {
-
-	DeleteResponse res = await ser.delete(req);
-
-    res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Events
-
-Subscribe to comments events
-
-
-[https://m3o.com/comments/api#Events](https://m3o.com/comments/api#Events)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/comments/comments.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = CommentsService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
-,};
-
-  EventsRequest req = EventsRequest.fromJson(payload);
-
-  
-  	
-  try {
-
-    final res = await ser.events(req);
-
-	  await for (var sr in res) {
-	  sr.map((value) => print(value),
-		Merr: (EventsResponseMerr err) => print(err.body));
-	  }
   } catch (e, stack) {
     print(e);
 	print(stack);
