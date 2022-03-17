@@ -114,9 +114,6 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
-    /// the low price
-    double? low,
-
     /// the open price
     double? open,
 
@@ -134,6 +131,9 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the peak price
     double? high,
+
+    /// the low price
+    double? low,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -165,6 +165,9 @@ class Order with _$Order {
 @Freezed()
 class OrderBookRequest with _$OrderBookRequest {
   const factory OrderBookRequest({
+    /// stock to retrieve e.g AAPL
+    String? stock,
+
     /// the date in format YYYY-MM-dd
     String? date,
 
@@ -176,9 +179,6 @@ class OrderBookRequest with _$OrderBookRequest {
 
     /// optional RFC3339Nano start time e.g 2006-01-02T15:04:05.999999999Z07:00
     String? start,
-
-    /// stock to retrieve e.g AAPL
-    String? stock,
   }) = _OrderBookRequest;
   factory OrderBookRequest.fromJson(Map<String, dynamic> json) =>
       _$OrderBookRequestFromJson(json);
@@ -215,11 +215,11 @@ class PriceRequest with _$PriceRequest {
 @Freezed()
 class PriceResponse with _$PriceResponse {
   const factory PriceResponse({
-    /// the stock symbol e.g AAPL
-    String? symbol,
-
     /// the last price
     double? price,
+
+    /// the stock symbol e.g AAPL
+    String? symbol,
   }) = PriceResponseData;
   const factory PriceResponse.Merr({Map<String, dynamic>? body}) =
       PriceResponseMerr;
@@ -240,9 +240,6 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
-    /// the bidding price
-    double? bid_price,
-
     /// the bid size
     int? bid_size,
 
@@ -257,6 +254,9 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the ask size
     int? ask_size,
+
+    /// the bidding price
+    double? bid_price,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;

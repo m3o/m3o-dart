@@ -8,16 +8,16 @@ part of 'lists.dart';
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      name: json['name'] as String?,
       items: json['items'] == null
           ? null
           : List.fromJson(json['items'] as Map<String, dynamic>),
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
-      'name': instance.name,
       'items': instance.items,
+      'name': instance.name,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -98,18 +98,18 @@ Map<String, dynamic> _$$_EventsRequestToJson(_$_EventsRequest instance) =>
 
 _$EventsResponseData _$$EventsResponseDataFromJson(Map<String, dynamic> json) =>
     _$EventsResponseData(
+      event: json['event'] as String?,
       list: json['list'] == null
           ? null
           : List.fromJson(json['list'] as Map<String, dynamic>),
-      event: json['event'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$EventsResponseDataToJson(
         _$EventsResponseData instance) =>
     <String, dynamic>{
-      'list': instance.list,
       'event': instance.event,
+      'list': instance.list,
       'runtimeType': instance.$type,
     };
 

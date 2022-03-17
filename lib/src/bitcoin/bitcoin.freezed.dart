@@ -183,10 +183,10 @@ PriceResponse _$PriceResponseFromJson(Map<String, dynamic> json) {
 class _$PriceResponseTearOff {
   const _$PriceResponseTearOff();
 
-  PriceResponseData call({double? price, String? symbol}) {
+  PriceResponseData call({String? symbol, double? price}) {
     return PriceResponseData(
-      price: price,
       symbol: symbol,
+      price: price,
     );
   }
 
@@ -208,19 +208,19 @@ const $PriceResponse = _$PriceResponseTearOff();
 mixin _$PriceResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? price, String? symbol) $default, {
+    TResult Function(String? symbol, double? price) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? price, String? symbol)? $default, {
+    TResult Function(String? symbol, double? price)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? price, String? symbol)? $default, {
+    TResult Function(String? symbol, double? price)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -269,7 +269,7 @@ abstract class $PriceResponseDataCopyWith<$Res> {
   factory $PriceResponseDataCopyWith(
           PriceResponseData value, $Res Function(PriceResponseData) then) =
       _$PriceResponseDataCopyWithImpl<$Res>;
-  $Res call({double? price, String? symbol});
+  $Res call({String? symbol, double? price});
 }
 
 /// @nodoc
@@ -285,18 +285,18 @@ class _$PriceResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? price = freezed,
     Object? symbol = freezed,
+    Object? price = freezed,
   }) {
     return _then(PriceResponseData(
-      price: price == freezed
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as double?,
       symbol: symbol == freezed
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String?,
+      price: price == freezed
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -304,7 +304,7 @@ class _$PriceResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$PriceResponseData implements PriceResponseData {
-  const _$PriceResponseData({this.price, this.symbol, String? $type})
+  const _$PriceResponseData({this.symbol, this.price, String? $type})
       : $type = $type ?? 'default';
 
   factory _$PriceResponseData.fromJson(Map<String, dynamic> json) =>
@@ -312,19 +312,19 @@ class _$PriceResponseData implements PriceResponseData {
 
   @override
 
-  /// The price of bitcoin
-  final double? price;
-  @override
-
   /// The symbol of pricing e.g BTCUSD
   final String? symbol;
+  @override
+
+  /// The price of bitcoin
+  final double? price;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'PriceResponse(price: $price, symbol: $symbol)';
+    return 'PriceResponse(symbol: $symbol, price: $price)';
   }
 
   @override
@@ -332,15 +332,15 @@ class _$PriceResponseData implements PriceResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is PriceResponseData &&
-            const DeepCollectionEquality().equals(other.price, price) &&
-            const DeepCollectionEquality().equals(other.symbol, symbol));
+            const DeepCollectionEquality().equals(other.symbol, symbol) &&
+            const DeepCollectionEquality().equals(other.price, price));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(price),
-      const DeepCollectionEquality().hash(symbol));
+      const DeepCollectionEquality().hash(symbol),
+      const DeepCollectionEquality().hash(price));
 
   @JsonKey(ignore: true)
   @override
@@ -350,30 +350,30 @@ class _$PriceResponseData implements PriceResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? price, String? symbol) $default, {
+    TResult Function(String? symbol, double? price) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(price, symbol);
+    return $default(symbol, price);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? price, String? symbol)? $default, {
+    TResult Function(String? symbol, double? price)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(price, symbol);
+    return $default?.call(symbol, price);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? price, String? symbol)? $default, {
+    TResult Function(String? symbol, double? price)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(price, symbol);
+      return $default(symbol, price);
     }
     return orElse();
   }
@@ -416,17 +416,17 @@ class _$PriceResponseData implements PriceResponseData {
 }
 
 abstract class PriceResponseData implements PriceResponse {
-  const factory PriceResponseData({double? price, String? symbol}) =
+  const factory PriceResponseData({String? symbol, double? price}) =
       _$PriceResponseData;
 
   factory PriceResponseData.fromJson(Map<String, dynamic> json) =
       _$PriceResponseData.fromJson;
 
-  /// The price of bitcoin
-  double? get price;
-
   /// The symbol of pricing e.g BTCUSD
   String? get symbol;
+
+  /// The price of bitcoin
+  double? get price;
   @JsonKey(ignore: true)
   $PriceResponseDataCopyWith<PriceResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -504,7 +504,7 @@ class _$PriceResponseMerr implements PriceResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? price, String? symbol) $default, {
+    TResult Function(String? symbol, double? price) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -513,7 +513,7 @@ class _$PriceResponseMerr implements PriceResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? price, String? symbol)? $default, {
+    TResult Function(String? symbol, double? price)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -522,7 +522,7 @@ class _$PriceResponseMerr implements PriceResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? price, String? symbol)? $default, {
+    TResult Function(String? symbol, double? price)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
