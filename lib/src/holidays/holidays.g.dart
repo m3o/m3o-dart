@@ -54,6 +54,7 @@ Map<String, dynamic> _$$_CountryToJson(_$_Country instance) =>
     };
 
 _$_Holiday _$$_HolidayFromJson(Map<String, dynamic> json) => _$_Holiday(
+      local_name: json['local_name'] as String?,
       name: json['name'] as String?,
       regions:
           (json['regions'] as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -61,29 +62,28 @@ _$_Holiday _$$_HolidayFromJson(Map<String, dynamic> json) => _$_Holiday(
           (json['types'] as List<dynamic>?)?.map((e) => e as String).toList(),
       country_code: json['country_code'] as String?,
       date: json['date'] as String?,
-      local_name: json['local_name'] as String?,
     );
 
 Map<String, dynamic> _$$_HolidayToJson(_$_Holiday instance) =>
     <String, dynamic>{
+      'local_name': instance.local_name,
       'name': instance.name,
       'regions': instance.regions,
       'types': instance.types,
       'country_code': instance.country_code,
       'date': instance.date,
-      'local_name': instance.local_name,
     };
 
 _$_ListRequest _$$_ListRequestFromJson(Map<String, dynamic> json) =>
     _$_ListRequest(
-      country_code: json['country_code'] as String?,
       year: int64FromString(json['year'] as String?),
+      country_code: json['country_code'] as String?,
     );
 
 Map<String, dynamic> _$$_ListRequestToJson(_$_ListRequest instance) =>
     <String, dynamic>{
-      'country_code': instance.country_code,
       'year': int64ToString(instance.year),
+      'country_code': instance.country_code,
     };
 
 _$ListResponseData _$$ListResponseDataFromJson(Map<String, dynamic> json) =>

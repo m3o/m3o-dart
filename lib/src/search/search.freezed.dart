@@ -1773,11 +1773,11 @@ IndexRequest _$IndexRequestFromJson(Map<String, dynamic> json) {
 class _$IndexRequestTearOff {
   const _$IndexRequestTearOff();
 
-  _IndexRequest call({String? id, String? index, Map<String, dynamic>? data}) {
+  _IndexRequest call({String? index, Map<String, dynamic>? data, String? id}) {
     return _IndexRequest(
-      id: id,
       index: index,
       data: data,
+      id: id,
     );
   }
 
@@ -1791,14 +1791,14 @@ const $IndexRequest = _$IndexRequestTearOff();
 
 /// @nodoc
 mixin _$IndexRequest {
-  /// Optional ID for the record
-  String? get id => throw _privateConstructorUsedError;
-
   /// The index this record belongs to
   String? get index => throw _privateConstructorUsedError;
 
   /// The data to index
   Map<String, dynamic>? get data => throw _privateConstructorUsedError;
+
+  /// Optional ID for the record
+  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1811,7 +1811,7 @@ abstract class $IndexRequestCopyWith<$Res> {
   factory $IndexRequestCopyWith(
           IndexRequest value, $Res Function(IndexRequest) then) =
       _$IndexRequestCopyWithImpl<$Res>;
-  $Res call({String? id, String? index, Map<String, dynamic>? data});
+  $Res call({String? index, Map<String, dynamic>? data, String? id});
 }
 
 /// @nodoc
@@ -1824,15 +1824,11 @@ class _$IndexRequestCopyWithImpl<$Res> implements $IndexRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? index = freezed,
     Object? data = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       index: index == freezed
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -1841,6 +1837,10 @@ class _$IndexRequestCopyWithImpl<$Res> implements $IndexRequestCopyWith<$Res> {
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1852,7 +1852,7 @@ abstract class _$IndexRequestCopyWith<$Res>
           _IndexRequest value, $Res Function(_IndexRequest) then) =
       __$IndexRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? id, String? index, Map<String, dynamic>? data});
+  $Res call({String? index, Map<String, dynamic>? data, String? id});
 }
 
 /// @nodoc
@@ -1867,15 +1867,11 @@ class __$IndexRequestCopyWithImpl<$Res> extends _$IndexRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? index = freezed,
     Object? data = freezed,
+    Object? id = freezed,
   }) {
     return _then(_IndexRequest(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       index: index == freezed
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -1884,6 +1880,10 @@ class __$IndexRequestCopyWithImpl<$Res> extends _$IndexRequestCopyWithImpl<$Res>
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1891,15 +1891,11 @@ class __$IndexRequestCopyWithImpl<$Res> extends _$IndexRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_IndexRequest implements _IndexRequest {
-  const _$_IndexRequest({this.id, this.index, this.data});
+  const _$_IndexRequest({this.index, this.data, this.id});
 
   factory _$_IndexRequest.fromJson(Map<String, dynamic> json) =>
       _$$_IndexRequestFromJson(json);
 
-  @override
-
-  /// Optional ID for the record
-  final String? id;
   @override
 
   /// The index this record belongs to
@@ -1908,10 +1904,14 @@ class _$_IndexRequest implements _IndexRequest {
 
   /// The data to index
   final Map<String, dynamic>? data;
+  @override
+
+  /// Optional ID for the record
+  final String? id;
 
   @override
   String toString() {
-    return 'IndexRequest(id: $id, index: $index, data: $data)';
+    return 'IndexRequest(index: $index, data: $data, id: $id)';
   }
 
   @override
@@ -1919,17 +1919,17 @@ class _$_IndexRequest implements _IndexRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _IndexRequest &&
-            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.index, index) &&
-            const DeepCollectionEquality().equals(other.data, data));
+            const DeepCollectionEquality().equals(other.data, data) &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(index),
-      const DeepCollectionEquality().hash(data));
+      const DeepCollectionEquality().hash(data),
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -1944,17 +1944,13 @@ class _$_IndexRequest implements _IndexRequest {
 
 abstract class _IndexRequest implements IndexRequest {
   const factory _IndexRequest(
-      {String? id,
-      String? index,
-      Map<String, dynamic>? data}) = _$_IndexRequest;
+      {String? index,
+      Map<String, dynamic>? data,
+      String? id}) = _$_IndexRequest;
 
   factory _IndexRequest.fromJson(Map<String, dynamic> json) =
       _$_IndexRequest.fromJson;
 
-  @override
-
-  /// Optional ID for the record
-  String? get id;
   @override
 
   /// The index this record belongs to
@@ -1963,6 +1959,10 @@ abstract class _IndexRequest implements IndexRequest {
 
   /// The data to index
   Map<String, dynamic>? get data;
+  @override
+
+  /// Optional ID for the record
+  String? get id;
   @override
   @JsonKey(ignore: true)
   _$IndexRequestCopyWith<_IndexRequest> get copyWith =>

@@ -80,6 +80,9 @@ class RoutingService {
 @Freezed()
 class Direction with _$Direction {
   const factory Direction({
+    /// human readable instruction
+    String? instruction,
+
     /// intersections on route
     List<Intersection>? intersections,
 
@@ -97,9 +100,6 @@ class Direction with _$Direction {
 
     /// duration to travel in seconds
     double? duration,
-
-    /// human readable instruction
-    String? instruction,
   }) = _Direction;
   factory Direction.fromJson(Map<String, dynamic> json) =>
       _$DirectionFromJson(json);
@@ -108,11 +108,11 @@ class Direction with _$Direction {
 @Freezed()
 class DirectionsRequest with _$DirectionsRequest {
   const factory DirectionsRequest({
-    /// The staring point for the journey
-    Point? origin,
-
     /// The destination of the journey
     Point? destination,
+
+    /// The staring point for the journey
+    Point? origin,
   }) = _DirectionsRequest;
   factory DirectionsRequest.fromJson(Map<String, dynamic> json) =>
       _$DirectionsRequestFromJson(json);

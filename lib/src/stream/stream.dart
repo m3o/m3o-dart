@@ -118,11 +118,11 @@ class Channel with _$Channel {
 @Freezed()
 class CreateChannelRequest with _$CreateChannelRequest {
   const factory CreateChannelRequest({
-    /// name of the channel
-    String? name,
-
     /// description for the channel
     String? description,
+
+    /// name of the channel
+    String? name,
   }) = _CreateChannelRequest;
   factory CreateChannelRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateChannelRequestFromJson(json);
@@ -186,12 +186,6 @@ class ListMessagesResponse with _$ListMessagesResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
-    /// the channel name
-    String? channel,
-
-    /// id of the message
-    String? id,
-
     /// the associated metadata
     Map<String, String>? metadata,
 
@@ -200,6 +194,12 @@ class Message with _$Message {
 
     /// time of message creation
     String? timestamp,
+
+    /// the channel name
+    String? channel,
+
+    /// id of the message
+    String? id,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
