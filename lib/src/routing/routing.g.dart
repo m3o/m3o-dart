@@ -88,6 +88,7 @@ Map<String, dynamic> _$$DirectionsResponseMerrToJson(
 
 _$_EtaRequest _$$_EtaRequestFromJson(Map<String, dynamic> json) =>
     _$_EtaRequest(
+      type: json['type'] as String?,
       destination: json['destination'] == null
           ? null
           : Point.fromJson(json['destination'] as Map<String, dynamic>),
@@ -95,15 +96,14 @@ _$_EtaRequest _$$_EtaRequestFromJson(Map<String, dynamic> json) =>
           ? null
           : Point.fromJson(json['origin'] as Map<String, dynamic>),
       speed: (json['speed'] as num?)?.toDouble(),
-      type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$$_EtaRequestToJson(_$_EtaRequest instance) =>
     <String, dynamic>{
+      'type': instance.type,
       'destination': instance.destination,
       'origin': instance.origin,
       'speed': instance.speed,
-      'type': instance.type,
     };
 
 _$EtaResponseData _$$EtaResponseDataFromJson(Map<String, dynamic> json) =>
@@ -132,63 +132,63 @@ Map<String, dynamic> _$$EtaResponseMerrToJson(_$EtaResponseMerr instance) =>
 
 _$_Intersection _$$_IntersectionFromJson(Map<String, dynamic> json) =>
     _$_Intersection(
-      bearings: (json['bearings'] as List<dynamic>?)
-          ?.map((e) => (e as num).toDouble())
-          .toList(),
       location: json['location'] == null
           ? null
           : Point.fromJson(json['location'] as Map<String, dynamic>),
+      bearings: (json['bearings'] as List<dynamic>?)
+          ?.map((e) => (e as num).toDouble())
+          .toList(),
     );
 
 Map<String, dynamic> _$$_IntersectionToJson(_$_Intersection instance) =>
     <String, dynamic>{
-      'bearings': instance.bearings,
       'location': instance.location,
+      'bearings': instance.bearings,
     };
 
 _$_Maneuver _$$_ManeuverFromJson(Map<String, dynamic> json) => _$_Maneuver(
+      action: json['action'] as String?,
+      bearing_after: (json['bearing_after'] as num?)?.toDouble(),
       bearing_before: (json['bearing_before'] as num?)?.toDouble(),
       direction: json['direction'] as String?,
       location: json['location'] == null
           ? null
           : Point.fromJson(json['location'] as Map<String, dynamic>),
-      action: json['action'] as String?,
-      bearing_after: (json['bearing_after'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_ManeuverToJson(_$_Maneuver instance) =>
     <String, dynamic>{
+      'action': instance.action,
+      'bearing_after': instance.bearing_after,
       'bearing_before': instance.bearing_before,
       'direction': instance.direction,
       'location': instance.location,
-      'action': instance.action,
-      'bearing_after': instance.bearing_after,
     };
 
 _$_Point _$$_PointFromJson(Map<String, dynamic> json) => _$_Point(
-      longitude: (json['longitude'] as num?)?.toDouble(),
       latitude: (json['latitude'] as num?)?.toDouble(),
+      longitude: (json['longitude'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_PointToJson(_$_Point instance) => <String, dynamic>{
-      'longitude': instance.longitude,
       'latitude': instance.latitude,
+      'longitude': instance.longitude,
     };
 
 _$_RouteRequest _$$_RouteRequestFromJson(Map<String, dynamic> json) =>
     _$_RouteRequest(
-      destination: json['destination'] == null
-          ? null
-          : Point.fromJson(json['destination'] as Map<String, dynamic>),
       origin: json['origin'] == null
           ? null
           : Point.fromJson(json['origin'] as Map<String, dynamic>),
+      destination: json['destination'] == null
+          ? null
+          : Point.fromJson(json['destination'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_RouteRequestToJson(_$_RouteRequest instance) =>
     <String, dynamic>{
-      'destination': instance.destination,
       'origin': instance.origin,
+      'destination': instance.destination,
     };
 
 _$RouteResponseData _$$RouteResponseDataFromJson(Map<String, dynamic> json) =>

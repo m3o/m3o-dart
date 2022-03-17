@@ -4789,10 +4789,10 @@ UploadRequest _$UploadRequestFromJson(Map<String, dynamic> json) {
 class _$UploadRequestTearOff {
   const _$UploadRequestTearOff();
 
-  _UploadRequest call({String? visibility, String? name}) {
+  _UploadRequest call({String? name, String? visibility}) {
     return _UploadRequest(
-      visibility: visibility,
       name: name,
+      visibility: visibility,
     );
   }
 
@@ -4806,9 +4806,10 @@ const $UploadRequest = _$UploadRequestTearOff();
 
 /// @nodoc
 mixin _$UploadRequest {
+  String? get name => throw _privateConstructorUsedError;
+
   /// is this object public or private
   String? get visibility => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -4821,7 +4822,7 @@ abstract class $UploadRequestCopyWith<$Res> {
   factory $UploadRequestCopyWith(
           UploadRequest value, $Res Function(UploadRequest) then) =
       _$UploadRequestCopyWithImpl<$Res>;
-  $Res call({String? visibility, String? name});
+  $Res call({String? name, String? visibility});
 }
 
 /// @nodoc
@@ -4835,17 +4836,17 @@ class _$UploadRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? visibility = freezed,
     Object? name = freezed,
+    Object? visibility = freezed,
   }) {
     return _then(_value.copyWith(
-      visibility: visibility == freezed
-          ? _value.visibility
-          : visibility // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      visibility: visibility == freezed
+          ? _value.visibility
+          : visibility // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -4858,7 +4859,7 @@ abstract class _$UploadRequestCopyWith<$Res>
           _UploadRequest value, $Res Function(_UploadRequest) then) =
       __$UploadRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? visibility, String? name});
+  $Res call({String? name, String? visibility});
 }
 
 /// @nodoc
@@ -4874,17 +4875,17 @@ class __$UploadRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? visibility = freezed,
     Object? name = freezed,
+    Object? visibility = freezed,
   }) {
     return _then(_UploadRequest(
-      visibility: visibility == freezed
-          ? _value.visibility
-          : visibility // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      visibility: visibility == freezed
+          ? _value.visibility
+          : visibility // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -4893,21 +4894,21 @@ class __$UploadRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UploadRequest implements _UploadRequest {
-  const _$_UploadRequest({this.visibility, this.name});
+  const _$_UploadRequest({this.name, this.visibility});
 
   factory _$_UploadRequest.fromJson(Map<String, dynamic> json) =>
       _$$_UploadRequestFromJson(json);
 
   @override
+  final String? name;
+  @override
 
   /// is this object public or private
   final String? visibility;
-  @override
-  final String? name;
 
   @override
   String toString() {
-    return 'UploadRequest(visibility: $visibility, name: $name)';
+    return 'UploadRequest(name: $name, visibility: $visibility)';
   }
 
   @override
@@ -4915,16 +4916,16 @@ class _$_UploadRequest implements _UploadRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _UploadRequest &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
-                .equals(other.visibility, visibility) &&
-            const DeepCollectionEquality().equals(other.name, name));
+                .equals(other.visibility, visibility));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(visibility),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(visibility));
 
   @JsonKey(ignore: true)
   @override
@@ -4938,18 +4939,18 @@ class _$_UploadRequest implements _UploadRequest {
 }
 
 abstract class _UploadRequest implements UploadRequest {
-  const factory _UploadRequest({String? visibility, String? name}) =
+  const factory _UploadRequest({String? name, String? visibility}) =
       _$_UploadRequest;
 
   factory _UploadRequest.fromJson(Map<String, dynamic> json) =
       _$_UploadRequest.fromJson;
 
   @override
+  String? get name;
+  @override
 
   /// is this object public or private
   String? get visibility;
-  @override
-  String? get name;
   @override
   @JsonKey(ignore: true)
   _$UploadRequestCopyWith<_UploadRequest> get copyWith =>

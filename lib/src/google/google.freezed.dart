@@ -577,19 +577,19 @@ class _$SearchResultTearOff {
   const _$SearchResultTearOff();
 
   _SearchResult call(
-      {String? url,
-      String? display_url,
+      {String? display_url,
       String? id,
       String? kind,
       String? snippet,
-      String? title}) {
+      String? title,
+      String? url}) {
     return _SearchResult(
-      url: url,
       display_url: display_url,
       id: id,
       kind: kind,
       snippet: snippet,
       title: title,
+      url: url,
     );
   }
 
@@ -603,9 +603,6 @@ const $SearchResult = _$SearchResultTearOff();
 
 /// @nodoc
 mixin _$SearchResult {
-  /// the full url for the result
-  String? get url => throw _privateConstructorUsedError;
-
   /// abridged version of this search result’s URL, e.g. www.exampe.com
   String? get display_url => throw _privateConstructorUsedError;
 
@@ -621,6 +618,9 @@ mixin _$SearchResult {
   /// title of the result
   String? get title => throw _privateConstructorUsedError;
 
+  /// the full url for the result
+  String? get url => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SearchResultCopyWith<SearchResult> get copyWith =>
@@ -633,12 +633,12 @@ abstract class $SearchResultCopyWith<$Res> {
           SearchResult value, $Res Function(SearchResult) then) =
       _$SearchResultCopyWithImpl<$Res>;
   $Res call(
-      {String? url,
-      String? display_url,
+      {String? display_url,
       String? id,
       String? kind,
       String? snippet,
-      String? title});
+      String? title,
+      String? url});
 }
 
 /// @nodoc
@@ -651,18 +651,14 @@ class _$SearchResultCopyWithImpl<$Res> implements $SearchResultCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? url = freezed,
     Object? display_url = freezed,
     Object? id = freezed,
     Object? kind = freezed,
     Object? snippet = freezed,
     Object? title = freezed,
+    Object? url = freezed,
   }) {
     return _then(_value.copyWith(
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
       display_url: display_url == freezed
           ? _value.display_url
           : display_url // ignore: cast_nullable_to_non_nullable
@@ -683,6 +679,10 @@ class _$SearchResultCopyWithImpl<$Res> implements $SearchResultCopyWith<$Res> {
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -695,12 +695,12 @@ abstract class _$SearchResultCopyWith<$Res>
       __$SearchResultCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? url,
-      String? display_url,
+      {String? display_url,
       String? id,
       String? kind,
       String? snippet,
-      String? title});
+      String? title,
+      String? url});
 }
 
 /// @nodoc
@@ -715,18 +715,14 @@ class __$SearchResultCopyWithImpl<$Res> extends _$SearchResultCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? url = freezed,
     Object? display_url = freezed,
     Object? id = freezed,
     Object? kind = freezed,
     Object? snippet = freezed,
     Object? title = freezed,
+    Object? url = freezed,
   }) {
     return _then(_SearchResult(
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
       display_url: display_url == freezed
           ? _value.display_url
           : display_url // ignore: cast_nullable_to_non_nullable
@@ -747,6 +743,10 @@ class __$SearchResultCopyWithImpl<$Res> extends _$SearchResultCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -755,20 +755,16 @@ class __$SearchResultCopyWithImpl<$Res> extends _$SearchResultCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SearchResult implements _SearchResult {
   const _$_SearchResult(
-      {this.url,
-      this.display_url,
+      {this.display_url,
       this.id,
       this.kind,
       this.snippet,
-      this.title});
+      this.title,
+      this.url});
 
   factory _$_SearchResult.fromJson(Map<String, dynamic> json) =>
       _$$_SearchResultFromJson(json);
 
-  @override
-
-  /// the full url for the result
-  final String? url;
   @override
 
   /// abridged version of this search result’s URL, e.g. www.exampe.com
@@ -789,10 +785,14 @@ class _$_SearchResult implements _SearchResult {
 
   /// title of the result
   final String? title;
+  @override
+
+  /// the full url for the result
+  final String? url;
 
   @override
   String toString() {
-    return 'SearchResult(url: $url, display_url: $display_url, id: $id, kind: $kind, snippet: $snippet, title: $title)';
+    return 'SearchResult(display_url: $display_url, id: $id, kind: $kind, snippet: $snippet, title: $title, url: $url)';
   }
 
   @override
@@ -800,24 +800,24 @@ class _$_SearchResult implements _SearchResult {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SearchResult &&
-            const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality()
                 .equals(other.display_url, display_url) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.kind, kind) &&
             const DeepCollectionEquality().equals(other.snippet, snippet) &&
-            const DeepCollectionEquality().equals(other.title, title));
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.url, url));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(display_url),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(kind),
       const DeepCollectionEquality().hash(snippet),
-      const DeepCollectionEquality().hash(title));
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(url));
 
   @JsonKey(ignore: true)
   @override
@@ -832,20 +832,16 @@ class _$_SearchResult implements _SearchResult {
 
 abstract class _SearchResult implements SearchResult {
   const factory _SearchResult(
-      {String? url,
-      String? display_url,
+      {String? display_url,
       String? id,
       String? kind,
       String? snippet,
-      String? title}) = _$_SearchResult;
+      String? title,
+      String? url}) = _$_SearchResult;
 
   factory _SearchResult.fromJson(Map<String, dynamic> json) =
       _$_SearchResult.fromJson;
 
-  @override
-
-  /// the full url for the result
-  String? get url;
   @override
 
   /// abridged version of this search result’s URL, e.g. www.exampe.com
@@ -866,6 +862,10 @@ abstract class _SearchResult implements SearchResult {
 
   /// title of the result
   String? get title;
+  @override
+
+  /// the full url for the result
+  String? get url;
   @override
   @JsonKey(ignore: true)
   _$SearchResultCopyWith<_SearchResult> get copyWith =>

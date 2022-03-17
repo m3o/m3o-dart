@@ -324,14 +324,14 @@ Map<String, dynamic> _$$UpdateResponseMerrToJson(
 
 _$_UploadRequest _$$_UploadRequestFromJson(Map<String, dynamic> json) =>
     _$_UploadRequest(
-      visibility: json['visibility'] as String?,
       name: json['name'] as String?,
+      visibility: json['visibility'] as String?,
     );
 
 Map<String, dynamic> _$$_UploadRequestToJson(_$_UploadRequest instance) =>
     <String, dynamic>{
-      'visibility': instance.visibility,
       'name': instance.name,
+      'visibility': instance.visibility,
     };
 
 _$UploadResponseData _$$UploadResponseDataFromJson(Map<String, dynamic> json) =>

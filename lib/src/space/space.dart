@@ -406,9 +406,10 @@ class UpdateResponse with _$UpdateResponse {
 @Freezed()
 class UploadRequest with _$UploadRequest {
   const factory UploadRequest({
+    String? name,
+
     /// is this object public or private
     String? visibility,
-    String? name,
   }) = _UploadRequest;
   factory UploadRequest.fromJson(Map<String, dynamic> json) =>
       _$UploadRequestFromJson(json);
