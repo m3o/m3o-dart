@@ -133,8 +133,8 @@ class ConvertRequest with _$ConvertRequest {
 @Freezed()
 class ConvertResponse with _$ConvertResponse {
   const factory ConvertResponse({
-    String? base64,
     String? url,
+    String? base64,
   }) = ConvertResponseData;
   const factory ConvertResponse.Merr({Map<String, dynamic>? body}) =
       ConvertResponseMerr;
@@ -145,9 +145,6 @@ class ConvertResponse with _$ConvertResponse {
 @Freezed()
 class CropOptions with _$CropOptions {
   const factory CropOptions({
-    /// width to crop to
-    int? width,
-
     /// Crop anchor point: "top", "top left", "top right",
     /// "left", "center", "right"
     /// "bottom left", "bottom", "bottom right".
@@ -156,6 +153,9 @@ class CropOptions with _$CropOptions {
 
     /// height to crop to
     int? height,
+
+    /// width to crop to
+    int? width,
   }) = _CropOptions;
   factory CropOptions.fromJson(Map<String, dynamic> json) =>
       _$CropOptionsFromJson(json);
@@ -183,8 +183,8 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Point with _$Point {
   const factory Point({
-    int? x,
     int? y,
+    int? x,
   }) = _Point;
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 }
@@ -202,9 +202,6 @@ class Rectangle with _$Rectangle {
 @Freezed()
 class ResizeRequest with _$ResizeRequest {
   const factory ResizeRequest({
-    /// base64 encoded image to resize,
-    String? base64,
-
     /// optional crop options
     /// if provided, after resize, the image
     /// will be cropped
@@ -223,6 +220,9 @@ class ResizeRequest with _$ResizeRequest {
     /// url of the image to resize
     String? url,
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
+
+    /// base64 encoded image to resize,
+    String? base64,
   }) = _ResizeRequest;
   factory ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$ResizeRequestFromJson(json);

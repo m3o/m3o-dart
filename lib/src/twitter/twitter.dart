@@ -101,20 +101,8 @@ class TwitterService {
 @Freezed()
 class Profile with _$Profile {
   const factory Profile({
-    /// if the account is private
-    bool? private,
-
-    /// the username
-    String? username,
-
-    /// if the account is verified
-    bool? verified,
-
     /// the account creation date
     String? created_at,
-
-    /// the user description
-    String? description,
 
     /// the follower count
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
@@ -122,14 +110,26 @@ class Profile with _$Profile {
     /// the user's location
     String? location,
 
-    /// display name of the user
-    String? name,
+    /// if the account is verified
+    bool? verified,
+
+    /// the username
+    String? username,
+
+    /// the user description
+    String? description,
 
     /// the user id
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
 
     /// The user's profile picture
     String? image_url,
+
+    /// display name of the user
+    String? name,
+
+    /// if the account is private
+    bool? private,
   }) = _Profile;
   factory Profile.fromJson(Map<String, dynamic> json) =>
       _$ProfileFromJson(json);
@@ -223,6 +223,9 @@ class TrendsResponse with _$TrendsResponse {
 @Freezed()
 class Tweet with _$Tweet {
   const factory Tweet({
+    /// username of the person who tweeted
+    String? username,
+
     /// time of tweet
     String? created_at,
 
@@ -239,9 +242,6 @@ class Tweet with _$Tweet {
 
     /// text of the tweet
     String? text,
-
-    /// username of the person who tweeted
-    String? username,
   }) = _Tweet;
   factory Tweet.fromJson(Map<String, dynamic> json) => _$TweetFromJson(json);
 }
@@ -259,11 +259,11 @@ class UserRequest with _$UserRequest {
 @Freezed()
 class UserResponse with _$UserResponse {
   const factory UserResponse({
-    /// The requested user profile
-    Profile? profile,
-
     /// the current user status
     Tweet? status,
+
+    /// The requested user profile
+    Profile? profile,
   }) = UserResponseData;
   const factory UserResponse.Merr({Map<String, dynamic>? body}) =
       UserResponseMerr;
