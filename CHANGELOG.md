@@ -1,3 +1,9 @@
+## v1.0.38 - 2022-03-17
+
+[f3a019](https://github.com/micro/services/commit/f3a0197cdf2c759e8bea2c3812b15af847581eca) Update publicapi.json
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.37...v1.0.38
+
 ## v1.0.37 - 2022-03-16
 
 [8ee80a](https://github.com/micro/services/commit/8ee80a672fe29c93a999e918b3ccfacaf53604d6) add gcloud ignore files
