@@ -430,15 +430,6 @@ class Message with _$Message {
 @Freezed()
 class Room with _$Room {
   const factory Room({
-    /// name of the chat
-    String? name,
-
-    /// whether its a private room
-    bool? private,
-
-    /// list of users
-    String? user_ids,
-
     /// time of creation
     String? created_at,
 
@@ -447,6 +438,15 @@ class Room with _$Room {
 
     /// unique room id
     String? id,
+
+    /// name of the chat
+    String? name,
+
+    /// whether its a private room
+    bool? private,
+
+    /// list of users
+    String? user_ids,
   }) = _Room;
   factory Room.fromJson(Map<String, dynamic> json) => _$RoomFromJson(json);
 }

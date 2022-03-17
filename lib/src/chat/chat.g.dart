@@ -340,21 +340,21 @@ Map<String, dynamic> _$$_MessageToJson(_$_Message instance) =>
     };
 
 _$_Room _$$_RoomFromJson(Map<String, dynamic> json) => _$_Room(
-      name: json['name'] as String?,
-      private: json['private'] as bool?,
-      user_ids: json['user_ids'] as String?,
       created_at: json['created_at'] as String?,
       description: json['description'] as String?,
       id: json['id'] as String?,
+      name: json['name'] as String?,
+      private: json['private'] as bool?,
+      user_ids: json['user_ids'] as String?,
     );
 
 Map<String, dynamic> _$$_RoomToJson(_$_Room instance) => <String, dynamic>{
-      'name': instance.name,
-      'private': instance.private,
-      'user_ids': instance.user_ids,
       'created_at': instance.created_at,
       'description': instance.description,
       'id': instance.id,
+      'name': instance.name,
+      'private': instance.private,
+      'user_ids': instance.user_ids,
     };
 
 _$_SendRequest _$$_SendRequestFromJson(Map<String, dynamic> json) =>

@@ -175,15 +175,6 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class Record with _$Record {
   const factory Record({
-    /// Time the file was updated e.g 2021-05-20T13:37:21Z
-    String? updated,
-
-    /// File contents
-    String? content,
-
-    /// Time the file was created e.g 2021-05-20T13:37:21Z
-    String? created,
-
     /// Any other associated metadata as a map of key-value pairs
     Map<String, String>? metadata,
 
@@ -193,6 +184,15 @@ class Record with _$Record {
     /// A custom project to group files
     /// eg. file-of-mywebsite.com
     String? project,
+
+    /// Time the file was updated e.g 2021-05-20T13:37:21Z
+    String? updated,
+
+    /// File contents
+    String? content,
+
+    /// Time the file was created e.g 2021-05-20T13:37:21Z
+    String? created,
   }) = _Record;
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }
@@ -200,11 +200,11 @@ class Record with _$Record {
 @Freezed()
 class SaveRequest with _$SaveRequest {
   const factory SaveRequest({
-    /// The file to save
-    Record? file,
-
     /// Make the file public: true or false
     bool? public,
+
+    /// The file to save
+    Record? file,
   }) = _SaveRequest;
   factory SaveRequest.fromJson(Map<String, dynamic> json) =>
       _$SaveRequestFromJson(json);
