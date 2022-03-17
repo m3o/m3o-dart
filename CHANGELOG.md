@@ -1,13 +1,3 @@
-## v1.0.43 - 2022-03-17
-
-[3f11ab](https://github.com/micro/services/commit/3f11ab2e0e27a152a41ba3291e8f218bbcbf49ac) Build logs for functions (#406)
-
-## What's Changed
-
-- remove one step "extract current version" and update step by @lambdaR in https://github.com/m3o/m3o-dart/pull/12
-
-**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.42...v1.0.43
-
 ## v1.0.42 - 2022-03-17
 
 [d3ff82](https://github.com/micro/services/commit/d3ff82fb93dab986df07722d00f52e2c763fccf4) fix example
