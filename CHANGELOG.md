@@ -1,3 +1,9 @@
+## v1.0.40 - 2022-03-17
+
+[f3a019](https://github.com/micro/services/commit/f3a0197cdf2c759e8bea2c3812b15af847581eca) Update publicapi.json
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.39...v1.0.40
+
 ## v1.0.39 - 2022-03-17
 
 [f3a019](https://github.com/micro/services/commit/f3a0197cdf2c759e8bea2c3812b15af847581eca) Update publicapi.json
