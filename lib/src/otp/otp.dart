@@ -59,14 +59,14 @@ class OtpService {
 @Freezed()
 class GenerateRequest with _$GenerateRequest {
   const factory GenerateRequest({
+    /// expiration in seconds (default: 60)
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? expiry,
+
     /// unique id, email or user to generate an OTP for
     String? id,
 
     /// number of characters (default: 6)
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
-
-    /// expiration in seconds (default: 60)
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? expiry,
   }) = _GenerateRequest;
   factory GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$GenerateRequestFromJson(json);
@@ -87,11 +87,11 @@ class GenerateResponse with _$GenerateResponse {
 @Freezed()
 class ValidateRequest with _$ValidateRequest {
   const factory ValidateRequest({
-    /// unique id, email or user for which the code was generated
-    String? id,
-
     /// one time pass code to validate
     String? code,
+
+    /// unique id, email or user for which the code was generated
+    String? id,
   }) = _ValidateRequest;
   factory ValidateRequest.fromJson(Map<String, dynamic> json) =>
       _$ValidateRequestFromJson(json);

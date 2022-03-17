@@ -156,11 +156,11 @@ class DecrementRequest with _$DecrementRequest {
 @Freezed()
 class DecrementResponse with _$DecrementResponse {
   const factory DecrementResponse({
-    /// The new value
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
-
     /// The key decremented
     String? key,
+
+    /// The new value
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
   }) = DecrementResponseData;
   const factory DecrementResponse.Merr({Map<String, dynamic>? body}) =
       DecrementResponseMerr;
@@ -203,14 +203,14 @@ class GetRequest with _$GetRequest {
 @Freezed()
 class GetResponse with _$GetResponse {
   const factory GetResponse({
+    /// The key
+    String? key,
+
     /// Time to live in seconds
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
 
     /// The value
     String? value,
-
-    /// The key
-    String? key,
   }) = GetResponseData;
   const factory GetResponse.Merr({Map<String, dynamic>? body}) =
       GetResponseMerr;
@@ -267,14 +267,14 @@ class ListKeysResponse with _$ListKeysResponse {
 @Freezed()
 class SetRequest with _$SetRequest {
   const factory SetRequest({
-    /// The key to update
-    String? key,
-
     /// Time to live in seconds
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
 
     /// The value to set
     String? value,
+
+    /// The key to update
+    String? key,
   }) = _SetRequest;
   factory SetRequest.fromJson(Map<String, dynamic> json) =>
       _$SetRequestFromJson(json);
