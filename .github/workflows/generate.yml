@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Set up Go 1.13
+      - name: Set up Go 1.17
         uses: actions/setup-go@v2
         with:
-          go-version: 1.13
+          go-version: 1.17
         id: go
 
       - name: Set up dart latest
@@ -73,14 +73,8 @@ jobs:
         working-directory: m3o
         run: |
           # build the client generator
-          pwd
-          cd cmd/m3o-client-gen;
+          cd cmd/m3o-client-gen/
           go install
-          cd ../../
-          # delete existing cmd directory
-          rm -rf ../services/cmd
-          # copy our command directory in
-          cp -r cmd ../services/
       
       - name: Generate Dart Clients
         working-directory: services
@@ -127,57 +121,14 @@ jobs:
       - name: house cleaning remove unnecessary files/folders
         working-directory: m3o-dart
         run: |
-          rm -rf .dart_tool .git .gitignore .packages pubspec.lock
-      
-      # https://stackoverflow.com/questions/58033366/how-to-get-current-branch-within-github-actions
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-      
-      - name: Push Dart clients
-        uses: dmnemec/copy_file_to_another_repo_action@main
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          source_file: 'm3o-dart/lib/'
-          destination_repo: 'm3o/m3o-dart'
-          destination_branch: ${{ steps.extract_branch.outputs.branch }}
-          destination_folder: 'lib/'
-          git_server: 'github.com'
-          user_name: $GITHUB_ACTOR
-          use_rsync: true
-          commit_message: 'Push Dart clients'
+          rm -rf .dart_tool .gitignore .packages pubspec.lock
 
-      - name: Push Dart examples
-        uses: dmnemec/copy_file_to_another_repo_action@main
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
+      - name: Add & Commit
+        uses: EndBug/add-and-commit@v9.0.0
         with:
-          source_file: 'm3o-dart/example/'
-          destination_repo: 'm3o/m3o-dart'
-          destination_branch: ${{ steps.extract_branch.outputs.branch }}
-          destination_folder: 'example/'
-          git_server: 'github.com'
-          user_name: $GITHUB_ACTOR
-          use_rsync: true
-          commit_message: 'Push Dart examples'
-
-      - name: Push Dart pubspec and changelog
-        uses: dmnemec/copy_file_to_another_repo_action@main
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          source_file: 'm3o-dart/'
-          destination_repo: 'm3o/m3o-dart'
-          destination_branch: ${{ steps.extract_branch.outputs.branch }}
-          git_server: 'github.com'
-          user_name: $GITHUB_ACTOR
-          use_rsync: true
-          commit_message: 'Push Dart pubspec and changelog'
+          cwd: m3o-dart
+          message: Push to M3O-Dart repo
+          pathspec_error_handling: exitImmediately
 
       - name: generate latest release note from micro/services repo
         working-directory: m3o
