@@ -38,13 +38,12 @@ class ThumbnailService {
 @Freezed()
 class ScreenshotRequest with _$ScreenshotRequest {
   const factory ScreenshotRequest({
+    /// height of the browser window, optional
+    int? height,
     String? url,
 
     /// width of the browser window. optional
     int? width,
-
-    /// height of the browser window, optional
-    int? height,
   }) = _ScreenshotRequest;
   factory ScreenshotRequest.fromJson(Map<String, dynamic> json) =>
       _$ScreenshotRequestFromJson(json);

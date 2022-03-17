@@ -23,27 +23,27 @@ class _$ChapterTearOff {
   const _$ChapterTearOff();
 
   _Chapter call(
-      {String? name,
-      bool? prefix_bismillah,
-      String? translated_name,
+      {int? verses,
       String? arabic_name,
       String? complex_name,
-      int? id,
+      String? name,
       List<int>? pages,
       int? revelation_order,
-      String? revelation_place,
-      int? verses}) {
+      String? translated_name,
+      int? id,
+      bool? prefix_bismillah,
+      String? revelation_place}) {
     return _Chapter(
-      name: name,
-      prefix_bismillah: prefix_bismillah,
-      translated_name: translated_name,
+      verses: verses,
       arabic_name: arabic_name,
       complex_name: complex_name,
-      id: id,
+      name: name,
       pages: pages,
       revelation_order: revelation_order,
+      translated_name: translated_name,
+      id: id,
+      prefix_bismillah: prefix_bismillah,
       revelation_place: revelation_place,
-      verses: verses,
     );
   }
 
@@ -57,14 +57,8 @@ const $Chapter = _$ChapterTearOff();
 
 /// @nodoc
 mixin _$Chapter {
-  /// The simple name of the chapter
-  String? get name => throw _privateConstructorUsedError;
-
-  /// Should the chapter start with bismillah
-  bool? get prefix_bismillah => throw _privateConstructorUsedError;
-
-  /// The translated name
-  String? get translated_name => throw _privateConstructorUsedError;
+  /// The number of verses in the chapter
+  int? get verses => throw _privateConstructorUsedError;
 
   /// The arabic name of the chapter
   String? get arabic_name => throw _privateConstructorUsedError;
@@ -72,8 +66,8 @@ mixin _$Chapter {
   /// The complex name of the chapter
   String? get complex_name => throw _privateConstructorUsedError;
 
-  /// The id of the chapter as a number e.g 1
-  int? get id => throw _privateConstructorUsedError;
+  /// The simple name of the chapter
+  String? get name => throw _privateConstructorUsedError;
 
   /// The pages from and to e.g 1, 1
   List<int>? get pages => throw _privateConstructorUsedError;
@@ -81,11 +75,17 @@ mixin _$Chapter {
   /// The order in which it was revealed
   int? get revelation_order => throw _privateConstructorUsedError;
 
+  /// The translated name
+  String? get translated_name => throw _privateConstructorUsedError;
+
+  /// The id of the chapter as a number e.g 1
+  int? get id => throw _privateConstructorUsedError;
+
+  /// Should the chapter start with bismillah
+  bool? get prefix_bismillah => throw _privateConstructorUsedError;
+
   /// The place of revelation
   String? get revelation_place => throw _privateConstructorUsedError;
-
-  /// The number of verses in the chapter
-  int? get verses => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -97,16 +97,16 @@ abstract class $ChapterCopyWith<$Res> {
   factory $ChapterCopyWith(Chapter value, $Res Function(Chapter) then) =
       _$ChapterCopyWithImpl<$Res>;
   $Res call(
-      {String? name,
-      bool? prefix_bismillah,
-      String? translated_name,
+      {int? verses,
       String? arabic_name,
       String? complex_name,
-      int? id,
+      String? name,
       List<int>? pages,
       int? revelation_order,
-      String? revelation_place,
-      int? verses});
+      String? translated_name,
+      int? id,
+      bool? prefix_bismillah,
+      String? revelation_place});
 }
 
 /// @nodoc
@@ -119,30 +119,22 @@ class _$ChapterCopyWithImpl<$Res> implements $ChapterCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? name = freezed,
-    Object? prefix_bismillah = freezed,
-    Object? translated_name = freezed,
+    Object? verses = freezed,
     Object? arabic_name = freezed,
     Object? complex_name = freezed,
-    Object? id = freezed,
+    Object? name = freezed,
     Object? pages = freezed,
     Object? revelation_order = freezed,
+    Object? translated_name = freezed,
+    Object? id = freezed,
+    Object? prefix_bismillah = freezed,
     Object? revelation_place = freezed,
-    Object? verses = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      prefix_bismillah: prefix_bismillah == freezed
-          ? _value.prefix_bismillah
-          : prefix_bismillah // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      translated_name: translated_name == freezed
-          ? _value.translated_name
-          : translated_name // ignore: cast_nullable_to_non_nullable
-              as String?,
+      verses: verses == freezed
+          ? _value.verses
+          : verses // ignore: cast_nullable_to_non_nullable
+              as int?,
       arabic_name: arabic_name == freezed
           ? _value.arabic_name
           : arabic_name // ignore: cast_nullable_to_non_nullable
@@ -151,10 +143,10 @@ class _$ChapterCopyWithImpl<$Res> implements $ChapterCopyWith<$Res> {
           ? _value.complex_name
           : complex_name // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       pages: pages == freezed
           ? _value.pages
           : pages // ignore: cast_nullable_to_non_nullable
@@ -163,14 +155,22 @@ class _$ChapterCopyWithImpl<$Res> implements $ChapterCopyWith<$Res> {
           ? _value.revelation_order
           : revelation_order // ignore: cast_nullable_to_non_nullable
               as int?,
+      translated_name: translated_name == freezed
+          ? _value.translated_name
+          : translated_name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      prefix_bismillah: prefix_bismillah == freezed
+          ? _value.prefix_bismillah
+          : prefix_bismillah // ignore: cast_nullable_to_non_nullable
+              as bool?,
       revelation_place: revelation_place == freezed
           ? _value.revelation_place
           : revelation_place // ignore: cast_nullable_to_non_nullable
               as String?,
-      verses: verses == freezed
-          ? _value.verses
-          : verses // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -181,16 +181,16 @@ abstract class _$ChapterCopyWith<$Res> implements $ChapterCopyWith<$Res> {
       __$ChapterCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? name,
-      bool? prefix_bismillah,
-      String? translated_name,
+      {int? verses,
       String? arabic_name,
       String? complex_name,
-      int? id,
+      String? name,
       List<int>? pages,
       int? revelation_order,
-      String? revelation_place,
-      int? verses});
+      String? translated_name,
+      int? id,
+      bool? prefix_bismillah,
+      String? revelation_place});
 }
 
 /// @nodoc
@@ -204,30 +204,22 @@ class __$ChapterCopyWithImpl<$Res> extends _$ChapterCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
-    Object? prefix_bismillah = freezed,
-    Object? translated_name = freezed,
+    Object? verses = freezed,
     Object? arabic_name = freezed,
     Object? complex_name = freezed,
-    Object? id = freezed,
+    Object? name = freezed,
     Object? pages = freezed,
     Object? revelation_order = freezed,
+    Object? translated_name = freezed,
+    Object? id = freezed,
+    Object? prefix_bismillah = freezed,
     Object? revelation_place = freezed,
-    Object? verses = freezed,
   }) {
     return _then(_Chapter(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      prefix_bismillah: prefix_bismillah == freezed
-          ? _value.prefix_bismillah
-          : prefix_bismillah // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      translated_name: translated_name == freezed
-          ? _value.translated_name
-          : translated_name // ignore: cast_nullable_to_non_nullable
-              as String?,
+      verses: verses == freezed
+          ? _value.verses
+          : verses // ignore: cast_nullable_to_non_nullable
+              as int?,
       arabic_name: arabic_name == freezed
           ? _value.arabic_name
           : arabic_name // ignore: cast_nullable_to_non_nullable
@@ -236,10 +228,10 @@ class __$ChapterCopyWithImpl<$Res> extends _$ChapterCopyWithImpl<$Res>
           ? _value.complex_name
           : complex_name // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       pages: pages == freezed
           ? _value.pages
           : pages // ignore: cast_nullable_to_non_nullable
@@ -248,14 +240,22 @@ class __$ChapterCopyWithImpl<$Res> extends _$ChapterCopyWithImpl<$Res>
           ? _value.revelation_order
           : revelation_order // ignore: cast_nullable_to_non_nullable
               as int?,
+      translated_name: translated_name == freezed
+          ? _value.translated_name
+          : translated_name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      prefix_bismillah: prefix_bismillah == freezed
+          ? _value.prefix_bismillah
+          : prefix_bismillah // ignore: cast_nullable_to_non_nullable
+              as bool?,
       revelation_place: revelation_place == freezed
           ? _value.revelation_place
           : revelation_place // ignore: cast_nullable_to_non_nullable
               as String?,
-      verses: verses == freezed
-          ? _value.verses
-          : verses // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -264,32 +264,24 @@ class __$ChapterCopyWithImpl<$Res> extends _$ChapterCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Chapter implements _Chapter {
   const _$_Chapter(
-      {this.name,
-      this.prefix_bismillah,
-      this.translated_name,
+      {this.verses,
       this.arabic_name,
       this.complex_name,
-      this.id,
+      this.name,
       this.pages,
       this.revelation_order,
-      this.revelation_place,
-      this.verses});
+      this.translated_name,
+      this.id,
+      this.prefix_bismillah,
+      this.revelation_place});
 
   factory _$_Chapter.fromJson(Map<String, dynamic> json) =>
       _$$_ChapterFromJson(json);
 
   @override
 
-  /// The simple name of the chapter
-  final String? name;
-  @override
-
-  /// Should the chapter start with bismillah
-  final bool? prefix_bismillah;
-  @override
-
-  /// The translated name
-  final String? translated_name;
+  /// The number of verses in the chapter
+  final int? verses;
   @override
 
   /// The arabic name of the chapter
@@ -300,8 +292,8 @@ class _$_Chapter implements _Chapter {
   final String? complex_name;
   @override
 
-  /// The id of the chapter as a number e.g 1
-  final int? id;
+  /// The simple name of the chapter
+  final String? name;
   @override
 
   /// The pages from and to e.g 1, 1
@@ -312,16 +304,24 @@ class _$_Chapter implements _Chapter {
   final int? revelation_order;
   @override
 
-  /// The place of revelation
-  final String? revelation_place;
+  /// The translated name
+  final String? translated_name;
   @override
 
-  /// The number of verses in the chapter
-  final int? verses;
+  /// The id of the chapter as a number e.g 1
+  final int? id;
+  @override
+
+  /// Should the chapter start with bismillah
+  final bool? prefix_bismillah;
+  @override
+
+  /// The place of revelation
+  final String? revelation_place;
 
   @override
   String toString() {
-    return 'Chapter(name: $name, prefix_bismillah: $prefix_bismillah, translated_name: $translated_name, arabic_name: $arabic_name, complex_name: $complex_name, id: $id, pages: $pages, revelation_order: $revelation_order, revelation_place: $revelation_place, verses: $verses)';
+    return 'Chapter(verses: $verses, arabic_name: $arabic_name, complex_name: $complex_name, name: $name, pages: $pages, revelation_order: $revelation_order, translated_name: $translated_name, id: $id, prefix_bismillah: $prefix_bismillah, revelation_place: $revelation_place)';
   }
 
   @override
@@ -329,37 +329,37 @@ class _$_Chapter implements _Chapter {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Chapter &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality()
-                .equals(other.prefix_bismillah, prefix_bismillah) &&
-            const DeepCollectionEquality()
-                .equals(other.translated_name, translated_name) &&
+            const DeepCollectionEquality().equals(other.verses, verses) &&
             const DeepCollectionEquality()
                 .equals(other.arabic_name, arabic_name) &&
             const DeepCollectionEquality()
                 .equals(other.complex_name, complex_name) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.pages, pages) &&
             const DeepCollectionEquality()
                 .equals(other.revelation_order, revelation_order) &&
             const DeepCollectionEquality()
-                .equals(other.revelation_place, revelation_place) &&
-            const DeepCollectionEquality().equals(other.verses, verses));
+                .equals(other.translated_name, translated_name) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality()
+                .equals(other.prefix_bismillah, prefix_bismillah) &&
+            const DeepCollectionEquality()
+                .equals(other.revelation_place, revelation_place));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(prefix_bismillah),
-      const DeepCollectionEquality().hash(translated_name),
+      const DeepCollectionEquality().hash(verses),
       const DeepCollectionEquality().hash(arabic_name),
       const DeepCollectionEquality().hash(complex_name),
-      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(pages),
       const DeepCollectionEquality().hash(revelation_order),
-      const DeepCollectionEquality().hash(revelation_place),
-      const DeepCollectionEquality().hash(verses));
+      const DeepCollectionEquality().hash(translated_name),
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(prefix_bismillah),
+      const DeepCollectionEquality().hash(revelation_place));
 
   @JsonKey(ignore: true)
   @override
@@ -374,31 +374,23 @@ class _$_Chapter implements _Chapter {
 
 abstract class _Chapter implements Chapter {
   const factory _Chapter(
-      {String? name,
-      bool? prefix_bismillah,
-      String? translated_name,
+      {int? verses,
       String? arabic_name,
       String? complex_name,
-      int? id,
+      String? name,
       List<int>? pages,
       int? revelation_order,
-      String? revelation_place,
-      int? verses}) = _$_Chapter;
+      String? translated_name,
+      int? id,
+      bool? prefix_bismillah,
+      String? revelation_place}) = _$_Chapter;
 
   factory _Chapter.fromJson(Map<String, dynamic> json) = _$_Chapter.fromJson;
 
   @override
 
-  /// The simple name of the chapter
-  String? get name;
-  @override
-
-  /// Should the chapter start with bismillah
-  bool? get prefix_bismillah;
-  @override
-
-  /// The translated name
-  String? get translated_name;
+  /// The number of verses in the chapter
+  int? get verses;
   @override
 
   /// The arabic name of the chapter
@@ -409,8 +401,8 @@ abstract class _Chapter implements Chapter {
   String? get complex_name;
   @override
 
-  /// The id of the chapter as a number e.g 1
-  int? get id;
+  /// The simple name of the chapter
+  String? get name;
   @override
 
   /// The pages from and to e.g 1, 1
@@ -421,12 +413,20 @@ abstract class _Chapter implements Chapter {
   int? get revelation_order;
   @override
 
-  /// The place of revelation
-  String? get revelation_place;
+  /// The translated name
+  String? get translated_name;
   @override
 
-  /// The number of verses in the chapter
-  int? get verses;
+  /// The id of the chapter as a number e.g 1
+  int? get id;
+  @override
+
+  /// Should the chapter start with bismillah
+  bool? get prefix_bismillah;
+  @override
+
+  /// The place of revelation
+  String? get revelation_place;
   @override
   @JsonKey(ignore: true)
   _$ChapterCopyWith<_Chapter> get copyWith =>
@@ -2167,10 +2167,10 @@ SummaryRequest _$SummaryRequestFromJson(Map<String, dynamic> json) {
 class _$SummaryRequestTearOff {
   const _$SummaryRequestTearOff();
 
-  _SummaryRequest call({int? chapter, String? language}) {
+  _SummaryRequest call({String? language, int? chapter}) {
     return _SummaryRequest(
-      chapter: chapter,
       language: language,
+      chapter: chapter,
     );
   }
 
@@ -2184,11 +2184,11 @@ const $SummaryRequest = _$SummaryRequestTearOff();
 
 /// @nodoc
 mixin _$SummaryRequest {
-  /// The chapter id e.g 1
-  int? get chapter => throw _privateConstructorUsedError;
-
   /// Specify the language e.g en
   String? get language => throw _privateConstructorUsedError;
+
+  /// The chapter id e.g 1
+  int? get chapter => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2201,7 +2201,7 @@ abstract class $SummaryRequestCopyWith<$Res> {
   factory $SummaryRequestCopyWith(
           SummaryRequest value, $Res Function(SummaryRequest) then) =
       _$SummaryRequestCopyWithImpl<$Res>;
-  $Res call({int? chapter, String? language});
+  $Res call({String? language, int? chapter});
 }
 
 /// @nodoc
@@ -2215,18 +2215,18 @@ class _$SummaryRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? chapter = freezed,
     Object? language = freezed,
+    Object? chapter = freezed,
   }) {
     return _then(_value.copyWith(
-      chapter: chapter == freezed
-          ? _value.chapter
-          : chapter // ignore: cast_nullable_to_non_nullable
-              as int?,
       language: language == freezed
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as String?,
+      chapter: chapter == freezed
+          ? _value.chapter
+          : chapter // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -2238,7 +2238,7 @@ abstract class _$SummaryRequestCopyWith<$Res>
           _SummaryRequest value, $Res Function(_SummaryRequest) then) =
       __$SummaryRequestCopyWithImpl<$Res>;
   @override
-  $Res call({int? chapter, String? language});
+  $Res call({String? language, int? chapter});
 }
 
 /// @nodoc
@@ -2254,18 +2254,18 @@ class __$SummaryRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? chapter = freezed,
     Object? language = freezed,
+    Object? chapter = freezed,
   }) {
     return _then(_SummaryRequest(
-      chapter: chapter == freezed
-          ? _value.chapter
-          : chapter // ignore: cast_nullable_to_non_nullable
-              as int?,
       language: language == freezed
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as String?,
+      chapter: chapter == freezed
+          ? _value.chapter
+          : chapter // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -2273,23 +2273,23 @@ class __$SummaryRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SummaryRequest implements _SummaryRequest {
-  const _$_SummaryRequest({this.chapter, this.language});
+  const _$_SummaryRequest({this.language, this.chapter});
 
   factory _$_SummaryRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SummaryRequestFromJson(json);
 
   @override
 
-  /// The chapter id e.g 1
-  final int? chapter;
-  @override
-
   /// Specify the language e.g en
   final String? language;
+  @override
+
+  /// The chapter id e.g 1
+  final int? chapter;
 
   @override
   String toString() {
-    return 'SummaryRequest(chapter: $chapter, language: $language)';
+    return 'SummaryRequest(language: $language, chapter: $chapter)';
   }
 
   @override
@@ -2297,15 +2297,15 @@ class _$_SummaryRequest implements _SummaryRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SummaryRequest &&
-            const DeepCollectionEquality().equals(other.chapter, chapter) &&
-            const DeepCollectionEquality().equals(other.language, language));
+            const DeepCollectionEquality().equals(other.language, language) &&
+            const DeepCollectionEquality().equals(other.chapter, chapter));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(chapter),
-      const DeepCollectionEquality().hash(language));
+      const DeepCollectionEquality().hash(language),
+      const DeepCollectionEquality().hash(chapter));
 
   @JsonKey(ignore: true)
   @override
@@ -2319,7 +2319,7 @@ class _$_SummaryRequest implements _SummaryRequest {
 }
 
 abstract class _SummaryRequest implements SummaryRequest {
-  const factory _SummaryRequest({int? chapter, String? language}) =
+  const factory _SummaryRequest({String? language, int? chapter}) =
       _$_SummaryRequest;
 
   factory _SummaryRequest.fromJson(Map<String, dynamic> json) =
@@ -2327,12 +2327,12 @@ abstract class _SummaryRequest implements SummaryRequest {
 
   @override
 
-  /// The chapter id e.g 1
-  int? get chapter;
-  @override
-
   /// Specify the language e.g en
   String? get language;
+  @override
+
+  /// The chapter id e.g 1
+  int? get chapter;
   @override
   @JsonKey(ignore: true)
   _$SummaryRequestCopyWith<_SummaryRequest> get copyWith =>
@@ -3019,27 +3019,27 @@ class _$VerseTearOff {
   const _$VerseTearOff();
 
   _Verse call(
-      {List<Word>? words,
-      List<Interpretation>? interpretations,
+      {int? id,
       String? key,
       int? number,
-      String? transliteration,
       List<Translation>? translations,
-      int? id,
+      String? transliteration,
+      List<Interpretation>? interpretations,
       int? page,
       String? text,
-      String? translated_text}) {
+      String? translated_text,
+      List<Word>? words}) {
     return _Verse(
-      words: words,
-      interpretations: interpretations,
+      id: id,
       key: key,
       number: number,
-      transliteration: transliteration,
       translations: translations,
-      id: id,
+      transliteration: transliteration,
+      interpretations: interpretations,
       page: page,
       text: text,
       translated_text: translated_text,
+      words: words,
     );
   }
 
@@ -3053,12 +3053,8 @@ const $Verse = _$VerseTearOff();
 
 /// @nodoc
 mixin _$Verse {
-  /// The individual words within the verse (Ayah)
-  List<Word>? get words => throw _privateConstructorUsedError;
-
-  /// The interpretations of the verse
-  List<Interpretation>? get interpretations =>
-      throw _privateConstructorUsedError;
+  /// The unique id of the verse in the whole book
+  int? get id => throw _privateConstructorUsedError;
 
   /// The key of this verse (chapter:verse) e.g 1:1
   String? get key => throw _privateConstructorUsedError;
@@ -3066,14 +3062,15 @@ mixin _$Verse {
   /// The verse number in this chapter
   int? get number => throw _privateConstructorUsedError;
 
-  /// The phonetic transliteration from arabic
-  String? get transliteration => throw _privateConstructorUsedError;
-
   /// The alternative translations for the verse
   List<Translation>? get translations => throw _privateConstructorUsedError;
 
-  /// The unique id of the verse in the whole book
-  int? get id => throw _privateConstructorUsedError;
+  /// The phonetic transliteration from arabic
+  String? get transliteration => throw _privateConstructorUsedError;
+
+  /// The interpretations of the verse
+  List<Interpretation>? get interpretations =>
+      throw _privateConstructorUsedError;
 
   /// The page of the Quran this verse is on
   int? get page => throw _privateConstructorUsedError;
@@ -3083,6 +3080,9 @@ mixin _$Verse {
 
   /// The basic translation of the verse
   String? get translated_text => throw _privateConstructorUsedError;
+
+  /// The individual words within the verse (Ayah)
+  List<Word>? get words => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -3094,16 +3094,16 @@ abstract class $VerseCopyWith<$Res> {
   factory $VerseCopyWith(Verse value, $Res Function(Verse) then) =
       _$VerseCopyWithImpl<$Res>;
   $Res call(
-      {List<Word>? words,
-      List<Interpretation>? interpretations,
+      {int? id,
       String? key,
       int? number,
-      String? transliteration,
       List<Translation>? translations,
-      int? id,
+      String? transliteration,
+      List<Interpretation>? interpretations,
       int? page,
       String? text,
-      String? translated_text});
+      String? translated_text,
+      List<Word>? words});
 }
 
 /// @nodoc
@@ -3116,26 +3116,22 @@ class _$VerseCopyWithImpl<$Res> implements $VerseCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? words = freezed,
-    Object? interpretations = freezed,
+    Object? id = freezed,
     Object? key = freezed,
     Object? number = freezed,
-    Object? transliteration = freezed,
     Object? translations = freezed,
-    Object? id = freezed,
+    Object? transliteration = freezed,
+    Object? interpretations = freezed,
     Object? page = freezed,
     Object? text = freezed,
     Object? translated_text = freezed,
+    Object? words = freezed,
   }) {
     return _then(_value.copyWith(
-      words: words == freezed
-          ? _value.words
-          : words // ignore: cast_nullable_to_non_nullable
-              as List<Word>?,
-      interpretations: interpretations == freezed
-          ? _value.interpretations
-          : interpretations // ignore: cast_nullable_to_non_nullable
-              as List<Interpretation>?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       key: key == freezed
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
@@ -3144,18 +3140,18 @@ class _$VerseCopyWithImpl<$Res> implements $VerseCopyWith<$Res> {
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as int?,
-      transliteration: transliteration == freezed
-          ? _value.transliteration
-          : transliteration // ignore: cast_nullable_to_non_nullable
-              as String?,
       translations: translations == freezed
           ? _value.translations
           : translations // ignore: cast_nullable_to_non_nullable
               as List<Translation>?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+      transliteration: transliteration == freezed
+          ? _value.transliteration
+          : transliteration // ignore: cast_nullable_to_non_nullable
+              as String?,
+      interpretations: interpretations == freezed
+          ? _value.interpretations
+          : interpretations // ignore: cast_nullable_to_non_nullable
+              as List<Interpretation>?,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -3168,6 +3164,10 @@ class _$VerseCopyWithImpl<$Res> implements $VerseCopyWith<$Res> {
           ? _value.translated_text
           : translated_text // ignore: cast_nullable_to_non_nullable
               as String?,
+      words: words == freezed
+          ? _value.words
+          : words // ignore: cast_nullable_to_non_nullable
+              as List<Word>?,
     ));
   }
 }
@@ -3178,16 +3178,16 @@ abstract class _$VerseCopyWith<$Res> implements $VerseCopyWith<$Res> {
       __$VerseCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<Word>? words,
-      List<Interpretation>? interpretations,
+      {int? id,
       String? key,
       int? number,
-      String? transliteration,
       List<Translation>? translations,
-      int? id,
+      String? transliteration,
+      List<Interpretation>? interpretations,
       int? page,
       String? text,
-      String? translated_text});
+      String? translated_text,
+      List<Word>? words});
 }
 
 /// @nodoc
@@ -3201,26 +3201,22 @@ class __$VerseCopyWithImpl<$Res> extends _$VerseCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? words = freezed,
-    Object? interpretations = freezed,
+    Object? id = freezed,
     Object? key = freezed,
     Object? number = freezed,
-    Object? transliteration = freezed,
     Object? translations = freezed,
-    Object? id = freezed,
+    Object? transliteration = freezed,
+    Object? interpretations = freezed,
     Object? page = freezed,
     Object? text = freezed,
     Object? translated_text = freezed,
+    Object? words = freezed,
   }) {
     return _then(_Verse(
-      words: words == freezed
-          ? _value.words
-          : words // ignore: cast_nullable_to_non_nullable
-              as List<Word>?,
-      interpretations: interpretations == freezed
-          ? _value.interpretations
-          : interpretations // ignore: cast_nullable_to_non_nullable
-              as List<Interpretation>?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       key: key == freezed
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
@@ -3229,18 +3225,18 @@ class __$VerseCopyWithImpl<$Res> extends _$VerseCopyWithImpl<$Res>
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as int?,
-      transliteration: transliteration == freezed
-          ? _value.transliteration
-          : transliteration // ignore: cast_nullable_to_non_nullable
-              as String?,
       translations: translations == freezed
           ? _value.translations
           : translations // ignore: cast_nullable_to_non_nullable
               as List<Translation>?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+      transliteration: transliteration == freezed
+          ? _value.transliteration
+          : transliteration // ignore: cast_nullable_to_non_nullable
+              as String?,
+      interpretations: interpretations == freezed
+          ? _value.interpretations
+          : interpretations // ignore: cast_nullable_to_non_nullable
+              as List<Interpretation>?,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -3253,6 +3249,10 @@ class __$VerseCopyWithImpl<$Res> extends _$VerseCopyWithImpl<$Res>
           ? _value.translated_text
           : translated_text // ignore: cast_nullable_to_non_nullable
               as String?,
+      words: words == freezed
+          ? _value.words
+          : words // ignore: cast_nullable_to_non_nullable
+              as List<Word>?,
     ));
   }
 }
@@ -3261,28 +3261,24 @@ class __$VerseCopyWithImpl<$Res> extends _$VerseCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Verse implements _Verse {
   const _$_Verse(
-      {this.words,
-      this.interpretations,
+      {this.id,
       this.key,
       this.number,
-      this.transliteration,
       this.translations,
-      this.id,
+      this.transliteration,
+      this.interpretations,
       this.page,
       this.text,
-      this.translated_text});
+      this.translated_text,
+      this.words});
 
   factory _$_Verse.fromJson(Map<String, dynamic> json) =>
       _$$_VerseFromJson(json);
 
   @override
 
-  /// The individual words within the verse (Ayah)
-  final List<Word>? words;
-  @override
-
-  /// The interpretations of the verse
-  final List<Interpretation>? interpretations;
+  /// The unique id of the verse in the whole book
+  final int? id;
   @override
 
   /// The key of this verse (chapter:verse) e.g 1:1
@@ -3293,16 +3289,16 @@ class _$_Verse implements _Verse {
   final int? number;
   @override
 
-  /// The phonetic transliteration from arabic
-  final String? transliteration;
-  @override
-
   /// The alternative translations for the verse
   final List<Translation>? translations;
   @override
 
-  /// The unique id of the verse in the whole book
-  final int? id;
+  /// The phonetic transliteration from arabic
+  final String? transliteration;
+  @override
+
+  /// The interpretations of the verse
+  final List<Interpretation>? interpretations;
   @override
 
   /// The page of the Quran this verse is on
@@ -3315,10 +3311,14 @@ class _$_Verse implements _Verse {
 
   /// The basic translation of the verse
   final String? translated_text;
+  @override
+
+  /// The individual words within the verse (Ayah)
+  final List<Word>? words;
 
   @override
   String toString() {
-    return 'Verse(words: $words, interpretations: $interpretations, key: $key, number: $number, transliteration: $transliteration, translations: $translations, id: $id, page: $page, text: $text, translated_text: $translated_text)';
+    return 'Verse(id: $id, key: $key, number: $number, translations: $translations, transliteration: $transliteration, interpretations: $interpretations, page: $page, text: $text, translated_text: $translated_text, words: $words)';
   }
 
   @override
@@ -3326,35 +3326,35 @@ class _$_Verse implements _Verse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Verse &&
-            const DeepCollectionEquality().equals(other.words, words) &&
-            const DeepCollectionEquality()
-                .equals(other.interpretations, interpretations) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.key, key) &&
             const DeepCollectionEquality().equals(other.number, number) &&
             const DeepCollectionEquality()
+                .equals(other.translations, translations) &&
+            const DeepCollectionEquality()
                 .equals(other.transliteration, transliteration) &&
             const DeepCollectionEquality()
-                .equals(other.translations, translations) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
+                .equals(other.interpretations, interpretations) &&
             const DeepCollectionEquality().equals(other.page, page) &&
             const DeepCollectionEquality().equals(other.text, text) &&
             const DeepCollectionEquality()
-                .equals(other.translated_text, translated_text));
+                .equals(other.translated_text, translated_text) &&
+            const DeepCollectionEquality().equals(other.words, words));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(words),
-      const DeepCollectionEquality().hash(interpretations),
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(key),
       const DeepCollectionEquality().hash(number),
-      const DeepCollectionEquality().hash(transliteration),
       const DeepCollectionEquality().hash(translations),
-      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(transliteration),
+      const DeepCollectionEquality().hash(interpretations),
       const DeepCollectionEquality().hash(page),
       const DeepCollectionEquality().hash(text),
-      const DeepCollectionEquality().hash(translated_text));
+      const DeepCollectionEquality().hash(translated_text),
+      const DeepCollectionEquality().hash(words));
 
   @JsonKey(ignore: true)
   @override
@@ -3369,27 +3369,23 @@ class _$_Verse implements _Verse {
 
 abstract class _Verse implements Verse {
   const factory _Verse(
-      {List<Word>? words,
-      List<Interpretation>? interpretations,
+      {int? id,
       String? key,
       int? number,
-      String? transliteration,
       List<Translation>? translations,
-      int? id,
+      String? transliteration,
+      List<Interpretation>? interpretations,
       int? page,
       String? text,
-      String? translated_text}) = _$_Verse;
+      String? translated_text,
+      List<Word>? words}) = _$_Verse;
 
   factory _Verse.fromJson(Map<String, dynamic> json) = _$_Verse.fromJson;
 
   @override
 
-  /// The individual words within the verse (Ayah)
-  List<Word>? get words;
-  @override
-
-  /// The interpretations of the verse
-  List<Interpretation>? get interpretations;
+  /// The unique id of the verse in the whole book
+  int? get id;
   @override
 
   /// The key of this verse (chapter:verse) e.g 1:1
@@ -3400,16 +3396,16 @@ abstract class _Verse implements Verse {
   int? get number;
   @override
 
-  /// The phonetic transliteration from arabic
-  String? get transliteration;
-  @override
-
   /// The alternative translations for the verse
   List<Translation>? get translations;
   @override
 
-  /// The unique id of the verse in the whole book
-  int? get id;
+  /// The phonetic transliteration from arabic
+  String? get transliteration;
+  @override
+
+  /// The interpretations of the verse
+  List<Interpretation>? get interpretations;
   @override
 
   /// The page of the Quran this verse is on
@@ -3422,6 +3418,10 @@ abstract class _Verse implements Verse {
 
   /// The basic translation of the verse
   String? get translated_text;
+  @override
+
+  /// The individual words within the verse (Ayah)
+  List<Word>? get words;
   @override
   @JsonKey(ignore: true)
   _$VerseCopyWith<_Verse> get copyWith => throw _privateConstructorUsedError;
@@ -4240,25 +4240,25 @@ class _$WordTearOff {
   const _$WordTearOff();
 
   _Word call(
-      {String? translation,
-      String? char_type,
+      {String? char_type,
+      int? page,
+      int? position,
+      String? text,
+      String? transliteration,
       String? code,
       int? id,
       int? line,
-      int? position,
-      int? page,
-      String? text,
-      String? transliteration}) {
+      String? translation}) {
     return _Word(
-      translation: translation,
       char_type: char_type,
+      page: page,
+      position: position,
+      text: text,
+      transliteration: transliteration,
       code: code,
       id: id,
       line: line,
-      position: position,
-      page: page,
-      text: text,
-      transliteration: transliteration,
+      translation: translation,
     );
   }
 
@@ -4272,11 +4272,20 @@ const $Word = _$WordTearOff();
 
 /// @nodoc
 mixin _$Word {
-  /// The translated text
-  String? get translation => throw _privateConstructorUsedError;
-
   /// The character type e.g word, end
   String? get char_type => throw _privateConstructorUsedError;
+
+  /// The page number
+  int? get page => throw _privateConstructorUsedError;
+
+  /// The position of the word
+  int? get position => throw _privateConstructorUsedError;
+
+  /// The arabic text for this word
+  String? get text => throw _privateConstructorUsedError;
+
+  /// The transliteration text
+  String? get transliteration => throw _privateConstructorUsedError;
 
   /// The QCF v2 font code
   String? get code => throw _privateConstructorUsedError;
@@ -4287,17 +4296,8 @@ mixin _$Word {
   /// The line number
   int? get line => throw _privateConstructorUsedError;
 
-  /// The position of the word
-  int? get position => throw _privateConstructorUsedError;
-
-  /// The page number
-  int? get page => throw _privateConstructorUsedError;
-
-  /// The arabic text for this word
-  String? get text => throw _privateConstructorUsedError;
-
-  /// The transliteration text
-  String? get transliteration => throw _privateConstructorUsedError;
+  /// The translated text
+  String? get translation => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -4309,15 +4309,15 @@ abstract class $WordCopyWith<$Res> {
   factory $WordCopyWith(Word value, $Res Function(Word) then) =
       _$WordCopyWithImpl<$Res>;
   $Res call(
-      {String? translation,
-      String? char_type,
+      {String? char_type,
+      int? page,
+      int? position,
+      String? text,
+      String? transliteration,
       String? code,
       int? id,
       int? line,
-      int? position,
-      int? page,
-      String? text,
-      String? transliteration});
+      String? translation});
 }
 
 /// @nodoc
@@ -4330,24 +4330,36 @@ class _$WordCopyWithImpl<$Res> implements $WordCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? translation = freezed,
     Object? char_type = freezed,
+    Object? page = freezed,
+    Object? position = freezed,
+    Object? text = freezed,
+    Object? transliteration = freezed,
     Object? code = freezed,
     Object? id = freezed,
     Object? line = freezed,
-    Object? position = freezed,
-    Object? page = freezed,
-    Object? text = freezed,
-    Object? transliteration = freezed,
+    Object? translation = freezed,
   }) {
     return _then(_value.copyWith(
-      translation: translation == freezed
-          ? _value.translation
-          : translation // ignore: cast_nullable_to_non_nullable
-              as String?,
       char_type: char_type == freezed
           ? _value.char_type
           : char_type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int?,
+      position: position == freezed
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as int?,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      transliteration: transliteration == freezed
+          ? _value.transliteration
+          : transliteration // ignore: cast_nullable_to_non_nullable
               as String?,
       code: code == freezed
           ? _value.code
@@ -4361,21 +4373,9 @@ class _$WordCopyWithImpl<$Res> implements $WordCopyWith<$Res> {
           ? _value.line
           : line // ignore: cast_nullable_to_non_nullable
               as int?,
-      position: position == freezed
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as int?,
-      page: page == freezed
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int?,
-      text: text == freezed
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
-      transliteration: transliteration == freezed
-          ? _value.transliteration
-          : transliteration // ignore: cast_nullable_to_non_nullable
+      translation: translation == freezed
+          ? _value.translation
+          : translation // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -4387,15 +4387,15 @@ abstract class _$WordCopyWith<$Res> implements $WordCopyWith<$Res> {
       __$WordCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? translation,
-      String? char_type,
+      {String? char_type,
+      int? page,
+      int? position,
+      String? text,
+      String? transliteration,
       String? code,
       int? id,
       int? line,
-      int? position,
-      int? page,
-      String? text,
-      String? transliteration});
+      String? translation});
 }
 
 /// @nodoc
@@ -4409,24 +4409,36 @@ class __$WordCopyWithImpl<$Res> extends _$WordCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? translation = freezed,
     Object? char_type = freezed,
+    Object? page = freezed,
+    Object? position = freezed,
+    Object? text = freezed,
+    Object? transliteration = freezed,
     Object? code = freezed,
     Object? id = freezed,
     Object? line = freezed,
-    Object? position = freezed,
-    Object? page = freezed,
-    Object? text = freezed,
-    Object? transliteration = freezed,
+    Object? translation = freezed,
   }) {
     return _then(_Word(
-      translation: translation == freezed
-          ? _value.translation
-          : translation // ignore: cast_nullable_to_non_nullable
-              as String?,
       char_type: char_type == freezed
           ? _value.char_type
           : char_type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int?,
+      position: position == freezed
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as int?,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      transliteration: transliteration == freezed
+          ? _value.transliteration
+          : transliteration // ignore: cast_nullable_to_non_nullable
               as String?,
       code: code == freezed
           ? _value.code
@@ -4440,21 +4452,9 @@ class __$WordCopyWithImpl<$Res> extends _$WordCopyWithImpl<$Res>
           ? _value.line
           : line // ignore: cast_nullable_to_non_nullable
               as int?,
-      position: position == freezed
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as int?,
-      page: page == freezed
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int?,
-      text: text == freezed
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
-      transliteration: transliteration == freezed
-          ? _value.transliteration
-          : transliteration // ignore: cast_nullable_to_non_nullable
+      translation: translation == freezed
+          ? _value.translation
+          : translation // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -4464,26 +4464,38 @@ class __$WordCopyWithImpl<$Res> extends _$WordCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Word implements _Word {
   const _$_Word(
-      {this.translation,
-      this.char_type,
+      {this.char_type,
+      this.page,
+      this.position,
+      this.text,
+      this.transliteration,
       this.code,
       this.id,
       this.line,
-      this.position,
-      this.page,
-      this.text,
-      this.transliteration});
+      this.translation});
 
   factory _$_Word.fromJson(Map<String, dynamic> json) => _$$_WordFromJson(json);
 
   @override
 
-  /// The translated text
-  final String? translation;
-  @override
-
   /// The character type e.g word, end
   final String? char_type;
+  @override
+
+  /// The page number
+  final int? page;
+  @override
+
+  /// The position of the word
+  final int? position;
+  @override
+
+  /// The arabic text for this word
+  final String? text;
+  @override
+
+  /// The transliteration text
+  final String? transliteration;
   @override
 
   /// The QCF v2 font code
@@ -4498,24 +4510,12 @@ class _$_Word implements _Word {
   final int? line;
   @override
 
-  /// The position of the word
-  final int? position;
-  @override
-
-  /// The page number
-  final int? page;
-  @override
-
-  /// The arabic text for this word
-  final String? text;
-  @override
-
-  /// The transliteration text
-  final String? transliteration;
+  /// The translated text
+  final String? translation;
 
   @override
   String toString() {
-    return 'Word(translation: $translation, char_type: $char_type, code: $code, id: $id, line: $line, position: $position, page: $page, text: $text, transliteration: $transliteration)';
+    return 'Word(char_type: $char_type, page: $page, position: $position, text: $text, transliteration: $transliteration, code: $code, id: $id, line: $line, translation: $translation)';
   }
 
   @override
@@ -4523,31 +4523,31 @@ class _$_Word implements _Word {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Word &&
-            const DeepCollectionEquality()
-                .equals(other.translation, translation) &&
             const DeepCollectionEquality().equals(other.char_type, char_type) &&
+            const DeepCollectionEquality().equals(other.page, page) &&
+            const DeepCollectionEquality().equals(other.position, position) &&
+            const DeepCollectionEquality().equals(other.text, text) &&
+            const DeepCollectionEquality()
+                .equals(other.transliteration, transliteration) &&
             const DeepCollectionEquality().equals(other.code, code) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.line, line) &&
-            const DeepCollectionEquality().equals(other.position, position) &&
-            const DeepCollectionEquality().equals(other.page, page) &&
-            const DeepCollectionEquality().equals(other.text, text) &&
             const DeepCollectionEquality()
-                .equals(other.transliteration, transliteration));
+                .equals(other.translation, translation));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(translation),
       const DeepCollectionEquality().hash(char_type),
+      const DeepCollectionEquality().hash(page),
+      const DeepCollectionEquality().hash(position),
+      const DeepCollectionEquality().hash(text),
+      const DeepCollectionEquality().hash(transliteration),
       const DeepCollectionEquality().hash(code),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(line),
-      const DeepCollectionEquality().hash(position),
-      const DeepCollectionEquality().hash(page),
-      const DeepCollectionEquality().hash(text),
-      const DeepCollectionEquality().hash(transliteration));
+      const DeepCollectionEquality().hash(translation));
 
   @JsonKey(ignore: true)
   @override
@@ -4562,26 +4562,38 @@ class _$_Word implements _Word {
 
 abstract class _Word implements Word {
   const factory _Word(
-      {String? translation,
-      String? char_type,
+      {String? char_type,
+      int? page,
+      int? position,
+      String? text,
+      String? transliteration,
       String? code,
       int? id,
       int? line,
-      int? position,
-      int? page,
-      String? text,
-      String? transliteration}) = _$_Word;
+      String? translation}) = _$_Word;
 
   factory _Word.fromJson(Map<String, dynamic> json) = _$_Word.fromJson;
 
   @override
 
-  /// The translated text
-  String? get translation;
-  @override
-
   /// The character type e.g word, end
   String? get char_type;
+  @override
+
+  /// The page number
+  int? get page;
+  @override
+
+  /// The position of the word
+  int? get position;
+  @override
+
+  /// The arabic text for this word
+  String? get text;
+  @override
+
+  /// The transliteration text
+  String? get transliteration;
   @override
 
   /// The QCF v2 font code
@@ -4596,20 +4608,8 @@ abstract class _Word implements Word {
   int? get line;
   @override
 
-  /// The position of the word
-  int? get position;
-  @override
-
-  /// The page number
-  int? get page;
-  @override
-
-  /// The arabic text for this word
-  String? get text;
-  @override
-
-  /// The transliteration text
-  String? get transliteration;
+  /// The translated text
+  String? get translation;
   @override
   @JsonKey(ignore: true)
   _$WordCopyWith<_Word> get copyWith => throw _privateConstructorUsedError;

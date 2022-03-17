@@ -56,16 +56,16 @@ Map<String, dynamic> _$$ConvertResponseMerrToJson(
 
 _$_CropOptions _$$_CropOptionsFromJson(Map<String, dynamic> json) =>
     _$_CropOptions(
+      height: json['height'] as int?,
       width: json['width'] as int?,
       anchor: json['anchor'] as String?,
-      height: json['height'] as int?,
     );
 
 Map<String, dynamic> _$$_CropOptionsToJson(_$_CropOptions instance) =>
     <String, dynamic>{
+      'height': instance.height,
       'width': instance.width,
       'anchor': instance.anchor,
-      'height': instance.height,
     };
 
 _$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
@@ -129,8 +129,6 @@ Map<String, dynamic> _$$_RectangleToJson(_$_Rectangle instance) =>
 
 _$_ResizeRequest _$$_ResizeRequestFromJson(Map<String, dynamic> json) =>
     _$_ResizeRequest(
-      height: int64FromString(json['height'] as String?),
-      name: json['name'] as String?,
       outputURL: json['outputURL'] as bool?,
       url: json['url'] as String?,
       width: int64FromString(json['width'] as String?),
@@ -139,18 +137,20 @@ _$_ResizeRequest _$$_ResizeRequestFromJson(Map<String, dynamic> json) =>
           ? null
           : CropOptions.fromJson(json['cropOptions'] as Map<String, dynamic>),
       file: json['file'] as String?,
+      height: int64FromString(json['height'] as String?),
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_ResizeRequestToJson(_$_ResizeRequest instance) =>
     <String, dynamic>{
-      'height': int64ToString(instance.height),
-      'name': instance.name,
       'outputURL': instance.outputURL,
       'url': instance.url,
       'width': int64ToString(instance.width),
       'base64': instance.base64,
       'cropOptions': instance.cropOptions,
       'file': instance.file,
+      'height': int64ToString(instance.height),
+      'name': instance.name,
     };
 
 _$ResizeResponseData _$$ResizeResponseDataFromJson(Map<String, dynamic> json) =>
