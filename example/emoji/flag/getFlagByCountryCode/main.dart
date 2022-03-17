@@ -13,7 +13,7 @@ void main() async {
   );
 
   final payload = <String, dynamic>{
-    "alias": "GB",
+    "code": "GB",
   };
 
   FlagRequest req = FlagRequest.fromJson(payload);
