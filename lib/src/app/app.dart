@@ -55,6 +55,27 @@ class AppService {
     }
   }
 
+  /// Get the logs for an app
+  Future<LogsResponse> logs(LogsRequest req) async {
+    Request request = Request(
+      service: 'app',
+      endpoint: 'Logs',
+      body: req.toJson(),
+    );
+
+    try {
+      Response res = await _client.call(request);
+      if (isError(res.body)) {
+        final err = Merr(res.toJson());
+        return LogsResponse.Merr(body: err.b);
+      }
+      return LogsResponseData.fromJson(res.body);
+    } catch (e, stack) {
+      print(stack);
+      throw Exception(e);
+    }
+  }
+
   /// Return the support regions
   Future<RegionsResponse> regions(RegionsRequest req) async {
     Request request = Request(
@@ -221,6 +242,30 @@ class ListResponse with _$ListResponse {
 }
 
 @Freezed()
+class LogsRequest with _$LogsRequest {
+  const factory LogsRequest({
+    /// type of logs to retrieve, currently supported options - "build"
+    String? logs_type,
+
+    /// name of the app
+    String? name,
+  }) = _LogsRequest;
+  factory LogsRequest.fromJson(Map<String, dynamic> json) =>
+      _$LogsRequestFromJson(json);
+}
+
+@Freezed()
+class LogsResponse with _$LogsResponse {
+  const factory LogsResponse({
+    String? logs,
+  }) = LogsResponseData;
+  const factory LogsResponse.Merr({Map<String, dynamic>? body}) =
+      LogsResponseMerr;
+  factory LogsResponse.fromJson(Map<String, dynamic> json) =>
+      _$LogsResponseFromJson(json);
+}
+
+@Freezed()
 class RegionsRequest with _$RegionsRequest {
   const factory RegionsRequest() = _RegionsRequest;
   factory RegionsRequest.fromJson(Map<String, dynamic> json) =>
@@ -307,6 +352,9 @@ class ResolveResponse with _$ResolveResponse {
 @Freezed()
 class RunRequest with _$RunRequest {
   const factory RunRequest({
+    /// source repository
+    String? repo,
+
     /// branch. defaults to master
     String? branch,
 
@@ -321,9 +369,6 @@ class RunRequest with _$RunRequest {
 
     /// region to run in
     String? region,
-
-    /// source repository
-    String? repo,
   }) = _RunRequest;
   factory RunRequest.fromJson(Map<String, dynamic> json) =>
       _$RunRequestFromJson(json);
@@ -344,23 +389,14 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
-    /// custom domains
-    String? custom_domains,
-
-    /// unique id
-    String? id,
-
     /// name of the app
     String? name,
 
-    /// region running in
-    String? region,
+    /// port running on
+    int? port,
 
-    /// source repository
-    String? repo,
-
-    /// last updated
-    String? updated,
+    /// app url
+    String? url,
 
     /// branch of code
     String? branch,
@@ -371,14 +407,23 @@ class Service with _$Service {
     /// associated env vars
     Map<String, String>? env_vars,
 
-    /// port running on
-    int? port,
+    /// source repository
+    String? repo,
 
     /// status of the app
     String? status,
 
-    /// app url
-    String? url,
+    /// last updated
+    String? updated,
+
+    /// custom domains
+    String? custom_domains,
+
+    /// unique id
+    String? id,
+
+    /// region running in
+    String? region,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);

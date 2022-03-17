@@ -101,17 +101,20 @@ class TwitterService {
 @Freezed()
 class Profile with _$Profile {
   const factory Profile({
-    /// the user id
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
+    /// The user's profile picture
+    String? image_url,
+
+    /// the user's location
+    String? location,
 
     /// if the account is private
     bool? private,
 
-    /// the username
-    String? username,
-
     /// if the account is verified
     bool? verified,
+
+    /// the account creation date
+    String? created_at,
 
     /// the user description
     String? description,
@@ -119,17 +122,14 @@ class Profile with _$Profile {
     /// the follower count
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
 
-    /// The user's profile picture
-    String? image_url,
-
-    /// the user's location
-    String? location,
+    /// the user id
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
 
     /// display name of the user
     String? name,
 
-    /// the account creation date
-    String? created_at,
+    /// the username
+    String? username,
   }) = _Profile;
   factory Profile.fromJson(Map<String, dynamic> json) =>
       _$ProfileFromJson(json);
