@@ -95,20 +95,20 @@ Map<String, dynamic> _$$_OrderBookRequestToJson(_$_OrderBookRequest instance) =>
 _$OrderBookResponseData _$$OrderBookResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$OrderBookResponseData(
+      symbol: json['symbol'] as String?,
+      date: json['date'] as String?,
       orders: (json['orders'] as List<dynamic>?)
           ?.map((e) => Order.fromJson(e as Map<String, dynamic>))
           .toList(),
-      symbol: json['symbol'] as String?,
-      date: json['date'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$OrderBookResponseDataToJson(
         _$OrderBookResponseData instance) =>
     <String, dynamic>{
-      'orders': instance.orders,
       'symbol': instance.symbol,
       'date': instance.date,
+      'orders': instance.orders,
       'runtimeType': instance.$type,
     };
 

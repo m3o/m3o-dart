@@ -68,14 +68,14 @@ Map<String, dynamic> _$$_EvToJson(_$_Ev instance) => <String, dynamic>{
 
 _$_PublishRequest _$$_PublishRequestFromJson(Map<String, dynamic> json) =>
     _$_PublishRequest(
-      topic: json['topic'] as String?,
       message: json['message'] as Map<String, dynamic>?,
+      topic: json['topic'] as String?,
     );
 
 Map<String, dynamic> _$$_PublishRequestToJson(_$_PublishRequest instance) =>
     <String, dynamic>{
-      'topic': instance.topic,
       'message': instance.message,
+      'topic': instance.topic,
     };
 
 _$PublishResponseData _$$PublishResponseDataFromJson(
@@ -106,16 +106,16 @@ Map<String, dynamic> _$$PublishResponseMerrToJson(
 
 _$_ReadRequest _$$_ReadRequestFromJson(Map<String, dynamic> json) =>
     _$_ReadRequest(
+      offset: json['offset'] as int?,
       topic: json['topic'] as String?,
       limit: json['limit'] as int?,
-      offset: json['offset'] as int?,
     );
 
 Map<String, dynamic> _$$_ReadRequestToJson(_$_ReadRequest instance) =>
     <String, dynamic>{
+      'offset': instance.offset,
       'topic': instance.topic,
       'limit': instance.limit,
-      'offset': instance.offset,
     };
 
 _$ReadResponseData _$$ReadResponseDataFromJson(Map<String, dynamic> json) =>

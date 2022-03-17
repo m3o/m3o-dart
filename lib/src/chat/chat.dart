@@ -211,9 +211,6 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// whether its a private room
-    bool? private,
-
     /// optional list of user ids
     String? user_ids,
 
@@ -222,6 +219,9 @@ class CreateRequest with _$CreateRequest {
 
     /// name of the room
     String? name,
+
+    /// whether its a private room
+    bool? private,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -285,11 +285,11 @@ class HistoryResponse with _$HistoryResponse {
 @Freezed()
 class InviteRequest with _$InviteRequest {
   const factory InviteRequest({
-    /// the user id
-    String? user_id,
-
     /// the room id
     String? room_id,
+
+    /// the user id
+    String? user_id,
   }) = _InviteRequest;
   factory InviteRequest.fromJson(Map<String, dynamic> json) =>
       _$InviteRequestFromJson(json);
@@ -402,6 +402,15 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
+    /// id of the message, allocated by the server
+    String? id,
+
+    /// id of the chat the message is being sent to / from
+    String? room_id,
+
+    /// time the message was sent in RFC3339 format
+    String? sent_at,
+
     /// subject of the message
     String? subject,
 
@@ -413,15 +422,6 @@ class Message with _$Message {
 
     /// a client side id, should be validated by the server to make the request retry safe
     String? client,
-
-    /// id of the message, allocated by the server
-    String? id,
-
-    /// id of the chat the message is being sent to / from
-    String? room_id,
-
-    /// time the message was sent in RFC3339 format
-    String? sent_at,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);

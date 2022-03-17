@@ -187,14 +187,14 @@ class OrderBookRequest with _$OrderBookRequest {
 @Freezed()
 class OrderBookResponse with _$OrderBookResponse {
   const factory OrderBookResponse({
-    /// list of orders
-    List<Order>? orders,
-
     /// the stock symbol
     String? symbol,
 
     /// date of the request
     String? date,
+
+    /// list of orders
+    List<Order>? orders,
   }) = OrderBookResponseData;
   const factory OrderBookResponse.Merr({Map<String, dynamic>? body}) =
       OrderBookResponseMerr;

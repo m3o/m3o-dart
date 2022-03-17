@@ -1276,11 +1276,11 @@ class _$OrderBookResponseTearOff {
   const _$OrderBookResponseTearOff();
 
   OrderBookResponseData call(
-      {List<Order>? orders, String? symbol, String? date}) {
+      {String? symbol, String? date, List<Order>? orders}) {
     return OrderBookResponseData(
-      orders: orders,
       symbol: symbol,
       date: date,
+      orders: orders,
     );
   }
 
@@ -1302,21 +1302,21 @@ const $OrderBookResponse = _$OrderBookResponseTearOff();
 mixin _$OrderBookResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(List<Order>? orders, String? symbol, String? date)
+    TResult Function(String? symbol, String? date, List<Order>? orders)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Order>? orders, String? symbol, String? date)?
+    TResult Function(String? symbol, String? date, List<Order>? orders)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<Order>? orders, String? symbol, String? date)?
+    TResult Function(String? symbol, String? date, List<Order>? orders)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -1366,7 +1366,7 @@ abstract class $OrderBookResponseDataCopyWith<$Res> {
   factory $OrderBookResponseDataCopyWith(OrderBookResponseData value,
           $Res Function(OrderBookResponseData) then) =
       _$OrderBookResponseDataCopyWithImpl<$Res>;
-  $Res call({List<Order>? orders, String? symbol, String? date});
+  $Res call({String? symbol, String? date, List<Order>? orders});
 }
 
 /// @nodoc
@@ -1382,15 +1382,11 @@ class _$OrderBookResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? orders = freezed,
     Object? symbol = freezed,
     Object? date = freezed,
+    Object? orders = freezed,
   }) {
     return _then(OrderBookResponseData(
-      orders: orders == freezed
-          ? _value.orders
-          : orders // ignore: cast_nullable_to_non_nullable
-              as List<Order>?,
       symbol: symbol == freezed
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
@@ -1399,6 +1395,10 @@ class _$OrderBookResponseDataCopyWithImpl<$Res>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String?,
+      orders: orders == freezed
+          ? _value.orders
+          : orders // ignore: cast_nullable_to_non_nullable
+              as List<Order>?,
     ));
   }
 }
@@ -1407,16 +1407,12 @@ class _$OrderBookResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$OrderBookResponseData implements OrderBookResponseData {
   const _$OrderBookResponseData(
-      {this.orders, this.symbol, this.date, String? $type})
+      {this.symbol, this.date, this.orders, String? $type})
       : $type = $type ?? 'default';
 
   factory _$OrderBookResponseData.fromJson(Map<String, dynamic> json) =>
       _$$OrderBookResponseDataFromJson(json);
 
-  @override
-
-  /// list of orders
-  final List<Order>? orders;
   @override
 
   /// the stock symbol
@@ -1425,13 +1421,17 @@ class _$OrderBookResponseData implements OrderBookResponseData {
 
   /// date of the request
   final String? date;
+  @override
+
+  /// list of orders
+  final List<Order>? orders;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'OrderBookResponse(orders: $orders, symbol: $symbol, date: $date)';
+    return 'OrderBookResponse(symbol: $symbol, date: $date, orders: $orders)';
   }
 
   @override
@@ -1439,17 +1439,17 @@ class _$OrderBookResponseData implements OrderBookResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OrderBookResponseData &&
-            const DeepCollectionEquality().equals(other.orders, orders) &&
             const DeepCollectionEquality().equals(other.symbol, symbol) &&
-            const DeepCollectionEquality().equals(other.date, date));
+            const DeepCollectionEquality().equals(other.date, date) &&
+            const DeepCollectionEquality().equals(other.orders, orders));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(orders),
       const DeepCollectionEquality().hash(symbol),
-      const DeepCollectionEquality().hash(date));
+      const DeepCollectionEquality().hash(date),
+      const DeepCollectionEquality().hash(orders));
 
   @JsonKey(ignore: true)
   @override
@@ -1460,33 +1460,33 @@ class _$OrderBookResponseData implements OrderBookResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(List<Order>? orders, String? symbol, String? date)
+    TResult Function(String? symbol, String? date, List<Order>? orders)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(orders, symbol, date);
+    return $default(symbol, date, orders);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Order>? orders, String? symbol, String? date)?
+    TResult Function(String? symbol, String? date, List<Order>? orders)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(orders, symbol, date);
+    return $default?.call(symbol, date, orders);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<Order>? orders, String? symbol, String? date)?
+    TResult Function(String? symbol, String? date, List<Order>? orders)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(orders, symbol, date);
+      return $default(symbol, date, orders);
     }
     return orElse();
   }
@@ -1530,21 +1530,21 @@ class _$OrderBookResponseData implements OrderBookResponseData {
 
 abstract class OrderBookResponseData implements OrderBookResponse {
   const factory OrderBookResponseData(
-      {List<Order>? orders,
-      String? symbol,
-      String? date}) = _$OrderBookResponseData;
+      {String? symbol,
+      String? date,
+      List<Order>? orders}) = _$OrderBookResponseData;
 
   factory OrderBookResponseData.fromJson(Map<String, dynamic> json) =
       _$OrderBookResponseData.fromJson;
-
-  /// list of orders
-  List<Order>? get orders;
 
   /// the stock symbol
   String? get symbol;
 
   /// date of the request
   String? get date;
+
+  /// list of orders
+  List<Order>? get orders;
   @JsonKey(ignore: true)
   $OrderBookResponseDataCopyWith<OrderBookResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1623,7 +1623,7 @@ class _$OrderBookResponseMerr implements OrderBookResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(List<Order>? orders, String? symbol, String? date)
+    TResult Function(String? symbol, String? date, List<Order>? orders)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -1633,7 +1633,7 @@ class _$OrderBookResponseMerr implements OrderBookResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Order>? orders, String? symbol, String? date)?
+    TResult Function(String? symbol, String? date, List<Order>? orders)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -1643,7 +1643,7 @@ class _$OrderBookResponseMerr implements OrderBookResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<Order>? orders, String? symbol, String? date)?
+    TResult Function(String? symbol, String? date, List<Order>? orders)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
