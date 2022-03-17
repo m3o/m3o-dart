@@ -80,9 +80,9 @@ class LocationService {
 @Freezed()
 class Entity with _$Entity {
   const factory Entity({
-    String? id,
     Point? location,
     String? type,
+    String? id,
   }) = _Entity;
   factory Entity.fromJson(Map<String, dynamic> json) => _$EntityFromJson(json);
 }
@@ -90,9 +90,9 @@ class Entity with _$Entity {
 @Freezed()
 class Point with _$Point {
   const factory Point({
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? timestamp,
     double? latitude,
     double? longitude,
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? timestamp,
   }) = _Point;
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 }

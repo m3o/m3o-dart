@@ -361,9 +361,6 @@ class UserService {
 @Freezed()
 class Account with _$Account {
   const factory Account({
-    /// an email address
-    String? email,
-
     /// unique account id
     String? id,
 
@@ -385,6 +382,9 @@ class Account with _$Account {
 
     /// unix timestamp
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? created,
+
+    /// an email address
+    String? email,
   }) = _Account;
   factory Account.fromJson(Map<String, dynamic> json) =>
       _$AccountFromJson(json);
@@ -393,6 +393,9 @@ class Account with _$Account {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// the username
+    String? username,
+
     /// the email address
     String? email,
 
@@ -404,9 +407,6 @@ class CreateRequest with _$CreateRequest {
 
     /// optional user profile as map<string,string>
     Map<String, String>? profile,
-
-    /// the username
-    String? username,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -583,17 +583,17 @@ class ReadSessionResponse with _$ReadSessionResponse {
 @Freezed()
 class ResetPasswordRequest with _$ResetPasswordRequest {
   const factory ResetPasswordRequest({
-    /// The code from the verification email
-    String? code,
-
-    /// confirm new password
-    String? confirm_password,
-
     /// the email to reset the password for
     String? email,
 
     /// the new password
     String? new_password,
+
+    /// The code from the verification email
+    String? code,
+
+    /// confirm new password
+    String? confirm_password,
   }) = _ResetPasswordRequest;
   factory ResetPasswordRequest.fromJson(Map<String, dynamic> json) =>
       _$ResetPasswordRequestFromJson(json);
@@ -714,17 +714,17 @@ class SendVerificationEmailResponse with _$SendVerificationEmailResponse {
 @Freezed()
 class Session with _$Session {
   const factory Session({
-    /// the session id
-    String? id,
-
-    /// the associated user id
-    String? userId,
-
     /// unix timestamp
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? created,
 
     /// unix timestamp
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? expires,
+
+    /// the session id
+    String? id,
+
+    /// the associated user id
+    String? userId,
   }) = _Session;
   factory Session.fromJson(Map<String, dynamic> json) =>
       _$SessionFromJson(json);
@@ -817,9 +817,9 @@ class VerifyTokenRequest with _$VerifyTokenRequest {
 @Freezed()
 class VerifyTokenResponse with _$VerifyTokenResponse {
   const factory VerifyTokenResponse({
-    Session? session,
     bool? is_valid,
     String? message,
+    Session? session,
   }) = VerifyTokenResponseData;
   const factory VerifyTokenResponse.Merr({Map<String, dynamic>? body}) =
       VerifyTokenResponseMerr;

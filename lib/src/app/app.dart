@@ -307,9 +307,6 @@ class ResolveResponse with _$ResolveResponse {
 @Freezed()
 class RunRequest with _$RunRequest {
   const factory RunRequest({
-    /// port to run on
-    int? port,
-
     /// region to run in
     String? region,
 
@@ -324,6 +321,9 @@ class RunRequest with _$RunRequest {
 
     /// name of the app
     String? name,
+
+    /// port to run on
+    int? port,
   }) = _RunRequest;
   factory RunRequest.fromJson(Map<String, dynamic> json) =>
       _$RunRequestFromJson(json);
@@ -344,17 +344,17 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
-    /// associated env vars
-    Map<String, String>? env_vars,
-
     /// region running in
     String? region,
 
-    /// status of the app
-    String? status,
+    /// source repository
+    String? repo,
 
-    /// custom domains
-    String? custom_domains,
+    /// app url
+    String? url,
+
+    /// branch of code
+    String? branch,
 
     /// time of creation
     String? created,
@@ -368,17 +368,17 @@ class Service with _$Service {
     /// port running on
     int? port,
 
-    /// source repository
-    String? repo,
+    /// status of the app
+    String? status,
 
     /// last updated
     String? updated,
 
-    /// app url
-    String? url,
+    /// custom domains
+    String? custom_domains,
 
-    /// branch of code
-    String? branch,
+    /// associated env vars
+    Map<String, String>? env_vars,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);
@@ -409,11 +409,11 @@ class StatusResponse with _$StatusResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// Additional env vars to update
-    Map<String, String>? env_vars,
-
     /// name of the app
     String? name,
+
+    /// Additional env vars to update
+    Map<String, String>? env_vars,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

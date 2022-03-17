@@ -51,26 +51,23 @@ class LookupResponse with _$LookupResponse {
     /// co2 emmissions
     double? co2_emissions,
 
-    /// fuel type e.g petrol, diesel
-    String? fuel_type,
+    /// engine capacity
+    int? engine_capacity,
 
-    /// date of last v5 issue
-    String? last_v5_issued,
-
-    /// registration number
-    String? registration,
-
-    /// wheel plan
-    String? wheelplan,
-
-    /// colour of vehicle
-    String? colour,
-
-    /// mot expiry
-    String? mot_expiry,
+    /// month of first registration
+    String? month_of_first_registration,
 
     /// mot status
     String? mot_status,
+
+    /// tax due data
+    String? tax_due_date,
+
+    /// fuel type e.g petrol, diesel
+    String? fuel_type,
+
+    /// make of vehicle
+    String? make,
 
     /// tax status
     String? tax_status,
@@ -78,23 +75,26 @@ class LookupResponse with _$LookupResponse {
     /// type approvale
     String? type_approval,
 
+    /// wheel plan
+    String? wheelplan,
+
     /// year of manufacture
     int? year_of_manufacture,
 
-    /// make of vehicle
-    String? make,
-
-    /// engine capacity
-    int? engine_capacity,
+    /// date of last v5 issue
+    String? last_v5_issued,
 
     /// url of logo for the make
     String? logo_url,
 
-    /// month of first registration
-    String? month_of_first_registration,
+    /// colour of vehicle
+    String? colour,
 
-    /// tax due data
-    String? tax_due_date,
+    /// mot expiry
+    String? mot_expiry,
+
+    /// registration number
+    String? registration,
   }) = LookupResponseData;
   const factory LookupResponse.Merr({Map<String, dynamic>? body}) =
       LookupResponseMerr;
