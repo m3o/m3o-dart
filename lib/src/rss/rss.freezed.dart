@@ -916,12 +916,12 @@ Feed _$FeedFromJson(Map<String, dynamic> json) {
 class _$FeedTearOff {
   const _$FeedTearOff();
 
-  _Feed call({String? name, String? url, String? category, String? id}) {
+  _Feed call({String? id, String? name, String? url, String? category}) {
     return _Feed(
+      id: id,
       name: name,
       url: url,
       category: category,
-      id: id,
     );
   }
 
@@ -935,6 +935,9 @@ const $Feed = _$FeedTearOff();
 
 /// @nodoc
 mixin _$Feed {
+  /// unique id
+  String? get id => throw _privateConstructorUsedError;
+
   /// rss feed name
   /// eg. a16z
   String? get name => throw _privateConstructorUsedError;
@@ -946,9 +949,6 @@ mixin _$Feed {
   /// category of the feed e.g news
   String? get category => throw _privateConstructorUsedError;
 
-  /// unique id
-  String? get id => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FeedCopyWith<Feed> get copyWith => throw _privateConstructorUsedError;
@@ -958,7 +958,7 @@ mixin _$Feed {
 abstract class $FeedCopyWith<$Res> {
   factory $FeedCopyWith(Feed value, $Res Function(Feed) then) =
       _$FeedCopyWithImpl<$Res>;
-  $Res call({String? name, String? url, String? category, String? id});
+  $Res call({String? id, String? name, String? url, String? category});
 }
 
 /// @nodoc
@@ -971,12 +971,16 @@ class _$FeedCopyWithImpl<$Res> implements $FeedCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? url = freezed,
     Object? category = freezed,
-    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -989,10 +993,6 @@ class _$FeedCopyWithImpl<$Res> implements $FeedCopyWith<$Res> {
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1002,7 +1002,7 @@ abstract class _$FeedCopyWith<$Res> implements $FeedCopyWith<$Res> {
   factory _$FeedCopyWith(_Feed value, $Res Function(_Feed) then) =
       __$FeedCopyWithImpl<$Res>;
   @override
-  $Res call({String? name, String? url, String? category, String? id});
+  $Res call({String? id, String? name, String? url, String? category});
 }
 
 /// @nodoc
@@ -1016,12 +1016,16 @@ class __$FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? url = freezed,
     Object? category = freezed,
-    Object? id = freezed,
   }) {
     return _then(_Feed(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1034,10 +1038,6 @@ class __$FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1045,10 +1045,14 @@ class __$FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Feed implements _Feed {
-  const _$_Feed({this.name, this.url, this.category, this.id});
+  const _$_Feed({this.id, this.name, this.url, this.category});
 
   factory _$_Feed.fromJson(Map<String, dynamic> json) => _$$_FeedFromJson(json);
 
+  @override
+
+  /// unique id
+  final String? id;
   @override
 
   /// rss feed name
@@ -1063,14 +1067,10 @@ class _$_Feed implements _Feed {
 
   /// category of the feed e.g news
   final String? category;
-  @override
-
-  /// unique id
-  final String? id;
 
   @override
   String toString() {
-    return 'Feed(name: $name, url: $url, category: $category, id: $id)';
+    return 'Feed(id: $id, name: $name, url: $url, category: $category)';
   }
 
   @override
@@ -1078,19 +1078,19 @@ class _$_Feed implements _Feed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Feed &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality().equals(other.category, category) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.category, category));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(category),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(category));
 
   @JsonKey(ignore: true)
   @override
@@ -1105,10 +1105,14 @@ class _$_Feed implements _Feed {
 
 abstract class _Feed implements Feed {
   const factory _Feed(
-      {String? name, String? url, String? category, String? id}) = _$_Feed;
+      {String? id, String? name, String? url, String? category}) = _$_Feed;
 
   factory _Feed.fromJson(Map<String, dynamic> json) = _$_Feed.fromJson;
 
+  @override
+
+  /// unique id
+  String? get id;
   @override
 
   /// rss feed name
@@ -1123,10 +1127,6 @@ abstract class _Feed implements Feed {
 
   /// category of the feed e.g news
   String? get category;
-  @override
-
-  /// unique id
-  String? get id;
   @override
   @JsonKey(ignore: true)
   _$FeedCopyWith<_Feed> get copyWith => throw _privateConstructorUsedError;

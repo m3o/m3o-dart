@@ -111,17 +111,8 @@ class NearbyResponse with _$NearbyResponse {
 @Freezed()
 class Result with _$Result {
   const factory Result({
-    /// url of an icon
-    String? icon_url,
-
-    /// name of the place
-    String? name,
-
-    /// open now
-    bool? open_now,
-
-    /// rating from 1.0 to 5.0
-    double? rating,
+    /// opening hours
+    String? opening_hours,
 
     /// simplified address
     String? vicinity,
@@ -132,8 +123,17 @@ class Result with _$Result {
     /// lat/lng of place
     String? location,
 
-    /// opening hours
-    String? opening_hours,
+    /// name of the place
+    String? name,
+
+    /// open now
+    bool? open_now,
+
+    /// url of an icon
+    String? icon_url,
+
+    /// rating from 1.0 to 5.0
+    double? rating,
 
     /// type of location
     String? type,
@@ -147,9 +147,6 @@ class Result with _$Result {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// the location by lat,lng e.g -33.8670522,-151.1957362
-    String? location,
-
     /// Whether the place is open now
     bool? open_now,
 
@@ -161,6 +158,9 @@ class SearchRequest with _$SearchRequest {
 
     /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
     String? type,
+
+    /// the location by lat,lng e.g -33.8670522,-151.1957362
+    String? location,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);
