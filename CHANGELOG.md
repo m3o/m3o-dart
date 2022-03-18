@@ -1,3 +1,9 @@
+## v1.0.45 - 2022-03-18
+
+[3f11ab](https://github.com/micro/services/commit/3f11ab2e0e27a152a41ba3291e8f218bbcbf49ac) Build logs for functions (#406)
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.44...v1.0.45
+
 ## v1.0.44 - 2022-03-18
 
 [3f11ab](https://github.com/micro/services/commit/3f11ab2e0e27a152a41ba3291e8f218bbcbf49ac) Build logs for functions (#406)
