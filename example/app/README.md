@@ -4,48 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/app/api](https
 
 Endpoints:
 
-## List
-
-List all the apps
-
-
-[https://m3o.com/app/api#List](https://m3o.com/app/api#List)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/app/app.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = AppService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{};
-
-  ListRequest req = ListRequest.fromJson(payload);
-
-  
-  try {
-
-	ListResponse res = await ser.list(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Run
 
 Run an app from source
@@ -94,54 +52,12 @@ void main() async {
   }
 }
 ```
-## Regions
+## Resolve
 
-Return the support regions
-
-
-[https://m3o.com/app/api#Regions](https://m3o.com/app/api#Regions)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/app/app.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = AppService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{};
-
-  RegionsRequest req = RegionsRequest.fromJson(payload);
-
-  
-  try {
-
-	RegionsResponse res = await ser.regions(req);
-
-    res.map((value) => print(value),
-	  Merr: (RegionsResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Status
-
-Get the status of an app
+Resolve an app by id to its raw backend endpoint
 
 
-[https://m3o.com/app/api#Status](https://m3o.com/app/api#Status)
+[https://m3o.com/app/api#Resolve](https://m3o.com/app/api#Resolve)
 
 ```dart
 import 'dart:io';
@@ -159,18 +75,18 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "name": "helloworld"
+  "id": "helloworld"
 ,};
 
-  StatusRequest req = StatusRequest.fromJson(payload);
+  ResolveRequest req = ResolveRequest.fromJson(payload);
 
   
   try {
 
-	StatusResponse res = await ser.status(req);
+	ResolveResponse res = await ser.resolve(req);
 
     res.map((value) => print(value),
-	  Merr: (StatusResponseMerr err) => print(err.body!['body']));	
+	  Merr: (ResolveResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -215,6 +131,51 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Logs
+
+Get the logs for an app
+
+
+[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/app/app.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = AppService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "logs_type": "build",
+  "name": "helloworld"
+,};
+
+  LogsRequest req = LogsRequest.fromJson(payload);
+
+  
+  try {
+
+	LogsResponse res = await ser.logs(req);
+
+    res.map((value) => print(value),
+	  Merr: (LogsResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -312,12 +273,12 @@ void main() async {
   }
 }
 ```
-## Logs
+## List
 
-Get the logs for an app
+List all the apps
 
 
-[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
+[https://m3o.com/app/api#List](https://m3o.com/app/api#List)
 
 ```dart
 import 'dart:io';
@@ -334,20 +295,17 @@ void main() async {
     ),
   );
  
-  final payload = <String, dynamic>{
-  "logs_type": "build",
-  "name": "helloworld"
-,};
+  final payload = <String, dynamic>{};
 
-  LogsRequest req = LogsRequest.fromJson(payload);
+  ListRequest req = ListRequest.fromJson(payload);
 
   
   try {
 
-	LogsResponse res = await ser.logs(req);
+	ListResponse res = await ser.list(req);
 
     res.map((value) => print(value),
-	  Merr: (LogsResponseMerr err) => print(err.body!['body']));	
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -357,12 +315,54 @@ void main() async {
   }
 }
 ```
-## Resolve
+## Regions
 
-Resolve an app by id to its raw backend endpoint
+Return the support regions
 
 
-[https://m3o.com/app/api#Resolve](https://m3o.com/app/api#Resolve)
+[https://m3o.com/app/api#Regions](https://m3o.com/app/api#Regions)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/app/app.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = AppService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{};
+
+  RegionsRequest req = RegionsRequest.fromJson(payload);
+
+  
+  try {
+
+	RegionsResponse res = await ser.regions(req);
+
+    res.map((value) => print(value),
+	  Merr: (RegionsResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Status
+
+Get the status of an app
+
+
+[https://m3o.com/app/api#Status](https://m3o.com/app/api#Status)
 
 ```dart
 import 'dart:io';
@@ -380,18 +380,18 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "id": "helloworld"
+  "name": "helloworld"
 ,};
 
-  ResolveRequest req = ResolveRequest.fromJson(payload);
+  StatusRequest req = StatusRequest.fromJson(payload);
 
   
   try {
 
-	ResolveResponse res = await ser.resolve(req);
+	StatusResponse res = await ser.status(req);
 
     res.map((value) => print(value),
-	  Merr: (ResolveResponseMerr err) => print(err.body!['body']));	
+	  Merr: (StatusResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);

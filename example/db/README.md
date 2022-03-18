@@ -52,12 +52,12 @@ void main() async {
   }
 }
 ```
-## Read
+## Delete
 
-Read data from a table. Lookup can be by ID or via querying any field in the record.
+Delete a record in the database by id.
 
 
-[https://m3o.com/db/api#Read](https://m3o.com/db/api#Read)
+[https://m3o.com/db/api#Delete](https://m3o.com/db/api#Delete)
 
 ```dart
 import 'dart:io';
@@ -75,19 +75,19 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "query": "age == 43",
+  "id": "1",
   "table": "example"
 ,};
 
-  ReadRequest req = ReadRequest.fromJson(payload);
+  DeleteRequest req = DeleteRequest.fromJson(payload);
 
   
   try {
 
-	ReadResponse res = await ser.read(req);
+	DeleteResponse res = await ser.delete(req);
 
     res.map((value) => print(value),
-	  Merr: (ReadResponseMerr err) => print(err.body!['body']));	
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -97,12 +97,12 @@ void main() async {
   }
 }
 ```
-## RenameTable
+## Truncate
 
-Rename a table
+Truncate the records in a table
 
 
-[https://m3o.com/db/api#RenameTable](https://m3o.com/db/api#RenameTable)
+[https://m3o.com/db/api#Truncate](https://m3o.com/db/api#Truncate)
 
 ```dart
 import 'dart:io';
@@ -120,19 +120,60 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "from": "examples2",
-  "to": "examples3"
+  "table": "example"
 ,};
 
-  RenameTableRequest req = RenameTableRequest.fromJson(payload);
+  TruncateRequest req = TruncateRequest.fromJson(payload);
 
   
   try {
 
-	RenameTableResponse res = await ser.renameTable(req);
+	TruncateResponse res = await ser.truncate(req);
 
     res.map((value) => print(value),
-	  Merr: (RenameTableResponseMerr err) => print(err.body!['body']));	
+	  Merr: (TruncateResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## ListTables
+
+List tables in the DB
+
+
+[https://m3o.com/db/api#ListTables](https://m3o.com/db/api#ListTables)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/db/db.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = DbService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{};
+
+  ListTablesRequest req = ListTablesRequest.fromJson(payload);
+
+  
+  try {
+
+	ListTablesResponse res = await ser.listTables(req);
+
+    res.map((value) => print(value),
+	  Merr: (ListTablesResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -192,12 +233,12 @@ void main() async {
   }
 }
 ```
-## Truncate
+## Read
 
-Truncate the records in a table
+Read data from a table. Lookup can be by ID or via querying any field in the record.
 
 
-[https://m3o.com/db/api#Truncate](https://m3o.com/db/api#Truncate)
+[https://m3o.com/db/api#Read](https://m3o.com/db/api#Read)
 
 ```dart
 import 'dart:io';
@@ -215,18 +256,19 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
+  "query": "age == 43",
   "table": "example"
 ,};
 
-  TruncateRequest req = TruncateRequest.fromJson(payload);
+  ReadRequest req = ReadRequest.fromJson(payload);
 
   
   try {
 
-	TruncateResponse res = await ser.truncate(req);
+	ReadResponse res = await ser.read(req);
 
     res.map((value) => print(value),
-	  Merr: (TruncateResponseMerr err) => print(err.body!['body']));	
+	  Merr: (ReadResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -324,54 +366,12 @@ void main() async {
   }
 }
 ```
-## ListTables
+## RenameTable
 
-List tables in the DB
-
-
-[https://m3o.com/db/api#ListTables](https://m3o.com/db/api#ListTables)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/db/db.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = DbService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{};
-
-  ListTablesRequest req = ListTablesRequest.fromJson(payload);
-
-  
-  try {
-
-	ListTablesResponse res = await ser.listTables(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListTablesResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Delete
-
-Delete a record in the database by id.
+Rename a table
 
 
-[https://m3o.com/db/api#Delete](https://m3o.com/db/api#Delete)
+[https://m3o.com/db/api#RenameTable](https://m3o.com/db/api#RenameTable)
 
 ```dart
 import 'dart:io';
@@ -389,19 +389,19 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "id": "1",
-  "table": "example"
+  "from": "examples2",
+  "to": "examples3"
 ,};
 
-  DeleteRequest req = DeleteRequest.fromJson(payload);
+  RenameTableRequest req = RenameTableRequest.fromJson(payload);
 
   
   try {
 
-	DeleteResponse res = await ser.delete(req);
+	RenameTableResponse res = await ser.renameTable(req);
 
     res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+	  Merr: (RenameTableResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
