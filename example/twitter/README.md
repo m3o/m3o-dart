@@ -4,6 +4,50 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/twitter/api](h
 
 Endpoints:
 
+## User
+
+Get a user's twitter profile
+
+
+[https://m3o.com/twitter/api#User](https://m3o.com/twitter/api#User)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/twitter/twitter.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = TwitterService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "username": "crufter"
+,};
+
+  UserRequest req = UserRequest.fromJson(payload);
+
+  
+  try {
+
+	UserResponse res = await ser.user(req);
+
+    res.map((value) => print(value),
+	  Merr: (UserResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Timeline
 
 Get the timeline for a given user
@@ -126,50 +170,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (TrendsResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## User
-
-Get a user's twitter profile
-
-
-[https://m3o.com/twitter/api#User](https://m3o.com/twitter/api#User)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/twitter/twitter.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = TwitterService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "username": "crufter"
-,};
-
-  UserRequest req = UserRequest.fromJson(payload);
-
-  
-  try {
-
-	UserResponse res = await ser.user(req);
-
-    res.map((value) => print(value),
-	  Merr: (UserResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
