@@ -145,17 +145,17 @@ class ConvertResponse with _$ConvertResponse {
 @Freezed()
 class CropOptions with _$CropOptions {
   const factory CropOptions({
-    /// Crop anchor point: "top", "top left", "top right",
-    /// "left", "center", "right"
-    /// "bottom left", "bottom", "bottom right".
-    /// Optional. Defaults to center.
-    String? anchor,
-
     /// height to crop to
     int? height,
 
     /// width to crop to
     int? width,
+
+    /// Crop anchor point: "top", "top left", "top right",
+    /// "left", "center", "right"
+    /// "bottom left", "bottom", "bottom right".
+    /// Optional. Defaults to center.
+    String? anchor,
   }) = _CropOptions;
   factory CropOptions.fromJson(Map<String, dynamic> json) =>
       _$CropOptionsFromJson(json);
@@ -202,15 +202,6 @@ class Rectangle with _$Rectangle {
 @Freezed()
 class ResizeRequest with _$ResizeRequest {
   const factory ResizeRequest({
-    /// optional crop options
-    /// if provided, after resize, the image
-    /// will be cropped
-    CropOptions? cropOptions,
-
-    /// The image file to resize
-    String? file,
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
-
     /// output name of the image including extension, ie. "cat.png"
     String? name,
 
@@ -223,6 +214,15 @@ class ResizeRequest with _$ResizeRequest {
 
     /// base64 encoded image to resize,
     String? base64,
+
+    /// optional crop options
+    /// if provided, after resize, the image
+    /// will be cropped
+    CropOptions? cropOptions,
+
+    /// The image file to resize
+    String? file,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
   }) = _ResizeRequest;
   factory ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$ResizeRequestFromJson(json);
@@ -231,8 +231,8 @@ class ResizeRequest with _$ResizeRequest {
 @Freezed()
 class ResizeResponse with _$ResizeResponse {
   const factory ResizeResponse({
-    String? base64,
     String? url,
+    String? base64,
   }) = ResizeResponseData;
   const factory ResizeResponse.Merr({Map<String, dynamic>? body}) =
       ResizeResponseMerr;

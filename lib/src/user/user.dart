@@ -393,6 +393,12 @@ class Account with _$Account {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// the user password
+    String? password,
+
+    /// optional user profile as map<string,string>
+    Map<String, String>? profile,
+
     /// the username
     String? username,
 
@@ -401,12 +407,6 @@ class CreateRequest with _$CreateRequest {
 
     /// optional account id
     String? id,
-
-    /// the user password
-    String? password,
-
-    /// optional user profile as map<string,string>
-    Map<String, String>? profile,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -468,14 +468,14 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class LoginRequest with _$LoginRequest {
   const factory LoginRequest({
-    /// The email address of the user
-    String? email,
-
     /// The password of the user
     String? password,
 
     /// The username of the user
     String? username,
+
+    /// The email address of the user
+    String? email,
   }) = _LoginRequest;
   factory LoginRequest.fromJson(Map<String, dynamic> json) =>
       _$LoginRequestFromJson(json);
@@ -715,9 +715,6 @@ class SendVerificationEmailResponse with _$SendVerificationEmailResponse {
 class Session with _$Session {
   const factory Session({
     /// unix timestamp
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? created,
-
-    /// unix timestamp
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? expires,
 
     /// the session id
@@ -725,6 +722,9 @@ class Session with _$Session {
 
     /// the associated user id
     String? userId,
+
+    /// unix timestamp
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? created,
   }) = _Session;
   factory Session.fromJson(Map<String, dynamic> json) =>
       _$SessionFromJson(json);

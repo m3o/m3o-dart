@@ -33,22 +33,22 @@ Map<String, dynamic> _$$_AccountToJson(_$_Account instance) =>
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      username: json['username'] as String?,
-      email: json['email'] as String?,
-      id: json['id'] as String?,
       password: json['password'] as String?,
       profile: (json['profile'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
+      username: json['username'] as String?,
+      email: json['email'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
+      'password': instance.password,
+      'profile': instance.profile,
       'username': instance.username,
       'email': instance.email,
       'id': instance.id,
-      'password': instance.password,
-      'profile': instance.profile,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -153,16 +153,16 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
 
 _$_LoginRequest _$$_LoginRequestFromJson(Map<String, dynamic> json) =>
     _$_LoginRequest(
-      email: json['email'] as String?,
       password: json['password'] as String?,
       username: json['username'] as String?,
+      email: json['email'] as String?,
     );
 
 Map<String, dynamic> _$$_LoginRequestToJson(_$_LoginRequest instance) =>
     <String, dynamic>{
-      'email': instance.email,
       'password': instance.password,
       'username': instance.username,
+      'email': instance.email,
     };
 
 _$LoginResponseData _$$LoginResponseDataFromJson(Map<String, dynamic> json) =>
@@ -530,18 +530,18 @@ Map<String, dynamic> _$$SendVerificationEmailResponseMerrToJson(
     };
 
 _$_Session _$$_SessionFromJson(Map<String, dynamic> json) => _$_Session(
-      created: int64FromString(json['created'] as String?),
       expires: int64FromString(json['expires'] as String?),
       id: json['id'] as String?,
       userId: json['userId'] as String?,
+      created: int64FromString(json['created'] as String?),
     );
 
 Map<String, dynamic> _$$_SessionToJson(_$_Session instance) =>
     <String, dynamic>{
-      'created': int64ToString(instance.created),
       'expires': int64ToString(instance.expires),
       'id': instance.id,
       'userId': instance.userId,
+      'created': int64ToString(instance.created),
     };
 
 _$_UpdatePasswordRequest _$$_UpdatePasswordRequestFromJson(

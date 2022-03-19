@@ -23,11 +23,11 @@ class _$GenerateRequestTearOff {
   const _$GenerateRequestTearOff();
 
   _GenerateRequest call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
-      String? text}) {
+      {String? text,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size}) {
     return _GenerateRequest(
-      size: size,
       text: text,
+      size: size,
     );
   }
 
@@ -41,12 +41,12 @@ const $GenerateRequest = _$GenerateRequestTearOff();
 
 /// @nodoc
 mixin _$GenerateRequest {
+  /// the text to encode as a QR code (URL, phone number, email, etc)
+  String? get text => throw _privateConstructorUsedError;
+
   /// the size (height and width) in pixels of the generated QR code. Defaults to 256
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get size => throw _privateConstructorUsedError;
-
-  /// the text to encode as a QR code (URL, phone number, email, etc)
-  String? get text => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -60,8 +60,8 @@ abstract class $GenerateRequestCopyWith<$Res> {
           GenerateRequest value, $Res Function(GenerateRequest) then) =
       _$GenerateRequestCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
-      String? text});
+      {String? text,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size});
 }
 
 /// @nodoc
@@ -75,18 +75,18 @@ class _$GenerateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? size = freezed,
     Object? text = freezed,
+    Object? size = freezed,
   }) {
     return _then(_value.copyWith(
-      size: size == freezed
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int?,
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
+      size: size == freezed
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -99,8 +99,8 @@ abstract class _$GenerateRequestCopyWith<$Res>
       __$GenerateRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
-      String? text});
+      {String? text,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size});
 }
 
 /// @nodoc
@@ -116,18 +116,18 @@ class __$GenerateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? size = freezed,
     Object? text = freezed,
+    Object? size = freezed,
   }) {
     return _then(_GenerateRequest(
-      size: size == freezed
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int?,
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
+      size: size == freezed
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -136,25 +136,25 @@ class __$GenerateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GenerateRequest implements _GenerateRequest {
   const _$_GenerateRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.size,
-      this.text});
+      {this.text,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.size});
 
   factory _$_GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_GenerateRequestFromJson(json);
 
   @override
 
+  /// the text to encode as a QR code (URL, phone number, email, etc)
+  final String? text;
+  @override
+
   /// the size (height and width) in pixels of the generated QR code. Defaults to 256
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? size;
-  @override
-
-  /// the text to encode as a QR code (URL, phone number, email, etc)
-  final String? text;
 
   @override
   String toString() {
-    return 'GenerateRequest(size: $size, text: $text)';
+    return 'GenerateRequest(text: $text, size: $size)';
   }
 
   @override
@@ -162,15 +162,15 @@ class _$_GenerateRequest implements _GenerateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _GenerateRequest &&
-            const DeepCollectionEquality().equals(other.size, size) &&
-            const DeepCollectionEquality().equals(other.text, text));
+            const DeepCollectionEquality().equals(other.text, text) &&
+            const DeepCollectionEquality().equals(other.size, size));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(size),
-      const DeepCollectionEquality().hash(text));
+      const DeepCollectionEquality().hash(text),
+      const DeepCollectionEquality().hash(size));
 
   @JsonKey(ignore: true)
   @override
@@ -185,21 +185,22 @@ class _$_GenerateRequest implements _GenerateRequest {
 
 abstract class _GenerateRequest implements GenerateRequest {
   const factory _GenerateRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
-      String? text}) = _$_GenerateRequest;
+      {String? text,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? size}) = _$_GenerateRequest;
 
   factory _GenerateRequest.fromJson(Map<String, dynamic> json) =
       _$_GenerateRequest.fromJson;
 
   @override
 
+  /// the text to encode as a QR code (URL, phone number, email, etc)
+  String? get text;
+  @override
+
   /// the size (height and width) in pixels of the generated QR code. Defaults to 256
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get size;
-  @override
-
-  /// the text to encode as a QR code (URL, phone number, email, etc)
-  String? get text;
   @override
   @JsonKey(ignore: true)
   _$GenerateRequestCopyWith<_GenerateRequest> get copyWith =>
