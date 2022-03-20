@@ -7,54 +7,54 @@ part of 'contact.dart';
 // **************************************************************************
 
 _$_Address _$$_AddressFromJson(Map<String, dynamic> json) => _$_Address(
-      location: json['location'] as String?,
       label: json['label'] as String?,
+      location: json['location'] as String?,
     );
 
 Map<String, dynamic> _$$_AddressToJson(_$_Address instance) =>
     <String, dynamic>{
-      'location': instance.location,
       'label': instance.label,
+      'location': instance.location,
     };
 
 _$_ContactInfo _$$_ContactInfoFromJson(Map<String, dynamic> json) =>
     _$_ContactInfo(
-      created_at: json['created_at'] as String?,
-      id: json['id'] as String?,
-      links: (json['links'] as List<dynamic>?)
-          ?.map((e) => Link.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      name: json['name'] as String?,
       note: json['note'] as String?,
-      phones: (json['phones'] as List<dynamic>?)
-          ?.map((e) => Phone.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      updated_at: json['updated_at'] as String?,
+      social_medias: json['social_medias'] == null
+          ? null
+          : SocialMedia.fromJson(json['social_medias'] as Map<String, dynamic>),
       addresses: (json['addresses'] as List<dynamic>?)
           ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
           .toList(),
       birthday: json['birthday'] as String?,
-      social_medias: json['social_medias'] == null
-          ? null
-          : SocialMedia.fromJson(json['social_medias'] as Map<String, dynamic>),
       emails: (json['emails'] as List<dynamic>?)
           ?.map((e) => Email.fromJson(e as Map<String, dynamic>))
           .toList(),
-      name: json['name'] as String?,
+      id: json['id'] as String?,
+      links: (json['links'] as List<dynamic>?)
+          ?.map((e) => Link.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      created_at: json['created_at'] as String?,
+      phones: (json['phones'] as List<dynamic>?)
+          ?.map((e) => Phone.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      updated_at: json['updated_at'] as String?,
     );
 
 Map<String, dynamic> _$$_ContactInfoToJson(_$_ContactInfo instance) =>
     <String, dynamic>{
-      'created_at': instance.created_at,
-      'id': instance.id,
-      'links': instance.links,
+      'name': instance.name,
       'note': instance.note,
-      'phones': instance.phones,
-      'updated_at': instance.updated_at,
+      'social_medias': instance.social_medias,
       'addresses': instance.addresses,
       'birthday': instance.birthday,
-      'social_medias': instance.social_medias,
       'emails': instance.emails,
-      'name': instance.name,
+      'id': instance.id,
+      'links': instance.links,
+      'created_at': instance.created_at,
+      'phones': instance.phones,
+      'updated_at': instance.updated_at,
     };
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
@@ -274,12 +274,10 @@ _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>
       social_medias: json['social_medias'] == null
           ? null
           : SocialMedia.fromJson(json['social_medias'] as Map<String, dynamic>),
-      addresses: (json['addresses'] as List<dynamic>?)
-          ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
-          .toList(),
       emails: (json['emails'] as List<dynamic>?)
           ?.map((e) => Email.fromJson(e as Map<String, dynamic>))
           .toList(),
+      id: json['id'] as String?,
       links: (json['links'] as List<dynamic>?)
           ?.map((e) => Link.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -287,21 +285,23 @@ _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>
       phones: (json['phones'] as List<dynamic>?)
           ?.map((e) => Phone.fromJson(e as Map<String, dynamic>))
           .toList(),
+      addresses: (json['addresses'] as List<dynamic>?)
+          ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
+          .toList(),
       birthday: json['birthday'] as String?,
-      id: json['id'] as String?,
       name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_UpdateRequestToJson(_$_UpdateRequest instance) =>
     <String, dynamic>{
       'social_medias': instance.social_medias,
-      'addresses': instance.addresses,
       'emails': instance.emails,
+      'id': instance.id,
       'links': instance.links,
       'note': instance.note,
       'phones': instance.phones,
+      'addresses': instance.addresses,
       'birthday': instance.birthday,
-      'id': instance.id,
       'name': instance.name,
     };
 

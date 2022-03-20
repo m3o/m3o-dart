@@ -18,7 +18,6 @@ Map<String, dynamic> _$$_LookupRequestToJson(_$_LookupRequest instance) =>
 
 _$LookupResponseData _$$LookupResponseDataFromJson(Map<String, dynamic> json) =>
     _$LookupResponseData(
-      ip: json['ip'] as String?,
       latitude: (json['latitude'] as num?)?.toDouble(),
       longitude: (json['longitude'] as num?)?.toDouble(),
       timezone: json['timezone'] as String?,
@@ -26,13 +25,13 @@ _$LookupResponseData _$$LookupResponseDataFromJson(Map<String, dynamic> json) =>
       city: json['city'] as String?,
       continent: json['continent'] as String?,
       country: json['country'] as String?,
+      ip: json['ip'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$LookupResponseDataToJson(
         _$LookupResponseData instance) =>
     <String, dynamic>{
-      'ip': instance.ip,
       'latitude': instance.latitude,
       'longitude': instance.longitude,
       'timezone': instance.timezone,
@@ -40,6 +39,7 @@ Map<String, dynamic> _$$LookupResponseDataToJson(
       'city': instance.city,
       'continent': instance.continent,
       'country': instance.country,
+      'ip': instance.ip,
       'runtimeType': instance.$type,
     };
 

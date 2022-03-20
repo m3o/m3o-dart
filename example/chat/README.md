@@ -4,6 +4,51 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/chat/api](http
 
 Endpoints:
 
+## Create
+
+Create a new chat room
+
+
+[https://m3o.com/chat/api#Create](https://m3o.com/chat/api#Create)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/chat/chat.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = ChatService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "description": "The general chat room",
+  "name": "general"
+,};
+
+  CreateRequest req = CreateRequest.fromJson(payload);
+
+  
+  try {
+
+	CreateResponse res = await ser.create(req);
+
+    res.map((value) => print(value),
+	  Merr: (CreateResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Delete
 
 Delete a chat room
@@ -39,6 +84,93 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Invite
+
+Invite a user to a chat room
+
+
+[https://m3o.com/chat/api#Invite](https://m3o.com/chat/api#Invite)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/chat/chat.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = ChatService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-1"
+,};
+
+  InviteRequest req = InviteRequest.fromJson(payload);
+
+  
+  try {
+
+	InviteResponse res = await ser.invite(req);
+
+    res.map((value) => print(value),
+	  Merr: (InviteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## List
+
+List available chats
+
+
+[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/chat/chat.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = ChatService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{};
+
+  ListRequest req = ListRequest.fromJson(payload);
+
+  
+  try {
+
+	ListResponse res = await ser.list(req);
+
+    res.map((value) => print(value),
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -97,57 +229,12 @@ void main() async {
   }
 }
 ```
-## Leave
+## History
 
-Leave a chat room
-
-
-[https://m3o.com/chat/api#Leave](https://m3o.com/chat/api#Leave)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/chat/chat.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = ChatService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-1"
-,};
-
-  LeaveRequest req = LeaveRequest.fromJson(payload);
-
-  
-  try {
-
-	LeaveResponse res = await ser.leave(req);
-
-    res.map((value) => print(value),
-	  Merr: (LeaveResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Create
-
-Create a new chat room
+List the messages in a chat
 
 
-[https://m3o.com/chat/api#Create](https://m3o.com/chat/api#Create)
+[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
 
 ```dart
 import 'dart:io';
@@ -165,61 +252,18 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "description": "The general chat room",
-  "name": "general"
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
 ,};
 
-  CreateRequest req = CreateRequest.fromJson(payload);
+  HistoryRequest req = HistoryRequest.fromJson(payload);
 
   
   try {
 
-	CreateResponse res = await ser.create(req);
+	HistoryResponse res = await ser.history(req);
 
     res.map((value) => print(value),
-	  Merr: (CreateResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## List
-
-List available chats
-
-
-[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/chat/chat.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = ChatService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{};
-
-  ListRequest req = ListRequest.fromJson(payload);
-
-  
-  try {
-
-	ListResponse res = await ser.list(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
+	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -321,12 +365,12 @@ void main() async {
   }
 }
 ```
-## Invite
+## Leave
 
-Invite a user to a chat room
+Leave a chat room
 
 
-[https://m3o.com/chat/api#Invite](https://m3o.com/chat/api#Invite)
+[https://m3o.com/chat/api#Leave](https://m3o.com/chat/api#Leave)
 
 ```dart
 import 'dart:io';
@@ -348,59 +392,15 @@ void main() async {
   "user_id": "user-1"
 ,};
 
-  InviteRequest req = InviteRequest.fromJson(payload);
+  LeaveRequest req = LeaveRequest.fromJson(payload);
 
   
   try {
 
-	InviteResponse res = await ser.invite(req);
+	LeaveResponse res = await ser.leave(req);
 
     res.map((value) => print(value),
-	  Merr: (InviteResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## History
-
-List the messages in a chat
-
-
-[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/chat/chat.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = ChatService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
-,};
-
-  HistoryRequest req = HistoryRequest.fromJson(payload);
-
-  
-  try {
-
-	HistoryResponse res = await ser.history(req);
-
-    res.map((value) => print(value),
-	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
+	  Merr: (LeaveResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);

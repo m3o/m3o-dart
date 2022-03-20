@@ -122,11 +122,11 @@ class ContactService {
 @Freezed()
 class Address with _$Address {
   const factory Address({
-    /// the address location
-    String? location,
-
     /// the label of the address
     String? label,
+
+    /// the address location
+    String? location,
   }) = _Address;
   factory Address.fromJson(Map<String, dynamic> json) =>
       _$AddressFromJson(json);
@@ -135,23 +135,14 @@ class Address with _$Address {
 @Freezed()
 class ContactInfo with _$ContactInfo {
   const factory ContactInfo({
-    /// create date string in RFC3339
-    String? created_at,
-
-    /// contact id
-    String? id,
-
-    /// the contact links
-    List<Link>? links,
+    /// the contact name
+    String? name,
 
     /// note of the contact
     String? note,
 
-    /// the phone numbers
-    List<Phone>? phones,
-
-    /// update date string in RFC3339
-    String? updated_at,
+    /// the social media username
+    SocialMedia? social_medias,
 
     /// the address
     List<Address>? addresses,
@@ -159,14 +150,23 @@ class ContactInfo with _$ContactInfo {
     /// the birthday
     String? birthday,
 
-    /// the social media username
-    SocialMedia? social_medias,
-
     /// the emails
     List<Email>? emails,
 
-    /// the contact name
-    String? name,
+    /// contact id
+    String? id,
+
+    /// the contact links
+    List<Link>? links,
+
+    /// create date string in RFC3339
+    String? created_at,
+
+    /// the phone numbers
+    List<Phone>? phones,
+
+    /// update date string in RFC3339
+    String? updated_at,
   }) = _ContactInfo;
   factory ContactInfo.fromJson(Map<String, dynamic> json) =>
       _$ContactInfoFromJson(json);
@@ -332,11 +332,11 @@ class UpdateRequest with _$UpdateRequest {
     /// optional, social media
     SocialMedia? social_medias,
 
-    /// optional, addresses
-    List<Address>? addresses,
-
     /// optional, emails
     List<Email>? emails,
+
+    /// required, the contact id
+    String? id,
 
     /// optional, links
     List<Link>? links,
@@ -347,11 +347,11 @@ class UpdateRequest with _$UpdateRequest {
     /// optional, phone number
     List<Phone>? phones,
 
+    /// optional, addresses
+    List<Address>? addresses,
+
     /// optional, birthday
     String? birthday,
-
-    /// required, the contact id
-    String? id,
 
     /// required, the name
     String? name,

@@ -8,39 +8,39 @@ part of 'stock.dart';
 
 _$_HistoryRequest _$$_HistoryRequestFromJson(Map<String, dynamic> json) =>
     _$_HistoryRequest(
-      date: json['date'] as String?,
       stock: json['stock'] as String?,
+      date: json['date'] as String?,
     );
 
 Map<String, dynamic> _$$_HistoryRequestToJson(_$_HistoryRequest instance) =>
     <String, dynamic>{
-      'date': instance.date,
       'stock': instance.stock,
+      'date': instance.date,
     };
 
 _$HistoryResponseData _$$HistoryResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$HistoryResponseData(
+      date: json['date'] as String?,
+      high: (json['high'] as num?)?.toDouble(),
       low: (json['low'] as num?)?.toDouble(),
       open: (json['open'] as num?)?.toDouble(),
       symbol: json['symbol'] as String?,
       volume: json['volume'] as int?,
       close: (json['close'] as num?)?.toDouble(),
-      date: json['date'] as String?,
-      high: (json['high'] as num?)?.toDouble(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$HistoryResponseDataToJson(
         _$HistoryResponseData instance) =>
     <String, dynamic>{
+      'date': instance.date,
+      'high': instance.high,
       'low': instance.low,
       'open': instance.open,
       'symbol': instance.symbol,
       'volume': instance.volume,
       'close': instance.close,
-      'date': instance.date,
-      'high': instance.high,
       'runtimeType': instance.$type,
     };
 
@@ -76,39 +76,39 @@ Map<String, dynamic> _$$_OrderToJson(_$_Order instance) => <String, dynamic>{
 
 _$_OrderBookRequest _$$_OrderBookRequestFromJson(Map<String, dynamic> json) =>
     _$_OrderBookRequest(
-      date: json['date'] as String?,
-      end: json['end'] as String?,
       limit: json['limit'] as int?,
       start: json['start'] as String?,
       stock: json['stock'] as String?,
+      date: json['date'] as String?,
+      end: json['end'] as String?,
     );
 
 Map<String, dynamic> _$$_OrderBookRequestToJson(_$_OrderBookRequest instance) =>
     <String, dynamic>{
-      'date': instance.date,
-      'end': instance.end,
       'limit': instance.limit,
       'start': instance.start,
       'stock': instance.stock,
+      'date': instance.date,
+      'end': instance.end,
     };
 
 _$OrderBookResponseData _$$OrderBookResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$OrderBookResponseData(
+      symbol: json['symbol'] as String?,
       date: json['date'] as String?,
       orders: (json['orders'] as List<dynamic>?)
           ?.map((e) => Order.fromJson(e as Map<String, dynamic>))
           .toList(),
-      symbol: json['symbol'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$OrderBookResponseDataToJson(
         _$OrderBookResponseData instance) =>
     <String, dynamic>{
+      'symbol': instance.symbol,
       'date': instance.date,
       'orders': instance.orders,
-      'symbol': instance.symbol,
       'runtimeType': instance.$type,
     };
 
@@ -174,23 +174,23 @@ Map<String, dynamic> _$$_QuoteRequestToJson(_$_QuoteRequest instance) =>
 
 _$QuoteResponseData _$$QuoteResponseDataFromJson(Map<String, dynamic> json) =>
     _$QuoteResponseData(
+      ask_price: (json['ask_price'] as num?)?.toDouble(),
       ask_size: json['ask_size'] as int?,
       bid_price: (json['bid_price'] as num?)?.toDouble(),
       bid_size: json['bid_size'] as int?,
       symbol: json['symbol'] as String?,
       timestamp: json['timestamp'] as String?,
-      ask_price: (json['ask_price'] as num?)?.toDouble(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$QuoteResponseDataToJson(_$QuoteResponseData instance) =>
     <String, dynamic>{
+      'ask_price': instance.ask_price,
       'ask_size': instance.ask_size,
       'bid_price': instance.bid_price,
       'bid_size': instance.bid_size,
       'symbol': instance.symbol,
       'timestamp': instance.timestamp,
-      'ask_price': instance.ask_price,
       'runtimeType': instance.$type,
     };
 
