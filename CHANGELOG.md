@@ -1,3 +1,9 @@
+## v1.0.48 - 2022-03-20
+
+[f04656](https://github.com/micro/services/commit/f046563d2eb6e445e8beeb4fa74209b6577b106a) add a tunnel
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.47...v1.0.48
+
 ## v1.0.47 - 2022-03-19
 
 [3c38a5](https://github.com/micro/services/commit/3c38a561bc01b67d50aa2f6f363c37bf0be66ee8) Update publicapi.json
