@@ -1,3 +1,9 @@
+## v1.0.50 - 2022-03-20
+
+[801983](https://github.com/micro/services/commit/80198352e29cceea4bdfd469161d61e39a3929b8) fix handler
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.49...v1.0.50
+
 ## v1.0.49 - 2022-03-20
 
 [6bde22](https://github.com/micro/services/commit/6bde22d7bf4941bde6bab0dc7cb59b7e921e86d6) update comments
