@@ -102,14 +102,14 @@ class StreamService {
 @Freezed()
 class Channel with _$Channel {
   const factory Channel({
-    /// name of the channel
-    String? name,
-
     /// description for the channel
     String? description,
 
     /// last activity time
     String? last_active,
+
+    /// name of the channel
+    String? name,
   }) = _Channel;
   factory Channel.fromJson(Map<String, dynamic> json) =>
       _$ChannelFromJson(json);
@@ -171,11 +171,11 @@ class ListMessagesRequest with _$ListMessagesRequest {
 @Freezed()
 class ListMessagesResponse with _$ListMessagesResponse {
   const factory ListMessagesResponse({
-    /// The channel subscribed to
-    String? channel,
-
     /// Messages are chronological order
     List<Message>? messages,
+
+    /// The channel subscribed to
+    String? channel,
   }) = ListMessagesResponseData;
   const factory ListMessagesResponse.Merr({Map<String, dynamic>? body}) =
       ListMessagesResponseMerr;

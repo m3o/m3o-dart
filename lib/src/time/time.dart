@@ -69,6 +69,12 @@ class NowRequest with _$NowRequest {
 @Freezed()
 class NowResponse with _$NowResponse {
   const factory NowResponse({
+    /// the current time as HH:MM:SS
+    String? localtime,
+
+    /// the location as Europe/London
+    String? location,
+
     /// timestamp as 2006-01-02T15:04:05.999999999Z07:00
     String? timestamp,
 
@@ -77,12 +83,6 @@ class NowResponse with _$NowResponse {
 
     /// the unix timestamp
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? unix,
-
-    /// the current time as HH:MM:SS
-    String? localtime,
-
-    /// the location as Europe/London
-    String? location,
   }) = NowResponseData;
   const factory NowResponse.Merr({Map<String, dynamic>? body}) =
       NowResponseMerr;
@@ -103,6 +103,18 @@ class ZoneRequest with _$ZoneRequest {
 @Freezed()
 class ZoneResponse with _$ZoneResponse {
   const factory ZoneResponse({
+    /// country of the timezone
+    String? country,
+
+    /// e.g -0.37
+    double? longitude,
+
+    /// UTC offset in hours
+    int? offset,
+
+    /// region of timezone
+    String? region,
+
     /// the abbreviated code e.g BST
     String? abbreviation,
 
@@ -115,20 +127,8 @@ class ZoneResponse with _$ZoneResponse {
     /// the local time
     String? localtime,
 
-    /// UTC offset in hours
-    int? offset,
-
-    /// region of timezone
-    String? region,
-
-    /// country of the timezone
-    String? country,
-
     /// location requested
     String? location,
-
-    /// e.g -0.37
-    double? longitude,
 
     /// the timezone e.g Europe/London
     String? timezone,

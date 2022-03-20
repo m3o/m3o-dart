@@ -42,16 +42,16 @@ Map<String, dynamic> _$$CountResponseMerrToJson(_$CountResponseMerr instance) =>
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      id: json['id'] as String?,
       record: json['record'] as Map<String, dynamic>?,
       table: json['table'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'record': instance.record,
       'table': instance.table,
+      'id': instance.id,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -190,24 +190,24 @@ Map<String, dynamic> _$$ListTablesResponseMerrToJson(
 
 _$_ReadRequest _$$_ReadRequestFromJson(Map<String, dynamic> json) =>
     _$_ReadRequest(
-      query: json['query'] as String?,
-      table: json['table'] as String?,
       id: json['id'] as String?,
       limit: json['limit'] as int?,
       offset: json['offset'] as int?,
       order: json['order'] as String?,
       orderBy: json['orderBy'] as String?,
+      query: json['query'] as String?,
+      table: json['table'] as String?,
     );
 
 Map<String, dynamic> _$$_ReadRequestToJson(_$_ReadRequest instance) =>
     <String, dynamic>{
-      'query': instance.query,
-      'table': instance.table,
       'id': instance.id,
       'limit': instance.limit,
       'offset': instance.offset,
       'order': instance.order,
       'orderBy': instance.orderBy,
+      'query': instance.query,
+      'table': instance.table,
     };
 
 _$ReadResponseData _$$ReadResponseDataFromJson(Map<String, dynamic> json) =>

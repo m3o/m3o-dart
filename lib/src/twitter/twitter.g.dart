@@ -7,30 +7,30 @@ part of 'twitter.dart';
 // **************************************************************************
 
 _$_Profile _$$_ProfileFromJson(Map<String, dynamic> json) => _$_Profile(
+      created_at: json['created_at'] as String?,
+      description: json['description'] as String?,
       id: int64FromString(json['id'] as String?),
       image_url: json['image_url'] as String?,
       location: json['location'] as String?,
+      followers: int64FromString(json['followers'] as String?),
       name: json['name'] as String?,
       private: json['private'] as bool?,
-      verified: json['verified'] as bool?,
-      created_at: json['created_at'] as String?,
-      description: json['description'] as String?,
-      followers: int64FromString(json['followers'] as String?),
       username: json['username'] as String?,
+      verified: json['verified'] as bool?,
     );
 
 Map<String, dynamic> _$$_ProfileToJson(_$_Profile instance) =>
     <String, dynamic>{
+      'created_at': instance.created_at,
+      'description': instance.description,
       'id': int64ToString(instance.id),
       'image_url': instance.image_url,
       'location': instance.location,
+      'followers': int64ToString(instance.followers),
       'name': instance.name,
       'private': instance.private,
-      'verified': instance.verified,
-      'created_at': instance.created_at,
-      'description': instance.description,
-      'followers': int64ToString(instance.followers),
       'username': instance.username,
+      'verified': instance.verified,
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>

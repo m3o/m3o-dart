@@ -8,20 +8,20 @@ part of 'image.dart';
 
 _$_ConvertRequest _$$_ConvertRequestFromJson(Map<String, dynamic> json) =>
     _$_ConvertRequest(
-      base64: json['base64'] as String?,
-      file: json['file'] as String?,
       name: json['name'] as String?,
       outputURL: json['outputURL'] as bool?,
       url: json['url'] as String?,
+      base64: json['base64'] as String?,
+      file: json['file'] as String?,
     );
 
 Map<String, dynamic> _$$_ConvertRequestToJson(_$_ConvertRequest instance) =>
     <String, dynamic>{
-      'base64': instance.base64,
-      'file': instance.file,
       'name': instance.name,
       'outputURL': instance.outputURL,
       'url': instance.url,
+      'base64': instance.base64,
+      'file': instance.file,
     };
 
 _$ConvertResponseData _$$ConvertResponseDataFromJson(
@@ -56,16 +56,16 @@ Map<String, dynamic> _$$ConvertResponseMerrToJson(
 
 _$_CropOptions _$$_CropOptionsFromJson(Map<String, dynamic> json) =>
     _$_CropOptions(
+      anchor: json['anchor'] as String?,
       height: json['height'] as int?,
       width: json['width'] as int?,
-      anchor: json['anchor'] as String?,
     );
 
 Map<String, dynamic> _$$_CropOptionsToJson(_$_CropOptions instance) =>
     <String, dynamic>{
+      'anchor': instance.anchor,
       'height': instance.height,
       'width': instance.width,
-      'anchor': instance.anchor,
     };
 
 _$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
@@ -155,16 +155,16 @@ Map<String, dynamic> _$$_ResizeRequestToJson(_$_ResizeRequest instance) =>
 
 _$ResizeResponseData _$$ResizeResponseDataFromJson(Map<String, dynamic> json) =>
     _$ResizeResponseData(
-      url: json['url'] as String?,
       base64: json['base64'] as String?,
+      url: json['url'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ResizeResponseDataToJson(
         _$ResizeResponseData instance) =>
     <String, dynamic>{
-      'url': instance.url,
       'base64': instance.base64,
+      'url': instance.url,
       'runtimeType': instance.$type,
     };
 

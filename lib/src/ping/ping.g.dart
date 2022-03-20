@@ -43,27 +43,27 @@ Map<String, dynamic> _$$IpResponseMerrToJson(_$IpResponseMerr instance) =>
 
 _$_TcpRequest _$$_TcpRequestFromJson(Map<String, dynamic> json) =>
     _$_TcpRequest(
-      data: json['data'] as String?,
       address: json['address'] as String?,
+      data: json['data'] as String?,
     );
 
 Map<String, dynamic> _$$_TcpRequestToJson(_$_TcpRequest instance) =>
     <String, dynamic>{
-      'data': instance.data,
       'address': instance.address,
+      'data': instance.data,
     };
 
 _$TcpResponseData _$$TcpResponseDataFromJson(Map<String, dynamic> json) =>
     _$TcpResponseData(
-      status: json['status'] as String?,
       data: json['data'] as String?,
+      status: json['status'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$TcpResponseDataToJson(_$TcpResponseData instance) =>
     <String, dynamic>{
-      'status': instance.status,
       'data': instance.data,
+      'status': instance.status,
       'runtimeType': instance.$type,
     };
 
