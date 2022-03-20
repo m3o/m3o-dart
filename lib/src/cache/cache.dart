@@ -203,14 +203,14 @@ class GetRequest with _$GetRequest {
 @Freezed()
 class GetResponse with _$GetResponse {
   const factory GetResponse({
-    /// The value
-    String? value,
-
     /// The key
     String? key,
 
     /// Time to live in seconds
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+
+    /// The value
+    String? value,
   }) = GetResponseData;
   const factory GetResponse.Merr({Map<String, dynamic>? body}) =
       GetResponseMerr;

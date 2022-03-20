@@ -4,141 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/search/api](ht
 
 Endpoints:
 
-## Search
-
-Search for records in a given in index
-
-
-[https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/search/search.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = SearchService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "index": "customers",
-  "query": "name == 'John'"
-,};
-
-  SearchRequest req = SearchRequest.fromJson(payload);
-
-  
-  try {
-
-	SearchResponse res = await ser.search(req);
-
-    res.map((value) => print(value),
-	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Search
-
-Search for records in a given in index
-
-
-[https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/search/search.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = SearchService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "index": "customers",
-  "query": "name == 'John' AND starsign == 'Leo'"
-,};
-
-  SearchRequest req = SearchRequest.fromJson(payload);
-
-  
-  try {
-
-	SearchResponse res = await ser.search(req);
-
-    res.map((value) => print(value),
-	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Search
-
-Search for records in a given in index
-
-
-[https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/search/search.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = SearchService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "index": "customers",
-  "query": "name == 'John' OR name == 'Jane'"
-,};
-
-  SearchRequest req = SearchRequest.fromJson(payload);
-
-  
-  try {
-
-	SearchResponse res = await ser.search(req);
-
-    res.map((value) => print(value),
-	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Delete
 
 Delete a record given its ID
@@ -312,6 +177,141 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (IndexResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Search
+
+Search for records in a given in index
+
+
+[https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/search/search.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = SearchService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "index": "customers",
+  "query": "name == 'John'"
+,};
+
+  SearchRequest req = SearchRequest.fromJson(payload);
+
+  
+  try {
+
+	SearchResponse res = await ser.search(req);
+
+    res.map((value) => print(value),
+	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Search
+
+Search for records in a given in index
+
+
+[https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/search/search.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = SearchService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "index": "customers",
+  "query": "name == 'John' AND starsign == 'Leo'"
+,};
+
+  SearchRequest req = SearchRequest.fromJson(payload);
+
+  
+  try {
+
+	SearchResponse res = await ser.search(req);
+
+    res.map((value) => print(value),
+	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Search
+
+Search for records in a given in index
+
+
+[https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/search/search.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = SearchService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "index": "customers",
+  "query": "name == 'John' OR name == 'Jane'"
+,};
+
+  SearchRequest req = SearchRequest.fromJson(payload);
+
+  
+  try {
+
+	SearchResponse res = await ser.search(req);
+
+    res.map((value) => print(value),
+	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);

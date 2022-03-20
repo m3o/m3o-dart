@@ -8,29 +8,29 @@ part of 'twitter.dart';
 
 _$_Profile _$$_ProfileFromJson(Map<String, dynamic> json) => _$_Profile(
       followers: int64FromString(json['followers'] as String?),
-      id: int64FromString(json['id'] as String?),
-      name: json['name'] as String?,
+      image_url: json['image_url'] as String?,
+      username: json['username'] as String?,
+      private: json['private'] as bool?,
       verified: json['verified'] as bool?,
       created_at: json['created_at'] as String?,
       description: json['description'] as String?,
-      image_url: json['image_url'] as String?,
+      id: int64FromString(json['id'] as String?),
       location: json['location'] as String?,
-      private: json['private'] as bool?,
-      username: json['username'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_ProfileToJson(_$_Profile instance) =>
     <String, dynamic>{
       'followers': int64ToString(instance.followers),
-      'id': int64ToString(instance.id),
-      'name': instance.name,
+      'image_url': instance.image_url,
+      'username': instance.username,
+      'private': instance.private,
       'verified': instance.verified,
       'created_at': instance.created_at,
       'description': instance.description,
-      'image_url': instance.image_url,
+      'id': int64ToString(instance.id),
       'location': instance.location,
-      'private': instance.private,
-      'username': instance.username,
+      'name': instance.name,
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
@@ -75,14 +75,14 @@ Map<String, dynamic> _$$SearchResponseMerrToJson(
 
 _$_TimelineRequest _$$_TimelineRequestFromJson(Map<String, dynamic> json) =>
     _$_TimelineRequest(
-      limit: json['limit'] as int?,
       username: json['username'] as String?,
+      limit: json['limit'] as int?,
     );
 
 Map<String, dynamic> _$$_TimelineRequestToJson(_$_TimelineRequest instance) =>
     <String, dynamic>{
-      'limit': instance.limit,
       'username': instance.username,
+      'limit': instance.limit,
     };
 
 _$TimelineResponseData _$$TimelineResponseDataFromJson(
@@ -191,19 +191,19 @@ Map<String, dynamic> _$$_UserRequestToJson(_$_UserRequest instance) =>
 
 _$UserResponseData _$$UserResponseDataFromJson(Map<String, dynamic> json) =>
     _$UserResponseData(
-      status: json['status'] == null
-          ? null
-          : Tweet.fromJson(json['status'] as Map<String, dynamic>),
       profile: json['profile'] == null
           ? null
           : Profile.fromJson(json['profile'] as Map<String, dynamic>),
+      status: json['status'] == null
+          ? null
+          : Tweet.fromJson(json['status'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$UserResponseDataToJson(_$UserResponseData instance) =>
     <String, dynamic>{
-      'status': instance.status,
       'profile': instance.profile,
+      'status': instance.status,
       'runtimeType': instance.$type,
     };
 

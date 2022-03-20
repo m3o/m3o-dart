@@ -211,17 +211,17 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// chat description
-    String? description,
-
-    /// name of the room
-    String? name,
-
     /// whether its a private room
     bool? private,
 
     /// optional list of user ids
     String? user_ids,
+
+    /// chat description
+    String? description,
+
+    /// name of the room
+    String? name,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -285,11 +285,11 @@ class HistoryResponse with _$HistoryResponse {
 @Freezed()
 class InviteRequest with _$InviteRequest {
   const factory InviteRequest({
-    /// the user id
-    String? user_id,
-
     /// the room id
     String? room_id,
+
+    /// the user id
+    String? user_id,
   }) = _InviteRequest;
   factory InviteRequest.fromJson(Map<String, dynamic> json) =>
       _$InviteRequestFromJson(json);
@@ -430,9 +430,6 @@ class Message with _$Message {
 @Freezed()
 class Room with _$Room {
   const factory Room({
-    /// list of users
-    String? user_ids,
-
     /// time of creation
     String? created_at,
 
@@ -447,6 +444,9 @@ class Room with _$Room {
 
     /// whether its a private room
     bool? private,
+
+    /// list of users
+    String? user_ids,
   }) = _Room;
   factory Room.fromJson(Map<String, dynamic> json) => _$RoomFromJson(json);
 }
@@ -454,12 +454,6 @@ class Room with _$Room {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
-    /// id of the chat room the message is being sent to / from
-    String? room_id,
-
-    /// subject of the message
-    String? subject,
-
     /// text of the message
     String? text,
 
@@ -468,6 +462,12 @@ class SendRequest with _$SendRequest {
 
     /// a client side id, should be validated by the server to make the request retry safe
     String? client,
+
+    /// id of the chat room the message is being sent to / from
+    String? room_id,
+
+    /// subject of the message
+    String? subject,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);
