@@ -1,3 +1,9 @@
+## v1.0.49 - 2022-03-20
+
+[6bde22](https://github.com/micro/services/commit/6bde22d7bf4941bde6bab0dc7cb59b7e921e86d6) update comments
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.48...v1.0.49
+
 ## v1.0.48 - 2022-03-20
 
 [f04656](https://github.com/micro/services/commit/f046563d2eb6e445e8beeb4fa74209b6577b106a) add a tunnel
