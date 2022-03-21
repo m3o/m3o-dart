@@ -98,14 +98,14 @@ Map<String, dynamic> _$$ConvertResponseMerrToJson(
 
 _$_HistoryRequest _$$_HistoryRequestFromJson(Map<String, dynamic> json) =>
     _$_HistoryRequest(
-      date: json['date'] as String?,
       code: json['code'] as String?,
+      date: json['date'] as String?,
     );
 
 Map<String, dynamic> _$$_HistoryRequestToJson(_$_HistoryRequest instance) =>
     <String, dynamic>{
-      'date': instance.date,
       'code': instance.code,
+      'date': instance.date,
     };
 
 _$HistoryResponseData _$$HistoryResponseDataFromJson(

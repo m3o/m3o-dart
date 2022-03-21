@@ -248,11 +248,11 @@ class FunctionService {
 @Freezed()
 class CallRequest with _$CallRequest {
   const factory CallRequest({
-    /// Request body that will be passed to the function
-    Map<String, dynamic>? request,
-
     /// Name of the function
     String? name,
+
+    /// Request body that will be passed to the function
+    Map<String, dynamic>? request,
   }) = _CallRequest;
   factory CallRequest.fromJson(Map<String, dynamic> json) =>
       _$CallRequestFromJson(json);
@@ -292,21 +292,6 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class DeployRequest with _$DeployRequest {
   const factory DeployRequest({
-    /// branch to deploy. defaults to master
-    String? branch,
-
-    /// region to deploy in. defaults to europe-west1
-    String? region,
-
-    /// github url for a repo
-    String? repo,
-
-    /// optional subfolder path
-    String? subfolder,
-
-    /// inline source code
-    String? source,
-
     /// entry point, ie. handler name in the source code
     /// if not provided, defaults to the name parameter
     String? entrypoint,
@@ -314,14 +299,29 @@ class DeployRequest with _$DeployRequest {
     /// environment variables to pass in at runtime
     Map<String, String>? env_vars,
 
-    /// function name
-    String? name,
+    /// region to deploy in. defaults to europe-west1
+    String? region,
+
+    /// github url for a repo
+    String? repo,
+
+    /// branch to deploy. defaults to master
+    String? branch,
 
     /// runtime/lanaguage of the function e.g php74,
     /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
     /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
     /// python37, python38, python39
     String? runtime,
+
+    /// inline source code
+    String? source,
+
+    /// optional subfolder path
+    String? subfolder,
+
+    /// function name
+    String? name,
   }) = _DeployRequest;
   factory DeployRequest.fromJson(Map<String, dynamic> json) =>
       _$DeployRequestFromJson(json);
@@ -363,33 +363,33 @@ class DescribeResponse with _$DescribeResponse {
 @Freezed()
 class Func with _$Func {
   const factory Func({
-    /// the source code
-    String? source,
-
-    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-    String? status,
-
-    /// time it was updated
-    String? updated,
-
-    /// associated env vars
-    Map<String, String>? env_vars,
-
-    /// id of the function
-    String? id,
-
-    /// region to deploy in. defaults to europe-west1
-    String? region,
-
-    /// unique url of the function
-    String? url,
-
     /// branch to deploy. defaults to master
     String? branch,
 
     /// function name
     /// limitation: must be unique across projects
     String? name,
+
+    /// subfolder path to entrypoint
+    String? subfolder,
+
+    /// time of creation
+    String? created,
+
+    /// associated env vars
+    Map<String, String>? env_vars,
+
+    /// time it was updated
+    String? updated,
+
+    /// region to deploy in. defaults to europe-west1
+    String? region,
+
+    /// name of handler in source code
+    String? entrypoint,
+
+    /// id of the function
+    String? id,
 
     /// git repo address
     String? repo,
@@ -400,14 +400,14 @@ class Func with _$Func {
     /// python37, python38, python39
     String? runtime,
 
-    /// subfolder path to entrypoint
-    String? subfolder,
+    /// the source code
+    String? source,
 
-    /// time of creation
-    String? created,
+    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+    String? status,
 
-    /// name of handler in source code
-    String? entrypoint,
+    /// unique url of the function
+    String? url,
   }) = _Func;
   factory Func.fromJson(Map<String, dynamic> json) => _$FuncFromJson(json);
 }

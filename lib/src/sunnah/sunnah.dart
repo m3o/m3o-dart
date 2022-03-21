@@ -138,6 +138,9 @@ class BooksRequest with _$BooksRequest {
 @Freezed()
 class BooksResponse with _$BooksResponse {
   const factory BooksResponse({
+    /// Name of the collection
+    String? collection,
+
     /// The limit specified
     int? limit,
 
@@ -149,9 +152,6 @@ class BooksResponse with _$BooksResponse {
 
     /// A list of books
     List<Book>? books,
-
-    /// Name of the collection
-    String? collection,
   }) = BooksResponseData;
   const factory BooksResponse.Merr({Map<String, dynamic>? body}) =
       BooksResponseMerr;
@@ -162,6 +162,12 @@ class BooksResponse with _$BooksResponse {
 @Freezed()
 class Chapter with _$Chapter {
   const factory Chapter({
+    /// the chapter id e.g 1
+    int? id,
+
+    /// the chapter key e.g 1.00
+    String? key,
+
     /// title of the chapter
     String? title,
 
@@ -170,12 +176,6 @@ class Chapter with _$Chapter {
 
     /// the book number
     int? book,
-
-    /// the chapter id e.g 1
-    int? id,
-
-    /// the chapter key e.g 1.00
-    String? key,
   }) = _Chapter;
   factory Chapter.fromJson(Map<String, dynamic> json) =>
       _$ChapterFromJson(json);
@@ -203,6 +203,9 @@ class ChaptersRequest with _$ChaptersRequest {
 @Freezed()
 class ChaptersResponse with _$ChaptersResponse {
   const factory ChaptersResponse({
+    /// number of the book
+    int? book,
+
     /// The chapters of the book
     List<Chapter>? chapters,
 
@@ -217,9 +220,6 @@ class ChaptersResponse with _$ChaptersResponse {
 
     /// Total chapters in the book
     int? total,
-
-    /// number of the book
-    int? book,
   }) = ChaptersResponseData;
   const factory ChaptersResponse.Merr({Map<String, dynamic>? body}) =
       ChaptersResponseMerr;
@@ -276,6 +276,12 @@ class CollectionsResponse with _$CollectionsResponse {
 @Freezed()
 class Hadith with _$Hadith {
   const factory Hadith({
+    /// hadith id
+    int? id,
+
+    /// hadith text
+    String? text,
+
     /// the arabic chapter title
     String? arabic_chapter_title,
 
@@ -290,12 +296,6 @@ class Hadith with _$Hadith {
 
     /// the chapter title
     String? chapter_title,
-
-    /// hadith id
-    int? id,
-
-    /// hadith text
-    String? text,
   }) = _Hadith;
   factory Hadith.fromJson(Map<String, dynamic> json) => _$HadithFromJson(json);
 }
