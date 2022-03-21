@@ -1,3 +1,9 @@
+## v1.0.58 - 2022-03-21
+
+[adc006](https://github.com/micro/services/commit/adc00613256834b239d037202747b5eff1e003cf) cache crypto prices for 5 mins
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.57...v1.0.58
+
 ## v1.0.57 - 2022-03-21
 
 [3a6328](https://github.com/micro/services/commit/3a6328319fdd1a21104754464e3558ca1e5e33bd) fix tunnel
