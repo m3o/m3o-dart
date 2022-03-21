@@ -44,26 +44,11 @@ class Article with _$Article {
     /// related keywords
     String? keywords,
 
-    /// the article language
-    String? language,
-
     /// the locale
     String? locale,
 
     /// time it was published
     String? published_at,
-
-    /// first 60 characters of article body
-    String? snippet,
-
-    /// categories
-    List<String>? categories,
-
-    /// article description
-    String? description,
-
-    /// article id
-    String? id,
 
     /// source of news
     String? source,
@@ -71,8 +56,23 @@ class Article with _$Article {
     /// article title
     String? title,
 
+    /// categories
+    List<String>? categories,
+
+    /// article id
+    String? id,
+
+    /// the article language
+    String? language,
+
+    /// first 60 characters of article body
+    String? snippet,
+
     /// url of the article
     String? url,
+
+    /// article description
+    String? description,
   }) = _Article;
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);

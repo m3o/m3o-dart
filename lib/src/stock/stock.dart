@@ -114,6 +114,9 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
+    /// the close price
+    double? close,
+
     /// the date
     String? date,
 
@@ -131,9 +134,6 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the volume
     int? volume,
-
-    /// the close price
-    double? close,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -165,6 +165,12 @@ class Order with _$Order {
 @Freezed()
 class OrderBookRequest with _$OrderBookRequest {
   const factory OrderBookRequest({
+    /// limit number of prices
+    int? limit,
+
+    /// optional RFC3339Nano start time e.g 2006-01-02T15:04:05.999999999Z07:00
+    String? start,
+
     /// stock to retrieve e.g AAPL
     String? stock,
 
@@ -173,12 +179,6 @@ class OrderBookRequest with _$OrderBookRequest {
 
     /// optional RFC3339Nano end time e.g 2006-01-02T15:04:05.999999999Z07:00
     String? end,
-
-    /// limit number of prices
-    int? limit,
-
-    /// optional RFC3339Nano start time e.g 2006-01-02T15:04:05.999999999Z07:00
-    String? start,
   }) = _OrderBookRequest;
   factory OrderBookRequest.fromJson(Map<String, dynamic> json) =>
       _$OrderBookRequestFromJson(json);

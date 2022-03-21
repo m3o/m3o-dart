@@ -175,12 +175,6 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class Record with _$Record {
   const factory Record({
-    /// Time the file was updated e.g 2021-05-20T13:37:21Z
-    String? updated,
-
-    /// File contents
-    String? content,
-
     /// Time the file was created e.g 2021-05-20T13:37:21Z
     String? created,
 
@@ -193,6 +187,12 @@ class Record with _$Record {
     /// A custom project to group files
     /// eg. file-of-mywebsite.com
     String? project,
+
+    /// Time the file was updated e.g 2021-05-20T13:37:21Z
+    String? updated,
+
+    /// File contents
+    String? content,
   }) = _Record;
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }

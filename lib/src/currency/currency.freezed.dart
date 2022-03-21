@@ -22,10 +22,10 @@ Code _$CodeFromJson(Map<String, dynamic> json) {
 class _$CodeTearOff {
   const _$CodeTearOff();
 
-  _Code call({String? name, String? currency}) {
+  _Code call({String? currency, String? name}) {
     return _Code(
-      name: name,
       currency: currency,
+      name: name,
     );
   }
 
@@ -39,11 +39,11 @@ const $Code = _$CodeTearOff();
 
 /// @nodoc
 mixin _$Code {
-  /// e.g USD
-  String? get name => throw _privateConstructorUsedError;
-
   /// e.g United States Dollar
   String? get currency => throw _privateConstructorUsedError;
+
+  /// e.g USD
+  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -54,7 +54,7 @@ mixin _$Code {
 abstract class $CodeCopyWith<$Res> {
   factory $CodeCopyWith(Code value, $Res Function(Code) then) =
       _$CodeCopyWithImpl<$Res>;
-  $Res call({String? name, String? currency});
+  $Res call({String? currency, String? name});
 }
 
 /// @nodoc
@@ -67,17 +67,17 @@ class _$CodeCopyWithImpl<$Res> implements $CodeCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? currency = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       currency: currency == freezed
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -88,7 +88,7 @@ abstract class _$CodeCopyWith<$Res> implements $CodeCopyWith<$Res> {
   factory _$CodeCopyWith(_Code value, $Res Function(_Code) then) =
       __$CodeCopyWithImpl<$Res>;
   @override
-  $Res call({String? name, String? currency});
+  $Res call({String? currency, String? name});
 }
 
 /// @nodoc
@@ -102,17 +102,17 @@ class __$CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? currency = freezed,
+    Object? name = freezed,
   }) {
     return _then(_Code(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       currency: currency == freezed
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -121,22 +121,22 @@ class __$CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Code implements _Code {
-  const _$_Code({this.name, this.currency});
+  const _$_Code({this.currency, this.name});
 
   factory _$_Code.fromJson(Map<String, dynamic> json) => _$$_CodeFromJson(json);
 
   @override
 
-  /// e.g USD
-  final String? name;
-  @override
-
   /// e.g United States Dollar
   final String? currency;
+  @override
+
+  /// e.g USD
+  final String? name;
 
   @override
   String toString() {
-    return 'Code(name: $name, currency: $currency)';
+    return 'Code(currency: $currency, name: $name)';
   }
 
   @override
@@ -144,15 +144,15 @@ class _$_Code implements _Code {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Code &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.currency, currency));
+            const DeepCollectionEquality().equals(other.currency, currency) &&
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(currency));
+      const DeepCollectionEquality().hash(currency),
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
@@ -166,18 +166,18 @@ class _$_Code implements _Code {
 }
 
 abstract class _Code implements Code {
-  const factory _Code({String? name, String? currency}) = _$_Code;
+  const factory _Code({String? currency, String? name}) = _$_Code;
 
   factory _Code.fromJson(Map<String, dynamic> json) = _$_Code.fromJson;
 
   @override
 
-  /// e.g USD
-  String? get name;
-  @override
-
   /// e.g United States Dollar
   String? get currency;
+  @override
+
+  /// e.g USD
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$CodeCopyWith<_Code> get copyWith => throw _privateConstructorUsedError;
@@ -1345,10 +1345,10 @@ HistoryRequest _$HistoryRequestFromJson(Map<String, dynamic> json) {
 class _$HistoryRequestTearOff {
   const _$HistoryRequestTearOff();
 
-  _HistoryRequest call({String? code, String? date}) {
+  _HistoryRequest call({String? date, String? code}) {
     return _HistoryRequest(
-      code: code,
       date: date,
+      code: code,
     );
   }
 
@@ -1362,11 +1362,11 @@ const $HistoryRequest = _$HistoryRequestTearOff();
 
 /// @nodoc
 mixin _$HistoryRequest {
-  /// currency code e.g USD
-  String? get code => throw _privateConstructorUsedError;
-
   /// date formatted as YYYY-MM-DD
   String? get date => throw _privateConstructorUsedError;
+
+  /// currency code e.g USD
+  String? get code => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1379,7 +1379,7 @@ abstract class $HistoryRequestCopyWith<$Res> {
   factory $HistoryRequestCopyWith(
           HistoryRequest value, $Res Function(HistoryRequest) then) =
       _$HistoryRequestCopyWithImpl<$Res>;
-  $Res call({String? code, String? date});
+  $Res call({String? date, String? code});
 }
 
 /// @nodoc
@@ -1393,17 +1393,17 @@ class _$HistoryRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? code = freezed,
     Object? date = freezed,
+    Object? code = freezed,
   }) {
     return _then(_value.copyWith(
-      code: code == freezed
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
+              as String?,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1416,7 +1416,7 @@ abstract class _$HistoryRequestCopyWith<$Res>
           _HistoryRequest value, $Res Function(_HistoryRequest) then) =
       __$HistoryRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? code, String? date});
+  $Res call({String? date, String? code});
 }
 
 /// @nodoc
@@ -1432,17 +1432,17 @@ class __$HistoryRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? code = freezed,
     Object? date = freezed,
+    Object? code = freezed,
   }) {
     return _then(_HistoryRequest(
-      code: code == freezed
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
+              as String?,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1451,23 +1451,23 @@ class __$HistoryRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_HistoryRequest implements _HistoryRequest {
-  const _$_HistoryRequest({this.code, this.date});
+  const _$_HistoryRequest({this.date, this.code});
 
   factory _$_HistoryRequest.fromJson(Map<String, dynamic> json) =>
       _$$_HistoryRequestFromJson(json);
 
   @override
 
-  /// currency code e.g USD
-  final String? code;
-  @override
-
   /// date formatted as YYYY-MM-DD
   final String? date;
+  @override
+
+  /// currency code e.g USD
+  final String? code;
 
   @override
   String toString() {
-    return 'HistoryRequest(code: $code, date: $date)';
+    return 'HistoryRequest(date: $date, code: $code)';
   }
 
   @override
@@ -1475,15 +1475,15 @@ class _$_HistoryRequest implements _HistoryRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _HistoryRequest &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality().equals(other.date, date));
+            const DeepCollectionEquality().equals(other.date, date) &&
+            const DeepCollectionEquality().equals(other.code, code));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(date));
+      const DeepCollectionEquality().hash(date),
+      const DeepCollectionEquality().hash(code));
 
   @JsonKey(ignore: true)
   @override
@@ -1497,7 +1497,7 @@ class _$_HistoryRequest implements _HistoryRequest {
 }
 
 abstract class _HistoryRequest implements HistoryRequest {
-  const factory _HistoryRequest({String? code, String? date}) =
+  const factory _HistoryRequest({String? date, String? code}) =
       _$_HistoryRequest;
 
   factory _HistoryRequest.fromJson(Map<String, dynamic> json) =
@@ -1505,12 +1505,12 @@ abstract class _HistoryRequest implements HistoryRequest {
 
   @override
 
-  /// currency code e.g USD
-  String? get code;
-  @override
-
   /// date formatted as YYYY-MM-DD
   String? get date;
+  @override
+
+  /// currency code e.g USD
+  String? get code;
   @override
   @JsonKey(ignore: true)
   _$HistoryRequestCopyWith<_HistoryRequest> get copyWith =>

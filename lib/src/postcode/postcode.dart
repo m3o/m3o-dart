@@ -90,6 +90,9 @@ class LookupRequest with _$LookupRequest {
 @Freezed()
 class LookupResponse with _$LookupResponse {
   const factory LookupResponse({
+    /// country e.g United Kingdom
+    String? country,
+
     /// e.g Westminster
     String? district,
 
@@ -107,9 +110,6 @@ class LookupResponse with _$LookupResponse {
 
     /// e.g St James's
     String? ward,
-
-    /// country e.g United Kingdom
-    String? country,
   }) = LookupResponseData;
   const factory LookupResponse.Merr({Map<String, dynamic>? body}) =
       LookupResponseMerr;
