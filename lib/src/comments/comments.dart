@@ -147,6 +147,9 @@ class CommentsService {
 @Freezed()
 class Comment with _$Comment {
   const factory Comment({
+    /// text of the comment
+    String? text,
+
     /// time at which the comment was updated
     String? updated,
 
@@ -158,9 +161,6 @@ class Comment with _$Comment {
 
     /// subject of the comment
     String? subject,
-
-    /// text of the comment
-    String? text,
   }) = _Comment;
   factory Comment.fromJson(Map<String, dynamic> json) =>
       _$CommentFromJson(json);
@@ -169,11 +169,11 @@ class Comment with _$Comment {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// comment subject
-    String? subject,
-
     /// comment items
     String? text,
+
+    /// comment subject
+    String? subject,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);

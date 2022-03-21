@@ -100,15 +100,15 @@ Map<String, dynamic> _$$ListChannelsResponseMerrToJson(
 _$_ListMessagesRequest _$$_ListMessagesRequestFromJson(
         Map<String, dynamic> json) =>
     _$_ListMessagesRequest(
-      channel: json['channel'] as String?,
       limit: json['limit'] as int?,
+      channel: json['channel'] as String?,
     );
 
 Map<String, dynamic> _$$_ListMessagesRequestToJson(
         _$_ListMessagesRequest instance) =>
     <String, dynamic>{
-      'channel': instance.channel,
       'limit': instance.limit,
+      'channel': instance.channel,
     };
 
 _$ListMessagesResponseData _$$ListMessagesResponseDataFromJson(
@@ -144,36 +144,36 @@ Map<String, dynamic> _$$ListMessagesResponseMerrToJson(
     };
 
 _$_Message _$$_MessageFromJson(Map<String, dynamic> json) => _$_Message(
-      timestamp: json['timestamp'] as String?,
       channel: json['channel'] as String?,
       id: json['id'] as String?,
       metadata: (json['metadata'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
       text: json['text'] as String?,
+      timestamp: json['timestamp'] as String?,
     );
 
 Map<String, dynamic> _$$_MessageToJson(_$_Message instance) =>
     <String, dynamic>{
-      'timestamp': instance.timestamp,
       'channel': instance.channel,
       'id': instance.id,
       'metadata': instance.metadata,
       'text': instance.text,
+      'timestamp': instance.timestamp,
     };
 
 _$_SendMessageRequest _$$_SendMessageRequestFromJson(
         Map<String, dynamic> json) =>
     _$_SendMessageRequest(
-      channel: json['channel'] as String?,
       text: json['text'] as String?,
+      channel: json['channel'] as String?,
     );
 
 Map<String, dynamic> _$$_SendMessageRequestToJson(
         _$_SendMessageRequest instance) =>
     <String, dynamic>{
-      'channel': instance.channel,
       'text': instance.text,
+      'channel': instance.channel,
     };
 
 _$SendMessageResponseData _$$SendMessageResponseDataFromJson(

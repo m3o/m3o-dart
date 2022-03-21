@@ -7,6 +7,7 @@ part of 'routing.dart';
 // **************************************************************************
 
 _$_Direction _$$_DirectionFromJson(Map<String, dynamic> json) => _$_Direction(
+      name: json['name'] as String?,
       reference: json['reference'] as String?,
       distance: (json['distance'] as num?)?.toDouble(),
       duration: (json['duration'] as num?)?.toDouble(),
@@ -17,18 +18,17 @@ _$_Direction _$$_DirectionFromJson(Map<String, dynamic> json) => _$_Direction(
       maneuver: json['maneuver'] == null
           ? null
           : Maneuver.fromJson(json['maneuver'] as Map<String, dynamic>),
-      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_DirectionToJson(_$_Direction instance) =>
     <String, dynamic>{
+      'name': instance.name,
       'reference': instance.reference,
       'distance': instance.distance,
       'duration': instance.duration,
       'instruction': instance.instruction,
       'intersections': instance.intersections,
       'maneuver': instance.maneuver,
-      'name': instance.name,
     };
 
 _$_DirectionsRequest _$$_DirectionsRequestFromJson(Map<String, dynamic> json) =>
@@ -88,22 +88,22 @@ Map<String, dynamic> _$$DirectionsResponseMerrToJson(
 
 _$_EtaRequest _$$_EtaRequestFromJson(Map<String, dynamic> json) =>
     _$_EtaRequest(
-      destination: json['destination'] == null
-          ? null
-          : Point.fromJson(json['destination'] as Map<String, dynamic>),
       origin: json['origin'] == null
           ? null
           : Point.fromJson(json['origin'] as Map<String, dynamic>),
       speed: (json['speed'] as num?)?.toDouble(),
       type: json['type'] as String?,
+      destination: json['destination'] == null
+          ? null
+          : Point.fromJson(json['destination'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_EtaRequestToJson(_$_EtaRequest instance) =>
     <String, dynamic>{
-      'destination': instance.destination,
       'origin': instance.origin,
       'speed': instance.speed,
       'type': instance.type,
+      'destination': instance.destination,
     };
 
 _$EtaResponseData _$$EtaResponseDataFromJson(Map<String, dynamic> json) =>
