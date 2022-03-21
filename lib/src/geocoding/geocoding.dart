@@ -106,8 +106,8 @@ class LookupResponse with _$LookupResponse {
 @Freezed()
 class ReverseRequest with _$ReverseRequest {
   const factory ReverseRequest({
-    double? longitude,
     double? latitude,
+    double? longitude,
   }) = _ReverseRequest;
   factory ReverseRequest.fromJson(Map<String, dynamic> json) =>
       _$ReverseRequestFromJson(json);

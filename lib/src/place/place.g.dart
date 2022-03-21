@@ -42,22 +42,22 @@ Map<String, dynamic> _$$AutocompleteResponseMerrToJson(
 
 _$_NearbyRequest _$$_NearbyRequestFromJson(Map<String, dynamic> json) =>
     _$_NearbyRequest(
-      keyword: json['keyword'] as String?,
       location: json['location'] as String?,
       name: json['name'] as String?,
       open_now: json['open_now'] as bool?,
       radius: json['radius'] as int?,
       type: json['type'] as String?,
+      keyword: json['keyword'] as String?,
     );
 
 Map<String, dynamic> _$$_NearbyRequestToJson(_$_NearbyRequest instance) =>
     <String, dynamic>{
-      'keyword': instance.keyword,
       'location': instance.location,
       'name': instance.name,
       'open_now': instance.open_now,
       'radius': instance.radius,
       'type': instance.type,
+      'keyword': instance.keyword,
     };
 
 _$NearbyResponseData _$$NearbyResponseDataFromJson(Map<String, dynamic> json) =>
@@ -89,48 +89,48 @@ Map<String, dynamic> _$$NearbyResponseMerrToJson(
     };
 
 _$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
-      open_now: json['open_now'] as bool?,
-      rating: (json['rating'] as num?)?.toDouble(),
-      vicinity: json['vicinity'] as String?,
-      location: json['location'] as String?,
-      icon_url: json['icon_url'] as String?,
-      name: json['name'] as String?,
-      opening_hours: json['opening_hours'] as String?,
       type: json['type'] as String?,
+      icon_url: json['icon_url'] as String?,
+      location: json['location'] as String?,
+      name: json['name'] as String?,
+      open_now: json['open_now'] as bool?,
+      opening_hours: json['opening_hours'] as String?,
+      address: json['address'] as String?,
+      rating: (json['rating'] as num?)?.toDouble(),
       types:
           (json['types'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      address: json['address'] as String?,
+      vicinity: json['vicinity'] as String?,
     );
 
 Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
-      'open_now': instance.open_now,
-      'rating': instance.rating,
-      'vicinity': instance.vicinity,
-      'location': instance.location,
-      'icon_url': instance.icon_url,
-      'name': instance.name,
-      'opening_hours': instance.opening_hours,
       'type': instance.type,
-      'types': instance.types,
+      'icon_url': instance.icon_url,
+      'location': instance.location,
+      'name': instance.name,
+      'open_now': instance.open_now,
+      'opening_hours': instance.opening_hours,
       'address': instance.address,
+      'rating': instance.rating,
+      'types': instance.types,
+      'vicinity': instance.vicinity,
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
     _$_SearchRequest(
+      radius: json['radius'] as int?,
       type: json['type'] as String?,
       location: json['location'] as String?,
       open_now: json['open_now'] as bool?,
       query: json['query'] as String?,
-      radius: json['radius'] as int?,
     );
 
 Map<String, dynamic> _$$_SearchRequestToJson(_$_SearchRequest instance) =>
     <String, dynamic>{
+      'radius': instance.radius,
       'type': instance.type,
       'location': instance.location,
       'open_now': instance.open_now,
       'query': instance.query,
-      'radius': instance.radius,
     };
 
 _$SearchResponseData _$$SearchResponseDataFromJson(Map<String, dynamic> json) =>
