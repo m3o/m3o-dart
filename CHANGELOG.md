@@ -1,3 +1,9 @@
+## v1.0.54 - 2022-03-21
+
+[cff911](https://github.com/micro/services/commit/cff9117b3b85134526eb23492d37c6e1d300f09c) deploy crufty tunnel
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.53...v1.0.54
+
 ## v1.0.53 - 2022-03-21
 
 [143a99](https://github.com/micro/services/commit/143a999b50419e1694c0c61e052dd4caf8f0c802) add tunnel logging
