@@ -48,18 +48,6 @@ class PingRequest with _$PingRequest {
 @Freezed()
 class PingResponse with _$PingResponse {
   const factory PingResponse({
-    /// Latency (ms) between us and the server (EU)
-    int? latency,
-
-    /// Max players ever
-    int? max_players,
-
-    /// Message of the day
-    String? motd,
-
-    /// Number of players online
-    int? players,
-
     /// Protocol number of the server
     int? protocol,
 
@@ -71,6 +59,18 @@ class PingResponse with _$PingResponse {
 
     /// Favicon in base64
     String? favicon,
+
+    /// Latency (ms) between us and the server (EU)
+    int? latency,
+
+    /// Max players ever
+    int? max_players,
+
+    /// Message of the day
+    String? motd,
+
+    /// Number of players online
+    int? players,
   }) = PingResponseData;
   const factory PingResponse.Merr({Map<String, dynamic>? body}) =
       PingResponseMerr;
@@ -81,11 +81,11 @@ class PingResponse with _$PingResponse {
 @Freezed()
 class PlayerSample with _$PlayerSample {
   const factory PlayerSample({
-    /// name of the player
-    String? name,
-
     /// unique id of player
     String? uuid,
+
+    /// name of the player
+    String? name,
   }) = _PlayerSample;
   factory PlayerSample.fromJson(Map<String, dynamic> json) =>
       _$PlayerSampleFromJson(json);
