@@ -228,14 +228,14 @@ class CountResponse with _$CountResponse {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// JSON encoded record or records (can be array or object)
-    Map<String, dynamic>? record,
-
     /// Optional table name. Defaults to 'default'
     String? table,
 
     /// optional record id to use
     String? id,
+
+    /// JSON encoded record or records (can be array or object)
+    Map<String, dynamic>? record,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -315,6 +315,11 @@ class ListTablesResponse with _$ListTablesResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
+    /// Maximum number of records to return. Default limit is 25.
+    /// Maximum limit is 1000. Anything higher will return an error.
+    int? limit,
+    int? offset,
+
     /// 'asc' (default), 'desc'
     String? order,
 
@@ -333,11 +338,6 @@ class ReadRequest with _$ReadRequest {
 
     /// Read by id. Equivalent to 'id == "your-id"'
     String? id,
-
-    /// Maximum number of records to return. Default limit is 25.
-    /// Maximum limit is 1000. Anything higher will return an error.
-    int? limit,
-    int? offset,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);
@@ -398,14 +398,14 @@ class TruncateResponse with _$TruncateResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// The id of the record. If not specified it is inferred from the 'id' field of the record
-    String? id,
-
     /// record, JSON object
     Map<String, dynamic>? record,
 
     /// Optional table name. Defaults to 'default'
     String? table,
+
+    /// The id of the record. If not specified it is inferred from the 'id' field of the record
+    String? id,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

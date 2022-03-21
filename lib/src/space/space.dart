@@ -254,9 +254,6 @@ class DownloadResponse with _$DownloadResponse {
 @Freezed()
 class HeadObject with _$HeadObject {
   const factory HeadObject({
-    /// is this public or private
-    String? visibility,
-
     /// when was this created
     String? created,
 
@@ -266,6 +263,9 @@ class HeadObject with _$HeadObject {
 
     /// URL to access the object if it is public
     String? url,
+
+    /// is this public or private
+    String? visibility,
   }) = _HeadObject;
   factory HeadObject.fromJson(Map<String, dynamic> json) =>
       _$HeadObjectFromJson(json);
@@ -295,13 +295,13 @@ class HeadResponse with _$HeadResponse {
 @Freezed()
 class ListObject with _$ListObject {
   const factory ListObject({
-    String? name,
-    String? url,
     String? visibility,
     String? created,
 
     /// when was this last modified
     String? modified,
+    String? name,
+    String? url,
   }) = _ListObject;
   factory ListObject.fromJson(Map<String, dynamic> json) =>
       _$ListObjectFromJson(json);
@@ -353,6 +353,12 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class SpaceObject with _$SpaceObject {
   const factory SpaceObject({
+    /// when was this last modified
+    String? modified,
+
+    /// name of object
+    String? name,
+
     /// URL to access the object if it is public
     String? url,
 
@@ -364,12 +370,6 @@ class SpaceObject with _$SpaceObject {
 
     /// the data within the object
     String? data,
-
-    /// when was this last modified
-    String? modified,
-
-    /// name of object
-    String? name,
   }) = _SpaceObject;
   factory SpaceObject.fromJson(Map<String, dynamic> json) =>
       _$SpaceObjectFromJson(json);
@@ -406,9 +406,10 @@ class UpdateResponse with _$UpdateResponse {
 @Freezed()
 class UploadRequest with _$UploadRequest {
   const factory UploadRequest({
+    String? name,
+
     /// is this object public or private
     String? visibility,
-    String? name,
   }) = _UploadRequest;
   factory UploadRequest.fromJson(Map<String, dynamic> json) =>
       _$UploadRequestFromJson(json);

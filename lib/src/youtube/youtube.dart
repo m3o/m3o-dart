@@ -122,15 +122,6 @@ class SearchResult with _$SearchResult {
     /// id of the result
     String? id,
 
-    /// the associated url
-    String? url,
-
-    /// the channel title
-    String? channel_title,
-
-    /// the result description
-    String? description,
-
     /// kind of result: "video", "channel", "playlist"
     String? kind,
 
@@ -139,6 +130,15 @@ class SearchResult with _$SearchResult {
 
     /// title of the result
     String? title,
+
+    /// the channel title
+    String? channel_title,
+
+    /// the result description
+    String? description,
+
+    /// the associated url
+    String? url,
   }) = _SearchResult;
   factory SearchResult.fromJson(Map<String, dynamic> json) =>
       _$SearchResultFromJson(json);

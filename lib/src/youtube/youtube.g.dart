@@ -89,12 +89,12 @@ _$_SearchResult _$$_SearchResultFromJson(Map<String, dynamic> json) =>
       broadcasting: json['broadcasting'] as String?,
       channel_id: json['channel_id'] as String?,
       id: json['id'] as String?,
-      url: json['url'] as String?,
-      channel_title: json['channel_title'] as String?,
-      description: json['description'] as String?,
       kind: json['kind'] as String?,
       published_at: json['published_at'] as String?,
       title: json['title'] as String?,
+      channel_title: json['channel_title'] as String?,
+      description: json['description'] as String?,
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic> _$$_SearchResultToJson(_$_SearchResult instance) =>
@@ -102,10 +102,10 @@ Map<String, dynamic> _$$_SearchResultToJson(_$_SearchResult instance) =>
       'broadcasting': instance.broadcasting,
       'channel_id': instance.channel_id,
       'id': instance.id,
-      'url': instance.url,
-      'channel_title': instance.channel_title,
-      'description': instance.description,
       'kind': instance.kind,
       'published_at': instance.published_at,
       'title': instance.title,
+      'channel_title': instance.channel_title,
+      'description': instance.description,
+      'url': instance.url,
     };

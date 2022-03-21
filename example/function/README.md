@@ -98,53 +98,6 @@ void main() async {
   }
 }
 ```
-## Call
-
-Call a function by name
-
-
-[https://m3o.com/function/api#Call](https://m3o.com/function/api#Call)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/function/function.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = FunctionService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "name": "helloworld",
-  "request": {
-    "name": "Alice"
-  ,}
-};
-
-  CallRequest req = CallRequest.fromJson(payload);
-
-  
-  try {
-
-	CallResponse res = await ser.call(req);
-
-    res.map((value) => print(value),
-	  Merr: (CallResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## List
 
 List all the deployed functions
@@ -178,6 +131,50 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Delete
+
+Delete a function by name
+
+
+[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/function/function.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = FunctionService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "name": "helloworld"
+,};
+
+  DeleteRequest req = DeleteRequest.fromJson(payload);
+
+  
+  try {
+
+	DeleteResponse res = await ser.delete(req);
+
+    res.map((value) => print(value),
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -274,12 +271,12 @@ void main() async {
   }
 }
 ```
-## Delete
+## Call
 
-Delete a function by name
+Call a function by name
 
 
-[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
+[https://m3o.com/function/api#Call](https://m3o.com/function/api#Call)
 
 ```dart
 import 'dart:io';
@@ -297,18 +294,21 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "name": "helloworld"
-,};
+  "name": "helloworld",
+  "request": {
+    "name": "Alice"
+  ,}
+};
 
-  DeleteRequest req = DeleteRequest.fromJson(payload);
+  CallRequest req = CallRequest.fromJson(payload);
 
   
   try {
 
-	DeleteResponse res = await ser.delete(req);
+	CallResponse res = await ser.call(req);
 
     res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+	  Merr: (CallResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
