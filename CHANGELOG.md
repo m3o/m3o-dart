@@ -1,3 +1,9 @@
+## v1.0.56 - 2022-03-21
+
+[c9001a](https://github.com/micro/services/commit/c9001a0ba839f06f44e4ecf3e08b080173a80de0) fix tunnel
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.55...v1.0.56
+
 ## v1.0.55 - 2022-03-21
 
 [f2a435](https://github.com/micro/services/commit/f2a435fd2d865600d80f574fc93347c55d464178) update tunnel func
