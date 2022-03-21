@@ -7,20 +7,20 @@ part of 'comments.dart';
 // **************************************************************************
 
 _$_Comment _$$_CommentFromJson(Map<String, dynamic> json) => _$_Comment(
-      text: json['text'] as String?,
       updated: json['updated'] as String?,
       created: json['created'] as String?,
       id: json['id'] as String?,
       subject: json['subject'] as String?,
+      text: json['text'] as String?,
     );
 
 Map<String, dynamic> _$$_CommentToJson(_$_Comment instance) =>
     <String, dynamic>{
-      'text': instance.text,
       'updated': instance.updated,
       'created': instance.created,
       'id': instance.id,
       'subject': instance.subject,
+      'text': instance.text,
     };
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>

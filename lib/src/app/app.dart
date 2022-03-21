@@ -244,11 +244,11 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class LogsRequest with _$LogsRequest {
   const factory LogsRequest({
-    /// name of the app
-    String? name,
-
     /// type of logs to retrieve, currently supported options - "build"
     String? logs_type,
+
+    /// name of the app
+    String? name,
   }) = _LogsRequest;
   factory LogsRequest.fromJson(Map<String, dynamic> json) =>
       _$LogsRequestFromJson(json);
@@ -389,29 +389,14 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
-    /// branch of code
-    String? branch,
-
-    /// unique id
-    String? id,
+    /// custom domains
+    String? custom_domains,
 
     /// name of the app
     String? name,
 
     /// port running on
     int? port,
-
-    /// app url
-    String? url,
-
-    /// time of creation
-    String? created,
-
-    /// custom domains
-    String? custom_domains,
-
-    /// associated env vars
-    Map<String, String>? env_vars,
 
     /// region running in
     String? region,
@@ -422,8 +407,23 @@ class Service with _$Service {
     /// status of the app
     String? status,
 
+    /// time of creation
+    String? created,
+
+    /// associated env vars
+    Map<String, String>? env_vars,
+
+    /// unique id
+    String? id,
+
     /// last updated
     String? updated,
+
+    /// app url
+    String? url,
+
+    /// branch of code
+    String? branch,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);
