@@ -1,3 +1,9 @@
+## v1.0.52 - 2022-03-21
+
+[f2b9db](https://github.com/micro/services/commit/f2b9db624d9243ea4aa885894ac805c8ae6360d2) add a blocklist to tunnel
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.51...v1.0.52
+
 ## v1.0.51 - 2022-03-21
 
 [be894c](https://github.com/micro/services/commit/be894c553b278f0939146659c8c58225e7c4cb2a) charge for the tunnel
