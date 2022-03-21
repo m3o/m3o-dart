@@ -1,3 +1,9 @@
+## v1.0.51 - 2022-03-21
+
+[be894c](https://github.com/micro/services/commit/be894c553b278f0939146659c8c58225e7c4cb2a) charge for the tunnel
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.50...v1.0.51
+
 ## v1.0.50 - 2022-03-20
 
 [801983](https://github.com/micro/services/commit/80198352e29cceea4bdfd469161d61e39a3929b8) fix handler
