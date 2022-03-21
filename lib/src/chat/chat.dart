@@ -211,6 +211,9 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// chat description
+    String? description,
+
     /// name of the room
     String? name,
 
@@ -219,9 +222,6 @@ class CreateRequest with _$CreateRequest {
 
     /// optional list of user ids
     String? user_ids,
-
-    /// chat description
-    String? description,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -309,11 +309,11 @@ class InviteResponse with _$InviteResponse {
 @Freezed()
 class JoinRequest with _$JoinRequest {
   const factory JoinRequest({
-    /// chat room to join
-    String? room_id,
-
     /// user id joining
     String? user_id,
+
+    /// chat room to join
+    String? room_id,
   }) = _JoinRequest;
   factory JoinRequest.fromJson(Map<String, dynamic> json) =>
       _$JoinRequestFromJson(json);
@@ -430,6 +430,9 @@ class Message with _$Message {
 @Freezed()
 class Room with _$Room {
   const factory Room({
+    /// description of the that
+    String? description,
+
     /// unique room id
     String? id,
 
@@ -444,9 +447,6 @@ class Room with _$Room {
 
     /// time of creation
     String? created_at,
-
-    /// description of the that
-    String? description,
   }) = _Room;
   factory Room.fromJson(Map<String, dynamic> json) => _$RoomFromJson(json);
 }

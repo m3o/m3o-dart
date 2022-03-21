@@ -102,14 +102,14 @@ class StreamService {
 @Freezed()
 class Channel with _$Channel {
   const factory Channel({
+    /// name of the channel
+    String? name,
+
     /// description for the channel
     String? description,
 
     /// last activity time
     String? last_active,
-
-    /// name of the channel
-    String? name,
   }) = _Channel;
   factory Channel.fromJson(Map<String, dynamic> json) =>
       _$ChannelFromJson(json);
@@ -186,6 +186,12 @@ class ListMessagesResponse with _$ListMessagesResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
+    /// the channel name
+    String? channel,
+
+    /// id of the message
+    String? id,
+
     /// the associated metadata
     Map<String, String>? metadata,
 
@@ -194,12 +200,6 @@ class Message with _$Message {
 
     /// time of message creation
     String? timestamp,
-
-    /// the channel name
-    String? channel,
-
-    /// id of the message
-    String? id,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);

@@ -50,35 +50,35 @@ Map<String, dynamic> _$$CodesResponseMerrToJson(_$CodesResponseMerr instance) =>
 
 _$_ConvertRequest _$$_ConvertRequestFromJson(Map<String, dynamic> json) =>
     _$_ConvertRequest(
+      to: json['to'] as String?,
       amount: (json['amount'] as num?)?.toDouble(),
       from: json['from'] as String?,
-      to: json['to'] as String?,
     );
 
 Map<String, dynamic> _$$_ConvertRequestToJson(_$_ConvertRequest instance) =>
     <String, dynamic>{
+      'to': instance.to,
       'amount': instance.amount,
       'from': instance.from,
-      'to': instance.to,
     };
 
 _$ConvertResponseData _$$ConvertResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$ConvertResponseData(
-      to: json['to'] as String?,
       amount: (json['amount'] as num?)?.toDouble(),
       from: json['from'] as String?,
       rate: (json['rate'] as num?)?.toDouble(),
+      to: json['to'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ConvertResponseDataToJson(
         _$ConvertResponseData instance) =>
     <String, dynamic>{
-      'to': instance.to,
       'amount': instance.amount,
       'from': instance.from,
       'rate': instance.rate,
+      'to': instance.to,
       'runtimeType': instance.$type,
     };
 
