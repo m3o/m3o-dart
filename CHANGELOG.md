@@ -1,3 +1,9 @@
+## v1.0.63 - 2022-03-23
+
+[c13ffd](https://github.com/micro/services/commit/c13ffdd2ba0c34142a9cc170c64de5b01130d24b) configurable api endpoint
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.62...v1.0.63
+
 ## v1.0.62 - 2022-03-23
 
 [f662df](https://github.com/micro/services/commit/f662df88bd0cb8ce8607d9cbdf74945fcda8d6d1) price api wip (#407)
