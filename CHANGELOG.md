@@ -1,3 +1,9 @@
+## v1.0.59 - 2022-03-23
+
+[f8939f](https://github.com/micro/services/commit/f8939f57fac292c44c4654155e5b54fee2a8f5f8) Update publicapi.json
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.58...v1.0.59
+
 ## v1.0.58 - 2022-03-21
 
 [adc006](https://github.com/micro/services/commit/adc00613256834b239d037202747b5eff1e003cf) cache crypto prices for 5 mins
