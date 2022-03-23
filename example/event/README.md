@@ -4,52 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/event/api](htt
 
 Endpoints:
 
-## Consume
-
-Consume events from a given topic.
-
-
-[https://m3o.com/event/api#Consume](https://m3o.com/event/api#Consume)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/event/event.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = EventService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "topic": "user"
-,};
-
-  ConsumeRequest req = ConsumeRequest.fromJson(payload);
-
-  
-  	
-  try {
-
-    final res = await ser.consume(req);
-
-	  await for (var sr in res) {
-	  sr.map((value) => print(value),
-		Merr: (ConsumeResponseMerr err) => print(err.body));
-	  }
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Read
 
 Read stored events
@@ -135,6 +89,52 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (PublishResponseMerr err) => print(err.body!['body']));	
   
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Consume
+
+Consume events from a given topic.
+
+
+[https://m3o.com/event/api#Consume](https://m3o.com/event/api#Consume)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/event/event.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = EventService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "topic": "user"
+,};
+
+  ConsumeRequest req = ConsumeRequest.fromJson(payload);
+
+  
+  	
+  try {
+
+    final res = await ser.consume(req);
+
+	  await for (var sr in res) {
+	  sr.map((value) => print(value),
+		Merr: (ConsumeResponseMerr err) => print(err.body));
+	  }
   } catch (e, stack) {
     print(e);
 	print(stack);

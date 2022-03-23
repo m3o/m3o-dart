@@ -135,8 +135,29 @@ class Address with _$Address {
 @Freezed()
 class ContactInfo with _$ContactInfo {
   const factory ContactInfo({
+    /// the social media username
+    SocialMedia? social_medias,
+
+    /// the address
+    List<Address>? addresses,
+
+    /// the birthday
+    String? birthday,
+
+    /// create date string in RFC3339
+    String? created_at,
+
     /// contact id
     String? id,
+
+    /// the contact links
+    List<Link>? links,
+
+    /// note of the contact
+    String? note,
+
+    /// the emails
+    List<Email>? emails,
 
     /// the contact name
     String? name,
@@ -146,27 +167,6 @@ class ContactInfo with _$ContactInfo {
 
     /// update date string in RFC3339
     String? updated_at,
-
-    /// the address
-    List<Address>? addresses,
-
-    /// create date string in RFC3339
-    String? created_at,
-
-    /// the emails
-    List<Email>? emails,
-
-    /// the social media username
-    SocialMedia? social_medias,
-
-    /// the birthday
-    String? birthday,
-
-    /// the contact links
-    List<Link>? links,
-
-    /// note of the contact
-    String? note,
   }) = _ContactInfo;
   factory ContactInfo.fromJson(Map<String, dynamic> json) =>
       _$ContactInfoFromJson(json);
@@ -175,6 +175,9 @@ class ContactInfo with _$ContactInfo {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// optional, note of the contact
+    String? note,
+
     /// optional, phone numbers
     List<Phone>? phones,
 
@@ -195,9 +198,6 @@ class CreateRequest with _$CreateRequest {
 
     /// required, the name of the contact
     String? name,
-
-    /// optional, note of the contact
-    String? note,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -335,17 +335,17 @@ class UpdateRequest with _$UpdateRequest {
     /// optional, birthday
     String? birthday,
 
-    /// required, the contact id
-    String? id,
-
     /// optional, emails
     List<Email>? emails,
 
-    /// optional, links
-    List<Link>? links,
+    /// required, the contact id
+    String? id,
 
     /// required, the name
     String? name,
+
+    /// optional, links
+    List<Link>? links,
 
     /// optional, note
     String? note,
