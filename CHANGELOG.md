@@ -1,3 +1,9 @@
+## v1.0.62 - 2022-03-23
+
+[f662df](https://github.com/micro/services/commit/f662df88bd0cb8ce8607d9cbdf74945fcda8d6d1) price api wip (#407)
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.61...v1.0.62
+
 ## v1.0.61 - 2022-03-23
 
 [a35ccc](https://github.com/micro/services/commit/a35cccdb9c3734199a20bc7e34f7fd042995f5dc) charge for nft api
