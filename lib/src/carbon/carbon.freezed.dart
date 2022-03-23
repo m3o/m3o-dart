@@ -128,12 +128,12 @@ class _$OffsetResponseTearOff {
   const _$OffsetResponseTearOff();
 
   OffsetResponseData call(
-      {double? tonnes, int? units, String? metric, List<Project>? projects}) {
+      {String? metric, List<Project>? projects, double? tonnes, int? units}) {
     return OffsetResponseData(
-      tonnes: tonnes,
-      units: units,
       metric: metric,
       projects: projects,
+      tonnes: tonnes,
+      units: units,
     );
   }
 
@@ -156,23 +156,23 @@ mixin _$OffsetResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            double? tonnes, int? units, String? metric, List<Project>? projects)
+            String? metric, List<Project>? projects, double? tonnes, int? units)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? tonnes, int? units, String? metric,
-            List<Project>? projects)?
+    TResult Function(String? metric, List<Project>? projects, double? tonnes,
+            int? units)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? tonnes, int? units, String? metric,
-            List<Project>? projects)?
+    TResult Function(String? metric, List<Project>? projects, double? tonnes,
+            int? units)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -223,7 +223,7 @@ abstract class $OffsetResponseDataCopyWith<$Res> {
           OffsetResponseData value, $Res Function(OffsetResponseData) then) =
       _$OffsetResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {double? tonnes, int? units, String? metric, List<Project>? projects});
+      {String? metric, List<Project>? projects, double? tonnes, int? units});
 }
 
 /// @nodoc
@@ -239,20 +239,12 @@ class _$OffsetResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? tonnes = freezed,
-    Object? units = freezed,
     Object? metric = freezed,
     Object? projects = freezed,
+    Object? tonnes = freezed,
+    Object? units = freezed,
   }) {
     return _then(OffsetResponseData(
-      tonnes: tonnes == freezed
-          ? _value.tonnes
-          : tonnes // ignore: cast_nullable_to_non_nullable
-              as double?,
-      units: units == freezed
-          ? _value.units
-          : units // ignore: cast_nullable_to_non_nullable
-              as int?,
       metric: metric == freezed
           ? _value.metric
           : metric // ignore: cast_nullable_to_non_nullable
@@ -261,6 +253,14 @@ class _$OffsetResponseDataCopyWithImpl<$Res>
           ? _value.projects
           : projects // ignore: cast_nullable_to_non_nullable
               as List<Project>?,
+      tonnes: tonnes == freezed
+          ? _value.tonnes
+          : tonnes // ignore: cast_nullable_to_non_nullable
+              as double?,
+      units: units == freezed
+          ? _value.units
+          : units // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -269,20 +269,12 @@ class _$OffsetResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$OffsetResponseData implements OffsetResponseData {
   const _$OffsetResponseData(
-      {this.tonnes, this.units, this.metric, this.projects, String? $type})
+      {this.metric, this.projects, this.tonnes, this.units, String? $type})
       : $type = $type ?? 'default';
 
   factory _$OffsetResponseData.fromJson(Map<String, dynamic> json) =>
       _$$OffsetResponseDataFromJson(json);
 
-  @override
-
-  /// number of tonnes
-  final double? tonnes;
-  @override
-
-  /// number of units purchased
-  final int? units;
   @override
 
   /// the metric used e.g KG or Tonnes
@@ -291,13 +283,21 @@ class _$OffsetResponseData implements OffsetResponseData {
 
   /// projects it was allocated to
   final List<Project>? projects;
+  @override
+
+  /// number of tonnes
+  final double? tonnes;
+  @override
+
+  /// number of units purchased
+  final int? units;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'OffsetResponse(tonnes: $tonnes, units: $units, metric: $metric, projects: $projects)';
+    return 'OffsetResponse(metric: $metric, projects: $projects, tonnes: $tonnes, units: $units)';
   }
 
   @override
@@ -305,19 +305,19 @@ class _$OffsetResponseData implements OffsetResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OffsetResponseData &&
-            const DeepCollectionEquality().equals(other.tonnes, tonnes) &&
-            const DeepCollectionEquality().equals(other.units, units) &&
             const DeepCollectionEquality().equals(other.metric, metric) &&
-            const DeepCollectionEquality().equals(other.projects, projects));
+            const DeepCollectionEquality().equals(other.projects, projects) &&
+            const DeepCollectionEquality().equals(other.tonnes, tonnes) &&
+            const DeepCollectionEquality().equals(other.units, units));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(tonnes),
-      const DeepCollectionEquality().hash(units),
       const DeepCollectionEquality().hash(metric),
-      const DeepCollectionEquality().hash(projects));
+      const DeepCollectionEquality().hash(projects),
+      const DeepCollectionEquality().hash(tonnes),
+      const DeepCollectionEquality().hash(units));
 
   @JsonKey(ignore: true)
   @override
@@ -328,35 +328,35 @@ class _$OffsetResponseData implements OffsetResponseData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            double? tonnes, int? units, String? metric, List<Project>? projects)
+            String? metric, List<Project>? projects, double? tonnes, int? units)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(tonnes, units, metric, projects);
+    return $default(metric, projects, tonnes, units);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? tonnes, int? units, String? metric,
-            List<Project>? projects)?
+    TResult Function(String? metric, List<Project>? projects, double? tonnes,
+            int? units)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(tonnes, units, metric, projects);
+    return $default?.call(metric, projects, tonnes, units);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? tonnes, int? units, String? metric,
-            List<Project>? projects)?
+    TResult Function(String? metric, List<Project>? projects, double? tonnes,
+            int? units)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(tonnes, units, metric, projects);
+      return $default(metric, projects, tonnes, units);
     }
     return orElse();
   }
@@ -400,25 +400,25 @@ class _$OffsetResponseData implements OffsetResponseData {
 
 abstract class OffsetResponseData implements OffsetResponse {
   const factory OffsetResponseData(
-      {double? tonnes,
-      int? units,
-      String? metric,
-      List<Project>? projects}) = _$OffsetResponseData;
+      {String? metric,
+      List<Project>? projects,
+      double? tonnes,
+      int? units}) = _$OffsetResponseData;
 
   factory OffsetResponseData.fromJson(Map<String, dynamic> json) =
       _$OffsetResponseData.fromJson;
-
-  /// number of tonnes
-  double? get tonnes;
-
-  /// number of units purchased
-  int? get units;
 
   /// the metric used e.g KG or Tonnes
   String? get metric;
 
   /// projects it was allocated to
   List<Project>? get projects;
+
+  /// number of tonnes
+  double? get tonnes;
+
+  /// number of units purchased
+  int? get units;
   @JsonKey(ignore: true)
   $OffsetResponseDataCopyWith<OffsetResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -497,7 +497,7 @@ class _$OffsetResponseMerr implements OffsetResponseMerr {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            double? tonnes, int? units, String? metric, List<Project>? projects)
+            String? metric, List<Project>? projects, double? tonnes, int? units)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -507,8 +507,8 @@ class _$OffsetResponseMerr implements OffsetResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? tonnes, int? units, String? metric,
-            List<Project>? projects)?
+    TResult Function(String? metric, List<Project>? projects, double? tonnes,
+            int? units)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -518,8 +518,8 @@ class _$OffsetResponseMerr implements OffsetResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? tonnes, int? units, String? metric,
-            List<Project>? projects)?
+    TResult Function(String? metric, List<Project>? projects, double? tonnes,
+            int? units)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -588,11 +588,11 @@ Project _$ProjectFromJson(Map<String, dynamic> json) {
 class _$ProjectTearOff {
   const _$ProjectTearOff();
 
-  _Project call({double? tonnes, String? name, double? percentage}) {
+  _Project call({String? name, double? percentage, double? tonnes}) {
     return _Project(
-      tonnes: tonnes,
       name: name,
       percentage: percentage,
+      tonnes: tonnes,
     );
   }
 
@@ -606,14 +606,14 @@ const $Project = _$ProjectTearOff();
 
 /// @nodoc
 mixin _$Project {
-  /// amount in tonnes
-  double? get tonnes => throw _privateConstructorUsedError;
-
   /// name of the project
   String? get name => throw _privateConstructorUsedError;
 
   /// percentage that went to this
   double? get percentage => throw _privateConstructorUsedError;
+
+  /// amount in tonnes
+  double? get tonnes => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -624,7 +624,7 @@ mixin _$Project {
 abstract class $ProjectCopyWith<$Res> {
   factory $ProjectCopyWith(Project value, $Res Function(Project) then) =
       _$ProjectCopyWithImpl<$Res>;
-  $Res call({double? tonnes, String? name, double? percentage});
+  $Res call({String? name, double? percentage, double? tonnes});
 }
 
 /// @nodoc
@@ -637,15 +637,11 @@ class _$ProjectCopyWithImpl<$Res> implements $ProjectCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? tonnes = freezed,
     Object? name = freezed,
     Object? percentage = freezed,
+    Object? tonnes = freezed,
   }) {
     return _then(_value.copyWith(
-      tonnes: tonnes == freezed
-          ? _value.tonnes
-          : tonnes // ignore: cast_nullable_to_non_nullable
-              as double?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -653,6 +649,10 @@ class _$ProjectCopyWithImpl<$Res> implements $ProjectCopyWith<$Res> {
       percentage: percentage == freezed
           ? _value.percentage
           : percentage // ignore: cast_nullable_to_non_nullable
+              as double?,
+      tonnes: tonnes == freezed
+          ? _value.tonnes
+          : tonnes // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
   }
@@ -663,7 +663,7 @@ abstract class _$ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
   factory _$ProjectCopyWith(_Project value, $Res Function(_Project) then) =
       __$ProjectCopyWithImpl<$Res>;
   @override
-  $Res call({double? tonnes, String? name, double? percentage});
+  $Res call({String? name, double? percentage, double? tonnes});
 }
 
 /// @nodoc
@@ -677,15 +677,11 @@ class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? tonnes = freezed,
     Object? name = freezed,
     Object? percentage = freezed,
+    Object? tonnes = freezed,
   }) {
     return _then(_Project(
-      tonnes: tonnes == freezed
-          ? _value.tonnes
-          : tonnes // ignore: cast_nullable_to_non_nullable
-              as double?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -694,6 +690,10 @@ class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
           ? _value.percentage
           : percentage // ignore: cast_nullable_to_non_nullable
               as double?,
+      tonnes: tonnes == freezed
+          ? _value.tonnes
+          : tonnes // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -701,15 +701,11 @@ class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Project implements _Project {
-  const _$_Project({this.tonnes, this.name, this.percentage});
+  const _$_Project({this.name, this.percentage, this.tonnes});
 
   factory _$_Project.fromJson(Map<String, dynamic> json) =>
       _$$_ProjectFromJson(json);
 
-  @override
-
-  /// amount in tonnes
-  final double? tonnes;
   @override
 
   /// name of the project
@@ -718,10 +714,14 @@ class _$_Project implements _Project {
 
   /// percentage that went to this
   final double? percentage;
+  @override
+
+  /// amount in tonnes
+  final double? tonnes;
 
   @override
   String toString() {
-    return 'Project(tonnes: $tonnes, name: $name, percentage: $percentage)';
+    return 'Project(name: $name, percentage: $percentage, tonnes: $tonnes)';
   }
 
   @override
@@ -729,18 +729,18 @@ class _$_Project implements _Project {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Project &&
-            const DeepCollectionEquality().equals(other.tonnes, tonnes) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
-                .equals(other.percentage, percentage));
+                .equals(other.percentage, percentage) &&
+            const DeepCollectionEquality().equals(other.tonnes, tonnes));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(tonnes),
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(percentage));
+      const DeepCollectionEquality().hash(percentage),
+      const DeepCollectionEquality().hash(tonnes));
 
   @JsonKey(ignore: true)
   @override
@@ -754,15 +754,11 @@ class _$_Project implements _Project {
 }
 
 abstract class _Project implements Project {
-  const factory _Project({double? tonnes, String? name, double? percentage}) =
+  const factory _Project({String? name, double? percentage, double? tonnes}) =
       _$_Project;
 
   factory _Project.fromJson(Map<String, dynamic> json) = _$_Project.fromJson;
 
-  @override
-
-  /// amount in tonnes
-  double? get tonnes;
   @override
 
   /// name of the project
@@ -771,6 +767,10 @@ abstract class _Project implements Project {
 
   /// percentage that went to this
   double? get percentage;
+  @override
+
+  /// amount in tonnes
+  double? get tonnes;
   @override
   @JsonKey(ignore: true)
   _$ProjectCopyWith<_Project> get copyWith =>

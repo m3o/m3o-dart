@@ -103,20 +103,20 @@ class QuranService {
 @Freezed()
 class Chapter with _$Chapter {
   const factory Chapter({
-    /// The id of the chapter as a number e.g 1
-    int? id,
-
     /// The simple name of the chapter
     String? name,
 
     /// Should the chapter start with bismillah
     bool? prefix_bismillah,
 
-    /// The order in which it was revealed
-    int? revelation_order,
+    /// The place of revelation
+    String? revelation_place,
 
     /// The translated name
     String? translated_name,
+
+    /// The id of the chapter as a number e.g 1
+    int? id,
 
     /// The complex name of the chapter
     String? complex_name,
@@ -124,8 +124,8 @@ class Chapter with _$Chapter {
     /// The pages from and to e.g 1, 1
     List<int>? pages,
 
-    /// The place of revelation
-    String? revelation_place,
+    /// The order in which it was revealed
+    int? revelation_order,
 
     /// The number of verses in the chapter
     int? verses,
@@ -195,9 +195,6 @@ class Result with _$Result {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// The language for translation
-    String? language,
-
     /// The number of results to return
     int? limit,
 
@@ -206,6 +203,9 @@ class SearchRequest with _$SearchRequest {
 
     /// The query to ask
     String? query,
+
+    /// The language for translation
+    String? language,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);
@@ -251,9 +251,6 @@ class SummaryRequest with _$SummaryRequest {
 @Freezed()
 class SummaryResponse with _$SummaryResponse {
   const factory SummaryResponse({
-    /// The chapter id
-    int? chapter,
-
     /// The source of the summary
     String? source,
 
@@ -262,6 +259,9 @@ class SummaryResponse with _$SummaryResponse {
 
     /// The full description for the chapter
     String? text,
+
+    /// The chapter id
+    int? chapter,
   }) = SummaryResponseData;
   const factory SummaryResponse.Merr({Map<String, dynamic>? body}) =
       SummaryResponseMerr;
@@ -294,11 +294,11 @@ class Verse with _$Verse {
     /// The page of the Quran this verse is on
     int? page,
 
-    /// The arabic text for this verse
-    String? text,
+    /// The basic translation of the verse
+    String? translated_text,
 
-    /// The alternative translations for the verse
-    List<Translation>? translations,
+    /// The phonetic transliteration from arabic
+    String? transliteration,
 
     /// The unique id of the verse in the whole book
     int? id,
@@ -309,11 +309,11 @@ class Verse with _$Verse {
     /// The verse number in this chapter
     int? number,
 
-    /// The basic translation of the verse
-    String? translated_text,
+    /// The arabic text for this verse
+    String? text,
 
-    /// The phonetic transliteration from arabic
-    String? transliteration,
+    /// The alternative translations for the verse
+    List<Translation>? translations,
 
     /// The individual words within the verse (Ayah)
     List<Word>? words,
@@ -324,9 +324,6 @@ class Verse with _$Verse {
 @Freezed()
 class VersesRequest with _$VersesRequest {
   const factory VersesRequest({
-    /// The chapter id to retrieve
-    int? chapter,
-
     /// Return the interpretation (tafsir)
     bool? interpret,
 
@@ -344,6 +341,9 @@ class VersesRequest with _$VersesRequest {
 
     /// Return the individual words with the verses
     bool? words,
+
+    /// The chapter id to retrieve
+    int? chapter,
   }) = _VersesRequest;
   factory VersesRequest.fromJson(Map<String, dynamic> json) =>
       _$VersesRequestFromJson(json);
@@ -373,29 +373,29 @@ class VersesResponse with _$VersesResponse {
 @Freezed()
 class Word with _$Word {
   const factory Word({
-    /// The QCF v2 font code
-    String? code,
-
-    /// The line number
-    int? line,
-
-    /// The transliteration text
-    String? transliteration,
-
     /// The character type e.g word, end
     String? char_type,
 
     /// The id of the word within the verse
     int? id,
 
+    /// The line number
+    int? line,
+
     /// The page number
     int? page,
 
-    /// The position of the word
-    int? position,
-
     /// The arabic text for this word
     String? text,
+
+    /// The transliteration text
+    String? transliteration,
+
+    /// The QCF v2 font code
+    String? code,
+
+    /// The position of the word
+    int? position,
 
     /// The translated text
     String? translation,
