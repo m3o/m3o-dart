@@ -1,3 +1,9 @@
+## v1.0.60 - 2022-03-23
+
+[a35ccc](https://github.com/micro/services/commit/a35cccdb9c3734199a20bc7e34f7fd042995f5dc) charge for nft api
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.59...v1.0.60
+
 ## v1.0.59 - 2022-03-23
 
 [f8939f](https://github.com/micro/services/commit/f8939f57fac292c44c4654155e5b54fee2a8f5f8) Update publicapi.json
