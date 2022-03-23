@@ -822,21 +822,21 @@ class _$RandomResponseTearOff {
   const _$RandomResponseTearOff();
 
   RandomResponseData call(
-      {double? longitude,
+      {String? district,
+      double? latitude,
+      double? longitude,
       String? postcode,
       String? region,
       String? ward,
-      String? country,
-      String? district,
-      double? latitude}) {
+      String? country}) {
     return RandomResponseData(
+      district: district,
+      latitude: latitude,
       longitude: longitude,
       postcode: postcode,
       region: region,
       ward: ward,
       country: country,
-      district: district,
-      latitude: latitude,
     );
   }
 
@@ -858,24 +858,24 @@ const $RandomResponse = _$RandomResponseTearOff();
 mixin _$RandomResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)
+    TResult Function(String? district, double? latitude, double? longitude,
+            String? postcode, String? region, String? ward, String? country)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)?
+    TResult Function(String? district, double? latitude, double? longitude,
+            String? postcode, String? region, String? ward, String? country)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)?
+    TResult Function(String? district, double? latitude, double? longitude,
+            String? postcode, String? region, String? ward, String? country)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -926,13 +926,13 @@ abstract class $RandomResponseDataCopyWith<$Res> {
           RandomResponseData value, $Res Function(RandomResponseData) then) =
       _$RandomResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {double? longitude,
+      {String? district,
+      double? latitude,
+      double? longitude,
       String? postcode,
       String? region,
       String? ward,
-      String? country,
-      String? district,
-      double? latitude});
+      String? country});
 }
 
 /// @nodoc
@@ -948,15 +948,23 @@ class _$RandomResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? district = freezed,
+    Object? latitude = freezed,
     Object? longitude = freezed,
     Object? postcode = freezed,
     Object? region = freezed,
     Object? ward = freezed,
     Object? country = freezed,
-    Object? district = freezed,
-    Object? latitude = freezed,
   }) {
     return _then(RandomResponseData(
+      district: district == freezed
+          ? _value.district
+          : district // ignore: cast_nullable_to_non_nullable
+              as String?,
+      latitude: latitude == freezed
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double?,
       longitude: longitude == freezed
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
@@ -977,14 +985,6 @@ class _$RandomResponseDataCopyWithImpl<$Res>
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String?,
-      district: district == freezed
-          ? _value.district
-          : district // ignore: cast_nullable_to_non_nullable
-              as String?,
-      latitude: latitude == freezed
-          ? _value.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as double?,
     ));
   }
 }
@@ -993,19 +993,27 @@ class _$RandomResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RandomResponseData implements RandomResponseData {
   const _$RandomResponseData(
-      {this.longitude,
+      {this.district,
+      this.latitude,
+      this.longitude,
       this.postcode,
       this.region,
       this.ward,
       this.country,
-      this.district,
-      this.latitude,
       String? $type})
       : $type = $type ?? 'default';
 
   factory _$RandomResponseData.fromJson(Map<String, dynamic> json) =>
       _$$RandomResponseDataFromJson(json);
 
+  @override
+
+  /// e.g Westminster
+  final String? district;
+  @override
+
+  /// e.g 51.50354
+  final double? latitude;
   @override
 
   /// e.g -0.127695
@@ -1026,21 +1034,13 @@ class _$RandomResponseData implements RandomResponseData {
 
   /// country e.g United Kingdom
   final String? country;
-  @override
-
-  /// e.g Westminster
-  final String? district;
-  @override
-
-  /// e.g 51.50354
-  final double? latitude;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'RandomResponse(longitude: $longitude, postcode: $postcode, region: $region, ward: $ward, country: $country, district: $district, latitude: $latitude)';
+    return 'RandomResponse(district: $district, latitude: $latitude, longitude: $longitude, postcode: $postcode, region: $region, ward: $ward, country: $country)';
   }
 
   @override
@@ -1048,25 +1048,25 @@ class _$RandomResponseData implements RandomResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is RandomResponseData &&
+            const DeepCollectionEquality().equals(other.district, district) &&
+            const DeepCollectionEquality().equals(other.latitude, latitude) &&
             const DeepCollectionEquality().equals(other.longitude, longitude) &&
             const DeepCollectionEquality().equals(other.postcode, postcode) &&
             const DeepCollectionEquality().equals(other.region, region) &&
             const DeepCollectionEquality().equals(other.ward, ward) &&
-            const DeepCollectionEquality().equals(other.country, country) &&
-            const DeepCollectionEquality().equals(other.district, district) &&
-            const DeepCollectionEquality().equals(other.latitude, latitude));
+            const DeepCollectionEquality().equals(other.country, country));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(district),
+      const DeepCollectionEquality().hash(latitude),
       const DeepCollectionEquality().hash(longitude),
       const DeepCollectionEquality().hash(postcode),
       const DeepCollectionEquality().hash(region),
       const DeepCollectionEquality().hash(ward),
-      const DeepCollectionEquality().hash(country),
-      const DeepCollectionEquality().hash(district),
-      const DeepCollectionEquality().hash(latitude));
+      const DeepCollectionEquality().hash(country));
 
   @JsonKey(ignore: true)
   @override
@@ -1076,39 +1076,39 @@ class _$RandomResponseData implements RandomResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)
+    TResult Function(String? district, double? latitude, double? longitude,
+            String? postcode, String? region, String? ward, String? country)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return $default(
-        longitude, postcode, region, ward, country, district, latitude);
+        district, latitude, longitude, postcode, region, ward, country);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)?
+    TResult Function(String? district, double? latitude, double? longitude,
+            String? postcode, String? region, String? ward, String? country)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(
-        longitude, postcode, region, ward, country, district, latitude);
+        district, latitude, longitude, postcode, region, ward, country);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)?
+    TResult Function(String? district, double? latitude, double? longitude,
+            String? postcode, String? region, String? ward, String? country)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
       return $default(
-          longitude, postcode, region, ward, country, district, latitude);
+          district, latitude, longitude, postcode, region, ward, country);
     }
     return orElse();
   }
@@ -1152,16 +1152,22 @@ class _$RandomResponseData implements RandomResponseData {
 
 abstract class RandomResponseData implements RandomResponse {
   const factory RandomResponseData(
-      {double? longitude,
+      {String? district,
+      double? latitude,
+      double? longitude,
       String? postcode,
       String? region,
       String? ward,
-      String? country,
-      String? district,
-      double? latitude}) = _$RandomResponseData;
+      String? country}) = _$RandomResponseData;
 
   factory RandomResponseData.fromJson(Map<String, dynamic> json) =
       _$RandomResponseData.fromJson;
+
+  /// e.g Westminster
+  String? get district;
+
+  /// e.g 51.50354
+  double? get latitude;
 
   /// e.g -0.127695
   double? get longitude;
@@ -1177,12 +1183,6 @@ abstract class RandomResponseData implements RandomResponse {
 
   /// country e.g United Kingdom
   String? get country;
-
-  /// e.g Westminster
-  String? get district;
-
-  /// e.g 51.50354
-  double? get latitude;
   @JsonKey(ignore: true)
   $RandomResponseDataCopyWith<RandomResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1260,8 +1260,8 @@ class _$RandomResponseMerr implements RandomResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)
+    TResult Function(String? district, double? latitude, double? longitude,
+            String? postcode, String? region, String? ward, String? country)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -1271,8 +1271,8 @@ class _$RandomResponseMerr implements RandomResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)?
+    TResult Function(String? district, double? latitude, double? longitude,
+            String? postcode, String? region, String? ward, String? country)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -1282,8 +1282,8 @@ class _$RandomResponseMerr implements RandomResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)?
+    TResult Function(String? district, double? latitude, double? longitude,
+            String? postcode, String? region, String? ward, String? country)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

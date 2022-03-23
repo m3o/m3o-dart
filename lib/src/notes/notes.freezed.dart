@@ -22,10 +22,10 @@ CreateRequest _$CreateRequestFromJson(Map<String, dynamic> json) {
 class _$CreateRequestTearOff {
   const _$CreateRequestTearOff();
 
-  _CreateRequest call({String? title, String? text}) {
+  _CreateRequest call({String? text, String? title}) {
     return _CreateRequest(
-      title: title,
       text: text,
+      title: title,
     );
   }
 
@@ -39,11 +39,11 @@ const $CreateRequest = _$CreateRequestTearOff();
 
 /// @nodoc
 mixin _$CreateRequest {
-  /// note title
-  String? get title => throw _privateConstructorUsedError;
-
   /// note text
   String? get text => throw _privateConstructorUsedError;
+
+  /// note title
+  String? get title => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,7 +56,7 @@ abstract class $CreateRequestCopyWith<$Res> {
   factory $CreateRequestCopyWith(
           CreateRequest value, $Res Function(CreateRequest) then) =
       _$CreateRequestCopyWithImpl<$Res>;
-  $Res call({String? title, String? text});
+  $Res call({String? text, String? title});
 }
 
 /// @nodoc
@@ -70,17 +70,17 @@ class _$CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? title = freezed,
     Object? text = freezed,
+    Object? title = freezed,
   }) {
     return _then(_value.copyWith(
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -93,7 +93,7 @@ abstract class _$CreateRequestCopyWith<$Res>
           _CreateRequest value, $Res Function(_CreateRequest) then) =
       __$CreateRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? title, String? text});
+  $Res call({String? text, String? title});
 }
 
 /// @nodoc
@@ -109,17 +109,17 @@ class __$CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? title = freezed,
     Object? text = freezed,
+    Object? title = freezed,
   }) {
     return _then(_CreateRequest(
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -128,23 +128,23 @@ class __$CreateRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateRequest implements _CreateRequest {
-  const _$_CreateRequest({this.title, this.text});
+  const _$_CreateRequest({this.text, this.title});
 
   factory _$_CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateRequestFromJson(json);
 
   @override
 
-  /// note title
-  final String? title;
-  @override
-
   /// note text
   final String? text;
+  @override
+
+  /// note title
+  final String? title;
 
   @override
   String toString() {
-    return 'CreateRequest(title: $title, text: $text)';
+    return 'CreateRequest(text: $text, title: $title)';
   }
 
   @override
@@ -152,15 +152,15 @@ class _$_CreateRequest implements _CreateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _CreateRequest &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.text, text));
+            const DeepCollectionEquality().equals(other.text, text) &&
+            const DeepCollectionEquality().equals(other.title, title));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(text));
+      const DeepCollectionEquality().hash(text),
+      const DeepCollectionEquality().hash(title));
 
   @JsonKey(ignore: true)
   @override
@@ -174,7 +174,7 @@ class _$_CreateRequest implements _CreateRequest {
 }
 
 abstract class _CreateRequest implements CreateRequest {
-  const factory _CreateRequest({String? title, String? text}) =
+  const factory _CreateRequest({String? text, String? title}) =
       _$_CreateRequest;
 
   factory _CreateRequest.fromJson(Map<String, dynamic> json) =
@@ -182,12 +182,12 @@ abstract class _CreateRequest implements CreateRequest {
 
   @override
 
-  /// note title
-  String? get title;
-  @override
-
   /// note text
   String? get text;
+  @override
+
+  /// note title
+  String? get title;
   @override
   @JsonKey(ignore: true)
   _$CreateRequestCopyWith<_CreateRequest> get copyWith =>
@@ -2253,17 +2253,17 @@ class _$NoteTearOff {
   const _$NoteTearOff();
 
   _Note call(
-      {String? created,
-      String? id,
+      {String? id,
       String? text,
       String? title,
-      String? updated}) {
+      String? updated,
+      String? created}) {
     return _Note(
-      created: created,
       id: id,
       text: text,
       title: title,
       updated: updated,
+      created: created,
     );
   }
 
@@ -2277,9 +2277,6 @@ const $Note = _$NoteTearOff();
 
 /// @nodoc
 mixin _$Note {
-  /// time at which the note was created
-  String? get created => throw _privateConstructorUsedError;
-
   /// unique id for the note, generated if not specified
   String? get id => throw _privateConstructorUsedError;
 
@@ -2292,6 +2289,9 @@ mixin _$Note {
   /// time at which the note was updated
   String? get updated => throw _privateConstructorUsedError;
 
+  /// time at which the note was created
+  String? get created => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $NoteCopyWith<Note> get copyWith => throw _privateConstructorUsedError;
@@ -2302,11 +2302,11 @@ abstract class $NoteCopyWith<$Res> {
   factory $NoteCopyWith(Note value, $Res Function(Note) then) =
       _$NoteCopyWithImpl<$Res>;
   $Res call(
-      {String? created,
-      String? id,
+      {String? id,
       String? text,
       String? title,
-      String? updated});
+      String? updated,
+      String? created});
 }
 
 /// @nodoc
@@ -2319,17 +2319,13 @@ class _$NoteCopyWithImpl<$Res> implements $NoteCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? created = freezed,
     Object? id = freezed,
     Object? text = freezed,
     Object? title = freezed,
     Object? updated = freezed,
+    Object? created = freezed,
   }) {
     return _then(_value.copyWith(
-      created: created == freezed
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -2346,6 +2342,10 @@ class _$NoteCopyWithImpl<$Res> implements $NoteCopyWith<$Res> {
           ? _value.updated
           : updated // ignore: cast_nullable_to_non_nullable
               as String?,
+      created: created == freezed
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2356,11 +2356,11 @@ abstract class _$NoteCopyWith<$Res> implements $NoteCopyWith<$Res> {
       __$NoteCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? created,
-      String? id,
+      {String? id,
       String? text,
       String? title,
-      String? updated});
+      String? updated,
+      String? created});
 }
 
 /// @nodoc
@@ -2374,17 +2374,13 @@ class __$NoteCopyWithImpl<$Res> extends _$NoteCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? created = freezed,
     Object? id = freezed,
     Object? text = freezed,
     Object? title = freezed,
     Object? updated = freezed,
+    Object? created = freezed,
   }) {
     return _then(_Note(
-      created: created == freezed
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -2401,6 +2397,10 @@ class __$NoteCopyWithImpl<$Res> extends _$NoteCopyWithImpl<$Res>
           ? _value.updated
           : updated // ignore: cast_nullable_to_non_nullable
               as String?,
+      created: created == freezed
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2408,14 +2408,10 @@ class __$NoteCopyWithImpl<$Res> extends _$NoteCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Note implements _Note {
-  const _$_Note({this.created, this.id, this.text, this.title, this.updated});
+  const _$_Note({this.id, this.text, this.title, this.updated, this.created});
 
   factory _$_Note.fromJson(Map<String, dynamic> json) => _$$_NoteFromJson(json);
 
-  @override
-
-  /// time at which the note was created
-  final String? created;
   @override
 
   /// unique id for the note, generated if not specified
@@ -2432,10 +2428,14 @@ class _$_Note implements _Note {
 
   /// time at which the note was updated
   final String? updated;
+  @override
+
+  /// time at which the note was created
+  final String? created;
 
   @override
   String toString() {
-    return 'Note(created: $created, id: $id, text: $text, title: $title, updated: $updated)';
+    return 'Note(id: $id, text: $text, title: $title, updated: $updated, created: $created)';
   }
 
   @override
@@ -2443,21 +2443,21 @@ class _$_Note implements _Note {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Note &&
-            const DeepCollectionEquality().equals(other.created, created) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.text, text) &&
             const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.updated, updated));
+            const DeepCollectionEquality().equals(other.updated, updated) &&
+            const DeepCollectionEquality().equals(other.created, created));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(created),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(text),
       const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(updated));
+      const DeepCollectionEquality().hash(updated),
+      const DeepCollectionEquality().hash(created));
 
   @JsonKey(ignore: true)
   @override
@@ -2472,18 +2472,14 @@ class _$_Note implements _Note {
 
 abstract class _Note implements Note {
   const factory _Note(
-      {String? created,
-      String? id,
+      {String? id,
       String? text,
       String? title,
-      String? updated}) = _$_Note;
+      String? updated,
+      String? created}) = _$_Note;
 
   factory _Note.fromJson(Map<String, dynamic> json) = _$_Note.fromJson;
 
-  @override
-
-  /// time at which the note was created
-  String? get created;
   @override
 
   /// unique id for the note, generated if not specified
@@ -2500,6 +2496,10 @@ abstract class _Note implements Note {
 
   /// time at which the note was updated
   String? get updated;
+  @override
+
+  /// time at which the note was created
+  String? get created;
   @override
   @JsonKey(ignore: true)
   _$NoteCopyWith<_Note> get copyWith => throw _privateConstructorUsedError;

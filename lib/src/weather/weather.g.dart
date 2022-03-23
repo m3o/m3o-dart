@@ -7,39 +7,39 @@ part of 'weather.dart';
 // **************************************************************************
 
 _$_Forecast _$$_ForecastFromJson(Map<String, dynamic> json) => _$_Forecast(
+      max_temp_c: (json['max_temp_c'] as num?)?.toDouble(),
+      sunrise: json['sunrise'] as String?,
+      sunset: json['sunset'] as String?,
+      avg_temp_c: (json['avg_temp_c'] as num?)?.toDouble(),
+      avg_temp_f: (json['avg_temp_f'] as num?)?.toDouble(),
       chance_of_rain: json['chance_of_rain'] as int?,
       date: json['date'] as String?,
       max_wind_kph: (json['max_wind_kph'] as num?)?.toDouble(),
       max_wind_mph: (json['max_wind_mph'] as num?)?.toDouble(),
-      avg_temp_c: (json['avg_temp_c'] as num?)?.toDouble(),
-      condition: json['condition'] as String?,
       min_temp_f: (json['min_temp_f'] as num?)?.toDouble(),
-      avg_temp_f: (json['avg_temp_f'] as num?)?.toDouble(),
-      max_temp_f: (json['max_temp_f'] as num?)?.toDouble(),
-      min_temp_c: (json['min_temp_c'] as num?)?.toDouble(),
+      condition: json['condition'] as String?,
       icon_url: json['icon_url'] as String?,
-      max_temp_c: (json['max_temp_c'] as num?)?.toDouble(),
-      sunrise: json['sunrise'] as String?,
-      sunset: json['sunset'] as String?,
+      min_temp_c: (json['min_temp_c'] as num?)?.toDouble(),
+      max_temp_f: (json['max_temp_f'] as num?)?.toDouble(),
       will_it_rain: json['will_it_rain'] as bool?,
     );
 
 Map<String, dynamic> _$$_ForecastToJson(_$_Forecast instance) =>
     <String, dynamic>{
+      'max_temp_c': instance.max_temp_c,
+      'sunrise': instance.sunrise,
+      'sunset': instance.sunset,
+      'avg_temp_c': instance.avg_temp_c,
+      'avg_temp_f': instance.avg_temp_f,
       'chance_of_rain': instance.chance_of_rain,
       'date': instance.date,
       'max_wind_kph': instance.max_wind_kph,
       'max_wind_mph': instance.max_wind_mph,
-      'avg_temp_c': instance.avg_temp_c,
-      'condition': instance.condition,
       'min_temp_f': instance.min_temp_f,
-      'avg_temp_f': instance.avg_temp_f,
-      'max_temp_f': instance.max_temp_f,
-      'min_temp_c': instance.min_temp_c,
+      'condition': instance.condition,
       'icon_url': instance.icon_url,
-      'max_temp_c': instance.max_temp_c,
-      'sunrise': instance.sunrise,
-      'sunset': instance.sunset,
+      'min_temp_c': instance.min_temp_c,
+      'max_temp_f': instance.max_temp_f,
       'will_it_rain': instance.will_it_rain,
     };
 
@@ -58,7 +58,6 @@ Map<String, dynamic> _$$_ForecastRequestToJson(_$_ForecastRequest instance) =>
 _$ForecastResponseData _$$ForecastResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$ForecastResponseData(
-      latitude: (json['latitude'] as num?)?.toDouble(),
       local_time: json['local_time'] as String?,
       location: json['location'] as String?,
       longitude: (json['longitude'] as num?)?.toDouble(),
@@ -68,13 +67,13 @@ _$ForecastResponseData _$$ForecastResponseDataFromJson(
       forecast: (json['forecast'] as List<dynamic>?)
           ?.map((e) => Forecast.fromJson(e as Map<String, dynamic>))
           .toList(),
+      latitude: (json['latitude'] as num?)?.toDouble(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ForecastResponseDataToJson(
         _$ForecastResponseData instance) =>
     <String, dynamic>{
-      'latitude': instance.latitude,
       'local_time': instance.local_time,
       'location': instance.location,
       'longitude': instance.longitude,
@@ -82,6 +81,7 @@ Map<String, dynamic> _$$ForecastResponseDataToJson(
       'timezone': instance.timezone,
       'country': instance.country,
       'forecast': instance.forecast,
+      'latitude': instance.latitude,
       'runtimeType': instance.$type,
     };
 
@@ -111,51 +111,51 @@ Map<String, dynamic> _$$_NowRequestToJson(_$_NowRequest instance) =>
 
 _$NowResponseData _$$NowResponseDataFromJson(Map<String, dynamic> json) =>
     _$NowResponseData(
-      temp_c: (json['temp_c'] as num?)?.toDouble(),
-      temp_f: (json['temp_f'] as num?)?.toDouble(),
-      timezone: json['timezone'] as String?,
       wind_degree: json['wind_degree'] as int?,
-      wind_kph: (json['wind_kph'] as num?)?.toDouble(),
-      local_time: json['local_time'] as String?,
-      region: json['region'] as String?,
       cloud: json['cloud'] as int?,
-      condition: json['condition'] as String?,
-      daytime: json['daytime'] as bool?,
-      feels_like_c: (json['feels_like_c'] as num?)?.toDouble(),
-      feels_like_f: (json['feels_like_f'] as num?)?.toDouble(),
-      latitude: (json['latitude'] as num?)?.toDouble(),
-      wind_mph: (json['wind_mph'] as num?)?.toDouble(),
       country: json['country'] as String?,
       humidity: json['humidity'] as int?,
-      icon_url: json['icon_url'] as String?,
       location: json['location'] as String?,
-      longitude: (json['longitude'] as num?)?.toDouble(),
+      timezone: json['timezone'] as String?,
+      wind_kph: (json['wind_kph'] as num?)?.toDouble(),
+      feels_like_f: (json['feels_like_f'] as num?)?.toDouble(),
+      latitude: (json['latitude'] as num?)?.toDouble(),
+      region: json['region'] as String?,
+      temp_f: (json['temp_f'] as num?)?.toDouble(),
+      wind_mph: (json['wind_mph'] as num?)?.toDouble(),
+      daytime: json['daytime'] as bool?,
+      local_time: json['local_time'] as String?,
+      temp_c: (json['temp_c'] as num?)?.toDouble(),
       wind_direction: json['wind_direction'] as String?,
+      condition: json['condition'] as String?,
+      feels_like_c: (json['feels_like_c'] as num?)?.toDouble(),
+      icon_url: json['icon_url'] as String?,
+      longitude: (json['longitude'] as num?)?.toDouble(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$NowResponseDataToJson(_$NowResponseData instance) =>
     <String, dynamic>{
-      'temp_c': instance.temp_c,
-      'temp_f': instance.temp_f,
-      'timezone': instance.timezone,
       'wind_degree': instance.wind_degree,
-      'wind_kph': instance.wind_kph,
-      'local_time': instance.local_time,
-      'region': instance.region,
       'cloud': instance.cloud,
-      'condition': instance.condition,
-      'daytime': instance.daytime,
-      'feels_like_c': instance.feels_like_c,
-      'feels_like_f': instance.feels_like_f,
-      'latitude': instance.latitude,
-      'wind_mph': instance.wind_mph,
       'country': instance.country,
       'humidity': instance.humidity,
-      'icon_url': instance.icon_url,
       'location': instance.location,
-      'longitude': instance.longitude,
+      'timezone': instance.timezone,
+      'wind_kph': instance.wind_kph,
+      'feels_like_f': instance.feels_like_f,
+      'latitude': instance.latitude,
+      'region': instance.region,
+      'temp_f': instance.temp_f,
+      'wind_mph': instance.wind_mph,
+      'daytime': instance.daytime,
+      'local_time': instance.local_time,
+      'temp_c': instance.temp_c,
       'wind_direction': instance.wind_direction,
+      'condition': instance.condition,
+      'feels_like_c': instance.feels_like_c,
+      'icon_url': instance.icon_url,
+      'longitude': instance.longitude,
       'runtimeType': instance.$type,
     };
 

@@ -69,11 +69,11 @@ class GenerateRequest with _$GenerateRequest {
 @Freezed()
 class GenerateResponse with _$GenerateResponse {
   const factory GenerateResponse({
-    /// the type of id generated
-    String? type,
-
     /// the unique id generated
     String? id,
+
+    /// the type of id generated
+    String? type,
   }) = GenerateResponseData;
   const factory GenerateResponse.Merr({Map<String, dynamic>? body}) =
       GenerateResponseMerr;
