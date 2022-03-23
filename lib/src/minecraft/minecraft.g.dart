@@ -18,6 +18,7 @@ Map<String, dynamic> _$$_PingRequestToJson(_$_PingRequest instance) =>
 
 _$PingResponseData _$$PingResponseDataFromJson(Map<String, dynamic> json) =>
     _$PingResponseData(
+      max_players: json['max_players'] as int?,
       motd: json['motd'] as String?,
       players: json['players'] as int?,
       protocol: json['protocol'] as int?,
@@ -27,12 +28,12 @@ _$PingResponseData _$$PingResponseDataFromJson(Map<String, dynamic> json) =>
       version: json['version'] as String?,
       favicon: json['favicon'] as String?,
       latency: json['latency'] as int?,
-      max_players: json['max_players'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$PingResponseDataToJson(_$PingResponseData instance) =>
     <String, dynamic>{
+      'max_players': instance.max_players,
       'motd': instance.motd,
       'players': instance.players,
       'protocol': instance.protocol,
@@ -40,7 +41,6 @@ Map<String, dynamic> _$$PingResponseDataToJson(_$PingResponseData instance) =>
       'version': instance.version,
       'favicon': instance.favicon,
       'latency': instance.latency,
-      'max_players': instance.max_players,
       'runtimeType': instance.$type,
     };
 
@@ -58,12 +58,12 @@ Map<String, dynamic> _$$PingResponseMerrToJson(_$PingResponseMerr instance) =>
 
 _$_PlayerSample _$$_PlayerSampleFromJson(Map<String, dynamic> json) =>
     _$_PlayerSample(
-      uuid: json['uuid'] as String?,
       name: json['name'] as String?,
+      uuid: json['uuid'] as String?,
     );
 
 Map<String, dynamic> _$$_PlayerSampleToJson(_$_PlayerSample instance) =>
     <String, dynamic>{
-      'uuid': instance.uuid,
       'name': instance.name,
+      'uuid': instance.uuid,
     };

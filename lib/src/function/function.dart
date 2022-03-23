@@ -295,14 +295,14 @@ class DeployRequest with _$DeployRequest {
     /// optional subfolder path
     String? subfolder,
 
+    /// environment variables to pass in at runtime
+    Map<String, String>? env_vars,
+
     /// function name
     String? name,
 
     /// region to deploy in. defaults to europe-west1
     String? region,
-
-    /// inline source code
-    String? source,
 
     /// github url for a repo
     String? repo,
@@ -313,15 +313,15 @@ class DeployRequest with _$DeployRequest {
     /// python37, python38, python39
     String? runtime,
 
+    /// inline source code
+    String? source,
+
     /// branch to deploy. defaults to master
     String? branch,
 
     /// entry point, ie. handler name in the source code
     /// if not provided, defaults to the name parameter
     String? entrypoint,
-
-    /// environment variables to pass in at runtime
-    Map<String, String>? env_vars,
   }) = _DeployRequest;
   factory DeployRequest.fromJson(Map<String, dynamic> json) =>
       _$DeployRequestFromJson(json);
@@ -363,26 +363,11 @@ class DescribeResponse with _$DescribeResponse {
 @Freezed()
 class Func with _$Func {
   const factory Func({
-    /// region to deploy in. defaults to europe-west1
-    String? region,
-
-    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-    String? status,
-
-    /// subfolder path to entrypoint
-    String? subfolder,
-
     /// unique url of the function
     String? url,
 
-    /// name of handler in source code
-    String? entrypoint,
-
-    /// associated env vars
-    Map<String, String>? env_vars,
-
-    /// branch to deploy. defaults to master
-    String? branch,
+    /// time of creation
+    String? created,
 
     /// function name
     /// limitation: must be unique across projects
@@ -394,20 +379,35 @@ class Func with _$Func {
     /// python37, python38, python39
     String? runtime,
 
-    /// time of creation
-    String? created,
-
-    /// id of the function
-    String? id,
-
-    /// time it was updated
-    String? updated,
-
     /// git repo address
     String? repo,
 
     /// the source code
     String? source,
+
+    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+    String? status,
+
+    /// time it was updated
+    String? updated,
+
+    /// associated env vars
+    Map<String, String>? env_vars,
+
+    /// id of the function
+    String? id,
+
+    /// region to deploy in. defaults to europe-west1
+    String? region,
+
+    /// branch to deploy. defaults to master
+    String? branch,
+
+    /// name of handler in source code
+    String? entrypoint,
+
+    /// subfolder path to entrypoint
+    String? subfolder,
   }) = _Func;
   factory Func.fromJson(Map<String, dynamic> json) => _$FuncFromJson(json);
 }
