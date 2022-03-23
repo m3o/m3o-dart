@@ -248,11 +248,11 @@ class FunctionService {
 @Freezed()
 class CallRequest with _$CallRequest {
   const factory CallRequest({
-    /// Name of the function
-    String? name,
-
     /// Request body that will be passed to the function
     Map<String, dynamic>? request,
+
+    /// Name of the function
+    String? name,
   }) = _CallRequest;
   factory CallRequest.fromJson(Map<String, dynamic> json) =>
       _$CallRequestFromJson(json);
@@ -292,14 +292,26 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class DeployRequest with _$DeployRequest {
   const factory DeployRequest({
+    /// optional subfolder path
+    String? subfolder,
+
+    /// function name
+    String? name,
+
+    /// region to deploy in. defaults to europe-west1
+    String? region,
+
+    /// inline source code
+    String? source,
+
+    /// github url for a repo
+    String? repo,
+
     /// runtime/lanaguage of the function e.g php74,
     /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
     /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
     /// python37, python38, python39
     String? runtime,
-
-    /// inline source code
-    String? source,
 
     /// branch to deploy. defaults to master
     String? branch,
@@ -310,18 +322,6 @@ class DeployRequest with _$DeployRequest {
 
     /// environment variables to pass in at runtime
     Map<String, String>? env_vars,
-
-    /// function name
-    String? name,
-
-    /// region to deploy in. defaults to europe-west1
-    String? region,
-
-    /// github url for a repo
-    String? repo,
-
-    /// optional subfolder path
-    String? subfolder,
   }) = _DeployRequest;
   factory DeployRequest.fromJson(Map<String, dynamic> json) =>
       _$DeployRequestFromJson(json);
@@ -363,18 +363,8 @@ class DescribeResponse with _$DescribeResponse {
 @Freezed()
 class Func with _$Func {
   const factory Func({
-    /// function name
-    /// limitation: must be unique across projects
-    String? name,
-
-    /// unique url of the function
-    String? url,
-
-    /// git repo address
-    String? repo,
-
-    /// the source code
-    String? source,
+    /// region to deploy in. defaults to europe-west1
+    String? region,
 
     /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
     String? status,
@@ -382,14 +372,21 @@ class Func with _$Func {
     /// subfolder path to entrypoint
     String? subfolder,
 
-    /// time of creation
-    String? created,
+    /// unique url of the function
+    String? url,
 
     /// name of handler in source code
     String? entrypoint,
 
-    /// id of the function
-    String? id,
+    /// associated env vars
+    Map<String, String>? env_vars,
+
+    /// branch to deploy. defaults to master
+    String? branch,
+
+    /// function name
+    /// limitation: must be unique across projects
+    String? name,
 
     /// runtime/language of the function e.g php74,
     /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
@@ -397,17 +394,20 @@ class Func with _$Func {
     /// python37, python38, python39
     String? runtime,
 
+    /// time of creation
+    String? created,
+
+    /// id of the function
+    String? id,
+
     /// time it was updated
     String? updated,
 
-    /// branch to deploy. defaults to master
-    String? branch,
+    /// git repo address
+    String? repo,
 
-    /// associated env vars
-    Map<String, String>? env_vars,
-
-    /// region to deploy in. defaults to europe-west1
-    String? region,
+    /// the source code
+    String? source,
   }) = _Func;
   factory Func.fromJson(Map<String, dynamic> json) => _$FuncFromJson(json);
 }
@@ -434,11 +434,11 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class LogsRequest with _$LogsRequest {
   const factory LogsRequest({
-    /// the name of the function
-    String? name,
-
     /// type of logs to retrieve, currently supported options - "build"
     String? logs_type,
+
+    /// the name of the function
+    String? name,
   }) = _LogsRequest;
   factory LogsRequest.fromJson(Map<String, dynamic> json) =>
       _$LogsRequestFromJson(json);

@@ -42,16 +42,16 @@ Map<String, dynamic> _$$CountResponseMerrToJson(_$CountResponseMerr instance) =>
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      table: json['table'] as String?,
       id: json['id'] as String?,
       record: json['record'] as Map<String, dynamic>?,
+      table: json['table'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
-      'table': instance.table,
       'id': instance.id,
       'record': instance.record,
+      'table': instance.table,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -239,15 +239,15 @@ Map<String, dynamic> _$$ReadResponseMerrToJson(_$ReadResponseMerr instance) =>
 _$_RenameTableRequest _$$_RenameTableRequestFromJson(
         Map<String, dynamic> json) =>
     _$_RenameTableRequest(
-      from: json['from'] as String?,
       to: json['to'] as String?,
+      from: json['from'] as String?,
     );
 
 Map<String, dynamic> _$$_RenameTableRequestToJson(
         _$_RenameTableRequest instance) =>
     <String, dynamic>{
-      'from': instance.from,
       'to': instance.to,
+      'from': instance.from,
     };
 
 _$RenameTableResponseData _$$RenameTableResponseDataFromJson(

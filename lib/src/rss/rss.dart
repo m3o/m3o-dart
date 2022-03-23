@@ -128,6 +128,9 @@ class AddResponse with _$AddResponse {
 @Freezed()
 class Entry with _$Entry {
   const factory Entry({
+    /// data of the entry
+    String? date,
+
     /// the rss feed where it came from
     String? feed,
 
@@ -145,9 +148,6 @@ class Entry with _$Entry {
 
     /// article content
     String? content,
-
-    /// data of the entry
-    String? date,
   }) = _Entry;
   factory Entry.fromJson(Map<String, dynamic> json) => _$EntryFromJson(json);
 }

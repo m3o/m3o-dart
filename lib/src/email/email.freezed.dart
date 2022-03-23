@@ -183,10 +183,10 @@ ParseResponse _$ParseResponseFromJson(Map<String, dynamic> json) {
 class _$ParseResponseTearOff {
   const _$ParseResponseTearOff();
 
-  ParseResponseData call({String? address, String? name}) {
+  ParseResponseData call({String? name, String? address}) {
     return ParseResponseData(
-      address: address,
       name: name,
+      address: address,
     );
   }
 
@@ -208,19 +208,19 @@ const $ParseResponse = _$ParseResponseTearOff();
 mixin _$ParseResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? address, String? name) $default, {
+    TResult Function(String? name, String? address) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? address, String? name)? $default, {
+    TResult Function(String? name, String? address)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? address, String? name)? $default, {
+    TResult Function(String? name, String? address)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -269,7 +269,7 @@ abstract class $ParseResponseDataCopyWith<$Res> {
   factory $ParseResponseDataCopyWith(
           ParseResponseData value, $Res Function(ParseResponseData) then) =
       _$ParseResponseDataCopyWithImpl<$Res>;
-  $Res call({String? address, String? name});
+  $Res call({String? name, String? address});
 }
 
 /// @nodoc
@@ -285,17 +285,17 @@ class _$ParseResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? address = freezed,
     Object? name = freezed,
+    Object? address = freezed,
   }) {
     return _then(ParseResponseData(
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -304,7 +304,7 @@ class _$ParseResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ParseResponseData implements ParseResponseData {
-  const _$ParseResponseData({this.address, this.name, String? $type})
+  const _$ParseResponseData({this.name, this.address, String? $type})
       : $type = $type ?? 'default';
 
   factory _$ParseResponseData.fromJson(Map<String, dynamic> json) =>
@@ -312,19 +312,19 @@ class _$ParseResponseData implements ParseResponseData {
 
   @override
 
-  /// the email address
-  final String? address;
-  @override
-
   /// associated name e.g Joe Blogs
   final String? name;
+  @override
+
+  /// the email address
+  final String? address;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'ParseResponse(address: $address, name: $name)';
+    return 'ParseResponse(name: $name, address: $address)';
   }
 
   @override
@@ -332,15 +332,15 @@ class _$ParseResponseData implements ParseResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ParseResponseData &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.address, address));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(address));
 
   @JsonKey(ignore: true)
   @override
@@ -350,30 +350,30 @@ class _$ParseResponseData implements ParseResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? address, String? name) $default, {
+    TResult Function(String? name, String? address) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(address, name);
+    return $default(name, address);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? address, String? name)? $default, {
+    TResult Function(String? name, String? address)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(address, name);
+    return $default?.call(name, address);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? address, String? name)? $default, {
+    TResult Function(String? name, String? address)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(address, name);
+      return $default(name, address);
     }
     return orElse();
   }
@@ -416,17 +416,17 @@ class _$ParseResponseData implements ParseResponseData {
 }
 
 abstract class ParseResponseData implements ParseResponse {
-  const factory ParseResponseData({String? address, String? name}) =
+  const factory ParseResponseData({String? name, String? address}) =
       _$ParseResponseData;
 
   factory ParseResponseData.fromJson(Map<String, dynamic> json) =
       _$ParseResponseData.fromJson;
 
-  /// the email address
-  String? get address;
-
   /// associated name e.g Joe Blogs
   String? get name;
+
+  /// the email address
+  String? get address;
   @JsonKey(ignore: true)
   $ParseResponseDataCopyWith<ParseResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -504,7 +504,7 @@ class _$ParseResponseMerr implements ParseResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? address, String? name) $default, {
+    TResult Function(String? name, String? address) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -513,7 +513,7 @@ class _$ParseResponseMerr implements ParseResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? address, String? name)? $default, {
+    TResult Function(String? name, String? address)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -522,7 +522,7 @@ class _$ParseResponseMerr implements ParseResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? address, String? name)? $default, {
+    TResult Function(String? name, String? address)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
