@@ -4,50 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/stock/api](htt
 
 Endpoints:
 
-## Price
-
-Get the last price for a given stock ticker
-
-
-[https://m3o.com/stock/api#Price](https://m3o.com/stock/api#Price)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/stock/stock.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = StockService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "symbol": "AAPL"
-,};
-
-  PriceRequest req = PriceRequest.fromJson(payload);
-
-  
-  try {
-
-	PriceResponse res = await ser.price(req);
-
-    res.map((value) => print(value),
-	  Merr: (PriceResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Quote
 
 Get the last quote for the stock
@@ -176,6 +132,50 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (OrderBookResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Price
+
+Get the last price for a given stock ticker
+
+
+[https://m3o.com/stock/api#Price](https://m3o.com/stock/api#Price)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/stock/stock.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = StockService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "symbol": "AAPL"
+,};
+
+  PriceRequest req = PriceRequest.fromJson(payload);
+
+  
+  try {
+
+	PriceResponse res = await ser.price(req);
+
+    res.map((value) => print(value),
+	  Merr: (PriceResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);

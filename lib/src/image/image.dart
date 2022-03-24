@@ -192,8 +192,8 @@ class Point with _$Point {
 @Freezed()
 class Rectangle with _$Rectangle {
   const factory Rectangle({
-    Point? min,
     Point? max,
+    Point? min,
   }) = _Rectangle;
   factory Rectangle.fromJson(Map<String, dynamic> json) =>
       _$RectangleFromJson(json);
@@ -231,8 +231,8 @@ class ResizeRequest with _$ResizeRequest {
 @Freezed()
 class ResizeResponse with _$ResizeResponse {
   const factory ResizeResponse({
-    String? base64,
     String? url,
+    String? base64,
   }) = ResizeResponseData;
   const factory ResizeResponse.Merr({Map<String, dynamic>? body}) =
       ResizeResponseMerr;

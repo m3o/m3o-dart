@@ -115,11 +115,11 @@ class ZoneResponse with _$ZoneResponse {
     /// location requested
     String? location,
 
+    /// e.g -0.37
+    double? longitude,
+
     /// region of timezone
     String? region,
-
-    /// UTC offset in hours
-    int? offset,
 
     /// country of the timezone
     String? country,
@@ -130,8 +130,8 @@ class ZoneResponse with _$ZoneResponse {
     /// the local time
     String? localtime,
 
-    /// e.g -0.37
-    double? longitude,
+    /// UTC offset in hours
+    int? offset,
   }) = ZoneResponseData;
   const factory ZoneResponse.Merr({Map<String, dynamic>? body}) =
       ZoneResponseMerr;

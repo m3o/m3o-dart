@@ -1591,10 +1591,10 @@ Rectangle _$RectangleFromJson(Map<String, dynamic> json) {
 class _$RectangleTearOff {
   const _$RectangleTearOff();
 
-  _Rectangle call({Point? min, Point? max}) {
+  _Rectangle call({Point? max, Point? min}) {
     return _Rectangle(
-      min: min,
       max: max,
+      min: min,
     );
   }
 
@@ -1608,8 +1608,8 @@ const $Rectangle = _$RectangleTearOff();
 
 /// @nodoc
 mixin _$Rectangle {
-  Point? get min => throw _privateConstructorUsedError;
   Point? get max => throw _privateConstructorUsedError;
+  Point? get min => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1621,10 +1621,10 @@ mixin _$Rectangle {
 abstract class $RectangleCopyWith<$Res> {
   factory $RectangleCopyWith(Rectangle value, $Res Function(Rectangle) then) =
       _$RectangleCopyWithImpl<$Res>;
-  $Res call({Point? min, Point? max});
+  $Res call({Point? max, Point? min});
 
-  $PointCopyWith<$Res>? get min;
   $PointCopyWith<$Res>? get max;
+  $PointCopyWith<$Res>? get min;
 }
 
 /// @nodoc
@@ -1637,30 +1637,19 @@ class _$RectangleCopyWithImpl<$Res> implements $RectangleCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? min = freezed,
     Object? max = freezed,
+    Object? min = freezed,
   }) {
     return _then(_value.copyWith(
-      min: min == freezed
-          ? _value.min
-          : min // ignore: cast_nullable_to_non_nullable
-              as Point?,
       max: max == freezed
           ? _value.max
           : max // ignore: cast_nullable_to_non_nullable
               as Point?,
+      min: min == freezed
+          ? _value.min
+          : min // ignore: cast_nullable_to_non_nullable
+              as Point?,
     ));
-  }
-
-  @override
-  $PointCopyWith<$Res>? get min {
-    if (_value.min == null) {
-      return null;
-    }
-
-    return $PointCopyWith<$Res>(_value.min!, (value) {
-      return _then(_value.copyWith(min: value));
-    });
   }
 
   @override
@@ -1673,6 +1662,17 @@ class _$RectangleCopyWithImpl<$Res> implements $RectangleCopyWith<$Res> {
       return _then(_value.copyWith(max: value));
     });
   }
+
+  @override
+  $PointCopyWith<$Res>? get min {
+    if (_value.min == null) {
+      return null;
+    }
+
+    return $PointCopyWith<$Res>(_value.min!, (value) {
+      return _then(_value.copyWith(min: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -1681,12 +1681,12 @@ abstract class _$RectangleCopyWith<$Res> implements $RectangleCopyWith<$Res> {
           _Rectangle value, $Res Function(_Rectangle) then) =
       __$RectangleCopyWithImpl<$Res>;
   @override
-  $Res call({Point? min, Point? max});
+  $Res call({Point? max, Point? min});
 
   @override
-  $PointCopyWith<$Res>? get min;
-  @override
   $PointCopyWith<$Res>? get max;
+  @override
+  $PointCopyWith<$Res>? get min;
 }
 
 /// @nodoc
@@ -1700,17 +1700,17 @@ class __$RectangleCopyWithImpl<$Res> extends _$RectangleCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? min = freezed,
     Object? max = freezed,
+    Object? min = freezed,
   }) {
     return _then(_Rectangle(
-      min: min == freezed
-          ? _value.min
-          : min // ignore: cast_nullable_to_non_nullable
-              as Point?,
       max: max == freezed
           ? _value.max
           : max // ignore: cast_nullable_to_non_nullable
+              as Point?,
+      min: min == freezed
+          ? _value.min
+          : min // ignore: cast_nullable_to_non_nullable
               as Point?,
     ));
   }
@@ -1719,19 +1719,19 @@ class __$RectangleCopyWithImpl<$Res> extends _$RectangleCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Rectangle implements _Rectangle {
-  const _$_Rectangle({this.min, this.max});
+  const _$_Rectangle({this.max, this.min});
 
   factory _$_Rectangle.fromJson(Map<String, dynamic> json) =>
       _$$_RectangleFromJson(json);
 
   @override
-  final Point? min;
-  @override
   final Point? max;
+  @override
+  final Point? min;
 
   @override
   String toString() {
-    return 'Rectangle(min: $min, max: $max)';
+    return 'Rectangle(max: $max, min: $min)';
   }
 
   @override
@@ -1739,15 +1739,15 @@ class _$_Rectangle implements _Rectangle {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Rectangle &&
-            const DeepCollectionEquality().equals(other.min, min) &&
-            const DeepCollectionEquality().equals(other.max, max));
+            const DeepCollectionEquality().equals(other.max, max) &&
+            const DeepCollectionEquality().equals(other.min, min));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(min),
-      const DeepCollectionEquality().hash(max));
+      const DeepCollectionEquality().hash(max),
+      const DeepCollectionEquality().hash(min));
 
   @JsonKey(ignore: true)
   @override
@@ -1761,15 +1761,15 @@ class _$_Rectangle implements _Rectangle {
 }
 
 abstract class _Rectangle implements Rectangle {
-  const factory _Rectangle({Point? min, Point? max}) = _$_Rectangle;
+  const factory _Rectangle({Point? max, Point? min}) = _$_Rectangle;
 
   factory _Rectangle.fromJson(Map<String, dynamic> json) =
       _$_Rectangle.fromJson;
 
   @override
-  Point? get min;
-  @override
   Point? get max;
+  @override
+  Point? get min;
   @override
   @JsonKey(ignore: true)
   _$RectangleCopyWith<_Rectangle> get copyWith =>
@@ -2175,10 +2175,10 @@ ResizeResponse _$ResizeResponseFromJson(Map<String, dynamic> json) {
 class _$ResizeResponseTearOff {
   const _$ResizeResponseTearOff();
 
-  ResizeResponseData call({String? base64, String? url}) {
+  ResizeResponseData call({String? url, String? base64}) {
     return ResizeResponseData(
-      base64: base64,
       url: url,
+      base64: base64,
     );
   }
 
@@ -2200,19 +2200,19 @@ const $ResizeResponse = _$ResizeResponseTearOff();
 mixin _$ResizeResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? base64, String? url) $default, {
+    TResult Function(String? url, String? base64) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? base64, String? url)? $default, {
+    TResult Function(String? url, String? base64)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? base64, String? url)? $default, {
+    TResult Function(String? url, String? base64)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -2261,7 +2261,7 @@ abstract class $ResizeResponseDataCopyWith<$Res> {
   factory $ResizeResponseDataCopyWith(
           ResizeResponseData value, $Res Function(ResizeResponseData) then) =
       _$ResizeResponseDataCopyWithImpl<$Res>;
-  $Res call({String? base64, String? url});
+  $Res call({String? url, String? base64});
 }
 
 /// @nodoc
@@ -2277,17 +2277,17 @@ class _$ResizeResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? base64 = freezed,
     Object? url = freezed,
+    Object? base64 = freezed,
   }) {
     return _then(ResizeResponseData(
-      base64: base64 == freezed
-          ? _value.base64
-          : base64 // ignore: cast_nullable_to_non_nullable
-              as String?,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      base64: base64 == freezed
+          ? _value.base64
+          : base64 // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2296,23 +2296,23 @@ class _$ResizeResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ResizeResponseData implements ResizeResponseData {
-  const _$ResizeResponseData({this.base64, this.url, String? $type})
+  const _$ResizeResponseData({this.url, this.base64, String? $type})
       : $type = $type ?? 'default';
 
   factory _$ResizeResponseData.fromJson(Map<String, dynamic> json) =>
       _$$ResizeResponseDataFromJson(json);
 
   @override
-  final String? base64;
-  @override
   final String? url;
+  @override
+  final String? base64;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'ResizeResponse(base64: $base64, url: $url)';
+    return 'ResizeResponse(url: $url, base64: $base64)';
   }
 
   @override
@@ -2320,15 +2320,15 @@ class _$ResizeResponseData implements ResizeResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ResizeResponseData &&
-            const DeepCollectionEquality().equals(other.base64, base64) &&
-            const DeepCollectionEquality().equals(other.url, url));
+            const DeepCollectionEquality().equals(other.url, url) &&
+            const DeepCollectionEquality().equals(other.base64, base64));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(base64),
-      const DeepCollectionEquality().hash(url));
+      const DeepCollectionEquality().hash(url),
+      const DeepCollectionEquality().hash(base64));
 
   @JsonKey(ignore: true)
   @override
@@ -2338,30 +2338,30 @@ class _$ResizeResponseData implements ResizeResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? base64, String? url) $default, {
+    TResult Function(String? url, String? base64) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(base64, url);
+    return $default(url, base64);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? base64, String? url)? $default, {
+    TResult Function(String? url, String? base64)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(base64, url);
+    return $default?.call(url, base64);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? base64, String? url)? $default, {
+    TResult Function(String? url, String? base64)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(base64, url);
+      return $default(url, base64);
     }
     return orElse();
   }
@@ -2404,14 +2404,14 @@ class _$ResizeResponseData implements ResizeResponseData {
 }
 
 abstract class ResizeResponseData implements ResizeResponse {
-  const factory ResizeResponseData({String? base64, String? url}) =
+  const factory ResizeResponseData({String? url, String? base64}) =
       _$ResizeResponseData;
 
   factory ResizeResponseData.fromJson(Map<String, dynamic> json) =
       _$ResizeResponseData.fromJson;
 
-  String? get base64;
   String? get url;
+  String? get base64;
   @JsonKey(ignore: true)
   $ResizeResponseDataCopyWith<ResizeResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2489,7 +2489,7 @@ class _$ResizeResponseMerr implements ResizeResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? base64, String? url) $default, {
+    TResult Function(String? url, String? base64) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -2498,7 +2498,7 @@ class _$ResizeResponseMerr implements ResizeResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? base64, String? url)? $default, {
+    TResult Function(String? url, String? base64)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -2507,7 +2507,7 @@ class _$ResizeResponseMerr implements ResizeResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? base64, String? url)? $default, {
+    TResult Function(String? url, String? base64)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {

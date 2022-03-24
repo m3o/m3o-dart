@@ -113,18 +113,18 @@ Map<String, dynamic> _$$_PointToJson(_$_Point instance) => <String, dynamic>{
     };
 
 _$_Rectangle _$$_RectangleFromJson(Map<String, dynamic> json) => _$_Rectangle(
-      min: json['min'] == null
-          ? null
-          : Point.fromJson(json['min'] as Map<String, dynamic>),
       max: json['max'] == null
           ? null
           : Point.fromJson(json['max'] as Map<String, dynamic>),
+      min: json['min'] == null
+          ? null
+          : Point.fromJson(json['min'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_RectangleToJson(_$_Rectangle instance) =>
     <String, dynamic>{
-      'min': instance.min,
       'max': instance.max,
+      'min': instance.min,
     };
 
 _$_ResizeRequest _$$_ResizeRequestFromJson(Map<String, dynamic> json) =>
@@ -155,16 +155,16 @@ Map<String, dynamic> _$$_ResizeRequestToJson(_$_ResizeRequest instance) =>
 
 _$ResizeResponseData _$$ResizeResponseDataFromJson(Map<String, dynamic> json) =>
     _$ResizeResponseData(
-      base64: json['base64'] as String?,
       url: json['url'] as String?,
+      base64: json['base64'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ResizeResponseDataToJson(
         _$ResizeResponseData instance) =>
     <String, dynamic>{
-      'base64': instance.base64,
       'url': instance.url,
+      'base64': instance.base64,
       'runtimeType': instance.$type,
     };
 

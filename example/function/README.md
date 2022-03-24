@@ -4,54 +4,12 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/function/api](
 
 Endpoints:
 
-## List
+## Deploy
 
-List all the deployed functions
-
-
-[https://m3o.com/function/api#List](https://m3o.com/function/api#List)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/function/function.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = FunctionService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{};
-
-  ListRequest req = ListRequest.fromJson(payload);
-
-  
-  try {
-
-	ListResponse res = await ser.list(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Delete
-
-Delete a function by name
+Deploy a group of functions
 
 
-[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
+[https://m3o.com/function/api#Deploy](https://m3o.com/function/api#Deploy)
 
 ```dart
 import 'dart:io';
@@ -69,18 +27,24 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "name": "helloworld"
+  "branch": "main",
+  "entrypoint": "Helloworld",
+  "name": "helloworld",
+  "region": "europe-west1",
+  "repo": "https://github.com/m3o/m3o",
+  "runtime": "go116",
+  "subfolder": "examples/go-function"
 ,};
 
-  DeleteRequest req = DeleteRequest.fromJson(payload);
+  DeployRequest req = DeployRequest.fromJson(payload);
 
   
   try {
 
-	DeleteResponse res = await ser.delete(req);
+	DeployResponse res = await ser.deploy(req);
 
     res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+	  Merr: (DeployResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -134,12 +98,12 @@ void main() async {
   }
 }
 ```
-## Reserve
+## Regions
 
-Reserve function names and resources beyond free quota
+Return a list of supported regions
 
 
-[https://m3o.com/function/api#Reserve](https://m3o.com/function/api#Reserve)
+[https://m3o.com/function/api#Regions](https://m3o.com/function/api#Regions)
 
 ```dart
 import 'dart:io';
@@ -156,19 +120,17 @@ void main() async {
     ),
   );
  
-  final payload = <String, dynamic>{
-  "name": "helloworld"
-,};
+  final payload = <String, dynamic>{};
 
-  ReserveRequest req = ReserveRequest.fromJson(payload);
+  RegionsRequest req = RegionsRequest.fromJson(payload);
 
   
   try {
 
-	ReserveResponse res = await ser.reserve(req);
+	RegionsResponse res = await ser.regions(req);
 
     res.map((value) => print(value),
-	  Merr: (ReserveResponseMerr err) => print(err.body!['body']));	
+	  Merr: (RegionsResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -220,12 +182,12 @@ void main() async {
   }
 }
 ```
-## Deploy
+## Proxy
 
-Deploy a group of functions
+Return the backend url for proxying
 
 
-[https://m3o.com/function/api#Deploy](https://m3o.com/function/api#Deploy)
+[https://m3o.com/function/api#Proxy](https://m3o.com/function/api#Proxy)
 
 ```dart
 import 'dart:io';
@@ -243,24 +205,63 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "branch": "main",
-  "entrypoint": "Helloworld",
-  "name": "helloworld",
-  "region": "europe-west1",
-  "repo": "https://github.com/m3o/m3o",
-  "runtime": "go116",
-  "subfolder": "examples/go-function"
+  "id": "helloworld"
 ,};
 
-  DeployRequest req = DeployRequest.fromJson(payload);
+  ProxyRequest req = ProxyRequest.fromJson(payload);
 
   
   try {
 
-	DeployResponse res = await ser.deploy(req);
+	ProxyResponse res = await ser.proxy(req);
 
     res.map((value) => print(value),
-	  Merr: (DeployResponseMerr err) => print(err.body!['body']));	
+	  Merr: (ProxyResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Logs
+
+Get the logs for a function
+
+
+[https://m3o.com/function/api#Logs](https://m3o.com/function/api#Logs)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/function/function.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = FunctionService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "logs_type": "build",
+  "name": "helloworld"
+,};
+
+  LogsRequest req = LogsRequest.fromJson(payload);
+
+  
+  try {
+
+	LogsResponse res = await ser.logs(req);
+
+    res.map((value) => print(value),
+	  Merr: (LogsResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -361,57 +362,12 @@ void main() async {
   }
 }
 ```
-## Logs
+## List
 
-Get the logs for a function
-
-
-[https://m3o.com/function/api#Logs](https://m3o.com/function/api#Logs)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/function/function.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = FunctionService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "logs_type": "build",
-  "name": "helloworld"
-,};
-
-  LogsRequest req = LogsRequest.fromJson(payload);
-
-  
-  try {
-
-	LogsResponse res = await ser.logs(req);
-
-    res.map((value) => print(value),
-	  Merr: (LogsResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Regions
-
-Return a list of supported regions
+List all the deployed functions
 
 
-[https://m3o.com/function/api#Regions](https://m3o.com/function/api#Regions)
+[https://m3o.com/function/api#List](https://m3o.com/function/api#List)
 
 ```dart
 import 'dart:io';
@@ -430,15 +386,15 @@ void main() async {
  
   final payload = <String, dynamic>{};
 
-  RegionsRequest req = RegionsRequest.fromJson(payload);
+  ListRequest req = ListRequest.fromJson(payload);
 
   
   try {
 
-	RegionsResponse res = await ser.regions(req);
+	ListResponse res = await ser.list(req);
 
     res.map((value) => print(value),
-	  Merr: (RegionsResponseMerr err) => print(err.body!['body']));	
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -448,12 +404,12 @@ void main() async {
   }
 }
 ```
-## Proxy
+## Delete
 
-Return the backend url for proxying
+Delete a function by name
 
 
-[https://m3o.com/function/api#Proxy](https://m3o.com/function/api#Proxy)
+[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
 
 ```dart
 import 'dart:io';
@@ -471,18 +427,62 @@ void main() async {
   );
  
   final payload = <String, dynamic>{
-  "id": "helloworld"
+  "name": "helloworld"
 ,};
 
-  ProxyRequest req = ProxyRequest.fromJson(payload);
+  DeleteRequest req = DeleteRequest.fromJson(payload);
 
   
   try {
 
-	ProxyResponse res = await ser.proxy(req);
+	DeleteResponse res = await ser.delete(req);
 
     res.map((value) => print(value),
-	  Merr: (ProxyResponseMerr err) => print(err.body!['body']));	
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Reserve
+
+Reserve function names and resources beyond free quota
+
+
+[https://m3o.com/function/api#Reserve](https://m3o.com/function/api#Reserve)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/function/function.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = FunctionService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "name": "helloworld"
+,};
+
+  ReserveRequest req = ReserveRequest.fromJson(payload);
+
+  
+  try {
+
+	ReserveResponse res = await ser.reserve(req);
+
+    res.map((value) => print(value),
+	  Merr: (ReserveResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);

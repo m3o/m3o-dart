@@ -228,14 +228,14 @@ class CountResponse with _$CountResponse {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// Optional table name. Defaults to 'default'
+    String? table,
+
     /// optional record id to use
     String? id,
 
     /// JSON encoded record or records (can be array or object)
     Map<String, dynamic>? record,
-
-    /// Optional table name. Defaults to 'default'
-    String? table,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
