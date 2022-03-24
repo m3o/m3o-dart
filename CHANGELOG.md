@@ -1,3 +1,9 @@
+## v1.0.65 - 2022-03-24
+
+[d53dc4](https://github.com/micro/services/commit/d53dc4e22282a19ad144b4b92e4ce17265d87ec9) remove nft pricing
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.64...v1.0.65
+
 ## v1.0.64 - 2022-03-24
 
 [d53dc4](https://github.com/micro/services/commit/d53dc4e22282a19ad144b4b92e4ce17265d87ec9) remove nft pricing
