@@ -8,22 +8,22 @@ part of 'price.dart';
 
 _$_AddRequest _$$_AddRequestFromJson(Map<String, dynamic> json) =>
     _$_AddRequest(
+      symbol: json['symbol'] as String?,
       author: json['author'] as String?,
       currency: json['currency'] as String?,
       name: json['name'] as String?,
       price: (json['price'] as num?)?.toDouble(),
       source: json['source'] as String?,
-      symbol: json['symbol'] as String?,
     );
 
 Map<String, dynamic> _$$_AddRequestToJson(_$_AddRequest instance) =>
     <String, dynamic>{
+      'symbol': instance.symbol,
       'author': instance.author,
       'currency': instance.currency,
       'name': instance.name,
       'price': instance.price,
       'source': instance.source,
-      'symbol': instance.symbol,
     };
 
 _$AddResponseData _$$AddResponseDataFromJson(Map<String, dynamic> json) =>

@@ -211,6 +211,9 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// optional list of user ids
+    String? user_ids,
+
     /// chat description
     String? description,
 
@@ -219,9 +222,6 @@ class CreateRequest with _$CreateRequest {
 
     /// whether its a private room
     bool? private,
-
-    /// optional list of user ids
-    String? user_ids,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -402,9 +402,6 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
-    /// subject of the message
-    String? subject,
-
     /// text of the message
     String? text,
 
@@ -422,6 +419,9 @@ class Message with _$Message {
 
     /// time the message was sent in RFC3339 format
     String? sent_at,
+
+    /// subject of the message
+    String? subject,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
@@ -430,9 +430,6 @@ class Message with _$Message {
 @Freezed()
 class Room with _$Room {
   const factory Room({
-    /// time of creation
-    String? created_at,
-
     /// description of the that
     String? description,
 
@@ -447,6 +444,9 @@ class Room with _$Room {
 
     /// list of users
     String? user_ids,
+
+    /// time of creation
+    String? created_at,
   }) = _Room;
   factory Room.fromJson(Map<String, dynamic> json) => _$RoomFromJson(json);
 }
@@ -454,6 +454,9 @@ class Room with _$Room {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
+    /// id of the chat room the message is being sent to / from
+    String? room_id,
+
     /// subject of the message
     String? subject,
 
@@ -465,9 +468,6 @@ class SendRequest with _$SendRequest {
 
     /// a client side id, should be validated by the server to make the request retry safe
     String? client,
-
-    /// id of the chat room the message is being sent to / from
-    String? room_id,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);

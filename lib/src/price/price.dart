@@ -122,6 +122,9 @@ class PriceService {
 @Freezed()
 class AddRequest with _$AddRequest {
   const factory AddRequest({
+    /// symbol of value
+    String? symbol,
+
     /// author of the price
     String? author,
 
@@ -136,9 +139,6 @@ class AddRequest with _$AddRequest {
 
     /// source of the price
     String? source,
-
-    /// symbol of value
-    String? symbol,
   }) = _AddRequest;
   factory AddRequest.fromJson(Map<String, dynamic> json) =>
       _$AddRequestFromJson(json);

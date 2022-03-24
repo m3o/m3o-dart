@@ -4,58 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/location/api](
 
 Endpoints:
 
-## Save
-
-Save an entity's current position
-
-
-[https://m3o.com/location/api#Save](https://m3o.com/location/api#Save)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/location/location.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = LocationService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "entity": {
-    "id": "1",
-    "location": {
-      "latitude": 51.511061,
-      "longitude": -0.120022,
-      "timestamp": "1622802761"
-    ,},
-    "type": "bike"
-  }
-};
-
-  SaveRequest req = SaveRequest.fromJson(payload);
-
-  
-  try {
-
-	SaveResponse res = await ser.save(req);
-
-    res.map((value) => print(value),
-	  Merr: (SaveResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Read
 
 Read an entity by its ID
@@ -141,6 +89,58 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Save
+
+Save an entity's current position
+
+
+[https://m3o.com/location/api#Save](https://m3o.com/location/api#Save)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/location/location.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = LocationService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "entity": {
+    "id": "1",
+    "location": {
+      "latitude": 51.511061,
+      "longitude": -0.120022,
+      "timestamp": "1622802761"
+    ,},
+    "type": "bike"
+  }
+};
+
+  SaveRequest req = SaveRequest.fromJson(payload);
+
+  
+  try {
+
+	SaveResponse res = await ser.save(req);
+
+    res.map((value) => print(value),
+	  Merr: (SaveResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);

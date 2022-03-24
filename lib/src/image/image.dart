@@ -111,9 +111,6 @@ class ImageService {
 @Freezed()
 class ConvertRequest with _$ConvertRequest {
   const factory ConvertRequest({
-    /// url of the image to resize
-    String? url,
-
     /// base64 encoded image to resize,
     String? base64,
 
@@ -125,6 +122,9 @@ class ConvertRequest with _$ConvertRequest {
 
     /// make output a URL and not a base64 response
     bool? outputURL,
+
+    /// url of the image to resize
+    String? url,
   }) = _ConvertRequest;
   factory ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$ConvertRequestFromJson(json);
@@ -133,8 +133,8 @@ class ConvertRequest with _$ConvertRequest {
 @Freezed()
 class ConvertResponse with _$ConvertResponse {
   const factory ConvertResponse({
-    String? url,
     String? base64,
+    String? url,
   }) = ConvertResponseData;
   const factory ConvertResponse.Merr({Map<String, dynamic>? body}) =
       ConvertResponseMerr;
@@ -202,13 +202,6 @@ class Rectangle with _$Rectangle {
 @Freezed()
 class ResizeRequest with _$ResizeRequest {
   const factory ResizeRequest({
-    /// url of the image to resize
-    String? url,
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
-
-    /// base64 encoded image to resize,
-    String? base64,
-
     /// optional crop options
     /// if provided, after resize, the image
     /// will be cropped
@@ -223,6 +216,13 @@ class ResizeRequest with _$ResizeRequest {
 
     /// make output a URL and not a base64 response
     bool? outputURL,
+
+    /// url of the image to resize
+    String? url,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
+
+    /// base64 encoded image to resize,
+    String? base64,
   }) = _ResizeRequest;
   factory ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$ResizeRequestFromJson(json);
