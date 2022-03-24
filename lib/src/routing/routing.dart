@@ -108,11 +108,11 @@ class Direction with _$Direction {
 @Freezed()
 class DirectionsRequest with _$DirectionsRequest {
   const factory DirectionsRequest({
-    /// The destination of the journey
-    Point? destination,
-
     /// The staring point for the journey
     Point? origin,
+
+    /// The destination of the journey
+    Point? destination,
   }) = _DirectionsRequest;
   factory DirectionsRequest.fromJson(Map<String, dynamic> json) =>
       _$DirectionsRequestFromJson(json);

@@ -33,19 +33,19 @@ Map<String, dynamic> _$$_DirectionToJson(_$_Direction instance) =>
 
 _$_DirectionsRequest _$$_DirectionsRequestFromJson(Map<String, dynamic> json) =>
     _$_DirectionsRequest(
-      destination: json['destination'] == null
-          ? null
-          : Point.fromJson(json['destination'] as Map<String, dynamic>),
       origin: json['origin'] == null
           ? null
           : Point.fromJson(json['origin'] as Map<String, dynamic>),
+      destination: json['destination'] == null
+          ? null
+          : Point.fromJson(json['destination'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_DirectionsRequestToJson(
         _$_DirectionsRequest instance) =>
     <String, dynamic>{
-      'destination': instance.destination,
       'origin': instance.origin,
+      'destination': instance.destination,
     };
 
 _$DirectionsResponseData _$$DirectionsResponseDataFromJson(

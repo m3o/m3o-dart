@@ -4,48 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/crypto/api](ht
 
 Endpoints:
 
-## Symbols
-
-Returns the full list of supported symbols
-
-
-[https://m3o.com/crypto/api#Symbols](https://m3o.com/crypto/api#Symbols)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/crypto/crypto.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = CryptoService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{};
-
-  SymbolsRequest req = SymbolsRequest.fromJson(payload);
-
-  
-  try {
-
-	SymbolsResponse res = await ser.symbols(req);
-
-    res.map((value) => print(value),
-	  Merr: (SymbolsResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## News
 
 Get news related to a currency
@@ -213,6 +171,48 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Symbols
+
+Returns the full list of supported symbols
+
+
+[https://m3o.com/crypto/api#Symbols](https://m3o.com/crypto/api#Symbols)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/crypto/crypto.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = CryptoService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{};
+
+  SymbolsRequest req = SymbolsRequest.fromJson(payload);
+
+  
+  try {
+
+	SymbolsResponse res = await ser.symbols(req);
+
+    res.map((value) => print(value),
+	  Merr: (SymbolsResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);

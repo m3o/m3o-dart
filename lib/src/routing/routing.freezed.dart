@@ -369,10 +369,10 @@ DirectionsRequest _$DirectionsRequestFromJson(Map<String, dynamic> json) {
 class _$DirectionsRequestTearOff {
   const _$DirectionsRequestTearOff();
 
-  _DirectionsRequest call({Point? destination, Point? origin}) {
+  _DirectionsRequest call({Point? origin, Point? destination}) {
     return _DirectionsRequest(
-      destination: destination,
       origin: origin,
+      destination: destination,
     );
   }
 
@@ -386,11 +386,11 @@ const $DirectionsRequest = _$DirectionsRequestTearOff();
 
 /// @nodoc
 mixin _$DirectionsRequest {
-  /// The destination of the journey
-  Point? get destination => throw _privateConstructorUsedError;
-
   /// The staring point for the journey
   Point? get origin => throw _privateConstructorUsedError;
+
+  /// The destination of the journey
+  Point? get destination => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -403,10 +403,10 @@ abstract class $DirectionsRequestCopyWith<$Res> {
   factory $DirectionsRequestCopyWith(
           DirectionsRequest value, $Res Function(DirectionsRequest) then) =
       _$DirectionsRequestCopyWithImpl<$Res>;
-  $Res call({Point? destination, Point? origin});
+  $Res call({Point? origin, Point? destination});
 
-  $PointCopyWith<$Res>? get destination;
   $PointCopyWith<$Res>? get origin;
+  $PointCopyWith<$Res>? get destination;
 }
 
 /// @nodoc
@@ -420,30 +420,19 @@ class _$DirectionsRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? destination = freezed,
     Object? origin = freezed,
+    Object? destination = freezed,
   }) {
     return _then(_value.copyWith(
-      destination: destination == freezed
-          ? _value.destination
-          : destination // ignore: cast_nullable_to_non_nullable
-              as Point?,
       origin: origin == freezed
           ? _value.origin
           : origin // ignore: cast_nullable_to_non_nullable
               as Point?,
+      destination: destination == freezed
+          ? _value.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as Point?,
     ));
-  }
-
-  @override
-  $PointCopyWith<$Res>? get destination {
-    if (_value.destination == null) {
-      return null;
-    }
-
-    return $PointCopyWith<$Res>(_value.destination!, (value) {
-      return _then(_value.copyWith(destination: value));
-    });
   }
 
   @override
@@ -456,6 +445,17 @@ class _$DirectionsRequestCopyWithImpl<$Res>
       return _then(_value.copyWith(origin: value));
     });
   }
+
+  @override
+  $PointCopyWith<$Res>? get destination {
+    if (_value.destination == null) {
+      return null;
+    }
+
+    return $PointCopyWith<$Res>(_value.destination!, (value) {
+      return _then(_value.copyWith(destination: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -465,12 +465,12 @@ abstract class _$DirectionsRequestCopyWith<$Res>
           _DirectionsRequest value, $Res Function(_DirectionsRequest) then) =
       __$DirectionsRequestCopyWithImpl<$Res>;
   @override
-  $Res call({Point? destination, Point? origin});
+  $Res call({Point? origin, Point? destination});
 
   @override
-  $PointCopyWith<$Res>? get destination;
-  @override
   $PointCopyWith<$Res>? get origin;
+  @override
+  $PointCopyWith<$Res>? get destination;
 }
 
 /// @nodoc
@@ -486,17 +486,17 @@ class __$DirectionsRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? destination = freezed,
     Object? origin = freezed,
+    Object? destination = freezed,
   }) {
     return _then(_DirectionsRequest(
-      destination: destination == freezed
-          ? _value.destination
-          : destination // ignore: cast_nullable_to_non_nullable
-              as Point?,
       origin: origin == freezed
           ? _value.origin
           : origin // ignore: cast_nullable_to_non_nullable
+              as Point?,
+      destination: destination == freezed
+          ? _value.destination
+          : destination // ignore: cast_nullable_to_non_nullable
               as Point?,
     ));
   }
@@ -505,23 +505,23 @@ class __$DirectionsRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_DirectionsRequest implements _DirectionsRequest {
-  const _$_DirectionsRequest({this.destination, this.origin});
+  const _$_DirectionsRequest({this.origin, this.destination});
 
   factory _$_DirectionsRequest.fromJson(Map<String, dynamic> json) =>
       _$$_DirectionsRequestFromJson(json);
 
   @override
 
-  /// The destination of the journey
-  final Point? destination;
-  @override
-
   /// The staring point for the journey
   final Point? origin;
+  @override
+
+  /// The destination of the journey
+  final Point? destination;
 
   @override
   String toString() {
-    return 'DirectionsRequest(destination: $destination, origin: $origin)';
+    return 'DirectionsRequest(origin: $origin, destination: $destination)';
   }
 
   @override
@@ -529,16 +529,16 @@ class _$_DirectionsRequest implements _DirectionsRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _DirectionsRequest &&
+            const DeepCollectionEquality().equals(other.origin, origin) &&
             const DeepCollectionEquality()
-                .equals(other.destination, destination) &&
-            const DeepCollectionEquality().equals(other.origin, origin));
+                .equals(other.destination, destination));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(destination),
-      const DeepCollectionEquality().hash(origin));
+      const DeepCollectionEquality().hash(origin),
+      const DeepCollectionEquality().hash(destination));
 
   @JsonKey(ignore: true)
   @override
@@ -552,7 +552,7 @@ class _$_DirectionsRequest implements _DirectionsRequest {
 }
 
 abstract class _DirectionsRequest implements DirectionsRequest {
-  const factory _DirectionsRequest({Point? destination, Point? origin}) =
+  const factory _DirectionsRequest({Point? origin, Point? destination}) =
       _$_DirectionsRequest;
 
   factory _DirectionsRequest.fromJson(Map<String, dynamic> json) =
@@ -560,12 +560,12 @@ abstract class _DirectionsRequest implements DirectionsRequest {
 
   @override
 
-  /// The destination of the journey
-  Point? get destination;
-  @override
-
   /// The staring point for the journey
   Point? get origin;
+  @override
+
+  /// The destination of the journey
+  Point? get destination;
   @override
   @JsonKey(ignore: true)
   _$DirectionsRequestCopyWith<_DirectionsRequest> get copyWith =>

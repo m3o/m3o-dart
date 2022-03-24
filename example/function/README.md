@@ -54,12 +54,12 @@ void main() async {
   }
 }
 ```
-## Describe
+## Delete
 
-Get the info for a deployed function
+Delete a function by name
 
 
-[https://m3o.com/function/api#Describe](https://m3o.com/function/api#Describe)
+[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
 
 ```dart
 import 'dart:io';
@@ -80,15 +80,15 @@ void main() async {
   "name": "helloworld"
 ,};
 
-  DescribeRequest req = DescribeRequest.fromJson(payload);
+  DeleteRequest req = DeleteRequest.fromJson(payload);
 
   
   try {
 
-	DescribeResponse res = await ser.describe(req);
+	DeleteResponse res = await ser.delete(req);
 
     res.map((value) => print(value),
-	  Merr: (DescribeResponseMerr err) => print(err.body!['body']));	
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -173,6 +173,50 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (RuntimesResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Reserve
+
+Reserve function names and resources beyond free quota
+
+
+[https://m3o.com/function/api#Reserve](https://m3o.com/function/api#Reserve)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/function/function.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = FunctionService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "name": "helloworld"
+,};
+
+  ReserveRequest req = ReserveRequest.fromJson(payload);
+
+  
+  try {
+
+	ReserveResponse res = await ser.reserve(req);
+
+    res.map((value) => print(value),
+	  Merr: (ReserveResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
@@ -404,56 +448,12 @@ void main() async {
   }
 }
 ```
-## Delete
+## Describe
 
-Delete a function by name
-
-
-[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/function/function.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = FunctionService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "name": "helloworld"
-,};
-
-  DeleteRequest req = DeleteRequest.fromJson(payload);
-
-  
-  try {
-
-	DeleteResponse res = await ser.delete(req);
-
-    res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Reserve
-
-Reserve function names and resources beyond free quota
+Get the info for a deployed function
 
 
-[https://m3o.com/function/api#Reserve](https://m3o.com/function/api#Reserve)
+[https://m3o.com/function/api#Describe](https://m3o.com/function/api#Describe)
 
 ```dart
 import 'dart:io';
@@ -474,15 +474,15 @@ void main() async {
   "name": "helloworld"
 ,};
 
-  ReserveRequest req = ReserveRequest.fromJson(payload);
+  DescribeRequest req = DescribeRequest.fromJson(payload);
 
   
   try {
 
-	ReserveResponse res = await ser.reserve(req);
+	DescribeResponse res = await ser.describe(req);
 
     res.map((value) => print(value),
-	  Merr: (ReserveResponseMerr err) => print(err.body!['body']));	
+	  Merr: (DescribeResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);

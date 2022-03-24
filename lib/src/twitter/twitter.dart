@@ -110,11 +110,11 @@ class Profile with _$Profile {
     /// if the account is verified
     bool? verified,
 
-    /// the account creation date
-    String? created_at,
+    /// the user description
+    String? description,
 
-    /// the user's location
-    String? location,
+    /// the follower count
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
 
     /// the user id
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
@@ -122,14 +122,14 @@ class Profile with _$Profile {
     /// The user's profile picture
     String? image_url,
 
+    /// the account creation date
+    String? created_at,
+
+    /// the user's location
+    String? location,
+
     /// the username
     String? username,
-
-    /// the user description
-    String? description,
-
-    /// the follower count
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
   }) = _Profile;
   factory Profile.fromJson(Map<String, dynamic> json) =>
       _$ProfileFromJson(json);
