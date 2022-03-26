@@ -292,6 +292,9 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class DeployRequest with _$DeployRequest {
   const factory DeployRequest({
+    /// optional subfolder path
+    String? subfolder,
+
     /// branch to deploy. defaults to master
     String? branch,
 
@@ -299,29 +302,26 @@ class DeployRequest with _$DeployRequest {
     /// if not provided, defaults to the name parameter
     String? entrypoint,
 
-    /// function name
-    String? name,
-
-    /// github url for a repo
-    String? repo,
-
-    /// optional subfolder path
-    String? subfolder,
-
     /// environment variables to pass in at runtime
     Map<String, String>? env_vars,
 
     /// region to deploy in. defaults to europe-west1
     String? region,
 
+    /// inline source code
+    String? source,
+
+    /// function name
+    String? name,
+
+    /// github url for a repo
+    String? repo,
+
     /// runtime/lanaguage of the function e.g php74,
     /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
     /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
     /// python37, python38, python39
     String? runtime,
-
-    /// inline source code
-    String? source,
   }) = _DeployRequest;
   factory DeployRequest.fromJson(Map<String, dynamic> json) =>
       _$DeployRequestFromJson(json);
@@ -366,17 +366,26 @@ class Func with _$Func {
     /// region to deploy in. defaults to europe-west1
     String? region,
 
+    /// git repo address
+    String? repo,
+
     /// the source code
     String? source,
 
-    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-    String? status,
+    /// name of handler in source code
+    String? entrypoint,
 
     /// id of the function
     String? id,
 
-    /// branch to deploy. defaults to master
-    String? branch,
+    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+    String? status,
+
+    /// time it was updated
+    String? updated,
+
+    /// time of creation
+    String? created,
 
     /// associated env vars
     Map<String, String>? env_vars,
@@ -385,14 +394,11 @@ class Func with _$Func {
     /// limitation: must be unique across projects
     String? name,
 
-    /// git repo address
-    String? repo,
+    /// unique url of the function
+    String? url,
 
-    /// time of creation
-    String? created,
-
-    /// name of handler in source code
-    String? entrypoint,
+    /// branch to deploy. defaults to master
+    String? branch,
 
     /// runtime/language of the function e.g php74,
     /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
@@ -402,12 +408,6 @@ class Func with _$Func {
 
     /// subfolder path to entrypoint
     String? subfolder,
-
-    /// time it was updated
-    String? updated,
-
-    /// unique url of the function
-    String? url,
   }) = _Func;
   factory Func.fromJson(Map<String, dynamic> json) => _$FuncFromJson(json);
 }
@@ -434,11 +434,11 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class LogsRequest with _$LogsRequest {
   const factory LogsRequest({
-    /// the name of the function
-    String? name,
-
     /// type of logs to retrieve, currently supported options - "build"
     String? logs_type,
+
+    /// the name of the function
+    String? name,
   }) = _LogsRequest;
   factory LogsRequest.fromJson(Map<String, dynamic> json) =>
       _$LogsRequestFromJson(json);
@@ -498,6 +498,12 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
+    /// time reservation expires
+    String? expires,
+
+    /// name of the app
+    String? name,
+
     /// owner id
     String? owner,
 
@@ -506,12 +512,6 @@ class Reservation with _$Reservation {
 
     /// time of reservation
     String? created,
-
-    /// time reservation expires
-    String? expires,
-
-    /// name of the app
-    String? name,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);
@@ -560,11 +560,11 @@ class RuntimesResponse with _$RuntimesResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// inline source code
-    String? source,
-
     /// function name
     String? name,
+
+    /// inline source code
+    String? source,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

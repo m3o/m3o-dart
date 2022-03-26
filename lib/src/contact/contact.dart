@@ -135,11 +135,14 @@ class Address with _$Address {
 @Freezed()
 class ContactInfo with _$ContactInfo {
   const factory ContactInfo({
-    /// create date string in RFC3339
-    String? created_at,
+    /// the address
+    List<Address>? addresses,
 
     /// the contact name
     String? name,
+
+    /// note of the contact
+    String? note,
 
     /// the social media username
     SocialMedia? social_medias,
@@ -147,17 +150,11 @@ class ContactInfo with _$ContactInfo {
     /// update date string in RFC3339
     String? updated_at,
 
-    /// note of the contact
-    String? note,
-
-    /// the phone numbers
-    List<Phone>? phones,
-
-    /// the address
-    List<Address>? addresses,
-
     /// the birthday
     String? birthday,
+
+    /// create date string in RFC3339
+    String? created_at,
 
     /// the emails
     List<Email>? emails,
@@ -167,6 +164,9 @@ class ContactInfo with _$ContactInfo {
 
     /// the contact links
     List<Link>? links,
+
+    /// the phone numbers
+    List<Phone>? phones,
   }) = _ContactInfo;
   factory ContactInfo.fromJson(Map<String, dynamic> json) =>
       _$ContactInfoFromJson(json);
@@ -175,6 +175,15 @@ class ContactInfo with _$ContactInfo {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// optional, emails
+    List<Email>? emails,
+
+    /// optional, links
+    List<Link>? links,
+
+    /// required, the name of the contact
+    String? name,
+
     /// optional, note of the contact
     String? note,
 
@@ -189,15 +198,6 @@ class CreateRequest with _$CreateRequest {
 
     /// optional, birthday
     String? birthday,
-
-    /// optional, emails
-    List<Email>? emails,
-
-    /// optional, links
-    List<Link>? links,
-
-    /// required, the name of the contact
-    String? name,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -260,11 +260,11 @@ class Link with _$Link {
 @Freezed()
 class ListRequest with _$ListRequest {
   const factory ListRequest({
-    /// optional, default is 30
-    int? limit,
-
     /// optional
     int? offset,
+
+    /// optional, default is 30
+    int? limit,
   }) = _ListRequest;
   factory ListRequest.fromJson(Map<String, dynamic> json) =>
       _$ListRequestFromJson(json);
@@ -284,11 +284,11 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Phone with _$Phone {
   const factory Phone({
-    /// the label of the phone number
-    String? label,
-
     /// phone number
     String? number,
+
+    /// the label of the phone number
+    String? label,
   }) = _Phone;
   factory Phone.fromJson(Map<String, dynamic> json) => _$PhoneFromJson(json);
 }
@@ -329,32 +329,32 @@ class SocialMedia with _$SocialMedia {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// optional, addresses
-    List<Address>? addresses,
-
-    /// required, the name
-    String? name,
-
     /// optional, phone number
     List<Phone>? phones,
 
-    /// optional, birthday
-    String? birthday,
-
-    /// optional, emails
-    List<Email>? emails,
+    /// optional, social media
+    SocialMedia? social_medias,
 
     /// required, the contact id
     String? id,
 
-    /// optional, links
-    List<Link>? links,
-
     /// optional, note
     String? note,
 
-    /// optional, social media
-    SocialMedia? social_medias,
+    /// optional, emails
+    List<Email>? emails,
+
+    /// optional, links
+    List<Link>? links,
+
+    /// required, the name
+    String? name,
+
+    /// optional, addresses
+    List<Address>? addresses,
+
+    /// optional, birthday
+    String? birthday,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

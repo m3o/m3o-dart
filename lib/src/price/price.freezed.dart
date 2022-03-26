@@ -3377,21 +3377,21 @@ class _$ValueTearOff {
   const _$ValueTearOff();
 
   _Value call(
-      {String? timestamp,
-      String? author,
+      {String? author,
       String? currency,
       String? name,
       double? price,
       String? source,
-      String? symbol}) {
+      String? symbol,
+      String? timestamp}) {
     return _Value(
-      timestamp: timestamp,
       author: author,
       currency: currency,
       name: name,
       price: price,
       source: source,
       symbol: symbol,
+      timestamp: timestamp,
     );
   }
 
@@ -3405,9 +3405,6 @@ const $Value = _$ValueTearOff();
 
 /// @nodoc
 mixin _$Value {
-  /// time it was added
-  String? get timestamp => throw _privateConstructorUsedError;
-
   /// who added it
   String? get author => throw _privateConstructorUsedError;
 
@@ -3426,6 +3423,9 @@ mixin _$Value {
   /// symbol of value
   String? get symbol => throw _privateConstructorUsedError;
 
+  /// time it was added
+  String? get timestamp => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ValueCopyWith<Value> get copyWith => throw _privateConstructorUsedError;
@@ -3436,13 +3436,13 @@ abstract class $ValueCopyWith<$Res> {
   factory $ValueCopyWith(Value value, $Res Function(Value) then) =
       _$ValueCopyWithImpl<$Res>;
   $Res call(
-      {String? timestamp,
-      String? author,
+      {String? author,
       String? currency,
       String? name,
       double? price,
       String? source,
-      String? symbol});
+      String? symbol,
+      String? timestamp});
 }
 
 /// @nodoc
@@ -3455,19 +3455,15 @@ class _$ValueCopyWithImpl<$Res> implements $ValueCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? timestamp = freezed,
     Object? author = freezed,
     Object? currency = freezed,
     Object? name = freezed,
     Object? price = freezed,
     Object? source = freezed,
     Object? symbol = freezed,
+    Object? timestamp = freezed,
   }) {
     return _then(_value.copyWith(
-      timestamp: timestamp == freezed
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as String?,
       author: author == freezed
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -3492,6 +3488,10 @@ class _$ValueCopyWithImpl<$Res> implements $ValueCopyWith<$Res> {
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String?,
+      timestamp: timestamp == freezed
+          ? _value.timestamp
+          : timestamp // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -3502,13 +3502,13 @@ abstract class _$ValueCopyWith<$Res> implements $ValueCopyWith<$Res> {
       __$ValueCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? timestamp,
-      String? author,
+      {String? author,
       String? currency,
       String? name,
       double? price,
       String? source,
-      String? symbol});
+      String? symbol,
+      String? timestamp});
 }
 
 /// @nodoc
@@ -3522,19 +3522,15 @@ class __$ValueCopyWithImpl<$Res> extends _$ValueCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? timestamp = freezed,
     Object? author = freezed,
     Object? currency = freezed,
     Object? name = freezed,
     Object? price = freezed,
     Object? source = freezed,
     Object? symbol = freezed,
+    Object? timestamp = freezed,
   }) {
     return _then(_Value(
-      timestamp: timestamp == freezed
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as String?,
       author: author == freezed
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -3559,6 +3555,10 @@ class __$ValueCopyWithImpl<$Res> extends _$ValueCopyWithImpl<$Res>
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String?,
+      timestamp: timestamp == freezed
+          ? _value.timestamp
+          : timestamp // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -3567,21 +3567,17 @@ class __$ValueCopyWithImpl<$Res> extends _$ValueCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Value implements _Value {
   const _$_Value(
-      {this.timestamp,
-      this.author,
+      {this.author,
       this.currency,
       this.name,
       this.price,
       this.source,
-      this.symbol});
+      this.symbol,
+      this.timestamp});
 
   factory _$_Value.fromJson(Map<String, dynamic> json) =>
       _$$_ValueFromJson(json);
 
-  @override
-
-  /// time it was added
-  final String? timestamp;
   @override
 
   /// who added it
@@ -3606,10 +3602,14 @@ class _$_Value implements _Value {
 
   /// symbol of value
   final String? symbol;
+  @override
+
+  /// time it was added
+  final String? timestamp;
 
   @override
   String toString() {
-    return 'Value(timestamp: $timestamp, author: $author, currency: $currency, name: $name, price: $price, source: $source, symbol: $symbol)';
+    return 'Value(author: $author, currency: $currency, name: $name, price: $price, source: $source, symbol: $symbol, timestamp: $timestamp)';
   }
 
   @override
@@ -3617,25 +3617,25 @@ class _$_Value implements _Value {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Value &&
-            const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
             const DeepCollectionEquality().equals(other.author, author) &&
             const DeepCollectionEquality().equals(other.currency, currency) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.price, price) &&
             const DeepCollectionEquality().equals(other.source, source) &&
-            const DeepCollectionEquality().equals(other.symbol, symbol));
+            const DeepCollectionEquality().equals(other.symbol, symbol) &&
+            const DeepCollectionEquality().equals(other.timestamp, timestamp));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(timestamp),
       const DeepCollectionEquality().hash(author),
       const DeepCollectionEquality().hash(currency),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(price),
       const DeepCollectionEquality().hash(source),
-      const DeepCollectionEquality().hash(symbol));
+      const DeepCollectionEquality().hash(symbol),
+      const DeepCollectionEquality().hash(timestamp));
 
   @JsonKey(ignore: true)
   @override
@@ -3650,20 +3650,16 @@ class _$_Value implements _Value {
 
 abstract class _Value implements Value {
   const factory _Value(
-      {String? timestamp,
-      String? author,
+      {String? author,
       String? currency,
       String? name,
       double? price,
       String? source,
-      String? symbol}) = _$_Value;
+      String? symbol,
+      String? timestamp}) = _$_Value;
 
   factory _Value.fromJson(Map<String, dynamic> json) = _$_Value.fromJson;
 
-  @override
-
-  /// time it was added
-  String? get timestamp;
   @override
 
   /// who added it
@@ -3688,6 +3684,10 @@ abstract class _Value implements Value {
 
   /// symbol of value
   String? get symbol;
+  @override
+
+  /// time it was added
+  String? get timestamp;
   @override
   @JsonKey(ignore: true)
   _$ValueCopyWith<_Value> get copyWith => throw _privateConstructorUsedError;

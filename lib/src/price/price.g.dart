@@ -229,21 +229,21 @@ Map<String, dynamic> _$$ReportResponseMerrToJson(
     };
 
 _$_Value _$$_ValueFromJson(Map<String, dynamic> json) => _$_Value(
-      timestamp: json['timestamp'] as String?,
       author: json['author'] as String?,
       currency: json['currency'] as String?,
       name: json['name'] as String?,
       price: (json['price'] as num?)?.toDouble(),
       source: json['source'] as String?,
       symbol: json['symbol'] as String?,
+      timestamp: json['timestamp'] as String?,
     );
 
 Map<String, dynamic> _$$_ValueToJson(_$_Value instance) => <String, dynamic>{
-      'timestamp': instance.timestamp,
       'author': instance.author,
       'currency': instance.currency,
       'name': instance.name,
       'price': instance.price,
       'source': instance.source,
       'symbol': instance.symbol,
+      'timestamp': instance.timestamp,
     };

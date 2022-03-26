@@ -895,12 +895,12 @@ class _$ConvertResponseTearOff {
   const _$ConvertResponseTearOff();
 
   ConvertResponseData call(
-      {double? rate, String? to, double? amount, String? from}) {
+      {double? amount, String? from, double? rate, String? to}) {
     return ConvertResponseData(
-      rate: rate,
-      to: to,
       amount: amount,
       from: from,
+      rate: rate,
+      to: to,
     );
   }
 
@@ -922,21 +922,21 @@ const $ConvertResponse = _$ConvertResponseTearOff();
 mixin _$ConvertResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? rate, String? to, double? amount, String? from)
+    TResult Function(double? amount, String? from, double? rate, String? to)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? rate, String? to, double? amount, String? from)?
+    TResult Function(double? amount, String? from, double? rate, String? to)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? rate, String? to, double? amount, String? from)?
+    TResult Function(double? amount, String? from, double? rate, String? to)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -986,7 +986,7 @@ abstract class $ConvertResponseDataCopyWith<$Res> {
   factory $ConvertResponseDataCopyWith(
           ConvertResponseData value, $Res Function(ConvertResponseData) then) =
       _$ConvertResponseDataCopyWithImpl<$Res>;
-  $Res call({double? rate, String? to, double? amount, String? from});
+  $Res call({double? amount, String? from, double? rate, String? to});
 }
 
 /// @nodoc
@@ -1002,20 +1002,12 @@ class _$ConvertResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? rate = freezed,
-    Object? to = freezed,
     Object? amount = freezed,
     Object? from = freezed,
+    Object? rate = freezed,
+    Object? to = freezed,
   }) {
     return _then(ConvertResponseData(
-      rate: rate == freezed
-          ? _value.rate
-          : rate // ignore: cast_nullable_to_non_nullable
-              as double?,
-      to: to == freezed
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as String?,
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -1023,6 +1015,14 @@ class _$ConvertResponseDataCopyWithImpl<$Res>
       from: from == freezed
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
+              as String?,
+      rate: rate == freezed
+          ? _value.rate
+          : rate // ignore: cast_nullable_to_non_nullable
+              as double?,
+      to: to == freezed
+          ? _value.to
+          : to // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1032,20 +1032,12 @@ class _$ConvertResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ConvertResponseData implements ConvertResponseData {
   const _$ConvertResponseData(
-      {this.rate, this.to, this.amount, this.from, String? $type})
+      {this.amount, this.from, this.rate, this.to, String? $type})
       : $type = $type ?? 'default';
 
   factory _$ConvertResponseData.fromJson(Map<String, dynamic> json) =>
       _$$ConvertResponseDataFromJson(json);
 
-  @override
-
-  /// conversion rate e.g 0.71
-  final double? rate;
-  @override
-
-  /// the target code e.g GBP
-  final String? to;
   @override
 
   /// converted amount e.g 7.10
@@ -1054,13 +1046,21 @@ class _$ConvertResponseData implements ConvertResponseData {
 
   /// the base code e.g USD
   final String? from;
+  @override
+
+  /// conversion rate e.g 0.71
+  final double? rate;
+  @override
+
+  /// the target code e.g GBP
+  final String? to;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'ConvertResponse(rate: $rate, to: $to, amount: $amount, from: $from)';
+    return 'ConvertResponse(amount: $amount, from: $from, rate: $rate, to: $to)';
   }
 
   @override
@@ -1068,19 +1068,19 @@ class _$ConvertResponseData implements ConvertResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ConvertResponseData &&
-            const DeepCollectionEquality().equals(other.rate, rate) &&
-            const DeepCollectionEquality().equals(other.to, to) &&
             const DeepCollectionEquality().equals(other.amount, amount) &&
-            const DeepCollectionEquality().equals(other.from, from));
+            const DeepCollectionEquality().equals(other.from, from) &&
+            const DeepCollectionEquality().equals(other.rate, rate) &&
+            const DeepCollectionEquality().equals(other.to, to));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(rate),
-      const DeepCollectionEquality().hash(to),
       const DeepCollectionEquality().hash(amount),
-      const DeepCollectionEquality().hash(from));
+      const DeepCollectionEquality().hash(from),
+      const DeepCollectionEquality().hash(rate),
+      const DeepCollectionEquality().hash(to));
 
   @JsonKey(ignore: true)
   @override
@@ -1090,33 +1090,33 @@ class _$ConvertResponseData implements ConvertResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? rate, String? to, double? amount, String? from)
+    TResult Function(double? amount, String? from, double? rate, String? to)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(rate, to, amount, from);
+    return $default(amount, from, rate, to);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? rate, String? to, double? amount, String? from)?
+    TResult Function(double? amount, String? from, double? rate, String? to)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(rate, to, amount, from);
+    return $default?.call(amount, from, rate, to);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? rate, String? to, double? amount, String? from)?
+    TResult Function(double? amount, String? from, double? rate, String? to)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(rate, to, amount, from);
+      return $default(amount, from, rate, to);
     }
     return orElse();
   }
@@ -1160,25 +1160,25 @@ class _$ConvertResponseData implements ConvertResponseData {
 
 abstract class ConvertResponseData implements ConvertResponse {
   const factory ConvertResponseData(
-      {double? rate,
-      String? to,
-      double? amount,
-      String? from}) = _$ConvertResponseData;
+      {double? amount,
+      String? from,
+      double? rate,
+      String? to}) = _$ConvertResponseData;
 
   factory ConvertResponseData.fromJson(Map<String, dynamic> json) =
       _$ConvertResponseData.fromJson;
-
-  /// conversion rate e.g 0.71
-  double? get rate;
-
-  /// the target code e.g GBP
-  String? get to;
 
   /// converted amount e.g 7.10
   double? get amount;
 
   /// the base code e.g USD
   String? get from;
+
+  /// conversion rate e.g 0.71
+  double? get rate;
+
+  /// the target code e.g GBP
+  String? get to;
   @JsonKey(ignore: true)
   $ConvertResponseDataCopyWith<ConvertResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1256,7 +1256,7 @@ class _$ConvertResponseMerr implements ConvertResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? rate, String? to, double? amount, String? from)
+    TResult Function(double? amount, String? from, double? rate, String? to)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -1266,7 +1266,7 @@ class _$ConvertResponseMerr implements ConvertResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? rate, String? to, double? amount, String? from)?
+    TResult Function(double? amount, String? from, double? rate, String? to)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -1276,7 +1276,7 @@ class _$ConvertResponseMerr implements ConvertResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? rate, String? to, double? amount, String? from)?
+    TResult Function(double? amount, String? from, double? rate, String? to)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -2129,10 +2129,10 @@ RatesResponse _$RatesResponseFromJson(Map<String, dynamic> json) {
 class _$RatesResponseTearOff {
   const _$RatesResponseTearOff();
 
-  RatesResponseData call({String? code, Map<String, double>? rates}) {
+  RatesResponseData call({Map<String, double>? rates, String? code}) {
     return RatesResponseData(
-      code: code,
       rates: rates,
+      code: code,
     );
   }
 
@@ -2154,19 +2154,19 @@ const $RatesResponse = _$RatesResponseTearOff();
 mixin _$RatesResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates) $default, {
+    TResult Function(Map<String, double>? rates, String? code) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates)? $default, {
+    TResult Function(Map<String, double>? rates, String? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates)? $default, {
+    TResult Function(Map<String, double>? rates, String? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -2215,7 +2215,7 @@ abstract class $RatesResponseDataCopyWith<$Res> {
   factory $RatesResponseDataCopyWith(
           RatesResponseData value, $Res Function(RatesResponseData) then) =
       _$RatesResponseDataCopyWithImpl<$Res>;
-  $Res call({String? code, Map<String, double>? rates});
+  $Res call({Map<String, double>? rates, String? code});
 }
 
 /// @nodoc
@@ -2231,18 +2231,18 @@ class _$RatesResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? code = freezed,
     Object? rates = freezed,
+    Object? code = freezed,
   }) {
     return _then(RatesResponseData(
-      code: code == freezed
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
       rates: rates == freezed
           ? _value.rates
           : rates // ignore: cast_nullable_to_non_nullable
               as Map<String, double>?,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2250,7 +2250,7 @@ class _$RatesResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$RatesResponseData implements RatesResponseData {
-  const _$RatesResponseData({this.code, this.rates, String? $type})
+  const _$RatesResponseData({this.rates, this.code, String? $type})
       : $type = $type ?? 'default';
 
   factory _$RatesResponseData.fromJson(Map<String, dynamic> json) =>
@@ -2258,19 +2258,19 @@ class _$RatesResponseData implements RatesResponseData {
 
   @override
 
-  /// The code requested e.g USD
-  final String? code;
-  @override
-
   /// The rates for the given code as key-value pairs code:rate
   final Map<String, double>? rates;
+  @override
+
+  /// The code requested e.g USD
+  final String? code;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'RatesResponse(code: $code, rates: $rates)';
+    return 'RatesResponse(rates: $rates, code: $code)';
   }
 
   @override
@@ -2278,15 +2278,15 @@ class _$RatesResponseData implements RatesResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is RatesResponseData &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality().equals(other.rates, rates));
+            const DeepCollectionEquality().equals(other.rates, rates) &&
+            const DeepCollectionEquality().equals(other.code, code));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(rates));
+      const DeepCollectionEquality().hash(rates),
+      const DeepCollectionEquality().hash(code));
 
   @JsonKey(ignore: true)
   @override
@@ -2296,30 +2296,30 @@ class _$RatesResponseData implements RatesResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates) $default, {
+    TResult Function(Map<String, double>? rates, String? code) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(code, rates);
+    return $default(rates, code);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates)? $default, {
+    TResult Function(Map<String, double>? rates, String? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(code, rates);
+    return $default?.call(rates, code);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates)? $default, {
+    TResult Function(Map<String, double>? rates, String? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(code, rates);
+      return $default(rates, code);
     }
     return orElse();
   }
@@ -2362,17 +2362,17 @@ class _$RatesResponseData implements RatesResponseData {
 }
 
 abstract class RatesResponseData implements RatesResponse {
-  const factory RatesResponseData({String? code, Map<String, double>? rates}) =
+  const factory RatesResponseData({Map<String, double>? rates, String? code}) =
       _$RatesResponseData;
 
   factory RatesResponseData.fromJson(Map<String, dynamic> json) =
       _$RatesResponseData.fromJson;
 
-  /// The code requested e.g USD
-  String? get code;
-
   /// The rates for the given code as key-value pairs code:rate
   Map<String, double>? get rates;
+
+  /// The code requested e.g USD
+  String? get code;
   @JsonKey(ignore: true)
   $RatesResponseDataCopyWith<RatesResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2450,7 +2450,7 @@ class _$RatesResponseMerr implements RatesResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates) $default, {
+    TResult Function(Map<String, double>? rates, String? code) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -2459,7 +2459,7 @@ class _$RatesResponseMerr implements RatesResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates)? $default, {
+    TResult Function(Map<String, double>? rates, String? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -2468,7 +2468,7 @@ class _$RatesResponseMerr implements RatesResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates)? $default, {
+    TResult Function(Map<String, double>? rates, String? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {

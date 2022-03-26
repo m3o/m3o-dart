@@ -281,9 +281,6 @@ class ReportResponse with _$ReportResponse {
 @Freezed()
 class Value with _$Value {
   const factory Value({
-    /// time it was added
-    String? timestamp,
-
     /// who added it
     String? author,
 
@@ -301,6 +298,9 @@ class Value with _$Value {
 
     /// symbol of value
     String? symbol,
+
+    /// time it was added
+    String? timestamp,
   }) = _Value;
   factory Value.fromJson(Map<String, dynamic> json) => _$ValueFromJson(json);
 }

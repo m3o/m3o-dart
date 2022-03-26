@@ -4,94 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/stream/api](ht
 
 Endpoints:
 
-## ListChannels
-
-List all the active channels
-
-
-[https://m3o.com/stream/api#ListChannels](https://m3o.com/stream/api#ListChannels)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/stream/stream.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = StreamService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{};
-
-  ListChannelsRequest req = ListChannelsRequest.fromJson(payload);
-
-  
-  try {
-
-	ListChannelsResponse res = await ser.listChannels(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListChannelsResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## CreateChannel
-
-Create a channel with a given name and description. Channels are created automatically but
-this allows you to specify a description that's persisted for the lifetime of the channel.
-
-
-[https://m3o.com/stream/api#CreateChannel](https://m3o.com/stream/api#CreateChannel)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/stream/stream.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = StreamService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "description": "The channel for all things",
-  "name": "general"
-,};
-
-  CreateChannelRequest req = CreateChannelRequest.fromJson(payload);
-
-  
-  try {
-
-	CreateChannelResponse res = await ser.createChannel(req);
-
-    res.map((value) => print(value),
-	  Merr: (CreateChannelResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## SendMessage
 
 Send a message to the stream.
@@ -172,6 +84,94 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (ListMessagesResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## ListChannels
+
+List all the active channels
+
+
+[https://m3o.com/stream/api#ListChannels](https://m3o.com/stream/api#ListChannels)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/stream/stream.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = StreamService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{};
+
+  ListChannelsRequest req = ListChannelsRequest.fromJson(payload);
+
+  
+  try {
+
+	ListChannelsResponse res = await ser.listChannels(req);
+
+    res.map((value) => print(value),
+	  Merr: (ListChannelsResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## CreateChannel
+
+Create a channel with a given name and description. Channels are created automatically but
+this allows you to specify a description that's persisted for the lifetime of the channel.
+
+
+[https://m3o.com/stream/api#CreateChannel](https://m3o.com/stream/api#CreateChannel)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/stream/stream.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = StreamService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "description": "The channel for all things",
+  "name": "general"
+,};
+
+  CreateChannelRequest req = CreateChannelRequest.fromJson(payload);
+
+  
+  try {
+
+	CreateChannelResponse res = await ser.createChannel(req);
+
+    res.map((value) => print(value),
+	  Merr: (CreateChannelResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);

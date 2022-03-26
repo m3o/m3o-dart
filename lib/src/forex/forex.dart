@@ -90,6 +90,12 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
+    /// the volume
+    double? volume,
+
+    /// the close price
+    double? close,
+
     /// the date
     String? date,
 
@@ -104,12 +110,6 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the forex symbol
     String? symbol,
-
-    /// the volume
-    double? volume,
-
-    /// the close price
-    double? close,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
