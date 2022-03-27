@@ -136,11 +136,11 @@ class Ev with _$Ev {
 @Freezed()
 class PublishRequest with _$PublishRequest {
   const factory PublishRequest({
-    /// The json message to publish
-    Map<String, dynamic>? message,
-
     /// The topic to publish to
     String? topic,
+
+    /// The json message to publish
+    Map<String, dynamic>? message,
   }) = _PublishRequest;
   factory PublishRequest.fromJson(Map<String, dynamic> json) =>
       _$PublishRequestFromJson(json);
@@ -158,14 +158,14 @@ class PublishResponse with _$PublishResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
-    /// number of events to read; default 25
-    int? limit,
-
     /// offset for the events; default 0
     int? offset,
 
     /// topic to read from
     String? topic,
+
+    /// number of events to read; default 25
+    int? limit,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);

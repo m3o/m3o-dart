@@ -144,6 +144,9 @@ class HistoryResponse with _$HistoryResponse {
 @Freezed()
 class Order with _$Order {
   const factory Order({
+    /// the ask size
+    int? ask_size,
+
     /// the bidding price
     double? bid_price,
 
@@ -155,9 +158,6 @@ class Order with _$Order {
 
     /// the asking price
     double? ask_price,
-
-    /// the ask size
-    int? ask_size,
   }) = _Order;
   factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);
 }
@@ -215,11 +215,11 @@ class PriceRequest with _$PriceRequest {
 @Freezed()
 class PriceResponse with _$PriceResponse {
   const factory PriceResponse({
-    /// the stock symbol e.g AAPL
-    String? symbol,
-
     /// the last price
     double? price,
+
+    /// the stock symbol e.g AAPL
+    String? symbol,
   }) = PriceResponseData;
   const factory PriceResponse.Merr({Map<String, dynamic>? body}) =
       PriceResponseMerr;
@@ -240,6 +240,12 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
+    /// the asking price
+    double? ask_price,
+
+    /// the ask size
+    int? ask_size,
+
     /// the bidding price
     double? bid_price,
 
@@ -251,12 +257,6 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the UTC timestamp of the quote
     String? timestamp,
-
-    /// the asking price
-    double? ask_price,
-
-    /// the ask size
-    int? ask_size,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;

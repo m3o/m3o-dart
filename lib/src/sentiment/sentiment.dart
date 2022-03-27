@@ -38,11 +38,11 @@ class SentimentService {
 @Freezed()
 class AnalyzeRequest with _$AnalyzeRequest {
   const factory AnalyzeRequest({
-    /// The text to analyze
-    String? text,
-
     /// The language. Defaults to english.
     String? lang,
+
+    /// The text to analyze
+    String? text,
   }) = _AnalyzeRequest;
   factory AnalyzeRequest.fromJson(Map<String, dynamic> json) =>
       _$AnalyzeRequestFromJson(json);
