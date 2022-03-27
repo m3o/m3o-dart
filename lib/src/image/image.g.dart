@@ -8,20 +8,20 @@ part of 'image.dart';
 
 _$_ConvertRequest _$$_ConvertRequestFromJson(Map<String, dynamic> json) =>
     _$_ConvertRequest(
+      name: json['name'] as String?,
+      outputURL: json['outputURL'] as bool?,
       url: json['url'] as String?,
       base64: json['base64'] as String?,
       file: json['file'] as String?,
-      name: json['name'] as String?,
-      outputURL: json['outputURL'] as bool?,
     );
 
 Map<String, dynamic> _$$_ConvertRequestToJson(_$_ConvertRequest instance) =>
     <String, dynamic>{
+      'name': instance.name,
+      'outputURL': instance.outputURL,
       'url': instance.url,
       'base64': instance.base64,
       'file': instance.file,
-      'name': instance.name,
-      'outputURL': instance.outputURL,
     };
 
 _$ConvertResponseData _$$ConvertResponseDataFromJson(
