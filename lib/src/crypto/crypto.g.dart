@@ -36,26 +36,26 @@ Map<String, dynamic> _$$_HistoryRequestToJson(_$_HistoryRequest instance) =>
 _$HistoryResponseData _$$HistoryResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$HistoryResponseData(
-      symbol: json['symbol'] as String?,
-      volume: (json['volume'] as num?)?.toDouble(),
       close: (json['close'] as num?)?.toDouble(),
       date: json['date'] as String?,
       high: (json['high'] as num?)?.toDouble(),
       low: (json['low'] as num?)?.toDouble(),
       open: (json['open'] as num?)?.toDouble(),
+      symbol: json['symbol'] as String?,
+      volume: (json['volume'] as num?)?.toDouble(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$HistoryResponseDataToJson(
         _$HistoryResponseData instance) =>
     <String, dynamic>{
-      'symbol': instance.symbol,
-      'volume': instance.volume,
       'close': instance.close,
       'date': instance.date,
       'high': instance.high,
       'low': instance.low,
       'open': instance.open,
+      'symbol': instance.symbol,
+      'volume': instance.volume,
       'runtimeType': instance.$type,
     };
 
@@ -192,13 +192,13 @@ Map<String, dynamic> _$$QuoteResponseMerrToJson(_$QuoteResponseMerr instance) =>
     };
 
 _$_Symbol _$$_SymbolFromJson(Map<String, dynamic> json) => _$_Symbol(
-      name: json['name'] as String?,
       symbol: json['symbol'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_SymbolToJson(_$_Symbol instance) => <String, dynamic>{
-      'name': instance.name,
       'symbol': instance.symbol,
+      'name': instance.name,
     };
 
 _$_SymbolsRequest _$$_SymbolsRequestFromJson(Map<String, dynamic> json) =>

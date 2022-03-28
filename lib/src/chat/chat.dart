@@ -402,6 +402,15 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
+    /// subject of the message
+    String? subject,
+
+    /// text of the message
+    String? text,
+
+    /// id of the user who sent the message
+    String? user_id,
+
     /// a client side id, should be validated by the server to make the request retry safe
     String? client,
 
@@ -413,15 +422,6 @@ class Message with _$Message {
 
     /// time the message was sent in RFC3339 format
     String? sent_at,
-
-    /// subject of the message
-    String? subject,
-
-    /// text of the message
-    String? text,
-
-    /// id of the user who sent the message
-    String? user_id,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
@@ -454,9 +454,6 @@ class Room with _$Room {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
-    /// a client side id, should be validated by the server to make the request retry safe
-    String? client,
-
     /// id of the chat room the message is being sent to / from
     String? room_id,
 
@@ -468,6 +465,9 @@ class SendRequest with _$SendRequest {
 
     /// id of the user who sent the message
     String? user_id,
+
+    /// a client side id, should be validated by the server to make the request retry safe
+    String? client,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);

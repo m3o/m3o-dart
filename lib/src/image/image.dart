@@ -183,8 +183,8 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Point with _$Point {
   const factory Point({
-    int? y,
     int? x,
+    int? y,
   }) = _Point;
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 }
@@ -243,9 +243,6 @@ class ResizeResponse with _$ResizeResponse {
 @Freezed()
 class UploadRequest with _$UploadRequest {
   const factory UploadRequest({
-    /// URL of the image to upload
-    String? url,
-
     /// Base64 encoded image to upload,
     String? base64,
 
@@ -254,6 +251,9 @@ class UploadRequest with _$UploadRequest {
 
     /// Output name of the image including extension, ie. "cat.png"
     String? name,
+
+    /// URL of the image to upload
+    String? url,
   }) = _UploadRequest;
   factory UploadRequest.fromJson(Map<String, dynamic> json) =>
       _$UploadRequestFromJson(json);

@@ -361,16 +361,6 @@ class UserService {
 @Freezed()
 class Account with _$Account {
   const factory Account({
-    /// date of verification
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-        int? verification_date,
-
-    /// if the account is verified
-    bool? verified,
-
-    /// unix timestamp
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? created,
-
     /// an email address
     String? email,
 
@@ -385,6 +375,16 @@ class Account with _$Account {
 
     /// alphanumeric username
     String? username,
+
+    /// date of verification
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+        int? verification_date,
+
+    /// if the account is verified
+    bool? verified,
+
+    /// unix timestamp
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? created,
   }) = _Account;
   factory Account.fromJson(Map<String, dynamic> json) =>
       _$AccountFromJson(json);
@@ -393,12 +393,6 @@ class Account with _$Account {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// the user password
-    String? password,
-
-    /// optional user profile as map<string,string>
-    Map<String, String>? profile,
-
     /// the username
     String? username,
 
@@ -407,6 +401,12 @@ class CreateRequest with _$CreateRequest {
 
     /// optional account id
     String? id,
+
+    /// the user password
+    String? password,
+
+    /// optional user profile as map<string,string>
+    Map<String, String>? profile,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -612,6 +612,10 @@ class ResetPasswordResponse with _$ResetPasswordResponse {
 @Freezed()
 class SendMagicLinkRequest with _$SendMagicLinkRequest {
   const factory SendMagicLinkRequest({
+    /// Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
+    /// HTML emails are not available currently.
+    String? text_content,
+
     /// Your web site address, example www.example.com or user.example.com
     String? address,
 
@@ -626,10 +630,6 @@ class SendMagicLinkRequest with _$SendMagicLinkRequest {
     /// Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
     String? from_name,
     String? subject,
-
-    /// Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
-    /// HTML emails are not available currently.
-    String? text_content,
   }) = _SendMagicLinkRequest;
   factory SendMagicLinkRequest.fromJson(Map<String, dynamic> json) =>
       _$SendMagicLinkRequestFromJson(json);
@@ -680,6 +680,12 @@ class SendPasswordResetEmailResponse with _$SendPasswordResetEmailResponse {
 @Freezed()
 class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
   const factory SendVerificationEmailRequest({
+    /// Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
+    String? from_name,
+
+    /// The url to redirect to after successful verification
+    String? redirect_url,
+
     /// subject of the email
     String? subject,
 
@@ -691,12 +697,6 @@ class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
 
     /// The url to redirect to incase of failure
     String? failure_redirect_url,
-
-    /// Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-    String? from_name,
-
-    /// The url to redirect to after successful verification
-    String? redirect_url,
   }) = _SendVerificationEmailRequest;
   factory SendVerificationEmailRequest.fromJson(Map<String, dynamic> json) =>
       _$SendVerificationEmailRequestFromJson(json);

@@ -1439,11 +1439,11 @@ ReadRequest _$ReadRequestFromJson(Map<String, dynamic> json) {
 class _$ReadRequestTearOff {
   const _$ReadRequestTearOff();
 
-  _ReadRequest call({int? offset, String? topic, int? limit}) {
+  _ReadRequest call({int? limit, int? offset, String? topic}) {
     return _ReadRequest(
+      limit: limit,
       offset: offset,
       topic: topic,
-      limit: limit,
     );
   }
 
@@ -1457,14 +1457,14 @@ const $ReadRequest = _$ReadRequestTearOff();
 
 /// @nodoc
 mixin _$ReadRequest {
+  /// number of events to read; default 25
+  int? get limit => throw _privateConstructorUsedError;
+
   /// offset for the events; default 0
   int? get offset => throw _privateConstructorUsedError;
 
   /// topic to read from
   String? get topic => throw _privateConstructorUsedError;
-
-  /// number of events to read; default 25
-  int? get limit => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1477,7 +1477,7 @@ abstract class $ReadRequestCopyWith<$Res> {
   factory $ReadRequestCopyWith(
           ReadRequest value, $Res Function(ReadRequest) then) =
       _$ReadRequestCopyWithImpl<$Res>;
-  $Res call({int? offset, String? topic, int? limit});
+  $Res call({int? limit, int? offset, String? topic});
 }
 
 /// @nodoc
@@ -1490,11 +1490,15 @@ class _$ReadRequestCopyWithImpl<$Res> implements $ReadRequestCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? limit = freezed,
     Object? offset = freezed,
     Object? topic = freezed,
-    Object? limit = freezed,
   }) {
     return _then(_value.copyWith(
+      limit: limit == freezed
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int?,
       offset: offset == freezed
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
@@ -1503,10 +1507,6 @@ class _$ReadRequestCopyWithImpl<$Res> implements $ReadRequestCopyWith<$Res> {
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: limit == freezed
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -1518,7 +1518,7 @@ abstract class _$ReadRequestCopyWith<$Res>
           _ReadRequest value, $Res Function(_ReadRequest) then) =
       __$ReadRequestCopyWithImpl<$Res>;
   @override
-  $Res call({int? offset, String? topic, int? limit});
+  $Res call({int? limit, int? offset, String? topic});
 }
 
 /// @nodoc
@@ -1533,11 +1533,15 @@ class __$ReadRequestCopyWithImpl<$Res> extends _$ReadRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? limit = freezed,
     Object? offset = freezed,
     Object? topic = freezed,
-    Object? limit = freezed,
   }) {
     return _then(_ReadRequest(
+      limit: limit == freezed
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int?,
       offset: offset == freezed
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
@@ -1546,10 +1550,6 @@ class __$ReadRequestCopyWithImpl<$Res> extends _$ReadRequestCopyWithImpl<$Res>
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: limit == freezed
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -1557,11 +1557,15 @@ class __$ReadRequestCopyWithImpl<$Res> extends _$ReadRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ReadRequest implements _ReadRequest {
-  const _$_ReadRequest({this.offset, this.topic, this.limit});
+  const _$_ReadRequest({this.limit, this.offset, this.topic});
 
   factory _$_ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ReadRequestFromJson(json);
 
+  @override
+
+  /// number of events to read; default 25
+  final int? limit;
   @override
 
   /// offset for the events; default 0
@@ -1570,14 +1574,10 @@ class _$_ReadRequest implements _ReadRequest {
 
   /// topic to read from
   final String? topic;
-  @override
-
-  /// number of events to read; default 25
-  final int? limit;
 
   @override
   String toString() {
-    return 'ReadRequest(offset: $offset, topic: $topic, limit: $limit)';
+    return 'ReadRequest(limit: $limit, offset: $offset, topic: $topic)';
   }
 
   @override
@@ -1585,17 +1585,17 @@ class _$_ReadRequest implements _ReadRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ReadRequest &&
+            const DeepCollectionEquality().equals(other.limit, limit) &&
             const DeepCollectionEquality().equals(other.offset, offset) &&
-            const DeepCollectionEquality().equals(other.topic, topic) &&
-            const DeepCollectionEquality().equals(other.limit, limit));
+            const DeepCollectionEquality().equals(other.topic, topic));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(limit),
       const DeepCollectionEquality().hash(offset),
-      const DeepCollectionEquality().hash(topic),
-      const DeepCollectionEquality().hash(limit));
+      const DeepCollectionEquality().hash(topic));
 
   @JsonKey(ignore: true)
   @override
@@ -1609,12 +1609,16 @@ class _$_ReadRequest implements _ReadRequest {
 }
 
 abstract class _ReadRequest implements ReadRequest {
-  const factory _ReadRequest({int? offset, String? topic, int? limit}) =
+  const factory _ReadRequest({int? limit, int? offset, String? topic}) =
       _$_ReadRequest;
 
   factory _ReadRequest.fromJson(Map<String, dynamic> json) =
       _$_ReadRequest.fromJson;
 
+  @override
+
+  /// number of events to read; default 25
+  int? get limit;
   @override
 
   /// offset for the events; default 0
@@ -1623,10 +1627,6 @@ abstract class _ReadRequest implements ReadRequest {
 
   /// topic to read from
   String? get topic;
-  @override
-
-  /// number of events to read; default 25
-  int? get limit;
   @override
   @JsonKey(ignore: true)
   _$ReadRequestCopyWith<_ReadRequest> get copyWith =>
