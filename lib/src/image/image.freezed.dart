@@ -703,11 +703,11 @@ CropOptions _$CropOptionsFromJson(Map<String, dynamic> json) {
 class _$CropOptionsTearOff {
   const _$CropOptionsTearOff();
 
-  _CropOptions call({int? width, String? anchor, int? height}) {
+  _CropOptions call({String? anchor, int? height, int? width}) {
     return _CropOptions(
-      width: width,
       anchor: anchor,
       height: height,
+      width: width,
     );
   }
 
@@ -721,9 +721,6 @@ const $CropOptions = _$CropOptionsTearOff();
 
 /// @nodoc
 mixin _$CropOptions {
-  /// width to crop to
-  int? get width => throw _privateConstructorUsedError;
-
   /// Crop anchor point: "top", "top left", "top right",
   /// "left", "center", "right"
   /// "bottom left", "bottom", "bottom right".
@@ -732,6 +729,9 @@ mixin _$CropOptions {
 
   /// height to crop to
   int? get height => throw _privateConstructorUsedError;
+
+  /// width to crop to
+  int? get width => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -744,7 +744,7 @@ abstract class $CropOptionsCopyWith<$Res> {
   factory $CropOptionsCopyWith(
           CropOptions value, $Res Function(CropOptions) then) =
       _$CropOptionsCopyWithImpl<$Res>;
-  $Res call({int? width, String? anchor, int? height});
+  $Res call({String? anchor, int? height, int? width});
 }
 
 /// @nodoc
@@ -757,15 +757,11 @@ class _$CropOptionsCopyWithImpl<$Res> implements $CropOptionsCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? width = freezed,
     Object? anchor = freezed,
     Object? height = freezed,
+    Object? width = freezed,
   }) {
     return _then(_value.copyWith(
-      width: width == freezed
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
       anchor: anchor == freezed
           ? _value.anchor
           : anchor // ignore: cast_nullable_to_non_nullable
@@ -773,6 +769,10 @@ class _$CropOptionsCopyWithImpl<$Res> implements $CropOptionsCopyWith<$Res> {
       height: height == freezed
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
+              as int?,
+      width: width == freezed
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
@@ -785,7 +785,7 @@ abstract class _$CropOptionsCopyWith<$Res>
           _CropOptions value, $Res Function(_CropOptions) then) =
       __$CropOptionsCopyWithImpl<$Res>;
   @override
-  $Res call({int? width, String? anchor, int? height});
+  $Res call({String? anchor, int? height, int? width});
 }
 
 /// @nodoc
@@ -800,15 +800,11 @@ class __$CropOptionsCopyWithImpl<$Res> extends _$CropOptionsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? width = freezed,
     Object? anchor = freezed,
     Object? height = freezed,
+    Object? width = freezed,
   }) {
     return _then(_CropOptions(
-      width: width == freezed
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
       anchor: anchor == freezed
           ? _value.anchor
           : anchor // ignore: cast_nullable_to_non_nullable
@@ -817,6 +813,10 @@ class __$CropOptionsCopyWithImpl<$Res> extends _$CropOptionsCopyWithImpl<$Res>
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as int?,
+      width: width == freezed
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -824,15 +824,11 @@ class __$CropOptionsCopyWithImpl<$Res> extends _$CropOptionsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CropOptions implements _CropOptions {
-  const _$_CropOptions({this.width, this.anchor, this.height});
+  const _$_CropOptions({this.anchor, this.height, this.width});
 
   factory _$_CropOptions.fromJson(Map<String, dynamic> json) =>
       _$$_CropOptionsFromJson(json);
 
-  @override
-
-  /// width to crop to
-  final int? width;
   @override
 
   /// Crop anchor point: "top", "top left", "top right",
@@ -844,10 +840,14 @@ class _$_CropOptions implements _CropOptions {
 
   /// height to crop to
   final int? height;
+  @override
+
+  /// width to crop to
+  final int? width;
 
   @override
   String toString() {
-    return 'CropOptions(width: $width, anchor: $anchor, height: $height)';
+    return 'CropOptions(anchor: $anchor, height: $height, width: $width)';
   }
 
   @override
@@ -855,17 +855,17 @@ class _$_CropOptions implements _CropOptions {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _CropOptions &&
-            const DeepCollectionEquality().equals(other.width, width) &&
             const DeepCollectionEquality().equals(other.anchor, anchor) &&
-            const DeepCollectionEquality().equals(other.height, height));
+            const DeepCollectionEquality().equals(other.height, height) &&
+            const DeepCollectionEquality().equals(other.width, width));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(width),
       const DeepCollectionEquality().hash(anchor),
-      const DeepCollectionEquality().hash(height));
+      const DeepCollectionEquality().hash(height),
+      const DeepCollectionEquality().hash(width));
 
   @JsonKey(ignore: true)
   @override
@@ -879,16 +879,12 @@ class _$_CropOptions implements _CropOptions {
 }
 
 abstract class _CropOptions implements CropOptions {
-  const factory _CropOptions({int? width, String? anchor, int? height}) =
+  const factory _CropOptions({String? anchor, int? height, int? width}) =
       _$_CropOptions;
 
   factory _CropOptions.fromJson(Map<String, dynamic> json) =
       _$_CropOptions.fromJson;
 
-  @override
-
-  /// width to crop to
-  int? get width;
   @override
 
   /// Crop anchor point: "top", "top left", "top right",
@@ -900,6 +896,10 @@ abstract class _CropOptions implements CropOptions {
 
   /// height to crop to
   int? get height;
+  @override
+
+  /// width to crop to
+  int? get width;
   @override
   @JsonKey(ignore: true)
   _$CropOptionsCopyWith<_CropOptions> get copyWith =>

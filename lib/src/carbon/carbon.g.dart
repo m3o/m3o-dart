@@ -47,14 +47,14 @@ Map<String, dynamic> _$$OffsetResponseMerrToJson(
     };
 
 _$_Project _$$_ProjectFromJson(Map<String, dynamic> json) => _$_Project(
-      percentage: (json['percentage'] as num?)?.toDouble(),
       tonnes: (json['tonnes'] as num?)?.toDouble(),
       name: json['name'] as String?,
+      percentage: (json['percentage'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_ProjectToJson(_$_Project instance) =>
     <String, dynamic>{
-      'percentage': instance.percentage,
       'tonnes': instance.tonnes,
       'name': instance.name,
+      'percentage': instance.percentage,
     };

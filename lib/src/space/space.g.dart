@@ -174,20 +174,20 @@ Map<String, dynamic> _$$HeadResponseMerrToJson(_$HeadResponseMerr instance) =>
 
 _$_ListObject _$$_ListObjectFromJson(Map<String, dynamic> json) =>
     _$_ListObject(
+      created: json['created'] as String?,
       modified: json['modified'] as String?,
       name: json['name'] as String?,
       url: json['url'] as String?,
       visibility: json['visibility'] as String?,
-      created: json['created'] as String?,
     );
 
 Map<String, dynamic> _$$_ListObjectToJson(_$_ListObject instance) =>
     <String, dynamic>{
+      'created': instance.created,
       'modified': instance.modified,
       'name': instance.name,
       'url': instance.url,
       'visibility': instance.visibility,
-      'created': instance.created,
     };
 
 _$_ListRequest _$$_ListRequestFromJson(Map<String, dynamic> json) =>
@@ -264,36 +264,36 @@ Map<String, dynamic> _$$ReadResponseMerrToJson(_$ReadResponseMerr instance) =>
 
 _$_SpaceObject _$$_SpaceObjectFromJson(Map<String, dynamic> json) =>
     _$_SpaceObject(
+      url: json['url'] as String?,
       visibility: json['visibility'] as String?,
       created: json['created'] as String?,
       data: json['data'] as String?,
       modified: json['modified'] as String?,
       name: json['name'] as String?,
-      url: json['url'] as String?,
     );
 
 Map<String, dynamic> _$$_SpaceObjectToJson(_$_SpaceObject instance) =>
     <String, dynamic>{
+      'url': instance.url,
       'visibility': instance.visibility,
       'created': instance.created,
       'data': instance.data,
       'modified': instance.modified,
       'name': instance.name,
-      'url': instance.url,
     };
 
 _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>
     _$_UpdateRequest(
-      visibility: json['visibility'] as String?,
       name: json['name'] as String?,
       object: json['object'] as String?,
+      visibility: json['visibility'] as String?,
     );
 
 Map<String, dynamic> _$$_UpdateRequestToJson(_$_UpdateRequest instance) =>
     <String, dynamic>{
-      'visibility': instance.visibility,
       'name': instance.name,
       'object': instance.object,
+      'visibility': instance.visibility,
     };
 
 _$UpdateResponseData _$$UpdateResponseDataFromJson(Map<String, dynamic> json) =>

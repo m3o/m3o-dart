@@ -295,12 +295,13 @@ class HeadResponse with _$HeadResponse {
 @Freezed()
 class ListObject with _$ListObject {
   const factory ListObject({
+    String? created,
+
     /// when was this last modified
     String? modified,
     String? name,
     String? url,
     String? visibility,
-    String? created,
   }) = _ListObject;
   factory ListObject.fromJson(Map<String, dynamic> json) =>
       _$ListObjectFromJson(json);
@@ -352,6 +353,9 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class SpaceObject with _$SpaceObject {
   const factory SpaceObject({
+    /// URL to access the object if it is public
+    String? url,
+
     /// is this public or private
     String? visibility,
 
@@ -366,9 +370,6 @@ class SpaceObject with _$SpaceObject {
 
     /// name of object
     String? name,
-
-    /// URL to access the object if it is public
-    String? url,
   }) = _SpaceObject;
   factory SpaceObject.fromJson(Map<String, dynamic> json) =>
       _$SpaceObjectFromJson(json);
@@ -377,14 +378,14 @@ class SpaceObject with _$SpaceObject {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// Who can see this object? "public" or "private", defaults to "private"
-    String? visibility,
-
     /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
     String? name,
 
     /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
     String? object,
+
+    /// Who can see this object? "public" or "private", defaults to "private"
+    String? visibility,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

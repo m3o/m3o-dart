@@ -8,14 +8,14 @@ part of 'function.dart';
 
 _$_CallRequest _$$_CallRequestFromJson(Map<String, dynamic> json) =>
     _$_CallRequest(
-      name: json['name'] as String?,
       request: json['request'] as Map<String, dynamic>?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_CallRequestToJson(_$_CallRequest instance) =>
     <String, dynamic>{
-      'name': instance.name,
       'request': instance.request,
+      'name': instance.name,
     };
 
 _$CallResponseData _$$CallResponseDataFromJson(Map<String, dynamic> json) =>
@@ -79,29 +79,29 @@ Map<String, dynamic> _$$DeleteResponseMerrToJson(
 _$_DeployRequest _$$_DeployRequestFromJson(Map<String, dynamic> json) =>
     _$_DeployRequest(
       subfolder: json['subfolder'] as String?,
-      branch: json['branch'] as String?,
-      entrypoint: json['entrypoint'] as String?,
-      region: json['region'] as String?,
-      repo: json['repo'] as String?,
       env_vars: (json['env_vars'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
       name: json['name'] as String?,
-      runtime: json['runtime'] as String?,
       source: json['source'] as String?,
+      repo: json['repo'] as String?,
+      runtime: json['runtime'] as String?,
+      branch: json['branch'] as String?,
+      entrypoint: json['entrypoint'] as String?,
+      region: json['region'] as String?,
     );
 
 Map<String, dynamic> _$$_DeployRequestToJson(_$_DeployRequest instance) =>
     <String, dynamic>{
       'subfolder': instance.subfolder,
+      'env_vars': instance.env_vars,
+      'name': instance.name,
+      'source': instance.source,
+      'repo': instance.repo,
+      'runtime': instance.runtime,
       'branch': instance.branch,
       'entrypoint': instance.entrypoint,
       'region': instance.region,
-      'repo': instance.repo,
-      'env_vars': instance.env_vars,
-      'name': instance.name,
-      'runtime': instance.runtime,
-      'source': instance.source,
     };
 
 _$DeployResponseData _$$DeployResponseDataFromJson(Map<String, dynamic> json) =>
@@ -173,38 +173,38 @@ Map<String, dynamic> _$$DescribeResponseMerrToJson(
     };
 
 _$_Func _$$_FuncFromJson(Map<String, dynamic> json) => _$_Func(
-      entrypoint: json['entrypoint'] as String?,
       id: json['id'] as String?,
-      status: json['status'] as String?,
+      name: json['name'] as String?,
       region: json['region'] as String?,
+      repo: json['repo'] as String?,
       runtime: json['runtime'] as String?,
-      source: json['source'] as String?,
-      subfolder: json['subfolder'] as String?,
+      url: json['url'] as String?,
       created: json['created'] as String?,
+      entrypoint: json['entrypoint'] as String?,
+      source: json['source'] as String?,
+      status: json['status'] as String?,
+      branch: json['branch'] as String?,
       env_vars: (json['env_vars'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
-      name: json['name'] as String?,
-      url: json['url'] as String?,
-      branch: json['branch'] as String?,
-      repo: json['repo'] as String?,
+      subfolder: json['subfolder'] as String?,
       updated: json['updated'] as String?,
     );
 
 Map<String, dynamic> _$$_FuncToJson(_$_Func instance) => <String, dynamic>{
-      'entrypoint': instance.entrypoint,
       'id': instance.id,
-      'status': instance.status,
-      'region': instance.region,
-      'runtime': instance.runtime,
-      'source': instance.source,
-      'subfolder': instance.subfolder,
-      'created': instance.created,
-      'env_vars': instance.env_vars,
       'name': instance.name,
-      'url': instance.url,
-      'branch': instance.branch,
+      'region': instance.region,
       'repo': instance.repo,
+      'runtime': instance.runtime,
+      'url': instance.url,
+      'created': instance.created,
+      'entrypoint': instance.entrypoint,
+      'source': instance.source,
+      'status': instance.status,
+      'branch': instance.branch,
+      'env_vars': instance.env_vars,
+      'subfolder': instance.subfolder,
       'updated': instance.updated,
     };
 
@@ -347,20 +347,20 @@ Map<String, dynamic> _$$RegionsResponseMerrToJson(
 
 _$_Reservation _$$_ReservationFromJson(Map<String, dynamic> json) =>
     _$_Reservation(
-      owner: json['owner'] as String?,
       token: json['token'] as String?,
       created: json['created'] as String?,
       expires: json['expires'] as String?,
       name: json['name'] as String?,
+      owner: json['owner'] as String?,
     );
 
 Map<String, dynamic> _$$_ReservationToJson(_$_Reservation instance) =>
     <String, dynamic>{
-      'owner': instance.owner,
       'token': instance.token,
       'created': instance.created,
       'expires': instance.expires,
       'name': instance.name,
+      'owner': instance.owner,
     };
 
 _$_ReserveRequest _$$_ReserveRequestFromJson(Map<String, dynamic> json) =>

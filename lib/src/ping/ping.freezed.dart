@@ -180,10 +180,10 @@ IpResponse _$IpResponseFromJson(Map<String, dynamic> json) {
 class _$IpResponseTearOff {
   const _$IpResponseTearOff();
 
-  IpResponseData call({String? status, String? latency}) {
+  IpResponseData call({String? latency, String? status}) {
     return IpResponseData(
-      status: status,
       latency: latency,
+      status: status,
     );
   }
 
@@ -205,19 +205,19 @@ const $IpResponse = _$IpResponseTearOff();
 mixin _$IpResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? status, String? latency) $default, {
+    TResult Function(String? latency, String? status) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? status, String? latency)? $default, {
+    TResult Function(String? latency, String? status)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? status, String? latency)? $default, {
+    TResult Function(String? latency, String? status)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -265,7 +265,7 @@ abstract class $IpResponseDataCopyWith<$Res> {
   factory $IpResponseDataCopyWith(
           IpResponseData value, $Res Function(IpResponseData) then) =
       _$IpResponseDataCopyWithImpl<$Res>;
-  $Res call({String? status, String? latency});
+  $Res call({String? latency, String? status});
 }
 
 /// @nodoc
@@ -280,17 +280,17 @@ class _$IpResponseDataCopyWithImpl<$Res> extends _$IpResponseCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? status = freezed,
     Object? latency = freezed,
+    Object? status = freezed,
   }) {
     return _then(IpResponseData(
-      status: status == freezed
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String?,
       latency: latency == freezed
           ? _value.latency
           : latency // ignore: cast_nullable_to_non_nullable
+              as String?,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -299,7 +299,7 @@ class _$IpResponseDataCopyWithImpl<$Res> extends _$IpResponseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$IpResponseData implements IpResponseData {
-  const _$IpResponseData({this.status, this.latency, String? $type})
+  const _$IpResponseData({this.latency, this.status, String? $type})
       : $type = $type ?? 'default';
 
   factory _$IpResponseData.fromJson(Map<String, dynamic> json) =>
@@ -307,19 +307,19 @@ class _$IpResponseData implements IpResponseData {
 
   @override
 
-  /// response status
-  final String? status;
-  @override
-
   /// average latency e.g 10ms
   final String? latency;
+  @override
+
+  /// response status
+  final String? status;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'IpResponse(status: $status, latency: $latency)';
+    return 'IpResponse(latency: $latency, status: $status)';
   }
 
   @override
@@ -327,15 +327,15 @@ class _$IpResponseData implements IpResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is IpResponseData &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.latency, latency));
+            const DeepCollectionEquality().equals(other.latency, latency) &&
+            const DeepCollectionEquality().equals(other.status, status));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(latency));
+      const DeepCollectionEquality().hash(latency),
+      const DeepCollectionEquality().hash(status));
 
   @JsonKey(ignore: true)
   @override
@@ -345,30 +345,30 @@ class _$IpResponseData implements IpResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? status, String? latency) $default, {
+    TResult Function(String? latency, String? status) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(status, latency);
+    return $default(latency, status);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? status, String? latency)? $default, {
+    TResult Function(String? latency, String? status)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(status, latency);
+    return $default?.call(latency, status);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? status, String? latency)? $default, {
+    TResult Function(String? latency, String? status)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(status, latency);
+      return $default(latency, status);
     }
     return orElse();
   }
@@ -411,17 +411,17 @@ class _$IpResponseData implements IpResponseData {
 }
 
 abstract class IpResponseData implements IpResponse {
-  const factory IpResponseData({String? status, String? latency}) =
+  const factory IpResponseData({String? latency, String? status}) =
       _$IpResponseData;
 
   factory IpResponseData.fromJson(Map<String, dynamic> json) =
       _$IpResponseData.fromJson;
 
-  /// response status
-  String? get status;
-
   /// average latency e.g 10ms
   String? get latency;
+
+  /// response status
+  String? get status;
   @JsonKey(ignore: true)
   $IpResponseDataCopyWith<IpResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -497,7 +497,7 @@ class _$IpResponseMerr implements IpResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? status, String? latency) $default, {
+    TResult Function(String? latency, String? status) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -506,7 +506,7 @@ class _$IpResponseMerr implements IpResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? status, String? latency)? $default, {
+    TResult Function(String? latency, String? status)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -515,7 +515,7 @@ class _$IpResponseMerr implements IpResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? status, String? latency)? $default, {
+    TResult Function(String? latency, String? status)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
@@ -582,10 +582,10 @@ TcpRequest _$TcpRequestFromJson(Map<String, dynamic> json) {
 class _$TcpRequestTearOff {
   const _$TcpRequestTearOff();
 
-  _TcpRequest call({String? data, String? address}) {
+  _TcpRequest call({String? address, String? data}) {
     return _TcpRequest(
-      data: data,
       address: address,
+      data: data,
     );
   }
 
@@ -599,11 +599,11 @@ const $TcpRequest = _$TcpRequestTearOff();
 
 /// @nodoc
 mixin _$TcpRequest {
-  /// optional data to send
-  String? get data => throw _privateConstructorUsedError;
-
   /// address to dial
   String? get address => throw _privateConstructorUsedError;
+
+  /// optional data to send
+  String? get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -616,7 +616,7 @@ abstract class $TcpRequestCopyWith<$Res> {
   factory $TcpRequestCopyWith(
           TcpRequest value, $Res Function(TcpRequest) then) =
       _$TcpRequestCopyWithImpl<$Res>;
-  $Res call({String? data, String? address});
+  $Res call({String? address, String? data});
 }
 
 /// @nodoc
@@ -629,17 +629,17 @@ class _$TcpRequestCopyWithImpl<$Res> implements $TcpRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? data = freezed,
     Object? address = freezed,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      data: data == freezed
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as String?,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -651,7 +651,7 @@ abstract class _$TcpRequestCopyWith<$Res> implements $TcpRequestCopyWith<$Res> {
           _TcpRequest value, $Res Function(_TcpRequest) then) =
       __$TcpRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? data, String? address});
+  $Res call({String? address, String? data});
 }
 
 /// @nodoc
@@ -666,17 +666,17 @@ class __$TcpRequestCopyWithImpl<$Res> extends _$TcpRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? data = freezed,
     Object? address = freezed,
+    Object? data = freezed,
   }) {
     return _then(_TcpRequest(
-      data: data == freezed
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as String?,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -685,23 +685,23 @@ class __$TcpRequestCopyWithImpl<$Res> extends _$TcpRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_TcpRequest implements _TcpRequest {
-  const _$_TcpRequest({this.data, this.address});
+  const _$_TcpRequest({this.address, this.data});
 
   factory _$_TcpRequest.fromJson(Map<String, dynamic> json) =>
       _$$_TcpRequestFromJson(json);
 
   @override
 
-  /// optional data to send
-  final String? data;
-  @override
-
   /// address to dial
   final String? address;
+  @override
+
+  /// optional data to send
+  final String? data;
 
   @override
   String toString() {
-    return 'TcpRequest(data: $data, address: $address)';
+    return 'TcpRequest(address: $address, data: $data)';
   }
 
   @override
@@ -709,15 +709,15 @@ class _$_TcpRequest implements _TcpRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TcpRequest &&
-            const DeepCollectionEquality().equals(other.data, data) &&
-            const DeepCollectionEquality().equals(other.address, address));
+            const DeepCollectionEquality().equals(other.address, address) &&
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(data),
-      const DeepCollectionEquality().hash(address));
+      const DeepCollectionEquality().hash(address),
+      const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
@@ -731,19 +731,19 @@ class _$_TcpRequest implements _TcpRequest {
 }
 
 abstract class _TcpRequest implements TcpRequest {
-  const factory _TcpRequest({String? data, String? address}) = _$_TcpRequest;
+  const factory _TcpRequest({String? address, String? data}) = _$_TcpRequest;
 
   factory _TcpRequest.fromJson(Map<String, dynamic> json) =
       _$_TcpRequest.fromJson;
 
   @override
 
-  /// optional data to send
-  String? get data;
-  @override
-
   /// address to dial
   String? get address;
+  @override
+
+  /// optional data to send
+  String? get data;
   @override
   @JsonKey(ignore: true)
   _$TcpRequestCopyWith<_TcpRequest> get copyWith =>

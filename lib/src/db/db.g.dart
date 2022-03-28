@@ -82,14 +82,14 @@ Map<String, dynamic> _$$CreateResponseMerrToJson(
 
 _$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
     _$_DeleteRequest(
-      id: json['id'] as String?,
       table: json['table'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_DeleteRequestToJson(_$_DeleteRequest instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'table': instance.table,
+      'id': instance.id,
     };
 
 _$DeleteResponseData _$$DeleteResponseDataFromJson(Map<String, dynamic> json) =>
@@ -190,24 +190,24 @@ Map<String, dynamic> _$$ListTablesResponseMerrToJson(
 
 _$_ReadRequest _$$_ReadRequestFromJson(Map<String, dynamic> json) =>
     _$_ReadRequest(
-      limit: json['limit'] as int?,
       offset: json['offset'] as int?,
       order: json['order'] as String?,
       orderBy: json['orderBy'] as String?,
       query: json['query'] as String?,
       table: json['table'] as String?,
       id: json['id'] as String?,
+      limit: json['limit'] as int?,
     );
 
 Map<String, dynamic> _$$_ReadRequestToJson(_$_ReadRequest instance) =>
     <String, dynamic>{
-      'limit': instance.limit,
       'offset': instance.offset,
       'order': instance.order,
       'orderBy': instance.orderBy,
       'query': instance.query,
       'table': instance.table,
       'id': instance.id,
+      'limit': instance.limit,
     };
 
 _$ReadResponseData _$$ReadResponseDataFromJson(Map<String, dynamic> json) =>
@@ -314,16 +314,16 @@ Map<String, dynamic> _$$TruncateResponseMerrToJson(
 
 _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>
     _$_UpdateRequest(
-      id: json['id'] as String?,
       record: json['record'] as Map<String, dynamic>?,
       table: json['table'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_UpdateRequestToJson(_$_UpdateRequest instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'record': instance.record,
       'table': instance.table,
+      'id': instance.id,
     };
 
 _$UpdateResponseData _$$UpdateResponseDataFromJson(Map<String, dynamic> json) =>

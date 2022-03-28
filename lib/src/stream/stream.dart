@@ -102,14 +102,14 @@ class StreamService {
 @Freezed()
 class Channel with _$Channel {
   const factory Channel({
-    /// name of the channel
-    String? name,
-
     /// description for the channel
     String? description,
 
     /// last activity time
     String? last_active,
+
+    /// name of the channel
+    String? name,
   }) = _Channel;
   factory Channel.fromJson(Map<String, dynamic> json) =>
       _$ChannelFromJson(json);
@@ -118,11 +118,11 @@ class Channel with _$Channel {
 @Freezed()
 class CreateChannelRequest with _$CreateChannelRequest {
   const factory CreateChannelRequest({
-    /// name of the channel
-    String? name,
-
     /// description for the channel
     String? description,
+
+    /// name of the channel
+    String? name,
   }) = _CreateChannelRequest;
   factory CreateChannelRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateChannelRequestFromJson(json);
@@ -186,6 +186,9 @@ class ListMessagesResponse with _$ListMessagesResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
+    /// text of the message
+    String? text,
+
     /// time of message creation
     String? timestamp,
 
@@ -197,9 +200,6 @@ class Message with _$Message {
 
     /// the associated metadata
     Map<String, String>? metadata,
-
-    /// text of the message
-    String? text,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
@@ -208,11 +208,11 @@ class Message with _$Message {
 @Freezed()
 class SendMessageRequest with _$SendMessageRequest {
   const factory SendMessageRequest({
-    /// The message text to send
-    String? text,
-
     /// The channel to send to
     String? channel,
+
+    /// The message text to send
+    String? text,
   }) = _SendMessageRequest;
   factory SendMessageRequest.fromJson(Map<String, dynamic> json) =>
       _$SendMessageRequestFromJson(json);

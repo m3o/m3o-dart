@@ -145,9 +145,6 @@ class ConvertResponse with _$ConvertResponse {
 @Freezed()
 class CropOptions with _$CropOptions {
   const factory CropOptions({
-    /// width to crop to
-    int? width,
-
     /// Crop anchor point: "top", "top left", "top right",
     /// "left", "center", "right"
     /// "bottom left", "bottom", "bottom right".
@@ -156,6 +153,9 @@ class CropOptions with _$CropOptions {
 
     /// height to crop to
     int? height,
+
+    /// width to crop to
+    int? width,
   }) = _CropOptions;
   factory CropOptions.fromJson(Map<String, dynamic> json) =>
       _$CropOptionsFromJson(json);

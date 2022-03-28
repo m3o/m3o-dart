@@ -56,16 +56,16 @@ Map<String, dynamic> _$$ConvertResponseMerrToJson(
 
 _$_CropOptions _$$_CropOptionsFromJson(Map<String, dynamic> json) =>
     _$_CropOptions(
-      width: json['width'] as int?,
       anchor: json['anchor'] as String?,
       height: json['height'] as int?,
+      width: json['width'] as int?,
     );
 
 Map<String, dynamic> _$$_CropOptionsToJson(_$_CropOptions instance) =>
     <String, dynamic>{
-      'width': instance.width,
       'anchor': instance.anchor,
       'height': instance.height,
+      'width': instance.width,
     };
 
 _$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
