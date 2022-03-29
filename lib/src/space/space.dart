@@ -354,15 +354,6 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class SpaceObject with _$SpaceObject {
   const factory SpaceObject({
-    /// URL to access the object if it is public
-    String? url,
-
-    /// is this public or private
-    String? visibility,
-
-    /// when was this created
-    String? created,
-
     /// the data within the object
     String? data,
 
@@ -371,6 +362,15 @@ class SpaceObject with _$SpaceObject {
 
     /// name of object
     String? name,
+
+    /// URL to access the object if it is public
+    String? url,
+
+    /// is this public or private
+    String? visibility,
+
+    /// when was this created
+    String? created,
   }) = _SpaceObject;
   factory SpaceObject.fromJson(Map<String, dynamic> json) =>
       _$SpaceObjectFromJson(json);

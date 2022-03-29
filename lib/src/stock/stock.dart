@@ -114,6 +114,12 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
+    /// the stock symbol
+    String? symbol,
+
+    /// the volume
+    int? volume,
+
     /// the close price
     double? close,
 
@@ -128,12 +134,6 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the open price
     double? open,
-
-    /// the stock symbol
-    String? symbol,
-
-    /// the volume
-    int? volume,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -187,14 +187,14 @@ class OrderBookRequest with _$OrderBookRequest {
 @Freezed()
 class OrderBookResponse with _$OrderBookResponse {
   const factory OrderBookResponse({
-    /// the stock symbol
-    String? symbol,
-
     /// date of the request
     String? date,
 
     /// list of orders
     List<Order>? orders,
+
+    /// the stock symbol
+    String? symbol,
   }) = OrderBookResponseData;
   const factory OrderBookResponse.Merr({Map<String, dynamic>? body}) =
       OrderBookResponseMerr;
@@ -215,11 +215,11 @@ class PriceRequest with _$PriceRequest {
 @Freezed()
 class PriceResponse with _$PriceResponse {
   const factory PriceResponse({
-    /// the stock symbol e.g AAPL
-    String? symbol,
-
     /// the last price
     double? price,
+
+    /// the stock symbol e.g AAPL
+    String? symbol,
   }) = PriceResponseData;
   const factory PriceResponse.Merr({Map<String, dynamic>? body}) =
       PriceResponseMerr;
@@ -240,6 +240,9 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
+    /// the asking price
+    double? ask_price,
+
     /// the ask size
     int? ask_size,
 
@@ -254,9 +257,6 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the UTC timestamp of the quote
     String? timestamp,
-
-    /// the asking price
-    double? ask_price,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;

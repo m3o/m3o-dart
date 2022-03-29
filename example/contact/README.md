@@ -4,6 +4,94 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/contact/api](h
 
 Endpoints:
 
+## Read
+
+Read contact details
+
+
+[https://m3o.com/contact/api#Read](https://m3o.com/contact/api#Read)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/contact/contact.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = ContactService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "id": "42e48a3c-6221-11ec-96d2-acde48001122"
+,};
+
+  ReadRequest req = ReadRequest.fromJson(payload);
+
+  
+  try {
+
+	ReadResponse res = await ser.read(req);
+
+    res.map((value) => print(value),
+	  Merr: (ReadResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Delete
+
+Delete a contact
+
+
+[https://m3o.com/contact/api#Delete](https://m3o.com/contact/api#Delete)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/contact/contact.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = ContactService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "id": "42e48a3c-6221-11ec-96d2-acde48001122"
+,};
+
+  DeleteRequest req = DeleteRequest.fromJson(payload);
+
+  
+  try {
+
+	DeleteResponse res = await ser.delete(req);
+
+    res.map((value) => print(value),
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## List
 
 List contacts
@@ -259,94 +347,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Read
-
-Read contact details
-
-
-[https://m3o.com/contact/api#Read](https://m3o.com/contact/api#Read)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/contact/contact.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = ContactService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "id": "42e48a3c-6221-11ec-96d2-acde48001122"
-,};
-
-  ReadRequest req = ReadRequest.fromJson(payload);
-
-  
-  try {
-
-	ReadResponse res = await ser.read(req);
-
-    res.map((value) => print(value),
-	  Merr: (ReadResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Delete
-
-Delete a contact
-
-
-[https://m3o.com/contact/api#Delete](https://m3o.com/contact/api#Delete)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/contact/contact.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = ContactService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "id": "42e48a3c-6221-11ec-96d2-acde48001122"
-,};
-
-  DeleteRequest req = DeleteRequest.fromJson(payload);
-
-  
-  try {
-
-	DeleteResponse res = await ser.delete(req);
-
-    res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
