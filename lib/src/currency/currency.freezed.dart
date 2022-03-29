@@ -681,11 +681,11 @@ ConvertRequest _$ConvertRequestFromJson(Map<String, dynamic> json) {
 class _$ConvertRequestTearOff {
   const _$ConvertRequestTearOff();
 
-  _ConvertRequest call({String? from, String? to, double? amount}) {
+  _ConvertRequest call({double? amount, String? from, String? to}) {
     return _ConvertRequest(
+      amount: amount,
       from: from,
       to: to,
-      amount: amount,
     );
   }
 
@@ -699,14 +699,14 @@ const $ConvertRequest = _$ConvertRequestTearOff();
 
 /// @nodoc
 mixin _$ConvertRequest {
+  /// optional amount to convert e.g 10.0
+  double? get amount => throw _privateConstructorUsedError;
+
   /// base code to convert from e.g USD
   String? get from => throw _privateConstructorUsedError;
 
   /// target code to convert to e.g GBP
   String? get to => throw _privateConstructorUsedError;
-
-  /// optional amount to convert e.g 10.0
-  double? get amount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -719,7 +719,7 @@ abstract class $ConvertRequestCopyWith<$Res> {
   factory $ConvertRequestCopyWith(
           ConvertRequest value, $Res Function(ConvertRequest) then) =
       _$ConvertRequestCopyWithImpl<$Res>;
-  $Res call({String? from, String? to, double? amount});
+  $Res call({double? amount, String? from, String? to});
 }
 
 /// @nodoc
@@ -733,11 +733,15 @@ class _$ConvertRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? amount = freezed,
     Object? from = freezed,
     Object? to = freezed,
-    Object? amount = freezed,
   }) {
     return _then(_value.copyWith(
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double?,
       from: from == freezed
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
@@ -746,10 +750,6 @@ class _$ConvertRequestCopyWithImpl<$Res>
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
               as String?,
-      amount: amount == freezed
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as double?,
     ));
   }
 }
@@ -761,7 +761,7 @@ abstract class _$ConvertRequestCopyWith<$Res>
           _ConvertRequest value, $Res Function(_ConvertRequest) then) =
       __$ConvertRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? from, String? to, double? amount});
+  $Res call({double? amount, String? from, String? to});
 }
 
 /// @nodoc
@@ -777,11 +777,15 @@ class __$ConvertRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? amount = freezed,
     Object? from = freezed,
     Object? to = freezed,
-    Object? amount = freezed,
   }) {
     return _then(_ConvertRequest(
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double?,
       from: from == freezed
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
@@ -790,10 +794,6 @@ class __$ConvertRequestCopyWithImpl<$Res>
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
               as String?,
-      amount: amount == freezed
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as double?,
     ));
   }
 }
@@ -801,11 +801,15 @@ class __$ConvertRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ConvertRequest implements _ConvertRequest {
-  const _$_ConvertRequest({this.from, this.to, this.amount});
+  const _$_ConvertRequest({this.amount, this.from, this.to});
 
   factory _$_ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ConvertRequestFromJson(json);
 
+  @override
+
+  /// optional amount to convert e.g 10.0
+  final double? amount;
   @override
 
   /// base code to convert from e.g USD
@@ -814,14 +818,10 @@ class _$_ConvertRequest implements _ConvertRequest {
 
   /// target code to convert to e.g GBP
   final String? to;
-  @override
-
-  /// optional amount to convert e.g 10.0
-  final double? amount;
 
   @override
   String toString() {
-    return 'ConvertRequest(from: $from, to: $to, amount: $amount)';
+    return 'ConvertRequest(amount: $amount, from: $from, to: $to)';
   }
 
   @override
@@ -829,17 +829,17 @@ class _$_ConvertRequest implements _ConvertRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ConvertRequest &&
+            const DeepCollectionEquality().equals(other.amount, amount) &&
             const DeepCollectionEquality().equals(other.from, from) &&
-            const DeepCollectionEquality().equals(other.to, to) &&
-            const DeepCollectionEquality().equals(other.amount, amount));
+            const DeepCollectionEquality().equals(other.to, to));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(amount),
       const DeepCollectionEquality().hash(from),
-      const DeepCollectionEquality().hash(to),
-      const DeepCollectionEquality().hash(amount));
+      const DeepCollectionEquality().hash(to));
 
   @JsonKey(ignore: true)
   @override
@@ -853,12 +853,16 @@ class _$_ConvertRequest implements _ConvertRequest {
 }
 
 abstract class _ConvertRequest implements ConvertRequest {
-  const factory _ConvertRequest({String? from, String? to, double? amount}) =
+  const factory _ConvertRequest({double? amount, String? from, String? to}) =
       _$_ConvertRequest;
 
   factory _ConvertRequest.fromJson(Map<String, dynamic> json) =
       _$_ConvertRequest.fromJson;
 
+  @override
+
+  /// optional amount to convert e.g 10.0
+  double? get amount;
   @override
 
   /// base code to convert from e.g USD
@@ -867,10 +871,6 @@ abstract class _ConvertRequest implements ConvertRequest {
 
   /// target code to convert to e.g GBP
   String? get to;
-  @override
-
-  /// optional amount to convert e.g 10.0
-  double? get amount;
   @override
   @JsonKey(ignore: true)
   _$ConvertRequestCopyWith<_ConvertRequest> get copyWith =>

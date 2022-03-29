@@ -295,13 +295,12 @@ class HeadResponse with _$HeadResponse {
 @Freezed()
 class ListObject with _$ListObject {
   const factory ListObject({
-    String? url,
-    String? visibility,
-    String? created,
-
     /// when was this last modified
     String? modified,
     String? name,
+    String? url,
+    String? visibility,
+    String? created,
   }) = _ListObject;
   factory ListObject.fromJson(Map<String, dynamic> json) =>
       _$ListObjectFromJson(json);
@@ -406,9 +405,10 @@ class UpdateResponse with _$UpdateResponse {
 @Freezed()
 class UploadRequest with _$UploadRequest {
   const factory UploadRequest({
+    String? name,
+
     /// is this object public or private
     String? visibility,
-    String? name,
   }) = _UploadRequest;
   factory UploadRequest.fromJson(Map<String, dynamic> json) =>
       _$UploadRequestFromJson(json);

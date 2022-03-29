@@ -8,41 +8,41 @@ part of 'twitter.dart';
 
 _$_Profile _$$_ProfileFromJson(Map<String, dynamic> json) => _$_Profile(
       location: json['location'] as String?,
-      name: json['name'] as String?,
+      private: json['private'] as bool?,
       username: json['username'] as String?,
-      verified: json['verified'] as bool?,
-      created_at: json['created_at'] as String?,
       description: json['description'] as String?,
       id: int64FromString(json['id'] as String?),
-      followers: int64FromString(json['followers'] as String?),
       image_url: json['image_url'] as String?,
-      private: json['private'] as bool?,
+      name: json['name'] as String?,
+      verified: json['verified'] as bool?,
+      created_at: json['created_at'] as String?,
+      followers: int64FromString(json['followers'] as String?),
     );
 
 Map<String, dynamic> _$$_ProfileToJson(_$_Profile instance) =>
     <String, dynamic>{
       'location': instance.location,
-      'name': instance.name,
+      'private': instance.private,
       'username': instance.username,
-      'verified': instance.verified,
-      'created_at': instance.created_at,
       'description': instance.description,
       'id': int64ToString(instance.id),
-      'followers': int64ToString(instance.followers),
       'image_url': instance.image_url,
-      'private': instance.private,
+      'name': instance.name,
+      'verified': instance.verified,
+      'created_at': instance.created_at,
+      'followers': int64ToString(instance.followers),
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
     _$_SearchRequest(
-      limit: json['limit'] as int?,
       query: json['query'] as String?,
+      limit: json['limit'] as int?,
     );
 
 Map<String, dynamic> _$$_SearchRequestToJson(_$_SearchRequest instance) =>
     <String, dynamic>{
-      'limit': instance.limit,
       'query': instance.query,
+      'limit': instance.limit,
     };
 
 _$SearchResponseData _$$SearchResponseDataFromJson(Map<String, dynamic> json) =>

@@ -38,6 +38,12 @@ class TunnelService {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
+    /// alternatively specify a full url e.g https://www.google.com/news
+    String? url,
+
+    /// body of the request
+    String? body,
+
     /// headers to include e.g Content-Type: application/json
     Map<String, String>? headers,
 
@@ -52,12 +58,6 @@ class SendRequest with _$SendRequest {
 
     /// path to request e.g /news
     String? path,
-
-    /// alternatively specify a full url e.g https://www.google.com/news
-    String? url,
-
-    /// body of the request
-    String? body,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);
