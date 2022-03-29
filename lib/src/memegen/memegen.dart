@@ -86,6 +86,9 @@ class Box with _$Box {
 @Freezed()
 class GenerateRequest with _$GenerateRequest {
   const factory GenerateRequest({
+    /// bottom text
+    String? bottom_text,
+
     /// font: arial or impact
     String? font,
 
@@ -97,9 +100,6 @@ class GenerateRequest with _$GenerateRequest {
 
     /// top text
     String? top_text,
-
-    /// bottom text
-    String? bottom_text,
   }) = _GenerateRequest;
   factory GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$GenerateRequestFromJson(json);

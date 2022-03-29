@@ -45,17 +45,17 @@ class OffsetRequest with _$OffsetRequest {
 @Freezed()
 class OffsetResponse with _$OffsetResponse {
   const factory OffsetResponse({
-    /// the metric used e.g KG or Tonnes
-    String? metric,
-
-    /// projects it was allocated to
-    List<Project>? projects,
-
     /// number of tonnes
     double? tonnes,
 
     /// number of units purchased
     int? units,
+
+    /// the metric used e.g KG or Tonnes
+    String? metric,
+
+    /// projects it was allocated to
+    List<Project>? projects,
   }) = OffsetResponseData;
   const factory OffsetResponse.Merr({Map<String, dynamic>? body}) =
       OffsetResponseMerr;
@@ -66,14 +66,14 @@ class OffsetResponse with _$OffsetResponse {
 @Freezed()
 class Project with _$Project {
   const factory Project({
+    /// name of the project
+    String? name,
+
     /// percentage that went to this
     double? percentage,
 
     /// amount in tonnes
     double? tonnes,
-
-    /// name of the project
-    String? name,
   }) = _Project;
   factory Project.fromJson(Map<String, dynamic> json) =>
       _$ProjectFromJson(json);

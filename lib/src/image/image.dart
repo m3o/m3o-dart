@@ -111,9 +111,6 @@ class ImageService {
 @Freezed()
 class ConvertRequest with _$ConvertRequest {
   const factory ConvertRequest({
-    /// base64 encoded image to resize,
-    String? base64,
-
     /// The image file to convert
     String? file,
 
@@ -125,6 +122,9 @@ class ConvertRequest with _$ConvertRequest {
 
     /// url of the image to resize
     String? url,
+
+    /// base64 encoded image to resize,
+    String? base64,
   }) = _ConvertRequest;
   factory ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$ConvertRequestFromJson(json);
@@ -145,9 +145,6 @@ class ConvertResponse with _$ConvertResponse {
 @Freezed()
 class CropOptions with _$CropOptions {
   const factory CropOptions({
-    /// height to crop to
-    int? height,
-
     /// width to crop to
     int? width,
 
@@ -156,6 +153,9 @@ class CropOptions with _$CropOptions {
     /// "bottom left", "bottom", "bottom right".
     /// Optional. Defaults to center.
     String? anchor,
+
+    /// height to crop to
+    int? height,
   }) = _CropOptions;
   factory CropOptions.fromJson(Map<String, dynamic> json) =>
       _$CropOptionsFromJson(json);
@@ -232,8 +232,8 @@ class ResizeRequest with _$ResizeRequest {
 @Freezed()
 class ResizeResponse with _$ResizeResponse {
   const factory ResizeResponse({
-    String? url,
     String? base64,
+    String? url,
   }) = ResizeResponseData;
   const factory ResizeResponse.Merr({Map<String, dynamic>? body}) =
       ResizeResponseMerr;
@@ -244,6 +244,9 @@ class ResizeResponse with _$ResizeResponse {
 @Freezed()
 class UploadRequest with _$UploadRequest {
   const factory UploadRequest({
+    /// Base64 encoded image to upload,
+    String? base64,
+
     /// The image file to upload
     String? file,
 
@@ -252,9 +255,6 @@ class UploadRequest with _$UploadRequest {
 
     /// URL of the image to upload
     String? url,
-
-    /// Base64 encoded image to upload,
-    String? base64,
   }) = _UploadRequest;
   factory UploadRequest.fromJson(Map<String, dynamic> json) =>
       _$UploadRequestFromJson(json);

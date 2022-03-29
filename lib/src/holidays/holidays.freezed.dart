@@ -988,11 +988,11 @@ class _$ListRequestTearOff {
   const _$ListRequestTearOff();
 
   _ListRequest call(
-      {String? country_code,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? year}) {
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? year,
+      String? country_code}) {
     return _ListRequest(
-      country_code: country_code,
       year: year,
+      country_code: country_code,
     );
   }
 
@@ -1006,12 +1006,12 @@ const $ListRequest = _$ListRequestTearOff();
 
 /// @nodoc
 mixin _$ListRequest {
-  /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
-  String? get country_code => throw _privateConstructorUsedError;
-
   /// The year to list holidays for
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get year => throw _privateConstructorUsedError;
+
+  /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
+  String? get country_code => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1025,8 +1025,8 @@ abstract class $ListRequestCopyWith<$Res> {
           ListRequest value, $Res Function(ListRequest) then) =
       _$ListRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? country_code,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? year});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? year,
+      String? country_code});
 }
 
 /// @nodoc
@@ -1039,18 +1039,18 @@ class _$ListRequestCopyWithImpl<$Res> implements $ListRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? country_code = freezed,
     Object? year = freezed,
+    Object? country_code = freezed,
   }) {
     return _then(_value.copyWith(
-      country_code: country_code == freezed
-          ? _value.country_code
-          : country_code // ignore: cast_nullable_to_non_nullable
-              as String?,
       year: year == freezed
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
               as int?,
+      country_code: country_code == freezed
+          ? _value.country_code
+          : country_code // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1063,8 +1063,8 @@ abstract class _$ListRequestCopyWith<$Res>
       __$ListRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? country_code,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? year});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? year,
+      String? country_code});
 }
 
 /// @nodoc
@@ -1079,18 +1079,18 @@ class __$ListRequestCopyWithImpl<$Res> extends _$ListRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? country_code = freezed,
     Object? year = freezed,
+    Object? country_code = freezed,
   }) {
     return _then(_ListRequest(
-      country_code: country_code == freezed
-          ? _value.country_code
-          : country_code // ignore: cast_nullable_to_non_nullable
-              as String?,
       year: year == freezed
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
               as int?,
+      country_code: country_code == freezed
+          ? _value.country_code
+          : country_code // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1099,25 +1099,25 @@ class __$ListRequestCopyWithImpl<$Res> extends _$ListRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ListRequest implements _ListRequest {
   const _$_ListRequest(
-      {this.country_code,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.year});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.year,
+      this.country_code});
 
   factory _$_ListRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ListRequestFromJson(json);
 
   @override
 
-  /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
-  final String? country_code;
-  @override
-
   /// The year to list holidays for
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? year;
+  @override
+
+  /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
+  final String? country_code;
 
   @override
   String toString() {
-    return 'ListRequest(country_code: $country_code, year: $year)';
+    return 'ListRequest(year: $year, country_code: $country_code)';
   }
 
   @override
@@ -1125,16 +1125,16 @@ class _$_ListRequest implements _ListRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ListRequest &&
+            const DeepCollectionEquality().equals(other.year, year) &&
             const DeepCollectionEquality()
-                .equals(other.country_code, country_code) &&
-            const DeepCollectionEquality().equals(other.year, year));
+                .equals(other.country_code, country_code));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(country_code),
-      const DeepCollectionEquality().hash(year));
+      const DeepCollectionEquality().hash(year),
+      const DeepCollectionEquality().hash(country_code));
 
   @JsonKey(ignore: true)
   @override
@@ -1149,22 +1149,21 @@ class _$_ListRequest implements _ListRequest {
 
 abstract class _ListRequest implements ListRequest {
   const factory _ListRequest(
-      {String? country_code,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? year}) = _$_ListRequest;
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? year,
+      String? country_code}) = _$_ListRequest;
 
   factory _ListRequest.fromJson(Map<String, dynamic> json) =
       _$_ListRequest.fromJson;
 
   @override
 
-  /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
-  String? get country_code;
-  @override
-
   /// The year to list holidays for
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get year;
+  @override
+
+  /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
+  String? get country_code;
   @override
   @JsonKey(ignore: true)
   _$ListRequestCopyWith<_ListRequest> get copyWith =>

@@ -7,6 +7,7 @@ part of 'routing.dart';
 // **************************************************************************
 
 _$_Direction _$$_DirectionFromJson(Map<String, dynamic> json) => _$_Direction(
+      distance: (json['distance'] as num?)?.toDouble(),
       duration: (json['duration'] as num?)?.toDouble(),
       instruction: json['instruction'] as String?,
       intersections: (json['intersections'] as List<dynamic>?)
@@ -17,35 +18,34 @@ _$_Direction _$$_DirectionFromJson(Map<String, dynamic> json) => _$_Direction(
           : Maneuver.fromJson(json['maneuver'] as Map<String, dynamic>),
       name: json['name'] as String?,
       reference: json['reference'] as String?,
-      distance: (json['distance'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_DirectionToJson(_$_Direction instance) =>
     <String, dynamic>{
+      'distance': instance.distance,
       'duration': instance.duration,
       'instruction': instance.instruction,
       'intersections': instance.intersections,
       'maneuver': instance.maneuver,
       'name': instance.name,
       'reference': instance.reference,
-      'distance': instance.distance,
     };
 
 _$_DirectionsRequest _$$_DirectionsRequestFromJson(Map<String, dynamic> json) =>
     _$_DirectionsRequest(
-      origin: json['origin'] == null
-          ? null
-          : Point.fromJson(json['origin'] as Map<String, dynamic>),
       destination: json['destination'] == null
           ? null
           : Point.fromJson(json['destination'] as Map<String, dynamic>),
+      origin: json['origin'] == null
+          ? null
+          : Point.fromJson(json['origin'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_DirectionsRequestToJson(
         _$_DirectionsRequest instance) =>
     <String, dynamic>{
-      'origin': instance.origin,
       'destination': instance.destination,
+      'origin': instance.origin,
     };
 
 _$DirectionsResponseData _$$DirectionsResponseDataFromJson(
@@ -147,22 +147,22 @@ Map<String, dynamic> _$$_IntersectionToJson(_$_Intersection instance) =>
     };
 
 _$_Maneuver _$$_ManeuverFromJson(Map<String, dynamic> json) => _$_Maneuver(
-      action: json['action'] as String?,
       bearing_after: (json['bearing_after'] as num?)?.toDouble(),
       bearing_before: (json['bearing_before'] as num?)?.toDouble(),
       direction: json['direction'] as String?,
       location: json['location'] == null
           ? null
           : Point.fromJson(json['location'] as Map<String, dynamic>),
+      action: json['action'] as String?,
     );
 
 Map<String, dynamic> _$$_ManeuverToJson(_$_Maneuver instance) =>
     <String, dynamic>{
-      'action': instance.action,
       'bearing_after': instance.bearing_after,
       'bearing_before': instance.bearing_before,
       'direction': instance.direction,
       'location': instance.location,
+      'action': instance.action,
     };
 
 _$_Point _$$_PointFromJson(Map<String, dynamic> json) => _$_Point(

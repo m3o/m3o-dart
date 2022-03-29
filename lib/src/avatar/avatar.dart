@@ -38,6 +38,9 @@ class AvatarService {
 @Freezed()
 class GenerateRequest with _$GenerateRequest {
   const factory GenerateRequest({
+    /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
+    String? format,
+
     /// avatar's gender: `male` or `female`; default is `male`
     String? gender,
 
@@ -48,9 +51,6 @@ class GenerateRequest with _$GenerateRequest {
     /// if empty, every request generates a random avatar;
     /// if upload == true, username will be the CDN filename rather than a random uuid string
     String? username,
-
-    /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
-    String? format,
   }) = _GenerateRequest;
   factory GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$GenerateRequestFromJson(json);
@@ -59,11 +59,11 @@ class GenerateRequest with _$GenerateRequest {
 @Freezed()
 class GenerateResponse with _$GenerateResponse {
   const factory GenerateResponse({
-    /// M3O's CDN url of the avatar image
-    String? url,
-
     /// base64 encoded string of the avatar image
     String? base64,
+
+    /// M3O's CDN url of the avatar image
+    String? url,
   }) = GenerateResponseData;
   const factory GenerateResponse.Merr({Map<String, dynamic>? body}) =
       GenerateResponseMerr;

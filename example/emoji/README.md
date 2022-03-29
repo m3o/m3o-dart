@@ -4,50 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/emoji/api](htt
 
 Endpoints:
 
-## Find
-
-Find an emoji by its alias e.g :beer:
-
-
-[https://m3o.com/emoji/api#Find](https://m3o.com/emoji/api#Find)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/emoji/emoji.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = EmojiService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "alias": ":beer:"
-,};
-
-  FindRequest req = FindRequest.fromJson(payload);
-
-  
-  try {
-
-	FindResponse res = await ser.find(req);
-
-    res.map((value) => print(value),
-	  Merr: (FindResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Flag
 
 Get the flag for a country. Requires country code e.g GB for great britain
@@ -128,6 +84,50 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (PrintResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Find
+
+Find an emoji by its alias e.g :beer:
+
+
+[https://m3o.com/emoji/api#Find](https://m3o.com/emoji/api#Find)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/emoji/emoji.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = EmojiService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "alias": ":beer:"
+,};
+
+  FindRequest req = FindRequest.fromJson(payload);
+
+  
+  try {
+
+	FindResponse res = await ser.find(req);
+
+    res.map((value) => print(value),
+	  Merr: (FindResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);
