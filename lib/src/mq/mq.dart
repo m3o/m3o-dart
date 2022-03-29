@@ -63,11 +63,11 @@ class MqService {
 @Freezed()
 class PublishRequest with _$PublishRequest {
   const factory PublishRequest({
-    /// The topic to publish to
-    String? topic,
-
     /// The json message to publish
     Map<String, dynamic>? message,
+
+    /// The topic to publish to
+    String? topic,
   }) = _PublishRequest;
   factory PublishRequest.fromJson(Map<String, dynamic> json) =>
       _$PublishRequestFromJson(json);
@@ -95,11 +95,11 @@ class SubscribeRequest with _$SubscribeRequest {
 @Freezed()
 class SubscribeResponse with _$SubscribeResponse {
   const factory SubscribeResponse({
-    /// The next json message on the topic
-    Map<String, dynamic>? message,
-
     /// The topic subscribed to
     String? topic,
+
+    /// The next json message on the topic
+    Map<String, dynamic>? message,
   }) = SubscribeResponseData;
   const factory SubscribeResponse.Merr({Map<String, dynamic>? body}) =
       SubscribeResponseMerr;

@@ -136,11 +136,11 @@ class Ev with _$Ev {
 @Freezed()
 class PublishRequest with _$PublishRequest {
   const factory PublishRequest({
-    /// The json message to publish
-    Map<String, dynamic>? message,
-
     /// The topic to publish to
     String? topic,
+
+    /// The json message to publish
+    Map<String, dynamic>? message,
   }) = _PublishRequest;
   factory PublishRequest.fromJson(Map<String, dynamic> json) =>
       _$PublishRequestFromJson(json);

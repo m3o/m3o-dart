@@ -895,10 +895,10 @@ PublishRequest _$PublishRequestFromJson(Map<String, dynamic> json) {
 class _$PublishRequestTearOff {
   const _$PublishRequestTearOff();
 
-  _PublishRequest call({Map<String, dynamic>? message, String? topic}) {
+  _PublishRequest call({String? topic, Map<String, dynamic>? message}) {
     return _PublishRequest(
-      message: message,
       topic: topic,
+      message: message,
     );
   }
 
@@ -912,11 +912,11 @@ const $PublishRequest = _$PublishRequestTearOff();
 
 /// @nodoc
 mixin _$PublishRequest {
-  /// The json message to publish
-  Map<String, dynamic>? get message => throw _privateConstructorUsedError;
-
   /// The topic to publish to
   String? get topic => throw _privateConstructorUsedError;
+
+  /// The json message to publish
+  Map<String, dynamic>? get message => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -929,7 +929,7 @@ abstract class $PublishRequestCopyWith<$Res> {
   factory $PublishRequestCopyWith(
           PublishRequest value, $Res Function(PublishRequest) then) =
       _$PublishRequestCopyWithImpl<$Res>;
-  $Res call({Map<String, dynamic>? message, String? topic});
+  $Res call({String? topic, Map<String, dynamic>? message});
 }
 
 /// @nodoc
@@ -943,18 +943,18 @@ class _$PublishRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? message = freezed,
     Object? topic = freezed,
+    Object? message = freezed,
   }) {
     return _then(_value.copyWith(
-      message: message == freezed
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
       topic: topic == freezed
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String?,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -966,7 +966,7 @@ abstract class _$PublishRequestCopyWith<$Res>
           _PublishRequest value, $Res Function(_PublishRequest) then) =
       __$PublishRequestCopyWithImpl<$Res>;
   @override
-  $Res call({Map<String, dynamic>? message, String? topic});
+  $Res call({String? topic, Map<String, dynamic>? message});
 }
 
 /// @nodoc
@@ -982,18 +982,18 @@ class __$PublishRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? message = freezed,
     Object? topic = freezed,
+    Object? message = freezed,
   }) {
     return _then(_PublishRequest(
-      message: message == freezed
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
       topic: topic == freezed
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String?,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -1001,23 +1001,23 @@ class __$PublishRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PublishRequest implements _PublishRequest {
-  const _$_PublishRequest({this.message, this.topic});
+  const _$_PublishRequest({this.topic, this.message});
 
   factory _$_PublishRequest.fromJson(Map<String, dynamic> json) =>
       _$$_PublishRequestFromJson(json);
 
   @override
 
-  /// The json message to publish
-  final Map<String, dynamic>? message;
-  @override
-
   /// The topic to publish to
   final String? topic;
+  @override
+
+  /// The json message to publish
+  final Map<String, dynamic>? message;
 
   @override
   String toString() {
-    return 'PublishRequest(message: $message, topic: $topic)';
+    return 'PublishRequest(topic: $topic, message: $message)';
   }
 
   @override
@@ -1025,15 +1025,15 @@ class _$_PublishRequest implements _PublishRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PublishRequest &&
-            const DeepCollectionEquality().equals(other.message, message) &&
-            const DeepCollectionEquality().equals(other.topic, topic));
+            const DeepCollectionEquality().equals(other.topic, topic) &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(message),
-      const DeepCollectionEquality().hash(topic));
+      const DeepCollectionEquality().hash(topic),
+      const DeepCollectionEquality().hash(message));
 
   @JsonKey(ignore: true)
   @override
@@ -1048,19 +1048,19 @@ class _$_PublishRequest implements _PublishRequest {
 
 abstract class _PublishRequest implements PublishRequest {
   const factory _PublishRequest(
-      {Map<String, dynamic>? message, String? topic}) = _$_PublishRequest;
+      {String? topic, Map<String, dynamic>? message}) = _$_PublishRequest;
 
   factory _PublishRequest.fromJson(Map<String, dynamic> json) =
       _$_PublishRequest.fromJson;
 
   @override
 
-  /// The json message to publish
-  Map<String, dynamic>? get message;
-  @override
-
   /// The topic to publish to
   String? get topic;
+  @override
+
+  /// The json message to publish
+  Map<String, dynamic>? get message;
   @override
   @JsonKey(ignore: true)
   _$PublishRequestCopyWith<_PublishRequest> get copyWith =>
