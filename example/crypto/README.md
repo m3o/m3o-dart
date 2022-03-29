@@ -4,6 +4,50 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/crypto/api](ht
 
 Endpoints:
 
+## News
+
+Get news related to a currency
+
+
+[https://m3o.com/crypto/api#News](https://m3o.com/crypto/api#News)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/client/client.dart';
+import 'package:m3o/src/crypto/crypto.dart';
+
+void main() async {
+  final token = Platform.environment['M3O_API_TOKEN']!;
+  final ser = CryptoService(
+    Options(
+      token: token,
+      address: liveAddress,
+    ),
+  );
+ 
+  final payload = <String, dynamic>{
+  "symbol": "BTCUSD"
+,};
+
+  NewsRequest req = NewsRequest.fromJson(payload);
+
+  
+  try {
+
+	NewsResponse res = await ser.news(req);
+
+    res.map((value) => print(value),
+	  Merr: (NewsResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, stack) {
+    print(e);
+	print(stack);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Price
 
 Get the last price for a given crypto ticker
@@ -169,50 +213,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (SymbolsResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
-## News
-
-Get news related to a currency
-
-
-[https://m3o.com/crypto/api#News](https://m3o.com/crypto/api#News)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/crypto/crypto.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = CryptoService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "symbol": "BTCUSD"
-,};
-
-  NewsRequest req = NewsRequest.fromJson(payload);
-
-  
-  try {
-
-	NewsResponse res = await ser.news(req);
-
-    res.map((value) => print(value),
-	  Merr: (NewsResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, stack) {
     print(e);

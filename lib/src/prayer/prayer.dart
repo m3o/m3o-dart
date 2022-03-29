@@ -38,15 +38,6 @@ class PrayerService {
 @Freezed()
 class PrayerTime with _$PrayerTime {
   const factory PrayerTime({
-    /// date for prayer times in YYYY-MM-DD format
-    String? date,
-
-    /// fajr time
-    String? fajr,
-
-    /// isha time
-    String? isha,
-
     /// maghrib time
     String? maghrib,
 
@@ -58,6 +49,15 @@ class PrayerTime with _$PrayerTime {
 
     /// asr time
     String? asr,
+
+    /// date for prayer times in YYYY-MM-DD format
+    String? date,
+
+    /// fajr time
+    String? fajr,
+
+    /// isha time
+    String? isha,
   }) = _PrayerTime;
   factory PrayerTime.fromJson(Map<String, dynamic> json) =>
       _$PrayerTimeFromJson(json);
@@ -66,6 +66,12 @@ class PrayerTime with _$PrayerTime {
 @Freezed()
 class TimesRequest with _$TimesRequest {
   const factory TimesRequest({
+    /// optional date in YYYY-MM-DD format, otherwise uses today
+    String? date,
+
+    /// number of days to request times for
+    int? days,
+
     /// optional latitude used in place of location
     double? latitude,
 
@@ -75,12 +81,6 @@ class TimesRequest with _$TimesRequest {
 
     /// optional longitude used in place of location
     double? longitude,
-
-    /// optional date in YYYY-MM-DD format, otherwise uses today
-    String? date,
-
-    /// number of days to request times for
-    int? days,
   }) = _TimesRequest;
   factory TimesRequest.fromJson(Map<String, dynamic> json) =>
       _$TimesRequestFromJson(json);
@@ -89,15 +89,6 @@ class TimesRequest with _$TimesRequest {
 @Freezed()
 class TimesResponse with _$TimesResponse {
   const factory TimesResponse({
-    /// longitude of location
-    double? longitude,
-
-    /// prayer times for the given location
-    List<PrayerTime>? times,
-
-    /// date of request
-    String? date,
-
     /// number of days
     int? days,
 
@@ -106,6 +97,15 @@ class TimesResponse with _$TimesResponse {
 
     /// location for the request
     String? location,
+
+    /// longitude of location
+    double? longitude,
+
+    /// prayer times for the given location
+    List<PrayerTime>? times,
+
+    /// date of request
+    String? date,
   }) = TimesResponseData;
   const factory TimesResponse.Merr({Map<String, dynamic>? body}) =
       TimesResponseMerr;

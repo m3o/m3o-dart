@@ -210,14 +210,14 @@ Map<String, dynamic> _$$JoinResponseMerrToJson(_$JoinResponseMerr instance) =>
 
 _$_KickRequest _$$_KickRequestFromJson(Map<String, dynamic> json) =>
     _$_KickRequest(
-      room_id: json['room_id'] as String?,
       user_id: json['user_id'] as String?,
+      room_id: json['room_id'] as String?,
     );
 
 Map<String, dynamic> _$$_KickRequestToJson(_$_KickRequest instance) =>
     <String, dynamic>{
-      'room_id': instance.room_id,
       'user_id': instance.user_id,
+      'room_id': instance.room_id,
     };
 
 _$KickResponseData _$$KickResponseDataFromJson(Map<String, dynamic> json) =>
@@ -321,24 +321,24 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
     };
 
 _$_Message _$$_MessageFromJson(Map<String, dynamic> json) => _$_Message(
-      client: json['client'] as String?,
       id: json['id'] as String?,
       room_id: json['room_id'] as String?,
       sent_at: json['sent_at'] as String?,
       subject: json['subject'] as String?,
       text: json['text'] as String?,
       user_id: json['user_id'] as String?,
+      client: json['client'] as String?,
     );
 
 Map<String, dynamic> _$$_MessageToJson(_$_Message instance) =>
     <String, dynamic>{
-      'client': instance.client,
       'id': instance.id,
       'room_id': instance.room_id,
       'sent_at': instance.sent_at,
       'subject': instance.subject,
       'text': instance.text,
       'user_id': instance.user_id,
+      'client': instance.client,
     };
 
 _$_Room _$$_RoomFromJson(Map<String, dynamic> json) => _$_Room(

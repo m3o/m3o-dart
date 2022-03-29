@@ -29,19 +29,19 @@ Map<String, dynamic> _$$_ClassifyRequestToJson(_$_ClassifyRequest instance) =>
 _$ClassifyResponseData _$$ClassifyResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$ClassifyResponseData(
+      score: (json['score'] as num?)?.toDouble(),
       details:
           (json['details'] as List<dynamic>?)?.map((e) => e as String).toList(),
       is_spam: json['is_spam'] as bool?,
-      score: (json['score'] as num?)?.toDouble(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ClassifyResponseDataToJson(
         _$ClassifyResponseData instance) =>
     <String, dynamic>{
+      'score': instance.score,
       'details': instance.details,
       'is_spam': instance.is_spam,
-      'score': instance.score,
       'runtimeType': instance.$type,
     };
 

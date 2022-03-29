@@ -8,16 +8,16 @@ part of 'lists.dart';
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
+      name: json['name'] as String?,
       items: json['items'] == null
           ? null
           : List.fromJson(json['items'] as Map<String, dynamic>),
-      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
-      'items': instance.items,
       'name': instance.name,
+      'items': instance.items,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
