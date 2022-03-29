@@ -59,11 +59,11 @@ class GeocodingService {
 @Freezed()
 class Address with _$Address {
   const factory Address({
+    String? city,
     String? country,
     String? line_one,
     String? line_two,
     String? postcode,
-    String? city,
   }) = _Address;
   factory Address.fromJson(Map<String, dynamic> json) =>
       _$AddressFromJson(json);
@@ -72,8 +72,8 @@ class Address with _$Address {
 @Freezed()
 class Location with _$Location {
   const factory Location({
-    double? latitude,
     double? longitude,
+    double? latitude,
   }) = _Location;
   factory Location.fromJson(Map<String, dynamic> json) =>
       _$LocationFromJson(json);
@@ -82,10 +82,10 @@ class Location with _$Location {
 @Freezed()
 class LookupRequest with _$LookupRequest {
   const factory LookupRequest({
-    String? country,
-    String? postcode,
     String? address,
     String? city,
+    String? country,
+    String? postcode,
   }) = _LookupRequest;
   factory LookupRequest.fromJson(Map<String, dynamic> json) =>
       _$LookupRequestFromJson(json);
@@ -116,8 +116,8 @@ class ReverseRequest with _$ReverseRequest {
 @Freezed()
 class ReverseResponse with _$ReverseResponse {
   const factory ReverseResponse({
-    Location? location,
     Address? address,
+    Location? location,
   }) = ReverseResponseData;
   const factory ReverseResponse.Merr({Map<String, dynamic>? body}) =
       ReverseResponseMerr;

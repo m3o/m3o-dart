@@ -1736,19 +1736,19 @@ class _$RecordTearOff {
   const _$RecordTearOff();
 
   _Record call(
-      {String? path,
+      {Map<String, String>? metadata,
+      String? path,
       String? project,
       String? updated,
       String? content,
-      String? created,
-      Map<String, String>? metadata}) {
+      String? created}) {
     return _Record(
+      metadata: metadata,
       path: path,
       project: project,
       updated: updated,
       content: content,
       created: created,
-      metadata: metadata,
     );
   }
 
@@ -1762,6 +1762,9 @@ const $Record = _$RecordTearOff();
 
 /// @nodoc
 mixin _$Record {
+  /// Any other associated metadata as a map of key-value pairs
+  Map<String, String>? get metadata => throw _privateConstructorUsedError;
+
   /// Path to file or folder eg. '/documents/text-files/file.txt'.
   String? get path => throw _privateConstructorUsedError;
 
@@ -1778,9 +1781,6 @@ mixin _$Record {
   /// Time the file was created e.g 2021-05-20T13:37:21Z
   String? get created => throw _privateConstructorUsedError;
 
-  /// Any other associated metadata as a map of key-value pairs
-  Map<String, String>? get metadata => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RecordCopyWith<Record> get copyWith => throw _privateConstructorUsedError;
@@ -1791,12 +1791,12 @@ abstract class $RecordCopyWith<$Res> {
   factory $RecordCopyWith(Record value, $Res Function(Record) then) =
       _$RecordCopyWithImpl<$Res>;
   $Res call(
-      {String? path,
+      {Map<String, String>? metadata,
+      String? path,
       String? project,
       String? updated,
       String? content,
-      String? created,
-      Map<String, String>? metadata});
+      String? created});
 }
 
 /// @nodoc
@@ -1809,14 +1809,18 @@ class _$RecordCopyWithImpl<$Res> implements $RecordCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? metadata = freezed,
     Object? path = freezed,
     Object? project = freezed,
     Object? updated = freezed,
     Object? content = freezed,
     Object? created = freezed,
-    Object? metadata = freezed,
   }) {
     return _then(_value.copyWith(
+      metadata: metadata == freezed
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
       path: path == freezed
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
@@ -1837,10 +1841,6 @@ class _$RecordCopyWithImpl<$Res> implements $RecordCopyWith<$Res> {
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
               as String?,
-      metadata: metadata == freezed
-          ? _value.metadata
-          : metadata // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>?,
     ));
   }
 }
@@ -1851,12 +1851,12 @@ abstract class _$RecordCopyWith<$Res> implements $RecordCopyWith<$Res> {
       __$RecordCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? path,
+      {Map<String, String>? metadata,
+      String? path,
       String? project,
       String? updated,
       String? content,
-      String? created,
-      Map<String, String>? metadata});
+      String? created});
 }
 
 /// @nodoc
@@ -1870,14 +1870,18 @@ class __$RecordCopyWithImpl<$Res> extends _$RecordCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? metadata = freezed,
     Object? path = freezed,
     Object? project = freezed,
     Object? updated = freezed,
     Object? content = freezed,
     Object? created = freezed,
-    Object? metadata = freezed,
   }) {
     return _then(_Record(
+      metadata: metadata == freezed
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
       path: path == freezed
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
@@ -1898,10 +1902,6 @@ class __$RecordCopyWithImpl<$Res> extends _$RecordCopyWithImpl<$Res>
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
               as String?,
-      metadata: metadata == freezed
-          ? _value.metadata
-          : metadata // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>?,
     ));
   }
 }
@@ -1910,16 +1910,20 @@ class __$RecordCopyWithImpl<$Res> extends _$RecordCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Record implements _Record {
   const _$_Record(
-      {this.path,
+      {this.metadata,
+      this.path,
       this.project,
       this.updated,
       this.content,
-      this.created,
-      this.metadata});
+      this.created});
 
   factory _$_Record.fromJson(Map<String, dynamic> json) =>
       _$$_RecordFromJson(json);
 
+  @override
+
+  /// Any other associated metadata as a map of key-value pairs
+  final Map<String, String>? metadata;
   @override
 
   /// Path to file or folder eg. '/documents/text-files/file.txt'.
@@ -1941,14 +1945,10 @@ class _$_Record implements _Record {
 
   /// Time the file was created e.g 2021-05-20T13:37:21Z
   final String? created;
-  @override
-
-  /// Any other associated metadata as a map of key-value pairs
-  final Map<String, String>? metadata;
 
   @override
   String toString() {
-    return 'Record(path: $path, project: $project, updated: $updated, content: $content, created: $created, metadata: $metadata)';
+    return 'Record(metadata: $metadata, path: $path, project: $project, updated: $updated, content: $content, created: $created)';
   }
 
   @override
@@ -1956,23 +1956,23 @@ class _$_Record implements _Record {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Record &&
+            const DeepCollectionEquality().equals(other.metadata, metadata) &&
             const DeepCollectionEquality().equals(other.path, path) &&
             const DeepCollectionEquality().equals(other.project, project) &&
             const DeepCollectionEquality().equals(other.updated, updated) &&
             const DeepCollectionEquality().equals(other.content, content) &&
-            const DeepCollectionEquality().equals(other.created, created) &&
-            const DeepCollectionEquality().equals(other.metadata, metadata));
+            const DeepCollectionEquality().equals(other.created, created));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(metadata),
       const DeepCollectionEquality().hash(path),
       const DeepCollectionEquality().hash(project),
       const DeepCollectionEquality().hash(updated),
       const DeepCollectionEquality().hash(content),
-      const DeepCollectionEquality().hash(created),
-      const DeepCollectionEquality().hash(metadata));
+      const DeepCollectionEquality().hash(created));
 
   @JsonKey(ignore: true)
   @override
@@ -1987,15 +1987,19 @@ class _$_Record implements _Record {
 
 abstract class _Record implements Record {
   const factory _Record(
-      {String? path,
+      {Map<String, String>? metadata,
+      String? path,
       String? project,
       String? updated,
       String? content,
-      String? created,
-      Map<String, String>? metadata}) = _$_Record;
+      String? created}) = _$_Record;
 
   factory _Record.fromJson(Map<String, dynamic> json) = _$_Record.fromJson;
 
+  @override
+
+  /// Any other associated metadata as a map of key-value pairs
+  Map<String, String>? get metadata;
   @override
 
   /// Path to file or folder eg. '/documents/text-files/file.txt'.
@@ -2017,10 +2021,6 @@ abstract class _Record implements Record {
 
   /// Time the file was created e.g 2021-05-20T13:37:21Z
   String? get created;
-  @override
-
-  /// Any other associated metadata as a map of key-value pairs
-  Map<String, String>? get metadata;
   @override
   @JsonKey(ignore: true)
   _$RecordCopyWith<_Record> get copyWith => throw _privateConstructorUsedError;
