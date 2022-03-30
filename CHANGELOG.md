@@ -1,3 +1,9 @@
+## v1.0.78 - 2022-03-30
+
+[2b72a6](https://github.com/micro/services/commit/2b72a66886d237fb2c24ab9c457efbc323e83ea5) functions private gh repo (#411)
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.77...v1.0.78
+
 ## v1.0.77 - 2022-03-29
 
 [166004](https://github.com/micro/services/commit/166004c0f7d3a4582eabd447b4ffdfa9ef544b49) sunnah is free
