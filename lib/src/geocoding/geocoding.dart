@@ -94,8 +94,8 @@ class LookupRequest with _$LookupRequest {
 @Freezed()
 class LookupResponse with _$LookupResponse {
   const factory LookupResponse({
-    Location? location,
     Address? address,
+    Location? location,
   }) = LookupResponseData;
   const factory LookupResponse.Merr({Map<String, dynamic>? body}) =
       LookupResponseMerr;
@@ -116,8 +116,8 @@ class ReverseRequest with _$ReverseRequest {
 @Freezed()
 class ReverseResponse with _$ReverseResponse {
   const factory ReverseResponse({
-    Location? location,
     Address? address,
+    Location? location,
   }) = ReverseResponseData;
   const factory ReverseResponse.Merr({Map<String, dynamic>? body}) =
       ReverseResponseMerr;

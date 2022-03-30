@@ -1603,10 +1603,10 @@ Field _$FieldFromJson(Map<String, dynamic> json) {
 class _$FieldTearOff {
   const _$FieldTearOff();
 
-  _Field call({String? type, String? name}) {
+  _Field call({String? name, String? type}) {
     return _Field(
-      type: type,
       name: name,
+      type: type,
     );
   }
 
@@ -1620,11 +1620,11 @@ const $Field = _$FieldTearOff();
 
 /// @nodoc
 mixin _$Field {
-  /// The type of the field - string, number
-  String? get type => throw _privateConstructorUsedError;
-
   /// The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
   String? get name => throw _privateConstructorUsedError;
+
+  /// The type of the field - string, number
+  String? get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1635,7 +1635,7 @@ mixin _$Field {
 abstract class $FieldCopyWith<$Res> {
   factory $FieldCopyWith(Field value, $Res Function(Field) then) =
       _$FieldCopyWithImpl<$Res>;
-  $Res call({String? type, String? name});
+  $Res call({String? name, String? type});
 }
 
 /// @nodoc
@@ -1648,17 +1648,17 @@ class _$FieldCopyWithImpl<$Res> implements $FieldCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? type = freezed,
     Object? name = freezed,
+    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1669,7 +1669,7 @@ abstract class _$FieldCopyWith<$Res> implements $FieldCopyWith<$Res> {
   factory _$FieldCopyWith(_Field value, $Res Function(_Field) then) =
       __$FieldCopyWithImpl<$Res>;
   @override
-  $Res call({String? type, String? name});
+  $Res call({String? name, String? type});
 }
 
 /// @nodoc
@@ -1683,17 +1683,17 @@ class __$FieldCopyWithImpl<$Res> extends _$FieldCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? type = freezed,
     Object? name = freezed,
+    Object? type = freezed,
   }) {
     return _then(_Field(
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1702,23 +1702,23 @@ class __$FieldCopyWithImpl<$Res> extends _$FieldCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Field implements _Field {
-  const _$_Field({this.type, this.name});
+  const _$_Field({this.name, this.type});
 
   factory _$_Field.fromJson(Map<String, dynamic> json) =>
       _$$_FieldFromJson(json);
 
   @override
 
-  /// The type of the field - string, number
-  final String? type;
-  @override
-
   /// The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
   final String? name;
+  @override
+
+  /// The type of the field - string, number
+  final String? type;
 
   @override
   String toString() {
-    return 'Field(type: $type, name: $name)';
+    return 'Field(name: $name, type: $type)';
   }
 
   @override
@@ -1726,15 +1726,15 @@ class _$_Field implements _Field {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Field &&
-            const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.type, type));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(type));
 
   @JsonKey(ignore: true)
   @override
@@ -1748,18 +1748,18 @@ class _$_Field implements _Field {
 }
 
 abstract class _Field implements Field {
-  const factory _Field({String? type, String? name}) = _$_Field;
+  const factory _Field({String? name, String? type}) = _$_Field;
 
   factory _Field.fromJson(Map<String, dynamic> json) = _$_Field.fromJson;
 
   @override
 
-  /// The type of the field - string, number
-  String? get type;
-  @override
-
   /// The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
   String? get name;
+  @override
+
+  /// The type of the field - string, number
+  String? get type;
   @override
   @JsonKey(ignore: true)
   _$FieldCopyWith<_Field> get copyWith => throw _privateConstructorUsedError;
@@ -2559,10 +2559,10 @@ SearchRequest _$SearchRequestFromJson(Map<String, dynamic> json) {
 class _$SearchRequestTearOff {
   const _$SearchRequestTearOff();
 
-  _SearchRequest call({String? query, String? index}) {
+  _SearchRequest call({String? index, String? query}) {
     return _SearchRequest(
-      query: query,
       index: index,
+      query: query,
     );
   }
 
@@ -2576,11 +2576,11 @@ const $SearchRequest = _$SearchRequestTearOff();
 
 /// @nodoc
 mixin _$SearchRequest {
-  /// The query. See docs for query language examples
-  String? get query => throw _privateConstructorUsedError;
-
   /// The index the record belongs to
   String? get index => throw _privateConstructorUsedError;
+
+  /// The query. See docs for query language examples
+  String? get query => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2593,7 +2593,7 @@ abstract class $SearchRequestCopyWith<$Res> {
   factory $SearchRequestCopyWith(
           SearchRequest value, $Res Function(SearchRequest) then) =
       _$SearchRequestCopyWithImpl<$Res>;
-  $Res call({String? query, String? index});
+  $Res call({String? index, String? query});
 }
 
 /// @nodoc
@@ -2607,17 +2607,17 @@ class _$SearchRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? query = freezed,
     Object? index = freezed,
+    Object? query = freezed,
   }) {
     return _then(_value.copyWith(
-      query: query == freezed
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as String?,
       index: index == freezed
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
+              as String?,
+      query: query == freezed
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2630,7 +2630,7 @@ abstract class _$SearchRequestCopyWith<$Res>
           _SearchRequest value, $Res Function(_SearchRequest) then) =
       __$SearchRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? query, String? index});
+  $Res call({String? index, String? query});
 }
 
 /// @nodoc
@@ -2646,17 +2646,17 @@ class __$SearchRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? query = freezed,
     Object? index = freezed,
+    Object? query = freezed,
   }) {
     return _then(_SearchRequest(
-      query: query == freezed
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as String?,
       index: index == freezed
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
+              as String?,
+      query: query == freezed
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2665,23 +2665,23 @@ class __$SearchRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SearchRequest implements _SearchRequest {
-  const _$_SearchRequest({this.query, this.index});
+  const _$_SearchRequest({this.index, this.query});
 
   factory _$_SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SearchRequestFromJson(json);
 
   @override
 
-  /// The query. See docs for query language examples
-  final String? query;
-  @override
-
   /// The index the record belongs to
   final String? index;
+  @override
+
+  /// The query. See docs for query language examples
+  final String? query;
 
   @override
   String toString() {
-    return 'SearchRequest(query: $query, index: $index)';
+    return 'SearchRequest(index: $index, query: $query)';
   }
 
   @override
@@ -2689,15 +2689,15 @@ class _$_SearchRequest implements _SearchRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SearchRequest &&
-            const DeepCollectionEquality().equals(other.query, query) &&
-            const DeepCollectionEquality().equals(other.index, index));
+            const DeepCollectionEquality().equals(other.index, index) &&
+            const DeepCollectionEquality().equals(other.query, query));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(query),
-      const DeepCollectionEquality().hash(index));
+      const DeepCollectionEquality().hash(index),
+      const DeepCollectionEquality().hash(query));
 
   @JsonKey(ignore: true)
   @override
@@ -2711,7 +2711,7 @@ class _$_SearchRequest implements _SearchRequest {
 }
 
 abstract class _SearchRequest implements SearchRequest {
-  const factory _SearchRequest({String? query, String? index}) =
+  const factory _SearchRequest({String? index, String? query}) =
       _$_SearchRequest;
 
   factory _SearchRequest.fromJson(Map<String, dynamic> json) =
@@ -2719,12 +2719,12 @@ abstract class _SearchRequest implements SearchRequest {
 
   @override
 
-  /// The query. See docs for query language examples
-  String? get query;
-  @override
-
   /// The index the record belongs to
   String? get index;
+  @override
+
+  /// The query. See docs for query language examples
+  String? get query;
   @override
   @JsonKey(ignore: true)
   _$SearchRequestCopyWith<_SearchRequest> get copyWith =>

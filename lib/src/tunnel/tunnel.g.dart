@@ -34,21 +34,21 @@ Map<String, dynamic> _$$_SendRequestToJson(_$_SendRequest instance) =>
 
 _$SendResponseData _$$SendResponseDataFromJson(Map<String, dynamic> json) =>
     _$SendResponseData(
+      status: json['status'] as String?,
+      status_code: json['status_code'] as int?,
       body: json['body'] as String?,
       headers: (json['headers'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
-      status: json['status'] as String?,
-      status_code: json['status_code'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$SendResponseDataToJson(_$SendResponseData instance) =>
     <String, dynamic>{
-      'body': instance.body,
-      'headers': instance.headers,
       'status': instance.status,
       'status_code': instance.status_code,
+      'body': instance.body,
+      'headers': instance.headers,
       'runtimeType': instance.$type,
     };
 
