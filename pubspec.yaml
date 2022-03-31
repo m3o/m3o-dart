@@ -1,7 +1,10 @@
 name: m3o
 version: 1.0.78
 homepage: https://github.com/m3o/m3o-dart
-description: This is the Dart client to access APIs on the M3O Platform
+description: |
+  This is the Dart client to access APIs on the M3O Platform.
+  M3O is an attempt to build a new public cloud platform with higher level building blocks for the Next generation of developers.
+  M3O is powered by the open source Micro platform and programmable real world Micro Services.
 
 environment:
   sdk: '>=2.16.0 <3.0.0'
