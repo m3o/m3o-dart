@@ -6,11 +6,11 @@ part 'comments.freezed.dart';
 part 'comments.g.dart';
 
 class CommentsService {
-  final Options opts;
   var _client;
+  final String token;
 
-  CommentsService(this.opts) {
-    _client = Client(opts);
+  CommentsService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Create a new comment
@@ -28,8 +28,8 @@ class CommentsService {
         return CreateResponse.Merr(body: err.b);
       }
       return CreateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class CommentsService {
         return DeleteResponse.Merr(body: err.b);
       }
       return DeleteResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -74,8 +74,8 @@ class CommentsService {
           yield EventsResponseData.fromJson(vo);
         }
       }
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -95,8 +95,8 @@ class CommentsService {
         return ListResponse.Merr(body: err.b);
       }
       return ListResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -116,8 +116,8 @@ class CommentsService {
         return ReadResponse.Merr(body: err.b);
       }
       return ReadResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -137,8 +137,8 @@ class CommentsService {
         return UpdateResponse.Merr(body: err.b);
       }
       return UpdateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -147,6 +147,12 @@ class CommentsService {
 @Freezed()
 class Comment with _$Comment {
   const factory Comment({
+    /// time at which the comment was created
+    String? created,
+
+    /// unique id for the comment, generated if not specified
+    String? id,
+
     /// subject of the comment
     String? subject,
 
@@ -155,12 +161,6 @@ class Comment with _$Comment {
 
     /// time at which the comment was updated
     String? updated,
-
-    /// time at which the comment was created
-    String? created,
-
-    /// unique id for the comment, generated if not specified
-    String? id,
   }) = _Comment;
   factory Comment.fromJson(Map<String, dynamic> json) =>
       _$CommentFromJson(json);

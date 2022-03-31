@@ -14,17 +14,10 @@ Create a thumbnail screenshot by passing in a url, height and width
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/thumbnail/thumbnail.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = ThumbnailService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = ThumbnailService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "height": 600,
@@ -42,9 +35,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ScreenshotResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

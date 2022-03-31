@@ -14,17 +14,10 @@ Get the current weather report for a location by postcode, city, zip code, ip ad
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/weather/weather.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = WeatherService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = WeatherService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "location": "london"
@@ -40,9 +33,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (NowResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -58,17 +51,10 @@ Get the weather forecast for the next 1-10 days
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/weather/weather.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = WeatherService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = WeatherService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "days": 2,
@@ -85,9 +71,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ForecastResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

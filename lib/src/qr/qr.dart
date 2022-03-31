@@ -6,11 +6,11 @@ part 'qr.freezed.dart';
 part 'qr.g.dart';
 
 class QrService {
-  final Options opts;
   var _client;
+  final String token;
 
-  QrService(this.opts) {
-    _client = Client(opts);
+  QrService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Generate a QR code with a specific text and size
@@ -28,8 +28,8 @@ class QrService {
         return GenerateResponse.Merr(body: err.b);
       }
       return GenerateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }

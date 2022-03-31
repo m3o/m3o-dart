@@ -14,17 +14,10 @@ Generate an unique avatar
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/avatar/avatar.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = AvatarService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = AvatarService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "format": "jpeg",
@@ -43,9 +36,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (GenerateResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -61,17 +54,10 @@ Generate an unique avatar
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/avatar/avatar.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = AvatarService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = AvatarService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "format": "png",
@@ -90,9 +76,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (GenerateResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

@@ -6,11 +6,11 @@ part 'password.freezed.dart';
 part 'password.g.dart';
 
 class PasswordService {
-  final Options opts;
   var _client;
+  final String token;
 
-  PasswordService(this.opts) {
-    _client = Client(opts);
+  PasswordService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Generate a strong random password. Use the switches to control which character types are included, defaults to using all of them
@@ -28,8 +28,8 @@ class PasswordService {
         return GenerateResponse.Merr(body: err.b);
       }
       return GenerateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -38,6 +38,9 @@ class PasswordService {
 @Freezed()
 class GenerateRequest with _$GenerateRequest {
   const factory GenerateRequest({
+    /// include uppercase letters
+    bool? uppercase,
+
     /// password length; defaults to 8 chars
     int? length,
 
@@ -49,9 +52,6 @@ class GenerateRequest with _$GenerateRequest {
 
     /// include special characters (!@#$%&*)
     bool? special,
-
-    /// include uppercase letters
-    bool? uppercase,
   }) = _GenerateRequest;
   factory GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$GenerateRequestFromJson(json);

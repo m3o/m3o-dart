@@ -6,11 +6,11 @@ part 'sms.freezed.dart';
 part 'sms.g.dart';
 
 class SmsService {
-  final Options opts;
   var _client;
+  final String token;
 
-  SmsService(this.opts) {
-    _client = Client(opts);
+  SmsService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Send an SMS.
@@ -28,8 +28,8 @@ class SmsService {
         return SendResponse.Merr(body: err.b);
       }
       return SendResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -38,14 +38,14 @@ class SmsService {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
+    /// the destination phone number including the international dialling code (e.g. +44)
+    String? to,
+
     /// who is the message from? The message will be suffixed with "Sent from <from>"
     String? from,
 
     /// the main body of the message to send
     String? message,
-
-    /// the destination phone number including the international dialling code (e.g. +44)
-    String? to,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);

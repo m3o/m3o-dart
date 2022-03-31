@@ -6,11 +6,11 @@ part 'sentiment.freezed.dart';
 part 'sentiment.g.dart';
 
 class SentimentService {
-  final Options opts;
   var _client;
+  final String token;
 
-  SentimentService(this.opts) {
-    _client = Client(opts);
+  SentimentService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Analyze and score a piece of text
@@ -28,8 +28,8 @@ class SentimentService {
         return AnalyzeResponse.Merr(body: err.b);
       }
       return AnalyzeResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }

@@ -14,17 +14,10 @@ Check whether an email is likely to be spam based on its attributes
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/spam/spam.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = SpamService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = SpamService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "from": "noreply@m3o.com",
@@ -43,9 +36,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ClassifyResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -61,17 +54,10 @@ Check whether an email is likely to be spam based on its attributes
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/spam/spam.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = SpamService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = SpamService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "email_body": "Subject: Welcome\r\nTo: hello@emaple.com\r\nFrom: noreply@m3o.com\r\n\r\nHi there,\n\nWelcome to M3O.\n\nThanks\nM3O team"
@@ -87,9 +73,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ClassifyResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

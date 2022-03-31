@@ -6,11 +6,11 @@ part 'news.freezed.dart';
 part 'news.g.dart';
 
 class NewsService {
-  final Options opts;
   var _client;
+  final String token;
 
-  NewsService(this.opts) {
-    _client = Client(opts);
+  NewsService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Get the latest news headlines
@@ -28,8 +28,8 @@ class NewsService {
         return HeadlinesResponse.Merr(body: err.b);
       }
       return HeadlinesResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -38,14 +38,20 @@ class NewsService {
 @Freezed()
 class Article with _$Article {
   const factory Article({
-    /// url of the article
-    String? url,
-
     /// categories
     List<String>? categories,
 
     /// article description
     String? description,
+
+    /// the locale
+    String? locale,
+
+    /// first 60 characters of article body
+    String? snippet,
+
+    /// url of the article
+    String? url,
 
     /// article id
     String? id,
@@ -53,26 +59,20 @@ class Article with _$Article {
     /// image url
     String? image_url,
 
-    /// first 60 characters of article body
-    String? snippet,
-
-    /// article title
-    String? title,
-
     /// related keywords
     String? keywords,
 
     /// the article language
     String? language,
 
-    /// the locale
-    String? locale,
-
     /// time it was published
     String? published_at,
 
     /// source of news
     String? source,
+
+    /// article title
+    String? title,
   }) = _Article;
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);

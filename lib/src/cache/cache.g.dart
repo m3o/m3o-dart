@@ -8,14 +8,14 @@ part of 'cache.dart';
 
 _$_DecrementRequest _$$_DecrementRequestFromJson(Map<String, dynamic> json) =>
     _$_DecrementRequest(
-      key: json['key'] as String?,
       value: int64FromString(json['value'] as String?),
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$$_DecrementRequestToJson(_$_DecrementRequest instance) =>
     <String, dynamic>{
-      'key': instance.key,
       'value': int64ToString(instance.value),
+      'key': instance.key,
     };
 
 _$DecrementResponseData _$$DecrementResponseDataFromJson(
@@ -96,17 +96,17 @@ Map<String, dynamic> _$$_GetRequestToJson(_$_GetRequest instance) =>
 
 _$GetResponseData _$$GetResponseDataFromJson(Map<String, dynamic> json) =>
     _$GetResponseData(
+      value: json['value'] as String?,
       key: json['key'] as String?,
       ttl: int64FromString(json['ttl'] as String?),
-      value: json['value'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$GetResponseDataToJson(_$GetResponseData instance) =>
     <String, dynamic>{
+      'value': instance.value,
       'key': instance.key,
       'ttl': int64ToString(instance.ttl),
-      'value': instance.value,
       'runtimeType': instance.$type,
     };
 

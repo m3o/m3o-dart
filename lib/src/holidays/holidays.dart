@@ -6,11 +6,11 @@ part 'holidays.freezed.dart';
 part 'holidays.g.dart';
 
 class HolidaysService {
-  final Options opts;
   var _client;
+  final String token;
 
-  HolidaysService(this.opts) {
-    _client = Client(opts);
+  HolidaysService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Get the list of countries that are supported by this API
@@ -28,8 +28,8 @@ class HolidaysService {
         return CountriesResponse.Merr(body: err.b);
       }
       return CountriesResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class HolidaysService {
         return ListResponse.Merr(body: err.b);
       }
       return ListResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }

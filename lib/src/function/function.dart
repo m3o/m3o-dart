@@ -6,11 +6,11 @@ part 'function.freezed.dart';
 part 'function.g.dart';
 
 class FunctionService {
-  final Options opts;
   var _client;
+  final String token;
 
-  FunctionService(this.opts) {
-    _client = Client(opts);
+  FunctionService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Call a function by name
@@ -28,8 +28,8 @@ class FunctionService {
         return CallResponse.Merr(body: err.b);
       }
       return CallResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class FunctionService {
         return DeleteResponse.Merr(body: err.b);
       }
       return DeleteResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -70,8 +70,8 @@ class FunctionService {
         return DeployResponse.Merr(body: err.b);
       }
       return DeployResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -91,8 +91,8 @@ class FunctionService {
         return DescribeResponse.Merr(body: err.b);
       }
       return DescribeResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -112,8 +112,8 @@ class FunctionService {
         return ListResponse.Merr(body: err.b);
       }
       return ListResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -133,8 +133,8 @@ class FunctionService {
         return LogsResponse.Merr(body: err.b);
       }
       return LogsResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -154,8 +154,8 @@ class FunctionService {
         return ProxyResponse.Merr(body: err.b);
       }
       return ProxyResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -175,8 +175,8 @@ class FunctionService {
         return RegionsResponse.Merr(body: err.b);
       }
       return RegionsResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -196,8 +196,8 @@ class FunctionService {
         return ReserveResponse.Merr(body: err.b);
       }
       return ReserveResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -217,8 +217,8 @@ class FunctionService {
         return RuntimesResponse.Merr(body: err.b);
       }
       return RuntimesResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -238,8 +238,8 @@ class FunctionService {
         return UpdateResponse.Merr(body: err.b);
       }
       return UpdateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -292,17 +292,29 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class DeployRequest with _$DeployRequest {
   const factory DeployRequest({
+    /// optional subfolder path
+    String? subfolder,
+
     /// branch to deploy. defaults to master
     String? branch,
+
+    /// github url for a repo
+    String? repo,
+
+    /// function name
+    String? name,
 
     /// region to deploy in. defaults to europe-west1
     String? region,
 
+    /// runtime/lanaguage of the function e.g php74,
+    /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
+    /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
+    /// python37, python38, python39
+    String? runtime,
+
     /// inline source code
     String? source,
-
-    /// optional subfolder path
-    String? subfolder,
 
     /// entry point, ie. handler name in the source code
     /// if not provided, defaults to the name parameter
@@ -310,18 +322,6 @@ class DeployRequest with _$DeployRequest {
 
     /// environment variables to pass in at runtime
     Map<String, String>? env_vars,
-
-    /// function name
-    String? name,
-
-    /// github url for a repo
-    String? repo,
-
-    /// runtime/lanaguage of the function e.g php74,
-    /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
-    /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
-    /// python37, python38, python39
-    String? runtime,
   }) = _DeployRequest;
   factory DeployRequest.fromJson(Map<String, dynamic> json) =>
       _$DeployRequestFromJson(json);
@@ -363,39 +363,23 @@ class DescribeResponse with _$DescribeResponse {
 @Freezed()
 class Func with _$Func {
   const factory Func({
-    /// time it was updated
-    String? updated,
+    /// name of handler in source code
+    String? entrypoint,
 
-    /// time of creation
-    String? created,
-
-    /// id of the function
-    String? id,
-
-    /// function name
-    /// limitation: must be unique across projects
-    String? name,
-
-    /// region to deploy in. defaults to europe-west1
-    String? region,
-
-    /// the source code
-    String? source,
-
-    /// branch to deploy. defaults to master
-    String? branch,
-
-    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-    String? status,
+    /// git repo address
+    String? repo,
 
     /// unique url of the function
     String? url,
 
-    /// associated env vars
-    Map<String, String>? env_vars,
+    /// branch to deploy. defaults to master
+    String? branch,
 
-    /// git repo address
-    String? repo,
+    /// time of creation
+    String? created,
+
+    /// region to deploy in. defaults to europe-west1
+    String? region,
 
     /// runtime/language of the function e.g php74,
     /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
@@ -406,8 +390,24 @@ class Func with _$Func {
     /// subfolder path to entrypoint
     String? subfolder,
 
-    /// name of handler in source code
-    String? entrypoint,
+    /// time it was updated
+    String? updated,
+
+    /// the source code
+    String? source,
+
+    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+    String? status,
+
+    /// function name
+    /// limitation: must be unique across projects
+    String? name,
+
+    /// associated env vars
+    Map<String, String>? env_vars,
+
+    /// id of the function
+    String? id,
   }) = _Func;
   factory Func.fromJson(Map<String, dynamic> json) => _$FuncFromJson(json);
 }
@@ -498,9 +498,6 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
-    /// owner id
-    String? owner,
-
     /// associated token
     String? token,
 
@@ -512,6 +509,9 @@ class Reservation with _$Reservation {
 
     /// name of the app
     String? name,
+
+    /// owner id
+    String? owner,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);
@@ -560,11 +560,11 @@ class RuntimesResponse with _$RuntimesResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// inline source code
-    String? source,
-
     /// function name
     String? name,
+
+    /// inline source code
+    String? source,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

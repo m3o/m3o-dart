@@ -1,16 +1,9 @@
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/notes/notes.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = NotesService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = NotesService(Platform.environment['M3O_API_TOKEN']!);
 
   final payload = <String, dynamic>{
     "id": "63c0cdf8-2121-11ec-a881-0242e36f037a",
@@ -24,9 +17,9 @@ void main() async {
       sr.map((value) => print(value),
           Merr: (EventsResponseMerr err) => print(err.body));
     }
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-    print(stack);
+    print(st);
   } finally {
     exit(0);
   }

@@ -6,11 +6,11 @@ part 'email.freezed.dart';
 part 'email.g.dart';
 
 class EmailService {
-  final Options opts;
   var _client;
+  final String token;
 
-  EmailService(this.opts) {
-    _client = Client(opts);
+  EmailService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Parse an RFC5322 address e.g "Joe Blogs <joe@example.com>"
@@ -28,8 +28,8 @@ class EmailService {
         return ParseResponse.Merr(body: err.b);
       }
       return ParseResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class EmailService {
         return SendResponse.Merr(body: err.b);
       }
       return SendResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -70,8 +70,8 @@ class EmailService {
         return ValidateResponse.Merr(body: err.b);
       }
       return ValidateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }

@@ -6,11 +6,11 @@ part 'file.freezed.dart';
 part 'file.g.dart';
 
 class FileService {
-  final Options opts;
   var _client;
+  final String token;
 
-  FileService(this.opts) {
-    _client = Client(opts);
+  FileService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Delete a file by project name/path
@@ -28,8 +28,8 @@ class FileService {
         return DeleteResponse.Merr(body: err.b);
       }
       return DeleteResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class FileService {
         return ListResponse.Merr(body: err.b);
       }
       return ListResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -70,8 +70,8 @@ class FileService {
         return ReadResponse.Merr(body: err.b);
       }
       return ReadResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -91,8 +91,8 @@ class FileService {
         return SaveResponse.Merr(body: err.b);
       }
       return SaveResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -101,11 +101,11 @@ class FileService {
 @Freezed()
 class DeleteRequest with _$DeleteRequest {
   const factory DeleteRequest({
-    /// Path to the file
-    String? path,
-
     /// The project name
     String? project,
+
+    /// Path to the file
+    String? path,
   }) = _DeleteRequest;
   factory DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$DeleteRequestFromJson(json);
@@ -175,6 +175,12 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class Record with _$Record {
   const factory Record({
+    /// File contents
+    String? content,
+
+    /// Time the file was created e.g 2021-05-20T13:37:21Z
+    String? created,
+
     /// Any other associated metadata as a map of key-value pairs
     Map<String, String>? metadata,
 
@@ -187,12 +193,6 @@ class Record with _$Record {
 
     /// Time the file was updated e.g 2021-05-20T13:37:21Z
     String? updated,
-
-    /// File contents
-    String? content,
-
-    /// Time the file was created e.g 2021-05-20T13:37:21Z
-    String? created,
   }) = _Record;
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }

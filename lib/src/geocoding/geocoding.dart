@@ -6,11 +6,11 @@ part 'geocoding.freezed.dart';
 part 'geocoding.g.dart';
 
 class GeocodingService {
-  final Options opts;
   var _client;
+  final String token;
 
-  GeocodingService(this.opts) {
-    _client = Client(opts);
+  GeocodingService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Lookup returns a geocoded address including normalized address and gps coordinates. All fields are optional, provide more to get more accurate results
@@ -28,8 +28,8 @@ class GeocodingService {
         return LookupResponse.Merr(body: err.b);
       }
       return LookupResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class GeocodingService {
         return ReverseResponse.Merr(body: err.b);
       }
       return ReverseResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -59,11 +59,11 @@ class GeocodingService {
 @Freezed()
 class Address with _$Address {
   const factory Address({
-    String? city,
     String? country,
     String? line_one,
     String? line_two,
     String? postcode,
+    String? city,
   }) = _Address;
   factory Address.fromJson(Map<String, dynamic> json) =>
       _$AddressFromJson(json);
@@ -82,10 +82,10 @@ class Location with _$Location {
 @Freezed()
 class LookupRequest with _$LookupRequest {
   const factory LookupRequest({
+    String? postcode,
     String? address,
     String? city,
     String? country,
-    String? postcode,
   }) = _LookupRequest;
   factory LookupRequest.fromJson(Map<String, dynamic> json) =>
       _$LookupRequestFromJson(json);
@@ -94,8 +94,8 @@ class LookupRequest with _$LookupRequest {
 @Freezed()
 class LookupResponse with _$LookupResponse {
   const factory LookupResponse({
-    Address? address,
     Location? location,
+    Address? address,
   }) = LookupResponseData;
   const factory LookupResponse.Merr({Map<String, dynamic>? body}) =
       LookupResponseMerr;

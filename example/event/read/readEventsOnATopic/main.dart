@@ -1,16 +1,9 @@
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/event/event.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = EventService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = EventService(Platform.environment['M3O_API_TOKEN']!);
 
   final payload = <String, dynamic>{
     "topic": "user",
@@ -23,9 +16,9 @@ void main() async {
 
     res.map((value) => print(value),
         Merr: (ReadResponseMerr err) => print(err.body!['body']));
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-    print(stack);
+    print(st);
   } finally {
     exit(0);
   }

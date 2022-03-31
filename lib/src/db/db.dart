@@ -6,11 +6,11 @@ part 'db.freezed.dart';
 part 'db.g.dart';
 
 class DbService {
-  final Options opts;
   var _client;
+  final String token;
 
-  DbService(this.opts) {
-    _client = Client(opts);
+  DbService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Count records in a table
@@ -28,8 +28,8 @@ class DbService {
         return CountResponse.Merr(body: err.b);
       }
       return CountResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class DbService {
         return CreateResponse.Merr(body: err.b);
       }
       return CreateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -70,8 +70,8 @@ class DbService {
         return DeleteResponse.Merr(body: err.b);
       }
       return DeleteResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -91,8 +91,8 @@ class DbService {
         return DropTableResponse.Merr(body: err.b);
       }
       return DropTableResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -112,8 +112,8 @@ class DbService {
         return ListTablesResponse.Merr(body: err.b);
       }
       return ListTablesResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -133,8 +133,8 @@ class DbService {
         return ReadResponse.Merr(body: err.b);
       }
       return ReadResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -154,8 +154,8 @@ class DbService {
         return RenameTableResponse.Merr(body: err.b);
       }
       return RenameTableResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -175,8 +175,8 @@ class DbService {
         return TruncateResponse.Merr(body: err.b);
       }
       return TruncateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -196,8 +196,8 @@ class DbService {
         return UpdateResponse.Merr(body: err.b);
       }
       return UpdateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -315,12 +315,6 @@ class ListTablesResponse with _$ListTablesResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
-    /// 'asc' (default), 'desc'
-    String? order,
-
-    /// field name to order by
-    String? orderBy,
-
     /// Examples: 'age >= 18', 'age >= 18 and verified == true'
     /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
     /// Logical operator: 'and'
@@ -338,6 +332,12 @@ class ReadRequest with _$ReadRequest {
     /// Maximum limit is 1000. Anything higher will return an error.
     int? limit,
     int? offset,
+
+    /// 'asc' (default), 'desc'
+    String? order,
+
+    /// field name to order by
+    String? orderBy,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);

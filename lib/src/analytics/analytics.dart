@@ -6,11 +6,11 @@ part 'analytics.freezed.dart';
 part 'analytics.g.dart';
 
 class AnalyticsService {
-  final Options opts;
   var _client;
+  final String token;
 
-  AnalyticsService(this.opts) {
-    _client = Client(opts);
+  AnalyticsService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Delete an event
@@ -28,8 +28,8 @@ class AnalyticsService {
         return DeleteResponse.Merr(body: err.b);
       }
       return DeleteResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class AnalyticsService {
         return ListResponse.Merr(body: err.b);
       }
       return ListResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -70,8 +70,8 @@ class AnalyticsService {
         return ReadResponse.Merr(body: err.b);
       }
       return ReadResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -91,8 +91,8 @@ class AnalyticsService {
         return TrackResponse.Merr(body: err.b);
       }
       return TrackResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }

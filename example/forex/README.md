@@ -14,17 +14,10 @@ Get the latest price for a given forex ticker
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/forex/forex.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = ForexService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = ForexService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "symbol": "GBPUSD"
@@ -40,9 +33,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (PriceResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -58,17 +51,10 @@ Get the latest quote for the forex
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/forex/forex.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = ForexService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = ForexService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "symbol": "GBPUSD"
@@ -84,9 +70,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (QuoteResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -102,17 +88,10 @@ Returns the data for the previous close
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/forex/forex.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = ForexService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = ForexService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "symbol": "GBPUSD"
@@ -128,9 +107,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

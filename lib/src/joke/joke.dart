@@ -6,11 +6,11 @@ part 'joke.freezed.dart';
 part 'joke.g.dart';
 
 class JokeService {
-  final Options opts;
   var _client;
+  final String token;
 
-  JokeService(this.opts) {
-    _client = Client(opts);
+  JokeService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Get a random joke
@@ -28,8 +28,8 @@ class JokeService {
         return RandomResponse.Merr(body: err.b);
       }
       return RandomResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -38,11 +38,11 @@ class JokeService {
 @Freezed()
 class JokeInfo with _$JokeInfo {
   const factory JokeInfo({
-    String? body,
-    String? category,
     String? id,
     String? source,
     String? title,
+    String? body,
+    String? category,
   }) = _JokeInfo;
   factory JokeInfo.fromJson(Map<String, dynamic> json) =>
       _$JokeInfoFromJson(json);

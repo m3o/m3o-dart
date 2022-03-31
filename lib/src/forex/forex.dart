@@ -6,11 +6,11 @@ part 'forex.freezed.dart';
 part 'forex.g.dart';
 
 class ForexService {
-  final Options opts;
   var _client;
+  final String token;
 
-  ForexService(this.opts) {
-    _client = Client(opts);
+  ForexService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Returns the data for the previous close
@@ -28,8 +28,8 @@ class ForexService {
         return HistoryResponse.Merr(body: err.b);
       }
       return HistoryResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class ForexService {
         return PriceResponse.Merr(body: err.b);
       }
       return PriceResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -70,8 +70,8 @@ class ForexService {
         return QuoteResponse.Merr(body: err.b);
       }
       return QuoteResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -90,15 +90,6 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
-    /// the volume
-    double? volume,
-
-    /// the close price
-    double? close,
-
-    /// the date
-    String? date,
-
     /// the peak price
     double? high,
 
@@ -110,6 +101,15 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the forex symbol
     String? symbol,
+
+    /// the volume
+    double? volume,
+
+    /// the close price
+    double? close,
+
+    /// the date
+    String? date,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -155,6 +155,9 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
+    /// the UTC timestamp of the quote
+    String? timestamp,
+
     /// the asking price
     double? ask_price,
 
@@ -163,9 +166,6 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the forex symbol
     String? symbol,
-
-    /// the UTC timestamp of the quote
-    String? timestamp,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;

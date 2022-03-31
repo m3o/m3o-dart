@@ -6,11 +6,11 @@ part 'otp.freezed.dart';
 part 'otp.g.dart';
 
 class OtpService {
-  final Options opts;
   var _client;
+  final String token;
 
-  OtpService(this.opts) {
-    _client = Client(opts);
+  OtpService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Generate an OTP (one time pass) code
@@ -28,8 +28,8 @@ class OtpService {
         return GenerateResponse.Merr(body: err.b);
       }
       return GenerateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class OtpService {
         return ValidateResponse.Merr(body: err.b);
       }
       return ValidateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }

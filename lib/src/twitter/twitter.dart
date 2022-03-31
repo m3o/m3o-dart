@@ -6,11 +6,11 @@ part 'twitter.freezed.dart';
 part 'twitter.g.dart';
 
 class TwitterService {
-  final Options opts;
   var _client;
+  final String token;
 
-  TwitterService(this.opts) {
-    _client = Client(opts);
+  TwitterService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Search for tweets with a simple query
@@ -28,8 +28,8 @@ class TwitterService {
         return SearchResponse.Merr(body: err.b);
       }
       return SearchResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class TwitterService {
         return TimelineResponse.Merr(body: err.b);
       }
       return TimelineResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -70,8 +70,8 @@ class TwitterService {
         return TrendsResponse.Merr(body: err.b);
       }
       return TrendsResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -91,8 +91,8 @@ class TwitterService {
         return UserResponse.Merr(body: err.b);
       }
       return UserResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -101,14 +101,11 @@ class TwitterService {
 @Freezed()
 class Profile with _$Profile {
   const factory Profile({
-    /// if the account is private
-    bool? private,
+    /// if the account is verified
+    bool? verified,
 
     /// the account creation date
     String? created_at,
-
-    /// the user description
-    String? description,
 
     /// the follower count
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
@@ -125,11 +122,14 @@ class Profile with _$Profile {
     /// display name of the user
     String? name,
 
-    /// if the account is verified
-    bool? verified,
-
     /// the username
     String? username,
+
+    /// the user description
+    String? description,
+
+    /// if the account is private
+    bool? private,
   }) = _Profile;
   factory Profile.fromJson(Map<String, dynamic> json) =>
       _$ProfileFromJson(json);
@@ -163,11 +163,11 @@ class SearchResponse with _$SearchResponse {
 @Freezed()
 class TimelineRequest with _$TimelineRequest {
   const factory TimelineRequest({
-    /// number of tweets to return. default: 20
-    int? limit,
-
     /// the username to request the timeline for
     String? username,
+
+    /// number of tweets to return. default: 20
+    int? limit,
   }) = _TimelineRequest;
   factory TimelineRequest.fromJson(Map<String, dynamic> json) =>
       _$TimelineRequestFromJson(json);

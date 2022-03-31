@@ -14,17 +14,10 @@ List the Chapters (surahs) of the Quran
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/quran/quran.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = QuranService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = QuranService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "language": "en"
@@ -40,9 +33,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ChaptersResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -58,17 +51,10 @@ Get a summary for a given chapter (surah)
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/quran/quran.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = QuranService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = QuranService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "chapter": 1
@@ -84,9 +70,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (SummaryResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -104,17 +90,10 @@ words.
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/quran/quran.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = QuranService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = QuranService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "chapter": 1
@@ -130,9 +109,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (VersesResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -148,17 +127,10 @@ Search the Quran for any form of query or questions
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/quran/quran.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = QuranService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = QuranService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "query": "messenger"
@@ -174,9 +146,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

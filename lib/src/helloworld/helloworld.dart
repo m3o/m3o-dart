@@ -6,11 +6,11 @@ part 'helloworld.freezed.dart';
 part 'helloworld.g.dart';
 
 class HelloworldService {
-  final Options opts;
   var _client;
+  final String token;
 
-  HelloworldService(this.opts) {
-    _client = Client(opts);
+  HelloworldService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Return a personalised Hello message
@@ -28,8 +28,8 @@ class HelloworldService {
         return CallResponse.Merr(body: err.b);
       }
       return CallResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -53,8 +53,8 @@ class HelloworldService {
           yield StreamResponseData.fromJson(vo);
         }
       }
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }

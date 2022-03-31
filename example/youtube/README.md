@@ -14,17 +14,10 @@ Embed a YouTube video
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/youtube/youtube.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = YoutubeService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = YoutubeService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "url": "https://www.youtube.com/watch?v=GWRWZu7XsJ0"
@@ -40,9 +33,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (EmbedResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -58,17 +51,10 @@ Search for videos on YouTube
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/youtube/youtube.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = YoutubeService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = YoutubeService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "query": "donuts"
@@ -84,9 +70,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

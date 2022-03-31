@@ -6,11 +6,11 @@ part 'prayer.freezed.dart';
 part 'prayer.g.dart';
 
 class PrayerService {
-  final Options opts;
   var _client;
+  final String token;
 
-  PrayerService(this.opts) {
-    _client = Client(opts);
+  PrayerService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Get the prayer (salah) times for a location on a given date
@@ -28,8 +28,8 @@ class PrayerService {
         return TimesResponse.Merr(body: err.b);
       }
       return TimesResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -38,6 +38,12 @@ class PrayerService {
 @Freezed()
 class PrayerTime with _$PrayerTime {
   const factory PrayerTime({
+    /// isha time
+    String? isha,
+
+    /// maghrib time
+    String? maghrib,
+
     /// time of sunrise
     String? sunrise,
 
@@ -52,12 +58,6 @@ class PrayerTime with _$PrayerTime {
 
     /// fajr time
     String? fajr,
-
-    /// isha time
-    String? isha,
-
-    /// maghrib time
-    String? maghrib,
   }) = _PrayerTime;
   factory PrayerTime.fromJson(Map<String, dynamic> json) =>
       _$PrayerTimeFromJson(json);
@@ -66,9 +66,6 @@ class PrayerTime with _$PrayerTime {
 @Freezed()
 class TimesRequest with _$TimesRequest {
   const factory TimesRequest({
-    /// optional date in YYYY-MM-DD format, otherwise uses today
-    String? date,
-
     /// number of days to request times for
     int? days,
 
@@ -81,6 +78,9 @@ class TimesRequest with _$TimesRequest {
 
     /// optional longitude used in place of location
     double? longitude,
+
+    /// optional date in YYYY-MM-DD format, otherwise uses today
+    String? date,
   }) = _TimesRequest;
   factory TimesRequest.fromJson(Map<String, dynamic> json) =>
       _$TimesRequestFromJson(json);

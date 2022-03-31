@@ -6,11 +6,11 @@ part 'image.freezed.dart';
 part 'image.g.dart';
 
 class ImageService {
-  final Options opts;
   var _client;
+  final String token;
 
-  ImageService(this.opts) {
-    _client = Client(opts);
+  ImageService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Convert an image from one format (jpeg, png etc.) to an other either on the fly (from base64 to base64),
@@ -31,8 +31,8 @@ class ImageService {
         return ConvertResponse.Merr(body: err.b);
       }
       return ConvertResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -52,8 +52,8 @@ class ImageService {
         return DeleteResponse.Merr(body: err.b);
       }
       return DeleteResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -77,8 +77,8 @@ class ImageService {
         return ResizeResponse.Merr(body: err.b);
       }
       return ResizeResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -101,8 +101,8 @@ class ImageService {
         return UploadResponse.Merr(body: err.b);
       }
       return UploadResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -111,6 +111,9 @@ class ImageService {
 @Freezed()
 class ConvertRequest with _$ConvertRequest {
   const factory ConvertRequest({
+    /// make output a URL and not a base64 response
+    bool? outputURL,
+
     /// url of the image to resize
     String? url,
 
@@ -122,9 +125,6 @@ class ConvertRequest with _$ConvertRequest {
 
     /// output name of the image including extension, ie. "cat.png"
     String? name,
-
-    /// make output a URL and not a base64 response
-    bool? outputURL,
   }) = _ConvertRequest;
   factory ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$ConvertRequestFromJson(json);
@@ -145,17 +145,17 @@ class ConvertResponse with _$ConvertResponse {
 @Freezed()
 class CropOptions with _$CropOptions {
   const factory CropOptions({
-    /// height to crop to
-    int? height,
-
-    /// width to crop to
-    int? width,
-
     /// Crop anchor point: "top", "top left", "top right",
     /// "left", "center", "right"
     /// "bottom left", "bottom", "bottom right".
     /// Optional. Defaults to center.
     String? anchor,
+
+    /// height to crop to
+    int? height,
+
+    /// width to crop to
+    int? width,
   }) = _CropOptions;
   factory CropOptions.fromJson(Map<String, dynamic> json) =>
       _$CropOptionsFromJson(json);
@@ -202,16 +202,6 @@ class Rectangle with _$Rectangle {
 @Freezed()
 class ResizeRequest with _$ResizeRequest {
   const factory ResizeRequest({
-    /// base64 encoded image to resize,
-    String? base64,
-
-    /// optional crop options
-    /// if provided, after resize, the image
-    /// will be cropped
-    CropOptions? cropOptions,
-
-    /// The image file to resize
-    String? file,
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
 
     /// output name of the image including extension, ie. "cat.png"
@@ -223,6 +213,17 @@ class ResizeRequest with _$ResizeRequest {
     /// url of the image to resize
     String? url,
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
+
+    /// base64 encoded image to resize,
+    String? base64,
+
+    /// optional crop options
+    /// if provided, after resize, the image
+    /// will be cropped
+    CropOptions? cropOptions,
+
+    /// The image file to resize
+    String? file,
   }) = _ResizeRequest;
   factory ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$ResizeRequestFromJson(json);
@@ -243,6 +244,9 @@ class ResizeResponse with _$ResizeResponse {
 @Freezed()
 class UploadRequest with _$UploadRequest {
   const factory UploadRequest({
+    /// Base64 encoded image to upload,
+    String? base64,
+
     /// The image file to upload
     String? file,
 
@@ -251,9 +255,6 @@ class UploadRequest with _$UploadRequest {
 
     /// URL of the image to upload
     String? url,
-
-    /// Base64 encoded image to upload,
-    String? base64,
   }) = _UploadRequest;
   factory UploadRequest.fromJson(Map<String, dynamic> json) =>
       _$UploadRequestFromJson(json);

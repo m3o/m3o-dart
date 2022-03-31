@@ -6,11 +6,11 @@ part 'notes.freezed.dart';
 part 'notes.g.dart';
 
 class NotesService {
-  final Options opts;
   var _client;
+  final String token;
 
-  NotesService(this.opts) {
-    _client = Client(opts);
+  NotesService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Create a new note
@@ -28,8 +28,8 @@ class NotesService {
         return CreateResponse.Merr(body: err.b);
       }
       return CreateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class NotesService {
         return DeleteResponse.Merr(body: err.b);
       }
       return DeleteResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -74,8 +74,8 @@ class NotesService {
           yield EventsResponseData.fromJson(vo);
         }
       }
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -95,8 +95,8 @@ class NotesService {
         return ListResponse.Merr(body: err.b);
       }
       return ListResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -116,8 +116,8 @@ class NotesService {
         return ReadResponse.Merr(body: err.b);
       }
       return ReadResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -137,8 +137,8 @@ class NotesService {
         return UpdateResponse.Merr(body: err.b);
       }
       return UpdateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -147,11 +147,11 @@ class NotesService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// note text
-    String? text,
-
     /// note title
     String? title,
+
+    /// note text
+    String? text,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -237,12 +237,6 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Note with _$Note {
   const factory Note({
-    /// time at which the note was updated
-    String? updated,
-
-    /// time at which the note was created
-    String? created,
-
     /// unique id for the note, generated if not specified
     String? id,
 
@@ -251,6 +245,12 @@ class Note with _$Note {
 
     /// title of the note
     String? title,
+
+    /// time at which the note was updated
+    String? updated,
+
+    /// time at which the note was created
+    String? created,
   }) = _Note;
   factory Note.fromJson(Map<String, dynamic> json) => _$NoteFromJson(json);
 }

@@ -6,11 +6,11 @@ part 'user.freezed.dart';
 part 'user.g.dart';
 
 class UserService {
-  final Options opts;
   var _client;
+  final String token;
 
-  UserService(this.opts) {
-    _client = Client(opts);
+  UserService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Create a new user account. The email address and username for the account must be unique.
@@ -28,8 +28,8 @@ class UserService {
         return CreateResponse.Merr(body: err.b);
       }
       return CreateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class UserService {
         return DeleteResponse.Merr(body: err.b);
       }
       return DeleteResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -70,8 +70,8 @@ class UserService {
         return ListResponse.Merr(body: err.b);
       }
       return ListResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -92,8 +92,8 @@ class UserService {
         return LoginResponse.Merr(body: err.b);
       }
       return LoginResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -113,8 +113,8 @@ class UserService {
         return LogoutAllResponse.Merr(body: err.b);
       }
       return LogoutAllResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -134,8 +134,8 @@ class UserService {
         return LogoutResponse.Merr(body: err.b);
       }
       return LogoutResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -155,8 +155,8 @@ class UserService {
         return ReadResponse.Merr(body: err.b);
       }
       return ReadResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -176,8 +176,8 @@ class UserService {
         return ReadSessionResponse.Merr(body: err.b);
       }
       return ReadSessionResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -197,8 +197,8 @@ class UserService {
         return ResetPasswordResponse.Merr(body: err.b);
       }
       return ResetPasswordResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -218,8 +218,8 @@ class UserService {
         return SendMagicLinkResponse.Merr(body: err.b);
       }
       return SendMagicLinkResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -241,8 +241,8 @@ class UserService {
         return SendPasswordResetEmailResponse.Merr(body: err.b);
       }
       return SendPasswordResetEmailResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -263,8 +263,8 @@ class UserService {
         return SendVerificationEmailResponse.Merr(body: err.b);
       }
       return SendVerificationEmailResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -285,8 +285,8 @@ class UserService {
         return UpdatePasswordResponse.Merr(body: err.b);
       }
       return UpdatePasswordResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -306,8 +306,8 @@ class UserService {
         return UpdateResponse.Merr(body: err.b);
       }
       return UpdateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -327,8 +327,8 @@ class UserService {
         return VerifyEmailResponse.Merr(body: err.b);
       }
       return VerifyEmailResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -351,8 +351,8 @@ class UserService {
         return VerifyTokenResponse.Merr(body: err.b);
       }
       return VerifyTokenResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -611,11 +611,6 @@ class ResetPasswordResponse with _$ResetPasswordResponse {
 @Freezed()
 class SendMagicLinkRequest with _$SendMagicLinkRequest {
   const factory SendMagicLinkRequest({
-    /// Endpoint name where your http request handler handles MagicLink by
-    /// calling M3O VerifyToken endpoint. You can return as a result a success,
-    /// failed or redirect to another page.
-    String? endpoint,
-
     /// Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
     String? from_name,
     String? subject,
@@ -629,6 +624,11 @@ class SendMagicLinkRequest with _$SendMagicLinkRequest {
 
     /// the email address of the user
     String? email,
+
+    /// Endpoint name where your http request handler handles MagicLink by
+    /// calling M3O VerifyToken endpoint. You can return as a result a success,
+    /// failed or redirect to another page.
+    String? endpoint,
   }) = _SendMagicLinkRequest;
   factory SendMagicLinkRequest.fromJson(Map<String, dynamic> json) =>
       _$SendMagicLinkRequestFromJson(json);
@@ -646,10 +646,6 @@ class SendMagicLinkResponse with _$SendMagicLinkResponse {
 @Freezed()
 class SendPasswordResetEmailRequest with _$SendPasswordResetEmailRequest {
   const factory SendPasswordResetEmailRequest({
-    /// Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
-    /// HTML emails are not available currently.
-    String? text_content,
-
     /// email address to send reset for
     String? email,
 
@@ -661,6 +657,10 @@ class SendPasswordResetEmailRequest with _$SendPasswordResetEmailRequest {
 
     /// subject of the email
     String? subject,
+
+    /// Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
+    /// HTML emails are not available currently.
+    String? text_content,
   }) = _SendPasswordResetEmailRequest;
   factory SendPasswordResetEmailRequest.fromJson(Map<String, dynamic> json) =>
       _$SendPasswordResetEmailRequestFromJson(json);
@@ -679,9 +679,6 @@ class SendPasswordResetEmailResponse with _$SendPasswordResetEmailResponse {
 @Freezed()
 class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
   const factory SendVerificationEmailRequest({
-    /// email address to send the verification code
-    String? email,
-
     /// The url to redirect to incase of failure
     String? failure_redirect_url,
 
@@ -696,6 +693,9 @@ class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
 
     /// Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
     String? text_content,
+
+    /// email address to send the verification code
+    String? email,
   }) = _SendVerificationEmailRequest;
   factory SendVerificationEmailRequest.fromJson(Map<String, dynamic> json) =>
       _$SendVerificationEmailRequestFromJson(json);
@@ -714,17 +714,17 @@ class SendVerificationEmailResponse with _$SendVerificationEmailResponse {
 @Freezed()
 class Session with _$Session {
   const factory Session({
-    /// the session id
-    String? id,
-
-    /// the associated user id
-    String? userId,
-
     /// unix timestamp
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? created,
 
     /// unix timestamp
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? expires,
+
+    /// the session id
+    String? id,
+
+    /// the associated user id
+    String? userId,
   }) = _Session;
   factory Session.fromJson(Map<String, dynamic> json) =>
       _$SessionFromJson(json);
@@ -733,17 +733,17 @@ class Session with _$Session {
 @Freezed()
 class UpdatePasswordRequest with _$UpdatePasswordRequest {
   const factory UpdatePasswordRequest({
-    /// the old password
-    String? old_password,
-
-    /// the account id
-    String? userId,
-
     /// confirm new password
     String? confirm_password,
 
     /// the new password
     String? new_password,
+
+    /// the old password
+    String? old_password,
+
+    /// the account id
+    String? userId,
   }) = _UpdatePasswordRequest;
   factory UpdatePasswordRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdatePasswordRequestFromJson(json);
@@ -761,17 +761,17 @@ class UpdatePasswordResponse with _$UpdatePasswordResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// the new email address
-    String? email,
-
-    /// the account id
-    String? id,
-
     /// the user profile as map<string,string>
     Map<String, String>? profile,
 
     /// the new username
     String? username,
+
+    /// the new email address
+    String? email,
+
+    /// the account id
+    String? id,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

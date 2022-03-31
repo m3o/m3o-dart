@@ -6,11 +6,11 @@ part 'thumbnail.freezed.dart';
 part 'thumbnail.g.dart';
 
 class ThumbnailService {
-  final Options opts;
   var _client;
+  final String token;
 
-  ThumbnailService(this.opts) {
-    _client = Client(opts);
+  ThumbnailService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Create a thumbnail screenshot by passing in a url, height and width
@@ -28,8 +28,8 @@ class ThumbnailService {
         return ScreenshotResponse.Merr(body: err.b);
       }
       return ScreenshotResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }

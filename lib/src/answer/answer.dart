@@ -6,11 +6,11 @@ part 'answer.freezed.dart';
 part 'answer.g.dart';
 
 class AnswerService {
-  final Options opts;
   var _client;
+  final String token;
 
-  AnswerService(this.opts) {
-    _client = Client(opts);
+  AnswerService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Ask a question and receive an instant answer
@@ -28,8 +28,8 @@ class AnswerService {
         return QuestionResponse.Merr(body: err.b);
       }
       return QuestionResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -48,14 +48,14 @@ class QuestionRequest with _$QuestionRequest {
 @Freezed()
 class QuestionResponse with _$QuestionResponse {
   const factory QuestionResponse({
-    /// a related url
-    String? url,
-
     /// the answer to your question
     String? answer,
 
     /// any related image
     String? image,
+
+    /// a related url
+    String? url,
   }) = QuestionResponseData;
   const factory QuestionResponse.Merr({Map<String, dynamic>? body}) =
       QuestionResponseMerr;

@@ -15,17 +15,10 @@ a compilation of hadiths collected and written by an author.
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/sunnah/sunnah.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = SunnahService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = SunnahService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{};
 
@@ -39,9 +32,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (CollectionsResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -58,17 +51,10 @@ each with its own hadiths.
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/sunnah/sunnah.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = SunnahService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = SunnahService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "collection": "bukhari"
@@ -84,9 +70,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (BooksResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -102,17 +88,10 @@ Get all the chapters of a given book within a collection.
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/sunnah/sunnah.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = SunnahService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = SunnahService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "book": 1,
@@ -129,9 +108,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ChaptersResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -148,17 +127,10 @@ given book within a collection.
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/sunnah/sunnah.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = SunnahService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = SunnahService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "book": 1,
@@ -175,9 +147,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (HadithsResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

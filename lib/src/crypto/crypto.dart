@@ -6,11 +6,11 @@ part 'crypto.freezed.dart';
 part 'crypto.g.dart';
 
 class CryptoService {
-  final Options opts;
   var _client;
+  final String token;
 
-  CryptoService(this.opts) {
-    _client = Client(opts);
+  CryptoService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Returns the history for the previous close
@@ -28,8 +28,8 @@ class CryptoService {
         return HistoryResponse.Merr(body: err.b);
       }
       return HistoryResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class CryptoService {
         return NewsResponse.Merr(body: err.b);
       }
       return NewsResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -70,8 +70,8 @@ class CryptoService {
         return PriceResponse.Merr(body: err.b);
       }
       return PriceResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -91,8 +91,8 @@ class CryptoService {
         return QuoteResponse.Merr(body: err.b);
       }
       return QuoteResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -112,8 +112,8 @@ class CryptoService {
         return SymbolsResponse.Merr(body: err.b);
       }
       return SymbolsResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -122,9 +122,6 @@ class CryptoService {
 @Freezed()
 class Article with _$Article {
   const factory Article({
-    /// its description
-    String? description,
-
     /// the source
     String? source,
 
@@ -136,6 +133,9 @@ class Article with _$Article {
 
     /// the date published
     String? date,
+
+    /// its description
+    String? description,
   }) = _Article;
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);
@@ -154,6 +154,9 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
+    /// the close price
+    double? close,
+
     /// the date
     String? date,
 
@@ -171,9 +174,6 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the volume
     double? volume,
-
-    /// the close price
-    double? close,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -194,11 +194,11 @@ class NewsRequest with _$NewsRequest {
 @Freezed()
 class NewsResponse with _$NewsResponse {
   const factory NewsResponse({
-    /// symbol requested for
-    String? symbol,
-
     /// list of articles
     List<Article>? articles,
+
+    /// symbol requested for
+    String? symbol,
   }) = NewsResponseData;
   const factory NewsResponse.Merr({Map<String, dynamic>? body}) =
       NewsResponseMerr;
@@ -244,12 +244,6 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
-    /// the crypto symbol
-    String? symbol,
-
-    /// the UTC timestamp of the quote
-    String? timestamp,
-
     /// the asking price
     double? ask_price,
 
@@ -261,6 +255,12 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the bid size
     double? bid_size,
+
+    /// the crypto symbol
+    String? symbol,
+
+    /// the UTC timestamp of the quote
+    String? timestamp,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;

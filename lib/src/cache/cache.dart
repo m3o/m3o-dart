@@ -6,11 +6,11 @@ part 'cache.freezed.dart';
 part 'cache.g.dart';
 
 class CacheService {
-  final Options opts;
   var _client;
+  final String token;
 
-  CacheService(this.opts) {
-    _client = Client(opts);
+  CacheService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Decrement a value (if it's a number). If key not found it is equivalent to set.
@@ -28,8 +28,8 @@ class CacheService {
         return DecrementResponse.Merr(body: err.b);
       }
       return DecrementResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class CacheService {
         return DeleteResponse.Merr(body: err.b);
       }
       return DeleteResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -70,8 +70,8 @@ class CacheService {
         return GetResponse.Merr(body: err.b);
       }
       return GetResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -91,8 +91,8 @@ class CacheService {
         return IncrementResponse.Merr(body: err.b);
       }
       return IncrementResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -112,8 +112,8 @@ class CacheService {
         return ListKeysResponse.Merr(body: err.b);
       }
       return ListKeysResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -133,8 +133,8 @@ class CacheService {
         return SetResponse.Merr(body: err.b);
       }
       return SetResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -143,11 +143,11 @@ class CacheService {
 @Freezed()
 class DecrementRequest with _$DecrementRequest {
   const factory DecrementRequest({
-    /// The key to decrement
-    String? key,
-
     /// The amount to decrement the value by
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
+
+    /// The key to decrement
+    String? key,
   }) = _DecrementRequest;
   factory DecrementRequest.fromJson(Map<String, dynamic> json) =>
       _$DecrementRequestFromJson(json);
@@ -203,14 +203,14 @@ class GetRequest with _$GetRequest {
 @Freezed()
 class GetResponse with _$GetResponse {
   const factory GetResponse({
+    /// The value
+    String? value,
+
     /// The key
     String? key,
 
     /// Time to live in seconds
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
-
-    /// The value
-    String? value,
   }) = GetResponseData;
   const factory GetResponse.Merr({Map<String, dynamic>? body}) =
       GetResponseMerr;

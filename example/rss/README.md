@@ -14,17 +14,10 @@ Add a new RSS feed with a name, url, and category
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/rss/rss.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = RssService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = RssService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "category": "news",
@@ -42,9 +35,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (AddResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -60,17 +53,10 @@ Get an RSS feed by name. If no name is given, all feeds are returned. Default li
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/rss/rss.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = RssService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = RssService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "name": "bbc"
@@ -86,9 +72,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (FeedResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -104,17 +90,10 @@ List the saved RSS fields
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/rss/rss.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = RssService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = RssService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{};
 
@@ -128,9 +107,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -146,17 +125,10 @@ Remove an RSS feed by name
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/rss/rss.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = RssService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = RssService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "name": "bbc"
@@ -172,9 +144,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (RemoveResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

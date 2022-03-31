@@ -6,11 +6,11 @@ part 'youtube.freezed.dart';
 part 'youtube.g.dart';
 
 class YoutubeService {
-  final Options opts;
   var _client;
+  final String token;
 
-  YoutubeService(this.opts) {
-    _client = Client(opts);
+  YoutubeService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Embed a YouTube video
@@ -28,8 +28,8 @@ class YoutubeService {
         return EmbedResponse.Merr(body: err.b);
       }
       return EmbedResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class YoutubeService {
         return SearchResponse.Merr(body: err.b);
       }
       return SearchResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -112,18 +112,18 @@ class SearchResponse with _$SearchResponse {
 @Freezed()
 class SearchResult with _$SearchResult {
   const factory SearchResult({
-    /// id of the result
-    String? id,
+    /// the channel id
+    String? channel_id,
 
-    /// title of the result
-    String? title,
+    /// published at time
+    String? published_at,
+
+    /// the associated url
+    String? url,
 
     /// if live broadcast then indicates activity:
     /// none, upcoming, live, completed
     String? broadcasting,
-
-    /// the channel id
-    String? channel_id,
 
     /// the channel title
     String? channel_title,
@@ -131,14 +131,14 @@ class SearchResult with _$SearchResult {
     /// the result description
     String? description,
 
+    /// id of the result
+    String? id,
+
     /// kind of result: "video", "channel", "playlist"
     String? kind,
 
-    /// published at time
-    String? published_at,
-
-    /// the associated url
-    String? url,
+    /// title of the result
+    String? title,
   }) = _SearchResult;
   factory SearchResult.fromJson(Map<String, dynamic> json) =>
       _$SearchResultFromJson(json);

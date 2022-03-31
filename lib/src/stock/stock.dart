@@ -6,11 +6,11 @@ part 'stock.freezed.dart';
 part 'stock.g.dart';
 
 class StockService {
-  final Options opts;
   var _client;
+  final String token;
 
-  StockService(this.opts) {
-    _client = Client(opts);
+  StockService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Get the historic open-close for a given day
@@ -28,8 +28,8 @@ class StockService {
         return HistoryResponse.Merr(body: err.b);
       }
       return HistoryResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class StockService {
         return OrderBookResponse.Merr(body: err.b);
       }
       return OrderBookResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -70,8 +70,8 @@ class StockService {
         return PriceResponse.Merr(body: err.b);
       }
       return PriceResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -91,8 +91,8 @@ class StockService {
         return QuoteResponse.Merr(body: err.b);
       }
       return QuoteResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -101,11 +101,11 @@ class StockService {
 @Freezed()
 class HistoryRequest with _$HistoryRequest {
   const factory HistoryRequest({
-    /// date to retrieve as YYYY-MM-DD
-    String? date,
-
     /// the stock symbol e.g AAPL
     String? stock,
+
+    /// date to retrieve as YYYY-MM-DD
+    String? date,
   }) = _HistoryRequest;
   factory HistoryRequest.fromJson(Map<String, dynamic> json) =>
       _$HistoryRequestFromJson(json);
@@ -114,15 +114,6 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
-    /// the open price
-    double? open,
-
-    /// the stock symbol
-    String? symbol,
-
-    /// the volume
-    int? volume,
-
     /// the close price
     double? close,
 
@@ -134,6 +125,15 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the low price
     double? low,
+
+    /// the open price
+    double? open,
+
+    /// the stock symbol
+    String? symbol,
+
+    /// the volume
+    int? volume,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;

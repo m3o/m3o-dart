@@ -14,17 +14,10 @@ Get the current time
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/time/time.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = TimeService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = TimeService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{};
 
@@ -38,9 +31,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (NowResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -56,17 +49,10 @@ Get the timezone info for a specific location
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/time/time.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = TimeService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = TimeService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "location": "London"
@@ -82,9 +68,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ZoneResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

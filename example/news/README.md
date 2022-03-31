@@ -14,17 +14,10 @@ Get the latest news headlines
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/news/news.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = NewsService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = NewsService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "date": "2021-11-24",
@@ -42,9 +35,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (HeadlinesResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

@@ -6,11 +6,11 @@ part 'carbon.freezed.dart';
 part 'carbon.g.dart';
 
 class CarbonService {
-  final Options opts;
   var _client;
+  final String token;
 
-  CarbonService(this.opts) {
-    _client = Client(opts);
+  CarbonService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Purchase 1KG (0.001 tonne) of carbon offsets in a single request
@@ -28,8 +28,8 @@ class CarbonService {
         return OffsetResponse.Merr(body: err.b);
       }
       return OffsetResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -45,6 +45,9 @@ class OffsetRequest with _$OffsetRequest {
 @Freezed()
 class OffsetResponse with _$OffsetResponse {
   const factory OffsetResponse({
+    /// the metric used e.g KG or Tonnes
+    String? metric,
+
     /// projects it was allocated to
     List<Project>? projects,
 
@@ -53,9 +56,6 @@ class OffsetResponse with _$OffsetResponse {
 
     /// number of units purchased
     int? units,
-
-    /// the metric used e.g KG or Tonnes
-    String? metric,
   }) = OffsetResponseData;
   const factory OffsetResponse.Merr({Map<String, dynamic>? body}) =
       OffsetResponseMerr;
@@ -66,14 +66,14 @@ class OffsetResponse with _$OffsetResponse {
 @Freezed()
 class Project with _$Project {
   const factory Project({
-    /// name of the project
-    String? name,
-
     /// percentage that went to this
     double? percentage,
 
     /// amount in tonnes
     double? tonnes,
+
+    /// name of the project
+    String? name,
   }) = _Project;
   factory Project.fromJson(Map<String, dynamic> json) =>
       _$ProjectFromJson(json);

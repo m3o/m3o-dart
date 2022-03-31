@@ -14,17 +14,10 @@ Search for videos on Google
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/google/google.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = GoogleService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = GoogleService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "query": "how to make donuts"
@@ -40,9 +33,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

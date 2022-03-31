@@ -14,17 +14,10 @@ Lookup returns a geocoded address including normalized address and gps coordinat
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/geocoding/geocoding.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = GeocodingService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = GeocodingService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "address": "10 russell st",
@@ -43,9 +36,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (LookupResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -61,17 +54,10 @@ Reverse lookup an address from gps coordinates
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/geocoding/geocoding.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = GeocodingService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = GeocodingService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "latitude": 51.5123064,
@@ -88,9 +74,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ReverseResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

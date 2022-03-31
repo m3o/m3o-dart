@@ -4,51 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/file/api](http
 
 Endpoints:
 
-## Delete
-
-Delete a file by project name/path
-
-
-[https://m3o.com/file/api#Delete](https://m3o.com/file/api#Delete)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/client/client.dart';
-import 'package:m3o/src/file/file.dart';
-
-void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = FileService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
- 
-  final payload = <String, dynamic>{
-  "path": "/document/text-files/file.txt",
-  "project": "examples"
-,};
-
-  DeleteRequest req = DeleteRequest.fromJson(payload);
-
-  
-  try {
-
-	DeleteResponse res = await ser.delete(req);
-
-    res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, stack) {
-    print(e);
-	print(stack);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Save
 
 Save a file
@@ -59,17 +14,10 @@ Save a file
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/file/file.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = FileService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = FileService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "file": {
@@ -89,9 +37,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (SaveResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -107,17 +55,10 @@ List files by their project and optionally a path.
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/file/file.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = FileService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = FileService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "project": "examples"
@@ -133,9 +74,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -151,17 +92,10 @@ Read a file by path
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/file/file.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = FileService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = FileService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "path": "/document/text-files/file.txt",
@@ -178,9 +112,47 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ReadResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Delete
+
+Delete a file by project name/path
+
+
+[https://m3o.com/file/api#Delete](https://m3o.com/file/api#Delete)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/file/file.dart';
+
+void main() async {
+  final ser = FileService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "path": "/document/text-files/file.txt",
+  "project": "examples"
+,};
+
+  DeleteRequest req = DeleteRequest.fromJson(payload);
+
+  
+  try {
+
+	DeleteResponse res = await ser.delete(req);
+
+    res.map((value) => print(value),
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, st) {
+    print(e);
+	print(st);
   } finally {
     exit(0);
   }

@@ -14,17 +14,10 @@ Generate a QR code with a specific text and size
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/qr/qr.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = QrService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = QrService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "size": 300,
@@ -41,9 +34,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (GenerateResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

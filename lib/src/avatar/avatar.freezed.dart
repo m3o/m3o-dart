@@ -23,12 +23,12 @@ class _$GenerateRequestTearOff {
   const _$GenerateRequestTearOff();
 
   _GenerateRequest call(
-      {String? format, String? gender, bool? upload, String? username}) {
+      {String? gender, bool? upload, String? username, String? format}) {
     return _GenerateRequest(
-      format: format,
       gender: gender,
       upload: upload,
       username: username,
+      format: format,
     );
   }
 
@@ -42,9 +42,6 @@ const $GenerateRequest = _$GenerateRequestTearOff();
 
 /// @nodoc
 mixin _$GenerateRequest {
-  /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
-  String? get format => throw _privateConstructorUsedError;
-
   /// avatar's gender: `male` or `female`; default is `male`
   String? get gender => throw _privateConstructorUsedError;
 
@@ -55,6 +52,9 @@ mixin _$GenerateRequest {
   /// if empty, every request generates a random avatar;
   /// if upload == true, username will be the CDN filename rather than a random uuid string
   String? get username => throw _privateConstructorUsedError;
+
+  /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
+  String? get format => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -67,7 +67,7 @@ abstract class $GenerateRequestCopyWith<$Res> {
   factory $GenerateRequestCopyWith(
           GenerateRequest value, $Res Function(GenerateRequest) then) =
       _$GenerateRequestCopyWithImpl<$Res>;
-  $Res call({String? format, String? gender, bool? upload, String? username});
+  $Res call({String? gender, bool? upload, String? username, String? format});
 }
 
 /// @nodoc
@@ -81,16 +81,12 @@ class _$GenerateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? format = freezed,
     Object? gender = freezed,
     Object? upload = freezed,
     Object? username = freezed,
+    Object? format = freezed,
   }) {
     return _then(_value.copyWith(
-      format: format == freezed
-          ? _value.format
-          : format // ignore: cast_nullable_to_non_nullable
-              as String?,
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -103,6 +99,10 @@ class _$GenerateRequestCopyWithImpl<$Res>
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String?,
+      format: format == freezed
+          ? _value.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -114,7 +114,7 @@ abstract class _$GenerateRequestCopyWith<$Res>
           _GenerateRequest value, $Res Function(_GenerateRequest) then) =
       __$GenerateRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? format, String? gender, bool? upload, String? username});
+  $Res call({String? gender, bool? upload, String? username, String? format});
 }
 
 /// @nodoc
@@ -130,16 +130,12 @@ class __$GenerateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? format = freezed,
     Object? gender = freezed,
     Object? upload = freezed,
     Object? username = freezed,
+    Object? format = freezed,
   }) {
     return _then(_GenerateRequest(
-      format: format == freezed
-          ? _value.format
-          : format // ignore: cast_nullable_to_non_nullable
-              as String?,
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -152,6 +148,10 @@ class __$GenerateRequestCopyWithImpl<$Res>
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String?,
+      format: format == freezed
+          ? _value.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -160,15 +160,11 @@ class __$GenerateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GenerateRequest implements _GenerateRequest {
   const _$_GenerateRequest(
-      {this.format, this.gender, this.upload, this.username});
+      {this.gender, this.upload, this.username, this.format});
 
   factory _$_GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_GenerateRequestFromJson(json);
 
-  @override
-
-  /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
-  final String? format;
   @override
 
   /// avatar's gender: `male` or `female`; default is `male`
@@ -183,10 +179,14 @@ class _$_GenerateRequest implements _GenerateRequest {
   /// if empty, every request generates a random avatar;
   /// if upload == true, username will be the CDN filename rather than a random uuid string
   final String? username;
+  @override
+
+  /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
+  final String? format;
 
   @override
   String toString() {
-    return 'GenerateRequest(format: $format, gender: $gender, upload: $upload, username: $username)';
+    return 'GenerateRequest(gender: $gender, upload: $upload, username: $username, format: $format)';
   }
 
   @override
@@ -194,19 +194,19 @@ class _$_GenerateRequest implements _GenerateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _GenerateRequest &&
-            const DeepCollectionEquality().equals(other.format, format) &&
             const DeepCollectionEquality().equals(other.gender, gender) &&
             const DeepCollectionEquality().equals(other.upload, upload) &&
-            const DeepCollectionEquality().equals(other.username, username));
+            const DeepCollectionEquality().equals(other.username, username) &&
+            const DeepCollectionEquality().equals(other.format, format));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(format),
       const DeepCollectionEquality().hash(gender),
       const DeepCollectionEquality().hash(upload),
-      const DeepCollectionEquality().hash(username));
+      const DeepCollectionEquality().hash(username),
+      const DeepCollectionEquality().hash(format));
 
   @JsonKey(ignore: true)
   @override
@@ -221,18 +221,14 @@ class _$_GenerateRequest implements _GenerateRequest {
 
 abstract class _GenerateRequest implements GenerateRequest {
   const factory _GenerateRequest(
-      {String? format,
-      String? gender,
+      {String? gender,
       bool? upload,
-      String? username}) = _$_GenerateRequest;
+      String? username,
+      String? format}) = _$_GenerateRequest;
 
   factory _GenerateRequest.fromJson(Map<String, dynamic> json) =
       _$_GenerateRequest.fromJson;
 
-  @override
-
-  /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
-  String? get format;
   @override
 
   /// avatar's gender: `male` or `female`; default is `male`
@@ -247,6 +243,10 @@ abstract class _GenerateRequest implements GenerateRequest {
   /// if empty, every request generates a random avatar;
   /// if upload == true, username will be the CDN filename rather than a random uuid string
   String? get username;
+  @override
+
+  /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
+  String? get format;
   @override
   @JsonKey(ignore: true)
   _$GenerateRequestCopyWith<_GenerateRequest> get copyWith =>
@@ -270,10 +270,10 @@ GenerateResponse _$GenerateResponseFromJson(Map<String, dynamic> json) {
 class _$GenerateResponseTearOff {
   const _$GenerateResponseTearOff();
 
-  GenerateResponseData call({String? url, String? base64}) {
+  GenerateResponseData call({String? base64, String? url}) {
     return GenerateResponseData(
-      url: url,
       base64: base64,
+      url: url,
     );
   }
 
@@ -295,19 +295,19 @@ const $GenerateResponse = _$GenerateResponseTearOff();
 mixin _$GenerateResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? url, String? base64) $default, {
+    TResult Function(String? base64, String? url) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? url, String? base64)? $default, {
+    TResult Function(String? base64, String? url)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? url, String? base64)? $default, {
+    TResult Function(String? base64, String? url)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -356,7 +356,7 @@ abstract class $GenerateResponseDataCopyWith<$Res> {
   factory $GenerateResponseDataCopyWith(GenerateResponseData value,
           $Res Function(GenerateResponseData) then) =
       _$GenerateResponseDataCopyWithImpl<$Res>;
-  $Res call({String? url, String? base64});
+  $Res call({String? base64, String? url});
 }
 
 /// @nodoc
@@ -372,17 +372,17 @@ class _$GenerateResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? url = freezed,
     Object? base64 = freezed,
+    Object? url = freezed,
   }) {
     return _then(GenerateResponseData(
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
       base64: base64 == freezed
           ? _value.base64
           : base64 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -391,7 +391,7 @@ class _$GenerateResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$GenerateResponseData implements GenerateResponseData {
-  const _$GenerateResponseData({this.url, this.base64, String? $type})
+  const _$GenerateResponseData({this.base64, this.url, String? $type})
       : $type = $type ?? 'default';
 
   factory _$GenerateResponseData.fromJson(Map<String, dynamic> json) =>
@@ -399,19 +399,19 @@ class _$GenerateResponseData implements GenerateResponseData {
 
   @override
 
-  /// M3O's CDN url of the avatar image
-  final String? url;
-  @override
-
   /// base64 encoded string of the avatar image
   final String? base64;
+  @override
+
+  /// M3O's CDN url of the avatar image
+  final String? url;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'GenerateResponse(url: $url, base64: $base64)';
+    return 'GenerateResponse(base64: $base64, url: $url)';
   }
 
   @override
@@ -419,15 +419,15 @@ class _$GenerateResponseData implements GenerateResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is GenerateResponseData &&
-            const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality().equals(other.base64, base64));
+            const DeepCollectionEquality().equals(other.base64, base64) &&
+            const DeepCollectionEquality().equals(other.url, url));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(base64));
+      const DeepCollectionEquality().hash(base64),
+      const DeepCollectionEquality().hash(url));
 
   @JsonKey(ignore: true)
   @override
@@ -438,30 +438,30 @@ class _$GenerateResponseData implements GenerateResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? url, String? base64) $default, {
+    TResult Function(String? base64, String? url) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(url, base64);
+    return $default(base64, url);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? url, String? base64)? $default, {
+    TResult Function(String? base64, String? url)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(url, base64);
+    return $default?.call(base64, url);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? url, String? base64)? $default, {
+    TResult Function(String? base64, String? url)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(url, base64);
+      return $default(base64, url);
     }
     return orElse();
   }
@@ -504,17 +504,17 @@ class _$GenerateResponseData implements GenerateResponseData {
 }
 
 abstract class GenerateResponseData implements GenerateResponse {
-  const factory GenerateResponseData({String? url, String? base64}) =
+  const factory GenerateResponseData({String? base64, String? url}) =
       _$GenerateResponseData;
 
   factory GenerateResponseData.fromJson(Map<String, dynamic> json) =
       _$GenerateResponseData.fromJson;
 
-  /// M3O's CDN url of the avatar image
-  String? get url;
-
   /// base64 encoded string of the avatar image
   String? get base64;
+
+  /// M3O's CDN url of the avatar image
+  String? get url;
   @JsonKey(ignore: true)
   $GenerateResponseDataCopyWith<GenerateResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -593,7 +593,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? url, String? base64) $default, {
+    TResult Function(String? base64, String? url) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -602,7 +602,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? url, String? base64)? $default, {
+    TResult Function(String? base64, String? url)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -611,7 +611,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? url, String? base64)? $default, {
+    TResult Function(String? base64, String? url)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {

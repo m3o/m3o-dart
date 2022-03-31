@@ -6,11 +6,11 @@ part 'vehicle.freezed.dart';
 part 'vehicle.g.dart';
 
 class VehicleService {
-  final Options opts;
   var _client;
+  final String token;
 
-  VehicleService(this.opts) {
-    _client = Client(opts);
+  VehicleService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Lookup a UK vehicle by it's registration number
@@ -28,8 +28,8 @@ class VehicleService {
         return LookupResponse.Merr(body: err.b);
       }
       return LookupResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -54,26 +54,23 @@ class LookupResponse with _$LookupResponse {
     /// fuel type e.g petrol, diesel
     String? fuel_type,
 
-    /// make of vehicle
-    String? make,
+    /// month of first registration
+    String? month_of_first_registration,
 
-    /// registration number
-    String? registration,
+    /// date of last v5 issue
+    String? last_v5_issued,
 
-    /// type approvale
-    String? type_approval,
-
-    /// wheel plan
-    String? wheelplan,
-
-    /// co2 emmissions
-    double? co2_emissions,
+    /// url of logo for the make
+    String? logo_url,
 
     /// mot expiry
     String? mot_expiry,
 
-    /// mot status
-    String? mot_status,
+    /// registration number
+    String? registration,
+
+    /// tax due data
+    String? tax_due_date,
 
     /// year of manufacture
     int? year_of_manufacture,
@@ -81,20 +78,23 @@ class LookupResponse with _$LookupResponse {
     /// engine capacity
     int? engine_capacity,
 
-    /// month of first registration
-    String? month_of_first_registration,
+    /// make of vehicle
+    String? make,
 
-    /// tax due data
-    String? tax_due_date,
+    /// wheel plan
+    String? wheelplan,
+
+    /// co2 emmissions
+    double? co2_emissions,
+
+    /// mot status
+    String? mot_status,
 
     /// tax status
     String? tax_status,
 
-    /// date of last v5 issue
-    String? last_v5_issued,
-
-    /// url of logo for the make
-    String? logo_url,
+    /// type approvale
+    String? type_approval,
   }) = LookupResponseData;
   const factory LookupResponse.Merr({Map<String, dynamic>? body}) =
       LookupResponseMerr;

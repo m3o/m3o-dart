@@ -14,17 +14,10 @@ Ping a HTTP URL
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/ping/ping.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = PingService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = PingService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "address": "google.com"
@@ -40,9 +33,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (UrlResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -58,17 +51,10 @@ Ping an IP address
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/ping/ping.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = PingService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = PingService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "address": "google.com"
@@ -84,9 +70,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (IpResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -102,17 +88,10 @@ Ping a TCP port is open
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/ping/ping.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = PingService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = PingService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "address": "google.com:80"
@@ -128,9 +107,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (TcpResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

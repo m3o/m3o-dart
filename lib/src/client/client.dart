@@ -11,11 +11,10 @@ part 'client.g.dart';
 const liveAddress = 'https://api.m3o.com';
 
 class Client {
- // Token for authentication
+  // Token for authentication
   final String token;
 
   Client({required this.token}) {}
-
 
   // Call enables you to access any endpoint of any service on Micro
   Future<Response> call(Request request) async {

@@ -6,11 +6,11 @@ part 'search.freezed.dart';
 part 'search.g.dart';
 
 class SearchService {
-  final Options opts;
   var _client;
+  final String token;
 
-  SearchService(this.opts) {
-    _client = Client(opts);
+  SearchService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Create an index by name
@@ -28,8 +28,8 @@ class SearchService {
         return CreateIndexResponse.Merr(body: err.b);
       }
       return CreateIndexResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class SearchService {
         return DeleteIndexResponse.Merr(body: err.b);
       }
       return DeleteIndexResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -70,8 +70,8 @@ class SearchService {
         return DeleteResponse.Merr(body: err.b);
       }
       return DeleteResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -91,8 +91,8 @@ class SearchService {
         return IndexResponse.Merr(body: err.b);
       }
       return IndexResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -112,8 +112,8 @@ class SearchService {
         return SearchResponse.Merr(body: err.b);
       }
       return SearchResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -194,14 +194,14 @@ class Field with _$Field {
 @Freezed()
 class IndexRequest with _$IndexRequest {
   const factory IndexRequest({
+    /// The index this record belongs to
+    String? index,
+
     /// The data to index
     Map<String, dynamic>? data,
 
     /// Optional ID for the record
     String? id,
-
-    /// The index this record belongs to
-    String? index,
   }) = _IndexRequest;
   factory IndexRequest.fromJson(Map<String, dynamic> json) =>
       _$IndexRequestFromJson(json);

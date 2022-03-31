@@ -6,11 +6,11 @@ part 'app.freezed.dart';
 part 'app.g.dart';
 
 class AppService {
-  final Options opts;
   var _client;
+  final String token;
 
-  AppService(this.opts) {
-    _client = Client(opts);
+  AppService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Delete an app
@@ -28,8 +28,8 @@ class AppService {
         return DeleteResponse.Merr(body: err.b);
       }
       return DeleteResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class AppService {
         return ListResponse.Merr(body: err.b);
       }
       return ListResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -70,8 +70,8 @@ class AppService {
         return LogsResponse.Merr(body: err.b);
       }
       return LogsResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -91,8 +91,8 @@ class AppService {
         return RegionsResponse.Merr(body: err.b);
       }
       return RegionsResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -112,8 +112,8 @@ class AppService {
         return ReserveResponse.Merr(body: err.b);
       }
       return ReserveResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -133,8 +133,8 @@ class AppService {
         return ResolveResponse.Merr(body: err.b);
       }
       return ResolveResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -154,8 +154,8 @@ class AppService {
         return RunResponse.Merr(body: err.b);
       }
       return RunResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -175,8 +175,8 @@ class AppService {
         return StatusResponse.Merr(body: err.b);
       }
       return StatusResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -196,8 +196,8 @@ class AppService {
         return UpdateResponse.Merr(body: err.b);
       }
       return UpdateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -352,15 +352,6 @@ class ResolveResponse with _$ResolveResponse {
 @Freezed()
 class RunRequest with _$RunRequest {
   const factory RunRequest({
-    /// source repository
-    String? repo,
-
-    /// branch. defaults to master
-    String? branch,
-
-    /// associated env vars to pass in
-    Map<String, String>? env_vars,
-
     /// name of the app
     String? name,
 
@@ -369,6 +360,15 @@ class RunRequest with _$RunRequest {
 
     /// region to run in
     String? region,
+
+    /// source repository
+    String? repo,
+
+    /// branch. defaults to master
+    String? branch,
+
+    /// associated env vars to pass in
+    Map<String, String>? env_vars,
   }) = _RunRequest;
   factory RunRequest.fromJson(Map<String, dynamic> json) =>
       _$RunRequestFromJson(json);
@@ -389,23 +389,8 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
-    /// region running in
-    String? region,
-
     /// associated env vars
     Map<String, String>? env_vars,
-
-    /// time of creation
-    String? created,
-
-    /// custom domains
-    List<String>? custom_domains,
-
-    /// unique id
-    String? id,
-
-    /// name of the app
-    String? name,
 
     /// port running on
     int? port,
@@ -416,14 +401,29 @@ class Service with _$Service {
     /// status of the app
     String? status,
 
-    /// branch of code
-    String? branch,
+    /// time of creation
+    String? created,
+
+    /// custom domains
+    List<String>? custom_domains,
+
+    /// name of the app
+    String? name,
+
+    /// region running in
+    String? region,
+
+    /// last updated
+    String? updated,
 
     /// app url
     String? url,
 
-    /// last updated
-    String? updated,
+    /// branch of code
+    String? branch,
+
+    /// unique id
+    String? id,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);

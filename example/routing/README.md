@@ -14,17 +14,10 @@ Get the eta for a route from origin to destination. The eta is an estimated time
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/routing/routing.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = RoutingService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = RoutingService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "destination": {
@@ -47,9 +40,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (EtaResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -65,17 +58,10 @@ Turn by turn directions from a start point to an end point including maneuvers a
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/routing/routing.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = RoutingService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = RoutingService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "destination": {
@@ -98,9 +84,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (DirectionsResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -116,17 +102,10 @@ Retrieve a route as a simple list of gps points along with total distance and es
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/routing/routing.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = RoutingService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = RoutingService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "destination": {
@@ -149,9 +128,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (RouteResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

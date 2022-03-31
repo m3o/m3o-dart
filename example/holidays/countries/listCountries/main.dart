@@ -1,16 +1,9 @@
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/holidays/holidays.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = HolidaysService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = HolidaysService(Platform.environment['M3O_API_TOKEN']!);
 
   final payload = <String, dynamic>{};
 
@@ -21,9 +14,9 @@ void main() async {
 
     res.map((value) => print(value),
         Merr: (CountriesResponseMerr err) => print(err.body!['body']));
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-    print(stack);
+    print(st);
   } finally {
     exit(0);
   }

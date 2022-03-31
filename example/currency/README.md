@@ -14,17 +14,10 @@ Codes returns the supported currency codes for the API
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/currency/currency.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = CurrencyService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = CurrencyService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{};
 
@@ -38,9 +31,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (CodesResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -56,17 +49,10 @@ Rates returns the currency rates for a given code e.g USD
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/currency/currency.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = CurrencyService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = CurrencyService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "code": "USD"
@@ -82,9 +68,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (RatesResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -100,17 +86,10 @@ Convert returns the currency conversion rate between two pairs e.g USD/GBP
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/currency/currency.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = CurrencyService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = CurrencyService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "from": "USD",
@@ -127,9 +106,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ConvertResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -145,17 +124,10 @@ Convert returns the currency conversion rate between two pairs e.g USD/GBP
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/currency/currency.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = CurrencyService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = CurrencyService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "amount": 10,
@@ -173,9 +145,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ConvertResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -191,17 +163,10 @@ Returns the historic rates for a currency on a given date
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/currency/currency.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = CurrencyService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = CurrencyService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "code": "USD",
@@ -218,9 +183,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

@@ -6,11 +6,11 @@ part 'location.freezed.dart';
 part 'location.g.dart';
 
 class LocationService {
-  final Options opts;
   var _client;
+  final String token;
 
-  LocationService(this.opts) {
-    _client = Client(opts);
+  LocationService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Read an entity by its ID
@@ -28,8 +28,8 @@ class LocationService {
         return ReadResponse.Merr(body: err.b);
       }
       return ReadResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class LocationService {
         return SaveResponse.Merr(body: err.b);
       }
       return SaveResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -70,8 +70,8 @@ class LocationService {
         return SearchResponse.Merr(body: err.b);
       }
       return SearchResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }

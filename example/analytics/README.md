@@ -14,17 +14,10 @@ Track an event, it will be created if it doesn't exist
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/analytics/analytics.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = AnalyticsService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = AnalyticsService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "name": "click"
@@ -40,9 +33,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (TrackResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -58,17 +51,10 @@ Get a single event
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/analytics/analytics.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = AnalyticsService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = AnalyticsService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "name": "click"
@@ -84,9 +70,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ReadResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -102,17 +88,10 @@ List all events
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/analytics/analytics.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = AnalyticsService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = AnalyticsService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{};
 
@@ -126,9 +105,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -144,17 +123,10 @@ Delete an event
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/analytics/analytics.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = AnalyticsService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = AnalyticsService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "name": "click"
@@ -170,9 +142,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

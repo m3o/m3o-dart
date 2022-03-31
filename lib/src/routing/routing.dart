@@ -6,11 +6,11 @@ part 'routing.freezed.dart';
 part 'routing.g.dart';
 
 class RoutingService {
-  final Options opts;
   var _client;
+  final String token;
 
-  RoutingService(this.opts) {
-    _client = Client(opts);
+  RoutingService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Turn by turn directions from a start point to an end point including maneuvers and bearings
@@ -28,8 +28,8 @@ class RoutingService {
         return DirectionsResponse.Merr(body: err.b);
       }
       return DirectionsResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class RoutingService {
         return EtaResponse.Merr(body: err.b);
       }
       return EtaResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -70,8 +70,8 @@ class RoutingService {
         return RouteResponse.Merr(body: err.b);
       }
       return RouteResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -121,9 +121,6 @@ class DirectionsRequest with _$DirectionsRequest {
 @Freezed()
 class DirectionsResponse with _$DirectionsResponse {
   const factory DirectionsResponse({
-    /// Turn by turn directions
-    List<Direction>? directions,
-
     /// Estimated distance of the route in meters
     double? distance,
 
@@ -132,6 +129,9 @@ class DirectionsResponse with _$DirectionsResponse {
 
     /// The waypoints on the route
     List<Waypoint>? waypoints,
+
+    /// Turn by turn directions
+    List<Direction>? directions,
   }) = DirectionsResponseData;
   const factory DirectionsResponse.Merr({Map<String, dynamic>? body}) =
       DirectionsResponseMerr;
@@ -183,11 +183,11 @@ class Intersection with _$Intersection {
 @Freezed()
 class Maneuver with _$Maneuver {
   const factory Maneuver({
-    String? action,
     double? bearing_after,
     double? bearing_before,
     String? direction,
     Point? location,
+    String? action,
   }) = _Maneuver;
   factory Maneuver.fromJson(Map<String, dynamic> json) =>
       _$ManeuverFromJson(json);
@@ -221,14 +221,14 @@ class RouteRequest with _$RouteRequest {
 @Freezed()
 class RouteResponse with _$RouteResponse {
   const factory RouteResponse({
+    /// estimated duration in seconds
+    double? duration,
+
     /// waypoints on the route
     List<Waypoint>? waypoints,
 
     /// estimated distance in meters
     double? distance,
-
-    /// estimated duration in seconds
-    double? duration,
   }) = RouteResponseData;
   const factory RouteResponse.Merr({Map<String, dynamic>? body}) =
       RouteResponseMerr;

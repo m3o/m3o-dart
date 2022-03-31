@@ -14,17 +14,10 @@ Basic text translation
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/translate/translate.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = TranslateService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = TranslateService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "content": "hello",
@@ -44,9 +37,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (TextResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

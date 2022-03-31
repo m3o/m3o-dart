@@ -6,11 +6,11 @@ part 'time.freezed.dart';
 part 'time.g.dart';
 
 class TimeService {
-  final Options opts;
   var _client;
+  final String token;
 
-  TimeService(this.opts) {
-    _client = Client(opts);
+  TimeService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Get the current time
@@ -28,8 +28,8 @@ class TimeService {
         return NowResponse.Merr(body: err.b);
       }
       return NowResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class TimeService {
         return ZoneResponse.Merr(body: err.b);
       }
       return ZoneResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -69,6 +69,9 @@ class NowRequest with _$NowRequest {
 @Freezed()
 class NowResponse with _$NowResponse {
   const factory NowResponse({
+    /// the current time as HH:MM:SS
+    String? localtime,
+
     /// the location as Europe/London
     String? location,
 
@@ -80,9 +83,6 @@ class NowResponse with _$NowResponse {
 
     /// the unix timestamp
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? unix,
-
-    /// the current time as HH:MM:SS
-    String? localtime,
   }) = NowResponseData;
   const factory NowResponse.Merr({Map<String, dynamic>? body}) =
       NowResponseMerr;
@@ -103,23 +103,11 @@ class ZoneRequest with _$ZoneRequest {
 @Freezed()
 class ZoneResponse with _$ZoneResponse {
   const factory ZoneResponse({
-    /// the local time
-    String? localtime,
-
-    /// e.g -0.37
-    double? longitude,
-
-    /// the timezone e.g Europe/London
-    String? timezone,
-
     /// the abbreviated code e.g BST
     String? abbreviation,
 
-    /// is daylight savings
-    bool? dst,
-
-    /// location requested
-    String? location,
+    /// e.g 51.42
+    double? latitude,
 
     /// UTC offset in hours
     int? offset,
@@ -130,8 +118,20 @@ class ZoneResponse with _$ZoneResponse {
     /// country of the timezone
     String? country,
 
-    /// e.g 51.42
-    double? latitude,
+    /// is daylight savings
+    bool? dst,
+
+    /// the local time
+    String? localtime,
+
+    /// location requested
+    String? location,
+
+    /// e.g -0.37
+    double? longitude,
+
+    /// the timezone e.g Europe/London
+    String? timezone,
   }) = ZoneResponseData;
   const factory ZoneResponse.Merr({Map<String, dynamic>? body}) =
       ZoneResponseMerr;

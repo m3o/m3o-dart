@@ -14,17 +14,10 @@ Publish a message. Specify a topic to group messages for a specific topic.
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/mq/mq.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = MqService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = MqService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "message": {
@@ -45,9 +38,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (PublishResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -63,17 +56,10 @@ Subscribe to messages for a given topic.
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/mq/mq.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = MqService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = MqService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "topic": "events"
@@ -91,9 +77,9 @@ void main() async {
 	  sr.map((value) => print(value),
 		Merr: (SubscribeResponseMerr err) => print(err.body));
 	  }
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

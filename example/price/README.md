@@ -14,17 +14,10 @@ Add a price
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/price/price.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = PriceService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = PriceService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "currency": "USD",
@@ -42,9 +35,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (AddResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -60,17 +53,10 @@ Get the price of anything
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/price/price.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = PriceService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = PriceService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "currency": "USD",
@@ -87,9 +73,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (GetResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -105,17 +91,10 @@ List prices for a given currency
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/price/price.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = PriceService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = PriceService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "currency": "GBP"
@@ -131,9 +110,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -149,17 +128,10 @@ Get the index for available prices
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/price/price.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = PriceService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = PriceService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{};
 
@@ -173,9 +145,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (IndexResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -191,17 +163,10 @@ Report an invalid price
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/price/price.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = PriceService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = PriceService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "comment": "Price is not up to date",
@@ -219,9 +184,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ReportResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

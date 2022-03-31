@@ -6,11 +6,11 @@ part 'address.freezed.dart';
 part 'address.g.dart';
 
 class AddressService {
-  final Options opts;
   var _client;
+  final String token;
 
-  AddressService(this.opts) {
-    _client = Client(opts);
+  AddressService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Lookup a list of UK addresses by postcode
@@ -29,8 +29,8 @@ class AddressService {
         return LookupPostcodeResponse.Merr(body: err.b);
       }
       return LookupPostcodeResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -60,17 +60,14 @@ class LookupPostcodeResponse with _$LookupPostcodeResponse {
 @Freezed()
 class Record with _$Record {
   const factory Record({
-    /// building name
-    String? building_name,
+    /// the premise
+    String? premise,
 
-    /// the county
-    String? county,
+    /// the complete address
+    String? summary,
 
-    /// line one of address
-    String? line_one,
-
-    /// the postcode
-    String? postcode,
+    /// post town
+    String? town,
 
     /// line two of address
     String? line_two,
@@ -81,17 +78,20 @@ class Record with _$Record {
     /// organisation if present
     String? organisation,
 
-    /// the premise
-    String? premise,
+    /// the postcode
+    String? postcode,
+
+    /// building name
+    String? building_name,
+
+    /// the county
+    String? county,
+
+    /// line one of address
+    String? line_one,
 
     /// street name
     String? street,
-
-    /// the complete address
-    String? summary,
-
-    /// post town
-    String? town,
   }) = _Record;
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }

@@ -6,11 +6,11 @@ part 'currency.freezed.dart';
 part 'currency.g.dart';
 
 class CurrencyService {
-  final Options opts;
   var _client;
+  final String token;
 
-  CurrencyService(this.opts) {
-    _client = Client(opts);
+  CurrencyService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Codes returns the supported currency codes for the API
@@ -28,8 +28,8 @@ class CurrencyService {
         return CodesResponse.Merr(body: err.b);
       }
       return CodesResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class CurrencyService {
         return ConvertResponse.Merr(body: err.b);
       }
       return ConvertResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -70,8 +70,8 @@ class CurrencyService {
         return HistoryResponse.Merr(body: err.b);
       }
       return HistoryResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -91,8 +91,8 @@ class CurrencyService {
         return RatesResponse.Merr(body: err.b);
       }
       return RatesResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -101,11 +101,11 @@ class CurrencyService {
 @Freezed()
 class Code with _$Code {
   const factory Code({
-    /// e.g USD
-    String? name,
-
     /// e.g United States Dollar
     String? currency,
+
+    /// e.g USD
+    String? name,
   }) = _Code;
   factory Code.fromJson(Map<String, dynamic> json) => _$CodeFromJson(json);
 }
@@ -181,14 +181,14 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
+    /// The rate for the day as code:rate
+    Map<String, double>? rates,
+
     /// The code of the request
     String? code,
 
     /// The date requested
     String? date,
-
-    /// The rate for the day as code:rate
-    Map<String, double>? rates,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;

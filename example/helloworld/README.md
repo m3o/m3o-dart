@@ -14,17 +14,10 @@ Return a personalised Hello message
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/helloworld/helloworld.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = HelloworldService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = HelloworldService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "name": "John"
@@ -40,9 +33,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (CallResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -58,17 +51,10 @@ Stream a personalised Hello message
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/helloworld/helloworld.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = HelloworldService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = HelloworldService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "messages": 10,
@@ -87,9 +73,9 @@ void main() async {
 	  sr.map((value) => print(value),
 		Merr: (StreamResponseMerr err) => print(err.body));
 	  }
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }

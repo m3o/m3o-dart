@@ -6,11 +6,11 @@ part 'ip.freezed.dart';
 part 'ip.g.dart';
 
 class IpService {
-  final Options opts;
   var _client;
+  final String token;
 
-  IpService(this.opts) {
-    _client = Client(opts);
+  IpService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Lookup the geolocation information for an IP address
@@ -28,8 +28,8 @@ class IpService {
         return LookupResponse.Merr(body: err.b);
       }
       return LookupResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }

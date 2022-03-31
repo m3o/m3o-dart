@@ -6,11 +6,11 @@ part 'id.freezed.dart';
 part 'id.g.dart';
 
 class IdService {
-  final Options opts;
   var _client;
+  final String token;
 
-  IdService(this.opts) {
-    _client = Client(opts);
+  IdService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Generate a unique ID. Defaults to uuid.
@@ -28,8 +28,8 @@ class IdService {
         return GenerateResponse.Merr(body: err.b);
       }
       return GenerateResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -49,8 +49,8 @@ class IdService {
         return TypesResponse.Merr(body: err.b);
       }
       return TypesResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }

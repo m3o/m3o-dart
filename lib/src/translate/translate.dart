@@ -6,11 +6,11 @@ part 'translate.freezed.dart';
 part 'translate.g.dart';
 
 class TranslateService {
-  final Options opts;
   var _client;
+  final String token;
 
-  TranslateService(this.opts) {
-    _client = Client(opts);
+  TranslateService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Basic text translation
@@ -28,8 +28,8 @@ class TranslateService {
         return TextResponse.Merr(body: err.b);
       }
       return TextResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -38,9 +38,6 @@ class TranslateService {
 @Freezed()
 class TextRequest with _$TextRequest {
   const factory TextRequest({
-    /// The contents to be translated
-    String? content,
-
     /// The string format, `text` or `html`
     String? format,
 
@@ -55,6 +52,9 @@ class TextRequest with _$TextRequest {
     /// Target language, format in ISO-639-1 codes
     /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
     String? target,
+
+    /// The contents to be translated
+    String? content,
   }) = _TextRequest;
   factory TextRequest.fromJson(Map<String, dynamic> json) =>
       _$TextRequestFromJson(json);
@@ -75,14 +75,14 @@ class TextResponse with _$TextResponse {
 @Freezed()
 class Translation with _$Translation {
   const factory Translation({
-    /// The model used in translation
-    String? model,
-
     /// The source of the query string
     String? source,
 
     /// The translation result
     String? text,
+
+    /// The model used in translation
+    String? model,
   }) = _Translation;
   factory Translation.fromJson(Map<String, dynamic> json) =>
       _$TranslationFromJson(json);

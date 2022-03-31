@@ -6,11 +6,11 @@ part 'event.freezed.dart';
 part 'event.g.dart';
 
 class EventService {
-  final Options opts;
   var _client;
+  final String token;
 
-  EventService(this.opts) {
-    _client = Client(opts);
+  EventService(String token) : token = token {
+    _client = Client(token: token);
   }
 
   /// Consume events from a given topic.
@@ -32,8 +32,8 @@ class EventService {
           yield ConsumeResponseData.fromJson(vo);
         }
       }
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -53,8 +53,8 @@ class EventService {
         return PublishResponse.Merr(body: err.b);
       }
       return PublishResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -74,8 +74,8 @@ class EventService {
         return ReadResponse.Merr(body: err.b);
       }
       return ReadResponseData.fromJson(res.body);
-    } catch (e, stack) {
-      print(stack);
+    } catch (e, st) {
+      print(st);
       throw Exception(e);
     }
   }
@@ -100,6 +100,9 @@ class ConsumeRequest with _$ConsumeRequest {
 @Freezed()
 class ConsumeResponse with _$ConsumeResponse {
   const factory ConsumeResponse({
+    /// The topic subscribed to
+    String? topic,
+
     /// Unique message id
     String? id,
 
@@ -108,9 +111,6 @@ class ConsumeResponse with _$ConsumeResponse {
 
     /// Timestamp of publishing
     String? timestamp,
-
-    /// The topic subscribed to
-    String? topic,
   }) = ConsumeResponseData;
   const factory ConsumeResponse.Merr({Map<String, dynamic>? body}) =
       ConsumeResponseMerr;
@@ -158,14 +158,14 @@ class PublishResponse with _$PublishResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
-    /// number of events to read; default 25
-    int? limit,
-
     /// offset for the events; default 0
     int? offset,
 
     /// topic to read from
     String? topic,
+
+    /// number of events to read; default 25
+    int? limit,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);

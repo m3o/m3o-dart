@@ -14,17 +14,10 @@ Search by giving a coordinate and a max distance, or bounding box and optional f
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/evchargers/evchargers.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = EvchargersService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = EvchargersService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "distance": 2000,
@@ -45,9 +38,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -63,17 +56,10 @@ Search by giving a coordinate and a max distance, or bounding box and optional f
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/evchargers/evchargers.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = EvchargersService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = EvchargersService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "box": {
@@ -99,9 +85,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -117,17 +103,10 @@ Search by giving a coordinate and a max distance, or bounding box and optional f
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/evchargers/evchargers.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = EvchargersService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = EvchargersService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
   "distance": 2000,
@@ -151,9 +130,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
@@ -169,17 +148,10 @@ Retrieve reference data as used by this API and in conjunction with the Search e
 ```dart
 import 'dart:io';
 
-import 'package:m3o/src/client/client.dart';
 import 'package:m3o/src/evchargers/evchargers.dart';
 
 void main() async {
-  final token = Platform.environment['M3O_API_TOKEN']!;
-  final ser = EvchargersService(
-    Options(
-      token: token,
-      address: liveAddress,
-    ),
-  );
+  final ser = EvchargersService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{};
 
@@ -193,9 +165,9 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ReferenceDataResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, stack) {
+  } catch (e, st) {
     print(e);
-	print(stack);
+	print(st);
   } finally {
     exit(0);
   }
