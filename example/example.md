@@ -1,20 +1,4 @@
-<p align="center">
-	<a href="https://discord.gg/TBR9bRjd6Z">
-		<img src="https://discordapp.com/api/guilds/861917584437805127/widget.png?style=banner2" alt="Discord Banner"/>
-	</a>
-</p>
-
----
-
-# M3O Dart Client
-
-This is the Dart client to access APIs on the M3O Platform
-
-## What is M3O
-
-[M3O](https://m3o.com/) is an attempt to build a new public cloud platform with higher level building blocks for the Next generation of developers. M3O is powered by the open source [Micro](https://github.com/micro/micro) platform and programmable real world [Micro Services](https://github.com/micro/services).
-
-M3O APIs includes DB, Cache, Stream, MQ, Events, Functions, App, SMS and more.
+# Examples
 
 ## Usage
 
