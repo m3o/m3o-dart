@@ -1,3 +1,13 @@
+## v1.0.79 - 2022-03-31
+
+[2b72a6](https://github.com/micro/services/commit/2b72a66886d237fb2c24ab9c457efbc323e83ea5) functions private gh repo (#411)
+
+## What's Changed
+
+- Some refinements to improve dart clients. by @lambdaR in https://github.com/m3o/m3o-dart/pull/14
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.78...v1.0.79
+
 ## v1.0.78 - 2022-03-30
 
 [2b72a6](https://github.com/micro/services/commit/2b72a66886d237fb2c24ab9c457efbc323e83ea5) functions private gh repo (#411)
