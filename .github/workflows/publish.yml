@@ -43,8 +43,8 @@ jobs:
         run: |
           dart pub publish --dry-run
 
-      # - name: publish m3o-dart package
-      #   uses: k-paxian/dart-package-publisher@master
-      #   with:
-      #     accessToken: ${{ secrets.OAUTH_ACCESS_TOKEN }}
-      #     refreshToken: ${{ secrets.OAUTH_REFRESH_TOKEN }}
+      - name: publish m3o-dart package
+        uses: k-paxian/dart-package-publisher@master
+        with:
+          accessToken: ${{ secrets.OAUTH_ACCESS_TOKEN }}
+          refreshToken: ${{ secrets.OAUTH_REFRESH_TOKEN }}
