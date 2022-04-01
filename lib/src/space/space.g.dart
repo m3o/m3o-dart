@@ -120,20 +120,20 @@ Map<String, dynamic> _$$DownloadResponseMerrToJson(
 
 _$_HeadObject _$$_HeadObjectFromJson(Map<String, dynamic> json) =>
     _$_HeadObject(
+      modified: json['modified'] as String?,
       name: json['name'] as String?,
       url: json['url'] as String?,
       visibility: json['visibility'] as String?,
       created: json['created'] as String?,
-      modified: json['modified'] as String?,
     );
 
 Map<String, dynamic> _$$_HeadObjectToJson(_$_HeadObject instance) =>
     <String, dynamic>{
+      'modified': instance.modified,
       'name': instance.name,
       'url': instance.url,
       'visibility': instance.visibility,
       'created': instance.created,
-      'modified': instance.modified,
     };
 
 _$_HeadRequest _$$_HeadRequestFromJson(Map<String, dynamic> json) =>
@@ -174,20 +174,20 @@ Map<String, dynamic> _$$HeadResponseMerrToJson(_$HeadResponseMerr instance) =>
 
 _$_ListObject _$$_ListObjectFromJson(Map<String, dynamic> json) =>
     _$_ListObject(
+      name: json['name'] as String?,
+      url: json['url'] as String?,
       visibility: json['visibility'] as String?,
       created: json['created'] as String?,
       modified: json['modified'] as String?,
-      name: json['name'] as String?,
-      url: json['url'] as String?,
     );
 
 Map<String, dynamic> _$$_ListObjectToJson(_$_ListObject instance) =>
     <String, dynamic>{
+      'name': instance.name,
+      'url': instance.url,
       'visibility': instance.visibility,
       'created': instance.created,
       'modified': instance.modified,
-      'name': instance.name,
-      'url': instance.url,
     };
 
 _$_ListRequest _$$_ListRequestFromJson(Map<String, dynamic> json) =>
@@ -324,14 +324,14 @@ Map<String, dynamic> _$$UpdateResponseMerrToJson(
 
 _$_UploadRequest _$$_UploadRequestFromJson(Map<String, dynamic> json) =>
     _$_UploadRequest(
-      name: json['name'] as String?,
       visibility: json['visibility'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_UploadRequestToJson(_$_UploadRequest instance) =>
     <String, dynamic>{
-      'name': instance.name,
       'visibility': instance.visibility,
+      'name': instance.name,
     };
 
 _$UploadResponseData _$$UploadResponseDataFromJson(Map<String, dynamic> json) =>

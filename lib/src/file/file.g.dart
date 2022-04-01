@@ -8,14 +8,14 @@ part of 'file.dart';
 
 _$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
     _$_DeleteRequest(
-      project: json['project'] as String?,
       path: json['path'] as String?,
+      project: json['project'] as String?,
     );
 
 Map<String, dynamic> _$$_DeleteRequestToJson(_$_DeleteRequest instance) =>
     <String, dynamic>{
-      'project': instance.project,
       'path': instance.path,
+      'project': instance.project,
     };
 
 _$DeleteResponseData _$$DeleteResponseDataFromJson(Map<String, dynamic> json) =>
@@ -82,14 +82,14 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
 
 _$_ReadRequest _$$_ReadRequestFromJson(Map<String, dynamic> json) =>
     _$_ReadRequest(
-      project: json['project'] as String?,
       path: json['path'] as String?,
+      project: json['project'] as String?,
     );
 
 Map<String, dynamic> _$$_ReadRequestToJson(_$_ReadRequest instance) =>
     <String, dynamic>{
-      'project': instance.project,
       'path': instance.path,
+      'project': instance.project,
     };
 
 _$ReadResponseData _$$ReadResponseDataFromJson(Map<String, dynamic> json) =>
@@ -140,16 +140,16 @@ Map<String, dynamic> _$$_RecordToJson(_$_Record instance) => <String, dynamic>{
 
 _$_SaveRequest _$$_SaveRequestFromJson(Map<String, dynamic> json) =>
     _$_SaveRequest(
-      public: json['public'] as bool?,
       file: json['file'] == null
           ? null
           : Record.fromJson(json['file'] as Map<String, dynamic>),
+      public: json['public'] as bool?,
     );
 
 Map<String, dynamic> _$$_SaveRequestToJson(_$_SaveRequest instance) =>
     <String, dynamic>{
-      'public': instance.public,
       'file': instance.file,
+      'public': instance.public,
     };
 
 _$SaveResponseData _$$SaveResponseDataFromJson(Map<String, dynamic> json) =>

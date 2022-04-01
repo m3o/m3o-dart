@@ -75,6 +75,12 @@ class AutocompleteResponse with _$AutocompleteResponse {
 @Freezed()
 class NearbyRequest with _$NearbyRequest {
   const factory NearbyRequest({
+    /// specify the location by lat,lng e.g -33.8670522,-151.1957362
+    String? location,
+
+    /// Name of the place to search for
+    String? name,
+
     /// Whether the place is open now
     bool? open_now,
 
@@ -86,12 +92,6 @@ class NearbyRequest with _$NearbyRequest {
 
     /// Keyword to include in the search
     String? keyword,
-
-    /// specify the location by lat,lng e.g -33.8670522,-151.1957362
-    String? location,
-
-    /// Name of the place to search for
-    String? name,
   }) = _NearbyRequest;
   factory NearbyRequest.fromJson(Map<String, dynamic> json) =>
       _$NearbyRequestFromJson(json);
@@ -111,14 +111,14 @@ class NearbyResponse with _$NearbyResponse {
 @Freezed()
 class Result with _$Result {
   const factory Result({
-    /// lat/lng of place
-    String? location,
+    /// url of an icon
+    String? icon_url,
 
-    /// name of the place
-    String? name,
+    /// opening hours
+    List<String>? opening_hours,
 
-    /// open now
-    bool? open_now,
+    /// simplified address
+    String? vicinity,
 
     /// type of location
     String? type,
@@ -129,14 +129,14 @@ class Result with _$Result {
     /// address of place
     String? address,
 
-    /// url of an icon
-    String? icon_url,
+    /// lat/lng of place
+    String? location,
 
-    /// simplified address
-    String? vicinity,
+    /// name of the place
+    String? name,
 
-    /// opening hours
-    List<String>? opening_hours,
+    /// open now
+    bool? open_now,
 
     /// rating from 1.0 to 5.0
     double? rating,
@@ -147,9 +147,6 @@ class Result with _$Result {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
-    String? type,
-
     /// the location by lat,lng e.g -33.8670522,-151.1957362
     String? location,
 
@@ -161,6 +158,9 @@ class SearchRequest with _$SearchRequest {
 
     /// radius in meters within which to search
     int? radius,
+
+    /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
+    String? type,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);

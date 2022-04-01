@@ -4,6 +4,48 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/event/api](htt
 
 Endpoints:
 
+## Publish
+
+Publish a event to the event stream.
+
+
+[https://m3o.com/event/api#Publish](https://m3o.com/event/api#Publish)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/event/event.dart';
+
+void main() async {
+  final ser = EventService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "message": {
+    "id": "1",
+    "type": "signup",
+    "user": "john"
+  ,},
+  "topic": "user"
+};
+
+  PublishRequest req = PublishRequest.fromJson(payload);
+
+  
+  try {
+
+	PublishResponse res = await ser.publish(req);
+
+    res.map((value) => print(value),
+	  Merr: (PublishResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e, st) {
+    print(e);
+	print(st);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Consume
 
 Consume events from a given topic.
@@ -71,48 +113,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (ReadResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, st) {
-    print(e);
-	print(st);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Publish
-
-Publish a event to the event stream.
-
-
-[https://m3o.com/event/api#Publish](https://m3o.com/event/api#Publish)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/event/event.dart';
-
-void main() async {
-  final ser = EventService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "message": {
-    "id": "1",
-    "type": "signup",
-    "user": "john"
-  ,},
-  "topic": "user"
-};
-
-  PublishRequest req = PublishRequest.fromJson(payload);
-
-  
-  try {
-
-	PublishResponse res = await ser.publish(req);
-
-    res.map((value) => print(value),
-	  Merr: (PublishResponseMerr err) => print(err.body!['body']));	
   
   } catch (e, st) {
     print(e);
