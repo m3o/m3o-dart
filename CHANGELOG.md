@@ -1,3 +1,9 @@
+## v1.0.80 - 2022-04-01
+
+[af0794](https://github.com/micro/services/commit/af07943a69c5ecb0f71429064df900f0da149347) Usage caps (#412)
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.79...v1.0.80
+
 ## v1.0.79 - 2022-03-31
 
 [2b72a6](https://github.com/micro/services/commit/2b72a66886d237fb2c24ab9c457efbc323e83ea5) functions private gh repo (#411)
