@@ -37,9 +37,8 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (TextResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }

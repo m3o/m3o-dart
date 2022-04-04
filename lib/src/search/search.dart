@@ -28,8 +28,7 @@ class SearchService {
         return CreateIndexResponse.Merr(body: err.b);
       }
       return CreateIndexResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -49,8 +48,7 @@ class SearchService {
         return DeleteIndexResponse.Merr(body: err.b);
       }
       return DeleteIndexResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -70,8 +68,7 @@ class SearchService {
         return DeleteResponse.Merr(body: err.b);
       }
       return DeleteResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -91,8 +88,7 @@ class SearchService {
         return IndexResponse.Merr(body: err.b);
       }
       return IndexResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -112,8 +108,7 @@ class SearchService {
         return SearchResponse.Merr(body: err.b);
       }
       return SearchResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }

@@ -28,8 +28,7 @@ class ListsService {
         return CreateResponse.Merr(body: err.b);
       }
       return CreateResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -49,8 +48,7 @@ class ListsService {
         return DeleteResponse.Merr(body: err.b);
       }
       return DeleteResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -74,8 +72,7 @@ class ListsService {
           yield EventsResponseData.fromJson(vo);
         }
       }
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -95,8 +92,7 @@ class ListsService {
         return ListResponse.Merr(body: err.b);
       }
       return ListResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -116,8 +112,7 @@ class ListsService {
         return ReadResponse.Merr(body: err.b);
       }
       return ReadResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -137,8 +132,7 @@ class ListsService {
         return UpdateResponse.Merr(body: err.b);
       }
       return UpdateResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -203,11 +197,11 @@ class EventsRequest with _$EventsRequest {
 @Freezed()
 class EventsResponse with _$EventsResponse {
   const factory EventsResponse({
-    /// the event which occured; create, delete, update
-    String? event,
-
     /// the list which the operation occured on
     List? list,
+
+    /// the event which occured; create, delete, update
+    String? event,
   }) = EventsResponseData;
   const factory EventsResponse.Merr({Map<String, dynamic>? body}) =
       EventsResponseMerr;
@@ -218,6 +212,12 @@ class EventsResponse with _$EventsResponse {
 @Freezed()
 class List with _$List {
   const factory List({
+    /// name of the list
+    String? name,
+
+    /// time at which the list was updated
+    String? updated,
+
     /// time at which the list was created
     String? created,
 
@@ -226,12 +226,6 @@ class List with _$List {
 
     /// items within the list
     List<String>? items,
-
-    /// name of the list
-    String? name,
-
-    /// time at which the list was updated
-    String? updated,
   }) = _List;
   factory List.fromJson(Map<String, dynamic> json) => _$ListFromJson(json);
 }

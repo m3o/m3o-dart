@@ -28,8 +28,7 @@ class ThumbnailService {
         return ScreenshotResponse.Merr(body: err.b);
       }
       return ScreenshotResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -38,12 +37,12 @@ class ThumbnailService {
 @Freezed()
 class ScreenshotRequest with _$ScreenshotRequest {
   const factory ScreenshotRequest({
+    /// width of the browser window. optional
+    int? width,
+
     /// height of the browser window, optional
     int? height,
     String? url,
-
-    /// width of the browser window. optional
-    int? width,
   }) = _ScreenshotRequest;
   factory ScreenshotRequest.fromJson(Map<String, dynamic> json) =>
       _$ScreenshotRequestFromJson(json);

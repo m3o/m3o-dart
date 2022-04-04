@@ -28,8 +28,7 @@ class AnalyticsService {
         return DeleteResponse.Merr(body: err.b);
       }
       return DeleteResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -49,8 +48,7 @@ class AnalyticsService {
         return ListResponse.Merr(body: err.b);
       }
       return ListResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -70,8 +68,7 @@ class AnalyticsService {
         return ReadResponse.Merr(body: err.b);
       }
       return ReadResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -91,8 +88,7 @@ class AnalyticsService {
         return TrackResponse.Merr(body: err.b);
       }
       return TrackResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -121,14 +117,14 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Event with _$Event {
   const factory Event({
+    /// time at which the event was created
+    String? created,
+
     /// event name
     String? name,
 
     /// the amount of times the event was triggered
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
-
-    /// time at which the event was created
-    String? created,
   }) = _Event;
   factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
 }

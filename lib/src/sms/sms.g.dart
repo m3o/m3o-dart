@@ -22,15 +22,15 @@ Map<String, dynamic> _$$_SendRequestToJson(_$_SendRequest instance) =>
 
 _$SendResponseData _$$SendResponseDataFromJson(Map<String, dynamic> json) =>
     _$SendResponseData(
-      status: json['status'] as String?,
       info: json['info'] as String?,
+      status: json['status'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$SendResponseDataToJson(_$SendResponseData instance) =>
     <String, dynamic>{
-      'status': instance.status,
       'info': instance.info,
+      'status': instance.status,
       'runtimeType': instance.$type,
     };
 

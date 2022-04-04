@@ -28,8 +28,7 @@ class PingService {
         return IpResponse.Merr(body: err.b);
       }
       return IpResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -49,8 +48,7 @@ class PingService {
         return TcpResponse.Merr(body: err.b);
       }
       return TcpResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -70,8 +68,7 @@ class PingService {
         return UrlResponse.Merr(body: err.b);
       }
       return UrlResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -117,11 +114,11 @@ class TcpRequest with _$TcpRequest {
 @Freezed()
 class TcpResponse with _$TcpResponse {
   const factory TcpResponse({
-    /// response data if any
-    String? data,
-
     /// response status
     String? status,
+
+    /// response data if any
+    String? data,
   }) = TcpResponseData;
   const factory TcpResponse.Merr({Map<String, dynamic>? body}) =
       TcpResponseMerr;

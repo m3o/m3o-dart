@@ -28,8 +28,7 @@ class CacheService {
         return DecrementResponse.Merr(body: err.b);
       }
       return DecrementResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -49,8 +48,7 @@ class CacheService {
         return DeleteResponse.Merr(body: err.b);
       }
       return DeleteResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -70,8 +68,7 @@ class CacheService {
         return GetResponse.Merr(body: err.b);
       }
       return GetResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -91,8 +88,7 @@ class CacheService {
         return IncrementResponse.Merr(body: err.b);
       }
       return IncrementResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -112,8 +108,7 @@ class CacheService {
         return ListKeysResponse.Merr(body: err.b);
       }
       return ListKeysResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -133,8 +128,7 @@ class CacheService {
         return SetResponse.Merr(body: err.b);
       }
       return SetResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -234,11 +228,11 @@ class IncrementRequest with _$IncrementRequest {
 @Freezed()
 class IncrementResponse with _$IncrementResponse {
   const factory IncrementResponse({
-    /// The key incremented
-    String? key,
-
     /// The new value
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
+
+    /// The key incremented
+    String? key,
   }) = IncrementResponseData;
   const factory IncrementResponse.Merr({Map<String, dynamic>? body}) =
       IncrementResponseMerr;

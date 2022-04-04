@@ -28,8 +28,7 @@ class RssService {
         return AddResponse.Merr(body: err.b);
       }
       return AddResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -49,8 +48,7 @@ class RssService {
         return FeedResponse.Merr(body: err.b);
       }
       return FeedResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -70,8 +68,7 @@ class RssService {
         return ListResponse.Merr(body: err.b);
       }
       return ListResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -91,8 +88,7 @@ class RssService {
         return RemoveResponse.Merr(body: err.b);
       }
       return RemoveResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -128,6 +124,15 @@ class AddResponse with _$AddResponse {
 @Freezed()
 class Entry with _$Entry {
   const factory Entry({
+    /// rss feed url of the entry
+    String? link,
+
+    /// article summary
+    String? summary,
+
+    /// title of the entry
+    String? title,
+
     /// article content
     String? content,
 
@@ -139,15 +144,6 @@ class Entry with _$Entry {
 
     /// unique id of the entry
     String? id,
-
-    /// rss feed url of the entry
-    String? link,
-
-    /// article summary
-    String? summary,
-
-    /// title of the entry
-    String? title,
   }) = _Entry;
   factory Entry.fromJson(Map<String, dynamic> json) => _$EntryFromJson(json);
 }
@@ -155,10 +151,6 @@ class Entry with _$Entry {
 @Freezed()
 class Feed with _$Feed {
   const factory Feed({
-    /// rss feed url
-    /// eg. http://a16z.com/feed/
-    String? url,
-
     /// category of the feed e.g news
     String? category,
 
@@ -168,6 +160,10 @@ class Feed with _$Feed {
     /// rss feed name
     /// eg. a16z
     String? name,
+
+    /// rss feed url
+    /// eg. http://a16z.com/feed/
+    String? url,
   }) = _Feed;
   factory Feed.fromJson(Map<String, dynamic> json) => _$FeedFromJson(json);
 }

@@ -18,9 +18,8 @@ void main() async {
       sr.map((value) => print(value),
           Merr: (StreamResponseMerr err) => print(err.body));
     }
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-    print(st);
   } finally {
     exit(0);
   }

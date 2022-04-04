@@ -4,43 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/nft/api](https
 
 Endpoints:
 
-## Collections
-
-Get a list of collections
-
-
-[https://m3o.com/nft/api#Collections](https://m3o.com/nft/api#Collections)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/nft/nft.dart';
-
-void main() async {
-  final ser = NftService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "limit": 1
-,};
-
-  CollectionsRequest req = CollectionsRequest.fromJson(payload);
-
-  
-  try {
-
-	CollectionsResponse res = await ser.collections(req);
-
-    res.map((value) => print(value),
-	  Merr: (CollectionsResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, st) {
-    print(e);
-	print(st);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Asset
 
 Get a single asset by the contract
@@ -71,9 +34,8 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (AssetResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }
@@ -108,9 +70,8 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (CollectionResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }
@@ -146,9 +107,8 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (AssetsResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }
@@ -184,9 +144,44 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (CreateResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Collections
+
+Get a list of collections
+
+
+[https://m3o.com/nft/api#Collections](https://m3o.com/nft/api#Collections)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/nft/nft.dart';
+
+void main() async {
+  final ser = NftService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "limit": 1
+,};
+
+  CollectionsRequest req = CollectionsRequest.fromJson(payload);
+
+  
+  try {
+
+	CollectionsResponse res = await ser.collections(req);
+
+    res.map((value) => print(value),
+	  Merr: (CollectionsResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
   } finally {
     exit(0);
   }

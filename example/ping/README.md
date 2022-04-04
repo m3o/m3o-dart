@@ -33,9 +33,8 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (IpResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }
@@ -70,9 +69,8 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (TcpResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }
@@ -107,9 +105,8 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (UrlResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }

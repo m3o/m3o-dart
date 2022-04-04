@@ -10,7 +10,7 @@ void main() async {
     "fromName": "Awesome Dot Com",
     "subject": "Password reset",
     "textContent":
-        "Hi there,\n click here to reset your password: myapp.com/reset/code?=$code",
+        "Hi there,\n click here to reset your password: myapp.com/reset/code?=\$code",
   };
 
   SendPasswordResetEmailRequest req =
@@ -22,9 +22,8 @@ void main() async {
     res.map((value) => print(value),
         Merr: (SendPasswordResetEmailResponseMerr err) =>
             print(err.body!['body']));
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-    print(st);
   } finally {
     exit(0);
   }

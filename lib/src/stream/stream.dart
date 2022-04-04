@@ -29,8 +29,7 @@ class StreamService {
         return CreateChannelResponse.Merr(body: err.b);
       }
       return CreateChannelResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -50,8 +49,7 @@ class StreamService {
         return ListChannelsResponse.Merr(body: err.b);
       }
       return ListChannelsResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -71,8 +69,7 @@ class StreamService {
         return ListMessagesResponse.Merr(body: err.b);
       }
       return ListMessagesResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -92,8 +89,7 @@ class StreamService {
         return SendMessageResponse.Merr(body: err.b);
       }
       return SendMessageResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -186,9 +182,6 @@ class ListMessagesResponse with _$ListMessagesResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
-    /// time of message creation
-    String? timestamp,
-
     /// the channel name
     String? channel,
 
@@ -200,6 +193,9 @@ class Message with _$Message {
 
     /// text of the message
     String? text,
+
+    /// time of message creation
+    String? timestamp,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
@@ -208,11 +204,11 @@ class Message with _$Message {
 @Freezed()
 class SendMessageRequest with _$SendMessageRequest {
   const factory SendMessageRequest({
-    /// The message text to send
-    String? text,
-
     /// The channel to send to
     String? channel,
+
+    /// The message text to send
+    String? text,
   }) = _SendMessageRequest;
   factory SendMessageRequest.fromJson(Map<String, dynamic> json) =>
       _$SendMessageRequestFromJson(json);

@@ -28,8 +28,7 @@ class UrlService {
         return ListResponse.Merr(body: err.b);
       }
       return ListResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -49,8 +48,7 @@ class UrlService {
         return ProxyResponse.Merr(body: err.b);
       }
       return ProxyResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -70,8 +68,7 @@ class UrlService {
         return ShortenResponse.Merr(body: err.b);
       }
       return ShortenResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -145,9 +142,6 @@ class ShortenResponse with _$ShortenResponse {
 @Freezed()
 class URLPair with _$URLPair {
   const factory URLPair({
-    /// shortened url
-    String? shortURL,
-
     /// time of creation
     String? created,
 
@@ -156,6 +150,9 @@ class URLPair with _$URLPair {
 
     /// The number of times the short URL has been resolved
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
+
+    /// shortened url
+    String? shortURL,
   }) = _URLPair;
   factory URLPair.fromJson(Map<String, dynamic> json) =>
       _$URLPairFromJson(json);

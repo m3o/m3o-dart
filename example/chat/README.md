@@ -4,12 +4,12 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/chat/api](http
 
 Endpoints:
 
-## List
+## Invite
 
-List available chats
+Invite a user to a chat room
 
 
-[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
+[https://m3o.com/chat/api#Invite](https://m3o.com/chat/api#Invite)
 
 ```dart
 import 'dart:io';
@@ -19,21 +19,23 @@ import 'package:m3o/src/chat/chat.dart';
 void main() async {
   final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
  
-  final payload = <String, dynamic>{};
+  final payload = <String, dynamic>{
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-1"
+,};
 
-  ListRequest req = ListRequest.fromJson(payload);
+  InviteRequest req = InviteRequest.fromJson(payload);
 
   
   try {
 
-	ListResponse res = await ser.list(req);
+	InviteResponse res = await ser.invite(req);
 
     res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
+	  Merr: (InviteResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }
@@ -73,46 +75,8 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (SendResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
-  } finally {
-    exit(0);
-  }
-}
-```
-## History
-
-List the messages in a chat
-
-
-[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/chat/chat.dart';
-
-void main() async {
-  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
-,};
-
-  HistoryRequest req = HistoryRequest.fromJson(payload);
-
-  
-  try {
-
-	HistoryResponse res = await ser.history(req);
-
-    res.map((value) => print(value),
-	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e, st) {
-    print(e);
-	print(st);
   } finally {
     exit(0);
   }
@@ -148,9 +112,8 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (KickResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }
@@ -186,9 +149,8 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (LeaveResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }
@@ -224,9 +186,42 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (CreateResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
+  } finally {
+    exit(0);
+  }
+}
+```
+## List
+
+List available chats
+
+
+[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/chat/chat.dart';
+
+void main() async {
+  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  ListRequest req = ListRequest.fromJson(payload);
+
+  
+  try {
+
+	ListResponse res = await ser.list(req);
+
+    res.map((value) => print(value),
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
   } finally {
     exit(0);
   }
@@ -261,20 +256,19 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }
 }
 ```
-## Invite
+## History
 
-Invite a user to a chat room
+List the messages in a chat
 
 
-[https://m3o.com/chat/api#Invite](https://m3o.com/chat/api#Invite)
+[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
 
 ```dart
 import 'dart:io';
@@ -285,23 +279,21 @@ void main() async {
   final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-1"
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
 ,};
 
-  InviteRequest req = InviteRequest.fromJson(payload);
+  HistoryRequest req = HistoryRequest.fromJson(payload);
 
   
   try {
 
-	InviteResponse res = await ser.invite(req);
+	HistoryResponse res = await ser.history(req);
 
     res.map((value) => print(value),
-	  Merr: (InviteResponseMerr err) => print(err.body!['body']));	
+	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }
@@ -339,9 +331,8 @@ void main() async {
 	  sr.map((value) => print(value),
 		Merr: (JoinResponseMerr err) => print(err.body));
 	  }
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }

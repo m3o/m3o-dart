@@ -28,8 +28,7 @@ class JokeService {
         return RandomResponse.Merr(body: err.b);
       }
       return RandomResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -38,11 +37,11 @@ class JokeService {
 @Freezed()
 class JokeInfo with _$JokeInfo {
   const factory JokeInfo({
-    String? body,
-    String? category,
     String? id,
     String? source,
     String? title,
+    String? body,
+    String? category,
   }) = _JokeInfo;
   factory JokeInfo.fromJson(Map<String, dynamic> json) =>
       _$JokeInfoFromJson(json);

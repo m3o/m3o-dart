@@ -28,8 +28,7 @@ class MemegenService {
         return GenerateResponse.Merr(body: err.b);
       }
       return GenerateResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -49,8 +48,7 @@ class MemegenService {
         return TemplatesResponse.Merr(body: err.b);
       }
       return TemplatesResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -59,9 +57,6 @@ class MemegenService {
 @Freezed()
 class Box with _$Box {
   const factory Box({
-    /// text to display
-    String? text,
-
     /// width in pixels
     int? width,
 
@@ -79,6 +74,9 @@ class Box with _$Box {
 
     /// outline color hex code
     String? outline,
+
+    /// text to display
+    String? text,
   }) = _Box;
   factory Box.fromJson(Map<String, dynamic> json) => _$BoxFromJson(json);
 }
@@ -120,6 +118,9 @@ class GenerateResponse with _$GenerateResponse {
 @Freezed()
 class Template with _$Template {
   const factory Template({
+    /// width in pixels
+    int? width,
+
     /// number of boxes used
     int? box_count,
 
@@ -134,9 +135,6 @@ class Template with _$Template {
 
     /// url of the memegen
     String? url,
-
-    /// width in pixels
-    int? width,
   }) = _Template;
   factory Template.fromJson(Map<String, dynamic> json) =>
       _$TemplateFromJson(json);

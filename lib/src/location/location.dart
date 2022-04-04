@@ -28,8 +28,7 @@ class LocationService {
         return ReadResponse.Merr(body: err.b);
       }
       return ReadResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -49,8 +48,7 @@ class LocationService {
         return SaveResponse.Merr(body: err.b);
       }
       return SaveResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -70,8 +68,7 @@ class LocationService {
         return SearchResponse.Merr(body: err.b);
       }
       return SearchResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -139,17 +136,17 @@ class SaveResponse with _$SaveResponse {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// radius in meters
-    double? radius,
-
-    /// type of entities to filter
-    String? type,
-
     /// Central position to search from
     Point? center,
 
     /// Maximum number of entities to return
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? numEntities,
+
+    /// radius in meters
+    double? radius,
+
+    /// type of entities to filter
+    String? type,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);

@@ -28,8 +28,7 @@ class MqService {
         return PublishResponse.Merr(body: err.b);
       }
       return PublishResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -53,8 +52,7 @@ class MqService {
           yield SubscribeResponseData.fromJson(vo);
         }
       }
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }

@@ -32,8 +32,7 @@ class EventService {
           yield ConsumeResponseData.fromJson(vo);
         }
       }
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -53,8 +52,7 @@ class EventService {
         return PublishResponse.Merr(body: err.b);
       }
       return PublishResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -74,8 +72,7 @@ class EventService {
         return ReadResponse.Merr(body: err.b);
       }
       return ReadResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -100,17 +97,17 @@ class ConsumeRequest with _$ConsumeRequest {
 @Freezed()
 class ConsumeResponse with _$ConsumeResponse {
   const factory ConsumeResponse({
-    /// The next json message on the topic
-    Map<String, dynamic>? message,
-
-    /// Timestamp of publishing
-    String? timestamp,
-
     /// The topic subscribed to
     String? topic,
 
     /// Unique message id
     String? id,
+
+    /// The next json message on the topic
+    Map<String, dynamic>? message,
+
+    /// Timestamp of publishing
+    String? timestamp,
   }) = ConsumeResponseData;
   const factory ConsumeResponse.Merr({Map<String, dynamic>? body}) =
       ConsumeResponseMerr;
@@ -136,11 +133,11 @@ class Ev with _$Ev {
 @Freezed()
 class PublishRequest with _$PublishRequest {
   const factory PublishRequest({
-    /// The topic to publish to
-    String? topic,
-
     /// The json message to publish
     Map<String, dynamic>? message,
+
+    /// The topic to publish to
+    String? topic,
   }) = _PublishRequest;
   factory PublishRequest.fromJson(Map<String, dynamic> json) =>
       _$PublishRequestFromJson(json);

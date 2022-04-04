@@ -23,21 +23,21 @@ class _$BoxTearOff {
   const _$BoxTearOff();
 
   _Box call(
-      {String? text,
-      int? width,
+      {int? width,
       int? x,
       int? y,
       String? color,
       int? height,
-      String? outline}) {
+      String? outline,
+      String? text}) {
     return _Box(
-      text: text,
       width: width,
       x: x,
       y: y,
       color: color,
       height: height,
       outline: outline,
+      text: text,
     );
   }
 
@@ -51,9 +51,6 @@ const $Box = _$BoxTearOff();
 
 /// @nodoc
 mixin _$Box {
-  /// text to display
-  String? get text => throw _privateConstructorUsedError;
-
   /// width in pixels
   int? get width => throw _privateConstructorUsedError;
 
@@ -72,6 +69,9 @@ mixin _$Box {
   /// outline color hex code
   String? get outline => throw _privateConstructorUsedError;
 
+  /// text to display
+  String? get text => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $BoxCopyWith<Box> get copyWith => throw _privateConstructorUsedError;
@@ -82,13 +82,13 @@ abstract class $BoxCopyWith<$Res> {
   factory $BoxCopyWith(Box value, $Res Function(Box) then) =
       _$BoxCopyWithImpl<$Res>;
   $Res call(
-      {String? text,
-      int? width,
+      {int? width,
       int? x,
       int? y,
       String? color,
       int? height,
-      String? outline});
+      String? outline,
+      String? text});
 }
 
 /// @nodoc
@@ -101,19 +101,15 @@ class _$BoxCopyWithImpl<$Res> implements $BoxCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? text = freezed,
     Object? width = freezed,
     Object? x = freezed,
     Object? y = freezed,
     Object? color = freezed,
     Object? height = freezed,
     Object? outline = freezed,
+    Object? text = freezed,
   }) {
     return _then(_value.copyWith(
-      text: text == freezed
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
       width: width == freezed
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
@@ -138,6 +134,10 @@ class _$BoxCopyWithImpl<$Res> implements $BoxCopyWith<$Res> {
           ? _value.outline
           : outline // ignore: cast_nullable_to_non_nullable
               as String?,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -148,13 +148,13 @@ abstract class _$BoxCopyWith<$Res> implements $BoxCopyWith<$Res> {
       __$BoxCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? text,
-      int? width,
+      {int? width,
       int? x,
       int? y,
       String? color,
       int? height,
-      String? outline});
+      String? outline,
+      String? text});
 }
 
 /// @nodoc
@@ -168,19 +168,15 @@ class __$BoxCopyWithImpl<$Res> extends _$BoxCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? text = freezed,
     Object? width = freezed,
     Object? x = freezed,
     Object? y = freezed,
     Object? color = freezed,
     Object? height = freezed,
     Object? outline = freezed,
+    Object? text = freezed,
   }) {
     return _then(_Box(
-      text: text == freezed
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
       width: width == freezed
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
@@ -205,6 +201,10 @@ class __$BoxCopyWithImpl<$Res> extends _$BoxCopyWithImpl<$Res>
           ? _value.outline
           : outline // ignore: cast_nullable_to_non_nullable
               as String?,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -213,20 +213,16 @@ class __$BoxCopyWithImpl<$Res> extends _$BoxCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Box implements _Box {
   const _$_Box(
-      {this.text,
-      this.width,
+      {this.width,
       this.x,
       this.y,
       this.color,
       this.height,
-      this.outline});
+      this.outline,
+      this.text});
 
   factory _$_Box.fromJson(Map<String, dynamic> json) => _$$_BoxFromJson(json);
 
-  @override
-
-  /// text to display
-  final String? text;
   @override
 
   /// width in pixels
@@ -251,10 +247,14 @@ class _$_Box implements _Box {
 
   /// outline color hex code
   final String? outline;
+  @override
+
+  /// text to display
+  final String? text;
 
   @override
   String toString() {
-    return 'Box(text: $text, width: $width, x: $x, y: $y, color: $color, height: $height, outline: $outline)';
+    return 'Box(width: $width, x: $x, y: $y, color: $color, height: $height, outline: $outline, text: $text)';
   }
 
   @override
@@ -262,25 +262,25 @@ class _$_Box implements _Box {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Box &&
-            const DeepCollectionEquality().equals(other.text, text) &&
             const DeepCollectionEquality().equals(other.width, width) &&
             const DeepCollectionEquality().equals(other.x, x) &&
             const DeepCollectionEquality().equals(other.y, y) &&
             const DeepCollectionEquality().equals(other.color, color) &&
             const DeepCollectionEquality().equals(other.height, height) &&
-            const DeepCollectionEquality().equals(other.outline, outline));
+            const DeepCollectionEquality().equals(other.outline, outline) &&
+            const DeepCollectionEquality().equals(other.text, text));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(text),
       const DeepCollectionEquality().hash(width),
       const DeepCollectionEquality().hash(x),
       const DeepCollectionEquality().hash(y),
       const DeepCollectionEquality().hash(color),
       const DeepCollectionEquality().hash(height),
-      const DeepCollectionEquality().hash(outline));
+      const DeepCollectionEquality().hash(outline),
+      const DeepCollectionEquality().hash(text));
 
   @JsonKey(ignore: true)
   @override
@@ -295,20 +295,16 @@ class _$_Box implements _Box {
 
 abstract class _Box implements Box {
   const factory _Box(
-      {String? text,
-      int? width,
+      {int? width,
       int? x,
       int? y,
       String? color,
       int? height,
-      String? outline}) = _$_Box;
+      String? outline,
+      String? text}) = _$_Box;
 
   factory _Box.fromJson(Map<String, dynamic> json) = _$_Box.fromJson;
 
-  @override
-
-  /// text to display
-  String? get text;
   @override
 
   /// width in pixels
@@ -333,6 +329,10 @@ abstract class _Box implements Box {
 
   /// outline color hex code
   String? get outline;
+  @override
+
+  /// text to display
+  String? get text;
   @override
   @JsonKey(ignore: true)
   _$BoxCopyWith<_Box> get copyWith => throw _privateConstructorUsedError;
@@ -1026,19 +1026,19 @@ class _$TemplateTearOff {
   const _$TemplateTearOff();
 
   _Template call(
-      {int? box_count,
+      {int? width,
+      int? box_count,
       int? height,
       String? id,
       String? name,
-      String? url,
-      int? width}) {
+      String? url}) {
     return _Template(
+      width: width,
       box_count: box_count,
       height: height,
       id: id,
       name: name,
       url: url,
-      width: width,
     );
   }
 
@@ -1052,6 +1052,9 @@ const $Template = _$TemplateTearOff();
 
 /// @nodoc
 mixin _$Template {
+  /// width in pixels
+  int? get width => throw _privateConstructorUsedError;
+
   /// number of boxes used
   int? get box_count => throw _privateConstructorUsedError;
 
@@ -1067,9 +1070,6 @@ mixin _$Template {
   /// url of the memegen
   String? get url => throw _privateConstructorUsedError;
 
-  /// width in pixels
-  int? get width => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TemplateCopyWith<Template> get copyWith =>
@@ -1081,12 +1081,12 @@ abstract class $TemplateCopyWith<$Res> {
   factory $TemplateCopyWith(Template value, $Res Function(Template) then) =
       _$TemplateCopyWithImpl<$Res>;
   $Res call(
-      {int? box_count,
+      {int? width,
+      int? box_count,
       int? height,
       String? id,
       String? name,
-      String? url,
-      int? width});
+      String? url});
 }
 
 /// @nodoc
@@ -1099,14 +1099,18 @@ class _$TemplateCopyWithImpl<$Res> implements $TemplateCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? width = freezed,
     Object? box_count = freezed,
     Object? height = freezed,
     Object? id = freezed,
     Object? name = freezed,
     Object? url = freezed,
-    Object? width = freezed,
   }) {
     return _then(_value.copyWith(
+      width: width == freezed
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int?,
       box_count: box_count == freezed
           ? _value.box_count
           : box_count // ignore: cast_nullable_to_non_nullable
@@ -1127,10 +1131,6 @@ class _$TemplateCopyWithImpl<$Res> implements $TemplateCopyWith<$Res> {
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
-      width: width == freezed
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -1141,12 +1141,12 @@ abstract class _$TemplateCopyWith<$Res> implements $TemplateCopyWith<$Res> {
       __$TemplateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int? box_count,
+      {int? width,
+      int? box_count,
       int? height,
       String? id,
       String? name,
-      String? url,
-      int? width});
+      String? url});
 }
 
 /// @nodoc
@@ -1160,14 +1160,18 @@ class __$TemplateCopyWithImpl<$Res> extends _$TemplateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? width = freezed,
     Object? box_count = freezed,
     Object? height = freezed,
     Object? id = freezed,
     Object? name = freezed,
     Object? url = freezed,
-    Object? width = freezed,
   }) {
     return _then(_Template(
+      width: width == freezed
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int?,
       box_count: box_count == freezed
           ? _value.box_count
           : box_count // ignore: cast_nullable_to_non_nullable
@@ -1188,10 +1192,6 @@ class __$TemplateCopyWithImpl<$Res> extends _$TemplateCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
-      width: width == freezed
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -1200,11 +1200,15 @@ class __$TemplateCopyWithImpl<$Res> extends _$TemplateCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Template implements _Template {
   const _$_Template(
-      {this.box_count, this.height, this.id, this.name, this.url, this.width});
+      {this.width, this.box_count, this.height, this.id, this.name, this.url});
 
   factory _$_Template.fromJson(Map<String, dynamic> json) =>
       _$$_TemplateFromJson(json);
 
+  @override
+
+  /// width in pixels
+  final int? width;
   @override
 
   /// number of boxes used
@@ -1225,14 +1229,10 @@ class _$_Template implements _Template {
 
   /// url of the memegen
   final String? url;
-  @override
-
-  /// width in pixels
-  final int? width;
 
   @override
   String toString() {
-    return 'Template(box_count: $box_count, height: $height, id: $id, name: $name, url: $url, width: $width)';
+    return 'Template(width: $width, box_count: $box_count, height: $height, id: $id, name: $name, url: $url)';
   }
 
   @override
@@ -1240,23 +1240,23 @@ class _$_Template implements _Template {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Template &&
+            const DeepCollectionEquality().equals(other.width, width) &&
             const DeepCollectionEquality().equals(other.box_count, box_count) &&
             const DeepCollectionEquality().equals(other.height, height) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality().equals(other.width, width));
+            const DeepCollectionEquality().equals(other.url, url));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(width),
       const DeepCollectionEquality().hash(box_count),
       const DeepCollectionEquality().hash(height),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(width));
+      const DeepCollectionEquality().hash(url));
 
   @JsonKey(ignore: true)
   @override
@@ -1271,15 +1271,19 @@ class _$_Template implements _Template {
 
 abstract class _Template implements Template {
   const factory _Template(
-      {int? box_count,
+      {int? width,
+      int? box_count,
       int? height,
       String? id,
       String? name,
-      String? url,
-      int? width}) = _$_Template;
+      String? url}) = _$_Template;
 
   factory _Template.fromJson(Map<String, dynamic> json) = _$_Template.fromJson;
 
+  @override
+
+  /// width in pixels
+  int? get width;
   @override
 
   /// number of boxes used
@@ -1300,10 +1304,6 @@ abstract class _Template implements Template {
 
   /// url of the memegen
   String? get url;
-  @override
-
-  /// width in pixels
-  int? get width;
   @override
   @JsonKey(ignore: true)
   _$TemplateCopyWith<_Template> get copyWith =>

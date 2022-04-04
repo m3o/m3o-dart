@@ -28,8 +28,7 @@ class CurrencyService {
         return CodesResponse.Merr(body: err.b);
       }
       return CodesResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -49,8 +48,7 @@ class CurrencyService {
         return ConvertResponse.Merr(body: err.b);
       }
       return ConvertResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -70,8 +68,7 @@ class CurrencyService {
         return HistoryResponse.Merr(body: err.b);
       }
       return HistoryResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -91,8 +88,7 @@ class CurrencyService {
         return RatesResponse.Merr(body: err.b);
       }
       return RatesResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -131,14 +127,14 @@ class CodesResponse with _$CodesResponse {
 @Freezed()
 class ConvertRequest with _$ConvertRequest {
   const factory ConvertRequest({
-    /// target code to convert to e.g GBP
-    String? to,
-
     /// optional amount to convert e.g 10.0
     double? amount,
 
     /// base code to convert from e.g USD
     String? from,
+
+    /// target code to convert to e.g GBP
+    String? to,
   }) = _ConvertRequest;
   factory ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$ConvertRequestFromJson(json);
@@ -147,9 +143,6 @@ class ConvertRequest with _$ConvertRequest {
 @Freezed()
 class ConvertResponse with _$ConvertResponse {
   const factory ConvertResponse({
-    /// the target code e.g GBP
-    String? to,
-
     /// converted amount e.g 7.10
     double? amount,
 
@@ -158,6 +151,9 @@ class ConvertResponse with _$ConvertResponse {
 
     /// conversion rate e.g 0.71
     double? rate,
+
+    /// the target code e.g GBP
+    String? to,
   }) = ConvertResponseData;
   const factory ConvertResponse.Merr({Map<String, dynamic>? body}) =
       ConvertResponseMerr;

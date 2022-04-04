@@ -33,9 +33,8 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ValidateResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }
@@ -59,7 +58,7 @@ void main() async {
   final payload = <String, dynamic>{
   "from": "Awesome Dot Com",
   "subject": "Email verification",
-  "textBody": "Hi there,\n\nPlease verify your email by clicking this link: $micro_verification_link"
+  "textBody": "Hi there,\n\nPlease verify your email by clicking this link: \$micro_verification_link"
 ,};
 
   SendRequest req = SendRequest.fromJson(payload);
@@ -72,9 +71,8 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (SendResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }
@@ -109,9 +107,8 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (ParseResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }

@@ -28,8 +28,7 @@ class TunnelService {
         return SendResponse.Merr(body: err.b);
       }
       return SendResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -66,17 +65,17 @@ class SendRequest with _$SendRequest {
 @Freezed()
 class SendResponse with _$SendResponse {
   const factory SendResponse({
-    /// headers included
-    Map<String, String>? headers,
-
-    /// the status
-    String? status,
-
     /// the status code
     int? status_code,
 
     /// body of the response
     String? body,
+
+    /// headers included
+    Map<String, String>? headers,
+
+    /// the status
+    String? status,
   }) = SendResponseData;
   const factory SendResponse.Merr({Map<String, dynamic>? body}) =
       SendResponseMerr;

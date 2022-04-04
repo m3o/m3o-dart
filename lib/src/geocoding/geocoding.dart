@@ -28,8 +28,7 @@ class GeocodingService {
         return LookupResponse.Merr(body: err.b);
       }
       return LookupResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -49,8 +48,7 @@ class GeocodingService {
         return ReverseResponse.Merr(body: err.b);
       }
       return ReverseResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -72,8 +70,8 @@ class Address with _$Address {
 @Freezed()
 class Location with _$Location {
   const factory Location({
-    double? longitude,
     double? latitude,
+    double? longitude,
   }) = _Location;
   factory Location.fromJson(Map<String, dynamic> json) =>
       _$LocationFromJson(json);
@@ -106,8 +104,8 @@ class LookupResponse with _$LookupResponse {
 @Freezed()
 class ReverseRequest with _$ReverseRequest {
   const factory ReverseRequest({
-    double? latitude,
     double? longitude,
+    double? latitude,
   }) = _ReverseRequest;
   factory ReverseRequest.fromJson(Map<String, dynamic> json) =>
       _$ReverseRequestFromJson(json);

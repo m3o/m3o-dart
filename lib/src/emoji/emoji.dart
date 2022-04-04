@@ -28,8 +28,7 @@ class EmojiService {
         return FindResponse.Merr(body: err.b);
       }
       return FindResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -49,8 +48,7 @@ class EmojiService {
         return FlagResponse.Merr(body: err.b);
       }
       return FlagResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -71,8 +69,7 @@ class EmojiService {
         return PrintResponse.Merr(body: err.b);
       }
       return PrintResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }

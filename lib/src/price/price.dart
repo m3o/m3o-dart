@@ -28,8 +28,7 @@ class PriceService {
         return AddResponse.Merr(body: err.b);
       }
       return AddResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -49,8 +48,7 @@ class PriceService {
         return GetResponse.Merr(body: err.b);
       }
       return GetResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -70,8 +68,7 @@ class PriceService {
         return IndexResponse.Merr(body: err.b);
       }
       return IndexResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -91,8 +88,7 @@ class PriceService {
         return ListResponse.Merr(body: err.b);
       }
       return ListResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -112,8 +108,7 @@ class PriceService {
         return ReportResponse.Merr(body: err.b);
       }
       return ReportResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -122,6 +117,12 @@ class PriceService {
 @Freezed()
 class AddRequest with _$AddRequest {
   const factory AddRequest({
+    /// author of the price
+    String? author,
+
+    /// currency e.g USD
+    String? currency,
+
     /// name of the thing e.g bitcoin
     String? name,
 
@@ -133,12 +134,6 @@ class AddRequest with _$AddRequest {
 
     /// symbol of value
     String? symbol,
-
-    /// author of the price
-    String? author,
-
-    /// currency e.g USD
-    String? currency,
   }) = _AddRequest;
   factory AddRequest.fromJson(Map<String, dynamic> json) =>
       _$AddRequestFromJson(json);
@@ -158,14 +153,14 @@ class AddResponse with _$AddResponse {
 @Freezed()
 class GetRequest with _$GetRequest {
   const factory GetRequest({
+    /// currency to get
+    String? currency,
+
     /// name of the value
     String? name,
 
     /// symbol of value
     String? symbol,
-
-    /// currency to get
-    String? currency,
   }) = _GetRequest;
   factory GetRequest.fromJson(Map<String, dynamic> json) =>
       _$GetRequestFromJson(json);
@@ -281,9 +276,6 @@ class ReportResponse with _$ReportResponse {
 @Freezed()
 class Value with _$Value {
   const factory Value({
-    /// price of thing
-    double? price,
-
     /// where it came from
     String? source,
 
@@ -301,6 +293,9 @@ class Value with _$Value {
 
     /// name of thing
     String? name,
+
+    /// price of thing
+    double? price,
   }) = _Value;
   factory Value.fromJson(Map<String, dynamic> json) => _$ValueFromJson(json);
 }

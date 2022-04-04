@@ -12,7 +12,7 @@ void main() async {
     "fromName": "Awesome Dot Com",
     "subject": "MagicLink to access your account",
     "textContent":
-        "Hi there,\n\nClick here to access your account $micro_verification_link",
+        "Hi there,\n\nClick here to access your account \$micro_verification_link",
   };
 
   SendMagicLinkRequest req = SendMagicLinkRequest.fromJson(payload);
@@ -22,9 +22,8 @@ void main() async {
 
     res.map((value) => print(value),
         Merr: (SendMagicLinkResponseMerr err) => print(err.body!['body']));
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-    print(st);
   } finally {
     exit(0);
   }

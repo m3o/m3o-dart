@@ -12,7 +12,7 @@ void main() async {
     "redirectUrl": "https://m3o.com",
     "subject": "Email verification",
     "textContent":
-        "Hi there,\n\nPlease verify your email by clicking this link: $micro_verification_link",
+        "Hi there,\n\nPlease verify your email by clicking this link: \$micro_verification_link",
   };
 
   SendVerificationEmailRequest req =
@@ -24,9 +24,8 @@ void main() async {
     res.map((value) => print(value),
         Merr: (SendVerificationEmailResponseMerr err) =>
             print(err.body!['body']));
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-    print(st);
   } finally {
     exit(0);
   }

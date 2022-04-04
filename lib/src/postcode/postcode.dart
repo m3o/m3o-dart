@@ -28,8 +28,7 @@ class PostcodeService {
         return LookupResponse.Merr(body: err.b);
       }
       return LookupResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -49,8 +48,7 @@ class PostcodeService {
         return RandomResponse.Merr(body: err.b);
       }
       return RandomResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -70,8 +68,7 @@ class PostcodeService {
         return ValidateResponse.Merr(body: err.b);
       }
       return ValidateResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -90,12 +87,6 @@ class LookupRequest with _$LookupRequest {
 @Freezed()
 class LookupResponse with _$LookupResponse {
   const factory LookupResponse({
-    /// e.g 51.50354
-    double? latitude,
-
-    /// e.g -0.127695
-    double? longitude,
-
     /// UK postcode e.g SW1A 2AA
     String? postcode,
 
@@ -110,6 +101,12 @@ class LookupResponse with _$LookupResponse {
 
     /// e.g Westminster
     String? district,
+
+    /// e.g 51.50354
+    double? latitude,
+
+    /// e.g -0.127695
+    double? longitude,
   }) = LookupResponseData;
   const factory LookupResponse.Merr({Map<String, dynamic>? body}) =
       LookupResponseMerr;

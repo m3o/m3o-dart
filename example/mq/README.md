@@ -38,9 +38,8 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (PublishResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }
@@ -77,9 +76,8 @@ void main() async {
 	  sr.map((value) => print(value),
 		Merr: (SubscribeResponseMerr err) => print(err.body));
 	  }
-  } catch (e, st) {
+  } catch (e) {
     print(e);
-	print(st);
   } finally {
     exit(0);
   }

@@ -28,8 +28,7 @@ class AnswerService {
         return QuestionResponse.Merr(body: err.b);
       }
       return QuestionResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }

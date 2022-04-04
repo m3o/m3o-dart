@@ -28,8 +28,7 @@ class IpService {
         return LookupResponse.Merr(body: err.b);
       }
       return LookupResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -48,15 +47,6 @@ class LookupRequest with _$LookupRequest {
 @Freezed()
 class LookupResponse with _$LookupResponse {
   const factory LookupResponse({
-    /// Name of the country
-    String? country,
-
-    /// IP of the query
-    String? ip,
-
-    /// Latitude e.g 52.523219
-    double? latitude,
-
     /// Longitude e.g 13.428555
     double? longitude,
 
@@ -71,6 +61,15 @@ class LookupResponse with _$LookupResponse {
 
     /// Name of the continent
     String? continent,
+
+    /// Name of the country
+    String? country,
+
+    /// IP of the query
+    String? ip,
+
+    /// Latitude e.g 52.523219
+    double? latitude,
   }) = LookupResponseData;
   const factory LookupResponse.Merr({Map<String, dynamic>? body}) =
       LookupResponseMerr;

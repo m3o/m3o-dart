@@ -28,8 +28,7 @@ class CommentsService {
         return CreateResponse.Merr(body: err.b);
       }
       return CreateResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -49,8 +48,7 @@ class CommentsService {
         return DeleteResponse.Merr(body: err.b);
       }
       return DeleteResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -74,8 +72,7 @@ class CommentsService {
           yield EventsResponseData.fromJson(vo);
         }
       }
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -95,8 +92,7 @@ class CommentsService {
         return ListResponse.Merr(body: err.b);
       }
       return ListResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -116,8 +112,7 @@ class CommentsService {
         return ReadResponse.Merr(body: err.b);
       }
       return ReadResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -137,8 +132,7 @@ class CommentsService {
         return UpdateResponse.Merr(body: err.b);
       }
       return UpdateResponseData.fromJson(res.body);
-    } catch (e, st) {
-      print(st);
+    } catch (e) {
       throw Exception(e);
     }
   }
@@ -147,6 +141,12 @@ class CommentsService {
 @Freezed()
 class Comment with _$Comment {
   const factory Comment({
+    /// text of the comment
+    String? text,
+
+    /// time at which the comment was updated
+    String? updated,
+
     /// time at which the comment was created
     String? created,
 
@@ -155,12 +155,6 @@ class Comment with _$Comment {
 
     /// subject of the comment
     String? subject,
-
-    /// text of the comment
-    String? text,
-
-    /// time at which the comment was updated
-    String? updated,
   }) = _Comment;
   factory Comment.fromJson(Map<String, dynamic> json) =>
       _$CommentFromJson(json);
@@ -225,11 +219,11 @@ class EventsRequest with _$EventsRequest {
 @Freezed()
 class EventsResponse with _$EventsResponse {
   const factory EventsResponse({
-    /// the event which occured; create, delete, update
-    String? event,
-
     /// the comment which the operation occured on
     Comment? comment,
+
+    /// the event which occured; create, delete, update
+    String? event,
   }) = EventsResponseData;
   const factory EventsResponse.Merr({Map<String, dynamic>? body}) =
       EventsResponseMerr;
