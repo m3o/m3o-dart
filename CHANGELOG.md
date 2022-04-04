@@ -1,3 +1,13 @@
+## v1.0.81 - 2022-04-04
+
+[854147](https://github.com/micro/services/commit/8541472bb596391634d5fb40298b7de995b82b80) price nft
+
+## What's Changed
+
+- replace publish action by @lambdaR in https://github.com/m3o/m3o-dart/pull/15
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.80...v1.0.81
+
 ## v1.0.80 - 2022-04-01
 
 [af0794](https://github.com/micro/services/commit/af07943a69c5ecb0f71429064df900f0da149347) Usage caps (#412)
