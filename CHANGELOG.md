@@ -1,3 +1,9 @@
+## v1.0.82 - 2022-04-05
+
+[0f6029](https://github.com/micro/services/commit/0f602902cf7a3fc1f95a8c1138fbe89b8d40e891) Update publicapi.json
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.81...v1.0.82
+
 ## v1.0.81 - 2022-04-04
 
 [854147](https://github.com/micro/services/commit/8541472bb596391634d5fb40298b7de995b82b80) price nft
