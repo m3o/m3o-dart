@@ -7,41 +7,41 @@ part of 'memegen.dart';
 // **************************************************************************
 
 _$_Box _$$_BoxFromJson(Map<String, dynamic> json) => _$_Box(
-      width: json['width'] as int?,
-      x: json['x'] as int?,
-      y: json['y'] as int?,
       color: json['color'] as String?,
       height: json['height'] as int?,
       outline: json['outline'] as String?,
       text: json['text'] as String?,
+      width: json['width'] as int?,
+      x: json['x'] as int?,
+      y: json['y'] as int?,
     );
 
 Map<String, dynamic> _$$_BoxToJson(_$_Box instance) => <String, dynamic>{
-      'width': instance.width,
-      'x': instance.x,
-      'y': instance.y,
       'color': instance.color,
       'height': instance.height,
       'outline': instance.outline,
       'text': instance.text,
+      'width': instance.width,
+      'x': instance.x,
+      'y': instance.y,
     };
 
 _$_GenerateRequest _$$_GenerateRequestFromJson(Map<String, dynamic> json) =>
     _$_GenerateRequest(
-      top_text: json['top_text'] as String?,
       bottom_text: json['bottom_text'] as String?,
       font: json['font'] as String?,
       id: json['id'] as String?,
       max_font_size: json['max_font_size'] as String?,
+      top_text: json['top_text'] as String?,
     );
 
 Map<String, dynamic> _$$_GenerateRequestToJson(_$_GenerateRequest instance) =>
     <String, dynamic>{
-      'top_text': instance.top_text,
       'bottom_text': instance.bottom_text,
       'font': instance.font,
       'id': instance.id,
       'max_font_size': instance.max_font_size,
+      'top_text': instance.top_text,
     };
 
 _$GenerateResponseData _$$GenerateResponseDataFromJson(
