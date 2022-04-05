@@ -127,14 +127,14 @@ class CodesResponse with _$CodesResponse {
 @Freezed()
 class ConvertRequest with _$ConvertRequest {
   const factory ConvertRequest({
-    /// target code to convert to e.g GBP
-    String? to,
-
     /// optional amount to convert e.g 10.0
     double? amount,
 
     /// base code to convert from e.g USD
     String? from,
+
+    /// target code to convert to e.g GBP
+    String? to,
   }) = _ConvertRequest;
   factory ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$ConvertRequestFromJson(json);
@@ -143,17 +143,17 @@ class ConvertRequest with _$ConvertRequest {
 @Freezed()
 class ConvertResponse with _$ConvertResponse {
   const factory ConvertResponse({
-    /// the base code e.g USD
-    String? from,
-
-    /// conversion rate e.g 0.71
-    double? rate,
-
     /// the target code e.g GBP
     String? to,
 
     /// converted amount e.g 7.10
     double? amount,
+
+    /// the base code e.g USD
+    String? from,
+
+    /// conversion rate e.g 0.71
+    double? rate,
   }) = ConvertResponseData;
   const factory ConvertResponse.Merr({Map<String, dynamic>? body}) =
       ConvertResponseMerr;
@@ -164,11 +164,11 @@ class ConvertResponse with _$ConvertResponse {
 @Freezed()
 class HistoryRequest with _$HistoryRequest {
   const factory HistoryRequest({
-    /// date formatted as YYYY-MM-DD
-    String? date,
-
     /// currency code e.g USD
     String? code,
+
+    /// date formatted as YYYY-MM-DD
+    String? date,
   }) = _HistoryRequest;
   factory HistoryRequest.fromJson(Map<String, dynamic> json) =>
       _$HistoryRequestFromJson(json);

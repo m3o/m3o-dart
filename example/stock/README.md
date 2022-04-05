@@ -4,46 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/stock/api](htt
 
 Endpoints:
 
-## OrderBook
-
-Get the historic order book and each trade by timestamp
-
-
-[https://m3o.com/stock/api#OrderBook](https://m3o.com/stock/api#OrderBook)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/stock/stock.dart';
-
-void main() async {
-  final ser = StockService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "date": "2020-10-01",
-  "end": "2020-10-01T11:00:00Z",
-  "limit": 3,
-  "start": "2020-10-01T10:00:00Z",
-  "stock": "AAPL"
-,};
-
-  OrderBookRequest req = OrderBookRequest.fromJson(payload);
-
-  
-  try {
-
-	OrderBookResponse res = await ser.orderBook(req);
-
-    res.map((value) => print(value),
-	  Merr: (OrderBookResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Price
 
 Get the last price for a given stock ticker
@@ -145,6 +105,46 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## OrderBook
+
+Get the historic order book and each trade by timestamp
+
+
+[https://m3o.com/stock/api#OrderBook](https://m3o.com/stock/api#OrderBook)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/stock/stock.dart';
+
+void main() async {
+  final ser = StockService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "date": "2020-10-01",
+  "end": "2020-10-01T11:00:00Z",
+  "limit": 3,
+  "start": "2020-10-01T10:00:00Z",
+  "stock": "AAPL"
+,};
+
+  OrderBookRequest req = OrderBookRequest.fromJson(payload);
+
+  
+  try {
+
+	OrderBookResponse res = await ser.orderBook(req);
+
+    res.map((value) => print(value),
+	  Merr: (OrderBookResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
