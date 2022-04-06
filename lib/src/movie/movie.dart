@@ -37,20 +37,20 @@ class MovieService {
 @Freezed()
 class MovieInfo with _$MovieInfo {
   const factory MovieInfo({
-    String? backdrop_path,
-    bool? video,
-    String? title,
-    double? vote_average,
-    int? vote_count,
     String? original_title,
-    double? popularity,
-    String? overview,
-    bool? adult,
-    List<int>? genre_ids,
-    String? poster_path,
-    String? release_date,
+    bool? video,
+    double? vote_average,
     int? id,
+    String? overview,
+    String? release_date,
+    String? title,
+    int? vote_count,
+    bool? adult,
+    String? backdrop_path,
+    List<int>? genre_ids,
     String? original_language,
+    double? popularity,
+    String? poster_path,
   }) = _MovieInfo;
   factory MovieInfo.fromJson(Map<String, dynamic> json) =>
       _$MovieInfoFromJson(json);
@@ -59,15 +59,6 @@ class MovieInfo with _$MovieInfo {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// a ISO 3166-1 code to filter release dates.
-    String? region,
-
-    /// year of making
-    int? year,
-
-    /// a ISO 639-1 value to display translated data
-    String? language,
-
     /// page to query
     int? page,
 
@@ -76,6 +67,15 @@ class SearchRequest with _$SearchRequest {
 
     /// a text query to search
     String? query,
+
+    /// a ISO 3166-1 code to filter release dates.
+    String? region,
+
+    /// year of making
+    int? year,
+
+    /// a ISO 639-1 value to display translated data
+    String? language,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);
@@ -84,10 +84,10 @@ class SearchRequest with _$SearchRequest {
 @Freezed()
 class SearchResponse with _$SearchResponse {
   const factory SearchResponse({
-    int? page,
-    List<MovieInfo>? results,
     int? total_pages,
     int? total_results,
+    int? page,
+    List<MovieInfo>? results,
   }) = SearchResponseData;
   const factory SearchResponse.Merr({Map<String, dynamic>? body}) =
       SearchResponseMerr;
