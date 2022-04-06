@@ -7,23 +7,23 @@ part of 'memegen.dart';
 // **************************************************************************
 
 _$_Box _$$_BoxFromJson(Map<String, dynamic> json) => _$_Box(
+      y: json['y'] as int?,
+      color: json['color'] as String?,
       height: json['height'] as int?,
       outline: json['outline'] as String?,
       text: json['text'] as String?,
       width: json['width'] as int?,
       x: json['x'] as int?,
-      y: json['y'] as int?,
-      color: json['color'] as String?,
     );
 
 Map<String, dynamic> _$$_BoxToJson(_$_Box instance) => <String, dynamic>{
+      'y': instance.y,
+      'color': instance.color,
       'height': instance.height,
       'outline': instance.outline,
       'text': instance.text,
       'width': instance.width,
       'x': instance.x,
-      'y': instance.y,
-      'color': instance.color,
     };
 
 _$_GenerateRequest _$$_GenerateRequestFromJson(Map<String, dynamic> json) =>

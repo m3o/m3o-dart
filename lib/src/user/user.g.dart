@@ -7,9 +7,6 @@ part of 'user.dart';
 // **************************************************************************
 
 _$_Account _$$_AccountFromJson(Map<String, dynamic> json) => _$_Account(
-      updated: int64FromString(json['updated'] as String?),
-      username: json['username'] as String?,
-      verification_date: int64FromString(json['verification_date'] as String?),
       verified: json['verified'] as bool?,
       created: int64FromString(json['created'] as String?),
       email: json['email'] as String?,
@@ -17,18 +14,21 @@ _$_Account _$$_AccountFromJson(Map<String, dynamic> json) => _$_Account(
       profile: (json['profile'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
+      updated: int64FromString(json['updated'] as String?),
+      username: json['username'] as String?,
+      verification_date: int64FromString(json['verification_date'] as String?),
     );
 
 Map<String, dynamic> _$$_AccountToJson(_$_Account instance) =>
     <String, dynamic>{
-      'updated': int64ToString(instance.updated),
-      'username': instance.username,
-      'verification_date': int64ToString(instance.verification_date),
       'verified': instance.verified,
       'created': int64ToString(instance.created),
       'email': instance.email,
       'id': instance.id,
       'profile': instance.profile,
+      'updated': int64ToString(instance.updated),
+      'username': instance.username,
+      'verification_date': int64ToString(instance.verification_date),
     };
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
@@ -115,14 +115,14 @@ Map<String, dynamic> _$$DeleteResponseMerrToJson(
 
 _$_ListRequest _$$_ListRequestFromJson(Map<String, dynamic> json) =>
     _$_ListRequest(
-      limit: json['limit'] as int?,
       offset: json['offset'] as int?,
+      limit: json['limit'] as int?,
     );
 
 Map<String, dynamic> _$$_ListRequestToJson(_$_ListRequest instance) =>
     <String, dynamic>{
-      'limit': instance.limit,
       'offset': instance.offset,
+      'limit': instance.limit,
     };
 
 _$ListResponseData _$$ListResponseDataFromJson(Map<String, dynamic> json) =>
@@ -346,19 +346,19 @@ Map<String, dynamic> _$$ReadSessionResponseMerrToJson(
 _$_ResetPasswordRequest _$$_ResetPasswordRequestFromJson(
         Map<String, dynamic> json) =>
     _$_ResetPasswordRequest(
-      code: json['code'] as String?,
       confirm_password: json['confirm_password'] as String?,
       email: json['email'] as String?,
       new_password: json['new_password'] as String?,
+      code: json['code'] as String?,
     );
 
 Map<String, dynamic> _$$_ResetPasswordRequestToJson(
         _$_ResetPasswordRequest instance) =>
     <String, dynamic>{
-      'code': instance.code,
       'confirm_password': instance.confirm_password,
       'email': instance.email,
       'new_password': instance.new_password,
+      'code': instance.code,
     };
 
 _$ResetPasswordResponseData _$$ResetPasswordResponseDataFromJson(
@@ -590,20 +590,20 @@ Map<String, dynamic> _$$UpdatePasswordResponseMerrToJson(
 
 _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>
     _$_UpdateRequest(
-      email: json['email'] as String?,
-      id: json['id'] as String?,
       profile: (json['profile'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
       username: json['username'] as String?,
+      email: json['email'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_UpdateRequestToJson(_$_UpdateRequest instance) =>
     <String, dynamic>{
-      'email': instance.email,
-      'id': instance.id,
       'profile': instance.profile,
       'username': instance.username,
+      'email': instance.email,
+      'id': instance.id,
     };
 
 _$UpdateResponseData _$$UpdateResponseDataFromJson(Map<String, dynamic> json) =>

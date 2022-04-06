@@ -345,16 +345,6 @@ class UserService {
 @Freezed()
 class Account with _$Account {
   const factory Account({
-    /// unix timestamp
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? updated,
-
-    /// alphanumeric username
-    String? username,
-
-    /// date of verification
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-        int? verification_date,
-
     /// if the account is verified
     bool? verified,
 
@@ -369,6 +359,16 @@ class Account with _$Account {
 
     /// Store any custom data you want about your users in this fields.
     Map<String, String>? profile,
+
+    /// unix timestamp
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? updated,
+
+    /// alphanumeric username
+    String? username,
+
+    /// date of verification
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+        int? verification_date,
   }) = _Account;
   factory Account.fromJson(Map<String, dynamic> json) =>
       _$AccountFromJson(json);
@@ -429,10 +429,11 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class ListRequest with _$ListRequest {
   const factory ListRequest({
+    int? offset,
+
     /// Maximum number of records to return. Default limit is 25.
     /// Maximum limit is 1000. Anything higher will return an error.
     int? limit,
-    int? offset,
   }) = _ListRequest;
   factory ListRequest.fromJson(Map<String, dynamic> json) =>
       _$ListRequestFromJson(json);
@@ -567,9 +568,6 @@ class ReadSessionResponse with _$ReadSessionResponse {
 @Freezed()
 class ResetPasswordRequest with _$ResetPasswordRequest {
   const factory ResetPasswordRequest({
-    /// The code from the verification email
-    String? code,
-
     /// confirm new password
     String? confirm_password,
 
@@ -578,6 +576,9 @@ class ResetPasswordRequest with _$ResetPasswordRequest {
 
     /// the new password
     String? new_password,
+
+    /// The code from the verification email
+    String? code,
   }) = _ResetPasswordRequest;
   factory ResetPasswordRequest.fromJson(Map<String, dynamic> json) =>
       _$ResetPasswordRequestFromJson(json);
@@ -745,17 +746,17 @@ class UpdatePasswordResponse with _$UpdatePasswordResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// the new email address
-    String? email,
-
-    /// the account id
-    String? id,
-
     /// the user profile as map<string,string>
     Map<String, String>? profile,
 
     /// the new username
     String? username,
+
+    /// the new email address
+    String? email,
+
+    /// the account id
+    String? id,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

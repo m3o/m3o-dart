@@ -87,9 +87,9 @@ class Entity with _$Entity {
 @Freezed()
 class Point with _$Point {
   const factory Point({
-    double? latitude,
     double? longitude,
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? timestamp,
+    double? latitude,
   }) = _Point;
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 }
@@ -136,6 +136,9 @@ class SaveResponse with _$SaveResponse {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
+    /// type of entities to filter
+    String? type,
+
     /// Central position to search from
     Point? center,
 
@@ -144,9 +147,6 @@ class SearchRequest with _$SearchRequest {
 
     /// radius in meters
     double? radius,
-
-    /// type of entities to filter
-    String? type,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);

@@ -4,42 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/app/api](https
 
 Endpoints:
 
-## Reserve
-
-Reserve apps beyond the free quota. Call Run after.
-
-
-[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/app/app.dart';
-
-void main() async {
-  final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "name": "helloworld"
-,};
-
-  ReserveRequest req = ReserveRequest.fromJson(payload);
-
-  
-  try {
-
-	ReserveResponse res = await ser.reserve(req);
-
-    res.map((value) => print(value),
-	  Merr: (ReserveResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## List
 
 List all the apps
@@ -66,76 +30,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Regions
-
-Return the support regions
-
-
-[https://m3o.com/app/api#Regions](https://m3o.com/app/api#Regions)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/app/app.dart';
-
-void main() async {
-  final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{};
-
-  RegionsRequest req = RegionsRequest.fromJson(payload);
-
-  
-  try {
-
-	RegionsResponse res = await ser.regions(req);
-
-    res.map((value) => print(value),
-	  Merr: (RegionsResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Status
-
-Get the status of an app
-
-
-[https://m3o.com/app/api#Status](https://m3o.com/app/api#Status)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/app/app.dart';
-
-void main() async {
-  final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "name": "helloworld"
-,};
-
-  StatusRequest req = StatusRequest.fromJson(payload);
-
-  
-  try {
-
-	StatusResponse res = await ser.status(req);
-
-    res.map((value) => print(value),
-	  Merr: (StatusResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -216,6 +110,78 @@ void main() async {
   }
 }
 ```
+## Delete
+
+Delete an app
+
+
+[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/app/app.dart';
+
+void main() async {
+  final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "name": "helloworld"
+,};
+
+  DeleteRequest req = DeleteRequest.fromJson(payload);
+
+  
+  try {
+
+	DeleteResponse res = await ser.delete(req);
+
+    res.map((value) => print(value),
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Reserve
+
+Reserve apps beyond the free quota. Call Run after.
+
+
+[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/app/app.dart';
+
+void main() async {
+  final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "name": "helloworld"
+,};
+
+  ReserveRequest req = ReserveRequest.fromJson(payload);
+
+  
+  try {
+
+	ReserveResponse res = await ser.reserve(req);
+
+    res.map((value) => print(value),
+	  Merr: (ReserveResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Run
 
 Run an app from source
@@ -256,12 +222,46 @@ void main() async {
   }
 }
 ```
-## Delete
+## Regions
 
-Delete an app
+Return the support regions
 
 
-[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
+[https://m3o.com/app/api#Regions](https://m3o.com/app/api#Regions)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/app/app.dart';
+
+void main() async {
+  final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  RegionsRequest req = RegionsRequest.fromJson(payload);
+
+  
+  try {
+
+	RegionsResponse res = await ser.regions(req);
+
+    res.map((value) => print(value),
+	  Merr: (RegionsResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Status
+
+Get the status of an app
+
+
+[https://m3o.com/app/api#Status](https://m3o.com/app/api#Status)
 
 ```dart
 import 'dart:io';
@@ -275,15 +275,15 @@ void main() async {
   "name": "helloworld"
 ,};
 
-  DeleteRequest req = DeleteRequest.fromJson(payload);
+  StatusRequest req = StatusRequest.fromJson(payload);
 
   
   try {
 
-	DeleteResponse res = await ser.delete(req);
+	StatusResponse res = await ser.status(req);
 
     res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+	  Merr: (StatusResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
