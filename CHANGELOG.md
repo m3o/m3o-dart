@@ -1,3 +1,9 @@
+## v1.0.84 - 2022-04-06
+
+[310147](https://github.com/micro/services/commit/310147c9e173455f81a89ad1893fa17e23b857cb) .
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.83...v1.0.84
+
 ## v1.0.83 - 2022-04-05
 
 [310147](https://github.com/micro/services/commit/310147c9e173455f81a89ad1893fa17e23b857cb) .
