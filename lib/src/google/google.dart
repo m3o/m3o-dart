@@ -59,6 +59,12 @@ class SearchResponse with _$SearchResponse {
 @Freezed()
 class SearchResult with _$SearchResult {
   const factory SearchResult({
+    /// abridged version of this search result’s URL, e.g. www.exampe.com
+    String? display_url,
+
+    /// id of the result
+    String? id,
+
     /// kind of result; "search"
     String? kind,
 
@@ -70,12 +76,6 @@ class SearchResult with _$SearchResult {
 
     /// the full url for the result
     String? url,
-
-    /// abridged version of this search result’s URL, e.g. www.exampe.com
-    String? display_url,
-
-    /// id of the result
-    String? id,
   }) = _SearchResult;
   factory SearchResult.fromJson(Map<String, dynamic> json) =>
       _$SearchResultFromJson(json);

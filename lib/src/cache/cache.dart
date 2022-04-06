@@ -215,11 +215,11 @@ class GetResponse with _$GetResponse {
 @Freezed()
 class IncrementRequest with _$IncrementRequest {
   const factory IncrementRequest({
-    /// The amount to increment the value by
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
-
     /// The key to increment
     String? key,
+
+    /// The amount to increment the value by
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
   }) = _IncrementRequest;
   factory IncrementRequest.fromJson(Map<String, dynamic> json) =>
       _$IncrementRequestFromJson(json);
