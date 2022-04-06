@@ -294,12 +294,6 @@ class DeployRequest with _$DeployRequest {
     /// function name
     String? name,
 
-    /// region to deploy in. defaults to europe-west1
-    String? region,
-
-    /// github url for a repo
-    String? repo,
-
     /// runtime/lanaguage of the function e.g php74,
     /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
     /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
@@ -308,6 +302,12 @@ class DeployRequest with _$DeployRequest {
 
     /// inline source code
     String? source,
+
+    /// region to deploy in. defaults to europe-west1
+    String? region,
+
+    /// github url for a repo
+    String? repo,
 
     /// optional subfolder path
     String? subfolder,
@@ -352,6 +352,31 @@ class DescribeResponse with _$DescribeResponse {
 @Freezed()
 class Func with _$Func {
   const factory Func({
+    /// time it was updated
+    String? updated,
+
+    /// unique url of the function
+    String? url,
+
+    /// time of creation
+    String? created,
+
+    /// the source code
+    String? source,
+
+    /// id of the function
+    String? id,
+
+    /// function name
+    /// limitation: must be unique across projects
+    String? name,
+
+    /// region to deploy in. defaults to europe-west1
+    String? region,
+
+    /// git repo address
+    String? repo,
+
     /// runtime/language of the function e.g php74,
     /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
     /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
@@ -361,42 +386,17 @@ class Func with _$Func {
     /// branch to deploy. defaults to master
     String? branch,
 
-    /// time of creation
-    String? created,
-
-    /// name of handler in source code
-    String? entrypoint,
-
-    /// id of the function
-    String? id,
-
-    /// function name
-    /// limitation: must be unique across projects
-    String? name,
-
-    /// the source code
-    String? source,
-
     /// associated env vars
     Map<String, String>? env_vars,
-
-    /// region to deploy in. defaults to europe-west1
-    String? region,
-
-    /// git repo address
-    String? repo,
-
-    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-    String? status,
 
     /// subfolder path to entrypoint
     String? subfolder,
 
-    /// time it was updated
-    String? updated,
+    /// name of handler in source code
+    String? entrypoint,
 
-    /// unique url of the function
-    String? url,
+    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+    String? status,
   }) = _Func;
   factory Func.fromJson(Map<String, dynamic> json) => _$FuncFromJson(json);
 }

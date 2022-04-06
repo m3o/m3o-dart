@@ -54,16 +54,16 @@ Map<String, dynamic> _$$AddResponseMerrToJson(_$AddResponseMerr instance) =>
 
 _$_GetRequest _$$_GetRequestFromJson(Map<String, dynamic> json) =>
     _$_GetRequest(
+      symbol: json['symbol'] as String?,
       currency: json['currency'] as String?,
       name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
     );
 
 Map<String, dynamic> _$$_GetRequestToJson(_$_GetRequest instance) =>
     <String, dynamic>{
+      'symbol': instance.symbol,
       'currency': instance.currency,
       'name': instance.name,
-      'symbol': instance.symbol,
     };
 
 _$GetResponseData _$$GetResponseDataFromJson(Map<String, dynamic> json) =>

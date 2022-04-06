@@ -63,17 +63,17 @@ Map<String, dynamic> _$$_EntryToJson(_$_Entry instance) => <String, dynamic>{
     };
 
 _$_Feed _$$_FeedFromJson(Map<String, dynamic> json) => _$_Feed(
-      name: json['name'] as String?,
-      url: json['url'] as String?,
       category: json['category'] as String?,
       id: json['id'] as String?,
+      name: json['name'] as String?,
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic> _$$_FeedToJson(_$_Feed instance) => <String, dynamic>{
-      'name': instance.name,
-      'url': instance.url,
       'category': instance.category,
       'id': instance.id,
+      'name': instance.name,
+      'url': instance.url,
     };
 
 _$_FeedRequest _$$_FeedRequestFromJson(Map<String, dynamic> json) =>

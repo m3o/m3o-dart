@@ -153,14 +153,14 @@ class AddResponse with _$AddResponse {
 @Freezed()
 class GetRequest with _$GetRequest {
   const factory GetRequest({
+    /// symbol of value
+    String? symbol,
+
     /// currency to get
     String? currency,
 
     /// name of the value
     String? name,
-
-    /// symbol of value
-    String? symbol,
   }) = _GetRequest;
   factory GetRequest.fromJson(Map<String, dynamic> json) =>
       _$GetRequestFromJson(json);

@@ -8,20 +8,20 @@ part of 'chat.dart';
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
+      private: json['private'] as bool?,
       user_ids: (json['user_ids'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       description: json['description'] as String?,
       name: json['name'] as String?,
-      private: json['private'] as bool?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
+      'private': instance.private,
       'user_ids': instance.user_ids,
       'description': instance.description,
       'name': instance.name,
-      'private': instance.private,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -172,14 +172,14 @@ Map<String, dynamic> _$$InviteResponseMerrToJson(
 
 _$_JoinRequest _$$_JoinRequestFromJson(Map<String, dynamic> json) =>
     _$_JoinRequest(
-      user_id: json['user_id'] as String?,
       room_id: json['room_id'] as String?,
+      user_id: json['user_id'] as String?,
     );
 
 Map<String, dynamic> _$$_JoinRequestToJson(_$_JoinRequest instance) =>
     <String, dynamic>{
-      'user_id': instance.user_id,
       'room_id': instance.room_id,
+      'user_id': instance.user_id,
     };
 
 _$JoinResponseData _$$JoinResponseDataFromJson(Map<String, dynamic> json) =>
@@ -342,23 +342,23 @@ Map<String, dynamic> _$$_MessageToJson(_$_Message instance) =>
     };
 
 _$_Room _$$_RoomFromJson(Map<String, dynamic> json) => _$_Room(
-      private: json['private'] as bool?,
-      user_ids: (json['user_ids'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
       created_at: json['created_at'] as String?,
       description: json['description'] as String?,
       id: json['id'] as String?,
       name: json['name'] as String?,
+      private: json['private'] as bool?,
+      user_ids: (json['user_ids'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$$_RoomToJson(_$_Room instance) => <String, dynamic>{
-      'private': instance.private,
-      'user_ids': instance.user_ids,
       'created_at': instance.created_at,
       'description': instance.description,
       'id': instance.id,
       'name': instance.name,
+      'private': instance.private,
+      'user_ids': instance.user_ids,
     };
 
 _$_SendRequest _$$_SendRequestFromJson(Map<String, dynamic> json) =>
