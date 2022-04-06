@@ -1,3 +1,9 @@
+## v1.0.86 - 2022-04-06
+
+[97b90c](https://github.com/micro/services/commit/97b90c0ea0049fef9b40b1a11112e0c4d1c79bb8) remove tunnel pricing
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.85...v1.0.86
+
 ## v1.0.85 - 2022-04-06
 
 [310147](https://github.com/micro/services/commit/310147c9e173455f81a89ad1893fa17e23b857cb) .
