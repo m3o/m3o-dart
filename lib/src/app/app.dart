@@ -277,12 +277,6 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
-    /// time reservation expires
-    String? expires,
-
-    /// name of the app
-    String? name,
-
     /// owner id
     String? owner,
 
@@ -291,6 +285,12 @@ class Reservation with _$Reservation {
 
     /// time of reservation
     String? created,
+
+    /// time reservation expires
+    String? expires,
+
+    /// name of the app
+    String? name,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);
@@ -343,9 +343,6 @@ class ResolveResponse with _$ResolveResponse {
 @Freezed()
 class RunRequest with _$RunRequest {
   const factory RunRequest({
-    /// region to run in
-    String? region,
-
     /// source repository
     String? repo,
 
@@ -360,6 +357,9 @@ class RunRequest with _$RunRequest {
 
     /// port to run on
     int? port,
+
+    /// region to run in
+    String? region,
   }) = _RunRequest;
   factory RunRequest.fromJson(Map<String, dynamic> json) =>
       _$RunRequestFromJson(json);
@@ -386,20 +386,17 @@ class Service with _$Service {
     /// associated env vars
     Map<String, String>? env_vars,
 
+    /// name of the app
+    String? name,
+
+    /// port running on
+    int? port,
+
     /// status of the app
     String? status,
 
-    /// last updated
-    String? updated,
-
     /// app url
     String? url,
-
-    /// region running in
-    String? region,
-
-    /// source repository
-    String? repo,
 
     /// time of creation
     String? created,
@@ -410,11 +407,14 @@ class Service with _$Service {
     /// unique id
     String? id,
 
-    /// name of the app
-    String? name,
+    /// region running in
+    String? region,
 
-    /// port running on
-    int? port,
+    /// source repository
+    String? repo,
+
+    /// last updated
+    String? updated,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);

@@ -1468,10 +1468,10 @@ ListMessagesResponse _$ListMessagesResponseFromJson(Map<String, dynamic> json) {
 class _$ListMessagesResponseTearOff {
   const _$ListMessagesResponseTearOff();
 
-  ListMessagesResponseData call({List<Message>? messages, String? channel}) {
+  ListMessagesResponseData call({String? channel, List<Message>? messages}) {
     return ListMessagesResponseData(
-      messages: messages,
       channel: channel,
+      messages: messages,
     );
   }
 
@@ -1493,19 +1493,19 @@ const $ListMessagesResponse = _$ListMessagesResponseTearOff();
 mixin _$ListMessagesResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(List<Message>? messages, String? channel) $default, {
+    TResult Function(String? channel, List<Message>? messages) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Message>? messages, String? channel)? $default, {
+    TResult Function(String? channel, List<Message>? messages)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<Message>? messages, String? channel)? $default, {
+    TResult Function(String? channel, List<Message>? messages)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -1554,7 +1554,7 @@ abstract class $ListMessagesResponseDataCopyWith<$Res> {
   factory $ListMessagesResponseDataCopyWith(ListMessagesResponseData value,
           $Res Function(ListMessagesResponseData) then) =
       _$ListMessagesResponseDataCopyWithImpl<$Res>;
-  $Res call({List<Message>? messages, String? channel});
+  $Res call({String? channel, List<Message>? messages});
 }
 
 /// @nodoc
@@ -1571,18 +1571,18 @@ class _$ListMessagesResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? messages = freezed,
     Object? channel = freezed,
+    Object? messages = freezed,
   }) {
     return _then(ListMessagesResponseData(
-      messages: messages == freezed
-          ? _value.messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as List<Message>?,
       channel: channel == freezed
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
               as String?,
+      messages: messages == freezed
+          ? _value.messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as List<Message>?,
     ));
   }
 }
@@ -1590,7 +1590,7 @@ class _$ListMessagesResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ListMessagesResponseData implements ListMessagesResponseData {
-  const _$ListMessagesResponseData({this.messages, this.channel, String? $type})
+  const _$ListMessagesResponseData({this.channel, this.messages, String? $type})
       : $type = $type ?? 'default';
 
   factory _$ListMessagesResponseData.fromJson(Map<String, dynamic> json) =>
@@ -1598,19 +1598,19 @@ class _$ListMessagesResponseData implements ListMessagesResponseData {
 
   @override
 
-  /// Messages are chronological order
-  final List<Message>? messages;
-  @override
-
   /// The channel subscribed to
   final String? channel;
+  @override
+
+  /// Messages are chronological order
+  final List<Message>? messages;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'ListMessagesResponse(messages: $messages, channel: $channel)';
+    return 'ListMessagesResponse(channel: $channel, messages: $messages)';
   }
 
   @override
@@ -1618,15 +1618,15 @@ class _$ListMessagesResponseData implements ListMessagesResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ListMessagesResponseData &&
-            const DeepCollectionEquality().equals(other.messages, messages) &&
-            const DeepCollectionEquality().equals(other.channel, channel));
+            const DeepCollectionEquality().equals(other.channel, channel) &&
+            const DeepCollectionEquality().equals(other.messages, messages));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(messages),
-      const DeepCollectionEquality().hash(channel));
+      const DeepCollectionEquality().hash(channel),
+      const DeepCollectionEquality().hash(messages));
 
   @JsonKey(ignore: true)
   @override
@@ -1637,30 +1637,30 @@ class _$ListMessagesResponseData implements ListMessagesResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(List<Message>? messages, String? channel) $default, {
+    TResult Function(String? channel, List<Message>? messages) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(messages, channel);
+    return $default(channel, messages);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Message>? messages, String? channel)? $default, {
+    TResult Function(String? channel, List<Message>? messages)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(messages, channel);
+    return $default?.call(channel, messages);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<Message>? messages, String? channel)? $default, {
+    TResult Function(String? channel, List<Message>? messages)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(messages, channel);
+      return $default(channel, messages);
     }
     return orElse();
   }
@@ -1704,16 +1704,16 @@ class _$ListMessagesResponseData implements ListMessagesResponseData {
 
 abstract class ListMessagesResponseData implements ListMessagesResponse {
   const factory ListMessagesResponseData(
-      {List<Message>? messages, String? channel}) = _$ListMessagesResponseData;
+      {String? channel, List<Message>? messages}) = _$ListMessagesResponseData;
 
   factory ListMessagesResponseData.fromJson(Map<String, dynamic> json) =
       _$ListMessagesResponseData.fromJson;
 
-  /// Messages are chronological order
-  List<Message>? get messages;
-
   /// The channel subscribed to
   String? get channel;
+
+  /// Messages are chronological order
+  List<Message>? get messages;
   @JsonKey(ignore: true)
   $ListMessagesResponseDataCopyWith<ListMessagesResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1793,7 +1793,7 @@ class _$ListMessagesResponseMerr implements ListMessagesResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(List<Message>? messages, String? channel) $default, {
+    TResult Function(String? channel, List<Message>? messages) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -1802,7 +1802,7 @@ class _$ListMessagesResponseMerr implements ListMessagesResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Message>? messages, String? channel)? $default, {
+    TResult Function(String? channel, List<Message>? messages)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -1811,7 +1811,7 @@ class _$ListMessagesResponseMerr implements ListMessagesResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<Message>? messages, String? channel)? $default, {
+    TResult Function(String? channel, List<Message>? messages)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {

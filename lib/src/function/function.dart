@@ -281,17 +281,15 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class DeployRequest with _$DeployRequest {
   const factory DeployRequest({
-    /// inline source code
-    String? source,
-
-    /// optional subfolder path
-    String? subfolder,
-
     /// branch to deploy. defaults to master
     String? branch,
 
-    /// function name
-    String? name,
+    /// entry point, ie. handler name in the source code
+    /// if not provided, defaults to the name parameter
+    String? entrypoint,
+
+    /// region to deploy in. defaults to europe-west1
+    String? region,
 
     /// github url for a repo
     String? repo,
@@ -302,15 +300,17 @@ class DeployRequest with _$DeployRequest {
     /// python37, python38, python39
     String? runtime,
 
-    /// entry point, ie. handler name in the source code
-    /// if not provided, defaults to the name parameter
-    String? entrypoint,
+    /// inline source code
+    String? source,
+
+    /// optional subfolder path
+    String? subfolder,
 
     /// environment variables to pass in at runtime
     Map<String, String>? env_vars,
 
-    /// region to deploy in. defaults to europe-west1
-    String? region,
+    /// function name
+    String? name,
   }) = _DeployRequest;
   factory DeployRequest.fromJson(Map<String, dynamic> json) =>
       _$DeployRequestFromJson(json);
@@ -352,11 +352,39 @@ class DescribeResponse with _$DescribeResponse {
 @Freezed()
 class Func with _$Func {
   const factory Func({
-    /// id of the function
-    String? id,
+    /// name of handler in source code
+    String? entrypoint,
+
+    /// associated env vars
+    Map<String, String>? env_vars,
 
     /// region to deploy in. defaults to europe-west1
     String? region,
+
+    /// the source code
+    String? source,
+
+    /// time it was updated
+    String? updated,
+
+    /// unique url of the function
+    String? url,
+
+    /// id of the function
+    String? id,
+
+    /// function name
+    /// limitation: must be unique across projects
+    String? name,
+
+    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+    String? status,
+
+    /// subfolder path to entrypoint
+    String? subfolder,
+
+    /// time of creation
+    String? created,
 
     /// git repo address
     String? repo,
@@ -367,36 +395,8 @@ class Func with _$Func {
     /// python37, python38, python39
     String? runtime,
 
-    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-    String? status,
-
-    /// associated env vars
-    Map<String, String>? env_vars,
-
-    /// time it was updated
-    String? updated,
-
     /// branch to deploy. defaults to master
     String? branch,
-
-    /// time of creation
-    String? created,
-
-    /// function name
-    /// limitation: must be unique across projects
-    String? name,
-
-    /// the source code
-    String? source,
-
-    /// name of handler in source code
-    String? entrypoint,
-
-    /// subfolder path to entrypoint
-    String? subfolder,
-
-    /// unique url of the function
-    String? url,
   }) = _Func;
   factory Func.fromJson(Map<String, dynamic> json) => _$FuncFromJson(json);
 }
@@ -487,9 +487,6 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
-    /// time reservation expires
-    String? expires,
-
     /// name of the app
     String? name,
 
@@ -501,6 +498,9 @@ class Reservation with _$Reservation {
 
     /// time of reservation
     String? created,
+
+    /// time reservation expires
+    String? expires,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);
@@ -549,11 +549,11 @@ class RuntimesResponse with _$RuntimesResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// function name
-    String? name,
-
     /// inline source code
     String? source,
+
+    /// function name
+    String? name,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);
