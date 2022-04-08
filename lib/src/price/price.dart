@@ -117,15 +117,6 @@ class PriceService {
 @Freezed()
 class AddRequest with _$AddRequest {
   const factory AddRequest({
-    /// author of the price
-    String? author,
-
-    /// currency e.g USD
-    String? currency,
-
-    /// name of the thing e.g bitcoin
-    String? name,
-
     /// price of the thing e.g 10001.00
     double? price,
 
@@ -134,6 +125,15 @@ class AddRequest with _$AddRequest {
 
     /// symbol of value
     String? symbol,
+
+    /// author of the price
+    String? author,
+
+    /// currency e.g USD
+    String? currency,
+
+    /// name of the thing e.g bitcoin
+    String? name,
   }) = _AddRequest;
   factory AddRequest.fromJson(Map<String, dynamic> json) =>
       _$AddRequestFromJson(json);
@@ -153,14 +153,14 @@ class AddResponse with _$AddResponse {
 @Freezed()
 class GetRequest with _$GetRequest {
   const factory GetRequest({
-    /// currency to get
-    String? currency,
-
     /// name of the value
     String? name,
 
     /// symbol of value
     String? symbol,
+
+    /// currency to get
+    String? currency,
   }) = _GetRequest;
   factory GetRequest.fromJson(Map<String, dynamic> json) =>
       _$GetRequestFromJson(json);
@@ -251,14 +251,14 @@ class Report with _$Report {
 @Freezed()
 class ReportRequest with _$ReportRequest {
   const factory ReportRequest({
+    /// symbol of value
+    String? symbol,
+
     /// additional comment
     String? comment,
 
     /// name of value
     String? name,
-
-    /// symbol of value
-    String? symbol,
   }) = _ReportRequest;
   factory ReportRequest.fromJson(Map<String, dynamic> json) =>
       _$ReportRequestFromJson(json);
@@ -276,6 +276,12 @@ class ReportResponse with _$ReportResponse {
 @Freezed()
 class Value with _$Value {
   const factory Value({
+    /// who added it
+    String? author,
+
+    /// currency of thing
+    String? currency,
+
     /// name of thing
     String? name,
 
@@ -290,12 +296,6 @@ class Value with _$Value {
 
     /// time it was added
     String? timestamp,
-
-    /// who added it
-    String? author,
-
-    /// currency of thing
-    String? currency,
   }) = _Value;
   factory Value.fromJson(Map<String, dynamic> json) => _$ValueFromJson(json);
 }
