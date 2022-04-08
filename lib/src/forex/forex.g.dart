@@ -104,19 +104,19 @@ Map<String, dynamic> _$$_QuoteRequestToJson(_$_QuoteRequest instance) =>
 
 _$QuoteResponseData _$$QuoteResponseDataFromJson(Map<String, dynamic> json) =>
     _$QuoteResponseData(
+      timestamp: json['timestamp'] as String?,
       ask_price: (json['ask_price'] as num?)?.toDouble(),
       bid_price: (json['bid_price'] as num?)?.toDouble(),
       symbol: json['symbol'] as String?,
-      timestamp: json['timestamp'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$QuoteResponseDataToJson(_$QuoteResponseData instance) =>
     <String, dynamic>{
+      'timestamp': instance.timestamp,
       'ask_price': instance.ask_price,
       'bid_price': instance.bid_price,
       'symbol': instance.symbol,
-      'timestamp': instance.timestamp,
       'runtimeType': instance.$type,
     };
 

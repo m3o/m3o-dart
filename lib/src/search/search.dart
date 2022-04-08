@@ -177,11 +177,11 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Field with _$Field {
   const factory Field({
-    /// The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
-    String? name,
-
     /// The type of the field - string, number
     String? type,
+
+    /// The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
+    String? name,
   }) = _Field;
   factory Field.fromJson(Map<String, dynamic> json) => _$FieldFromJson(json);
 }
@@ -189,14 +189,14 @@ class Field with _$Field {
 @Freezed()
 class IndexRequest with _$IndexRequest {
   const factory IndexRequest({
+    /// The index this record belongs to
+    String? index,
+
     /// The data to index
     Map<String, dynamic>? data,
 
     /// Optional ID for the record
     String? id,
-
-    /// The index this record belongs to
-    String? index,
   }) = _IndexRequest;
   factory IndexRequest.fromJson(Map<String, dynamic> json) =>
       _$IndexRequestFromJson(json);
@@ -217,11 +217,11 @@ class IndexResponse with _$IndexResponse {
 @Freezed()
 class Record with _$Record {
   const factory Record({
-    /// The JSON contents of the record
-    Map<String, dynamic>? data,
-
     /// The ID for this record. If blank, one will be generated
     String? id,
+
+    /// The JSON contents of the record
+    Map<String, dynamic>? data,
   }) = _Record;
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }
@@ -229,11 +229,11 @@ class Record with _$Record {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// The query. See docs for query language examples
-    String? query,
-
     /// The index the record belongs to
     String? index,
+
+    /// The query. See docs for query language examples
+    String? query,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);

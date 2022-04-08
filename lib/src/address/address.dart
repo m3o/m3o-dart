@@ -68,12 +68,6 @@ class Record with _$Record {
     /// dependent locality
     String? locality,
 
-    /// street name
-    String? street,
-
-    /// the complete address
-    String? summary,
-
     /// post town
     String? town,
 
@@ -91,6 +85,12 @@ class Record with _$Record {
 
     /// the premise
     String? premise,
+
+    /// street name
+    String? street,
+
+    /// the complete address
+    String? summary,
   }) = _Record;
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }

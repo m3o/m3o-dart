@@ -77,6 +77,15 @@ class RoutingService {
 @Freezed()
 class Direction with _$Direction {
   const factory Direction({
+    /// street name or location
+    String? name,
+
+    /// alternative reference
+    String? reference,
+
+    /// distance to travel in meters
+    double? distance,
+
     /// duration to travel in seconds
     double? duration,
 
@@ -88,15 +97,6 @@ class Direction with _$Direction {
 
     /// maneuver to take
     Maneuver? maneuver,
-
-    /// street name or location
-    String? name,
-
-    /// alternative reference
-    String? reference,
-
-    /// distance to travel in meters
-    double? distance,
   }) = _Direction;
   factory Direction.fromJson(Map<String, dynamic> json) =>
       _$DirectionFromJson(json);
@@ -105,11 +105,11 @@ class Direction with _$Direction {
 @Freezed()
 class DirectionsRequest with _$DirectionsRequest {
   const factory DirectionsRequest({
-    /// The destination of the journey
-    Point? destination,
-
     /// The staring point for the journey
     Point? origin,
+
+    /// The destination of the journey
+    Point? destination,
   }) = _DirectionsRequest;
   factory DirectionsRequest.fromJson(Map<String, dynamic> json) =>
       _$DirectionsRequestFromJson(json);
@@ -139,6 +139,9 @@ class DirectionsResponse with _$DirectionsResponse {
 @Freezed()
 class EtaRequest with _$EtaRequest {
   const factory EtaRequest({
+    /// type of transport. Only "car" is supported currently.
+    String? type,
+
     /// The end point for the eta calculation
     Point? destination,
 
@@ -147,9 +150,6 @@ class EtaRequest with _$EtaRequest {
 
     /// speed in kilometers
     double? speed,
-
-    /// type of transport. Only "car" is supported currently.
-    String? type,
   }) = _EtaRequest;
   factory EtaRequest.fromJson(Map<String, dynamic> json) =>
       _$EtaRequestFromJson(json);
@@ -205,11 +205,11 @@ class Point with _$Point {
 @Freezed()
 class RouteRequest with _$RouteRequest {
   const factory RouteRequest({
-    /// Point of destination for the trip
-    Point? destination,
-
     /// Point of origin for the trip
     Point? origin,
+
+    /// Point of destination for the trip
+    Point? destination,
   }) = _RouteRequest;
   factory RouteRequest.fromJson(Map<String, dynamic> json) =>
       _$RouteRequestFromJson(json);
@@ -236,11 +236,11 @@ class RouteResponse with _$RouteResponse {
 @Freezed()
 class Waypoint with _$Waypoint {
   const factory Waypoint({
-    /// street name or related reference
-    String? name,
-
     /// gps point coordinates
     Point? location,
+
+    /// street name or related reference
+    String? name,
   }) = _Waypoint;
   factory Waypoint.fromJson(Map<String, dynamic> json) =>
       _$WaypointFromJson(json);
