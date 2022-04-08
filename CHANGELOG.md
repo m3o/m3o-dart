@@ -1,3 +1,9 @@
+## v1.0.90 - 2022-04-08
+
+[aa8540](https://github.com/micro/services/commit/aa8540fe7d81bfbecb73fc30b5f25976b779ef62) updatename
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.89...v1.0.90
+
 ## v1.0.89 - 2022-04-08
 
 [b40fc2](https://github.com/micro/services/commit/b40fc2c1c1de1cbfd32e2e3575b9ff1cbe16bab8) DNS over HTTPs (#414)
