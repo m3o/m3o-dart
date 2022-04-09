@@ -1,3 +1,9 @@
+## v1.0.91 - 2022-04-09
+
+[acfca9](https://github.com/micro/services/commit/acfca9b067734d9092cd52a87fba0435b492a15c) update publicapi.json for routing
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.90...v1.0.91
+
 ## v1.0.90 - 2022-04-08
 
 [aa8540](https://github.com/micro/services/commit/aa8540fe7d81bfbecb73fc30b5f25976b779ef62) updatename
