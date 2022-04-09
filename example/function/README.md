@@ -46,12 +46,12 @@ void main() async {
   }
 }
 ```
-## List
+## Update
 
-List all the deployed functions
+Update a function. Downloads the source, builds and redeploys
 
 
-[https://m3o.com/function/api#List](https://m3o.com/function/api#List)
+[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
 
 ```dart
 import 'dart:io';
@@ -61,17 +61,19 @@ import 'package:m3o/src/function/function.dart';
 void main() async {
   final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
  
-  final payload = <String, dynamic>{};
+  final payload = <String, dynamic>{
+  "name": "helloworld"
+,};
 
-  ListRequest req = ListRequest.fromJson(payload);
+  UpdateRequest req = UpdateRequest.fromJson(payload);
 
   
   try {
 
-	ListResponse res = await ser.list(req);
+	UpdateResponse res = await ser.update(req);
 
     res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
+	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -80,12 +82,12 @@ void main() async {
   }
 }
 ```
-## Regions
+## Describe
 
-Return a list of supported regions
+Get the info for a deployed function
 
 
-[https://m3o.com/function/api#Regions](https://m3o.com/function/api#Regions)
+[https://m3o.com/function/api#Describe](https://m3o.com/function/api#Describe)
 
 ```dart
 import 'dart:io';
@@ -95,17 +97,19 @@ import 'package:m3o/src/function/function.dart';
 void main() async {
   final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
  
-  final payload = <String, dynamic>{};
+  final payload = <String, dynamic>{
+  "name": "helloworld"
+,};
 
-  RegionsRequest req = RegionsRequest.fromJson(payload);
+  DescribeRequest req = DescribeRequest.fromJson(payload);
 
   
   try {
 
-	RegionsResponse res = await ser.regions(req);
+	DescribeResponse res = await ser.describe(req);
 
     res.map((value) => print(value),
-	  Merr: (RegionsResponseMerr err) => print(err.body!['body']));	
+	  Merr: (DescribeResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -187,42 +191,6 @@ void main() async {
   }
 }
 ```
-## Update
-
-Update a function. Downloads the source, builds and redeploys
-
-
-[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/function/function.dart';
-
-void main() async {
-  final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "name": "helloworld"
-,};
-
-  UpdateRequest req = UpdateRequest.fromJson(payload);
-
-  
-  try {
-
-	UpdateResponse res = await ser.update(req);
-
-    res.map((value) => print(value),
-	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Call
 
 Call a function by name
@@ -254,6 +222,40 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (CallResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## List
+
+List all the deployed functions
+
+
+[https://m3o.com/function/api#List](https://m3o.com/function/api#List)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/function/function.dart';
+
+void main() async {
+  final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  ListRequest req = ListRequest.fromJson(payload);
+
+  
+  try {
+
+	ListResponse res = await ser.list(req);
+
+    res.map((value) => print(value),
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -298,12 +300,12 @@ void main() async {
   }
 }
 ```
-## Describe
+## Regions
 
-Get the info for a deployed function
+Return a list of supported regions
 
 
-[https://m3o.com/function/api#Describe](https://m3o.com/function/api#Describe)
+[https://m3o.com/function/api#Regions](https://m3o.com/function/api#Regions)
 
 ```dart
 import 'dart:io';
@@ -313,19 +315,17 @@ import 'package:m3o/src/function/function.dart';
 void main() async {
   final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
  
-  final payload = <String, dynamic>{
-  "name": "helloworld"
-,};
+  final payload = <String, dynamic>{};
 
-  DescribeRequest req = DescribeRequest.fromJson(payload);
+  RegionsRequest req = RegionsRequest.fromJson(payload);
 
   
   try {
 
-	DescribeResponse res = await ser.describe(req);
+	RegionsResponse res = await ser.regions(req);
 
     res.map((value) => print(value),
-	  Merr: (DescribeResponseMerr err) => print(err.body!['body']));	
+	  Merr: (RegionsResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

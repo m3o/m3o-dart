@@ -14,10 +14,9 @@ void main() {
   });
 
   group('Client stream', () {
-
     test('with invalid token', () async {
       final token = 'jflsakjfalskfj';
-      
+
       final c = Client(token: token);
       final request = Request(service: 'helloworld', endpoint: 'Stream', body: {
         'messages': 1,

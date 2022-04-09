@@ -97,11 +97,11 @@ class StockService {
 @Freezed()
 class HistoryRequest with _$HistoryRequest {
   const factory HistoryRequest({
-    /// the stock symbol e.g AAPL
-    String? stock,
-
     /// date to retrieve as YYYY-MM-DD
     String? date,
+
+    /// the stock symbol e.g AAPL
+    String? stock,
   }) = _HistoryRequest;
   factory HistoryRequest.fromJson(Map<String, dynamic> json) =>
       _$HistoryRequestFromJson(json);
@@ -110,6 +110,15 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
+    /// the stock symbol
+    String? symbol,
+
+    /// the volume
+    int? volume,
+
+    /// the close price
+    double? close,
+
     /// the date
     String? date,
 
@@ -121,15 +130,6 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the open price
     double? open,
-
-    /// the stock symbol
-    String? symbol,
-
-    /// the volume
-    int? volume,
-
-    /// the close price
-    double? close,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -161,12 +161,6 @@ class Order with _$Order {
 @Freezed()
 class OrderBookRequest with _$OrderBookRequest {
   const factory OrderBookRequest({
-    /// the date in format YYYY-MM-dd
-    String? date,
-
-    /// optional RFC3339Nano end time e.g 2006-01-02T15:04:05.999999999Z07:00
-    String? end,
-
     /// limit number of prices
     int? limit,
 
@@ -175,6 +169,12 @@ class OrderBookRequest with _$OrderBookRequest {
 
     /// stock to retrieve e.g AAPL
     String? stock,
+
+    /// the date in format YYYY-MM-dd
+    String? date,
+
+    /// optional RFC3339Nano end time e.g 2006-01-02T15:04:05.999999999Z07:00
+    String? end,
   }) = _OrderBookRequest;
   factory OrderBookRequest.fromJson(Map<String, dynamic> json) =>
       _$OrderBookRequestFromJson(json);
@@ -236,6 +236,12 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
+    /// the bid size
+    int? bid_size,
+
+    /// the stock symbol
+    String? symbol,
+
     /// the UTC timestamp of the quote
     String? timestamp,
 
@@ -247,12 +253,6 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the bidding price
     double? bid_price,
-
-    /// the bid size
-    int? bid_size,
-
-    /// the stock symbol
-    String? symbol,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;

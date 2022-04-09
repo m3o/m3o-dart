@@ -37,11 +37,11 @@ class QrService {
 @Freezed()
 class GenerateRequest with _$GenerateRequest {
   const factory GenerateRequest({
-    /// the text to encode as a QR code (URL, phone number, email, etc)
-    String? text,
-
     /// the size (height and width) in pixels of the generated QR code. Defaults to 256
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
+
+    /// the text to encode as a QR code (URL, phone number, email, etc)
+    String? text,
   }) = _GenerateRequest;
   factory GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$GenerateRequestFromJson(json);

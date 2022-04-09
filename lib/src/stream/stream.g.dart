@@ -100,32 +100,32 @@ Map<String, dynamic> _$$ListChannelsResponseMerrToJson(
 _$_ListMessagesRequest _$$_ListMessagesRequestFromJson(
         Map<String, dynamic> json) =>
     _$_ListMessagesRequest(
-      channel: json['channel'] as String?,
       limit: json['limit'] as int?,
+      channel: json['channel'] as String?,
     );
 
 Map<String, dynamic> _$$_ListMessagesRequestToJson(
         _$_ListMessagesRequest instance) =>
     <String, dynamic>{
-      'channel': instance.channel,
       'limit': instance.limit,
+      'channel': instance.channel,
     };
 
 _$ListMessagesResponseData _$$ListMessagesResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$ListMessagesResponseData(
-      channel: json['channel'] as String?,
       messages: (json['messages'] as List<dynamic>?)
           ?.map((e) => Message.fromJson(e as Map<String, dynamic>))
           .toList(),
+      channel: json['channel'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ListMessagesResponseDataToJson(
         _$ListMessagesResponseData instance) =>
     <String, dynamic>{
-      'channel': instance.channel,
       'messages': instance.messages,
+      'channel': instance.channel,
       'runtimeType': instance.$type,
     };
 
