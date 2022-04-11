@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../client/client.dart';
 
@@ -98,14 +97,14 @@ class StreamService {
 @Freezed()
 class Channel with _$Channel {
   const factory Channel({
-    /// description for the channel
-    String? description,
-
     /// last activity time
     String? last_active,
 
     /// name of the channel
     String? name,
+
+    /// description for the channel
+    String? description,
   }) = _Channel;
   factory Channel.fromJson(Map<String, dynamic> json) =>
       _$ChannelFromJson(json);
@@ -154,11 +153,11 @@ class ListChannelsResponse with _$ListChannelsResponse {
 @Freezed()
 class ListMessagesRequest with _$ListMessagesRequest {
   const factory ListMessagesRequest({
-    /// number of message to return
-    int? limit,
-
     /// The channel to subscribe to
     String? channel,
+
+    /// number of message to return
+    int? limit,
   }) = _ListMessagesRequest;
   factory ListMessagesRequest.fromJson(Map<String, dynamic> json) =>
       _$ListMessagesRequestFromJson(json);
@@ -167,11 +166,11 @@ class ListMessagesRequest with _$ListMessagesRequest {
 @Freezed()
 class ListMessagesResponse with _$ListMessagesResponse {
   const factory ListMessagesResponse({
-    /// Messages are chronological order
-    List<Message>? messages,
-
     /// The channel subscribed to
     String? channel,
+
+    /// Messages are chronological order
+    List<Message>? messages,
   }) = ListMessagesResponseData;
   const factory ListMessagesResponse.Merr({Map<String, dynamic>? body}) =
       ListMessagesResponseMerr;
@@ -182,9 +181,6 @@ class ListMessagesResponse with _$ListMessagesResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
-    /// the channel name
-    String? channel,
-
     /// id of the message
     String? id,
 
@@ -196,6 +192,9 @@ class Message with _$Message {
 
     /// time of message creation
     String? timestamp,
+
+    /// the channel name
+    String? channel,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);

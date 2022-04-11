@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../client/client.dart';
 
@@ -47,14 +46,14 @@ class QuestionRequest with _$QuestionRequest {
 @Freezed()
 class QuestionResponse with _$QuestionResponse {
   const factory QuestionResponse({
-    /// a related url
-    String? url,
-
     /// the answer to your question
     String? answer,
 
     /// any related image
     String? image,
+
+    /// a related url
+    String? url,
   }) = QuestionResponseData;
   const factory QuestionResponse.Merr({Map<String, dynamic>? body}) =
       QuestionResponseMerr;

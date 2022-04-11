@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../client/client.dart';
 
@@ -143,6 +142,9 @@ class ConvertRequest with _$ConvertRequest {
 @Freezed()
 class ConvertResponse with _$ConvertResponse {
   const factory ConvertResponse({
+    /// converted amount e.g 7.10
+    double? amount,
+
     /// the base code e.g USD
     String? from,
 
@@ -151,9 +153,6 @@ class ConvertResponse with _$ConvertResponse {
 
     /// the target code e.g GBP
     String? to,
-
-    /// converted amount e.g 7.10
-    double? amount,
   }) = ConvertResponseData;
   const factory ConvertResponse.Merr({Map<String, dynamic>? body}) =
       ConvertResponseMerr;

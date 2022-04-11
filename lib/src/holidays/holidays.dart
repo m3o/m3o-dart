@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../client/client.dart';
 
@@ -117,6 +116,7 @@ class ListRequest with _$ListRequest {
     String? country_code,
 
     /// The year to list holidays for
+
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? year,
   }) = _ListRequest;
   factory ListRequest.fromJson(Map<String, dynamic> json) =>

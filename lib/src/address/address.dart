@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../client/client.dart';
 
@@ -59,23 +58,8 @@ class LookupPostcodeResponse with _$LookupPostcodeResponse {
 @Freezed()
 class Record with _$Record {
   const factory Record({
-    /// the county
-    String? county,
-
-    /// the postcode
-    String? postcode,
-
-    /// the premise
-    String? premise,
-
     /// street name
     String? street,
-
-    /// the complete address
-    String? summary,
-
-    /// building name
-    String? building_name,
 
     /// line one of address
     String? line_one,
@@ -83,14 +67,29 @@ class Record with _$Record {
     /// line two of address
     String? line_two,
 
+    /// the postcode
+    String? postcode,
+
+    /// the premise
+    String? premise,
+
+    /// the complete address
+    String? summary,
+
+    /// post town
+    String? town,
+
+    /// building name
+    String? building_name,
+
+    /// the county
+    String? county,
+
     /// dependent locality
     String? locality,
 
     /// organisation if present
     String? organisation,
-
-    /// post town
-    String? town,
   }) = _Record;
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }

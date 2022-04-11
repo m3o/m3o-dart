@@ -7,17 +7,17 @@ part of 'dns.dart';
 // **************************************************************************
 
 _$_Answer _$$_AnswerFromJson(Map<String, dynamic> json) => _$_Answer(
+      TTL: json['TTL'] as int?,
       data: json['data'] as String?,
       name: json['name'] as String?,
       type: json['type'] as int?,
-      TTL: json['TTL'] as int?,
     );
 
 Map<String, dynamic> _$$_AnswerToJson(_$_Answer instance) => <String, dynamic>{
+      'TTL': instance.TTL,
       'data': instance.data,
       'name': instance.name,
       'type': instance.type,
-      'TTL': instance.TTL,
     };
 
 _$_QueryRequest _$$_QueryRequestFromJson(Map<String, dynamic> json) =>
@@ -34,33 +34,33 @@ Map<String, dynamic> _$$_QueryRequestToJson(_$_QueryRequest instance) =>
 
 _$QueryResponseData _$$QueryResponseDataFromJson(Map<String, dynamic> json) =>
     _$QueryResponseData(
-      answer: (json['answer'] as List<dynamic>?)
-          ?.map((e) => Answer.fromJson(e as Map<String, dynamic>))
-          .toList(),
       provider: json['provider'] as String?,
-      AD: json['AD'] as bool?,
-      CD: json['CD'] as bool?,
-      RA: json['RA'] as bool?,
       status: json['status'] as int?,
       RD: json['RD'] as bool?,
       TC: json['TC'] as bool?,
+      answer: (json['answer'] as List<dynamic>?)
+          ?.map((e) => Answer.fromJson(e as Map<String, dynamic>))
+          .toList(),
       question: (json['question'] as List<dynamic>?)
           ?.map((e) => Question.fromJson(e as Map<String, dynamic>))
           .toList(),
+      AD: json['AD'] as bool?,
+      CD: json['CD'] as bool?,
+      RA: json['RA'] as bool?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$QueryResponseDataToJson(_$QueryResponseData instance) =>
     <String, dynamic>{
-      'answer': instance.answer,
       'provider': instance.provider,
-      'AD': instance.AD,
-      'CD': instance.CD,
-      'RA': instance.RA,
       'status': instance.status,
       'RD': instance.RD,
       'TC': instance.TC,
+      'answer': instance.answer,
       'question': instance.question,
+      'AD': instance.AD,
+      'CD': instance.CD,
+      'RA': instance.RA,
       'runtimeType': instance.$type,
     };
 

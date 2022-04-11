@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../client/client.dart';
 
@@ -37,20 +36,20 @@ class MovieService {
 @Freezed()
 class MovieInfo with _$MovieInfo {
   const factory MovieInfo({
-    List<int>? genre_ids,
-    String? release_date,
-    int? vote_count,
-    bool? adult,
-    String? original_title,
-    String? poster_path,
-    String? original_language,
-    String? overview,
-    bool? video,
-    String? backdrop_path,
     int? id,
-    double? popularity,
-    String? title,
+    String? original_language,
     double? vote_average,
+    String? release_date,
+    bool? video,
+    bool? adult,
+    List<int>? genre_ids,
+    String? overview,
+    double? popularity,
+    String? poster_path,
+    String? backdrop_path,
+    String? original_title,
+    String? title,
+    int? vote_count,
   }) = _MovieInfo;
   factory MovieInfo.fromJson(Map<String, dynamic> json) =>
       _$MovieInfoFromJson(json);

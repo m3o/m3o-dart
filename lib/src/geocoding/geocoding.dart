@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../client/client.dart';
 
@@ -80,10 +79,10 @@ class Location with _$Location {
 @Freezed()
 class LookupRequest with _$LookupRequest {
   const factory LookupRequest({
-    String? address,
-    String? city,
     String? country,
     String? postcode,
+    String? address,
+    String? city,
   }) = _LookupRequest;
   factory LookupRequest.fromJson(Map<String, dynamic> json) =>
       _$LookupRequestFromJson(json);

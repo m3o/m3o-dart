@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../client/client.dart';
 
@@ -179,8 +178,8 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Point with _$Point {
   const factory Point({
-    int? y,
     int? x,
+    int? y,
   }) = _Point;
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 }
@@ -198,11 +197,6 @@ class Rectangle with _$Rectangle {
 @Freezed()
 class ResizeRequest with _$ResizeRequest {
   const factory ResizeRequest({
-    /// make output a URL and not a base64 response
-    bool? outputURL,
-
-    /// url of the image to resize
-    String? url,
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
 
     /// base64 encoded image to resize,
@@ -219,6 +213,12 @@ class ResizeRequest with _$ResizeRequest {
 
     /// output name of the image including extension, ie. "cat.png"
     String? name,
+
+    /// make output a URL and not a base64 response
+    bool? outputURL,
+
+    /// url of the image to resize
+    String? url,
   }) = _ResizeRequest;
   factory ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$ResizeRequestFromJson(json);
@@ -227,8 +227,8 @@ class ResizeRequest with _$ResizeRequest {
 @Freezed()
 class ResizeResponse with _$ResizeResponse {
   const factory ResizeResponse({
-    String? url,
     String? base64,
+    String? url,
   }) = ResizeResponseData;
   const factory ResizeResponse.Merr({Map<String, dynamic>? body}) =
       ResizeResponseMerr;
@@ -239,6 +239,9 @@ class ResizeResponse with _$ResizeResponse {
 @Freezed()
 class UploadRequest with _$UploadRequest {
   const factory UploadRequest({
+    /// Base64 encoded image to upload,
+    String? base64,
+
     /// The image file to upload
     String? file,
 
@@ -247,9 +250,6 @@ class UploadRequest with _$UploadRequest {
 
     /// URL of the image to upload
     String? url,
-
-    /// Base64 encoded image to upload,
-    String? base64,
   }) = _UploadRequest;
   factory UploadRequest.fromJson(Map<String, dynamic> json) =>
       _$UploadRequestFromJson(json);

@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../client/client.dart';
 
@@ -155,11 +154,11 @@ class DeleteIndexResponse with _$DeleteIndexResponse {
 @Freezed()
 class DeleteRequest with _$DeleteRequest {
   const factory DeleteRequest({
-    /// The ID of the record to delete
-    String? id,
-
     /// The index the record belongs to
     String? index,
+
+    /// The ID of the record to delete
+    String? id,
   }) = _DeleteRequest;
   factory DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$DeleteRequestFromJson(json);

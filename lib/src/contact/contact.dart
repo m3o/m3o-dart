@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../client/client.dart';
 
@@ -130,6 +129,18 @@ class Address with _$Address {
 @Freezed()
 class ContactInfo with _$ContactInfo {
   const factory ContactInfo({
+    /// note of the contact
+    String? note,
+
+    /// update date string in RFC3339
+    String? updated_at,
+
+    /// the address
+    List<Address>? addresses,
+
+    /// the birthday
+    String? birthday,
+
     /// create date string in RFC3339
     String? created_at,
 
@@ -145,23 +156,11 @@ class ContactInfo with _$ContactInfo {
     /// the contact name
     String? name,
 
-    /// the social media username
-    List<SocialMedia>? social_medias,
-
-    /// the address
-    List<Address>? addresses,
-
-    /// the birthday
-    String? birthday,
-
-    /// note of the contact
-    String? note,
-
     /// the phone numbers
     List<Phone>? phones,
 
-    /// update date string in RFC3339
-    String? updated_at,
+    /// the social media username
+    List<SocialMedia>? social_medias,
   }) = _ContactInfo;
   factory ContactInfo.fromJson(Map<String, dynamic> json) =>
       _$ContactInfoFromJson(json);
@@ -170,6 +169,15 @@ class ContactInfo with _$ContactInfo {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// optional, phone numbers
+    List<Phone>? phones,
+
+    /// optional, social media
+    List<SocialMedia>? social_medias,
+
+    /// optional, location
+    List<Address>? addresses,
+
     /// optional, birthday
     String? birthday,
 
@@ -184,15 +192,6 @@ class CreateRequest with _$CreateRequest {
 
     /// optional, note of the contact
     String? note,
-
-    /// optional, phone numbers
-    List<Phone>? phones,
-
-    /// optional, social media
-    List<SocialMedia>? social_medias,
-
-    /// optional, location
-    List<Address>? addresses,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -243,11 +242,11 @@ class Email with _$Email {
 @Freezed()
 class Link with _$Link {
   const factory Link({
-    /// the url of the contact
-    String? url,
-
     /// the label of the link
     String? label,
+
+    /// the url of the contact
+    String? url,
   }) = _Link;
   factory Link.fromJson(Map<String, dynamic> json) => _$LinkFromJson(json);
 }
@@ -279,11 +278,11 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Phone with _$Phone {
   const factory Phone({
-    /// the label of the phone number
-    String? label,
-
     /// phone number
     String? number,
+
+    /// the label of the phone number
+    String? label,
   }) = _Phone;
   factory Phone.fromJson(Map<String, dynamic> json) => _$PhoneFromJson(json);
 }
@@ -327,8 +326,14 @@ class UpdateRequest with _$UpdateRequest {
     /// optional, addresses
     List<Address>? addresses,
 
+    /// required, the contact id
+    String? id,
+
     /// optional, note
     String? note,
+
+    /// optional, phone number
+    List<Phone>? phones,
 
     /// optional, birthday
     String? birthday,
@@ -336,17 +341,11 @@ class UpdateRequest with _$UpdateRequest {
     /// optional, emails
     List<Email>? emails,
 
-    /// required, the contact id
-    String? id,
-
     /// optional, links
     List<Link>? links,
 
     /// required, the name
     String? name,
-
-    /// optional, phone number
-    List<Phone>? phones,
 
     /// optional, social media
     List<SocialMedia>? social_medias,

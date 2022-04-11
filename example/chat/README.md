@@ -118,6 +118,42 @@ void main() async {
   }
 }
 ```
+## History
+
+List the messages in a chat
+
+
+[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/chat/chat.dart';
+
+void main() async {
+  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
+,};
+
+  HistoryRequest req = HistoryRequest.fromJson(payload);
+
+  
+  try {
+
+	HistoryResponse res = await ser.history(req);
+
+    res.map((value) => print(value),
+	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Join
 
 Join a chat room
@@ -231,76 +267,6 @@ void main() async {
   }
 }
 ```
-## List
-
-List available chats
-
-
-[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/chat/chat.dart';
-
-void main() async {
-  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{};
-
-  ListRequest req = ListRequest.fromJson(payload);
-
-  
-  try {
-
-	ListResponse res = await ser.list(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## History
-
-List the messages in a chat
-
-
-[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/chat/chat.dart';
-
-void main() async {
-  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
-,};
-
-  HistoryRequest req = HistoryRequest.fromJson(payload);
-
-  
-  try {
-
-	HistoryResponse res = await ser.history(req);
-
-    res.map((value) => print(value),
-	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Leave
 
 Leave a chat room
@@ -330,6 +296,40 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (LeaveResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## List
+
+List available chats
+
+
+[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/chat/chat.dart';
+
+void main() async {
+  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  ListRequest req = ListRequest.fromJson(payload);
+
+  
+  try {
+
+	ListResponse res = await ser.list(req);
+
+    res.map((value) => print(value),
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

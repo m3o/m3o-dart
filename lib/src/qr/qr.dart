@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../client/client.dart';
 
@@ -38,6 +37,7 @@ class QrService {
 class GenerateRequest with _$GenerateRequest {
   const factory GenerateRequest({
     /// the size (height and width) in pixels of the generated QR code. Defaults to 256
+
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
 
     /// the text to encode as a QR code (URL, phone number, email, etc)

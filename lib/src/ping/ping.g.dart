@@ -17,15 +17,15 @@ Map<String, dynamic> _$$_IpRequestToJson(_$_IpRequest instance) =>
 
 _$IpResponseData _$$IpResponseDataFromJson(Map<String, dynamic> json) =>
     _$IpResponseData(
-      status: json['status'] as String?,
       latency: json['latency'] as String?,
+      status: json['status'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$IpResponseDataToJson(_$IpResponseData instance) =>
     <String, dynamic>{
-      'status': instance.status,
       'latency': instance.latency,
+      'status': instance.status,
       'runtimeType': instance.$type,
     };
 

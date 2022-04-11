@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../client/client.dart';
 
@@ -37,11 +36,11 @@ class JokeService {
 @Freezed()
 class JokeInfo with _$JokeInfo {
   const factory JokeInfo({
+    String? id,
     String? source,
     String? title,
     String? body,
     String? category,
-    String? id,
   }) = _JokeInfo;
   factory JokeInfo.fromJson(Map<String, dynamic> json) =>
       _$JokeInfoFromJson(json);

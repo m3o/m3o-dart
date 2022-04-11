@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../client/client.dart';
 
@@ -146,6 +145,7 @@ class URLPair with _$URLPair {
     String? destinationURL,
 
     /// The number of times the short URL has been resolved
+
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
 
     /// shortened url

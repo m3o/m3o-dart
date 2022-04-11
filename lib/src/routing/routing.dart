@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../client/client.dart';
 
@@ -77,12 +76,6 @@ class RoutingService {
 @Freezed()
 class Direction with _$Direction {
   const factory Direction({
-    /// human readable instruction
-    String? instruction,
-
-    /// intersections on route
-    List<Intersection>? intersections,
-
     /// maneuver to take
     Maneuver? maneuver,
 
@@ -97,6 +90,12 @@ class Direction with _$Direction {
 
     /// duration to travel in seconds
     double? duration,
+
+    /// human readable instruction
+    String? instruction,
+
+    /// intersections on route
+    List<Intersection>? intersections,
   }) = _Direction;
   factory Direction.fromJson(Map<String, dynamic> json) =>
       _$DirectionFromJson(json);
@@ -105,11 +104,11 @@ class Direction with _$Direction {
 @Freezed()
 class DirectionsRequest with _$DirectionsRequest {
   const factory DirectionsRequest({
-    /// The destination of the journey
-    Point? destination,
-
     /// The staring point for the journey
     Point? origin,
+
+    /// The destination of the journey
+    Point? destination,
   }) = _DirectionsRequest;
   factory DirectionsRequest.fromJson(Map<String, dynamic> json) =>
       _$DirectionsRequestFromJson(json);
@@ -118,9 +117,6 @@ class DirectionsRequest with _$DirectionsRequest {
 @Freezed()
 class DirectionsResponse with _$DirectionsResponse {
   const factory DirectionsResponse({
-    /// The waypoints on the route
-    List<Waypoint>? waypoints,
-
     /// Turn by turn directions
     List<Direction>? directions,
 
@@ -129,6 +125,9 @@ class DirectionsResponse with _$DirectionsResponse {
 
     /// Estimated duration of the route in seconds
     double? duration,
+
+    /// The waypoints on the route
+    List<Waypoint>? waypoints,
   }) = DirectionsResponseData;
   const factory DirectionsResponse.Merr({Map<String, dynamic>? body}) =
       DirectionsResponseMerr;
@@ -236,11 +235,11 @@ class RouteResponse with _$RouteResponse {
 @Freezed()
 class Waypoint with _$Waypoint {
   const factory Waypoint({
-    /// street name or related reference
-    String? name,
-
     /// gps point coordinates
     Point? location,
+
+    /// street name or related reference
+    String? name,
   }) = _Waypoint;
   factory Waypoint.fromJson(Map<String, dynamic> json) =>
       _$WaypointFromJson(json);
