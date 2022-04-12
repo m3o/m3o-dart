@@ -96,8 +96,8 @@ class TwitterService {
 @Freezed()
 class Profile with _$Profile {
   const factory Profile({
-    /// if the account is private
-    bool? private,
+    /// display name of the user
+    String? name,
 
     /// the username
     String? username,
@@ -108,22 +108,22 @@ class Profile with _$Profile {
     /// the user description
     String? description,
 
-    /// the user's location
-    String? location,
-
-    /// display name of the user
-    String? name,
-
     /// the follower count
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
+
+    /// The user's profile picture
+    String? image_url,
+
+    /// the user's location
+    String? location,
 
     /// the user id
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
 
-    /// The user's profile picture
-    String? image_url,
+    /// if the account is private
+    bool? private,
 
     /// if the account is verified
     bool? verified,
@@ -135,11 +135,11 @@ class Profile with _$Profile {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// number of tweets to return. default: 20
-    int? limit,
-
     /// the query to search for
     String? query,
+
+    /// number of tweets to return. default: 20
+    int? limit,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);
@@ -221,6 +221,9 @@ class TrendsResponse with _$TrendsResponse {
 @Freezed()
 class Tweet with _$Tweet {
   const factory Tweet({
+    /// text of the tweet
+    String? text,
+
     /// username of the person who tweeted
     String? username,
 
@@ -240,9 +243,6 @@ class Tweet with _$Tweet {
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString)
         int? retweeted_count,
-
-    /// text of the tweet
-    String? text,
   }) = _Tweet;
   factory Tweet.fromJson(Map<String, dynamic> json) => _$TweetFromJson(json);
 }

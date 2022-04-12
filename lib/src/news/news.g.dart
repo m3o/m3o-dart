@@ -7,10 +7,9 @@ part of 'news.dart';
 // **************************************************************************
 
 _$_Article _$$_ArticleFromJson(Map<String, dynamic> json) => _$_Article(
-      language: json['language'] as String?,
-      locale: json['locale'] as String?,
-      published_at: json['published_at'] as String?,
       snippet: json['snippet'] as String?,
+      title: json['title'] as String?,
+      url: json['url'] as String?,
       categories: (json['categories'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
@@ -19,38 +18,39 @@ _$_Article _$$_ArticleFromJson(Map<String, dynamic> json) => _$_Article(
       keywords: json['keywords'] as String?,
       source: json['source'] as String?,
       description: json['description'] as String?,
-      title: json['title'] as String?,
-      url: json['url'] as String?,
+      language: json['language'] as String?,
+      locale: json['locale'] as String?,
+      published_at: json['published_at'] as String?,
     );
 
 Map<String, dynamic> _$$_ArticleToJson(_$_Article instance) =>
     <String, dynamic>{
-      'language': instance.language,
-      'locale': instance.locale,
-      'published_at': instance.published_at,
       'snippet': instance.snippet,
+      'title': instance.title,
+      'url': instance.url,
       'categories': instance.categories,
       'id': instance.id,
       'image_url': instance.image_url,
       'keywords': instance.keywords,
       'source': instance.source,
       'description': instance.description,
-      'title': instance.title,
-      'url': instance.url,
+      'language': instance.language,
+      'locale': instance.locale,
+      'published_at': instance.published_at,
     };
 
 _$_HeadlinesRequest _$$_HeadlinesRequestFromJson(Map<String, dynamic> json) =>
     _$_HeadlinesRequest(
-      locale: json['locale'] as String?,
       date: json['date'] as String?,
       language: json['language'] as String?,
+      locale: json['locale'] as String?,
     );
 
 Map<String, dynamic> _$$_HeadlinesRequestToJson(_$_HeadlinesRequest instance) =>
     <String, dynamic>{
-      'locale': instance.locale,
       'date': instance.date,
       'language': instance.language,
+      'locale': instance.locale,
     };
 
 _$HeadlinesResponseData _$$HeadlinesResponseDataFromJson(

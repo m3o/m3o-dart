@@ -76,15 +76,6 @@ class RoutingService {
 @Freezed()
 class Direction with _$Direction {
   const factory Direction({
-    /// maneuver to take
-    Maneuver? maneuver,
-
-    /// street name or location
-    String? name,
-
-    /// alternative reference
-    String? reference,
-
     /// distance to travel in meters
     double? distance,
 
@@ -96,6 +87,15 @@ class Direction with _$Direction {
 
     /// intersections on route
     List<Intersection>? intersections,
+
+    /// maneuver to take
+    Maneuver? maneuver,
+
+    /// street name or location
+    String? name,
+
+    /// alternative reference
+    String? reference,
   }) = _Direction;
   factory Direction.fromJson(Map<String, dynamic> json) =>
       _$DirectionFromJson(json);
@@ -104,11 +104,11 @@ class Direction with _$Direction {
 @Freezed()
 class DirectionsRequest with _$DirectionsRequest {
   const factory DirectionsRequest({
-    /// The staring point for the journey
-    Point? origin,
-
     /// The destination of the journey
     Point? destination,
+
+    /// The staring point for the journey
+    Point? origin,
   }) = _DirectionsRequest;
   factory DirectionsRequest.fromJson(Map<String, dynamic> json) =>
       _$DirectionsRequestFromJson(json);
@@ -179,11 +179,11 @@ class Intersection with _$Intersection {
 @Freezed()
 class Maneuver with _$Maneuver {
   const factory Maneuver({
+    Point? location,
     String? action,
     double? bearing_after,
     double? bearing_before,
     String? direction,
-    Point? location,
   }) = _Maneuver;
   factory Maneuver.fromJson(Map<String, dynamic> json) =>
       _$ManeuverFromJson(json);
@@ -192,11 +192,11 @@ class Maneuver with _$Maneuver {
 @Freezed()
 class Point with _$Point {
   const factory Point({
-    /// Long e.g 13.428555
-    double? longitude,
-
     /// Lat e.g 52.523219
     double? latitude,
+
+    /// Long e.g 13.428555
+    double? longitude,
   }) = _Point;
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 }

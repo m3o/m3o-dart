@@ -101,27 +101,6 @@ class ZoneRequest with _$ZoneRequest {
 @Freezed()
 class ZoneResponse with _$ZoneResponse {
   const factory ZoneResponse({
-    /// e.g -0.37
-    double? longitude,
-
-    /// the timezone e.g Europe/London
-    String? timezone,
-
-    /// e.g 51.42
-    double? latitude,
-
-    /// location requested
-    String? location,
-
-    /// is daylight savings
-    bool? dst,
-
-    /// the local time
-    String? localtime,
-
-    /// UTC offset in hours
-    int? offset,
-
     /// region of timezone
     String? region,
 
@@ -130,6 +109,27 @@ class ZoneResponse with _$ZoneResponse {
 
     /// country of the timezone
     String? country,
+
+    /// e.g 51.42
+    double? latitude,
+
+    /// the local time
+    String? localtime,
+
+    /// location requested
+    String? location,
+
+    /// UTC offset in hours
+    int? offset,
+
+    /// is daylight savings
+    bool? dst,
+
+    /// e.g -0.37
+    double? longitude,
+
+    /// the timezone e.g Europe/London
+    String? timezone,
   }) = ZoneResponseData;
   const factory ZoneResponse.Merr({Map<String, dynamic>? body}) =
       ZoneResponseMerr;
