@@ -8,6 +8,10 @@ part of 'tunnel.dart';
 
 _$_SendRequest _$$_SendRequestFromJson(Map<String, dynamic> json) =>
     _$_SendRequest(
+      method: json['method'] as String?,
+      params: (json['params'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
       path: json['path'] as String?,
       url: json['url'] as String?,
       body: json['body'] as String?,
@@ -15,21 +19,17 @@ _$_SendRequest _$$_SendRequestFromJson(Map<String, dynamic> json) =>
         (k, e) => MapEntry(k, e as String),
       ),
       host: json['host'] as String?,
-      method: json['method'] as String?,
-      params: (json['params'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
     );
 
 Map<String, dynamic> _$$_SendRequestToJson(_$_SendRequest instance) =>
     <String, dynamic>{
+      'method': instance.method,
+      'params': instance.params,
       'path': instance.path,
       'url': instance.url,
       'body': instance.body,
       'headers': instance.headers,
       'host': instance.host,
-      'method': instance.method,
-      'params': instance.params,
     };
 
 _$SendResponseData _$$SendResponseDataFromJson(Map<String, dynamic> json) =>

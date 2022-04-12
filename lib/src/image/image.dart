@@ -197,6 +197,9 @@ class Rectangle with _$Rectangle {
 @Freezed()
 class ResizeRequest with _$ResizeRequest {
   const factory ResizeRequest({
+    /// make output a URL and not a base64 response
+    bool? outputURL,
+
     /// url of the image to resize
     String? url,
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
@@ -215,9 +218,6 @@ class ResizeRequest with _$ResizeRequest {
 
     /// output name of the image including extension, ie. "cat.png"
     String? name,
-
-    /// make output a URL and not a base64 response
-    bool? outputURL,
   }) = _ResizeRequest;
   factory ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$ResizeRequestFromJson(json);

@@ -56,23 +56,41 @@ class WeatherService {
 @Freezed()
 class Forecast with _$Forecast {
   const factory Forecast({
+    /// time of sunrise
+    String? sunrise,
+
+    /// forecast condition
+    String? condition,
+
+    /// max wind speed kph
+    double? max_wind_kph,
+
+    /// max temp in fahrenheit
+    double? max_temp_f,
+
     /// max wind speed mph
     double? max_wind_mph,
 
+    /// minimum temp in fahrenheit
+    double? min_temp_f,
+
+    /// will it rain
+    bool? will_it_rain,
+
+    /// chance of rain (percentage)
+    int? chance_of_rain,
+
+    /// date of the forecast
+    String? date,
+
     /// minimum temp in celsius
     double? min_temp_c,
-
-    /// time of sunrise
-    String? sunrise,
 
     /// time of sunset
     String? sunset,
 
     /// the average temp in fahrenheit
     double? avg_temp_f,
-
-    /// chance of rain (percentage)
-    int? chance_of_rain,
 
     /// max temp in celsius
     double? max_temp_c,
@@ -82,24 +100,6 @@ class Forecast with _$Forecast {
 
     /// the URL of forecast condition icon. Simply prefix with either http or https to use it
     String? icon_url,
-
-    /// will it rain
-    bool? will_it_rain,
-
-    /// max wind speed kph
-    double? max_wind_kph,
-
-    /// minimum temp in fahrenheit
-    double? min_temp_f,
-
-    /// forecast condition
-    String? condition,
-
-    /// date of the forecast
-    String? date,
-
-    /// max temp in fahrenheit
-    double? max_temp_f,
   }) = _Forecast;
   factory Forecast.fromJson(Map<String, dynamic> json) =>
       _$ForecastFromJson(json);
@@ -121,6 +121,9 @@ class ForecastRequest with _$ForecastRequest {
 @Freezed()
 class ForecastResponse with _$ForecastResponse {
   const factory ForecastResponse({
+    /// forecast for the next number of days
+    List<Forecast>? forecast,
+
     /// e.g 37.55
     double? latitude,
 
@@ -141,9 +144,6 @@ class ForecastResponse with _$ForecastResponse {
 
     /// country of the request
     String? country,
-
-    /// forecast for the next number of days
-    List<Forecast>? forecast,
   }) = ForecastResponseData;
   const factory ForecastResponse.Merr({Map<String, dynamic>? body}) =
       ForecastResponseMerr;
@@ -164,11 +164,44 @@ class NowRequest with _$NowRequest {
 @Freezed()
 class NowResponse with _$NowResponse {
   const factory NowResponse({
-    /// e.g -77.46
-    double? longitude,
+    /// e.g 37.55
+    double? latitude,
+
+    /// the local time
+    String? local_time,
+
+    /// location of the request
+    String? location,
+
+    /// timezone of the location
+    String? timezone,
+
+    /// cloud cover percentage
+    int? cloud,
+
+    /// country of the request
+    String? country,
+
+    /// whether its daytime
+    bool? daytime,
+
+    /// feels like in celsius
+    double? feels_like_c,
+
+    /// the URL of the related icon. Simply prefix with either http or https to use it
+    String? icon_url,
 
     /// region related to the location
     String? region,
+
+    /// wind degree
+    int? wind_degree,
+
+    /// wind direction
+    String? wind_direction,
+
+    /// e.g -77.46
+    double? longitude,
 
     /// temperature in celsius
     double? temp_c,
@@ -176,53 +209,20 @@ class NowResponse with _$NowResponse {
     /// temperature in fahrenheit
     double? temp_f,
 
-    /// location of the request
-    String? location,
-
-    /// whether its daytime
-    bool? daytime,
-
-    /// e.g 37.55
-    double? latitude,
-
-    /// the local time
-    String? local_time,
-
-    /// wind direction
-    String? wind_direction,
-
-    /// country of the request
-    String? country,
-
     /// the weather condition
     String? condition,
-
-    /// feels like in celsius
-    double? feels_like_c,
 
     /// feels like in fahrenheit
     double? feels_like_f,
 
-    /// the URL of the related icon. Simply prefix with either http or https to use it
-    String? icon_url,
-
-    /// wind degree
-    int? wind_degree,
+    /// the humidity percentage
+    int? humidity,
 
     /// wind in kph
     double? wind_kph,
 
-    /// cloud cover percentage
-    int? cloud,
-
-    /// timezone of the location
-    String? timezone,
-
     /// wind in mph
     double? wind_mph,
-
-    /// the humidity percentage
-    int? humidity,
   }) = NowResponseData;
   const factory NowResponse.Merr({Map<String, dynamic>? body}) =
       NowResponseMerr;
