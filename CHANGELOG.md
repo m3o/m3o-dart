@@ -1,3 +1,9 @@
+## v1.0.96 - 2022-04-19
+
+[15e4a7](https://github.com/micro/services/commit/15e4a703d3ea90dde0944c3dc6b0c8268399294c) update file path handling
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.95...v1.0.96
+
 ## v1.0.95 - 2022-04-19
 
 [b6b3d6](https://github.com/micro/services/commit/b6b3d63311bbe4396a77efb73554e9b5b93ad192) Update publicapi.json
