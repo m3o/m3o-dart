@@ -4,6 +4,47 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/image/api](htt
 
 Endpoints:
 
+## Convert
+
+Convert an image from one format (jpeg, png etc.) to an other either on the fly (from base64 to base64),
+or by uploading the conversion result.
+To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
+with each parameter as a form field.
+
+
+[https://m3o.com/image/api#Convert](https://m3o.com/image/api#Convert)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/image/image.dart';
+
+void main() async {
+  final ser = ImageService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "name": "cat.jpeg",
+  "outputURL": true,
+  "url": "somewebsite.com/cat.png"
+,};
+
+  ConvertRequest req = ConvertRequest.fromJson(payload);
+
+  
+  try {
+
+	ConvertResponse res = await ser.convert(req);
+
+    res.map((value) => print(value),
+	  Merr: (ConvertResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Upload
 
 Upload an image by either sending a base64 encoded image to this endpoint or a URL.
@@ -244,47 +285,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (ResizeResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Convert
-
-Convert an image from one format (jpeg, png etc.) to an other either on the fly (from base64 to base64),
-or by uploading the conversion result.
-To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
-with each parameter as a form field.
-
-
-[https://m3o.com/image/api#Convert](https://m3o.com/image/api#Convert)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/image/image.dart';
-
-void main() async {
-  final ser = ImageService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "name": "cat.jpeg",
-  "outputURL": true,
-  "url": "somewebsite.com/cat.png"
-,};
-
-  ConvertRequest req = ConvertRequest.fromJson(payload);
-
-  
-  try {
-
-	ConvertResponse res = await ser.convert(req);
-
-    res.map((value) => print(value),
-	  Merr: (ConvertResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
