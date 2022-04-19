@@ -106,6 +106,9 @@ class ImageService {
 @Freezed()
 class ConvertRequest with _$ConvertRequest {
   const factory ConvertRequest({
+    /// base64 encoded image to resize,
+    String? base64,
+
     /// The image file to convert
     String? file,
 
@@ -117,9 +120,6 @@ class ConvertRequest with _$ConvertRequest {
 
     /// url of the image to resize
     String? url,
-
-    /// base64 encoded image to resize,
-    String? base64,
   }) = _ConvertRequest;
   factory ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$ConvertRequestFromJson(json);
@@ -178,8 +178,8 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Point with _$Point {
   const factory Point({
-    int? y,
     int? x,
+    int? y,
   }) = _Point;
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 }
@@ -187,8 +187,8 @@ class Point with _$Point {
 @Freezed()
 class Rectangle with _$Rectangle {
   const factory Rectangle({
-    Point? max,
     Point? min,
+    Point? max,
   }) = _Rectangle;
   factory Rectangle.fromJson(Map<String, dynamic> json) =>
       _$RectangleFromJson(json);
@@ -197,6 +197,16 @@ class Rectangle with _$Rectangle {
 @Freezed()
 class ResizeRequest with _$ResizeRequest {
   const factory ResizeRequest({
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
+
+    /// base64 encoded image to resize,
+    String? base64,
+
+    /// optional crop options
+    /// if provided, after resize, the image
+    /// will be cropped
+    CropOptions? cropOptions,
+
     /// The image file to resize
     String? file,
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
@@ -209,15 +219,6 @@ class ResizeRequest with _$ResizeRequest {
 
     /// url of the image to resize
     String? url,
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
-
-    /// base64 encoded image to resize,
-    String? base64,
-
-    /// optional crop options
-    /// if provided, after resize, the image
-    /// will be cropped
-    CropOptions? cropOptions,
   }) = _ResizeRequest;
   factory ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$ResizeRequestFromJson(json);
