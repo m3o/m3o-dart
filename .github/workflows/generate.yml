@@ -8,28 +8,10 @@ jobs:
     name: build dart clients and create new release
     runs-on: ubuntu-latest
     steps:
-
-      - name: Set up Go 1.17
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.17
-        id: go
-
-      - name: Set up dart latest
-        uses: dart-lang/setup-dart@v1.3
-        with:
-          sdk:  stable
-        id: dart
-      
-      - name: Install Protoc
-        uses: arduino/setup-protoc@master
-      
-      - name: Check m3o repo
+      - name: Check m3o-dart repo
         uses: actions/checkout@v2
         with:
-          repository: 'm3o/m3o'
-          path: m3o
-          ref: ${{ github.ref }}
+          path: m3o-dart
 
       - name: Check micro/services repo
         uses: actions/checkout@v2
@@ -37,55 +19,27 @@ jobs:
           repository: 'micro/services'
           path: services
 
-      - name: Check micro repo
+      - name: Check m3o/m3o repo
         uses: actions/checkout@v2
         with:
-          repository: 'micro/micro'
-          path: 'micro'
-          ref: 'master'
-      
-      - name: Check m3o-dart repo
-        uses: actions/checkout@v2
-        with:
-          repository: 'm3o/m3o-dart'
-          path: m3o-dart
-      
-      - name: Enable caching
-        uses: actions/cache@v2
-        with:
-          path: ~/go/pkg/mod
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-
+          repository: 'm3o/m3o'
+          path: m3o
 
-      - name: Install protoc gen micro plugin
-        working-directory: micro/cmd/protoc-gen-micro
-        run: |
-          go get -u github.com/golang/protobuf/protoc-gen-go
-          go install
-      
-      - name: Install openapi plugin
-        working-directory: m3o/cmd/protoc-gen-openapi
-        run: |
-          go install
+      - name: Set up dart latest
+        uses: dart-lang/setup-dart@v1.3
+        with:
+          sdk:  stable
+        id: dart
 
-      - name: Install generator
-        working-directory: m3o
-        run: |
-          # build the client generator
-          cd cmd/m3o-client-gen/
-          go install
-      
-      - name: Generate Dart Clients
-        working-directory: services
-        if: github.ref == 'refs/heads/main'
-        run: |
-          rm -rf clients examples
-          m3o-client-gen dart
+      - name: Generate m3o-dart clients
+        uses: m3o/m3o-generator-action@main
+        with:
+          target: 'dart'
+          services_path: services
 
       - name: Adjust generated things before pushing
         working-directory: services
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
+        
         run: |
           # sync the clients to m3o-dart/
           rsync -avz clients/dart/* ../m3o-dart/
@@ -122,13 +76,19 @@ jobs:
         working-directory: m3o-dart
         run: |
           rm -rf .dart_tool .gitignore .packages pubspec.lock
-
+      
       - name: Add & Commit
         uses: EndBug/add-and-commit@v9.0.0
         with:
           cwd: m3o-dart
           message: Push to M3O-Dart repo
           pathspec_error_handling: exitImmediately
+
+      - name: Set up Go 1.17
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+        id: go
 
       - name: generate latest release note from micro/services repo
         working-directory: m3o
@@ -139,7 +99,7 @@ jobs:
           echo $note
           echo "##[set-output name=note;]$(echo "$note")" 
         id: micro_release_note
-
+        
       - uses: ncipollo/release-action@v1.9.0
         with:
           tag: ${{ steps.dart_new_version.outputs.upver}}
