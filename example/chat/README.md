@@ -77,12 +77,13 @@ void main() async {
   }
 }
 ```
-## Invite
+## Send
 
-Invite a user to a chat room
+Connect to a chat to receive a stream of messages
+Send a message to a chat
 
 
-[https://m3o.com/chat/api#Invite](https://m3o.com/chat/api#Invite)
+[https://m3o.com/chat/api#Send](https://m3o.com/chat/api#Send)
 
 ```dart
 import 'dart:io';
@@ -93,19 +94,22 @@ void main() async {
   final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
+  "client": "web",
   "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "subject": "Random",
+  "text": "Hey whats up?",
   "user_id": "user-1"
 ,};
 
-  InviteRequest req = InviteRequest.fromJson(payload);
+  SendRequest req = SendRequest.fromJson(payload);
 
   
   try {
 
-	InviteResponse res = await ser.invite(req);
+	SendResponse res = await ser.send(req);
 
     res.map((value) => print(value),
-	  Merr: (InviteResponseMerr err) => print(err.body!['body']));	
+	  Merr: (SendResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -222,13 +226,12 @@ void main() async {
   }
 }
 ```
-## Send
+## Invite
 
-Connect to a chat to receive a stream of messages
-Send a message to a chat
+Invite a user to a chat room
 
 
-[https://m3o.com/chat/api#Send](https://m3o.com/chat/api#Send)
+[https://m3o.com/chat/api#Invite](https://m3o.com/chat/api#Invite)
 
 ```dart
 import 'dart:io';
@@ -239,22 +242,19 @@ void main() async {
   final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "client": "web",
   "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "subject": "Random",
-  "text": "Hey whats up?",
   "user_id": "user-1"
 ,};
 
-  SendRequest req = SendRequest.fromJson(payload);
+  InviteRequest req = InviteRequest.fromJson(payload);
 
   
   try {
 
-	SendResponse res = await ser.send(req);
+	InviteResponse res = await ser.invite(req);
 
     res.map((value) => print(value),
-	  Merr: (SendResponseMerr err) => print(err.body!['body']));	
+	  Merr: (InviteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

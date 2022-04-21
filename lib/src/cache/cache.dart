@@ -231,12 +231,12 @@ class IncrementRequest with _$IncrementRequest {
 @Freezed()
 class IncrementResponse with _$IncrementResponse {
   const factory IncrementResponse({
+    /// The key incremented
+    String? key,
+
     /// The new value
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
-
-    /// The key incremented
-    String? key,
   }) = IncrementResponseData;
   const factory IncrementResponse.Merr({Map<String, dynamic>? body}) =
       IncrementResponseMerr;

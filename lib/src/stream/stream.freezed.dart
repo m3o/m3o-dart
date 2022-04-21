@@ -22,11 +22,11 @@ Channel _$ChannelFromJson(Map<String, dynamic> json) {
 class _$ChannelTearOff {
   const _$ChannelTearOff();
 
-  _Channel call({String? last_active, String? name, String? description}) {
+  _Channel call({String? description, String? last_active, String? name}) {
     return _Channel(
+      description: description,
       last_active: last_active,
       name: name,
-      description: description,
     );
   }
 
@@ -40,14 +40,14 @@ const $Channel = _$ChannelTearOff();
 
 /// @nodoc
 mixin _$Channel {
+  /// description for the channel
+  String? get description => throw _privateConstructorUsedError;
+
   /// last activity time
   String? get last_active => throw _privateConstructorUsedError;
 
   /// name of the channel
   String? get name => throw _privateConstructorUsedError;
-
-  /// description for the channel
-  String? get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -58,7 +58,7 @@ mixin _$Channel {
 abstract class $ChannelCopyWith<$Res> {
   factory $ChannelCopyWith(Channel value, $Res Function(Channel) then) =
       _$ChannelCopyWithImpl<$Res>;
-  $Res call({String? last_active, String? name, String? description});
+  $Res call({String? description, String? last_active, String? name});
 }
 
 /// @nodoc
@@ -71,11 +71,15 @@ class _$ChannelCopyWithImpl<$Res> implements $ChannelCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? description = freezed,
     Object? last_active = freezed,
     Object? name = freezed,
-    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
       last_active: last_active == freezed
           ? _value.last_active
           : last_active // ignore: cast_nullable_to_non_nullable
@@ -83,10 +87,6 @@ class _$ChannelCopyWithImpl<$Res> implements $ChannelCopyWith<$Res> {
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -97,7 +97,7 @@ abstract class _$ChannelCopyWith<$Res> implements $ChannelCopyWith<$Res> {
   factory _$ChannelCopyWith(_Channel value, $Res Function(_Channel) then) =
       __$ChannelCopyWithImpl<$Res>;
   @override
-  $Res call({String? last_active, String? name, String? description});
+  $Res call({String? description, String? last_active, String? name});
 }
 
 /// @nodoc
@@ -111,11 +111,15 @@ class __$ChannelCopyWithImpl<$Res> extends _$ChannelCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? description = freezed,
     Object? last_active = freezed,
     Object? name = freezed,
-    Object? description = freezed,
   }) {
     return _then(_Channel(
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
       last_active: last_active == freezed
           ? _value.last_active
           : last_active // ignore: cast_nullable_to_non_nullable
@@ -124,10 +128,6 @@ class __$ChannelCopyWithImpl<$Res> extends _$ChannelCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -135,11 +135,15 @@ class __$ChannelCopyWithImpl<$Res> extends _$ChannelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Channel implements _Channel {
-  const _$_Channel({this.last_active, this.name, this.description});
+  const _$_Channel({this.description, this.last_active, this.name});
 
   factory _$_Channel.fromJson(Map<String, dynamic> json) =>
       _$$_ChannelFromJson(json);
 
+  @override
+
+  /// description for the channel
+  final String? description;
   @override
 
   /// last activity time
@@ -148,14 +152,10 @@ class _$_Channel implements _Channel {
 
   /// name of the channel
   final String? name;
-  @override
-
-  /// description for the channel
-  final String? description;
 
   @override
   String toString() {
-    return 'Channel(last_active: $last_active, name: $name, description: $description)';
+    return 'Channel(description: $description, last_active: $last_active, name: $name)';
   }
 
   @override
@@ -164,18 +164,18 @@ class _$_Channel implements _Channel {
         (other.runtimeType == runtimeType &&
             other is _Channel &&
             const DeepCollectionEquality()
-                .equals(other.last_active, last_active) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
+                .equals(other.description, description) &&
             const DeepCollectionEquality()
-                .equals(other.description, description));
+                .equals(other.last_active, last_active) &&
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(last_active),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(description));
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
@@ -190,10 +190,14 @@ class _$_Channel implements _Channel {
 
 abstract class _Channel implements Channel {
   const factory _Channel(
-      {String? last_active, String? name, String? description}) = _$_Channel;
+      {String? description, String? last_active, String? name}) = _$_Channel;
 
   factory _Channel.fromJson(Map<String, dynamic> json) = _$_Channel.fromJson;
 
+  @override
+
+  /// description for the channel
+  String? get description;
   @override
 
   /// last activity time
@@ -202,10 +206,6 @@ abstract class _Channel implements Channel {
 
   /// name of the channel
   String? get name;
-  @override
-
-  /// description for the channel
-  String? get description;
   @override
   @JsonKey(ignore: true)
   _$ChannelCopyWith<_Channel> get copyWith =>
@@ -220,10 +220,10 @@ CreateChannelRequest _$CreateChannelRequestFromJson(Map<String, dynamic> json) {
 class _$CreateChannelRequestTearOff {
   const _$CreateChannelRequestTearOff();
 
-  _CreateChannelRequest call({String? description, String? name}) {
+  _CreateChannelRequest call({String? name, String? description}) {
     return _CreateChannelRequest(
-      description: description,
       name: name,
+      description: description,
     );
   }
 
@@ -237,11 +237,11 @@ const $CreateChannelRequest = _$CreateChannelRequestTearOff();
 
 /// @nodoc
 mixin _$CreateChannelRequest {
-  /// description for the channel
-  String? get description => throw _privateConstructorUsedError;
-
   /// name of the channel
   String? get name => throw _privateConstructorUsedError;
+
+  /// description for the channel
+  String? get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -254,7 +254,7 @@ abstract class $CreateChannelRequestCopyWith<$Res> {
   factory $CreateChannelRequestCopyWith(CreateChannelRequest value,
           $Res Function(CreateChannelRequest) then) =
       _$CreateChannelRequestCopyWithImpl<$Res>;
-  $Res call({String? description, String? name});
+  $Res call({String? name, String? description});
 }
 
 /// @nodoc
@@ -268,17 +268,17 @@ class _$CreateChannelRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? description = freezed,
     Object? name = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -291,7 +291,7 @@ abstract class _$CreateChannelRequestCopyWith<$Res>
           $Res Function(_CreateChannelRequest) then) =
       __$CreateChannelRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? description, String? name});
+  $Res call({String? name, String? description});
 }
 
 /// @nodoc
@@ -307,17 +307,17 @@ class __$CreateChannelRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? description = freezed,
     Object? name = freezed,
+    Object? description = freezed,
   }) {
     return _then(_CreateChannelRequest(
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -326,23 +326,23 @@ class __$CreateChannelRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateChannelRequest implements _CreateChannelRequest {
-  const _$_CreateChannelRequest({this.description, this.name});
+  const _$_CreateChannelRequest({this.name, this.description});
 
   factory _$_CreateChannelRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateChannelRequestFromJson(json);
 
   @override
 
-  /// description for the channel
-  final String? description;
-  @override
-
   /// name of the channel
   final String? name;
+  @override
+
+  /// description for the channel
+  final String? description;
 
   @override
   String toString() {
-    return 'CreateChannelRequest(description: $description, name: $name)';
+    return 'CreateChannelRequest(name: $name, description: $description)';
   }
 
   @override
@@ -350,16 +350,16 @@ class _$_CreateChannelRequest implements _CreateChannelRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _CreateChannelRequest &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.name, name));
+                .equals(other.description, description));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(description));
 
   @JsonKey(ignore: true)
   @override
@@ -374,7 +374,7 @@ class _$_CreateChannelRequest implements _CreateChannelRequest {
 }
 
 abstract class _CreateChannelRequest implements CreateChannelRequest {
-  const factory _CreateChannelRequest({String? description, String? name}) =
+  const factory _CreateChannelRequest({String? name, String? description}) =
       _$_CreateChannelRequest;
 
   factory _CreateChannelRequest.fromJson(Map<String, dynamic> json) =
@@ -382,12 +382,12 @@ abstract class _CreateChannelRequest implements CreateChannelRequest {
 
   @override
 
-  /// description for the channel
-  String? get description;
-  @override
-
   /// name of the channel
   String? get name;
+  @override
+
+  /// description for the channel
+  String? get description;
   @override
   @JsonKey(ignore: true)
   _$CreateChannelRequestCopyWith<_CreateChannelRequest> get copyWith =>
@@ -1468,10 +1468,10 @@ ListMessagesResponse _$ListMessagesResponseFromJson(Map<String, dynamic> json) {
 class _$ListMessagesResponseTearOff {
   const _$ListMessagesResponseTearOff();
 
-  ListMessagesResponseData call({String? channel, List<Message>? messages}) {
+  ListMessagesResponseData call({List<Message>? messages, String? channel}) {
     return ListMessagesResponseData(
-      channel: channel,
       messages: messages,
+      channel: channel,
     );
   }
 
@@ -1493,19 +1493,19 @@ const $ListMessagesResponse = _$ListMessagesResponseTearOff();
 mixin _$ListMessagesResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? channel, List<Message>? messages) $default, {
+    TResult Function(List<Message>? messages, String? channel) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? channel, List<Message>? messages)? $default, {
+    TResult Function(List<Message>? messages, String? channel)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? channel, List<Message>? messages)? $default, {
+    TResult Function(List<Message>? messages, String? channel)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -1554,7 +1554,7 @@ abstract class $ListMessagesResponseDataCopyWith<$Res> {
   factory $ListMessagesResponseDataCopyWith(ListMessagesResponseData value,
           $Res Function(ListMessagesResponseData) then) =
       _$ListMessagesResponseDataCopyWithImpl<$Res>;
-  $Res call({String? channel, List<Message>? messages});
+  $Res call({List<Message>? messages, String? channel});
 }
 
 /// @nodoc
@@ -1571,18 +1571,18 @@ class _$ListMessagesResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? channel = freezed,
     Object? messages = freezed,
+    Object? channel = freezed,
   }) {
     return _then(ListMessagesResponseData(
-      channel: channel == freezed
-          ? _value.channel
-          : channel // ignore: cast_nullable_to_non_nullable
-              as String?,
       messages: messages == freezed
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<Message>?,
+      channel: channel == freezed
+          ? _value.channel
+          : channel // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1590,7 +1590,7 @@ class _$ListMessagesResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ListMessagesResponseData implements ListMessagesResponseData {
-  const _$ListMessagesResponseData({this.channel, this.messages, String? $type})
+  const _$ListMessagesResponseData({this.messages, this.channel, String? $type})
       : $type = $type ?? 'default';
 
   factory _$ListMessagesResponseData.fromJson(Map<String, dynamic> json) =>
@@ -1598,19 +1598,19 @@ class _$ListMessagesResponseData implements ListMessagesResponseData {
 
   @override
 
-  /// The channel subscribed to
-  final String? channel;
-  @override
-
   /// Messages are chronological order
   final List<Message>? messages;
+  @override
+
+  /// The channel subscribed to
+  final String? channel;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'ListMessagesResponse(channel: $channel, messages: $messages)';
+    return 'ListMessagesResponse(messages: $messages, channel: $channel)';
   }
 
   @override
@@ -1618,15 +1618,15 @@ class _$ListMessagesResponseData implements ListMessagesResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ListMessagesResponseData &&
-            const DeepCollectionEquality().equals(other.channel, channel) &&
-            const DeepCollectionEquality().equals(other.messages, messages));
+            const DeepCollectionEquality().equals(other.messages, messages) &&
+            const DeepCollectionEquality().equals(other.channel, channel));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(channel),
-      const DeepCollectionEquality().hash(messages));
+      const DeepCollectionEquality().hash(messages),
+      const DeepCollectionEquality().hash(channel));
 
   @JsonKey(ignore: true)
   @override
@@ -1637,30 +1637,30 @@ class _$ListMessagesResponseData implements ListMessagesResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? channel, List<Message>? messages) $default, {
+    TResult Function(List<Message>? messages, String? channel) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(channel, messages);
+    return $default(messages, channel);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? channel, List<Message>? messages)? $default, {
+    TResult Function(List<Message>? messages, String? channel)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(channel, messages);
+    return $default?.call(messages, channel);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? channel, List<Message>? messages)? $default, {
+    TResult Function(List<Message>? messages, String? channel)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(channel, messages);
+      return $default(messages, channel);
     }
     return orElse();
   }
@@ -1704,16 +1704,16 @@ class _$ListMessagesResponseData implements ListMessagesResponseData {
 
 abstract class ListMessagesResponseData implements ListMessagesResponse {
   const factory ListMessagesResponseData(
-      {String? channel, List<Message>? messages}) = _$ListMessagesResponseData;
+      {List<Message>? messages, String? channel}) = _$ListMessagesResponseData;
 
   factory ListMessagesResponseData.fromJson(Map<String, dynamic> json) =
       _$ListMessagesResponseData.fromJson;
 
-  /// The channel subscribed to
-  String? get channel;
-
   /// Messages are chronological order
   List<Message>? get messages;
+
+  /// The channel subscribed to
+  String? get channel;
   @JsonKey(ignore: true)
   $ListMessagesResponseDataCopyWith<ListMessagesResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1793,7 +1793,7 @@ class _$ListMessagesResponseMerr implements ListMessagesResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? channel, List<Message>? messages) $default, {
+    TResult Function(List<Message>? messages, String? channel) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -1802,7 +1802,7 @@ class _$ListMessagesResponseMerr implements ListMessagesResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? channel, List<Message>? messages)? $default, {
+    TResult Function(List<Message>? messages, String? channel)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -1811,7 +1811,7 @@ class _$ListMessagesResponseMerr implements ListMessagesResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? channel, List<Message>? messages)? $default, {
+    TResult Function(List<Message>? messages, String? channel)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
@@ -1880,17 +1880,17 @@ class _$MessageTearOff {
   const _$MessageTearOff();
 
   _Message call(
-      {String? channel,
+      {String? timestamp,
+      String? channel,
       String? id,
       Map<String, String>? metadata,
-      String? text,
-      String? timestamp}) {
+      String? text}) {
     return _Message(
+      timestamp: timestamp,
       channel: channel,
       id: id,
       metadata: metadata,
       text: text,
-      timestamp: timestamp,
     );
   }
 
@@ -1904,6 +1904,9 @@ const $Message = _$MessageTearOff();
 
 /// @nodoc
 mixin _$Message {
+  /// time of message creation
+  String? get timestamp => throw _privateConstructorUsedError;
+
   /// the channel name
   String? get channel => throw _privateConstructorUsedError;
 
@@ -1916,9 +1919,6 @@ mixin _$Message {
   /// text of the message
   String? get text => throw _privateConstructorUsedError;
 
-  /// time of message creation
-  String? get timestamp => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MessageCopyWith<Message> get copyWith => throw _privateConstructorUsedError;
@@ -1929,11 +1929,11 @@ abstract class $MessageCopyWith<$Res> {
   factory $MessageCopyWith(Message value, $Res Function(Message) then) =
       _$MessageCopyWithImpl<$Res>;
   $Res call(
-      {String? channel,
+      {String? timestamp,
+      String? channel,
       String? id,
       Map<String, String>? metadata,
-      String? text,
-      String? timestamp});
+      String? text});
 }
 
 /// @nodoc
@@ -1946,13 +1946,17 @@ class _$MessageCopyWithImpl<$Res> implements $MessageCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? timestamp = freezed,
     Object? channel = freezed,
     Object? id = freezed,
     Object? metadata = freezed,
     Object? text = freezed,
-    Object? timestamp = freezed,
   }) {
     return _then(_value.copyWith(
+      timestamp: timestamp == freezed
+          ? _value.timestamp
+          : timestamp // ignore: cast_nullable_to_non_nullable
+              as String?,
       channel: channel == freezed
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
@@ -1969,10 +1973,6 @@ class _$MessageCopyWithImpl<$Res> implements $MessageCopyWith<$Res> {
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
-      timestamp: timestamp == freezed
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1983,11 +1983,11 @@ abstract class _$MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
       __$MessageCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? channel,
+      {String? timestamp,
+      String? channel,
       String? id,
       Map<String, String>? metadata,
-      String? text,
-      String? timestamp});
+      String? text});
 }
 
 /// @nodoc
@@ -2001,13 +2001,17 @@ class __$MessageCopyWithImpl<$Res> extends _$MessageCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? timestamp = freezed,
     Object? channel = freezed,
     Object? id = freezed,
     Object? metadata = freezed,
     Object? text = freezed,
-    Object? timestamp = freezed,
   }) {
     return _then(_Message(
+      timestamp: timestamp == freezed
+          ? _value.timestamp
+          : timestamp // ignore: cast_nullable_to_non_nullable
+              as String?,
       channel: channel == freezed
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
@@ -2024,10 +2028,6 @@ class __$MessageCopyWithImpl<$Res> extends _$MessageCopyWithImpl<$Res>
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
-      timestamp: timestamp == freezed
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2036,11 +2036,15 @@ class __$MessageCopyWithImpl<$Res> extends _$MessageCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Message implements _Message {
   const _$_Message(
-      {this.channel, this.id, this.metadata, this.text, this.timestamp});
+      {this.timestamp, this.channel, this.id, this.metadata, this.text});
 
   factory _$_Message.fromJson(Map<String, dynamic> json) =>
       _$$_MessageFromJson(json);
 
+  @override
+
+  /// time of message creation
+  final String? timestamp;
   @override
 
   /// the channel name
@@ -2057,14 +2061,10 @@ class _$_Message implements _Message {
 
   /// text of the message
   final String? text;
-  @override
-
-  /// time of message creation
-  final String? timestamp;
 
   @override
   String toString() {
-    return 'Message(channel: $channel, id: $id, metadata: $metadata, text: $text, timestamp: $timestamp)';
+    return 'Message(timestamp: $timestamp, channel: $channel, id: $id, metadata: $metadata, text: $text)';
   }
 
   @override
@@ -2072,21 +2072,21 @@ class _$_Message implements _Message {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Message &&
+            const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
             const DeepCollectionEquality().equals(other.channel, channel) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.metadata, metadata) &&
-            const DeepCollectionEquality().equals(other.text, text) &&
-            const DeepCollectionEquality().equals(other.timestamp, timestamp));
+            const DeepCollectionEquality().equals(other.text, text));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(timestamp),
       const DeepCollectionEquality().hash(channel),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(metadata),
-      const DeepCollectionEquality().hash(text),
-      const DeepCollectionEquality().hash(timestamp));
+      const DeepCollectionEquality().hash(text));
 
   @JsonKey(ignore: true)
   @override
@@ -2101,14 +2101,18 @@ class _$_Message implements _Message {
 
 abstract class _Message implements Message {
   const factory _Message(
-      {String? channel,
+      {String? timestamp,
+      String? channel,
       String? id,
       Map<String, String>? metadata,
-      String? text,
-      String? timestamp}) = _$_Message;
+      String? text}) = _$_Message;
 
   factory _Message.fromJson(Map<String, dynamic> json) = _$_Message.fromJson;
 
+  @override
+
+  /// time of message creation
+  String? get timestamp;
   @override
 
   /// the channel name
@@ -2126,10 +2130,6 @@ abstract class _Message implements Message {
   /// text of the message
   String? get text;
   @override
-
-  /// time of message creation
-  String? get timestamp;
-  @override
   @JsonKey(ignore: true)
   _$MessageCopyWith<_Message> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2143,10 +2143,10 @@ SendMessageRequest _$SendMessageRequestFromJson(Map<String, dynamic> json) {
 class _$SendMessageRequestTearOff {
   const _$SendMessageRequestTearOff();
 
-  _SendMessageRequest call({String? channel, String? text}) {
+  _SendMessageRequest call({String? text, String? channel}) {
     return _SendMessageRequest(
-      channel: channel,
       text: text,
+      channel: channel,
     );
   }
 
@@ -2160,11 +2160,11 @@ const $SendMessageRequest = _$SendMessageRequestTearOff();
 
 /// @nodoc
 mixin _$SendMessageRequest {
-  /// The channel to send to
-  String? get channel => throw _privateConstructorUsedError;
-
   /// The message text to send
   String? get text => throw _privateConstructorUsedError;
+
+  /// The channel to send to
+  String? get channel => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2177,7 +2177,7 @@ abstract class $SendMessageRequestCopyWith<$Res> {
   factory $SendMessageRequestCopyWith(
           SendMessageRequest value, $Res Function(SendMessageRequest) then) =
       _$SendMessageRequestCopyWithImpl<$Res>;
-  $Res call({String? channel, String? text});
+  $Res call({String? text, String? channel});
 }
 
 /// @nodoc
@@ -2191,17 +2191,17 @@ class _$SendMessageRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? channel = freezed,
     Object? text = freezed,
+    Object? channel = freezed,
   }) {
     return _then(_value.copyWith(
-      channel: channel == freezed
-          ? _value.channel
-          : channel // ignore: cast_nullable_to_non_nullable
-              as String?,
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      channel: channel == freezed
+          ? _value.channel
+          : channel // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2214,7 +2214,7 @@ abstract class _$SendMessageRequestCopyWith<$Res>
           _SendMessageRequest value, $Res Function(_SendMessageRequest) then) =
       __$SendMessageRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? channel, String? text});
+  $Res call({String? text, String? channel});
 }
 
 /// @nodoc
@@ -2230,17 +2230,17 @@ class __$SendMessageRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? channel = freezed,
     Object? text = freezed,
+    Object? channel = freezed,
   }) {
     return _then(_SendMessageRequest(
-      channel: channel == freezed
-          ? _value.channel
-          : channel // ignore: cast_nullable_to_non_nullable
-              as String?,
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      channel: channel == freezed
+          ? _value.channel
+          : channel // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2249,23 +2249,23 @@ class __$SendMessageRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SendMessageRequest implements _SendMessageRequest {
-  const _$_SendMessageRequest({this.channel, this.text});
+  const _$_SendMessageRequest({this.text, this.channel});
 
   factory _$_SendMessageRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SendMessageRequestFromJson(json);
 
   @override
 
-  /// The channel to send to
-  final String? channel;
-  @override
-
   /// The message text to send
   final String? text;
+  @override
+
+  /// The channel to send to
+  final String? channel;
 
   @override
   String toString() {
-    return 'SendMessageRequest(channel: $channel, text: $text)';
+    return 'SendMessageRequest(text: $text, channel: $channel)';
   }
 
   @override
@@ -2273,15 +2273,15 @@ class _$_SendMessageRequest implements _SendMessageRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SendMessageRequest &&
-            const DeepCollectionEquality().equals(other.channel, channel) &&
-            const DeepCollectionEquality().equals(other.text, text));
+            const DeepCollectionEquality().equals(other.text, text) &&
+            const DeepCollectionEquality().equals(other.channel, channel));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(channel),
-      const DeepCollectionEquality().hash(text));
+      const DeepCollectionEquality().hash(text),
+      const DeepCollectionEquality().hash(channel));
 
   @JsonKey(ignore: true)
   @override
@@ -2295,7 +2295,7 @@ class _$_SendMessageRequest implements _SendMessageRequest {
 }
 
 abstract class _SendMessageRequest implements SendMessageRequest {
-  const factory _SendMessageRequest({String? channel, String? text}) =
+  const factory _SendMessageRequest({String? text, String? channel}) =
       _$_SendMessageRequest;
 
   factory _SendMessageRequest.fromJson(Map<String, dynamic> json) =
@@ -2303,12 +2303,12 @@ abstract class _SendMessageRequest implements SendMessageRequest {
 
   @override
 
-  /// The channel to send to
-  String? get channel;
-  @override
-
   /// The message text to send
   String? get text;
+  @override
+
+  /// The channel to send to
+  String? get channel;
   @override
   @JsonKey(ignore: true)
   _$SendMessageRequestCopyWith<_SendMessageRequest> get copyWith =>

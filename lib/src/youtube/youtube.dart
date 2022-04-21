@@ -119,6 +119,9 @@ class SearchResult with _$SearchResult {
     /// the channel title
     String? channel_title,
 
+    /// published at time
+    String? published_at,
+
     /// the result description
     String? description,
 
@@ -127,9 +130,6 @@ class SearchResult with _$SearchResult {
 
     /// kind of result: "video", "channel", "playlist"
     String? kind,
-
-    /// published at time
-    String? published_at,
 
     /// title of the result
     String? title,

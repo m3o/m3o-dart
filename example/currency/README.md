@@ -4,43 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/currency/api](
 
 Endpoints:
 
-## History
-
-Returns the historic rates for a currency on a given date
-
-
-[https://m3o.com/currency/api#History](https://m3o.com/currency/api#History)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/currency/currency.dart';
-
-void main() async {
-  final ser = CurrencyService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "code": "USD",
-  "date": "2021-05-30"
-,};
-
-  HistoryRequest req = HistoryRequest.fromJson(payload);
-
-  
-  try {
-
-	HistoryResponse res = await ser.history(req);
-
-    res.map((value) => print(value),
-	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Codes
 
 Codes returns the supported currency codes for the API
@@ -178,6 +141,43 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (ConvertResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## History
+
+Returns the historic rates for a currency on a given date
+
+
+[https://m3o.com/currency/api#History](https://m3o.com/currency/api#History)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/currency/currency.dart';
+
+void main() async {
+  final ser = CurrencyService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "code": "USD",
+  "date": "2021-05-30"
+,};
+
+  HistoryRequest req = HistoryRequest.fromJson(payload);
+
+  
+  try {
+
+	HistoryResponse res = await ser.history(req);
+
+    res.map((value) => print(value),
+	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
