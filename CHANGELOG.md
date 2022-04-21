@@ -1,3 +1,9 @@
+## v1.0.98 - 2022-04-21
+
+[670c91](https://github.com/micro/services/commit/670c9171d5b6d034193a485b75b6140fd7788dfc) update VerificationDate field (#415)
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.97...v1.0.98
+
 ## v1.0.97 - 2022-04-21
 
 [f79441](https://github.com/micro/services/commit/f794418eecc9c77f1cf336efe55798694ebcc586) add some quotas for db/user
