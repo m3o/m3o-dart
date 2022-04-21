@@ -4,42 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/emoji/api](htt
 
 Endpoints:
 
-## Flag
-
-Get the flag for a country. Requires country code e.g GB for great britain
-
-
-[https://m3o.com/emoji/api#Flag](https://m3o.com/emoji/api#Flag)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/emoji/emoji.dart';
-
-void main() async {
-  final ser = EmojiService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "code": "GB"
-,};
-
-  FlagRequest req = FlagRequest.fromJson(payload);
-
-  
-  try {
-
-	FlagResponse res = await ser.flag(req);
-
-    res.map((value) => print(value),
-	  Merr: (FlagResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Print
 
 Print text and renders the emojis with aliases e.g
@@ -105,6 +69,42 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (FindResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Flag
+
+Get the flag for a country. Requires country code e.g GB for great britain
+
+
+[https://m3o.com/emoji/api#Flag](https://m3o.com/emoji/api#Flag)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/emoji/emoji.dart';
+
+void main() async {
+  final ser = EmojiService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "code": "GB"
+,};
+
+  FlagRequest req = FlagRequest.fromJson(payload);
+
+  
+  try {
+
+	FlagResponse res = await ser.flag(req);
+
+    res.map((value) => print(value),
+	  Merr: (FlagResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

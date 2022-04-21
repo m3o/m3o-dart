@@ -141,11 +141,11 @@ class NotesService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// note title
-    String? title,
-
     /// note text
     String? text,
+
+    /// note title
+    String? title,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);

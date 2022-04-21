@@ -379,12 +379,6 @@ class Account with _$Account {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// the email address
-    String? email,
-
-    /// optional account id
-    String? id,
-
     /// the user password
     String? password,
 
@@ -393,6 +387,12 @@ class CreateRequest with _$CreateRequest {
 
     /// the username
     String? username,
+
+    /// the email address
+    String? email,
+
+    /// optional account id
+    String? id,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -431,11 +431,10 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class ListRequest with _$ListRequest {
   const factory ListRequest({
-    int? offset,
-
     /// Maximum number of records to return. Default limit is 25.
     /// Maximum limit is 1000. Anything higher will return an error.
     int? limit,
+    int? offset,
   }) = _ListRequest;
   factory ListRequest.fromJson(Map<String, dynamic> json) =>
       _$ListRequestFromJson(json);
@@ -521,14 +520,14 @@ class LogoutResponse with _$LogoutResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
+    /// the account email
+    String? email,
+
     /// the account id
     String? id,
 
     /// the account username
     String? username,
-
-    /// the account email
-    String? email,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);
@@ -570,9 +569,6 @@ class ReadSessionResponse with _$ReadSessionResponse {
 @Freezed()
 class ResetPasswordRequest with _$ResetPasswordRequest {
   const factory ResetPasswordRequest({
-    /// the email to reset the password for
-    String? email,
-
     /// the new password
     String? new_password,
 
@@ -581,6 +577,9 @@ class ResetPasswordRequest with _$ResetPasswordRequest {
 
     /// confirm new password
     String? confirm_password,
+
+    /// the email to reset the password for
+    String? email,
   }) = _ResetPasswordRequest;
   factory ResetPasswordRequest.fromJson(Map<String, dynamic> json) =>
       _$ResetPasswordRequestFromJson(json);
@@ -667,6 +666,9 @@ class SendPasswordResetEmailResponse with _$SendPasswordResetEmailResponse {
 @Freezed()
 class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
   const factory SendVerificationEmailRequest({
+    /// email address to send the verification code
+    String? email,
+
     /// The url to redirect to incase of failure
     String? failure_redirect_url,
 
@@ -681,9 +683,6 @@ class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
 
     /// Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
     String? text_content,
-
-    /// email address to send the verification code
-    String? email,
   }) = _SendVerificationEmailRequest;
   factory SendVerificationEmailRequest.fromJson(Map<String, dynamic> json) =>
       _$SendVerificationEmailRequestFromJson(json);
@@ -723,6 +722,9 @@ class Session with _$Session {
 @Freezed()
 class UpdatePasswordRequest with _$UpdatePasswordRequest {
   const factory UpdatePasswordRequest({
+    /// the old password
+    String? old_password,
+
     /// the account id
     String? userId,
 
@@ -731,9 +733,6 @@ class UpdatePasswordRequest with _$UpdatePasswordRequest {
 
     /// the new password
     String? new_password,
-
-    /// the old password
-    String? old_password,
   }) = _UpdatePasswordRequest;
   factory UpdatePasswordRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdatePasswordRequestFromJson(json);
