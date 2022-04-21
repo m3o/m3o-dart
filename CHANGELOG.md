@@ -1,3 +1,9 @@
+## v1.0.97 - 2022-04-21
+
+[f79441](https://github.com/micro/services/commit/f794418eecc9c77f1cf336efe55798694ebcc586) add some quotas for db/user
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.96...v1.0.97
+
 ## v1.0.96 - 2022-04-19
 
 [15e4a7](https://github.com/micro/services/commit/15e4a703d3ea90dde0944c3dc6b0c8268399294c) update file path handling
