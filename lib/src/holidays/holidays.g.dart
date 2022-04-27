@@ -43,14 +43,14 @@ Map<String, dynamic> _$$CountriesResponseMerrToJson(
     };
 
 _$_Country _$$_CountryFromJson(Map<String, dynamic> json) => _$_Country(
-      name: json['name'] as String?,
       code: json['code'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_CountryToJson(_$_Country instance) =>
     <String, dynamic>{
-      'name': instance.name,
       'code': instance.code,
+      'name': instance.name,
     };
 
 _$_Holiday _$$_HolidayFromJson(Map<String, dynamic> json) => _$_Holiday(
@@ -76,14 +76,14 @@ Map<String, dynamic> _$$_HolidayToJson(_$_Holiday instance) =>
 
 _$_ListRequest _$$_ListRequestFromJson(Map<String, dynamic> json) =>
     _$_ListRequest(
-      year: int64FromString(json['year'] as String?),
       country_code: json['country_code'] as String?,
+      year: int64FromString(json['year'] as String?),
     );
 
 Map<String, dynamic> _$$_ListRequestToJson(_$_ListRequest instance) =>
     <String, dynamic>{
-      'year': int64ToString(instance.year),
       'country_code': instance.country_code,
+      'year': int64ToString(instance.year),
     };
 
 _$ListResponseData _$$ListResponseDataFromJson(Map<String, dynamic> json) =>

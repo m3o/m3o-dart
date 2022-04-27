@@ -2524,17 +2524,17 @@ class _$ListObjectTearOff {
   const _$ListObjectTearOff();
 
   _ListObject call(
-      {String? name,
-      String? url,
-      String? visibility,
+      {String? visibility,
       String? created,
-      String? modified}) {
+      String? modified,
+      String? name,
+      String? url}) {
     return _ListObject(
-      name: name,
-      url: url,
       visibility: visibility,
       created: created,
       modified: modified,
+      name: name,
+      url: url,
     );
   }
 
@@ -2548,13 +2548,13 @@ const $ListObject = _$ListObjectTearOff();
 
 /// @nodoc
 mixin _$ListObject {
-  String? get name => throw _privateConstructorUsedError;
-  String? get url => throw _privateConstructorUsedError;
   String? get visibility => throw _privateConstructorUsedError;
   String? get created => throw _privateConstructorUsedError;
 
   /// when was this last modified
   String? get modified => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2568,11 +2568,11 @@ abstract class $ListObjectCopyWith<$Res> {
           ListObject value, $Res Function(ListObject) then) =
       _$ListObjectCopyWithImpl<$Res>;
   $Res call(
-      {String? name,
-      String? url,
-      String? visibility,
+      {String? visibility,
       String? created,
-      String? modified});
+      String? modified,
+      String? name,
+      String? url});
 }
 
 /// @nodoc
@@ -2585,21 +2585,13 @@ class _$ListObjectCopyWithImpl<$Res> implements $ListObjectCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? name = freezed,
-    Object? url = freezed,
     Object? visibility = freezed,
     Object? created = freezed,
     Object? modified = freezed,
+    Object? name = freezed,
+    Object? url = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
       visibility: visibility == freezed
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
@@ -2612,6 +2604,14 @@ class _$ListObjectCopyWithImpl<$Res> implements $ListObjectCopyWith<$Res> {
           ? _value.modified
           : modified // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2623,11 +2623,11 @@ abstract class _$ListObjectCopyWith<$Res> implements $ListObjectCopyWith<$Res> {
       __$ListObjectCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? name,
-      String? url,
-      String? visibility,
+      {String? visibility,
       String? created,
-      String? modified});
+      String? modified,
+      String? name,
+      String? url});
 }
 
 /// @nodoc
@@ -2642,21 +2642,13 @@ class __$ListObjectCopyWithImpl<$Res> extends _$ListObjectCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
-    Object? url = freezed,
     Object? visibility = freezed,
     Object? created = freezed,
     Object? modified = freezed,
+    Object? name = freezed,
+    Object? url = freezed,
   }) {
     return _then(_ListObject(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
       visibility: visibility == freezed
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
@@ -2669,6 +2661,14 @@ class __$ListObjectCopyWithImpl<$Res> extends _$ListObjectCopyWithImpl<$Res>
           ? _value.modified
           : modified // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2677,15 +2677,11 @@ class __$ListObjectCopyWithImpl<$Res> extends _$ListObjectCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ListObject implements _ListObject {
   const _$_ListObject(
-      {this.name, this.url, this.visibility, this.created, this.modified});
+      {this.visibility, this.created, this.modified, this.name, this.url});
 
   factory _$_ListObject.fromJson(Map<String, dynamic> json) =>
       _$$_ListObjectFromJson(json);
 
-  @override
-  final String? name;
-  @override
-  final String? url;
   @override
   final String? visibility;
   @override
@@ -2694,10 +2690,14 @@ class _$_ListObject implements _ListObject {
 
   /// when was this last modified
   final String? modified;
+  @override
+  final String? name;
+  @override
+  final String? url;
 
   @override
   String toString() {
-    return 'ListObject(name: $name, url: $url, visibility: $visibility, created: $created, modified: $modified)';
+    return 'ListObject(visibility: $visibility, created: $created, modified: $modified, name: $name, url: $url)';
   }
 
   @override
@@ -2705,22 +2705,22 @@ class _$_ListObject implements _ListObject {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ListObject &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality()
                 .equals(other.visibility, visibility) &&
             const DeepCollectionEquality().equals(other.created, created) &&
-            const DeepCollectionEquality().equals(other.modified, modified));
+            const DeepCollectionEquality().equals(other.modified, modified) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.url, url));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(visibility),
       const DeepCollectionEquality().hash(created),
-      const DeepCollectionEquality().hash(modified));
+      const DeepCollectionEquality().hash(modified),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(url));
 
   @JsonKey(ignore: true)
   @override
@@ -2735,19 +2735,15 @@ class _$_ListObject implements _ListObject {
 
 abstract class _ListObject implements ListObject {
   const factory _ListObject(
-      {String? name,
-      String? url,
-      String? visibility,
+      {String? visibility,
       String? created,
-      String? modified}) = _$_ListObject;
+      String? modified,
+      String? name,
+      String? url}) = _$_ListObject;
 
   factory _ListObject.fromJson(Map<String, dynamic> json) =
       _$_ListObject.fromJson;
 
-  @override
-  String? get name;
-  @override
-  String? get url;
   @override
   String? get visibility;
   @override
@@ -2756,6 +2752,10 @@ abstract class _ListObject implements ListObject {
 
   /// when was this last modified
   String? get modified;
+  @override
+  String? get name;
+  @override
+  String? get url;
   @override
   @JsonKey(ignore: true)
   _$ListObjectCopyWith<_ListObject> get copyWith =>

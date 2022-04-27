@@ -276,11 +276,11 @@ class HistoryResponse with _$HistoryResponse {
 @Freezed()
 class InviteRequest with _$InviteRequest {
   const factory InviteRequest({
-    /// the room id
-    String? room_id,
-
     /// the user id
     String? user_id,
+
+    /// the room id
+    String? room_id,
   }) = _InviteRequest;
   factory InviteRequest.fromJson(Map<String, dynamic> json) =>
       _$InviteRequestFromJson(json);
@@ -324,11 +324,11 @@ class JoinResponse with _$JoinResponse {
 @Freezed()
 class KickRequest with _$KickRequest {
   const factory KickRequest({
-    /// the chat room id
-    String? room_id,
-
     /// the user id
     String? user_id,
+
+    /// the chat room id
+    String? room_id,
   }) = _KickRequest;
   factory KickRequest.fromJson(Map<String, dynamic> json) =>
       _$KickRequestFromJson(json);
@@ -393,9 +393,6 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
-    /// id of the message, allocated by the server
-    String? id,
-
     /// id of the chat the message is being sent to / from
     String? room_id,
 
@@ -413,6 +410,9 @@ class Message with _$Message {
 
     /// a client side id, should be validated by the server to make the request retry safe
     String? client,
+
+    /// id of the message, allocated by the server
+    String? id,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
@@ -421,15 +421,6 @@ class Message with _$Message {
 @Freezed()
 class Room with _$Room {
   const factory Room({
-    /// list of users
-    List<String>? user_ids,
-
-    /// time of creation
-    String? created_at,
-
-    /// description of the that
-    String? description,
-
     /// unique room id
     String? id,
 
@@ -438,6 +429,15 @@ class Room with _$Room {
 
     /// whether its a private room
     bool? private,
+
+    /// list of users
+    List<String>? user_ids,
+
+    /// time of creation
+    String? created_at,
+
+    /// description of the that
+    String? description,
   }) = _Room;
   factory Room.fromJson(Map<String, dynamic> json) => _$RoomFromJson(json);
 }

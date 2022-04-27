@@ -8,14 +8,14 @@ part of 'function.dart';
 
 _$_CallRequest _$$_CallRequestFromJson(Map<String, dynamic> json) =>
     _$_CallRequest(
-      request: json['request'] as Map<String, dynamic>?,
       name: json['name'] as String?,
+      request: json['request'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$$_CallRequestToJson(_$_CallRequest instance) =>
     <String, dynamic>{
-      'request': instance.request,
       'name': instance.name,
+      'request': instance.request,
     };
 
 _$CallResponseData _$$CallResponseDataFromJson(Map<String, dynamic> json) =>
@@ -78,30 +78,30 @@ Map<String, dynamic> _$$DeleteResponseMerrToJson(
 
 _$_DeployRequest _$$_DeployRequestFromJson(Map<String, dynamic> json) =>
     _$_DeployRequest(
+      entrypoint: json['entrypoint'] as String?,
+      name: json['name'] as String?,
+      region: json['region'] as String?,
+      repo: json['repo'] as String?,
+      runtime: json['runtime'] as String?,
+      branch: json['branch'] as String?,
       env_vars: (json['env_vars'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
-      region: json['region'] as String?,
-      runtime: json['runtime'] as String?,
-      branch: json['branch'] as String?,
-      name: json['name'] as String?,
-      repo: json['repo'] as String?,
       source: json['source'] as String?,
       subfolder: json['subfolder'] as String?,
-      entrypoint: json['entrypoint'] as String?,
     );
 
 Map<String, dynamic> _$$_DeployRequestToJson(_$_DeployRequest instance) =>
     <String, dynamic>{
-      'env_vars': instance.env_vars,
+      'entrypoint': instance.entrypoint,
+      'name': instance.name,
       'region': instance.region,
+      'repo': instance.repo,
       'runtime': instance.runtime,
       'branch': instance.branch,
-      'name': instance.name,
-      'repo': instance.repo,
+      'env_vars': instance.env_vars,
       'source': instance.source,
       'subfolder': instance.subfolder,
-      'entrypoint': instance.entrypoint,
     };
 
 _$DeployResponseData _$$DeployResponseDataFromJson(Map<String, dynamic> json) =>
@@ -173,39 +173,39 @@ Map<String, dynamic> _$$DescribeResponseMerrToJson(
     };
 
 _$_Func _$$_FuncFromJson(Map<String, dynamic> json) => _$_Func(
+      url: json['url'] as String?,
+      repo: json['repo'] as String?,
       status: json['status'] as String?,
-      updated: json['updated'] as String?,
-      created: json['created'] as String?,
       env_vars: (json['env_vars'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
       region: json['region'] as String?,
+      id: json['id'] as String?,
+      created: json['created'] as String?,
+      entrypoint: json['entrypoint'] as String?,
       runtime: json['runtime'] as String?,
       source: json['source'] as String?,
+      subfolder: json['subfolder'] as String?,
+      updated: json['updated'] as String?,
       branch: json['branch'] as String?,
       name: json['name'] as String?,
-      id: json['id'] as String?,
-      repo: json['repo'] as String?,
-      url: json['url'] as String?,
-      entrypoint: json['entrypoint'] as String?,
-      subfolder: json['subfolder'] as String?,
     );
 
 Map<String, dynamic> _$$_FuncToJson(_$_Func instance) => <String, dynamic>{
+      'url': instance.url,
+      'repo': instance.repo,
       'status': instance.status,
-      'updated': instance.updated,
-      'created': instance.created,
       'env_vars': instance.env_vars,
       'region': instance.region,
+      'id': instance.id,
+      'created': instance.created,
+      'entrypoint': instance.entrypoint,
       'runtime': instance.runtime,
       'source': instance.source,
+      'subfolder': instance.subfolder,
+      'updated': instance.updated,
       'branch': instance.branch,
       'name': instance.name,
-      'id': instance.id,
-      'repo': instance.repo,
-      'url': instance.url,
-      'entrypoint': instance.entrypoint,
-      'subfolder': instance.subfolder,
     };
 
 _$_ListRequest _$$_ListRequestFromJson(Map<String, dynamic> json) =>
