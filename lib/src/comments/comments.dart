@@ -219,11 +219,11 @@ class EventsRequest with _$EventsRequest {
 @Freezed()
 class EventsResponse with _$EventsResponse {
   const factory EventsResponse({
-    /// the comment which the operation occured on
-    Comment? comment,
-
     /// the event which occured; create, delete, update
     String? event,
+
+    /// the comment which the operation occured on
+    Comment? comment,
   }) = EventsResponseData;
   const factory EventsResponse.Merr({Map<String, dynamic>? body}) =
       EventsResponseMerr;

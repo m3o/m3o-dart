@@ -8,29 +8,29 @@ part of 'twitter.dart';
 
 _$_Profile _$$_ProfileFromJson(Map<String, dynamic> json) => _$_Profile(
       description: json['description'] as String?,
-      image_url: json['image_url'] as String?,
-      location: json['location'] as String?,
-      private: json['private'] as bool?,
+      followers: int64FromString(json['followers'] as String?),
+      name: json['name'] as String?,
+      username: json['username'] as String?,
       verified: json['verified'] as bool?,
       created_at: json['created_at'] as String?,
       id: int64FromString(json['id'] as String?),
-      name: json['name'] as String?,
-      username: json['username'] as String?,
-      followers: int64FromString(json['followers'] as String?),
+      image_url: json['image_url'] as String?,
+      location: json['location'] as String?,
+      private: json['private'] as bool?,
     );
 
 Map<String, dynamic> _$$_ProfileToJson(_$_Profile instance) =>
     <String, dynamic>{
       'description': instance.description,
-      'image_url': instance.image_url,
-      'location': instance.location,
-      'private': instance.private,
+      'followers': int64ToString(instance.followers),
+      'name': instance.name,
+      'username': instance.username,
       'verified': instance.verified,
       'created_at': instance.created_at,
       'id': int64ToString(instance.id),
-      'name': instance.name,
-      'username': instance.username,
-      'followers': int64ToString(instance.followers),
+      'image_url': instance.image_url,
+      'location': instance.location,
+      'private': instance.private,
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>

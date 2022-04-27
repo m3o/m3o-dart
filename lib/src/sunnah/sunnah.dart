@@ -99,9 +99,6 @@ class SunnahService {
 @Freezed()
 class Book with _$Book {
   const factory Book({
-    /// arabic name of the book
-    String? arabic_name,
-
     /// number of hadiths in the book
     int? hadiths,
 
@@ -110,6 +107,9 @@ class Book with _$Book {
 
     /// name of the book
     String? name,
+
+    /// arabic name of the book
+    String? arabic_name,
   }) = _Book;
   factory Book.fromJson(Map<String, dynamic> json) => _$BookFromJson(json);
 }
@@ -157,6 +157,12 @@ class BooksResponse with _$BooksResponse {
 @Freezed()
 class Chapter with _$Chapter {
   const factory Chapter({
+    /// the chapter id e.g 1
+    int? id,
+
+    /// the chapter key e.g 1.00
+    String? key,
+
     /// title of the chapter
     String? title,
 
@@ -165,12 +171,6 @@ class Chapter with _$Chapter {
 
     /// the book number
     int? book,
-
-    /// the chapter id e.g 1
-    int? id,
-
-    /// the chapter key e.g 1.00
-    String? key,
   }) = _Chapter;
   factory Chapter.fromJson(Map<String, dynamic> json) =>
       _$ChapterFromJson(json);
@@ -179,6 +179,9 @@ class Chapter with _$Chapter {
 @Freezed()
 class ChaptersRequest with _$ChaptersRequest {
   const factory ChaptersRequest({
+    /// Limit the number of chapters returned
+    int? limit,
+
     /// The page in the pagination
     int? page,
 
@@ -187,9 +190,6 @@ class ChaptersRequest with _$ChaptersRequest {
 
     /// name of the collection
     String? collection,
-
-    /// Limit the number of chapters returned
-    int? limit,
   }) = _ChaptersRequest;
   factory ChaptersRequest.fromJson(Map<String, dynamic> json) =>
       _$ChaptersRequestFromJson(json);
@@ -198,6 +198,12 @@ class ChaptersRequest with _$ChaptersRequest {
 @Freezed()
 class ChaptersResponse with _$ChaptersResponse {
   const factory ChaptersResponse({
+    /// name of the collection
+    String? collection,
+
+    /// Limit the number of chapters returned
+    int? limit,
+
     /// The page in the pagination
     int? page,
 
@@ -209,12 +215,6 @@ class ChaptersResponse with _$ChaptersResponse {
 
     /// The chapters of the book
     List<Chapter>? chapters,
-
-    /// name of the collection
-    String? collection,
-
-    /// Limit the number of chapters returned
-    int? limit,
   }) = ChaptersResponseData;
   const factory ChaptersResponse.Merr({Map<String, dynamic>? body}) =
       ChaptersResponseMerr;
@@ -271,12 +271,6 @@ class CollectionsResponse with _$CollectionsResponse {
 @Freezed()
 class Hadith with _$Hadith {
   const factory Hadith({
-    /// hadith text
-    String? text,
-
-    /// the arabic chapter title
-    String? arabic_chapter_title,
-
     /// the arabic text
     String? arabic_text,
 
@@ -291,6 +285,12 @@ class Hadith with _$Hadith {
 
     /// hadith id
     int? id,
+
+    /// hadith text
+    String? text,
+
+    /// the arabic chapter title
+    String? arabic_chapter_title,
   }) = _Hadith;
   factory Hadith.fromJson(Map<String, dynamic> json) => _$HadithFromJson(json);
 }
@@ -298,6 +298,9 @@ class Hadith with _$Hadith {
 @Freezed()
 class HadithsRequest with _$HadithsRequest {
   const factory HadithsRequest({
+    /// name of the collection
+    String? collection,
+
     /// Limit the number of hadiths
     int? limit,
 
@@ -306,9 +309,6 @@ class HadithsRequest with _$HadithsRequest {
 
     /// number of the book
     int? book,
-
-    /// name of the collection
-    String? collection,
   }) = _HadithsRequest;
   factory HadithsRequest.fromJson(Map<String, dynamic> json) =>
       _$HadithsRequestFromJson(json);
@@ -317,6 +317,9 @@ class HadithsRequest with _$HadithsRequest {
 @Freezed()
 class HadithsResponse with _$HadithsResponse {
   const factory HadithsResponse({
+    /// number of the book
+    int? book,
+
     /// name of the collection
     String? collection,
 
@@ -331,9 +334,6 @@ class HadithsResponse with _$HadithsResponse {
 
     /// Total hadiths in the  book
     int? total,
-
-    /// number of the book
-    int? book,
   }) = HadithsResponseData;
   const factory HadithsResponse.Merr({Map<String, dynamic>? body}) =
       HadithsResponseMerr;
