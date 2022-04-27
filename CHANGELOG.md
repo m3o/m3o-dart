@@ -1,3 +1,9 @@
+## v1.0.101 - 2022-04-27
+
+[2a845c](https://github.com/micro/services/commit/2a845c6ef0392c9311235d518b5b44bb6d3f0b6b) move search to storage
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.100...v1.0.101
+
 ## v1.0.100 - 2022-04-27
 
 [40a75e](https://github.com/micro/services/commit/40a75ec794e13418801a34c7b783c05b0e0c2968) update contact category
