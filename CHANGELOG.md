@@ -1,3 +1,9 @@
+## v1.0.100 - 2022-04-27
+
+[40a75e](https://github.com/micro/services/commit/40a75ec794e13418801a34c7b783c05b0e0c2968) update contact category
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.99...v1.0.100
+
 ## v1.0.99 - 2022-04-27
 
 [ce5b04](https://github.com/micro/services/commit/ce5b049edec3b80a7c6140830e2fbd9d3b598356) update utility to web category
