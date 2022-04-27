@@ -101,23 +101,11 @@ class ZoneRequest with _$ZoneRequest {
 @Freezed()
 class ZoneResponse with _$ZoneResponse {
   const factory ZoneResponse({
-    /// country of the timezone
-    String? country,
+    /// the abbreviated code e.g BST
+    String? abbreviation,
 
     /// is daylight savings
     bool? dst,
-
-    /// the local time
-    String? localtime,
-
-    /// e.g -0.37
-    double? longitude,
-
-    /// UTC offset in hours
-    int? offset,
-
-    /// the abbreviated code e.g BST
-    String? abbreviation,
 
     /// e.g 51.42
     double? latitude,
@@ -127,6 +115,18 @@ class ZoneResponse with _$ZoneResponse {
 
     /// region of timezone
     String? region,
+
+    /// country of the timezone
+    String? country,
+
+    /// the local time
+    String? localtime,
+
+    /// e.g -0.37
+    double? longitude,
+
+    /// UTC offset in hours
+    int? offset,
 
     /// the timezone e.g Europe/London
     String? timezone,

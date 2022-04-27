@@ -74,11 +74,11 @@ class CountriesResponse with _$CountriesResponse {
 @Freezed()
 class Country with _$Country {
   const factory Country({
-    /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
-    String? code,
-
     /// The English name of the country
     String? name,
+
+    /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
+    String? code,
   }) = _Country;
   factory Country.fromJson(Map<String, dynamic> json) =>
       _$CountryFromJson(json);
@@ -112,12 +112,12 @@ class Holiday with _$Holiday {
 @Freezed()
 class ListRequest with _$ListRequest {
   const factory ListRequest({
-    /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
-    String? country_code,
-
     /// The year to list holidays for
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? year,
+
+    /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
+    String? country_code,
   }) = _ListRequest;
   factory ListRequest.fromJson(Map<String, dynamic> json) =>
       _$ListRequestFromJson(json);

@@ -284,16 +284,16 @@ Map<String, dynamic> _$$_SpaceObjectToJson(_$_SpaceObject instance) =>
 
 _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>
     _$_UpdateRequest(
-      visibility: json['visibility'] as String?,
       name: json['name'] as String?,
       object: json['object'] as String?,
+      visibility: json['visibility'] as String?,
     );
 
 Map<String, dynamic> _$$_UpdateRequestToJson(_$_UpdateRequest instance) =>
     <String, dynamic>{
-      'visibility': instance.visibility,
       'name': instance.name,
       'object': instance.object,
+      'visibility': instance.visibility,
     };
 
 _$UpdateResponseData _$$UpdateResponseDataFromJson(Map<String, dynamic> json) =>
