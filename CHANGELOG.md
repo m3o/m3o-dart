@@ -1,3 +1,13 @@
+## v1.0.99 - 2022-04-27
+
+[ce5b04](https://github.com/micro/services/commit/ce5b049edec3b80a7c6140830e2fbd9d3b598356) update utility to web category
+
+## What's Changed
+
+- use new m3o generator action by @lambdaR in https://github.com/m3o/m3o-dart/pull/17
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.98...v1.0.99
+
 ## v1.0.98 - 2022-04-21
 
 [670c91](https://github.com/micro/services/commit/670c9171d5b6d034193a485b75b6140fd7788dfc) update VerificationDate field (#415)
