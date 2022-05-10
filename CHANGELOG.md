@@ -1,3 +1,9 @@
+## v1.0.104 - 2022-05-10
+
+[8d9eea](https://github.com/micro/services/commit/8d9eea7aeab181e1379e2d830b9e902bcc22c29c) update db quota
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.103...v1.0.104
+
 ## v1.0.103 - 2022-05-10
 
 [9ae89b](https://github.com/micro/services/commit/9ae89b537680a949b4442c5f9f393bf845fb7fa4) Wordle API (#417)
