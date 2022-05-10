@@ -116,12 +116,6 @@ class CryptoService {
 @Freezed()
 class Article with _$Article {
   const factory Article({
-    /// title of the article
-    String? title,
-
-    /// the source url
-    String? url,
-
     /// the date published
     String? date,
 
@@ -130,6 +124,12 @@ class Article with _$Article {
 
     /// the source
     String? source,
+
+    /// title of the article
+    String? title,
+
+    /// the source url
+    String? url,
   }) = _Article;
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);
@@ -148,15 +148,6 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
-    /// the crypto symbol
-    String? symbol,
-
-    /// the volume
-    double? volume,
-
-    /// the close price
-    double? close,
-
     /// the date
     String? date,
 
@@ -168,6 +159,15 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the open price
     double? open,
+
+    /// the crypto symbol
+    String? symbol,
+
+    /// the volume
+    double? volume,
+
+    /// the close price
+    double? close,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -188,11 +188,11 @@ class NewsRequest with _$NewsRequest {
 @Freezed()
 class NewsResponse with _$NewsResponse {
   const factory NewsResponse({
-    /// symbol requested for
-    String? symbol,
-
     /// list of articles
     List<Article>? articles,
+
+    /// symbol requested for
+    String? symbol,
   }) = NewsResponseData;
   const factory NewsResponse.Merr({Map<String, dynamic>? body}) =
       NewsResponseMerr;
@@ -238,6 +238,12 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
+    /// the UTC timestamp of the quote
+    String? timestamp,
+
+    /// the asking price
+    double? ask_price,
+
     /// the ask size
     double? ask_size,
 
@@ -249,12 +255,6 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the crypto symbol
     String? symbol,
-
-    /// the UTC timestamp of the quote
-    String? timestamp,
-
-    /// the asking price
-    double? ask_price,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;

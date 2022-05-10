@@ -108,17 +108,14 @@ class NearbyResponse with _$NearbyResponse {
 @Freezed()
 class Result with _$Result {
   const factory Result({
-    /// address of place
-    String? address,
+    /// url of an icon
+    String? icon_url,
 
-    /// opening hours
-    List<String>? opening_hours,
+    /// name of the place
+    String? name,
 
     /// simplified address
     String? vicinity,
-
-    /// open now
-    bool? open_now,
 
     /// rating from 1.0 to 5.0
     double? rating,
@@ -129,14 +126,17 @@ class Result with _$Result {
     /// feature types
     List<String>? types,
 
-    /// url of an icon
-    String? icon_url,
+    /// address of place
+    String? address,
 
     /// lat/lng of place
     String? location,
 
-    /// name of the place
-    String? name,
+    /// open now
+    bool? open_now,
+
+    /// opening hours
+    List<String>? opening_hours,
   }) = _Result;
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
 }

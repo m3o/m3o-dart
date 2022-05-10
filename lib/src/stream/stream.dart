@@ -97,14 +97,14 @@ class StreamService {
 @Freezed()
 class Channel with _$Channel {
   const factory Channel({
-    /// description for the channel
-    String? description,
-
     /// last activity time
     String? last_active,
 
     /// name of the channel
     String? name,
+
+    /// description for the channel
+    String? description,
   }) = _Channel;
   factory Channel.fromJson(Map<String, dynamic> json) =>
       _$ChannelFromJson(json);
@@ -113,11 +113,11 @@ class Channel with _$Channel {
 @Freezed()
 class CreateChannelRequest with _$CreateChannelRequest {
   const factory CreateChannelRequest({
-    /// name of the channel
-    String? name,
-
     /// description for the channel
     String? description,
+
+    /// name of the channel
+    String? name,
   }) = _CreateChannelRequest;
   factory CreateChannelRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateChannelRequestFromJson(json);

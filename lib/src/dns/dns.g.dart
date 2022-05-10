@@ -7,17 +7,17 @@ part of 'dns.dart';
 // **************************************************************************
 
 _$_Answer _$$_AnswerFromJson(Map<String, dynamic> json) => _$_Answer(
+      TTL: json['TTL'] as int?,
       data: json['data'] as String?,
       name: json['name'] as String?,
       type: json['type'] as int?,
-      TTL: json['TTL'] as int?,
     );
 
 Map<String, dynamic> _$$_AnswerToJson(_$_Answer instance) => <String, dynamic>{
+      'TTL': instance.TTL,
       'data': instance.data,
       'name': instance.name,
       'type': instance.type,
-      'TTL': instance.TTL,
     };
 
 _$_QueryRequest _$$_QueryRequestFromJson(Map<String, dynamic> json) =>
@@ -34,33 +34,33 @@ Map<String, dynamic> _$$_QueryRequestToJson(_$_QueryRequest instance) =>
 
 _$QueryResponseData _$$QueryResponseDataFromJson(Map<String, dynamic> json) =>
     _$QueryResponseData(
-      status: json['status'] as int?,
-      AD: json['AD'] as bool?,
-      RA: json['RA'] as bool?,
-      TC: json['TC'] as bool?,
       provider: json['provider'] as String?,
-      question: (json['question'] as List<dynamic>?)
-          ?.map((e) => Question.fromJson(e as Map<String, dynamic>))
-          .toList(),
       CD: json['CD'] as bool?,
+      TC: json['TC'] as bool?,
       RD: json['RD'] as bool?,
       answer: (json['answer'] as List<dynamic>?)
           ?.map((e) => Answer.fromJson(e as Map<String, dynamic>))
           .toList(),
+      question: (json['question'] as List<dynamic>?)
+          ?.map((e) => Question.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      status: json['status'] as int?,
+      AD: json['AD'] as bool?,
+      RA: json['RA'] as bool?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$QueryResponseDataToJson(_$QueryResponseData instance) =>
     <String, dynamic>{
+      'provider': instance.provider,
+      'CD': instance.CD,
+      'TC': instance.TC,
+      'RD': instance.RD,
+      'answer': instance.answer,
+      'question': instance.question,
       'status': instance.status,
       'AD': instance.AD,
       'RA': instance.RA,
-      'TC': instance.TC,
-      'provider': instance.provider,
-      'question': instance.question,
-      'CD': instance.CD,
-      'RD': instance.RD,
-      'answer': instance.answer,
       'runtimeType': instance.$type,
     };
 

@@ -52,14 +52,14 @@ Map<String, dynamic> _$$TextResponseMerrToJson(_$TextResponseMerr instance) =>
 
 _$_Translation _$$_TranslationFromJson(Map<String, dynamic> json) =>
     _$_Translation(
+      source: json['source'] as String?,
       text: json['text'] as String?,
       model: json['model'] as String?,
-      source: json['source'] as String?,
     );
 
 Map<String, dynamic> _$$_TranslationToJson(_$_Translation instance) =>
     <String, dynamic>{
+      'source': instance.source,
       'text': instance.text,
       'model': instance.model,
-      'source': instance.source,
     };
