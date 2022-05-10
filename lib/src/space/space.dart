@@ -245,9 +245,6 @@ class DownloadResponse with _$DownloadResponse {
 @Freezed()
 class HeadObject with _$HeadObject {
   const factory HeadObject({
-    /// when was this created
-    String? created,
-
     /// when was this last modified
     String? modified,
     String? name,
@@ -257,6 +254,9 @@ class HeadObject with _$HeadObject {
 
     /// is this public or private
     String? visibility,
+
+    /// when was this created
+    String? created,
   }) = _HeadObject;
   factory HeadObject.fromJson(Map<String, dynamic> json) =>
       _$HeadObjectFromJson(json);
@@ -344,15 +344,6 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class SpaceObject with _$SpaceObject {
   const factory SpaceObject({
-    /// when was this last modified
-    String? modified,
-
-    /// name of object
-    String? name,
-
-    /// URL to access the object if it is public
-    String? url,
-
     /// is this public or private
     String? visibility,
 
@@ -361,6 +352,15 @@ class SpaceObject with _$SpaceObject {
 
     /// the data within the object
     String? data,
+
+    /// when was this last modified
+    String? modified,
+
+    /// name of object
+    String? name,
+
+    /// URL to access the object if it is public
+    String? url,
   }) = _SpaceObject;
   factory SpaceObject.fromJson(Map<String, dynamic> json) =>
       _$SpaceObjectFromJson(json);

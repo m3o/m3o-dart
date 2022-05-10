@@ -338,11 +338,11 @@ class _$ClassifyResponseTearOff {
   const _$ClassifyResponseTearOff();
 
   ClassifyResponseData call(
-      {List<String>? details, bool? is_spam, double? score}) {
+      {bool? is_spam, double? score, List<String>? details}) {
     return ClassifyResponseData(
-      details: details,
       is_spam: is_spam,
       score: score,
+      details: details,
     );
   }
 
@@ -364,21 +364,21 @@ const $ClassifyResponse = _$ClassifyResponseTearOff();
 mixin _$ClassifyResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(List<String>? details, bool? is_spam, double? score)
+    TResult Function(bool? is_spam, double? score, List<String>? details)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<String>? details, bool? is_spam, double? score)?
+    TResult Function(bool? is_spam, double? score, List<String>? details)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<String>? details, bool? is_spam, double? score)?
+    TResult Function(bool? is_spam, double? score, List<String>? details)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -428,7 +428,7 @@ abstract class $ClassifyResponseDataCopyWith<$Res> {
   factory $ClassifyResponseDataCopyWith(ClassifyResponseData value,
           $Res Function(ClassifyResponseData) then) =
       _$ClassifyResponseDataCopyWithImpl<$Res>;
-  $Res call({List<String>? details, bool? is_spam, double? score});
+  $Res call({bool? is_spam, double? score, List<String>? details});
 }
 
 /// @nodoc
@@ -444,15 +444,11 @@ class _$ClassifyResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? details = freezed,
     Object? is_spam = freezed,
     Object? score = freezed,
+    Object? details = freezed,
   }) {
     return _then(ClassifyResponseData(
-      details: details == freezed
-          ? _value.details
-          : details // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
       is_spam: is_spam == freezed
           ? _value.is_spam
           : is_spam // ignore: cast_nullable_to_non_nullable
@@ -461,6 +457,10 @@ class _$ClassifyResponseDataCopyWithImpl<$Res>
           ? _value.score
           : score // ignore: cast_nullable_to_non_nullable
               as double?,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -469,16 +469,12 @@ class _$ClassifyResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ClassifyResponseData implements ClassifyResponseData {
   const _$ClassifyResponseData(
-      {this.details, this.is_spam, this.score, String? $type})
+      {this.is_spam, this.score, this.details, String? $type})
       : $type = $type ?? 'default';
 
   factory _$ClassifyResponseData.fromJson(Map<String, dynamic> json) =>
       _$$ClassifyResponseDataFromJson(json);
 
-  @override
-
-  /// The rules that have contributed to this score
-  final List<String>? details;
   @override
 
   /// Is it spam? Returns true if its score is > 5
@@ -487,13 +483,17 @@ class _$ClassifyResponseData implements ClassifyResponseData {
 
   /// The score evaluated for this email. A higher number means it is more likely to be spam
   final double? score;
+  @override
+
+  /// The rules that have contributed to this score
+  final List<String>? details;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'ClassifyResponse(details: $details, is_spam: $is_spam, score: $score)';
+    return 'ClassifyResponse(is_spam: $is_spam, score: $score, details: $details)';
   }
 
   @override
@@ -501,17 +501,17 @@ class _$ClassifyResponseData implements ClassifyResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ClassifyResponseData &&
-            const DeepCollectionEquality().equals(other.details, details) &&
             const DeepCollectionEquality().equals(other.is_spam, is_spam) &&
-            const DeepCollectionEquality().equals(other.score, score));
+            const DeepCollectionEquality().equals(other.score, score) &&
+            const DeepCollectionEquality().equals(other.details, details));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(details),
       const DeepCollectionEquality().hash(is_spam),
-      const DeepCollectionEquality().hash(score));
+      const DeepCollectionEquality().hash(score),
+      const DeepCollectionEquality().hash(details));
 
   @JsonKey(ignore: true)
   @override
@@ -522,33 +522,33 @@ class _$ClassifyResponseData implements ClassifyResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(List<String>? details, bool? is_spam, double? score)
+    TResult Function(bool? is_spam, double? score, List<String>? details)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(details, is_spam, score);
+    return $default(is_spam, score, details);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<String>? details, bool? is_spam, double? score)?
+    TResult Function(bool? is_spam, double? score, List<String>? details)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(details, is_spam, score);
+    return $default?.call(is_spam, score, details);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<String>? details, bool? is_spam, double? score)?
+    TResult Function(bool? is_spam, double? score, List<String>? details)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(details, is_spam, score);
+      return $default(is_spam, score, details);
     }
     return orElse();
   }
@@ -592,21 +592,21 @@ class _$ClassifyResponseData implements ClassifyResponseData {
 
 abstract class ClassifyResponseData implements ClassifyResponse {
   const factory ClassifyResponseData(
-      {List<String>? details,
-      bool? is_spam,
-      double? score}) = _$ClassifyResponseData;
+      {bool? is_spam,
+      double? score,
+      List<String>? details}) = _$ClassifyResponseData;
 
   factory ClassifyResponseData.fromJson(Map<String, dynamic> json) =
       _$ClassifyResponseData.fromJson;
-
-  /// The rules that have contributed to this score
-  List<String>? get details;
 
   /// Is it spam? Returns true if its score is > 5
   bool? get is_spam;
 
   /// The score evaluated for this email. A higher number means it is more likely to be spam
   double? get score;
+
+  /// The rules that have contributed to this score
+  List<String>? get details;
   @JsonKey(ignore: true)
   $ClassifyResponseDataCopyWith<ClassifyResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -685,7 +685,7 @@ class _$ClassifyResponseMerr implements ClassifyResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(List<String>? details, bool? is_spam, double? score)
+    TResult Function(bool? is_spam, double? score, List<String>? details)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -695,7 +695,7 @@ class _$ClassifyResponseMerr implements ClassifyResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<String>? details, bool? is_spam, double? score)?
+    TResult Function(bool? is_spam, double? score, List<String>? details)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -705,7 +705,7 @@ class _$ClassifyResponseMerr implements ClassifyResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<String>? details, bool? is_spam, double? score)?
+    TResult Function(bool? is_spam, double? score, List<String>? details)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
