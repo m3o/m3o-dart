@@ -1,3 +1,9 @@
+## v1.0.102 - 2022-05-10
+
+[4f7714](https://github.com/micro/services/commit/4f77149fc95eb63455e88fb770d717dd83952c5f) increase nft pricing
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.101...v1.0.102
+
 ## v1.0.101 - 2022-04-27
 
 [2a845c](https://github.com/micro/services/commit/2a845c6ef0392c9311235d518b5b44bb6d3f0b6b) move search to storage
