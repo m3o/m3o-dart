@@ -34,10 +34,6 @@ Map<String, dynamic> _$$_QueryRequestToJson(_$_QueryRequest instance) =>
 
 _$QueryResponseData _$$QueryResponseDataFromJson(Map<String, dynamic> json) =>
     _$QueryResponseData(
-      status: json['status'] as int?,
-      AD: json['AD'] as bool?,
-      CD: json['CD'] as bool?,
-      RA: json['RA'] as bool?,
       RD: json['RD'] as bool?,
       answer: (json['answer'] as List<dynamic>?)
           ?.map((e) => Answer.fromJson(e as Map<String, dynamic>))
@@ -46,20 +42,24 @@ _$QueryResponseData _$$QueryResponseDataFromJson(Map<String, dynamic> json) =>
       question: (json['question'] as List<dynamic>?)
           ?.map((e) => Question.fromJson(e as Map<String, dynamic>))
           .toList(),
+      status: json['status'] as int?,
+      AD: json['AD'] as bool?,
+      CD: json['CD'] as bool?,
+      RA: json['RA'] as bool?,
       TC: json['TC'] as bool?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$QueryResponseDataToJson(_$QueryResponseData instance) =>
     <String, dynamic>{
-      'status': instance.status,
-      'AD': instance.AD,
-      'CD': instance.CD,
-      'RA': instance.RA,
       'RD': instance.RD,
       'answer': instance.answer,
       'provider': instance.provider,
       'question': instance.question,
+      'status': instance.status,
+      'AD': instance.AD,
+      'CD': instance.CD,
+      'RA': instance.RA,
       'TC': instance.TC,
       'runtimeType': instance.$type,
     };
