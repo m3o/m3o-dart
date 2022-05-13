@@ -1,3 +1,9 @@
+## v1.0.105 - 2022-05-13
+
+[d2e142](https://github.com/micro/services/commit/d2e14297cce0f0e1a2d9a8c08f71de16d760ba5c) update stock pricing
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.104...v1.0.105
+
 ## v1.0.104 - 2022-05-10
 
 [8d9eea](https://github.com/micro/services/commit/8d9eea7aeab181e1379e2d830b9e902bcc22c29c) update db quota
