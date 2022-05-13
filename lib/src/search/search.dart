@@ -228,11 +228,11 @@ class Record with _$Record {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// The index the record belongs to
-    String? index,
-
     /// The query. See docs for query language examples
     String? query,
+
+    /// The index the record belongs to
+    String? index,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);

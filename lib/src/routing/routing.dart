@@ -76,6 +76,9 @@ class RoutingService {
 @Freezed()
 class Direction with _$Direction {
   const factory Direction({
+    /// alternative reference
+    String? reference,
+
     /// distance to travel in meters
     double? distance,
 
@@ -93,9 +96,6 @@ class Direction with _$Direction {
 
     /// street name or location
     String? name,
-
-    /// alternative reference
-    String? reference,
   }) = _Direction;
   factory Direction.fromJson(Map<String, dynamic> json) =>
       _$DirectionFromJson(json);
@@ -169,8 +169,8 @@ class EtaResponse with _$EtaResponse {
 @Freezed()
 class Intersection with _$Intersection {
   const factory Intersection({
-    List<double>? bearings,
     Point? location,
+    List<double>? bearings,
   }) = _Intersection;
   factory Intersection.fromJson(Map<String, dynamic> json) =>
       _$IntersectionFromJson(json);
@@ -217,14 +217,14 @@ class RouteRequest with _$RouteRequest {
 @Freezed()
 class RouteResponse with _$RouteResponse {
   const factory RouteResponse({
+    /// estimated distance in meters
+    double? distance,
+
     /// estimated duration in seconds
     double? duration,
 
     /// waypoints on the route
     List<Waypoint>? waypoints,
-
-    /// estimated distance in meters
-    double? distance,
   }) = RouteResponseData;
   const factory RouteResponse.Merr({Map<String, dynamic>? body}) =
       RouteResponseMerr;
