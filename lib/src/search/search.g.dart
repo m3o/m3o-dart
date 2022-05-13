@@ -84,14 +84,14 @@ Map<String, dynamic> _$$DeleteIndexResponseMerrToJson(
 
 _$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
     _$_DeleteRequest(
-      index: json['index'] as String?,
       id: json['id'] as String?,
+      index: json['index'] as String?,
     );
 
 Map<String, dynamic> _$$_DeleteRequestToJson(_$_DeleteRequest instance) =>
     <String, dynamic>{
-      'index': instance.index,
       'id': instance.id,
+      'index': instance.index,
     };
 
 _$DeleteResponseData _$$DeleteResponseDataFromJson(Map<String, dynamic> json) =>
@@ -130,16 +130,16 @@ Map<String, dynamic> _$$_FieldToJson(_$_Field instance) => <String, dynamic>{
 
 _$_IndexRequest _$$_IndexRequestFromJson(Map<String, dynamic> json) =>
     _$_IndexRequest(
+      data: json['data'] as Map<String, dynamic>?,
       id: json['id'] as String?,
       index: json['index'] as String?,
-      data: json['data'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$$_IndexRequestToJson(_$_IndexRequest instance) =>
     <String, dynamic>{
+      'data': instance.data,
       'id': instance.id,
       'index': instance.index,
-      'data': instance.data,
     };
 
 _$IndexResponseData _$$IndexResponseDataFromJson(Map<String, dynamic> json) =>

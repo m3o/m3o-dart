@@ -111,11 +111,14 @@ class Result with _$Result {
     /// url of an icon
     String? icon_url,
 
-    /// name of the place
-    String? name,
+    /// feature types
+    List<String>? types,
 
     /// simplified address
     String? vicinity,
+
+    /// opening hours
+    List<String>? opening_hours,
 
     /// rating from 1.0 to 5.0
     double? rating,
@@ -123,20 +126,17 @@ class Result with _$Result {
     /// type of location
     String? type,
 
-    /// feature types
-    List<String>? types,
-
     /// address of place
     String? address,
 
     /// lat/lng of place
     String? location,
 
+    /// name of the place
+    String? name,
+
     /// open now
     bool? open_now,
-
-    /// opening hours
-    List<String>? opening_hours,
   }) = _Result;
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
 }
@@ -144,12 +144,6 @@ class Result with _$Result {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// radius in meters within which to search
-    int? radius,
-
-    /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
-    String? type,
-
     /// the location by lat,lng e.g -33.8670522,-151.1957362
     String? location,
 
@@ -158,6 +152,12 @@ class SearchRequest with _$SearchRequest {
 
     /// the text string on which to search, for example: "restaurant"
     String? query,
+
+    /// radius in meters within which to search
+    int? radius,
+
+    /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
+    String? type,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);
