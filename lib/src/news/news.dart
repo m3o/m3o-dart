@@ -36,9 +36,6 @@ class NewsService {
 @Freezed()
 class Article with _$Article {
   const factory Article({
-    /// article id
-    String? id,
-
     /// related keywords
     String? keywords,
 
@@ -48,29 +45,32 @@ class Article with _$Article {
     /// the locale
     String? locale,
 
-    /// source of news
-    String? source,
-
-    /// categories
-    List<String>? categories,
-
-    /// article description
-    String? description,
-
-    /// image url
-    String? image_url,
-
     /// time it was published
     String? published_at,
 
-    /// first 60 characters of article body
-    String? snippet,
+    /// source of news
+    String? source,
 
     /// article title
     String? title,
 
+    /// categories
+    List<String>? categories,
+
+    /// image url
+    String? image_url,
+
+    /// first 60 characters of article body
+    String? snippet,
+
     /// url of the article
     String? url,
+
+    /// article description
+    String? description,
+
+    /// article id
+    String? id,
   }) = _Article;
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);

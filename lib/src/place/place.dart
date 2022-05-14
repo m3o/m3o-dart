@@ -72,6 +72,9 @@ class AutocompleteResponse with _$AutocompleteResponse {
 @Freezed()
 class NearbyRequest with _$NearbyRequest {
   const factory NearbyRequest({
+    /// radius in meters within which to search
+    int? radius,
+
     /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
     String? type,
 
@@ -86,9 +89,6 @@ class NearbyRequest with _$NearbyRequest {
 
     /// Whether the place is open now
     bool? open_now,
-
-    /// radius in meters within which to search
-    int? radius,
   }) = _NearbyRequest;
   factory NearbyRequest.fromJson(Map<String, dynamic> json) =>
       _$NearbyRequestFromJson(json);
@@ -108,6 +108,18 @@ class NearbyResponse with _$NearbyResponse {
 @Freezed()
 class Result with _$Result {
   const factory Result({
+    /// address of place
+    String? address,
+
+    /// open now
+    bool? open_now,
+
+    /// type of location
+    String? type,
+
+    /// feature types
+    List<String>? types,
+
     /// url of an icon
     String? icon_url,
 
@@ -117,26 +129,14 @@ class Result with _$Result {
     /// name of the place
     String? name,
 
-    /// simplified address
-    String? vicinity,
-
-    /// address of place
-    String? address,
-
-    /// open now
-    bool? open_now,
-
     /// opening hours
     List<String>? opening_hours,
 
     /// rating from 1.0 to 5.0
     double? rating,
 
-    /// type of location
-    String? type,
-
-    /// feature types
-    List<String>? types,
+    /// simplified address
+    String? vicinity,
   }) = _Result;
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
 }
