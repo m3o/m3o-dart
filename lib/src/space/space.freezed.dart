@@ -22,11 +22,11 @@ CreateRequest _$CreateRequestFromJson(Map<String, dynamic> json) {
 class _$CreateRequestTearOff {
   const _$CreateRequestTearOff();
 
-  _CreateRequest call({String? object, String? visibility, String? name}) {
+  _CreateRequest call({String? visibility, String? name, String? object}) {
     return _CreateRequest(
-      object: object,
       visibility: visibility,
       name: name,
+      object: object,
     );
   }
 
@@ -40,14 +40,14 @@ const $CreateRequest = _$CreateRequestTearOff();
 
 /// @nodoc
 mixin _$CreateRequest {
-  /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
-  String? get object => throw _privateConstructorUsedError;
-
   /// Who can see this object? "public" or "private", defaults to "private"
   String? get visibility => throw _privateConstructorUsedError;
 
   /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
   String? get name => throw _privateConstructorUsedError;
+
+  /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
+  String? get object => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -60,7 +60,7 @@ abstract class $CreateRequestCopyWith<$Res> {
   factory $CreateRequestCopyWith(
           CreateRequest value, $Res Function(CreateRequest) then) =
       _$CreateRequestCopyWithImpl<$Res>;
-  $Res call({String? object, String? visibility, String? name});
+  $Res call({String? visibility, String? name, String? object});
 }
 
 /// @nodoc
@@ -74,15 +74,11 @@ class _$CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? object = freezed,
     Object? visibility = freezed,
     Object? name = freezed,
+    Object? object = freezed,
   }) {
     return _then(_value.copyWith(
-      object: object == freezed
-          ? _value.object
-          : object // ignore: cast_nullable_to_non_nullable
-              as String?,
       visibility: visibility == freezed
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
@@ -90,6 +86,10 @@ class _$CreateRequestCopyWithImpl<$Res>
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      object: object == freezed
+          ? _value.object
+          : object // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -102,7 +102,7 @@ abstract class _$CreateRequestCopyWith<$Res>
           _CreateRequest value, $Res Function(_CreateRequest) then) =
       __$CreateRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? object, String? visibility, String? name});
+  $Res call({String? visibility, String? name, String? object});
 }
 
 /// @nodoc
@@ -118,15 +118,11 @@ class __$CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? object = freezed,
     Object? visibility = freezed,
     Object? name = freezed,
+    Object? object = freezed,
   }) {
     return _then(_CreateRequest(
-      object: object == freezed
-          ? _value.object
-          : object // ignore: cast_nullable_to_non_nullable
-              as String?,
       visibility: visibility == freezed
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
@@ -135,6 +131,10 @@ class __$CreateRequestCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      object: object == freezed
+          ? _value.object
+          : object // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -142,15 +142,11 @@ class __$CreateRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateRequest implements _CreateRequest {
-  const _$_CreateRequest({this.object, this.visibility, this.name});
+  const _$_CreateRequest({this.visibility, this.name, this.object});
 
   factory _$_CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateRequestFromJson(json);
 
-  @override
-
-  /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
-  final String? object;
   @override
 
   /// Who can see this object? "public" or "private", defaults to "private"
@@ -159,10 +155,14 @@ class _$_CreateRequest implements _CreateRequest {
 
   /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
   final String? name;
+  @override
+
+  /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
+  final String? object;
 
   @override
   String toString() {
-    return 'CreateRequest(object: $object, visibility: $visibility, name: $name)';
+    return 'CreateRequest(visibility: $visibility, name: $name, object: $object)';
   }
 
   @override
@@ -170,18 +170,18 @@ class _$_CreateRequest implements _CreateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _CreateRequest &&
-            const DeepCollectionEquality().equals(other.object, object) &&
             const DeepCollectionEquality()
                 .equals(other.visibility, visibility) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.object, object));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(object),
       const DeepCollectionEquality().hash(visibility),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(object));
 
   @JsonKey(ignore: true)
   @override
@@ -196,15 +196,11 @@ class _$_CreateRequest implements _CreateRequest {
 
 abstract class _CreateRequest implements CreateRequest {
   const factory _CreateRequest(
-      {String? object, String? visibility, String? name}) = _$_CreateRequest;
+      {String? visibility, String? name, String? object}) = _$_CreateRequest;
 
   factory _CreateRequest.fromJson(Map<String, dynamic> json) =
       _$_CreateRequest.fromJson;
 
-  @override
-
-  /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
-  String? get object;
   @override
 
   /// Who can see this object? "public" or "private", defaults to "private"
@@ -213,6 +209,10 @@ abstract class _CreateRequest implements CreateRequest {
 
   /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
   String? get name;
+  @override
+
+  /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
+  String? get object;
   @override
   @JsonKey(ignore: true)
   _$CreateRequestCopyWith<_CreateRequest> get copyWith =>
@@ -1700,17 +1700,17 @@ class _$HeadObjectTearOff {
   const _$HeadObjectTearOff();
 
   _HeadObject call(
-      {String? name,
-      String? url,
-      String? visibility,
+      {String? visibility,
       String? created,
-      String? modified}) {
+      String? modified,
+      String? name,
+      String? url}) {
     return _HeadObject(
-      name: name,
-      url: url,
       visibility: visibility,
       created: created,
       modified: modified,
+      name: name,
+      url: url,
     );
   }
 
@@ -1724,11 +1724,6 @@ const $HeadObject = _$HeadObjectTearOff();
 
 /// @nodoc
 mixin _$HeadObject {
-  String? get name => throw _privateConstructorUsedError;
-
-  /// URL to access the object if it is public
-  String? get url => throw _privateConstructorUsedError;
-
   /// is this public or private
   String? get visibility => throw _privateConstructorUsedError;
 
@@ -1737,6 +1732,10 @@ mixin _$HeadObject {
 
   /// when was this last modified
   String? get modified => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+
+  /// URL to access the object if it is public
+  String? get url => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1750,11 +1749,11 @@ abstract class $HeadObjectCopyWith<$Res> {
           HeadObject value, $Res Function(HeadObject) then) =
       _$HeadObjectCopyWithImpl<$Res>;
   $Res call(
-      {String? name,
-      String? url,
-      String? visibility,
+      {String? visibility,
       String? created,
-      String? modified});
+      String? modified,
+      String? name,
+      String? url});
 }
 
 /// @nodoc
@@ -1767,21 +1766,13 @@ class _$HeadObjectCopyWithImpl<$Res> implements $HeadObjectCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? name = freezed,
-    Object? url = freezed,
     Object? visibility = freezed,
     Object? created = freezed,
     Object? modified = freezed,
+    Object? name = freezed,
+    Object? url = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
       visibility: visibility == freezed
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
@@ -1794,6 +1785,14 @@ class _$HeadObjectCopyWithImpl<$Res> implements $HeadObjectCopyWith<$Res> {
           ? _value.modified
           : modified // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1805,11 +1804,11 @@ abstract class _$HeadObjectCopyWith<$Res> implements $HeadObjectCopyWith<$Res> {
       __$HeadObjectCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? name,
-      String? url,
-      String? visibility,
+      {String? visibility,
       String? created,
-      String? modified});
+      String? modified,
+      String? name,
+      String? url});
 }
 
 /// @nodoc
@@ -1824,21 +1823,13 @@ class __$HeadObjectCopyWithImpl<$Res> extends _$HeadObjectCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
-    Object? url = freezed,
     Object? visibility = freezed,
     Object? created = freezed,
     Object? modified = freezed,
+    Object? name = freezed,
+    Object? url = freezed,
   }) {
     return _then(_HeadObject(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
       visibility: visibility == freezed
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
@@ -1851,6 +1842,14 @@ class __$HeadObjectCopyWithImpl<$Res> extends _$HeadObjectCopyWithImpl<$Res>
           ? _value.modified
           : modified // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1859,17 +1858,11 @@ class __$HeadObjectCopyWithImpl<$Res> extends _$HeadObjectCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_HeadObject implements _HeadObject {
   const _$_HeadObject(
-      {this.name, this.url, this.visibility, this.created, this.modified});
+      {this.visibility, this.created, this.modified, this.name, this.url});
 
   factory _$_HeadObject.fromJson(Map<String, dynamic> json) =>
       _$$_HeadObjectFromJson(json);
 
-  @override
-  final String? name;
-  @override
-
-  /// URL to access the object if it is public
-  final String? url;
   @override
 
   /// is this public or private
@@ -1882,10 +1875,16 @@ class _$_HeadObject implements _HeadObject {
 
   /// when was this last modified
   final String? modified;
+  @override
+  final String? name;
+  @override
+
+  /// URL to access the object if it is public
+  final String? url;
 
   @override
   String toString() {
-    return 'HeadObject(name: $name, url: $url, visibility: $visibility, created: $created, modified: $modified)';
+    return 'HeadObject(visibility: $visibility, created: $created, modified: $modified, name: $name, url: $url)';
   }
 
   @override
@@ -1893,22 +1892,22 @@ class _$_HeadObject implements _HeadObject {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _HeadObject &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality()
                 .equals(other.visibility, visibility) &&
             const DeepCollectionEquality().equals(other.created, created) &&
-            const DeepCollectionEquality().equals(other.modified, modified));
+            const DeepCollectionEquality().equals(other.modified, modified) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.url, url));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(visibility),
       const DeepCollectionEquality().hash(created),
-      const DeepCollectionEquality().hash(modified));
+      const DeepCollectionEquality().hash(modified),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(url));
 
   @JsonKey(ignore: true)
   @override
@@ -1923,21 +1922,15 @@ class _$_HeadObject implements _HeadObject {
 
 abstract class _HeadObject implements HeadObject {
   const factory _HeadObject(
-      {String? name,
-      String? url,
-      String? visibility,
+      {String? visibility,
       String? created,
-      String? modified}) = _$_HeadObject;
+      String? modified,
+      String? name,
+      String? url}) = _$_HeadObject;
 
   factory _HeadObject.fromJson(Map<String, dynamic> json) =
       _$_HeadObject.fromJson;
 
-  @override
-  String? get name;
-  @override
-
-  /// URL to access the object if it is public
-  String? get url;
   @override
 
   /// is this public or private
@@ -1950,6 +1943,12 @@ abstract class _HeadObject implements HeadObject {
 
   /// when was this last modified
   String? get modified;
+  @override
+  String? get name;
+  @override
+
+  /// URL to access the object if it is public
+  String? get url;
   @override
   @JsonKey(ignore: true)
   _$HeadObjectCopyWith<_HeadObject> get copyWith =>
@@ -3883,19 +3882,19 @@ class _$SpaceObjectTearOff {
   const _$SpaceObjectTearOff();
 
   _SpaceObject call(
-      {String? data,
-      String? modified,
+      {String? modified,
       String? name,
       String? url,
       String? visibility,
-      String? created}) {
+      String? created,
+      String? data}) {
     return _SpaceObject(
-      data: data,
       modified: modified,
       name: name,
       url: url,
       visibility: visibility,
       created: created,
+      data: data,
     );
   }
 
@@ -3909,9 +3908,6 @@ const $SpaceObject = _$SpaceObjectTearOff();
 
 /// @nodoc
 mixin _$SpaceObject {
-  /// the data within the object
-  String? get data => throw _privateConstructorUsedError;
-
   /// when was this last modified
   String? get modified => throw _privateConstructorUsedError;
 
@@ -3927,6 +3923,9 @@ mixin _$SpaceObject {
   /// when was this created
   String? get created => throw _privateConstructorUsedError;
 
+  /// the data within the object
+  String? get data => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SpaceObjectCopyWith<SpaceObject> get copyWith =>
@@ -3939,12 +3938,12 @@ abstract class $SpaceObjectCopyWith<$Res> {
           SpaceObject value, $Res Function(SpaceObject) then) =
       _$SpaceObjectCopyWithImpl<$Res>;
   $Res call(
-      {String? data,
-      String? modified,
+      {String? modified,
       String? name,
       String? url,
       String? visibility,
-      String? created});
+      String? created,
+      String? data});
 }
 
 /// @nodoc
@@ -3957,18 +3956,14 @@ class _$SpaceObjectCopyWithImpl<$Res> implements $SpaceObjectCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? data = freezed,
     Object? modified = freezed,
     Object? name = freezed,
     Object? url = freezed,
     Object? visibility = freezed,
     Object? created = freezed,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      data: data == freezed
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as String?,
       modified: modified == freezed
           ? _value.modified
           : modified // ignore: cast_nullable_to_non_nullable
@@ -3989,6 +3984,10 @@ class _$SpaceObjectCopyWithImpl<$Res> implements $SpaceObjectCopyWith<$Res> {
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
               as String?,
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -4001,12 +4000,12 @@ abstract class _$SpaceObjectCopyWith<$Res>
       __$SpaceObjectCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? data,
-      String? modified,
+      {String? modified,
       String? name,
       String? url,
       String? visibility,
-      String? created});
+      String? created,
+      String? data});
 }
 
 /// @nodoc
@@ -4021,18 +4020,14 @@ class __$SpaceObjectCopyWithImpl<$Res> extends _$SpaceObjectCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? data = freezed,
     Object? modified = freezed,
     Object? name = freezed,
     Object? url = freezed,
     Object? visibility = freezed,
     Object? created = freezed,
+    Object? data = freezed,
   }) {
     return _then(_SpaceObject(
-      data: data == freezed
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as String?,
       modified: modified == freezed
           ? _value.modified
           : modified // ignore: cast_nullable_to_non_nullable
@@ -4053,6 +4048,10 @@ class __$SpaceObjectCopyWithImpl<$Res> extends _$SpaceObjectCopyWithImpl<$Res>
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
               as String?,
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -4061,20 +4060,16 @@ class __$SpaceObjectCopyWithImpl<$Res> extends _$SpaceObjectCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SpaceObject implements _SpaceObject {
   const _$_SpaceObject(
-      {this.data,
-      this.modified,
+      {this.modified,
       this.name,
       this.url,
       this.visibility,
-      this.created});
+      this.created,
+      this.data});
 
   factory _$_SpaceObject.fromJson(Map<String, dynamic> json) =>
       _$$_SpaceObjectFromJson(json);
 
-  @override
-
-  /// the data within the object
-  final String? data;
   @override
 
   /// when was this last modified
@@ -4095,10 +4090,14 @@ class _$_SpaceObject implements _SpaceObject {
 
   /// when was this created
   final String? created;
+  @override
+
+  /// the data within the object
+  final String? data;
 
   @override
   String toString() {
-    return 'SpaceObject(data: $data, modified: $modified, name: $name, url: $url, visibility: $visibility, created: $created)';
+    return 'SpaceObject(modified: $modified, name: $name, url: $url, visibility: $visibility, created: $created, data: $data)';
   }
 
   @override
@@ -4106,24 +4105,24 @@ class _$_SpaceObject implements _SpaceObject {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SpaceObject &&
-            const DeepCollectionEquality().equals(other.data, data) &&
             const DeepCollectionEquality().equals(other.modified, modified) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality()
                 .equals(other.visibility, visibility) &&
-            const DeepCollectionEquality().equals(other.created, created));
+            const DeepCollectionEquality().equals(other.created, created) &&
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(data),
       const DeepCollectionEquality().hash(modified),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(visibility),
-      const DeepCollectionEquality().hash(created));
+      const DeepCollectionEquality().hash(created),
+      const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
@@ -4138,20 +4137,16 @@ class _$_SpaceObject implements _SpaceObject {
 
 abstract class _SpaceObject implements SpaceObject {
   const factory _SpaceObject(
-      {String? data,
-      String? modified,
+      {String? modified,
       String? name,
       String? url,
       String? visibility,
-      String? created}) = _$_SpaceObject;
+      String? created,
+      String? data}) = _$_SpaceObject;
 
   factory _SpaceObject.fromJson(Map<String, dynamic> json) =
       _$_SpaceObject.fromJson;
 
-  @override
-
-  /// the data within the object
-  String? get data;
   @override
 
   /// when was this last modified
@@ -4173,6 +4168,10 @@ abstract class _SpaceObject implements SpaceObject {
   /// when was this created
   String? get created;
   @override
+
+  /// the data within the object
+  String? get data;
+  @override
   @JsonKey(ignore: true)
   _$SpaceObjectCopyWith<_SpaceObject> get copyWith =>
       throw _privateConstructorUsedError;
@@ -4186,11 +4185,11 @@ UpdateRequest _$UpdateRequestFromJson(Map<String, dynamic> json) {
 class _$UpdateRequestTearOff {
   const _$UpdateRequestTearOff();
 
-  _UpdateRequest call({String? object, String? visibility, String? name}) {
+  _UpdateRequest call({String? name, String? object, String? visibility}) {
     return _UpdateRequest(
+      name: name,
       object: object,
       visibility: visibility,
-      name: name,
     );
   }
 
@@ -4204,14 +4203,14 @@ const $UpdateRequest = _$UpdateRequestTearOff();
 
 /// @nodoc
 mixin _$UpdateRequest {
+  /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
+  String? get name => throw _privateConstructorUsedError;
+
   /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
   String? get object => throw _privateConstructorUsedError;
 
   /// Who can see this object? "public" or "private", defaults to "private"
   String? get visibility => throw _privateConstructorUsedError;
-
-  /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
-  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -4224,7 +4223,7 @@ abstract class $UpdateRequestCopyWith<$Res> {
   factory $UpdateRequestCopyWith(
           UpdateRequest value, $Res Function(UpdateRequest) then) =
       _$UpdateRequestCopyWithImpl<$Res>;
-  $Res call({String? object, String? visibility, String? name});
+  $Res call({String? name, String? object, String? visibility});
 }
 
 /// @nodoc
@@ -4238,11 +4237,15 @@ class _$UpdateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? name = freezed,
     Object? object = freezed,
     Object? visibility = freezed,
-    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       object: object == freezed
           ? _value.object
           : object // ignore: cast_nullable_to_non_nullable
@@ -4250,10 +4253,6 @@ class _$UpdateRequestCopyWithImpl<$Res>
       visibility: visibility == freezed
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -4266,7 +4265,7 @@ abstract class _$UpdateRequestCopyWith<$Res>
           _UpdateRequest value, $Res Function(_UpdateRequest) then) =
       __$UpdateRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? object, String? visibility, String? name});
+  $Res call({String? name, String? object, String? visibility});
 }
 
 /// @nodoc
@@ -4282,11 +4281,15 @@ class __$UpdateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? name = freezed,
     Object? object = freezed,
     Object? visibility = freezed,
-    Object? name = freezed,
   }) {
     return _then(_UpdateRequest(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       object: object == freezed
           ? _value.object
           : object // ignore: cast_nullable_to_non_nullable
@@ -4295,10 +4298,6 @@ class __$UpdateRequestCopyWithImpl<$Res>
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -4306,11 +4305,15 @@ class __$UpdateRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UpdateRequest implements _UpdateRequest {
-  const _$_UpdateRequest({this.object, this.visibility, this.name});
+  const _$_UpdateRequest({this.name, this.object, this.visibility});
 
   factory _$_UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateRequestFromJson(json);
 
+  @override
+
+  /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
+  final String? name;
   @override
 
   /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
@@ -4319,14 +4322,10 @@ class _$_UpdateRequest implements _UpdateRequest {
 
   /// Who can see this object? "public" or "private", defaults to "private"
   final String? visibility;
-  @override
-
-  /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
-  final String? name;
 
   @override
   String toString() {
-    return 'UpdateRequest(object: $object, visibility: $visibility, name: $name)';
+    return 'UpdateRequest(name: $name, object: $object, visibility: $visibility)';
   }
 
   @override
@@ -4334,18 +4333,18 @@ class _$_UpdateRequest implements _UpdateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _UpdateRequest &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.object, object) &&
             const DeepCollectionEquality()
-                .equals(other.visibility, visibility) &&
-            const DeepCollectionEquality().equals(other.name, name));
+                .equals(other.visibility, visibility));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(object),
-      const DeepCollectionEquality().hash(visibility),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(visibility));
 
   @JsonKey(ignore: true)
   @override
@@ -4360,11 +4359,15 @@ class _$_UpdateRequest implements _UpdateRequest {
 
 abstract class _UpdateRequest implements UpdateRequest {
   const factory _UpdateRequest(
-      {String? object, String? visibility, String? name}) = _$_UpdateRequest;
+      {String? name, String? object, String? visibility}) = _$_UpdateRequest;
 
   factory _UpdateRequest.fromJson(Map<String, dynamic> json) =
       _$_UpdateRequest.fromJson;
 
+  @override
+
+  /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
+  String? get name;
   @override
 
   /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
@@ -4373,10 +4376,6 @@ abstract class _UpdateRequest implements UpdateRequest {
 
   /// Who can see this object? "public" or "private", defaults to "private"
   String? get visibility;
-  @override
-
-  /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
-  String? get name;
   @override
   @JsonKey(ignore: true)
   _$UpdateRequestCopyWith<_UpdateRequest> get copyWith =>

@@ -81,14 +81,14 @@ Map<String, dynamic> _$$TcpResponseMerrToJson(_$TcpResponseMerr instance) =>
 
 _$_UrlRequest _$$_UrlRequestFromJson(Map<String, dynamic> json) =>
     _$_UrlRequest(
-      method: json['method'] as String?,
       address: json['address'] as String?,
+      method: json['method'] as String?,
     );
 
 Map<String, dynamic> _$$_UrlRequestToJson(_$_UrlRequest instance) =>
     <String, dynamic>{
-      'method': instance.method,
       'address': instance.address,
+      'method': instance.method,
     };
 
 _$UrlResponseData _$$UrlResponseDataFromJson(Map<String, dynamic> json) =>
