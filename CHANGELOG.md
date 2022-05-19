@@ -1,3 +1,13 @@
+## v1.0.108 - 2022-05-19
+
+[f6e198](https://github.com/micro/services/commit/f6e198fbdbd33cea618150fac7988bd3f84e7239) .
+
+## What's Changed
+
+- update generate workflow by @lambdaR in https://github.com/m3o/m3o-dart/pull/18
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.107...v1.0.108
+
 ## v1.0.107 - 2022-05-14
 
 [f6e198](https://github.com/micro/services/commit/f6e198fbdbd33cea618150fac7988bd3f84e7239) .
