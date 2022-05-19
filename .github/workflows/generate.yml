@@ -19,11 +19,11 @@ jobs:
           repository: 'micro/services'
           path: services
 
-      - name: Check m3o/m3o repo
+      - name: Check m3o/m3o-client-gen repo
         uses: actions/checkout@v2
         with:
-          repository: 'm3o/m3o'
-          path: m3o
+          repository: 'm3o/m3o-client-gen'
+          path: m3o-client-gen
 
       - name: Set up dart latest
         uses: dart-lang/setup-dart@v1.3
@@ -91,9 +91,9 @@ jobs:
         id: go
 
       - name: generate latest release note from micro/services repo
-        working-directory: m3o
+        working-directory: m3o-client-gen
         run: |
-          cd cmd/release-note
+          cd release-note
           go install .
           note=$(release-note .)
           echo $note
