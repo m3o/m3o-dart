@@ -42,9 +42,9 @@ jobs:
         
         run: |
           # sync the clients to m3o-dart/
-          rsync -avz clients/dart/* ../m3o-dart/
+          rsync -avz clients/dart/ ../m3o-dart/
           # sync the examples to m3o-dart/example
-          rsync -avz examples/dart/* ../m3o-dart/example/
+          rsync -avz examples/dart/ ../m3o-dart/example/
 
       - name: Install dependencies m3o-dart
         working-directory: m3o-dart
