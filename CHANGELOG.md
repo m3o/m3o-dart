@@ -1,3 +1,13 @@
+## v1.0.109 - 2022-05-27
+
+[89150f](https://github.com/micro/services/commit/89150feb21ce22448590ef195e946bfc1dac4ae4) Update README.md
+
+## What's Changed
+
+- update publish workflow by @lambdaR in https://github.com/m3o/m3o-dart/pull/19
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.108...v1.0.109
+
 ## v1.0.108 - 2022-05-19
 
 [f6e198](https://github.com/micro/services/commit/f6e198fbdbd33cea618150fac7988bd3f84e7239) .
