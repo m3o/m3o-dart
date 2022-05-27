@@ -48,23 +48,23 @@ Map<String, dynamic> _$$_GuessRequestToJson(_$_GuessRequest instance) =>
 
 _$GuessResponseData _$$GuessResponseDataFromJson(Map<String, dynamic> json) =>
     _$GuessResponseData(
-      status: json['status'] as String?,
-      tries_left: json['tries_left'] as int?,
       answer: json['answer'] as String?,
       correct: json['correct'] as bool?,
       guesses: (json['guesses'] as List<dynamic>?)
           ?.map((e) => Guess.fromJson(e as Map<String, dynamic>))
           .toList(),
+      status: json['status'] as String?,
+      tries_left: json['tries_left'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$GuessResponseDataToJson(_$GuessResponseData instance) =>
     <String, dynamic>{
-      'status': instance.status,
-      'tries_left': instance.tries_left,
       'answer': instance.answer,
       'correct': instance.correct,
       'guesses': instance.guesses,
+      'status': instance.status,
+      'tries_left': instance.tries_left,
       'runtimeType': instance.$type,
     };
 
@@ -88,15 +88,15 @@ Map<String, dynamic> _$$_NextRequestToJson(_$_NextRequest instance) =>
 
 _$NextResponseData _$$NextResponseDataFromJson(Map<String, dynamic> json) =>
     _$NextResponseData(
-      seconds: json['seconds'] as int?,
       duration: json['duration'] as String?,
+      seconds: json['seconds'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$NextResponseDataToJson(_$NextResponseData instance) =>
     <String, dynamic>{
-      'seconds': instance.seconds,
       'duration': instance.duration,
+      'seconds': instance.seconds,
       'runtimeType': instance.$type,
     };
 

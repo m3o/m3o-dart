@@ -7,16 +7,16 @@ part of 'stream.dart';
 // **************************************************************************
 
 _$_Channel _$$_ChannelFromJson(Map<String, dynamic> json) => _$_Channel(
+      description: json['description'] as String?,
       last_active: json['last_active'] as String?,
       name: json['name'] as String?,
-      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$$_ChannelToJson(_$_Channel instance) =>
     <String, dynamic>{
+      'description': instance.description,
       'last_active': instance.last_active,
       'name': instance.name,
-      'description': instance.description,
     };
 
 _$_CreateChannelRequest _$$_CreateChannelRequestFromJson(
@@ -100,15 +100,15 @@ Map<String, dynamic> _$$ListChannelsResponseMerrToJson(
 _$_ListMessagesRequest _$$_ListMessagesRequestFromJson(
         Map<String, dynamic> json) =>
     _$_ListMessagesRequest(
-      channel: json['channel'] as String?,
       limit: json['limit'] as int?,
+      channel: json['channel'] as String?,
     );
 
 Map<String, dynamic> _$$_ListMessagesRequestToJson(
         _$_ListMessagesRequest instance) =>
     <String, dynamic>{
-      'channel': instance.channel,
       'limit': instance.limit,
+      'channel': instance.channel,
     };
 
 _$ListMessagesResponseData _$$ListMessagesResponseDataFromJson(

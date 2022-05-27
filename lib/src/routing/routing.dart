@@ -117,9 +117,6 @@ class DirectionsRequest with _$DirectionsRequest {
 @Freezed()
 class DirectionsResponse with _$DirectionsResponse {
   const factory DirectionsResponse({
-    /// The waypoints on the route
-    List<Waypoint>? waypoints,
-
     /// Turn by turn directions
     List<Direction>? directions,
 
@@ -128,6 +125,9 @@ class DirectionsResponse with _$DirectionsResponse {
 
     /// Estimated duration of the route in seconds
     double? duration,
+
+    /// The waypoints on the route
+    List<Waypoint>? waypoints,
   }) = DirectionsResponseData;
   const factory DirectionsResponse.Merr({Map<String, dynamic>? body}) =
       DirectionsResponseMerr;
@@ -138,17 +138,17 @@ class DirectionsResponse with _$DirectionsResponse {
 @Freezed()
 class EtaRequest with _$EtaRequest {
   const factory EtaRequest({
-    /// The starting point for the eta calculation
-    Point? origin,
-
-    /// speed in kilometers
-    double? speed,
-
     /// type of transport. Only "car" is supported currently.
     String? type,
 
     /// The end point for the eta calculation
     Point? destination,
+
+    /// The starting point for the eta calculation
+    Point? origin,
+
+    /// speed in kilometers
+    double? speed,
   }) = _EtaRequest;
   factory EtaRequest.fromJson(Map<String, dynamic> json) =>
       _$EtaRequestFromJson(json);

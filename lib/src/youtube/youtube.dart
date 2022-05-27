@@ -66,9 +66,6 @@ class EmbedRequest with _$EmbedRequest {
 @Freezed()
 class EmbedResponse with _$EmbedResponse {
   const factory EmbedResponse({
-    /// the embeddable link
-    String? embed_url,
-
     /// the script code
     String? html_script,
 
@@ -77,6 +74,9 @@ class EmbedResponse with _$EmbedResponse {
 
     /// the short url
     String? short_url,
+
+    /// the embeddable link
+    String? embed_url,
   }) = EmbedResponseData;
   const factory EmbedResponse.Merr({Map<String, dynamic>? body}) =
       EmbedResponseMerr;
@@ -109,17 +109,8 @@ class SearchResponse with _$SearchResponse {
 @Freezed()
 class SearchResult with _$SearchResult {
   const factory SearchResult({
-    /// the channel id
-    String? channel_id,
-
-    /// id of the result
-    String? id,
-
     /// published at time
     String? published_at,
-
-    /// title of the result
-    String? title,
 
     /// if live broadcast then indicates activity:
     /// none, upcoming, live, completed
@@ -131,8 +122,17 @@ class SearchResult with _$SearchResult {
     /// the result description
     String? description,
 
+    /// id of the result
+    String? id,
+
+    /// the channel id
+    String? channel_id,
+
     /// kind of result: "video", "channel", "playlist"
     String? kind,
+
+    /// title of the result
+    String? title,
 
     /// the associated url
     String? url,
