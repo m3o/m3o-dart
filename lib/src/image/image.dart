@@ -106,6 +106,9 @@ class ImageService {
 @Freezed()
 class ConvertRequest with _$ConvertRequest {
   const factory ConvertRequest({
+    /// base64 encoded image to resize,
+    String? base64,
+
     /// The image file to convert
     String? file,
 
@@ -117,9 +120,6 @@ class ConvertRequest with _$ConvertRequest {
 
     /// url of the image to resize
     String? url,
-
-    /// base64 encoded image to resize,
-    String? base64,
   }) = _ConvertRequest;
   factory ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$ConvertRequestFromJson(json);
@@ -187,8 +187,8 @@ class Point with _$Point {
 @Freezed()
 class Rectangle with _$Rectangle {
   const factory Rectangle({
-    Point? min,
     Point? max,
+    Point? min,
   }) = _Rectangle;
   factory Rectangle.fromJson(Map<String, dynamic> json) =>
       _$RectangleFromJson(json);
@@ -197,6 +197,15 @@ class Rectangle with _$Rectangle {
 @Freezed()
 class ResizeRequest with _$ResizeRequest {
   const factory ResizeRequest({
+    /// optional crop options
+    /// if provided, after resize, the image
+    /// will be cropped
+    CropOptions? cropOptions,
+
+    /// The image file to resize
+    String? file,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
+
     /// output name of the image including extension, ie. "cat.png"
     String? name,
 
@@ -209,15 +218,6 @@ class ResizeRequest with _$ResizeRequest {
 
     /// base64 encoded image to resize,
     String? base64,
-
-    /// optional crop options
-    /// if provided, after resize, the image
-    /// will be cropped
-    CropOptions? cropOptions,
-
-    /// The image file to resize
-    String? file,
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
   }) = _ResizeRequest;
   factory ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$ResizeRequestFromJson(json);
@@ -226,8 +226,8 @@ class ResizeRequest with _$ResizeRequest {
 @Freezed()
 class ResizeResponse with _$ResizeResponse {
   const factory ResizeResponse({
-    String? url,
     String? base64,
+    String? url,
   }) = ResizeResponseData;
   const factory ResizeResponse.Merr({Map<String, dynamic>? body}) =
       ResizeResponseMerr;
@@ -238,17 +238,17 @@ class ResizeResponse with _$ResizeResponse {
 @Freezed()
 class UploadRequest with _$UploadRequest {
   const factory UploadRequest({
-    /// Output name of the image including extension, ie. "cat.png"
-    String? name,
-
-    /// URL of the image to upload
-    String? url,
-
     /// Base64 encoded image to upload,
     String? base64,
 
     /// The image file to upload
     String? file,
+
+    /// Output name of the image including extension, ie. "cat.png"
+    String? name,
+
+    /// URL of the image to upload
+    String? url,
   }) = _UploadRequest;
   factory UploadRequest.fromJson(Map<String, dynamic> json) =>
       _$UploadRequestFromJson(json);

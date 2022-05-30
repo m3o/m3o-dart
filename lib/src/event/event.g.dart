@@ -8,16 +8,16 @@ part of 'event.dart';
 
 _$_ConsumeRequest _$$_ConsumeRequestFromJson(Map<String, dynamic> json) =>
     _$_ConsumeRequest(
+      topic: json['topic'] as String?,
       group: json['group'] as String?,
       offset: json['offset'] as String?,
-      topic: json['topic'] as String?,
     );
 
 Map<String, dynamic> _$$_ConsumeRequestToJson(_$_ConsumeRequest instance) =>
     <String, dynamic>{
+      'topic': instance.topic,
       'group': instance.group,
       'offset': instance.offset,
-      'topic': instance.topic,
     };
 
 _$ConsumeResponseData _$$ConsumeResponseDataFromJson(

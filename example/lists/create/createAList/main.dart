@@ -6,7 +6,7 @@ void main() async {
   final ser = ListsService(Platform.environment['M3O_API_TOKEN']!);
 
   final payload = <String, dynamic>{
-    "text": "This is my list",
+    "items": ["This is my list"],
     "title": "New List",
   };
 
