@@ -81,6 +81,42 @@ void main() async {
   }
 }
 ```
+## Count
+
+Count records in a table
+
+
+[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/db/db.dart';
+
+void main() async {
+  final ser = DbService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "table": "example"
+,};
+
+  CountRequest req = CountRequest.fromJson(payload);
+
+  
+  try {
+
+	CountResponse res = await ser.count(req);
+
+    res.map((value) => print(value),
+	  Merr: (CountResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## ListTables
 
 List tables in the DB
@@ -194,6 +230,43 @@ void main() async {
   }
 }
 ```
+## Delete
+
+Delete a record in the database by id.
+
+
+[https://m3o.com/db/api#Delete](https://m3o.com/db/api#Delete)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/db/db.dart';
+
+void main() async {
+  final ser = DbService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "id": "1",
+  "table": "example"
+,};
+
+  DeleteRequest req = DeleteRequest.fromJson(payload);
+
+  
+  try {
+
+	DeleteResponse res = await ser.delete(req);
+
+    res.map((value) => print(value),
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Truncate
 
 Truncate the records in a table
@@ -258,79 +331,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (DropTableResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Count
-
-Count records in a table
-
-
-[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/db/db.dart';
-
-void main() async {
-  final ser = DbService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "table": "example"
-,};
-
-  CountRequest req = CountRequest.fromJson(payload);
-
-  
-  try {
-
-	CountResponse res = await ser.count(req);
-
-    res.map((value) => print(value),
-	  Merr: (CountResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Delete
-
-Delete a record in the database by id.
-
-
-[https://m3o.com/db/api#Delete](https://m3o.com/db/api#Delete)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/db/db.dart';
-
-void main() async {
-  final ser = DbService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "id": "1",
-  "table": "example"
-,};
-
-  DeleteRequest req = DeleteRequest.fromJson(payload);
-
-  
-  try {
-
-	DeleteResponse res = await ser.delete(req);
-
-    res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

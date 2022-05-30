@@ -7,29 +7,29 @@ part of 'location.dart';
 // **************************************************************************
 
 _$_Entity _$$_EntityFromJson(Map<String, dynamic> json) => _$_Entity(
+      type: json['type'] as String?,
+      id: json['id'] as String?,
       location: json['location'] == null
           ? null
           : Point.fromJson(json['location'] as Map<String, dynamic>),
-      type: json['type'] as String?,
-      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_EntityToJson(_$_Entity instance) => <String, dynamic>{
-      'location': instance.location,
       'type': instance.type,
       'id': instance.id,
+      'location': instance.location,
     };
 
 _$_Point _$$_PointFromJson(Map<String, dynamic> json) => _$_Point(
-      latitude: (json['latitude'] as num?)?.toDouble(),
       longitude: (json['longitude'] as num?)?.toDouble(),
       timestamp: int64FromString(json['timestamp'] as String?),
+      latitude: (json['latitude'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_PointToJson(_$_Point instance) => <String, dynamic>{
-      'latitude': instance.latitude,
       'longitude': instance.longitude,
       'timestamp': int64ToString(instance.timestamp),
+      'latitude': instance.latitude,
     };
 
 _$_ReadRequest _$$_ReadRequestFromJson(Map<String, dynamic> json) =>
@@ -104,20 +104,20 @@ Map<String, dynamic> _$$SaveResponseMerrToJson(_$SaveResponseMerr instance) =>
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
     _$_SearchRequest(
-      numEntities: int64FromString(json['numEntities'] as String?),
-      radius: (json['radius'] as num?)?.toDouble(),
-      type: json['type'] as String?,
       center: json['center'] == null
           ? null
           : Point.fromJson(json['center'] as Map<String, dynamic>),
+      numEntities: int64FromString(json['numEntities'] as String?),
+      radius: (json['radius'] as num?)?.toDouble(),
+      type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$$_SearchRequestToJson(_$_SearchRequest instance) =>
     <String, dynamic>{
+      'center': instance.center,
       'numEntities': int64ToString(instance.numEntities),
       'radius': instance.radius,
       'type': instance.type,
-      'center': instance.center,
     };
 
 _$SearchResponseData _$$SearchResponseDataFromJson(Map<String, dynamic> json) =>

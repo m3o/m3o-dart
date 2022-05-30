@@ -21,17 +21,17 @@ Map<String, dynamic> _$$_CharToJson(_$_Char instance) => <String, dynamic>{
     };
 
 _$_Guess _$$_GuessFromJson(Map<String, dynamic> json) => _$_Guess(
+      highlight: json['highlight'] as String?,
+      word: json['word'] as String?,
       chars: (json['chars'] as List<dynamic>?)
           ?.map((e) => Char.fromJson(e as Map<String, dynamic>))
           .toList(),
-      highlight: json['highlight'] as String?,
-      word: json['word'] as String?,
     );
 
 Map<String, dynamic> _$$_GuessToJson(_$_Guess instance) => <String, dynamic>{
-      'chars': instance.chars,
       'highlight': instance.highlight,
       'word': instance.word,
+      'chars': instance.chars,
     };
 
 _$_GuessRequest _$$_GuessRequestFromJson(Map<String, dynamic> json) =>
