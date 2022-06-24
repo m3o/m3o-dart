@@ -118,14 +118,14 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class ListRequest with _$ListRequest {
   const factory ListRequest({
-    /// Project, required for listing.
-    String? project,
-
     /// Defaults to '/', ie. lists all files in a project.
     /// Supply path to a folder if you want to list
     /// files inside that folder
     /// eg. '/docs'
     String? path,
+
+    /// Project, required for listing.
+    String? project,
   }) = _ListRequest;
   factory ListRequest.fromJson(Map<String, dynamic> json) =>
       _$ListRequestFromJson(json);
@@ -170,9 +170,6 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class Record with _$Record {
   const factory Record({
-    /// Time the file was updated e.g 2021-05-20T13:37:21Z
-    String? updated,
-
     /// File contents
     String? content,
 
@@ -188,6 +185,9 @@ class Record with _$Record {
     /// A custom project to group files
     /// eg. file-of-mywebsite.com
     String? project,
+
+    /// Time the file was updated e.g 2021-05-20T13:37:21Z
+    String? updated,
   }) = _Record;
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }

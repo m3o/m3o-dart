@@ -8,16 +8,16 @@ part of 'rss.dart';
 
 _$_AddRequest _$$_AddRequestFromJson(Map<String, dynamic> json) =>
     _$_AddRequest(
-      category: json['category'] as String?,
       name: json['name'] as String?,
       url: json['url'] as String?,
+      category: json['category'] as String?,
     );
 
 Map<String, dynamic> _$$_AddRequestToJson(_$_AddRequest instance) =>
     <String, dynamic>{
-      'category': instance.category,
       'name': instance.name,
       'url': instance.url,
+      'category': instance.category,
     };
 
 _$AddResponseData _$$AddResponseDataFromJson(Map<String, dynamic> json) =>

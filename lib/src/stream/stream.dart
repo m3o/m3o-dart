@@ -166,11 +166,11 @@ class ListMessagesRequest with _$ListMessagesRequest {
 @Freezed()
 class ListMessagesResponse with _$ListMessagesResponse {
   const factory ListMessagesResponse({
-    /// Messages are chronological order
-    List<Message>? messages,
-
     /// The channel subscribed to
     String? channel,
+
+    /// Messages are chronological order
+    List<Message>? messages,
   }) = ListMessagesResponseData;
   const factory ListMessagesResponse.Merr({Map<String, dynamic>? body}) =
       ListMessagesResponseMerr;
