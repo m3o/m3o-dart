@@ -275,6 +275,12 @@ class ReportResponse with _$ReportResponse {
 @Freezed()
 class Value with _$Value {
   const factory Value({
+    /// price of thing
+    double? price,
+
+    /// where it came from
+    String? source,
+
     /// symbol of value
     String? symbol,
 
@@ -289,12 +295,6 @@ class Value with _$Value {
 
     /// name of thing
     String? name,
-
-    /// price of thing
-    double? price,
-
-    /// where it came from
-    String? source,
   }) = _Value;
   factory Value.fromJson(Map<String, dynamic> json) => _$ValueFromJson(json);
 }

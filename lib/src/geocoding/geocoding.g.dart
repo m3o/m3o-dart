@@ -7,20 +7,20 @@ part of 'geocoding.dart';
 // **************************************************************************
 
 _$_Address _$$_AddressFromJson(Map<String, dynamic> json) => _$_Address(
+      city: json['city'] as String?,
+      country: json['country'] as String?,
       line_one: json['line_one'] as String?,
       line_two: json['line_two'] as String?,
       postcode: json['postcode'] as String?,
-      city: json['city'] as String?,
-      country: json['country'] as String?,
     );
 
 Map<String, dynamic> _$$_AddressToJson(_$_Address instance) =>
     <String, dynamic>{
+      'city': instance.city,
+      'country': instance.country,
       'line_one': instance.line_one,
       'line_two': instance.line_two,
       'postcode': instance.postcode,
-      'city': instance.city,
-      'country': instance.country,
     };
 
 _$_Location _$$_LocationFromJson(Map<String, dynamic> json) => _$_Location(
@@ -84,14 +84,14 @@ Map<String, dynamic> _$$LookupResponseMerrToJson(
 
 _$_ReverseRequest _$$_ReverseRequestFromJson(Map<String, dynamic> json) =>
     _$_ReverseRequest(
-      longitude: (json['longitude'] as num?)?.toDouble(),
       latitude: (json['latitude'] as num?)?.toDouble(),
+      longitude: (json['longitude'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_ReverseRequestToJson(_$_ReverseRequest instance) =>
     <String, dynamic>{
-      'longitude': instance.longitude,
       'latitude': instance.latitude,
+      'longitude': instance.longitude,
     };
 
 _$ReverseResponseData _$$ReverseResponseDataFromJson(

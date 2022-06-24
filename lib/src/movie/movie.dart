@@ -36,20 +36,20 @@ class MovieService {
 @Freezed()
 class MovieInfo with _$MovieInfo {
   const factory MovieInfo({
-    String? poster_path,
+    String? overview,
+    int? vote_count,
+    String? backdrop_path,
+    String? original_language,
     double? vote_average,
+    String? release_date,
+    bool? video,
     String? original_title,
     double? popularity,
-    String? title,
-    bool? video,
+    String? poster_path,
     List<int>? genre_ids,
     int? id,
-    String? original_language,
-    String? overview,
     bool? adult,
-    String? backdrop_path,
-    String? release_date,
-    int? vote_count,
+    String? title,
   }) = _MovieInfo;
   factory MovieInfo.fromJson(Map<String, dynamic> json) =>
       _$MovieInfoFromJson(json);
@@ -58,12 +58,6 @@ class MovieInfo with _$MovieInfo {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// a ISO 639-1 value to display translated data
-    String? language,
-
-    /// page to query
-    int? page,
-
     /// year of release
     int? primary_release_year,
 
@@ -75,6 +69,12 @@ class SearchRequest with _$SearchRequest {
 
     /// year of making
     int? year,
+
+    /// a ISO 639-1 value to display translated data
+    String? language,
+
+    /// page to query
+    int? page,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);
