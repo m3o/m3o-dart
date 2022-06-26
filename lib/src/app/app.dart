@@ -276,9 +276,6 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
-    /// time of reservation
-    String? created,
-
     /// time reservation expires
     String? expires,
 
@@ -290,6 +287,9 @@ class Reservation with _$Reservation {
 
     /// associated token
     String? token,
+
+    /// time of reservation
+    String? created,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);
@@ -342,6 +342,9 @@ class ResolveResponse with _$ResolveResponse {
 @Freezed()
 class RunRequest with _$RunRequest {
   const factory RunRequest({
+    /// name of the app
+    String? name,
+
     /// port to run on
     int? port,
 
@@ -356,9 +359,6 @@ class RunRequest with _$RunRequest {
 
     /// associated env vars to pass in
     Map<String, String>? env_vars,
-
-    /// name of the app
-    String? name,
   }) = _RunRequest;
   factory RunRequest.fromJson(Map<String, dynamic> json) =>
       _$RunRequestFromJson(json);
@@ -382,20 +382,17 @@ class Service with _$Service {
     /// unique id
     String? id,
 
+    /// name of the app
+    String? name,
+
     /// port running on
     int? port,
 
-    /// region running in
-    String? region,
-
-    /// last updated
-    String? updated,
-
-    /// app url
-    String? url,
-
     /// branch of code
     String? branch,
+
+    /// time of creation
+    String? created,
 
     /// custom domains
     List<String>? custom_domains,
@@ -403,17 +400,20 @@ class Service with _$Service {
     /// associated env vars
     Map<String, String>? env_vars,
 
-    /// status of the app
-    String? status,
-
-    /// time of creation
-    String? created,
-
-    /// name of the app
-    String? name,
+    /// region running in
+    String? region,
 
     /// source repository
     String? repo,
+
+    /// status of the app
+    String? status,
+
+    /// last updated
+    String? updated,
+
+    /// app url
+    String? url,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);

@@ -111,11 +111,11 @@ class Result with _$Result {
     /// address of place
     String? address,
 
-    /// lat/lng of place
-    String? location,
+    /// open now
+    bool? open_now,
 
-    /// opening hours
-    List<String>? opening_hours,
+    /// feature types
+    List<String>? types,
 
     /// simplified address
     String? vicinity,
@@ -123,17 +123,17 @@ class Result with _$Result {
     /// type of location
     String? type,
 
-    /// feature types
-    List<String>? types,
-
     /// url of an icon
     String? icon_url,
+
+    /// lat/lng of place
+    String? location,
 
     /// name of the place
     String? name,
 
-    /// open now
-    bool? open_now,
+    /// opening hours
+    List<String>? opening_hours,
 
     /// rating from 1.0 to 5.0
     double? rating,
@@ -144,6 +144,12 @@ class Result with _$Result {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
+    /// the location by lat,lng e.g -33.8670522,-151.1957362
+    String? location,
+
+    /// Whether the place is open now
+    bool? open_now,
+
     /// the text string on which to search, for example: "restaurant"
     String? query,
 
@@ -152,12 +158,6 @@ class SearchRequest with _$SearchRequest {
 
     /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
     String? type,
-
-    /// the location by lat,lng e.g -33.8670522,-151.1957362
-    String? location,
-
-    /// Whether the place is open now
-    bool? open_now,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);

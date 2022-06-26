@@ -69,36 +69,36 @@ Map<String, dynamic> _$$BooksResponseMerrToJson(_$BooksResponseMerr instance) =>
     };
 
 _$_Chapter _$$_ChapterFromJson(Map<String, dynamic> json) => _$_Chapter(
+      arabic_title: json['arabic_title'] as String?,
       book: json['book'] as int?,
       id: json['id'] as int?,
       key: json['key'] as String?,
       title: json['title'] as String?,
-      arabic_title: json['arabic_title'] as String?,
     );
 
 Map<String, dynamic> _$$_ChapterToJson(_$_Chapter instance) =>
     <String, dynamic>{
+      'arabic_title': instance.arabic_title,
       'book': instance.book,
       'id': instance.id,
       'key': instance.key,
       'title': instance.title,
-      'arabic_title': instance.arabic_title,
     };
 
 _$_ChaptersRequest _$$_ChaptersRequestFromJson(Map<String, dynamic> json) =>
     _$_ChaptersRequest(
+      page: json['page'] as int?,
       book: json['book'] as int?,
       collection: json['collection'] as String?,
       limit: json['limit'] as int?,
-      page: json['page'] as int?,
     );
 
 Map<String, dynamic> _$$_ChaptersRequestToJson(_$_ChaptersRequest instance) =>
     <String, dynamic>{
+      'page': instance.page,
       'book': instance.book,
       'collection': instance.collection,
       'limit': instance.limit,
-      'page': instance.page,
     };
 
 _$ChaptersResponseData _$$ChaptersResponseDataFromJson(
@@ -204,23 +204,23 @@ Map<String, dynamic> _$$CollectionsResponseMerrToJson(
     };
 
 _$_Hadith _$$_HadithFromJson(Map<String, dynamic> json) => _$_Hadith(
+      id: json['id'] as int?,
+      text: json['text'] as String?,
       arabic_chapter_title: json['arabic_chapter_title'] as String?,
       arabic_text: json['arabic_text'] as String?,
       chapter: json['chapter'] as int?,
       chapter_key: json['chapter_key'] as String?,
       chapter_title: json['chapter_title'] as String?,
-      id: json['id'] as int?,
-      text: json['text'] as String?,
     );
 
 Map<String, dynamic> _$$_HadithToJson(_$_Hadith instance) => <String, dynamic>{
+      'id': instance.id,
+      'text': instance.text,
       'arabic_chapter_title': instance.arabic_chapter_title,
       'arabic_text': instance.arabic_text,
       'chapter': instance.chapter,
       'chapter_key': instance.chapter_key,
       'chapter_title': instance.chapter_title,
-      'id': instance.id,
-      'text': instance.text,
     };
 
 _$_HadithsRequest _$$_HadithsRequestFromJson(Map<String, dynamic> json) =>

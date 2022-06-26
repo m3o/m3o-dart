@@ -239,15 +239,15 @@ Map<String, dynamic> _$$ReadResponseMerrToJson(_$ReadResponseMerr instance) =>
 _$_RenameTableRequest _$$_RenameTableRequestFromJson(
         Map<String, dynamic> json) =>
     _$_RenameTableRequest(
-      to: json['to'] as String?,
       from: json['from'] as String?,
+      to: json['to'] as String?,
     );
 
 Map<String, dynamic> _$$_RenameTableRequestToJson(
         _$_RenameTableRequest instance) =>
     <String, dynamic>{
-      'to': instance.to,
       'from': instance.from,
+      'to': instance.to,
     };
 
 _$RenameTableResponseData _$$RenameTableResponseDataFromJson(
@@ -314,16 +314,16 @@ Map<String, dynamic> _$$TruncateResponseMerrToJson(
 
 _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>
     _$_UpdateRequest(
+      table: json['table'] as String?,
       id: json['id'] as String?,
       record: json['record'] as Map<String, dynamic>?,
-      table: json['table'] as String?,
     );
 
 Map<String, dynamic> _$$_UpdateRequestToJson(_$_UpdateRequest instance) =>
     <String, dynamic>{
+      'table': instance.table,
       'id': instance.id,
       'record': instance.record,
-      'table': instance.table,
     };
 
 _$UpdateResponseData _$$UpdateResponseDataFromJson(Map<String, dynamic> json) =>
