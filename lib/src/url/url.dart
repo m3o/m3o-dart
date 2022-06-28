@@ -12,7 +12,7 @@ class UrlService {
     _client = Client(token: token);
   }
 
-  ///
+  /// Delete a URL
   Future<DeleteResponse> delete(DeleteRequest req) async {
     Request request = Request(
       service: 'url',

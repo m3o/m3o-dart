@@ -78,7 +78,7 @@ void main() async {
 ```
 ## Delete
 
-
+Delete a URL
 
 
 [https://m3o.com/url/api#Delete](https://m3o.com/url/api#Delete)

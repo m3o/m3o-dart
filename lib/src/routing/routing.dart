@@ -76,6 +76,12 @@ class RoutingService {
 @Freezed()
 class Direction with _$Direction {
   const factory Direction({
+    /// human readable instruction
+    String? instruction,
+
+    /// intersections on route
+    List<Intersection>? intersections,
+
     /// maneuver to take
     Maneuver? maneuver,
 
@@ -90,12 +96,6 @@ class Direction with _$Direction {
 
     /// duration to travel in seconds
     double? duration,
-
-    /// human readable instruction
-    String? instruction,
-
-    /// intersections on route
-    List<Intersection>? intersections,
   }) = _Direction;
   factory Direction.fromJson(Map<String, dynamic> json) =>
       _$DirectionFromJson(json);
@@ -104,11 +104,11 @@ class Direction with _$Direction {
 @Freezed()
 class DirectionsRequest with _$DirectionsRequest {
   const factory DirectionsRequest({
-    /// The staring point for the journey
-    Point? origin,
-
     /// The destination of the journey
     Point? destination,
+
+    /// The staring point for the journey
+    Point? origin,
   }) = _DirectionsRequest;
   factory DirectionsRequest.fromJson(Map<String, dynamic> json) =>
       _$DirectionsRequestFromJson(json);
@@ -117,9 +117,6 @@ class DirectionsRequest with _$DirectionsRequest {
 @Freezed()
 class DirectionsResponse with _$DirectionsResponse {
   const factory DirectionsResponse({
-    /// Turn by turn directions
-    List<Direction>? directions,
-
     /// Estimated distance of the route in meters
     double? distance,
 
@@ -128,6 +125,9 @@ class DirectionsResponse with _$DirectionsResponse {
 
     /// The waypoints on the route
     List<Waypoint>? waypoints,
+
+    /// Turn by turn directions
+    List<Direction>? directions,
   }) = DirectionsResponseData;
   const factory DirectionsResponse.Merr({Map<String, dynamic>? body}) =
       DirectionsResponseMerr;
