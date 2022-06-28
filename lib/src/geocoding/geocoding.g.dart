@@ -36,18 +36,18 @@ Map<String, dynamic> _$$_LocationToJson(_$_Location instance) =>
 
 _$_LookupRequest _$$_LookupRequestFromJson(Map<String, dynamic> json) =>
     _$_LookupRequest(
+      country: json['country'] as String?,
       postcode: json['postcode'] as String?,
       address: json['address'] as String?,
       city: json['city'] as String?,
-      country: json['country'] as String?,
     );
 
 Map<String, dynamic> _$$_LookupRequestToJson(_$_LookupRequest instance) =>
     <String, dynamic>{
+      'country': instance.country,
       'postcode': instance.postcode,
       'address': instance.address,
       'city': instance.city,
-      'country': instance.country,
     };
 
 _$LookupResponseData _$$LookupResponseDataFromJson(Map<String, dynamic> json) =>
@@ -97,20 +97,20 @@ Map<String, dynamic> _$$_ReverseRequestToJson(_$_ReverseRequest instance) =>
 _$ReverseResponseData _$$ReverseResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$ReverseResponseData(
-      address: json['address'] == null
-          ? null
-          : Address.fromJson(json['address'] as Map<String, dynamic>),
       location: json['location'] == null
           ? null
           : Location.fromJson(json['location'] as Map<String, dynamic>),
+      address: json['address'] == null
+          ? null
+          : Address.fromJson(json['address'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ReverseResponseDataToJson(
         _$ReverseResponseData instance) =>
     <String, dynamic>{
-      'address': instance.address,
       'location': instance.location,
+      'address': instance.address,
       'runtimeType': instance.$type,
     };
 

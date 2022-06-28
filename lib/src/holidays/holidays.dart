@@ -74,11 +74,11 @@ class CountriesResponse with _$CountriesResponse {
 @Freezed()
 class Country with _$Country {
   const factory Country({
-    /// The English name of the country
-    String? name,
-
     /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
     String? code,
+
+    /// The English name of the country
+    String? name,
   }) = _Country;
   factory Country.fromJson(Map<String, dynamic> json) =>
       _$CountryFromJson(json);
@@ -87,15 +87,6 @@ class Country with _$Country {
 @Freezed()
 class Holiday with _$Holiday {
   const factory Holiday({
-    /// the country this holiday occurs in
-    String? country_code,
-
-    /// date of the holiday in yyyy-mm-dd format
-    String? date,
-
-    /// the local name of the holiday
-    String? local_name,
-
     /// the name of the holiday in English
     String? name,
 
@@ -104,6 +95,15 @@ class Holiday with _$Holiday {
 
     /// the type of holiday Public, Bank, School, Authorities, Optional, Observance
     List<String>? types,
+
+    /// the country this holiday occurs in
+    String? country_code,
+
+    /// date of the holiday in yyyy-mm-dd format
+    String? date,
+
+    /// the local name of the holiday
+    String? local_name,
   }) = _Holiday;
   factory Holiday.fromJson(Map<String, dynamic> json) =>
       _$HolidayFromJson(json);
