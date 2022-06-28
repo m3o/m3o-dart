@@ -1,3 +1,9 @@
+## v1.0.115 - 2022-06-28
+
+[ea9e18](https://github.com/micro/services/commit/ea9e1810411e1263ab5ee48d77663180c998c665) add quota
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.114...v1.0.115
+
 ## v1.0.114 - 2022-06-26
 
 [bf9999](https://github.com/micro/services/commit/bf99998ac05291125a2a7dccbc10fd13f5669a6b) Update README.md
