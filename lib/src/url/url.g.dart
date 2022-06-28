@@ -6,6 +6,40 @@ part of 'url.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
+    _$_DeleteRequest(
+      shortURL: json['shortURL'] as String?,
+    );
+
+Map<String, dynamic> _$$_DeleteRequestToJson(_$_DeleteRequest instance) =>
+    <String, dynamic>{
+      'shortURL': instance.shortURL,
+    };
+
+_$DeleteResponseData _$$DeleteResponseDataFromJson(Map<String, dynamic> json) =>
+    _$DeleteResponseData(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$DeleteResponseDataToJson(
+        _$DeleteResponseData instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$DeleteResponseMerr _$$DeleteResponseMerrFromJson(Map<String, dynamic> json) =>
+    _$DeleteResponseMerr(
+      body: json['body'] as Map<String, dynamic>?,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$DeleteResponseMerrToJson(
+        _$DeleteResponseMerr instance) =>
+    <String, dynamic>{
+      'body': instance.body,
+      'runtimeType': instance.$type,
+    };
+
 _$_ListRequest _$$_ListRequestFromJson(Map<String, dynamic> json) =>
     _$_ListRequest(
       shortURL: json['shortURL'] as String?,

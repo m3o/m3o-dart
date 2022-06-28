@@ -23,21 +23,21 @@ class _$PrayerTimeTearOff {
   const _$PrayerTimeTearOff();
 
   _PrayerTime call(
-      {String? asr,
+      {String? zuhr,
+      String? asr,
       String? date,
       String? fajr,
       String? isha,
       String? maghrib,
-      String? sunrise,
-      String? zuhr}) {
+      String? sunrise}) {
     return _PrayerTime(
+      zuhr: zuhr,
       asr: asr,
       date: date,
       fajr: fajr,
       isha: isha,
       maghrib: maghrib,
       sunrise: sunrise,
-      zuhr: zuhr,
     );
   }
 
@@ -51,6 +51,9 @@ const $PrayerTime = _$PrayerTimeTearOff();
 
 /// @nodoc
 mixin _$PrayerTime {
+  /// zuhr time
+  String? get zuhr => throw _privateConstructorUsedError;
+
   /// asr time
   String? get asr => throw _privateConstructorUsedError;
 
@@ -69,9 +72,6 @@ mixin _$PrayerTime {
   /// time of sunrise
   String? get sunrise => throw _privateConstructorUsedError;
 
-  /// zuhr time
-  String? get zuhr => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PrayerTimeCopyWith<PrayerTime> get copyWith =>
@@ -84,13 +84,13 @@ abstract class $PrayerTimeCopyWith<$Res> {
           PrayerTime value, $Res Function(PrayerTime) then) =
       _$PrayerTimeCopyWithImpl<$Res>;
   $Res call(
-      {String? asr,
+      {String? zuhr,
+      String? asr,
       String? date,
       String? fajr,
       String? isha,
       String? maghrib,
-      String? sunrise,
-      String? zuhr});
+      String? sunrise});
 }
 
 /// @nodoc
@@ -103,15 +103,19 @@ class _$PrayerTimeCopyWithImpl<$Res> implements $PrayerTimeCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? zuhr = freezed,
     Object? asr = freezed,
     Object? date = freezed,
     Object? fajr = freezed,
     Object? isha = freezed,
     Object? maghrib = freezed,
     Object? sunrise = freezed,
-    Object? zuhr = freezed,
   }) {
     return _then(_value.copyWith(
+      zuhr: zuhr == freezed
+          ? _value.zuhr
+          : zuhr // ignore: cast_nullable_to_non_nullable
+              as String?,
       asr: asr == freezed
           ? _value.asr
           : asr // ignore: cast_nullable_to_non_nullable
@@ -136,10 +140,6 @@ class _$PrayerTimeCopyWithImpl<$Res> implements $PrayerTimeCopyWith<$Res> {
           ? _value.sunrise
           : sunrise // ignore: cast_nullable_to_non_nullable
               as String?,
-      zuhr: zuhr == freezed
-          ? _value.zuhr
-          : zuhr // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -151,13 +151,13 @@ abstract class _$PrayerTimeCopyWith<$Res> implements $PrayerTimeCopyWith<$Res> {
       __$PrayerTimeCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? asr,
+      {String? zuhr,
+      String? asr,
       String? date,
       String? fajr,
       String? isha,
       String? maghrib,
-      String? sunrise,
-      String? zuhr});
+      String? sunrise});
 }
 
 /// @nodoc
@@ -172,15 +172,19 @@ class __$PrayerTimeCopyWithImpl<$Res> extends _$PrayerTimeCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? zuhr = freezed,
     Object? asr = freezed,
     Object? date = freezed,
     Object? fajr = freezed,
     Object? isha = freezed,
     Object? maghrib = freezed,
     Object? sunrise = freezed,
-    Object? zuhr = freezed,
   }) {
     return _then(_PrayerTime(
+      zuhr: zuhr == freezed
+          ? _value.zuhr
+          : zuhr // ignore: cast_nullable_to_non_nullable
+              as String?,
       asr: asr == freezed
           ? _value.asr
           : asr // ignore: cast_nullable_to_non_nullable
@@ -205,10 +209,6 @@ class __$PrayerTimeCopyWithImpl<$Res> extends _$PrayerTimeCopyWithImpl<$Res>
           ? _value.sunrise
           : sunrise // ignore: cast_nullable_to_non_nullable
               as String?,
-      zuhr: zuhr == freezed
-          ? _value.zuhr
-          : zuhr // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -217,17 +217,21 @@ class __$PrayerTimeCopyWithImpl<$Res> extends _$PrayerTimeCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PrayerTime implements _PrayerTime {
   const _$_PrayerTime(
-      {this.asr,
+      {this.zuhr,
+      this.asr,
       this.date,
       this.fajr,
       this.isha,
       this.maghrib,
-      this.sunrise,
-      this.zuhr});
+      this.sunrise});
 
   factory _$_PrayerTime.fromJson(Map<String, dynamic> json) =>
       _$$_PrayerTimeFromJson(json);
 
+  @override
+
+  /// zuhr time
+  final String? zuhr;
   @override
 
   /// asr time
@@ -252,14 +256,10 @@ class _$_PrayerTime implements _PrayerTime {
 
   /// time of sunrise
   final String? sunrise;
-  @override
-
-  /// zuhr time
-  final String? zuhr;
 
   @override
   String toString() {
-    return 'PrayerTime(asr: $asr, date: $date, fajr: $fajr, isha: $isha, maghrib: $maghrib, sunrise: $sunrise, zuhr: $zuhr)';
+    return 'PrayerTime(zuhr: $zuhr, asr: $asr, date: $date, fajr: $fajr, isha: $isha, maghrib: $maghrib, sunrise: $sunrise)';
   }
 
   @override
@@ -267,25 +267,25 @@ class _$_PrayerTime implements _PrayerTime {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PrayerTime &&
+            const DeepCollectionEquality().equals(other.zuhr, zuhr) &&
             const DeepCollectionEquality().equals(other.asr, asr) &&
             const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality().equals(other.fajr, fajr) &&
             const DeepCollectionEquality().equals(other.isha, isha) &&
             const DeepCollectionEquality().equals(other.maghrib, maghrib) &&
-            const DeepCollectionEquality().equals(other.sunrise, sunrise) &&
-            const DeepCollectionEquality().equals(other.zuhr, zuhr));
+            const DeepCollectionEquality().equals(other.sunrise, sunrise));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(zuhr),
       const DeepCollectionEquality().hash(asr),
       const DeepCollectionEquality().hash(date),
       const DeepCollectionEquality().hash(fajr),
       const DeepCollectionEquality().hash(isha),
       const DeepCollectionEquality().hash(maghrib),
-      const DeepCollectionEquality().hash(sunrise),
-      const DeepCollectionEquality().hash(zuhr));
+      const DeepCollectionEquality().hash(sunrise));
 
   @JsonKey(ignore: true)
   @override
@@ -300,17 +300,21 @@ class _$_PrayerTime implements _PrayerTime {
 
 abstract class _PrayerTime implements PrayerTime {
   const factory _PrayerTime(
-      {String? asr,
+      {String? zuhr,
+      String? asr,
       String? date,
       String? fajr,
       String? isha,
       String? maghrib,
-      String? sunrise,
-      String? zuhr}) = _$_PrayerTime;
+      String? sunrise}) = _$_PrayerTime;
 
   factory _PrayerTime.fromJson(Map<String, dynamic> json) =
       _$_PrayerTime.fromJson;
 
+  @override
+
+  /// zuhr time
+  String? get zuhr;
   @override
 
   /// asr time
@@ -336,10 +340,6 @@ abstract class _PrayerTime implements PrayerTime {
   /// time of sunrise
   String? get sunrise;
   @override
-
-  /// zuhr time
-  String? get zuhr;
-  @override
   @JsonKey(ignore: true)
   _$PrayerTimeCopyWith<_PrayerTime> get copyWith =>
       throw _privateConstructorUsedError;
@@ -354,17 +354,17 @@ class _$TimesRequestTearOff {
   const _$TimesRequestTearOff();
 
   _TimesRequest call(
-      {String? date,
-      int? days,
-      double? latitude,
+      {double? latitude,
       String? location,
-      double? longitude}) {
+      double? longitude,
+      String? date,
+      int? days}) {
     return _TimesRequest(
-      date: date,
-      days: days,
       latitude: latitude,
       location: location,
       longitude: longitude,
+      date: date,
+      days: days,
     );
   }
 
@@ -378,12 +378,6 @@ const $TimesRequest = _$TimesRequestTearOff();
 
 /// @nodoc
 mixin _$TimesRequest {
-  /// optional date in YYYY-MM-DD format, otherwise uses today
-  String? get date => throw _privateConstructorUsedError;
-
-  /// number of days to request times for
-  int? get days => throw _privateConstructorUsedError;
-
   /// optional latitude used in place of location
   double? get latitude => throw _privateConstructorUsedError;
 
@@ -393,6 +387,12 @@ mixin _$TimesRequest {
 
   /// optional longitude used in place of location
   double? get longitude => throw _privateConstructorUsedError;
+
+  /// optional date in YYYY-MM-DD format, otherwise uses today
+  String? get date => throw _privateConstructorUsedError;
+
+  /// number of days to request times for
+  int? get days => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -406,11 +406,11 @@ abstract class $TimesRequestCopyWith<$Res> {
           TimesRequest value, $Res Function(TimesRequest) then) =
       _$TimesRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? date,
-      int? days,
-      double? latitude,
+      {double? latitude,
       String? location,
-      double? longitude});
+      double? longitude,
+      String? date,
+      int? days});
 }
 
 /// @nodoc
@@ -423,21 +423,13 @@ class _$TimesRequestCopyWithImpl<$Res> implements $TimesRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? date = freezed,
-    Object? days = freezed,
     Object? latitude = freezed,
     Object? location = freezed,
     Object? longitude = freezed,
+    Object? date = freezed,
+    Object? days = freezed,
   }) {
     return _then(_value.copyWith(
-      date: date == freezed
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String?,
-      days: days == freezed
-          ? _value.days
-          : days // ignore: cast_nullable_to_non_nullable
-              as int?,
       latitude: latitude == freezed
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
@@ -450,6 +442,14 @@ class _$TimesRequestCopyWithImpl<$Res> implements $TimesRequestCopyWith<$Res> {
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as double?,
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String?,
+      days: days == freezed
+          ? _value.days
+          : days // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -462,11 +462,11 @@ abstract class _$TimesRequestCopyWith<$Res>
       __$TimesRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? date,
-      int? days,
-      double? latitude,
+      {double? latitude,
       String? location,
-      double? longitude});
+      double? longitude,
+      String? date,
+      int? days});
 }
 
 /// @nodoc
@@ -481,21 +481,13 @@ class __$TimesRequestCopyWithImpl<$Res> extends _$TimesRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? date = freezed,
-    Object? days = freezed,
     Object? latitude = freezed,
     Object? location = freezed,
     Object? longitude = freezed,
+    Object? date = freezed,
+    Object? days = freezed,
   }) {
     return _then(_TimesRequest(
-      date: date == freezed
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String?,
-      days: days == freezed
-          ? _value.days
-          : days // ignore: cast_nullable_to_non_nullable
-              as int?,
       latitude: latitude == freezed
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
@@ -508,6 +500,14 @@ class __$TimesRequestCopyWithImpl<$Res> extends _$TimesRequestCopyWithImpl<$Res>
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as double?,
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String?,
+      days: days == freezed
+          ? _value.days
+          : days // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -516,19 +516,11 @@ class __$TimesRequestCopyWithImpl<$Res> extends _$TimesRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TimesRequest implements _TimesRequest {
   const _$_TimesRequest(
-      {this.date, this.days, this.latitude, this.location, this.longitude});
+      {this.latitude, this.location, this.longitude, this.date, this.days});
 
   factory _$_TimesRequest.fromJson(Map<String, dynamic> json) =>
       _$$_TimesRequestFromJson(json);
 
-  @override
-
-  /// optional date in YYYY-MM-DD format, otherwise uses today
-  final String? date;
-  @override
-
-  /// number of days to request times for
-  final int? days;
   @override
 
   /// optional latitude used in place of location
@@ -542,10 +534,18 @@ class _$_TimesRequest implements _TimesRequest {
 
   /// optional longitude used in place of location
   final double? longitude;
+  @override
+
+  /// optional date in YYYY-MM-DD format, otherwise uses today
+  final String? date;
+  @override
+
+  /// number of days to request times for
+  final int? days;
 
   @override
   String toString() {
-    return 'TimesRequest(date: $date, days: $days, latitude: $latitude, location: $location, longitude: $longitude)';
+    return 'TimesRequest(latitude: $latitude, location: $location, longitude: $longitude, date: $date, days: $days)';
   }
 
   @override
@@ -553,21 +553,21 @@ class _$_TimesRequest implements _TimesRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TimesRequest &&
-            const DeepCollectionEquality().equals(other.date, date) &&
-            const DeepCollectionEquality().equals(other.days, days) &&
             const DeepCollectionEquality().equals(other.latitude, latitude) &&
             const DeepCollectionEquality().equals(other.location, location) &&
-            const DeepCollectionEquality().equals(other.longitude, longitude));
+            const DeepCollectionEquality().equals(other.longitude, longitude) &&
+            const DeepCollectionEquality().equals(other.date, date) &&
+            const DeepCollectionEquality().equals(other.days, days));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(days),
       const DeepCollectionEquality().hash(latitude),
       const DeepCollectionEquality().hash(location),
-      const DeepCollectionEquality().hash(longitude));
+      const DeepCollectionEquality().hash(longitude),
+      const DeepCollectionEquality().hash(date),
+      const DeepCollectionEquality().hash(days));
 
   @JsonKey(ignore: true)
   @override
@@ -582,23 +582,15 @@ class _$_TimesRequest implements _TimesRequest {
 
 abstract class _TimesRequest implements TimesRequest {
   const factory _TimesRequest(
-      {String? date,
-      int? days,
-      double? latitude,
+      {double? latitude,
       String? location,
-      double? longitude}) = _$_TimesRequest;
+      double? longitude,
+      String? date,
+      int? days}) = _$_TimesRequest;
 
   factory _TimesRequest.fromJson(Map<String, dynamic> json) =
       _$_TimesRequest.fromJson;
 
-  @override
-
-  /// optional date in YYYY-MM-DD format, otherwise uses today
-  String? get date;
-  @override
-
-  /// number of days to request times for
-  int? get days;
   @override
 
   /// optional latitude used in place of location
@@ -612,6 +604,14 @@ abstract class _TimesRequest implements TimesRequest {
 
   /// optional longitude used in place of location
   double? get longitude;
+  @override
+
+  /// optional date in YYYY-MM-DD format, otherwise uses today
+  String? get date;
+  @override
+
+  /// number of days to request times for
+  int? get days;
   @override
   @JsonKey(ignore: true)
   _$TimesRequestCopyWith<_TimesRequest> get copyWith =>
@@ -636,19 +636,19 @@ class _$TimesResponseTearOff {
   const _$TimesResponseTearOff();
 
   TimesResponseData call(
-      {double? latitude,
+      {String? date,
+      int? days,
+      double? latitude,
       String? location,
       double? longitude,
-      List<PrayerTime>? times,
-      String? date,
-      int? days}) {
+      List<PrayerTime>? times}) {
     return TimesResponseData(
+      date: date,
+      days: days,
       latitude: latitude,
       location: location,
       longitude: longitude,
       times: times,
-      date: date,
-      days: days,
     );
   }
 
@@ -670,24 +670,24 @@ const $TimesResponse = _$TimesResponseTearOff();
 mixin _$TimesResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? latitude, String? location, double? longitude,
-            List<PrayerTime>? times, String? date, int? days)
+    TResult Function(String? date, int? days, double? latitude,
+            String? location, double? longitude, List<PrayerTime>? times)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? latitude, String? location, double? longitude,
-            List<PrayerTime>? times, String? date, int? days)?
+    TResult Function(String? date, int? days, double? latitude,
+            String? location, double? longitude, List<PrayerTime>? times)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? latitude, String? location, double? longitude,
-            List<PrayerTime>? times, String? date, int? days)?
+    TResult Function(String? date, int? days, double? latitude,
+            String? location, double? longitude, List<PrayerTime>? times)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -738,12 +738,12 @@ abstract class $TimesResponseDataCopyWith<$Res> {
           TimesResponseData value, $Res Function(TimesResponseData) then) =
       _$TimesResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {double? latitude,
+      {String? date,
+      int? days,
+      double? latitude,
       String? location,
       double? longitude,
-      List<PrayerTime>? times,
-      String? date,
-      int? days});
+      List<PrayerTime>? times});
 }
 
 /// @nodoc
@@ -759,14 +759,22 @@ class _$TimesResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? date = freezed,
+    Object? days = freezed,
     Object? latitude = freezed,
     Object? location = freezed,
     Object? longitude = freezed,
     Object? times = freezed,
-    Object? date = freezed,
-    Object? days = freezed,
   }) {
     return _then(TimesResponseData(
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String?,
+      days: days == freezed
+          ? _value.days
+          : days // ignore: cast_nullable_to_non_nullable
+              as int?,
       latitude: latitude == freezed
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
@@ -783,14 +791,6 @@ class _$TimesResponseDataCopyWithImpl<$Res>
           ? _value.times
           : times // ignore: cast_nullable_to_non_nullable
               as List<PrayerTime>?,
-      date: date == freezed
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String?,
-      days: days == freezed
-          ? _value.days
-          : days // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -799,18 +799,26 @@ class _$TimesResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$TimesResponseData implements TimesResponseData {
   const _$TimesResponseData(
-      {this.latitude,
+      {this.date,
+      this.days,
+      this.latitude,
       this.location,
       this.longitude,
       this.times,
-      this.date,
-      this.days,
       String? $type})
       : $type = $type ?? 'default';
 
   factory _$TimesResponseData.fromJson(Map<String, dynamic> json) =>
       _$$TimesResponseDataFromJson(json);
 
+  @override
+
+  /// date of request
+  final String? date;
+  @override
+
+  /// number of days
+  final int? days;
   @override
 
   /// latitude of location
@@ -827,21 +835,13 @@ class _$TimesResponseData implements TimesResponseData {
 
   /// prayer times for the given location
   final List<PrayerTime>? times;
-  @override
-
-  /// date of request
-  final String? date;
-  @override
-
-  /// number of days
-  final int? days;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'TimesResponse(latitude: $latitude, location: $location, longitude: $longitude, times: $times, date: $date, days: $days)';
+    return 'TimesResponse(date: $date, days: $days, latitude: $latitude, location: $location, longitude: $longitude, times: $times)';
   }
 
   @override
@@ -849,23 +849,23 @@ class _$TimesResponseData implements TimesResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is TimesResponseData &&
+            const DeepCollectionEquality().equals(other.date, date) &&
+            const DeepCollectionEquality().equals(other.days, days) &&
             const DeepCollectionEquality().equals(other.latitude, latitude) &&
             const DeepCollectionEquality().equals(other.location, location) &&
             const DeepCollectionEquality().equals(other.longitude, longitude) &&
-            const DeepCollectionEquality().equals(other.times, times) &&
-            const DeepCollectionEquality().equals(other.date, date) &&
-            const DeepCollectionEquality().equals(other.days, days));
+            const DeepCollectionEquality().equals(other.times, times));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(date),
+      const DeepCollectionEquality().hash(days),
       const DeepCollectionEquality().hash(latitude),
       const DeepCollectionEquality().hash(location),
       const DeepCollectionEquality().hash(longitude),
-      const DeepCollectionEquality().hash(times),
-      const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(days));
+      const DeepCollectionEquality().hash(times));
 
   @JsonKey(ignore: true)
   @override
@@ -875,36 +875,36 @@ class _$TimesResponseData implements TimesResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? latitude, String? location, double? longitude,
-            List<PrayerTime>? times, String? date, int? days)
+    TResult Function(String? date, int? days, double? latitude,
+            String? location, double? longitude, List<PrayerTime>? times)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(latitude, location, longitude, times, date, days);
+    return $default(date, days, latitude, location, longitude, times);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? latitude, String? location, double? longitude,
-            List<PrayerTime>? times, String? date, int? days)?
+    TResult Function(String? date, int? days, double? latitude,
+            String? location, double? longitude, List<PrayerTime>? times)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(latitude, location, longitude, times, date, days);
+    return $default?.call(date, days, latitude, location, longitude, times);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? latitude, String? location, double? longitude,
-            List<PrayerTime>? times, String? date, int? days)?
+    TResult Function(String? date, int? days, double? latitude,
+            String? location, double? longitude, List<PrayerTime>? times)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(latitude, location, longitude, times, date, days);
+      return $default(date, days, latitude, location, longitude, times);
     }
     return orElse();
   }
@@ -948,15 +948,21 @@ class _$TimesResponseData implements TimesResponseData {
 
 abstract class TimesResponseData implements TimesResponse {
   const factory TimesResponseData(
-      {double? latitude,
+      {String? date,
+      int? days,
+      double? latitude,
       String? location,
       double? longitude,
-      List<PrayerTime>? times,
-      String? date,
-      int? days}) = _$TimesResponseData;
+      List<PrayerTime>? times}) = _$TimesResponseData;
 
   factory TimesResponseData.fromJson(Map<String, dynamic> json) =
       _$TimesResponseData.fromJson;
+
+  /// date of request
+  String? get date;
+
+  /// number of days
+  int? get days;
 
   /// latitude of location
   double? get latitude;
@@ -969,12 +975,6 @@ abstract class TimesResponseData implements TimesResponse {
 
   /// prayer times for the given location
   List<PrayerTime>? get times;
-
-  /// date of request
-  String? get date;
-
-  /// number of days
-  int? get days;
   @JsonKey(ignore: true)
   $TimesResponseDataCopyWith<TimesResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1052,8 +1052,8 @@ class _$TimesResponseMerr implements TimesResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? latitude, String? location, double? longitude,
-            List<PrayerTime>? times, String? date, int? days)
+    TResult Function(String? date, int? days, double? latitude,
+            String? location, double? longitude, List<PrayerTime>? times)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -1063,8 +1063,8 @@ class _$TimesResponseMerr implements TimesResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? latitude, String? location, double? longitude,
-            List<PrayerTime>? times, String? date, int? days)?
+    TResult Function(String? date, int? days, double? latitude,
+            String? location, double? longitude, List<PrayerTime>? times)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -1074,8 +1074,8 @@ class _$TimesResponseMerr implements TimesResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? latitude, String? location, double? longitude,
-            List<PrayerTime>? times, String? date, int? days)?
+    TResult Function(String? date, int? days, double? latitude,
+            String? location, double? longitude, List<PrayerTime>? times)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

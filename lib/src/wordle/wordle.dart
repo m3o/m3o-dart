@@ -103,12 +103,6 @@ class GuessRequest with _$GuessRequest {
 @Freezed()
 class GuessResponse with _$GuessResponse {
   const factory GuessResponse({
-    /// whether it was correct
-    bool? correct,
-
-    /// the guess words tried
-    List<Guess>? guesses,
-
     /// informational message
     String? status,
 
@@ -117,6 +111,12 @@ class GuessResponse with _$GuessResponse {
 
     /// the actual word if failed
     String? answer,
+
+    /// whether it was correct
+    bool? correct,
+
+    /// the guess words tried
+    List<Guess>? guesses,
   }) = GuessResponseData;
   const factory GuessResponse.Merr({Map<String, dynamic>? body}) =
       GuessResponseMerr;

@@ -14,6 +14,519 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+DeleteRequest _$DeleteRequestFromJson(Map<String, dynamic> json) {
+  return _DeleteRequest.fromJson(json);
+}
+
+/// @nodoc
+class _$DeleteRequestTearOff {
+  const _$DeleteRequestTearOff();
+
+  _DeleteRequest call({String? shortURL}) {
+    return _DeleteRequest(
+      shortURL: shortURL,
+    );
+  }
+
+  DeleteRequest fromJson(Map<String, Object?> json) {
+    return DeleteRequest.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $DeleteRequest = _$DeleteRequestTearOff();
+
+/// @nodoc
+mixin _$DeleteRequest {
+  String? get shortURL => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $DeleteRequestCopyWith<DeleteRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DeleteRequestCopyWith<$Res> {
+  factory $DeleteRequestCopyWith(
+          DeleteRequest value, $Res Function(DeleteRequest) then) =
+      _$DeleteRequestCopyWithImpl<$Res>;
+  $Res call({String? shortURL});
+}
+
+/// @nodoc
+class _$DeleteRequestCopyWithImpl<$Res>
+    implements $DeleteRequestCopyWith<$Res> {
+  _$DeleteRequestCopyWithImpl(this._value, this._then);
+
+  final DeleteRequest _value;
+  // ignore: unused_field
+  final $Res Function(DeleteRequest) _then;
+
+  @override
+  $Res call({
+    Object? shortURL = freezed,
+  }) {
+    return _then(_value.copyWith(
+      shortURL: shortURL == freezed
+          ? _value.shortURL
+          : shortURL // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$DeleteRequestCopyWith<$Res>
+    implements $DeleteRequestCopyWith<$Res> {
+  factory _$DeleteRequestCopyWith(
+          _DeleteRequest value, $Res Function(_DeleteRequest) then) =
+      __$DeleteRequestCopyWithImpl<$Res>;
+  @override
+  $Res call({String? shortURL});
+}
+
+/// @nodoc
+class __$DeleteRequestCopyWithImpl<$Res>
+    extends _$DeleteRequestCopyWithImpl<$Res>
+    implements _$DeleteRequestCopyWith<$Res> {
+  __$DeleteRequestCopyWithImpl(
+      _DeleteRequest _value, $Res Function(_DeleteRequest) _then)
+      : super(_value, (v) => _then(v as _DeleteRequest));
+
+  @override
+  _DeleteRequest get _value => super._value as _DeleteRequest;
+
+  @override
+  $Res call({
+    Object? shortURL = freezed,
+  }) {
+    return _then(_DeleteRequest(
+      shortURL: shortURL == freezed
+          ? _value.shortURL
+          : shortURL // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_DeleteRequest implements _DeleteRequest {
+  const _$_DeleteRequest({this.shortURL});
+
+  factory _$_DeleteRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_DeleteRequestFromJson(json);
+
+  @override
+  final String? shortURL;
+
+  @override
+  String toString() {
+    return 'DeleteRequest(shortURL: $shortURL)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _DeleteRequest &&
+            const DeepCollectionEquality().equals(other.shortURL, shortURL));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(shortURL));
+
+  @JsonKey(ignore: true)
+  @override
+  _$DeleteRequestCopyWith<_DeleteRequest> get copyWith =>
+      __$DeleteRequestCopyWithImpl<_DeleteRequest>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_DeleteRequestToJson(this);
+  }
+}
+
+abstract class _DeleteRequest implements DeleteRequest {
+  const factory _DeleteRequest({String? shortURL}) = _$_DeleteRequest;
+
+  factory _DeleteRequest.fromJson(Map<String, dynamic> json) =
+      _$_DeleteRequest.fromJson;
+
+  @override
+  String? get shortURL;
+  @override
+  @JsonKey(ignore: true)
+  _$DeleteRequestCopyWith<_DeleteRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+DeleteResponse _$DeleteResponseFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'default':
+      return DeleteResponseData.fromJson(json);
+    case 'Merr':
+      return DeleteResponseMerr.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'DeleteResponse',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
+/// @nodoc
+class _$DeleteResponseTearOff {
+  const _$DeleteResponseTearOff();
+
+  DeleteResponseData call() {
+    return const DeleteResponseData();
+  }
+
+  DeleteResponseMerr Merr({Map<String, dynamic>? body}) {
+    return DeleteResponseMerr(
+      body: body,
+    );
+  }
+
+  DeleteResponse fromJson(Map<String, Object?> json) {
+    return DeleteResponse.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $DeleteResponse = _$DeleteResponseTearOff();
+
+/// @nodoc
+mixin _$DeleteResponse {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(DeleteResponseData value) $default, {
+    required TResult Function(DeleteResponseMerr value) Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(DeleteResponseData value)? $default, {
+    TResult Function(DeleteResponseMerr value)? Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(DeleteResponseData value)? $default, {
+    TResult Function(DeleteResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DeleteResponseCopyWith<$Res> {
+  factory $DeleteResponseCopyWith(
+          DeleteResponse value, $Res Function(DeleteResponse) then) =
+      _$DeleteResponseCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$DeleteResponseCopyWithImpl<$Res>
+    implements $DeleteResponseCopyWith<$Res> {
+  _$DeleteResponseCopyWithImpl(this._value, this._then);
+
+  final DeleteResponse _value;
+  // ignore: unused_field
+  final $Res Function(DeleteResponse) _then;
+}
+
+/// @nodoc
+abstract class $DeleteResponseDataCopyWith<$Res> {
+  factory $DeleteResponseDataCopyWith(
+          DeleteResponseData value, $Res Function(DeleteResponseData) then) =
+      _$DeleteResponseDataCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$DeleteResponseDataCopyWithImpl<$Res>
+    extends _$DeleteResponseCopyWithImpl<$Res>
+    implements $DeleteResponseDataCopyWith<$Res> {
+  _$DeleteResponseDataCopyWithImpl(
+      DeleteResponseData _value, $Res Function(DeleteResponseData) _then)
+      : super(_value, (v) => _then(v as DeleteResponseData));
+
+  @override
+  DeleteResponseData get _value => super._value as DeleteResponseData;
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$DeleteResponseData implements DeleteResponseData {
+  const _$DeleteResponseData({String? $type}) : $type = $type ?? 'default';
+
+  factory _$DeleteResponseData.fromJson(Map<String, dynamic> json) =>
+      _$$DeleteResponseDataFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'DeleteResponse()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is DeleteResponseData);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) {
+    return $default();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+  }) {
+    return $default?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(DeleteResponseData value) $default, {
+    required TResult Function(DeleteResponseMerr value) Merr,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(DeleteResponseData value)? $default, {
+    TResult Function(DeleteResponseMerr value)? Merr,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(DeleteResponseData value)? $default, {
+    TResult Function(DeleteResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$DeleteResponseDataToJson(this);
+  }
+}
+
+abstract class DeleteResponseData implements DeleteResponse {
+  const factory DeleteResponseData() = _$DeleteResponseData;
+
+  factory DeleteResponseData.fromJson(Map<String, dynamic> json) =
+      _$DeleteResponseData.fromJson;
+}
+
+/// @nodoc
+abstract class $DeleteResponseMerrCopyWith<$Res> {
+  factory $DeleteResponseMerrCopyWith(
+          DeleteResponseMerr value, $Res Function(DeleteResponseMerr) then) =
+      _$DeleteResponseMerrCopyWithImpl<$Res>;
+  $Res call({Map<String, dynamic>? body});
+}
+
+/// @nodoc
+class _$DeleteResponseMerrCopyWithImpl<$Res>
+    extends _$DeleteResponseCopyWithImpl<$Res>
+    implements $DeleteResponseMerrCopyWith<$Res> {
+  _$DeleteResponseMerrCopyWithImpl(
+      DeleteResponseMerr _value, $Res Function(DeleteResponseMerr) _then)
+      : super(_value, (v) => _then(v as DeleteResponseMerr));
+
+  @override
+  DeleteResponseMerr get _value => super._value as DeleteResponseMerr;
+
+  @override
+  $Res call({
+    Object? body = freezed,
+  }) {
+    return _then(DeleteResponseMerr(
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$DeleteResponseMerr implements DeleteResponseMerr {
+  const _$DeleteResponseMerr({this.body, String? $type})
+      : $type = $type ?? 'Merr';
+
+  factory _$DeleteResponseMerr.fromJson(Map<String, dynamic> json) =>
+      _$$DeleteResponseMerrFromJson(json);
+
+  @override
+  final Map<String, dynamic>? body;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'DeleteResponse.Merr(body: $body)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DeleteResponseMerr &&
+            const DeepCollectionEquality().equals(other.body, body));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
+
+  @JsonKey(ignore: true)
+  @override
+  $DeleteResponseMerrCopyWith<DeleteResponseMerr> get copyWith =>
+      _$DeleteResponseMerrCopyWithImpl<DeleteResponseMerr>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) {
+    return Merr(body);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+  }) {
+    return Merr?.call(body);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) {
+    if (Merr != null) {
+      return Merr(body);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(DeleteResponseData value) $default, {
+    required TResult Function(DeleteResponseMerr value) Merr,
+  }) {
+    return Merr(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(DeleteResponseData value)? $default, {
+    TResult Function(DeleteResponseMerr value)? Merr,
+  }) {
+    return Merr?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(DeleteResponseData value)? $default, {
+    TResult Function(DeleteResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) {
+    if (Merr != null) {
+      return Merr(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$DeleteResponseMerrToJson(this);
+  }
+}
+
+abstract class DeleteResponseMerr implements DeleteResponse {
+  const factory DeleteResponseMerr({Map<String, dynamic>? body}) =
+      _$DeleteResponseMerr;
+
+  factory DeleteResponseMerr.fromJson(Map<String, dynamic> json) =
+      _$DeleteResponseMerr.fromJson;
+
+  Map<String, dynamic>? get body;
+  @JsonKey(ignore: true)
+  $DeleteResponseMerrCopyWith<DeleteResponseMerr> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 ListRequest _$ListRequestFromJson(Map<String, dynamic> json) {
   return _ListRequest.fromJson(json);
 }

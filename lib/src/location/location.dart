@@ -86,9 +86,9 @@ class Entity with _$Entity {
 @Freezed()
 class Point with _$Point {
   const factory Point({
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? timestamp,
     double? latitude,
     double? longitude,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? timestamp,
   }) = _Point;
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 }

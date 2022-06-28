@@ -12,6 +12,26 @@ class UrlService {
     _client = Client(token: token);
   }
 
+  ///
+  Future<DeleteResponse> delete(DeleteRequest req) async {
+    Request request = Request(
+      service: 'url',
+      endpoint: 'Delete',
+      body: req.toJson(),
+    );
+
+    try {
+      Response res = await _client.call(request);
+      if (isError(res.body)) {
+        final err = Merr(res.toJson());
+        return DeleteResponse.Merr(body: err.b);
+      }
+      return DeleteResponseData.fromJson(res.body);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
   /// List all the shortened URLs
   Future<ListResponse> list(ListRequest req) async {
     Request request = Request(
@@ -71,6 +91,24 @@ class UrlService {
       throw Exception(e);
     }
   }
+}
+
+@Freezed()
+class DeleteRequest with _$DeleteRequest {
+  const factory DeleteRequest({
+    String? shortURL,
+  }) = _DeleteRequest;
+  factory DeleteRequest.fromJson(Map<String, dynamic> json) =>
+      _$DeleteRequestFromJson(json);
+}
+
+@Freezed()
+class DeleteResponse with _$DeleteResponse {
+  const factory DeleteResponse() = DeleteResponseData;
+  const factory DeleteResponse.Merr({Map<String, dynamic>? body}) =
+      DeleteResponseMerr;
+  factory DeleteResponse.fromJson(Map<String, dynamic> json) =>
+      _$DeleteResponseFromJson(json);
 }
 
 @Freezed()

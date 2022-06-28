@@ -202,9 +202,6 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// chat description
-    String? description,
-
     /// name of the room
     String? name,
 
@@ -213,6 +210,9 @@ class CreateRequest with _$CreateRequest {
 
     /// optional list of user ids
     List<String>? user_ids,
+
+    /// chat description
+    String? description,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -393,15 +393,6 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
-    /// subject of the message
-    String? subject,
-
-    /// text of the message
-    String? text,
-
-    /// id of the user who sent the message
-    String? user_id,
-
     /// a client side id, should be validated by the server to make the request retry safe
     String? client,
 
@@ -413,6 +404,15 @@ class Message with _$Message {
 
     /// time the message was sent in RFC3339 format
     String? sent_at,
+
+    /// subject of the message
+    String? subject,
+
+    /// text of the message
+    String? text,
+
+    /// id of the user who sent the message
+    String? user_id,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
@@ -445,9 +445,6 @@ class Room with _$Room {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
-    /// id of the chat room the message is being sent to / from
-    String? room_id,
-
     /// subject of the message
     String? subject,
 
@@ -459,6 +456,9 @@ class SendRequest with _$SendRequest {
 
     /// a client side id, should be validated by the server to make the request retry safe
     String? client,
+
+    /// id of the chat room the message is being sent to / from
+    String? room_id,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);
