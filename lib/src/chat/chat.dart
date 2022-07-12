@@ -348,11 +348,11 @@ class KickResponse with _$KickResponse {
 @Freezed()
 class LeaveRequest with _$LeaveRequest {
   const factory LeaveRequest({
-    /// the chat room id
-    String? room_id,
-
     /// the user id
     String? user_id,
+
+    /// the chat room id
+    String? room_id,
   }) = _LeaveRequest;
   factory LeaveRequest.fromJson(Map<String, dynamic> json) =>
       _$LeaveRequestFromJson(json);
@@ -421,12 +421,6 @@ class Message with _$Message {
 @Freezed()
 class Room with _$Room {
   const factory Room({
-    /// whether its a private room
-    bool? private,
-
-    /// list of users
-    List<String>? user_ids,
-
     /// time of creation
     String? created_at,
 
@@ -438,6 +432,12 @@ class Room with _$Room {
 
     /// name of the chat
     String? name,
+
+    /// whether its a private room
+    bool? private,
+
+    /// list of users
+    List<String>? user_ids,
   }) = _Room;
   factory Room.fromJson(Map<String, dynamic> json) => _$RoomFromJson(json);
 }

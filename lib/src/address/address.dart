@@ -58,17 +58,14 @@ class LookupPostcodeResponse with _$LookupPostcodeResponse {
 @Freezed()
 class Record with _$Record {
   const factory Record({
-    /// building name
-    String? building_name,
-
     /// dependent locality
     String? locality,
 
-    /// organisation if present
-    String? organisation,
+    /// the postcode
+    String? postcode,
 
-    /// street name
-    String? street,
+    /// the premise
+    String? premise,
 
     /// the complete address
     String? summary,
@@ -76,20 +73,23 @@ class Record with _$Record {
     /// post town
     String? town,
 
+    /// building name
+    String? building_name,
+
     /// the county
     String? county,
-
-    /// line one of address
-    String? line_one,
 
     /// line two of address
     String? line_two,
 
-    /// the postcode
-    String? postcode,
+    /// line one of address
+    String? line_one,
 
-    /// the premise
-    String? premise,
+    /// organisation if present
+    String? organisation,
+
+    /// street name
+    String? street,
   }) = _Record;
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }

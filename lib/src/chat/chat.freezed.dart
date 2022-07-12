@@ -3557,10 +3557,10 @@ LeaveRequest _$LeaveRequestFromJson(Map<String, dynamic> json) {
 class _$LeaveRequestTearOff {
   const _$LeaveRequestTearOff();
 
-  _LeaveRequest call({String? room_id, String? user_id}) {
+  _LeaveRequest call({String? user_id, String? room_id}) {
     return _LeaveRequest(
-      room_id: room_id,
       user_id: user_id,
+      room_id: room_id,
     );
   }
 
@@ -3574,11 +3574,11 @@ const $LeaveRequest = _$LeaveRequestTearOff();
 
 /// @nodoc
 mixin _$LeaveRequest {
-  /// the chat room id
-  String? get room_id => throw _privateConstructorUsedError;
-
   /// the user id
   String? get user_id => throw _privateConstructorUsedError;
+
+  /// the chat room id
+  String? get room_id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -3591,7 +3591,7 @@ abstract class $LeaveRequestCopyWith<$Res> {
   factory $LeaveRequestCopyWith(
           LeaveRequest value, $Res Function(LeaveRequest) then) =
       _$LeaveRequestCopyWithImpl<$Res>;
-  $Res call({String? room_id, String? user_id});
+  $Res call({String? user_id, String? room_id});
 }
 
 /// @nodoc
@@ -3604,17 +3604,17 @@ class _$LeaveRequestCopyWithImpl<$Res> implements $LeaveRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? room_id = freezed,
     Object? user_id = freezed,
+    Object? room_id = freezed,
   }) {
     return _then(_value.copyWith(
-      room_id: room_id == freezed
-          ? _value.room_id
-          : room_id // ignore: cast_nullable_to_non_nullable
-              as String?,
       user_id: user_id == freezed
           ? _value.user_id
           : user_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      room_id: room_id == freezed
+          ? _value.room_id
+          : room_id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -3627,7 +3627,7 @@ abstract class _$LeaveRequestCopyWith<$Res>
           _LeaveRequest value, $Res Function(_LeaveRequest) then) =
       __$LeaveRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? room_id, String? user_id});
+  $Res call({String? user_id, String? room_id});
 }
 
 /// @nodoc
@@ -3642,17 +3642,17 @@ class __$LeaveRequestCopyWithImpl<$Res> extends _$LeaveRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? room_id = freezed,
     Object? user_id = freezed,
+    Object? room_id = freezed,
   }) {
     return _then(_LeaveRequest(
-      room_id: room_id == freezed
-          ? _value.room_id
-          : room_id // ignore: cast_nullable_to_non_nullable
-              as String?,
       user_id: user_id == freezed
           ? _value.user_id
           : user_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      room_id: room_id == freezed
+          ? _value.room_id
+          : room_id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -3661,23 +3661,23 @@ class __$LeaveRequestCopyWithImpl<$Res> extends _$LeaveRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_LeaveRequest implements _LeaveRequest {
-  const _$_LeaveRequest({this.room_id, this.user_id});
+  const _$_LeaveRequest({this.user_id, this.room_id});
 
   factory _$_LeaveRequest.fromJson(Map<String, dynamic> json) =>
       _$$_LeaveRequestFromJson(json);
 
   @override
 
-  /// the chat room id
-  final String? room_id;
-  @override
-
   /// the user id
   final String? user_id;
+  @override
+
+  /// the chat room id
+  final String? room_id;
 
   @override
   String toString() {
-    return 'LeaveRequest(room_id: $room_id, user_id: $user_id)';
+    return 'LeaveRequest(user_id: $user_id, room_id: $room_id)';
   }
 
   @override
@@ -3685,15 +3685,15 @@ class _$_LeaveRequest implements _LeaveRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LeaveRequest &&
-            const DeepCollectionEquality().equals(other.room_id, room_id) &&
-            const DeepCollectionEquality().equals(other.user_id, user_id));
+            const DeepCollectionEquality().equals(other.user_id, user_id) &&
+            const DeepCollectionEquality().equals(other.room_id, room_id));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(room_id),
-      const DeepCollectionEquality().hash(user_id));
+      const DeepCollectionEquality().hash(user_id),
+      const DeepCollectionEquality().hash(room_id));
 
   @JsonKey(ignore: true)
   @override
@@ -3707,7 +3707,7 @@ class _$_LeaveRequest implements _LeaveRequest {
 }
 
 abstract class _LeaveRequest implements LeaveRequest {
-  const factory _LeaveRequest({String? room_id, String? user_id}) =
+  const factory _LeaveRequest({String? user_id, String? room_id}) =
       _$_LeaveRequest;
 
   factory _LeaveRequest.fromJson(Map<String, dynamic> json) =
@@ -3715,12 +3715,12 @@ abstract class _LeaveRequest implements LeaveRequest {
 
   @override
 
-  /// the chat room id
-  String? get room_id;
-  @override
-
   /// the user id
   String? get user_id;
+  @override
+
+  /// the chat room id
+  String? get room_id;
   @override
   @JsonKey(ignore: true)
   _$LeaveRequestCopyWith<_LeaveRequest> get copyWith =>
@@ -5018,19 +5018,19 @@ class _$RoomTearOff {
   const _$RoomTearOff();
 
   _Room call(
-      {bool? private,
-      List<String>? user_ids,
-      String? created_at,
+      {String? created_at,
       String? description,
       String? id,
-      String? name}) {
+      String? name,
+      bool? private,
+      List<String>? user_ids}) {
     return _Room(
-      private: private,
-      user_ids: user_ids,
       created_at: created_at,
       description: description,
       id: id,
       name: name,
+      private: private,
+      user_ids: user_ids,
     );
   }
 
@@ -5044,12 +5044,6 @@ const $Room = _$RoomTearOff();
 
 /// @nodoc
 mixin _$Room {
-  /// whether its a private room
-  bool? get private => throw _privateConstructorUsedError;
-
-  /// list of users
-  List<String>? get user_ids => throw _privateConstructorUsedError;
-
   /// time of creation
   String? get created_at => throw _privateConstructorUsedError;
 
@@ -5062,6 +5056,12 @@ mixin _$Room {
   /// name of the chat
   String? get name => throw _privateConstructorUsedError;
 
+  /// whether its a private room
+  bool? get private => throw _privateConstructorUsedError;
+
+  /// list of users
+  List<String>? get user_ids => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RoomCopyWith<Room> get copyWith => throw _privateConstructorUsedError;
@@ -5072,12 +5072,12 @@ abstract class $RoomCopyWith<$Res> {
   factory $RoomCopyWith(Room value, $Res Function(Room) then) =
       _$RoomCopyWithImpl<$Res>;
   $Res call(
-      {bool? private,
-      List<String>? user_ids,
-      String? created_at,
+      {String? created_at,
       String? description,
       String? id,
-      String? name});
+      String? name,
+      bool? private,
+      List<String>? user_ids});
 }
 
 /// @nodoc
@@ -5090,22 +5090,14 @@ class _$RoomCopyWithImpl<$Res> implements $RoomCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? private = freezed,
-    Object? user_ids = freezed,
     Object? created_at = freezed,
     Object? description = freezed,
     Object? id = freezed,
     Object? name = freezed,
+    Object? private = freezed,
+    Object? user_ids = freezed,
   }) {
     return _then(_value.copyWith(
-      private: private == freezed
-          ? _value.private
-          : private // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      user_ids: user_ids == freezed
-          ? _value.user_ids
-          : user_ids // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
       created_at: created_at == freezed
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
@@ -5122,6 +5114,14 @@ class _$RoomCopyWithImpl<$Res> implements $RoomCopyWith<$Res> {
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      private: private == freezed
+          ? _value.private
+          : private // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      user_ids: user_ids == freezed
+          ? _value.user_ids
+          : user_ids // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -5132,12 +5132,12 @@ abstract class _$RoomCopyWith<$Res> implements $RoomCopyWith<$Res> {
       __$RoomCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool? private,
-      List<String>? user_ids,
-      String? created_at,
+      {String? created_at,
       String? description,
       String? id,
-      String? name});
+      String? name,
+      bool? private,
+      List<String>? user_ids});
 }
 
 /// @nodoc
@@ -5151,22 +5151,14 @@ class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? private = freezed,
-    Object? user_ids = freezed,
     Object? created_at = freezed,
     Object? description = freezed,
     Object? id = freezed,
     Object? name = freezed,
+    Object? private = freezed,
+    Object? user_ids = freezed,
   }) {
     return _then(_Room(
-      private: private == freezed
-          ? _value.private
-          : private // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      user_ids: user_ids == freezed
-          ? _value.user_ids
-          : user_ids // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
       created_at: created_at == freezed
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
@@ -5183,6 +5175,14 @@ class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      private: private == freezed
+          ? _value.private
+          : private // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      user_ids: user_ids == freezed
+          ? _value.user_ids
+          : user_ids // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -5191,23 +5191,15 @@ class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Room implements _Room {
   const _$_Room(
-      {this.private,
-      this.user_ids,
-      this.created_at,
+      {this.created_at,
       this.description,
       this.id,
-      this.name});
+      this.name,
+      this.private,
+      this.user_ids});
 
   factory _$_Room.fromJson(Map<String, dynamic> json) => _$$_RoomFromJson(json);
 
-  @override
-
-  /// whether its a private room
-  final bool? private;
-  @override
-
-  /// list of users
-  final List<String>? user_ids;
   @override
 
   /// time of creation
@@ -5224,10 +5216,18 @@ class _$_Room implements _Room {
 
   /// name of the chat
   final String? name;
+  @override
+
+  /// whether its a private room
+  final bool? private;
+  @override
+
+  /// list of users
+  final List<String>? user_ids;
 
   @override
   String toString() {
-    return 'Room(private: $private, user_ids: $user_ids, created_at: $created_at, description: $description, id: $id, name: $name)';
+    return 'Room(created_at: $created_at, description: $description, id: $id, name: $name, private: $private, user_ids: $user_ids)';
   }
 
   @override
@@ -5235,25 +5235,25 @@ class _$_Room implements _Room {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Room &&
-            const DeepCollectionEquality().equals(other.private, private) &&
-            const DeepCollectionEquality().equals(other.user_ids, user_ids) &&
             const DeepCollectionEquality()
                 .equals(other.created_at, created_at) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.private, private) &&
+            const DeepCollectionEquality().equals(other.user_ids, user_ids));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(private),
-      const DeepCollectionEquality().hash(user_ids),
       const DeepCollectionEquality().hash(created_at),
       const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(private),
+      const DeepCollectionEquality().hash(user_ids));
 
   @JsonKey(ignore: true)
   @override
@@ -5268,23 +5268,15 @@ class _$_Room implements _Room {
 
 abstract class _Room implements Room {
   const factory _Room(
-      {bool? private,
-      List<String>? user_ids,
-      String? created_at,
+      {String? created_at,
       String? description,
       String? id,
-      String? name}) = _$_Room;
+      String? name,
+      bool? private,
+      List<String>? user_ids}) = _$_Room;
 
   factory _Room.fromJson(Map<String, dynamic> json) = _$_Room.fromJson;
 
-  @override
-
-  /// whether its a private room
-  bool? get private;
-  @override
-
-  /// list of users
-  List<String>? get user_ids;
   @override
 
   /// time of creation
@@ -5301,6 +5293,14 @@ abstract class _Room implements Room {
 
   /// name of the chat
   String? get name;
+  @override
+
+  /// whether its a private room
+  bool? get private;
+  @override
+
+  /// list of users
+  List<String>? get user_ids;
   @override
   @JsonKey(ignore: true)
   _$RoomCopyWith<_Room> get copyWith => throw _privateConstructorUsedError;
