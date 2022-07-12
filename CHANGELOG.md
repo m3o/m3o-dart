@@ -1,3 +1,9 @@
+## v1.0.118 - 2022-07-12
+
+[a0ebf2](https://github.com/micro/services/commit/a0ebf2b24e32c1d29e7949b88ae3ae31d3164be8) update spam pricing
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.117...v1.0.118
+
 ## v1.0.117 - 2022-06-28
 
 [6031aa](https://github.com/micro/services/commit/6031aa1e0cde97ed874b5e7ec4578027206450bd) add comment
