@@ -1,3 +1,9 @@
+## v1.0.123 - 2022-07-15
+
+[074150](https://github.com/micro/services/commit/074150c2d4a116d0be28d1b52086af237295aa7e) update bitcoin readme
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.122...v1.0.123
+
 ## v1.0.122 - 2022-07-15
 
 [6dfa96](https://github.com/micro/services/commit/6dfa969d0fa28a2d5fbb8275bc2cd0418d164783) .
