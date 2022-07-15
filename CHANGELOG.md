@@ -1,3 +1,9 @@
+## v1.0.124 - 2022-07-15
+
+[813a9e](https://github.com/micro/services/commit/813a9ed4edb07fab062a5cd932ddbbc925510515) asset owner
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.123...v1.0.124
+
 ## v1.0.123 - 2022-07-15
 
 [074150](https://github.com/micro/services/commit/074150c2d4a116d0be28d1b52086af237295aa7e) update bitcoin readme
