@@ -76,6 +76,15 @@ class RoutingService {
 @Freezed()
 class Direction with _$Direction {
   const factory Direction({
+    /// distance to travel in meters
+    double? distance,
+
+    /// duration to travel in seconds
+    double? duration,
+
+    /// human readable instruction
+    String? instruction,
+
     /// intersections on route
     List<Intersection>? intersections,
 
@@ -87,15 +96,6 @@ class Direction with _$Direction {
 
     /// alternative reference
     String? reference,
-
-    /// distance to travel in meters
-    double? distance,
-
-    /// duration to travel in seconds
-    double? duration,
-
-    /// human readable instruction
-    String? instruction,
   }) = _Direction;
   factory Direction.fromJson(Map<String, dynamic> json) =>
       _$DirectionFromJson(json);

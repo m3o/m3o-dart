@@ -132,14 +132,14 @@ Map<String, dynamic> _$$HistoryResponseMerrToJson(
 
 _$_InviteRequest _$$_InviteRequestFromJson(Map<String, dynamic> json) =>
     _$_InviteRequest(
-      room_id: json['room_id'] as String?,
       user_id: json['user_id'] as String?,
+      room_id: json['room_id'] as String?,
     );
 
 Map<String, dynamic> _$$_InviteRequestToJson(_$_InviteRequest instance) =>
     <String, dynamic>{
-      'room_id': instance.room_id,
       'user_id': instance.user_id,
+      'room_id': instance.room_id,
     };
 
 _$InviteResponseData _$$InviteResponseDataFromJson(Map<String, dynamic> json) =>

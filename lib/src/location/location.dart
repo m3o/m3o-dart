@@ -76,9 +76,9 @@ class LocationService {
 @Freezed()
 class Entity with _$Entity {
   const factory Entity({
+    String? type,
     String? id,
     Point? location,
-    String? type,
   }) = _Entity;
   factory Entity.fromJson(Map<String, dynamic> json) => _$EntityFromJson(json);
 }
@@ -135,9 +135,6 @@ class SaveResponse with _$SaveResponse {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// radius in meters
-    double? radius,
-
     /// type of entities to filter
     String? type,
 
@@ -147,6 +144,9 @@ class SearchRequest with _$SearchRequest {
     /// Maximum number of entities to return
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? numEntities,
+
+    /// radius in meters
+    double? radius,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);

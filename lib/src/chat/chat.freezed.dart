@@ -1796,10 +1796,10 @@ InviteRequest _$InviteRequestFromJson(Map<String, dynamic> json) {
 class _$InviteRequestTearOff {
   const _$InviteRequestTearOff();
 
-  _InviteRequest call({String? room_id, String? user_id}) {
+  _InviteRequest call({String? user_id, String? room_id}) {
     return _InviteRequest(
-      room_id: room_id,
       user_id: user_id,
+      room_id: room_id,
     );
   }
 
@@ -1813,11 +1813,11 @@ const $InviteRequest = _$InviteRequestTearOff();
 
 /// @nodoc
 mixin _$InviteRequest {
-  /// the room id
-  String? get room_id => throw _privateConstructorUsedError;
-
   /// the user id
   String? get user_id => throw _privateConstructorUsedError;
+
+  /// the room id
+  String? get room_id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1830,7 +1830,7 @@ abstract class $InviteRequestCopyWith<$Res> {
   factory $InviteRequestCopyWith(
           InviteRequest value, $Res Function(InviteRequest) then) =
       _$InviteRequestCopyWithImpl<$Res>;
-  $Res call({String? room_id, String? user_id});
+  $Res call({String? user_id, String? room_id});
 }
 
 /// @nodoc
@@ -1844,17 +1844,17 @@ class _$InviteRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? room_id = freezed,
     Object? user_id = freezed,
+    Object? room_id = freezed,
   }) {
     return _then(_value.copyWith(
-      room_id: room_id == freezed
-          ? _value.room_id
-          : room_id // ignore: cast_nullable_to_non_nullable
-              as String?,
       user_id: user_id == freezed
           ? _value.user_id
           : user_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      room_id: room_id == freezed
+          ? _value.room_id
+          : room_id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1867,7 +1867,7 @@ abstract class _$InviteRequestCopyWith<$Res>
           _InviteRequest value, $Res Function(_InviteRequest) then) =
       __$InviteRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? room_id, String? user_id});
+  $Res call({String? user_id, String? room_id});
 }
 
 /// @nodoc
@@ -1883,17 +1883,17 @@ class __$InviteRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? room_id = freezed,
     Object? user_id = freezed,
+    Object? room_id = freezed,
   }) {
     return _then(_InviteRequest(
-      room_id: room_id == freezed
-          ? _value.room_id
-          : room_id // ignore: cast_nullable_to_non_nullable
-              as String?,
       user_id: user_id == freezed
           ? _value.user_id
           : user_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      room_id: room_id == freezed
+          ? _value.room_id
+          : room_id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1902,23 +1902,23 @@ class __$InviteRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_InviteRequest implements _InviteRequest {
-  const _$_InviteRequest({this.room_id, this.user_id});
+  const _$_InviteRequest({this.user_id, this.room_id});
 
   factory _$_InviteRequest.fromJson(Map<String, dynamic> json) =>
       _$$_InviteRequestFromJson(json);
 
   @override
 
-  /// the room id
-  final String? room_id;
-  @override
-
   /// the user id
   final String? user_id;
+  @override
+
+  /// the room id
+  final String? room_id;
 
   @override
   String toString() {
-    return 'InviteRequest(room_id: $room_id, user_id: $user_id)';
+    return 'InviteRequest(user_id: $user_id, room_id: $room_id)';
   }
 
   @override
@@ -1926,15 +1926,15 @@ class _$_InviteRequest implements _InviteRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _InviteRequest &&
-            const DeepCollectionEquality().equals(other.room_id, room_id) &&
-            const DeepCollectionEquality().equals(other.user_id, user_id));
+            const DeepCollectionEquality().equals(other.user_id, user_id) &&
+            const DeepCollectionEquality().equals(other.room_id, room_id));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(room_id),
-      const DeepCollectionEquality().hash(user_id));
+      const DeepCollectionEquality().hash(user_id),
+      const DeepCollectionEquality().hash(room_id));
 
   @JsonKey(ignore: true)
   @override
@@ -1948,7 +1948,7 @@ class _$_InviteRequest implements _InviteRequest {
 }
 
 abstract class _InviteRequest implements InviteRequest {
-  const factory _InviteRequest({String? room_id, String? user_id}) =
+  const factory _InviteRequest({String? user_id, String? room_id}) =
       _$_InviteRequest;
 
   factory _InviteRequest.fromJson(Map<String, dynamic> json) =
@@ -1956,12 +1956,12 @@ abstract class _InviteRequest implements InviteRequest {
 
   @override
 
-  /// the room id
-  String? get room_id;
-  @override
-
   /// the user id
   String? get user_id;
+  @override
+
+  /// the room id
+  String? get room_id;
   @override
   @JsonKey(ignore: true)
   _$InviteRequestCopyWith<_InviteRequest> get copyWith =>
