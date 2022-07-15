@@ -36,6 +36,9 @@ class TunnelService {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
+    /// body of the request
+    String? body,
+
     /// headers to include e.g Content-Type: application/json
     Map<String, String>? headers,
 
@@ -53,9 +56,6 @@ class SendRequest with _$SendRequest {
 
     /// alternatively specify a full url e.g https://www.google.com/news
     String? url,
-
-    /// body of the request
-    String? body,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);
@@ -64,17 +64,17 @@ class SendRequest with _$SendRequest {
 @Freezed()
 class SendResponse with _$SendResponse {
   const factory SendResponse({
-    /// body of the response
-    String? body,
-
-    /// headers included
-    Map<String, String>? headers,
-
     /// the status
     String? status,
 
     /// the status code
     int? status_code,
+
+    /// body of the response
+    String? body,
+
+    /// headers included
+    Map<String, String>? headers,
   }) = SendResponseData;
   const factory SendResponse.Merr({Map<String, dynamic>? body}) =
       SendResponseMerr;
