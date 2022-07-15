@@ -14,6 +14,596 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+BalanceRequest _$BalanceRequestFromJson(Map<String, dynamic> json) {
+  return _BalanceRequest.fromJson(json);
+}
+
+/// @nodoc
+class _$BalanceRequestTearOff {
+  const _$BalanceRequestTearOff();
+
+  _BalanceRequest call({String? address}) {
+    return _BalanceRequest(
+      address: address,
+    );
+  }
+
+  BalanceRequest fromJson(Map<String, Object?> json) {
+    return BalanceRequest.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $BalanceRequest = _$BalanceRequestTearOff();
+
+/// @nodoc
+mixin _$BalanceRequest {
+  /// address to lookup
+  String? get address => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $BalanceRequestCopyWith<BalanceRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BalanceRequestCopyWith<$Res> {
+  factory $BalanceRequestCopyWith(
+          BalanceRequest value, $Res Function(BalanceRequest) then) =
+      _$BalanceRequestCopyWithImpl<$Res>;
+  $Res call({String? address});
+}
+
+/// @nodoc
+class _$BalanceRequestCopyWithImpl<$Res>
+    implements $BalanceRequestCopyWith<$Res> {
+  _$BalanceRequestCopyWithImpl(this._value, this._then);
+
+  final BalanceRequest _value;
+  // ignore: unused_field
+  final $Res Function(BalanceRequest) _then;
+
+  @override
+  $Res call({
+    Object? address = freezed,
+  }) {
+    return _then(_value.copyWith(
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$BalanceRequestCopyWith<$Res>
+    implements $BalanceRequestCopyWith<$Res> {
+  factory _$BalanceRequestCopyWith(
+          _BalanceRequest value, $Res Function(_BalanceRequest) then) =
+      __$BalanceRequestCopyWithImpl<$Res>;
+  @override
+  $Res call({String? address});
+}
+
+/// @nodoc
+class __$BalanceRequestCopyWithImpl<$Res>
+    extends _$BalanceRequestCopyWithImpl<$Res>
+    implements _$BalanceRequestCopyWith<$Res> {
+  __$BalanceRequestCopyWithImpl(
+      _BalanceRequest _value, $Res Function(_BalanceRequest) _then)
+      : super(_value, (v) => _then(v as _BalanceRequest));
+
+  @override
+  _BalanceRequest get _value => super._value as _BalanceRequest;
+
+  @override
+  $Res call({
+    Object? address = freezed,
+  }) {
+    return _then(_BalanceRequest(
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_BalanceRequest implements _BalanceRequest {
+  const _$_BalanceRequest({this.address});
+
+  factory _$_BalanceRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_BalanceRequestFromJson(json);
+
+  @override
+
+  /// address to lookup
+  final String? address;
+
+  @override
+  String toString() {
+    return 'BalanceRequest(address: $address)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _BalanceRequest &&
+            const DeepCollectionEquality().equals(other.address, address));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(address));
+
+  @JsonKey(ignore: true)
+  @override
+  _$BalanceRequestCopyWith<_BalanceRequest> get copyWith =>
+      __$BalanceRequestCopyWithImpl<_BalanceRequest>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_BalanceRequestToJson(this);
+  }
+}
+
+abstract class _BalanceRequest implements BalanceRequest {
+  const factory _BalanceRequest({String? address}) = _$_BalanceRequest;
+
+  factory _BalanceRequest.fromJson(Map<String, dynamic> json) =
+      _$_BalanceRequest.fromJson;
+
+  @override
+
+  /// address to lookup
+  String? get address;
+  @override
+  @JsonKey(ignore: true)
+  _$BalanceRequestCopyWith<_BalanceRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+BalanceResponse _$BalanceResponseFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'default':
+      return BalanceResponseData.fromJson(json);
+    case 'Merr':
+      return BalanceResponseMerr.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'BalanceResponse',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
+/// @nodoc
+class _$BalanceResponseTearOff {
+  const _$BalanceResponseTearOff();
+
+  BalanceResponseData call(
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? balance}) {
+    return BalanceResponseData(
+      balance: balance,
+    );
+  }
+
+  BalanceResponseMerr Merr({Map<String, dynamic>? body}) {
+    return BalanceResponseMerr(
+      body: body,
+    );
+  }
+
+  BalanceResponse fromJson(Map<String, Object?> json) {
+    return BalanceResponse.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $BalanceResponse = _$BalanceResponseTearOff();
+
+/// @nodoc
+mixin _$BalanceResponse {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? balance)
+        $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? balance)?
+        $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? balance)?
+        $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(BalanceResponseData value) $default, {
+    required TResult Function(BalanceResponseMerr value) Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(BalanceResponseData value)? $default, {
+    TResult Function(BalanceResponseMerr value)? Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(BalanceResponseData value)? $default, {
+    TResult Function(BalanceResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BalanceResponseCopyWith<$Res> {
+  factory $BalanceResponseCopyWith(
+          BalanceResponse value, $Res Function(BalanceResponse) then) =
+      _$BalanceResponseCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$BalanceResponseCopyWithImpl<$Res>
+    implements $BalanceResponseCopyWith<$Res> {
+  _$BalanceResponseCopyWithImpl(this._value, this._then);
+
+  final BalanceResponse _value;
+  // ignore: unused_field
+  final $Res Function(BalanceResponse) _then;
+}
+
+/// @nodoc
+abstract class $BalanceResponseDataCopyWith<$Res> {
+  factory $BalanceResponseDataCopyWith(
+          BalanceResponseData value, $Res Function(BalanceResponseData) then) =
+      _$BalanceResponseDataCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? balance});
+}
+
+/// @nodoc
+class _$BalanceResponseDataCopyWithImpl<$Res>
+    extends _$BalanceResponseCopyWithImpl<$Res>
+    implements $BalanceResponseDataCopyWith<$Res> {
+  _$BalanceResponseDataCopyWithImpl(
+      BalanceResponseData _value, $Res Function(BalanceResponseData) _then)
+      : super(_value, (v) => _then(v as BalanceResponseData));
+
+  @override
+  BalanceResponseData get _value => super._value as BalanceResponseData;
+
+  @override
+  $Res call({
+    Object? balance = freezed,
+  }) {
+    return _then(BalanceResponseData(
+      balance: balance == freezed
+          ? _value.balance
+          : balance // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$BalanceResponseData implements BalanceResponseData {
+  const _$BalanceResponseData(
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.balance,
+      String? $type})
+      : $type = $type ?? 'default';
+
+  factory _$BalanceResponseData.fromJson(Map<String, dynamic> json) =>
+      _$$BalanceResponseDataFromJson(json);
+
+  @override
+
+  /// total BTC as satoshis
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? balance;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'BalanceResponse(balance: $balance)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is BalanceResponseData &&
+            const DeepCollectionEquality().equals(other.balance, balance));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(balance));
+
+  @JsonKey(ignore: true)
+  @override
+  $BalanceResponseDataCopyWith<BalanceResponseData> get copyWith =>
+      _$BalanceResponseDataCopyWithImpl<BalanceResponseData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? balance)
+        $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) {
+    return $default(balance);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? balance)?
+        $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+  }) {
+    return $default?.call(balance);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? balance)?
+        $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(balance);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(BalanceResponseData value) $default, {
+    required TResult Function(BalanceResponseMerr value) Merr,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(BalanceResponseData value)? $default, {
+    TResult Function(BalanceResponseMerr value)? Merr,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(BalanceResponseData value)? $default, {
+    TResult Function(BalanceResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$BalanceResponseDataToJson(this);
+  }
+}
+
+abstract class BalanceResponseData implements BalanceResponse {
+  const factory BalanceResponseData(
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? balance}) = _$BalanceResponseData;
+
+  factory BalanceResponseData.fromJson(Map<String, dynamic> json) =
+      _$BalanceResponseData.fromJson;
+
+  /// total BTC as satoshis
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get balance;
+  @JsonKey(ignore: true)
+  $BalanceResponseDataCopyWith<BalanceResponseData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BalanceResponseMerrCopyWith<$Res> {
+  factory $BalanceResponseMerrCopyWith(
+          BalanceResponseMerr value, $Res Function(BalanceResponseMerr) then) =
+      _$BalanceResponseMerrCopyWithImpl<$Res>;
+  $Res call({Map<String, dynamic>? body});
+}
+
+/// @nodoc
+class _$BalanceResponseMerrCopyWithImpl<$Res>
+    extends _$BalanceResponseCopyWithImpl<$Res>
+    implements $BalanceResponseMerrCopyWith<$Res> {
+  _$BalanceResponseMerrCopyWithImpl(
+      BalanceResponseMerr _value, $Res Function(BalanceResponseMerr) _then)
+      : super(_value, (v) => _then(v as BalanceResponseMerr));
+
+  @override
+  BalanceResponseMerr get _value => super._value as BalanceResponseMerr;
+
+  @override
+  $Res call({
+    Object? body = freezed,
+  }) {
+    return _then(BalanceResponseMerr(
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$BalanceResponseMerr implements BalanceResponseMerr {
+  const _$BalanceResponseMerr({this.body, String? $type})
+      : $type = $type ?? 'Merr';
+
+  factory _$BalanceResponseMerr.fromJson(Map<String, dynamic> json) =>
+      _$$BalanceResponseMerrFromJson(json);
+
+  @override
+  final Map<String, dynamic>? body;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'BalanceResponse.Merr(body: $body)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is BalanceResponseMerr &&
+            const DeepCollectionEquality().equals(other.body, body));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
+
+  @JsonKey(ignore: true)
+  @override
+  $BalanceResponseMerrCopyWith<BalanceResponseMerr> get copyWith =>
+      _$BalanceResponseMerrCopyWithImpl<BalanceResponseMerr>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? balance)
+        $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) {
+    return Merr(body);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? balance)?
+        $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+  }) {
+    return Merr?.call(body);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? balance)?
+        $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) {
+    if (Merr != null) {
+      return Merr(body);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(BalanceResponseData value) $default, {
+    required TResult Function(BalanceResponseMerr value) Merr,
+  }) {
+    return Merr(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(BalanceResponseData value)? $default, {
+    TResult Function(BalanceResponseMerr value)? Merr,
+  }) {
+    return Merr?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(BalanceResponseData value)? $default, {
+    TResult Function(BalanceResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) {
+    if (Merr != null) {
+      return Merr(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$BalanceResponseMerrToJson(this);
+  }
+}
+
+abstract class BalanceResponseMerr implements BalanceResponse {
+  const factory BalanceResponseMerr({Map<String, dynamic>? body}) =
+      _$BalanceResponseMerr;
+
+  factory BalanceResponseMerr.fromJson(Map<String, dynamic> json) =
+      _$BalanceResponseMerr.fromJson;
+
+  Map<String, dynamic>? get body;
+  @JsonKey(ignore: true)
+  $BalanceResponseMerrCopyWith<BalanceResponseMerr> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 PriceRequest _$PriceRequestFromJson(Map<String, dynamic> json) {
   return _PriceRequest.fromJson(json);
 }

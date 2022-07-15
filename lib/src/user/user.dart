@@ -520,14 +520,14 @@ class LogoutResponse with _$LogoutResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
-    /// the account username
-    String? username,
-
     /// the account email
     String? email,
 
     /// the account id
     String? id,
+
+    /// the account username
+    String? username,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);
@@ -569,6 +569,9 @@ class ReadSessionResponse with _$ReadSessionResponse {
 @Freezed()
 class ResetPasswordRequest with _$ResetPasswordRequest {
   const factory ResetPasswordRequest({
+    /// The code from the verification email
+    String? code,
+
     /// confirm new password
     String? confirm_password,
 
@@ -577,9 +580,6 @@ class ResetPasswordRequest with _$ResetPasswordRequest {
 
     /// the new password
     String? new_password,
-
-    /// The code from the verification email
-    String? code,
   }) = _ResetPasswordRequest;
   factory ResetPasswordRequest.fromJson(Map<String, dynamic> json) =>
       _$ResetPasswordRequestFromJson(json);
@@ -597,6 +597,9 @@ class ResetPasswordResponse with _$ResetPasswordResponse {
 @Freezed()
 class SendMagicLinkRequest with _$SendMagicLinkRequest {
   const factory SendMagicLinkRequest({
+    /// the email address of the user
+    String? email,
+
     /// Endpoint name where your http request handler handles MagicLink by
     /// calling M3O VerifyToken endpoint. You can return as a result a success,
     /// failed or redirect to another page.
@@ -612,9 +615,6 @@ class SendMagicLinkRequest with _$SendMagicLinkRequest {
 
     /// Your web site address, example www.example.com or user.example.com
     String? address,
-
-    /// the email address of the user
-    String? email,
   }) = _SendMagicLinkRequest;
   factory SendMagicLinkRequest.fromJson(Map<String, dynamic> json) =>
       _$SendMagicLinkRequestFromJson(json);

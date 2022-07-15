@@ -6,6 +6,44 @@ part of 'bitcoin.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$_BalanceRequest _$$_BalanceRequestFromJson(Map<String, dynamic> json) =>
+    _$_BalanceRequest(
+      address: json['address'] as String?,
+    );
+
+Map<String, dynamic> _$$_BalanceRequestToJson(_$_BalanceRequest instance) =>
+    <String, dynamic>{
+      'address': instance.address,
+    };
+
+_$BalanceResponseData _$$BalanceResponseDataFromJson(
+        Map<String, dynamic> json) =>
+    _$BalanceResponseData(
+      balance: int64FromString(json['balance'] as String?),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$BalanceResponseDataToJson(
+        _$BalanceResponseData instance) =>
+    <String, dynamic>{
+      'balance': int64ToString(instance.balance),
+      'runtimeType': instance.$type,
+    };
+
+_$BalanceResponseMerr _$$BalanceResponseMerrFromJson(
+        Map<String, dynamic> json) =>
+    _$BalanceResponseMerr(
+      body: json['body'] as Map<String, dynamic>?,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$BalanceResponseMerrToJson(
+        _$BalanceResponseMerr instance) =>
+    <String, dynamic>{
+      'body': instance.body,
+      'runtimeType': instance.$type,
+    };
+
 _$_PriceRequest _$$_PriceRequestFromJson(Map<String, dynamic> json) =>
     _$_PriceRequest(
       symbol: json['symbol'] as String?,

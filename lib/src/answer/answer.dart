@@ -46,14 +46,14 @@ class QuestionRequest with _$QuestionRequest {
 @Freezed()
 class QuestionResponse with _$QuestionResponse {
   const factory QuestionResponse({
+    /// any related image
+    String? image,
+
     /// a related url
     String? url,
 
     /// the answer to your question
     String? answer,
-
-    /// any related image
-    String? image,
   }) = QuestionResponseData;
   const factory QuestionResponse.Merr({Map<String, dynamic>? body}) =
       QuestionResponseMerr;
