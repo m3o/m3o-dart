@@ -1,3 +1,9 @@
+## v1.0.122 - 2022-07-15
+
+[6dfa96](https://github.com/micro/services/commit/6dfa969d0fa28a2d5fbb8275bc2cd0418d164783) .
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.121...v1.0.122
+
 ## v1.0.121 - 2022-07-15
 
 [6dfa96](https://github.com/micro/services/commit/6dfa969d0fa28a2d5fbb8275bc2cd0418d164783) .
