@@ -1,3 +1,9 @@
+## v1.0.119 - 2022-07-15
+
+[364bbb](https://github.com/micro/services/commit/364bbb4e73ac40b8173fcc2c3d7a37e5ed7c0cd5) add bitcoin balance endpoint
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.118...v1.0.119
+
 ## v1.0.118 - 2022-07-12
 
 [a0ebf2](https://github.com/micro/services/commit/a0ebf2b24e32c1d29e7949b88ae3ae31d3164be8) update spam pricing
