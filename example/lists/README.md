@@ -4,6 +4,80 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/lists/api](htt
 
 Endpoints:
 
+## Delete
+
+Delete a list
+
+
+[https://m3o.com/lists/api#Delete](https://m3o.com/lists/api#Delete)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/lists/lists.dart';
+
+void main() async {
+  final ser = ListsService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
+,};
+
+  DeleteRequest req = DeleteRequest.fromJson(payload);
+
+  
+  try {
+
+	DeleteResponse res = await ser.delete(req);
+
+    res.map((value) => print(value),
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Events
+
+Subscribe to lists events
+
+
+[https://m3o.com/lists/api#Events](https://m3o.com/lists/api#Events)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/lists/lists.dart';
+
+void main() async {
+  final ser = ListsService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
+,};
+
+  EventsRequest req = EventsRequest.fromJson(payload);
+
+  
+  	
+  try {
+
+    final res = await ser.events(req);
+
+	  await for (var sr in res) {
+	  sr.map((value) => print(value),
+		Merr: (EventsResponseMerr err) => print(err.body));
+	  }
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Create
 
 Create a new list
@@ -148,80 +222,6 @@ void main() async {
     res.map((value) => print(value),
 	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
   
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Delete
-
-Delete a list
-
-
-[https://m3o.com/lists/api#Delete](https://m3o.com/lists/api#Delete)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/lists/lists.dart';
-
-void main() async {
-  final ser = ListsService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
-,};
-
-  DeleteRequest req = DeleteRequest.fromJson(payload);
-
-  
-  try {
-
-	DeleteResponse res = await ser.delete(req);
-
-    res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Events
-
-Subscribe to lists events
-
-
-[https://m3o.com/lists/api#Events](https://m3o.com/lists/api#Events)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/lists/lists.dart';
-
-void main() async {
-  final ser = ListsService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
-,};
-
-  EventsRequest req = EventsRequest.fromJson(payload);
-
-  
-  	
-  try {
-
-    final res = await ser.events(req);
-
-	  await for (var sr in res) {
-	  sr.map((value) => print(value),
-		Merr: (EventsResponseMerr err) => print(err.body));
-	  }
   } catch (e) {
     print(e);
   } finally {

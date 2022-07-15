@@ -107,8 +107,8 @@ class ZoneResponse with _$ZoneResponse {
     /// e.g 51.42
     double? latitude,
 
-    /// the local time
-    String? localtime,
+    /// UTC offset in hours
+    int? offset,
 
     /// region of timezone
     String? region,
@@ -119,17 +119,17 @@ class ZoneResponse with _$ZoneResponse {
     /// the abbreviated code e.g BST
     String? abbreviation,
 
+    /// country of the timezone
+    String? country,
+
+    /// the local time
+    String? localtime,
+
     /// location requested
     String? location,
 
     /// e.g -0.37
     double? longitude,
-
-    /// UTC offset in hours
-    int? offset,
-
-    /// country of the timezone
-    String? country,
   }) = ZoneResponseData;
   const factory ZoneResponse.Merr({Map<String, dynamic>? body}) =
       ZoneResponseMerr;
