@@ -100,11 +100,20 @@ class Profile with _$Profile {
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
 
+    /// the user's location
+    String? location,
+
+    /// display name of the user
+    String? name,
+
     /// if the account is private
     bool? private,
 
     /// the account creation date
     String? created_at,
+
+    /// the user description
+    String? description,
 
     /// the follower count
 
@@ -113,20 +122,11 @@ class Profile with _$Profile {
     /// The user's profile picture
     String? image_url,
 
-    /// the user's location
-    String? location,
-
-    /// display name of the user
-    String? name,
-
     /// the username
     String? username,
 
     /// if the account is verified
     bool? verified,
-
-    /// the user description
-    String? description,
   }) = _Profile;
   factory Profile.fromJson(Map<String, dynamic> json) =>
       _$ProfileFromJson(json);
@@ -221,6 +221,12 @@ class TrendsResponse with _$TrendsResponse {
 @Freezed()
 class Tweet with _$Tweet {
   const factory Tweet({
+    /// text of the tweet
+    String? text,
+
+    /// username of the person who tweeted
+    String? username,
+
     /// time of tweet
     String? created_at,
 
@@ -237,12 +243,6 @@ class Tweet with _$Tweet {
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString)
         int? retweeted_count,
-
-    /// text of the tweet
-    String? text,
-
-    /// username of the person who tweeted
-    String? username,
   }) = _Tweet;
   factory Tweet.fromJson(Map<String, dynamic> json) => _$TweetFromJson(json);
 }

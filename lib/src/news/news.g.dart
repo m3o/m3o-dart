@@ -7,36 +7,36 @@ part of 'news.dart';
 // **************************************************************************
 
 _$_Article _$$_ArticleFromJson(Map<String, dynamic> json) => _$_Article(
-      id: json['id'] as String?,
-      keywords: json['keywords'] as String?,
-      source: json['source'] as String?,
-      locale: json['locale'] as String?,
-      published_at: json['published_at'] as String?,
-      snippet: json['snippet'] as String?,
-      title: json['title'] as String?,
-      categories: (json['categories'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
       description: json['description'] as String?,
       image_url: json['image_url'] as String?,
       language: json['language'] as String?,
+      locale: json['locale'] as String?,
       url: json['url'] as String?,
+      categories: (json['categories'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      id: json['id'] as String?,
+      keywords: json['keywords'] as String?,
+      published_at: json['published_at'] as String?,
+      snippet: json['snippet'] as String?,
+      source: json['source'] as String?,
+      title: json['title'] as String?,
     );
 
 Map<String, dynamic> _$$_ArticleToJson(_$_Article instance) =>
     <String, dynamic>{
-      'id': instance.id,
-      'keywords': instance.keywords,
-      'source': instance.source,
-      'locale': instance.locale,
-      'published_at': instance.published_at,
-      'snippet': instance.snippet,
-      'title': instance.title,
-      'categories': instance.categories,
       'description': instance.description,
       'image_url': instance.image_url,
       'language': instance.language,
+      'locale': instance.locale,
       'url': instance.url,
+      'categories': instance.categories,
+      'id': instance.id,
+      'keywords': instance.keywords,
+      'published_at': instance.published_at,
+      'snippet': instance.snippet,
+      'source': instance.source,
+      'title': instance.title,
     };
 
 _$_HeadlinesRequest _$$_HeadlinesRequestFromJson(Map<String, dynamic> json) =>

@@ -348,11 +348,11 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class RenameTableRequest with _$RenameTableRequest {
   const factory RenameTableRequest({
-    /// new table name
-    String? to,
-
     /// current table name
     String? from,
+
+    /// new table name
+    String? to,
   }) = _RenameTableRequest;
   factory RenameTableRequest.fromJson(Map<String, dynamic> json) =>
       _$RenameTableRequestFromJson(json);

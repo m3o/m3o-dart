@@ -239,15 +239,15 @@ Map<String, dynamic> _$$ReadResponseMerrToJson(_$ReadResponseMerr instance) =>
 _$_RenameTableRequest _$$_RenameTableRequestFromJson(
         Map<String, dynamic> json) =>
     _$_RenameTableRequest(
-      to: json['to'] as String?,
       from: json['from'] as String?,
+      to: json['to'] as String?,
     );
 
 Map<String, dynamic> _$$_RenameTableRequestToJson(
         _$_RenameTableRequest instance) =>
     <String, dynamic>{
-      'to': instance.to,
       'from': instance.from,
+      'to': instance.to,
     };
 
 _$RenameTableResponseData _$$RenameTableResponseDataFromJson(

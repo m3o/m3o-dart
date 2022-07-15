@@ -3474,10 +3474,10 @@ RenameTableRequest _$RenameTableRequestFromJson(Map<String, dynamic> json) {
 class _$RenameTableRequestTearOff {
   const _$RenameTableRequestTearOff();
 
-  _RenameTableRequest call({String? to, String? from}) {
+  _RenameTableRequest call({String? from, String? to}) {
     return _RenameTableRequest(
-      to: to,
       from: from,
+      to: to,
     );
   }
 
@@ -3491,11 +3491,11 @@ const $RenameTableRequest = _$RenameTableRequestTearOff();
 
 /// @nodoc
 mixin _$RenameTableRequest {
-  /// new table name
-  String? get to => throw _privateConstructorUsedError;
-
   /// current table name
   String? get from => throw _privateConstructorUsedError;
+
+  /// new table name
+  String? get to => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -3508,7 +3508,7 @@ abstract class $RenameTableRequestCopyWith<$Res> {
   factory $RenameTableRequestCopyWith(
           RenameTableRequest value, $Res Function(RenameTableRequest) then) =
       _$RenameTableRequestCopyWithImpl<$Res>;
-  $Res call({String? to, String? from});
+  $Res call({String? from, String? to});
 }
 
 /// @nodoc
@@ -3522,17 +3522,17 @@ class _$RenameTableRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? to = freezed,
     Object? from = freezed,
+    Object? to = freezed,
   }) {
     return _then(_value.copyWith(
-      to: to == freezed
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as String?,
       from: from == freezed
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
+              as String?,
+      to: to == freezed
+          ? _value.to
+          : to // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -3545,7 +3545,7 @@ abstract class _$RenameTableRequestCopyWith<$Res>
           _RenameTableRequest value, $Res Function(_RenameTableRequest) then) =
       __$RenameTableRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? to, String? from});
+  $Res call({String? from, String? to});
 }
 
 /// @nodoc
@@ -3561,17 +3561,17 @@ class __$RenameTableRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? to = freezed,
     Object? from = freezed,
+    Object? to = freezed,
   }) {
     return _then(_RenameTableRequest(
-      to: to == freezed
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as String?,
       from: from == freezed
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
+              as String?,
+      to: to == freezed
+          ? _value.to
+          : to // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -3580,23 +3580,23 @@ class __$RenameTableRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RenameTableRequest implements _RenameTableRequest {
-  const _$_RenameTableRequest({this.to, this.from});
+  const _$_RenameTableRequest({this.from, this.to});
 
   factory _$_RenameTableRequest.fromJson(Map<String, dynamic> json) =>
       _$$_RenameTableRequestFromJson(json);
 
   @override
 
-  /// new table name
-  final String? to;
-  @override
-
   /// current table name
   final String? from;
+  @override
+
+  /// new table name
+  final String? to;
 
   @override
   String toString() {
-    return 'RenameTableRequest(to: $to, from: $from)';
+    return 'RenameTableRequest(from: $from, to: $to)';
   }
 
   @override
@@ -3604,15 +3604,15 @@ class _$_RenameTableRequest implements _RenameTableRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _RenameTableRequest &&
-            const DeepCollectionEquality().equals(other.to, to) &&
-            const DeepCollectionEquality().equals(other.from, from));
+            const DeepCollectionEquality().equals(other.from, from) &&
+            const DeepCollectionEquality().equals(other.to, to));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(to),
-      const DeepCollectionEquality().hash(from));
+      const DeepCollectionEquality().hash(from),
+      const DeepCollectionEquality().hash(to));
 
   @JsonKey(ignore: true)
   @override
@@ -3626,7 +3626,7 @@ class _$_RenameTableRequest implements _RenameTableRequest {
 }
 
 abstract class _RenameTableRequest implements RenameTableRequest {
-  const factory _RenameTableRequest({String? to, String? from}) =
+  const factory _RenameTableRequest({String? from, String? to}) =
       _$_RenameTableRequest;
 
   factory _RenameTableRequest.fromJson(Map<String, dynamic> json) =
@@ -3634,12 +3634,12 @@ abstract class _RenameTableRequest implements RenameTableRequest {
 
   @override
 
-  /// new table name
-  String? get to;
-  @override
-
   /// current table name
   String? get from;
+  @override
+
+  /// new table name
+  String? get to;
   @override
   @JsonKey(ignore: true)
   _$RenameTableRequestCopyWith<_RenameTableRequest> get copyWith =>

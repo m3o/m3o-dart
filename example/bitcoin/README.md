@@ -4,6 +4,42 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/bitcoin/api](h
 
 Endpoints:
 
+## Price
+
+Get the price of bitcoin
+
+
+[https://m3o.com/bitcoin/api#Price](https://m3o.com/bitcoin/api#Price)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/bitcoin/bitcoin.dart';
+
+void main() async {
+  final ser = BitcoinService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "symbol": "BTCUSD"
+,};
+
+  PriceRequest req = PriceRequest.fromJson(payload);
+
+  
+  try {
+
+	PriceResponse res = await ser.price(req);
+
+    res.map((value) => print(value),
+	  Merr: (PriceResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Balance
 
 Get the BTC balance of an address
@@ -40,12 +76,12 @@ void main() async {
   }
 }
 ```
-## Price
+## Transaction
 
-Get the price of bitcoin
+Get the details of a transaction
 
 
-[https://m3o.com/bitcoin/api#Price](https://m3o.com/bitcoin/api#Price)
+[https://m3o.com/bitcoin/api#Transaction](https://m3o.com/bitcoin/api#Transaction)
 
 ```dart
 import 'dart:io';
@@ -56,18 +92,18 @@ void main() async {
   final ser = BitcoinService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "symbol": "BTCUSD"
+  "hash": "f854aebae95150b379cc1187d848d58225f3c4157fe992bcd166f58bd5063449"
 ,};
 
-  PriceRequest req = PriceRequest.fromJson(payload);
+  TransactionRequest req = TransactionRequest.fromJson(payload);
 
   
   try {
 
-	PriceResponse res = await ser.price(req);
+	TransactionResponse res = await ser.transaction(req);
 
     res.map((value) => print(value),
-	  Merr: (PriceResponseMerr err) => print(err.body!['body']));	
+	  Merr: (TransactionResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
