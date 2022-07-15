@@ -1,3 +1,9 @@
+## v1.0.120 - 2022-07-15
+
+[f5858a](https://github.com/micro/services/commit/f5858a836cb3a61495664ff42dce2095d61881ef) .
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.119...v1.0.120
+
 ## v1.0.119 - 2022-07-15
 
 [364bbb](https://github.com/micro/services/commit/364bbb4e73ac40b8173fcc2c3d7a37e5ed7c0cd5) add bitcoin balance endpoint
