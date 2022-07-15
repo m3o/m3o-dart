@@ -50,16 +50,16 @@ Map<String, dynamic> _$$CodesResponseMerrToJson(_$CodesResponseMerr instance) =>
 
 _$_ConvertRequest _$$_ConvertRequestFromJson(Map<String, dynamic> json) =>
     _$_ConvertRequest(
+      to: json['to'] as String?,
       amount: (json['amount'] as num?)?.toDouble(),
       from: json['from'] as String?,
-      to: json['to'] as String?,
     );
 
 Map<String, dynamic> _$$_ConvertRequestToJson(_$_ConvertRequest instance) =>
     <String, dynamic>{
+      'to': instance.to,
       'amount': instance.amount,
       'from': instance.from,
-      'to': instance.to,
     };
 
 _$ConvertResponseData _$$ConvertResponseDataFromJson(
@@ -111,20 +111,20 @@ Map<String, dynamic> _$$_HistoryRequestToJson(_$_HistoryRequest instance) =>
 _$HistoryResponseData _$$HistoryResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$HistoryResponseData(
+      date: json['date'] as String?,
       rates: (json['rates'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, (e as num).toDouble()),
       ),
       code: json['code'] as String?,
-      date: json['date'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$HistoryResponseDataToJson(
         _$HistoryResponseData instance) =>
     <String, dynamic>{
+      'date': instance.date,
       'rates': instance.rates,
       'code': instance.code,
-      'date': instance.date,
       'runtimeType': instance.$type,
     };
 

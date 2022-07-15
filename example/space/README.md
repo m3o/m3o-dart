@@ -4,116 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/space/api](htt
 
 Endpoints:
 
-## Update
-
-Update an object. If an object with this name does not exist, creates a new one.
-
-
-[https://m3o.com/space/api#Update](https://m3o.com/space/api#Update)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/space/space.dart';
-
-void main() async {
-  final ser = SpaceService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "name": "images/file.jpg",
-  "object": "\u003cfile bytes\u003e",
-  "visibility": "public"
-,};
-
-  UpdateRequest req = UpdateRequest.fromJson(payload);
-
-  
-  try {
-
-	UpdateResponse res = await ser.update(req);
-
-    res.map((value) => print(value),
-	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Delete
-
-Delete an object from space
-
-
-[https://m3o.com/space/api#Delete](https://m3o.com/space/api#Delete)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/space/space.dart';
-
-void main() async {
-  final ser = SpaceService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "name": "images/file.jpg"
-,};
-
-  DeleteRequest req = DeleteRequest.fromJson(payload);
-
-  
-  try {
-
-	DeleteResponse res = await ser.delete(req);
-
-    res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## List
-
-List the objects in space
-
-
-[https://m3o.com/space/api#List](https://m3o.com/space/api#List)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/space/space.dart';
-
-void main() async {
-  final ser = SpaceService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "prefix": "images/"
-,};
-
-  ListRequest req = ListRequest.fromJson(payload);
-
-  
-  try {
-
-	ListResponse res = await ser.list(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Head
 
 Retrieve meta information about an object
@@ -288,6 +178,116 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (CreateResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Update
+
+Update an object. If an object with this name does not exist, creates a new one.
+
+
+[https://m3o.com/space/api#Update](https://m3o.com/space/api#Update)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/space/space.dart';
+
+void main() async {
+  final ser = SpaceService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "name": "images/file.jpg",
+  "object": "\u003cfile bytes\u003e",
+  "visibility": "public"
+,};
+
+  UpdateRequest req = UpdateRequest.fromJson(payload);
+
+  
+  try {
+
+	UpdateResponse res = await ser.update(req);
+
+    res.map((value) => print(value),
+	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Delete
+
+Delete an object from space
+
+
+[https://m3o.com/space/api#Delete](https://m3o.com/space/api#Delete)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/space/space.dart';
+
+void main() async {
+  final ser = SpaceService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "name": "images/file.jpg"
+,};
+
+  DeleteRequest req = DeleteRequest.fromJson(payload);
+
+  
+  try {
+
+	DeleteResponse res = await ser.delete(req);
+
+    res.map((value) => print(value),
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## List
+
+List the objects in space
+
+
+[https://m3o.com/space/api#List](https://m3o.com/space/api#List)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/space/space.dart';
+
+void main() async {
+  final ser = SpaceService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "prefix": "images/"
+,};
+
+  ListRequest req = ListRequest.fromJson(payload);
+
+  
+  try {
+
+	ListResponse res = await ser.list(req);
+
+    res.map((value) => print(value),
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

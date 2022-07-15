@@ -8,20 +8,20 @@ part of 'chat.dart';
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
+      description: json['description'] as String?,
       name: json['name'] as String?,
       private: json['private'] as bool?,
       user_ids: (json['user_ids'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
+      'description': instance.description,
       'name': instance.name,
       'private': instance.private,
       'user_ids': instance.user_ids,
-      'description': instance.description,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -210,14 +210,14 @@ Map<String, dynamic> _$$JoinResponseMerrToJson(_$JoinResponseMerr instance) =>
 
 _$_KickRequest _$$_KickRequestFromJson(Map<String, dynamic> json) =>
     _$_KickRequest(
-      user_id: json['user_id'] as String?,
       room_id: json['room_id'] as String?,
+      user_id: json['user_id'] as String?,
     );
 
 Map<String, dynamic> _$$_KickRequestToJson(_$_KickRequest instance) =>
     <String, dynamic>{
-      'user_id': instance.user_id,
       'room_id': instance.room_id,
+      'user_id': instance.user_id,
     };
 
 _$KickResponseData _$$KickResponseDataFromJson(Map<String, dynamic> json) =>
@@ -342,6 +342,7 @@ Map<String, dynamic> _$$_MessageToJson(_$_Message instance) =>
     };
 
 _$_Room _$$_RoomFromJson(Map<String, dynamic> json) => _$_Room(
+      name: json['name'] as String?,
       private: json['private'] as bool?,
       user_ids: (json['user_ids'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -349,34 +350,33 @@ _$_Room _$$_RoomFromJson(Map<String, dynamic> json) => _$_Room(
       created_at: json['created_at'] as String?,
       description: json['description'] as String?,
       id: json['id'] as String?,
-      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_RoomToJson(_$_Room instance) => <String, dynamic>{
+      'name': instance.name,
       'private': instance.private,
       'user_ids': instance.user_ids,
       'created_at': instance.created_at,
       'description': instance.description,
       'id': instance.id,
-      'name': instance.name,
     };
 
 _$_SendRequest _$$_SendRequestFromJson(Map<String, dynamic> json) =>
     _$_SendRequest(
-      subject: json['subject'] as String?,
-      text: json['text'] as String?,
       user_id: json['user_id'] as String?,
       client: json['client'] as String?,
       room_id: json['room_id'] as String?,
+      subject: json['subject'] as String?,
+      text: json['text'] as String?,
     );
 
 Map<String, dynamic> _$$_SendRequestToJson(_$_SendRequest instance) =>
     <String, dynamic>{
-      'subject': instance.subject,
-      'text': instance.text,
       'user_id': instance.user_id,
       'client': instance.client,
       'room_id': instance.room_id,
+      'subject': instance.subject,
+      'text': instance.text,
     };
 
 _$SendResponseData _$$SendResponseDataFromJson(Map<String, dynamic> json) =>

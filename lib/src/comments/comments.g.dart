@@ -25,14 +25,14 @@ Map<String, dynamic> _$$_CommentToJson(_$_Comment instance) =>
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      subject: json['subject'] as String?,
       text: json['text'] as String?,
+      subject: json['subject'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
-      'subject': instance.subject,
       'text': instance.text,
+      'subject': instance.subject,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>

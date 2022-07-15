@@ -51,6 +51,26 @@ class BitcoinService {
       throw Exception(e);
     }
   }
+
+  /// Get the details of a transaction
+  Future<TransactionResponse> transaction(TransactionRequest req) async {
+    Request request = Request(
+      service: 'bitcoin',
+      endpoint: 'Transaction',
+      body: req.toJson(),
+    );
+
+    try {
+      Response res = await _client.call(request);
+      if (isError(res.body)) {
+        final err = Merr(res.toJson());
+        return TransactionResponse.Merr(body: err.b);
+      }
+      return TransactionResponseData.fromJson(res.body);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
 }
 
 @Freezed()
@@ -77,6 +97,42 @@ class BalanceResponse with _$BalanceResponse {
 }
 
 @Freezed()
+class Input with _$Input {
+  const factory Input({
+    Prev? prev_out,
+    String? script,
+  }) = _Input;
+  factory Input.fromJson(Map<String, dynamic> json) => _$InputFromJson(json);
+}
+
+@Freezed()
+class Output with _$Output {
+  const factory Output({
+    bool? spent,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? tx_index,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
+    String? address,
+    String? hash,
+    String? script,
+  }) = _Output;
+  factory Output.fromJson(Map<String, dynamic> json) => _$OutputFromJson(json);
+}
+
+@Freezed()
+class Prev with _$Prev {
+  const factory Prev({
+    String? address,
+    String? hash,
+    String? n,
+    String? script,
+    bool? spent,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? tx_index,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
+  }) = _Prev;
+  factory Prev.fromJson(Map<String, dynamic> json) => _$PrevFromJson(json);
+}
+
+@Freezed()
 class PriceRequest with _$PriceRequest {
   const factory PriceRequest({
     /// symbol to use e.g BTCUSD
@@ -99,4 +155,79 @@ class PriceResponse with _$PriceResponse {
       PriceResponseMerr;
   factory PriceResponse.fromJson(Map<String, dynamic> json) =>
       _$PriceResponseFromJson(json);
+}
+
+@Freezed()
+class TransactionRequest with _$TransactionRequest {
+  const factory TransactionRequest({
+    /// the transaction hash
+    String? hash,
+  }) = _TransactionRequest;
+  factory TransactionRequest.fromJson(Map<String, dynamic> json) =>
+      _$TransactionRequestFromJson(json);
+}
+
+@Freezed()
+class TransactionResponse with _$TransactionResponse {
+  const factory TransactionResponse({
+    /// inputs
+    List<Input>? inputs,
+
+    /// transaction size
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
+
+    /// weight
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? weight,
+
+    /// tx index
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? tx_index,
+
+    /// vout
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? vout_sz,
+
+    /// block height
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+        int? block_height,
+
+    /// blck index
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? block_index,
+
+    /// fees
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? fee,
+
+    /// outputs
+    List<Output>? outputs,
+
+    /// relay
+    String? relay,
+
+    /// the version
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? version,
+
+    /// vin
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? vin_sz,
+
+    /// double spend
+    bool? double_spend,
+
+    /// transaction hash
+    String? hash,
+
+    /// lock time
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? lock_time,
+  }) = TransactionResponseData;
+  const factory TransactionResponse.Merr({Map<String, dynamic>? body}) =
+      TransactionResponseMerr;
+  factory TransactionResponse.fromJson(Map<String, dynamic> json) =>
+      _$TransactionResponseFromJson(json);
 }

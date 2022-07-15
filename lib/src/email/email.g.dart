@@ -18,15 +18,15 @@ Map<String, dynamic> _$$_ParseRequestToJson(_$_ParseRequest instance) =>
 
 _$ParseResponseData _$$ParseResponseDataFromJson(Map<String, dynamic> json) =>
     _$ParseResponseData(
-      address: json['address'] as String?,
       name: json['name'] as String?,
+      address: json['address'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ParseResponseDataToJson(_$ParseResponseData instance) =>
     <String, dynamic>{
-      'address': instance.address,
       'name': instance.name,
+      'address': instance.address,
       'runtimeType': instance.$type,
     };
 

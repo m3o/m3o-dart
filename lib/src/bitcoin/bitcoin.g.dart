@@ -44,6 +44,56 @@ Map<String, dynamic> _$$BalanceResponseMerrToJson(
       'runtimeType': instance.$type,
     };
 
+_$_Input _$$_InputFromJson(Map<String, dynamic> json) => _$_Input(
+      prev_out: json['prev_out'] == null
+          ? null
+          : Prev.fromJson(json['prev_out'] as Map<String, dynamic>),
+      script: json['script'] as String?,
+    );
+
+Map<String, dynamic> _$$_InputToJson(_$_Input instance) => <String, dynamic>{
+      'prev_out': instance.prev_out,
+      'script': instance.script,
+    };
+
+_$_Output _$$_OutputFromJson(Map<String, dynamic> json) => _$_Output(
+      spent: json['spent'] as bool?,
+      tx_index: int64FromString(json['tx_index'] as String?),
+      value: int64FromString(json['value'] as String?),
+      address: json['address'] as String?,
+      hash: json['hash'] as String?,
+      script: json['script'] as String?,
+    );
+
+Map<String, dynamic> _$$_OutputToJson(_$_Output instance) => <String, dynamic>{
+      'spent': instance.spent,
+      'tx_index': int64ToString(instance.tx_index),
+      'value': int64ToString(instance.value),
+      'address': instance.address,
+      'hash': instance.hash,
+      'script': instance.script,
+    };
+
+_$_Prev _$$_PrevFromJson(Map<String, dynamic> json) => _$_Prev(
+      address: json['address'] as String?,
+      hash: json['hash'] as String?,
+      n: json['n'] as String?,
+      script: json['script'] as String?,
+      spent: json['spent'] as bool?,
+      tx_index: int64FromString(json['tx_index'] as String?),
+      value: int64FromString(json['value'] as String?),
+    );
+
+Map<String, dynamic> _$$_PrevToJson(_$_Prev instance) => <String, dynamic>{
+      'address': instance.address,
+      'hash': instance.hash,
+      'n': instance.n,
+      'script': instance.script,
+      'spent': instance.spent,
+      'tx_index': int64ToString(instance.tx_index),
+      'value': int64ToString(instance.value),
+    };
+
 _$_PriceRequest _$$_PriceRequestFromJson(Map<String, dynamic> json) =>
     _$_PriceRequest(
       symbol: json['symbol'] as String?,
@@ -75,6 +125,78 @@ _$PriceResponseMerr _$$PriceResponseMerrFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$$PriceResponseMerrToJson(_$PriceResponseMerr instance) =>
+    <String, dynamic>{
+      'body': instance.body,
+      'runtimeType': instance.$type,
+    };
+
+_$_TransactionRequest _$$_TransactionRequestFromJson(
+        Map<String, dynamic> json) =>
+    _$_TransactionRequest(
+      hash: json['hash'] as String?,
+    );
+
+Map<String, dynamic> _$$_TransactionRequestToJson(
+        _$_TransactionRequest instance) =>
+    <String, dynamic>{
+      'hash': instance.hash,
+    };
+
+_$TransactionResponseData _$$TransactionResponseDataFromJson(
+        Map<String, dynamic> json) =>
+    _$TransactionResponseData(
+      inputs: (json['inputs'] as List<dynamic>?)
+          ?.map((e) => Input.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      size: int64FromString(json['size'] as String?),
+      weight: int64FromString(json['weight'] as String?),
+      tx_index: int64FromString(json['tx_index'] as String?),
+      vout_sz: int64FromString(json['vout_sz'] as String?),
+      block_height: int64FromString(json['block_height'] as String?),
+      block_index: int64FromString(json['block_index'] as String?),
+      fee: int64FromString(json['fee'] as String?),
+      outputs: (json['outputs'] as List<dynamic>?)
+          ?.map((e) => Output.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      relay: json['relay'] as String?,
+      version: int64FromString(json['version'] as String?),
+      vin_sz: int64FromString(json['vin_sz'] as String?),
+      double_spend: json['double_spend'] as bool?,
+      hash: json['hash'] as String?,
+      lock_time: int64FromString(json['lock_time'] as String?),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$TransactionResponseDataToJson(
+        _$TransactionResponseData instance) =>
+    <String, dynamic>{
+      'inputs': instance.inputs,
+      'size': int64ToString(instance.size),
+      'weight': int64ToString(instance.weight),
+      'tx_index': int64ToString(instance.tx_index),
+      'vout_sz': int64ToString(instance.vout_sz),
+      'block_height': int64ToString(instance.block_height),
+      'block_index': int64ToString(instance.block_index),
+      'fee': int64ToString(instance.fee),
+      'outputs': instance.outputs,
+      'relay': instance.relay,
+      'version': int64ToString(instance.version),
+      'vin_sz': int64ToString(instance.vin_sz),
+      'double_spend': instance.double_spend,
+      'hash': instance.hash,
+      'lock_time': int64ToString(instance.lock_time),
+      'runtimeType': instance.$type,
+    };
+
+_$TransactionResponseMerr _$$TransactionResponseMerrFromJson(
+        Map<String, dynamic> json) =>
+    _$TransactionResponseMerr(
+      body: json['body'] as Map<String, dynamic>?,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$TransactionResponseMerrToJson(
+        _$TransactionResponseMerr instance) =>
     <String, dynamic>{
       'body': instance.body,
       'runtimeType': instance.$type,
