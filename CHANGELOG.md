@@ -1,3 +1,9 @@
+## v1.0.125 - 2022-07-16
+
+[e7efc7](https://github.com/micro/services/commit/e7efc70cf59c96010c8a0fbf750b7567980934b8) Update API examples (#420)
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.124...v1.0.125
+
 ## v1.0.124 - 2022-07-15
 
 [813a9e](https://github.com/micro/services/commit/813a9ed4edb07fab062a5cd932ddbbc925510515) asset owner
