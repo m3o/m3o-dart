@@ -154,11 +154,11 @@ class DeleteIndexResponse with _$DeleteIndexResponse {
 @Freezed()
 class DeleteRequest with _$DeleteRequest {
   const factory DeleteRequest({
-    /// The index the record belongs to
-    String? index,
-
     /// The ID of the record to delete
     String? id,
+
+    /// The index the record belongs to
+    String? index,
   }) = _DeleteRequest;
   factory DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$DeleteRequestFromJson(json);
@@ -216,11 +216,11 @@ class IndexResponse with _$IndexResponse {
 @Freezed()
 class Record with _$Record {
   const factory Record({
-    /// The JSON contents of the record
-    Map<String, dynamic>? data,
-
     /// The ID for this record. If blank, one will be generated
     String? id,
+
+    /// The JSON contents of the record
+    Map<String, dynamic>? data,
   }) = _Record;
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }

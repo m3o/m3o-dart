@@ -8,17 +8,17 @@ part of 'thumbnail.dart';
 
 _$_ScreenshotRequest _$$_ScreenshotRequestFromJson(Map<String, dynamic> json) =>
     _$_ScreenshotRequest(
-      width: json['width'] as int?,
       height: json['height'] as int?,
       url: json['url'] as String?,
+      width: json['width'] as int?,
     );
 
 Map<String, dynamic> _$$_ScreenshotRequestToJson(
         _$_ScreenshotRequest instance) =>
     <String, dynamic>{
-      'width': instance.width,
       'height': instance.height,
       'url': instance.url,
+      'width': instance.width,
     };
 
 _$ScreenshotResponseData _$$ScreenshotResponseDataFromJson(

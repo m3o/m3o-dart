@@ -192,16 +192,16 @@ Map<String, dynamic> _$$_ReportToJson(_$_Report instance) => <String, dynamic>{
 
 _$_ReportRequest _$$_ReportRequestFromJson(Map<String, dynamic> json) =>
     _$_ReportRequest(
+      symbol: json['symbol'] as String?,
       comment: json['comment'] as String?,
       name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
     );
 
 Map<String, dynamic> _$$_ReportRequestToJson(_$_ReportRequest instance) =>
     <String, dynamic>{
+      'symbol': instance.symbol,
       'comment': instance.comment,
       'name': instance.name,
-      'symbol': instance.symbol,
     };
 
 _$ReportResponseData _$$ReportResponseDataFromJson(Map<String, dynamic> json) =>
@@ -229,21 +229,21 @@ Map<String, dynamic> _$$ReportResponseMerrToJson(
     };
 
 _$_Value _$$_ValueFromJson(Map<String, dynamic> json) => _$_Value(
+      currency: json['currency'] as String?,
       name: json['name'] as String?,
       price: (json['price'] as num?)?.toDouble(),
       source: json['source'] as String?,
       symbol: json['symbol'] as String?,
       timestamp: json['timestamp'] as String?,
       author: json['author'] as String?,
-      currency: json['currency'] as String?,
     );
 
 Map<String, dynamic> _$$_ValueToJson(_$_Value instance) => <String, dynamic>{
+      'currency': instance.currency,
       'name': instance.name,
       'price': instance.price,
       'source': instance.source,
       'symbol': instance.symbol,
       'timestamp': instance.timestamp,
       'author': instance.author,
-      'currency': instance.currency,
     };

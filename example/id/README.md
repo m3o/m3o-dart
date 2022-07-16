@@ -56,6 +56,150 @@ void main() async {
   final ser = IdService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
+  "type": "ulid"
+,};
+
+  GenerateRequest req = GenerateRequest.fromJson(payload);
+
+  
+  try {
+
+	GenerateResponse res = await ser.generate(req);
+
+    res.map((value) => print(value),
+	  Merr: (GenerateResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Generate
+
+Generate a unique ID. Defaults to uuid.
+
+
+[https://m3o.com/id/api#Generate](https://m3o.com/id/api#Generate)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/id/id.dart';
+
+void main() async {
+  final ser = IdService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "type": "ksuid"
+,};
+
+  GenerateRequest req = GenerateRequest.fromJson(payload);
+
+  
+  try {
+
+	GenerateResponse res = await ser.generate(req);
+
+    res.map((value) => print(value),
+	  Merr: (GenerateResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Generate
+
+Generate a unique ID. Defaults to uuid.
+
+
+[https://m3o.com/id/api#Generate](https://m3o.com/id/api#Generate)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/id/id.dart';
+
+void main() async {
+  final ser = IdService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "type": "xid"
+,};
+
+  GenerateRequest req = GenerateRequest.fromJson(payload);
+
+  
+  try {
+
+	GenerateResponse res = await ser.generate(req);
+
+    res.map((value) => print(value),
+	  Merr: (GenerateResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Generate
+
+Generate a unique ID. Defaults to uuid.
+
+
+[https://m3o.com/id/api#Generate](https://m3o.com/id/api#Generate)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/id/id.dart';
+
+void main() async {
+  final ser = IdService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "type": "nanoid"
+,};
+
+  GenerateRequest req = GenerateRequest.fromJson(payload);
+
+  
+  try {
+
+	GenerateResponse res = await ser.generate(req);
+
+    res.map((value) => print(value),
+	  Merr: (GenerateResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Generate
+
+Generate a unique ID. Defaults to uuid.
+
+
+[https://m3o.com/id/api#Generate](https://m3o.com/id/api#Generate)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/id/id.dart';
+
+void main() async {
+  final ser = IdService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
   "type": "shortid"
 ,};
 
@@ -150,7 +294,7 @@ void main() async {
 ```
 ## Types
 
-List the types of IDs available. No query params needed.
+List the types of IDs available.
 
 
 [https://m3o.com/id/api#Types](https://m3o.com/id/api#Types)

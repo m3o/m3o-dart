@@ -86,15 +86,6 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
-    /// the peak price
-    double? high,
-
-    /// the low price
-    double? low,
-
-    /// the open price
-    double? open,
-
     /// the forex symbol
     String? symbol,
 
@@ -106,6 +97,15 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the date
     String? date,
+
+    /// the peak price
+    double? high,
+
+    /// the low price
+    double? low,
+
+    /// the open price
+    double? open,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -126,11 +126,11 @@ class PriceRequest with _$PriceRequest {
 @Freezed()
 class PriceResponse with _$PriceResponse {
   const factory PriceResponse({
-    /// the forex symbol e.g GBPUSD
-    String? symbol,
-
     /// the last price
     double? price,
+
+    /// the forex symbol e.g GBPUSD
+    String? symbol,
   }) = PriceResponseData;
   const factory PriceResponse.Merr({Map<String, dynamic>? body}) =
       PriceResponseMerr;

@@ -32,7 +32,7 @@ class IdService {
     }
   }
 
-  /// List the types of IDs available. No query params needed.
+  /// List the types of IDs available.
   Future<TypesResponse> types(TypesRequest req) async {
     Request request = Request(
       service: 'id',
@@ -56,7 +56,7 @@ class IdService {
 @Freezed()
 class GenerateRequest with _$GenerateRequest {
   const factory GenerateRequest({
-    /// type of id e.g uuid, shortid, snowflake (64 bit), bigflake (128 bit)
+    /// type of id; call 'Types' endpoint for available types
     String? type,
   }) = _GenerateRequest;
   factory GenerateRequest.fromJson(Map<String, dynamic> json) =>

@@ -7,7 +7,7 @@ void main() async {
 
   final payload = <String, dynamic>{
     "items": ["This is my list"],
-    "title": "New List",
+    "name": "New List",
   };
 
   CreateRequest req = CreateRequest.fromJson(payload);

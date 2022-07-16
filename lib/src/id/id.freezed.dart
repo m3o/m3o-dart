@@ -38,7 +38,7 @@ const $GenerateRequest = _$GenerateRequestTearOff();
 
 /// @nodoc
 mixin _$GenerateRequest {
-  /// type of id e.g uuid, shortid, snowflake (64 bit), bigflake (128 bit)
+  /// type of id; call 'Types' endpoint for available types
   String? get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -121,7 +121,7 @@ class _$_GenerateRequest implements _GenerateRequest {
 
   @override
 
-  /// type of id e.g uuid, shortid, snowflake (64 bit), bigflake (128 bit)
+  /// type of id; call 'Types' endpoint for available types
   final String? type;
 
   @override
@@ -160,7 +160,7 @@ abstract class _GenerateRequest implements GenerateRequest {
 
   @override
 
-  /// type of id e.g uuid, shortid, snowflake (64 bit), bigflake (128 bit)
+  /// type of id; call 'Types' endpoint for available types
   String? get type;
   @override
   @JsonKey(ignore: true)
