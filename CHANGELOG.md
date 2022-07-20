@@ -1,3 +1,9 @@
+## v1.0.130 - 2022-07-20
+
+[1ea66c](https://github.com/micro/services/commit/1ea66cc25bd3c577a9a680967ae8749098af4242) update chat readme
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.129...v1.0.130
+
 ## v1.0.129 - 2022-07-20
 
 [229c09](https://github.com/micro/services/commit/229c0920c14ed0304ad36ec9f92d9bde38503126) change room to group in chat
