@@ -21,15 +21,15 @@ Map<String, dynamic> _$$_EntityToJson(_$_Entity instance) => <String, dynamic>{
     };
 
 _$_Point _$$_PointFromJson(Map<String, dynamic> json) => _$_Point(
-      timestamp: int64FromString(json['timestamp'] as String?),
       latitude: (json['latitude'] as num?)?.toDouble(),
       longitude: (json['longitude'] as num?)?.toDouble(),
+      timestamp: int64FromString(json['timestamp'] as String?),
     );
 
 Map<String, dynamic> _$$_PointToJson(_$_Point instance) => <String, dynamic>{
-      'timestamp': int64ToString(instance.timestamp),
       'latitude': instance.latitude,
       'longitude': instance.longitude,
+      'timestamp': int64ToString(instance.timestamp),
     };
 
 _$_ReadRequest _$$_ReadRequestFromJson(Map<String, dynamic> json) =>
@@ -107,7 +107,7 @@ _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
       center: json['center'] == null
           ? null
           : Point.fromJson(json['center'] as Map<String, dynamic>),
-      numEntities: int64FromString(json['numEntities'] as String?),
+      limit: int64FromString(json['limit'] as String?),
       radius: (json['radius'] as num?)?.toDouble(),
       type: json['type'] as String?,
     );
@@ -115,7 +115,7 @@ _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_SearchRequestToJson(_$_SearchRequest instance) =>
     <String, dynamic>{
       'center': instance.center,
-      'numEntities': int64ToString(instance.numEntities),
+      'limit': int64ToString(instance.limit),
       'radius': instance.radius,
       'type': instance.type,
     };

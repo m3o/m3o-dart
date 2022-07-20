@@ -8,22 +8,22 @@ part of 'price.dart';
 
 _$_AddRequest _$$_AddRequestFromJson(Map<String, dynamic> json) =>
     _$_AddRequest(
-      currency: json['currency'] as String?,
-      name: json['name'] as String?,
       price: (json['price'] as num?)?.toDouble(),
       source: json['source'] as String?,
       symbol: json['symbol'] as String?,
       author: json['author'] as String?,
+      currency: json['currency'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_AddRequestToJson(_$_AddRequest instance) =>
     <String, dynamic>{
-      'currency': instance.currency,
-      'name': instance.name,
       'price': instance.price,
       'source': instance.source,
       'symbol': instance.symbol,
       'author': instance.author,
+      'currency': instance.currency,
+      'name': instance.name,
     };
 
 _$AddResponseData _$$AddResponseDataFromJson(Map<String, dynamic> json) =>
@@ -93,15 +93,15 @@ Map<String, dynamic> _$$GetResponseMerrToJson(_$GetResponseMerr instance) =>
     };
 
 _$_Index _$$_IndexFromJson(Map<String, dynamic> json) => _$_Index(
+      name: json['name'] as String?,
       symbol: json['symbol'] as String?,
       currency: json['currency'] as String?,
-      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_IndexToJson(_$_Index instance) => <String, dynamic>{
+      'name': instance.name,
       'symbol': instance.symbol,
       'currency': instance.currency,
-      'name': instance.name,
     };
 
 _$_IndexRequest _$$_IndexRequestFromJson(Map<String, dynamic> json) =>
@@ -138,16 +138,16 @@ Map<String, dynamic> _$$IndexResponseMerrToJson(_$IndexResponseMerr instance) =>
 
 _$_ListRequest _$$_ListRequestFromJson(Map<String, dynamic> json) =>
     _$_ListRequest(
+      offset: json['offset'] as int?,
       currency: json['currency'] as String?,
       limit: json['limit'] as int?,
-      offset: json['offset'] as int?,
     );
 
 Map<String, dynamic> _$$_ListRequestToJson(_$_ListRequest instance) =>
     <String, dynamic>{
+      'offset': instance.offset,
       'currency': instance.currency,
       'limit': instance.limit,
-      'offset': instance.offset,
     };
 
 _$ListResponseData _$$ListResponseDataFromJson(Map<String, dynamic> json) =>
@@ -192,16 +192,16 @@ Map<String, dynamic> _$$_ReportToJson(_$_Report instance) => <String, dynamic>{
 
 _$_ReportRequest _$$_ReportRequestFromJson(Map<String, dynamic> json) =>
     _$_ReportRequest(
+      symbol: json['symbol'] as String?,
       comment: json['comment'] as String?,
       name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
     );
 
 Map<String, dynamic> _$$_ReportRequestToJson(_$_ReportRequest instance) =>
     <String, dynamic>{
+      'symbol': instance.symbol,
       'comment': instance.comment,
       'name': instance.name,
-      'symbol': instance.symbol,
     };
 
 _$ReportResponseData _$$ReportResponseDataFromJson(Map<String, dynamic> json) =>
