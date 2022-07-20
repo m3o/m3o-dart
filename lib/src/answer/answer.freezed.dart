@@ -185,11 +185,11 @@ QuestionResponse _$QuestionResponseFromJson(Map<String, dynamic> json) {
 class _$QuestionResponseTearOff {
   const _$QuestionResponseTearOff();
 
-  QuestionResponseData call({String? url, String? answer, String? image}) {
+  QuestionResponseData call({String? answer, String? image, String? url}) {
     return QuestionResponseData(
-      url: url,
       answer: answer,
       image: image,
+      url: url,
     );
   }
 
@@ -211,19 +211,19 @@ const $QuestionResponse = _$QuestionResponseTearOff();
 mixin _$QuestionResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? url, String? answer, String? image) $default, {
+    TResult Function(String? answer, String? image, String? url) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? url, String? answer, String? image)? $default, {
+    TResult Function(String? answer, String? image, String? url)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? url, String? answer, String? image)? $default, {
+    TResult Function(String? answer, String? image, String? url)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -272,7 +272,7 @@ abstract class $QuestionResponseDataCopyWith<$Res> {
   factory $QuestionResponseDataCopyWith(QuestionResponseData value,
           $Res Function(QuestionResponseData) then) =
       _$QuestionResponseDataCopyWithImpl<$Res>;
-  $Res call({String? url, String? answer, String? image});
+  $Res call({String? answer, String? image, String? url});
 }
 
 /// @nodoc
@@ -288,15 +288,11 @@ class _$QuestionResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? url = freezed,
     Object? answer = freezed,
     Object? image = freezed,
+    Object? url = freezed,
   }) {
     return _then(QuestionResponseData(
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
       answer: answer == freezed
           ? _value.answer
           : answer // ignore: cast_nullable_to_non_nullable
@@ -304,6 +300,10 @@ class _$QuestionResponseDataCopyWithImpl<$Res>
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -313,16 +313,12 @@ class _$QuestionResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$QuestionResponseData implements QuestionResponseData {
   const _$QuestionResponseData(
-      {this.url, this.answer, this.image, String? $type})
+      {this.answer, this.image, this.url, String? $type})
       : $type = $type ?? 'default';
 
   factory _$QuestionResponseData.fromJson(Map<String, dynamic> json) =>
       _$$QuestionResponseDataFromJson(json);
 
-  @override
-
-  /// a related url
-  final String? url;
   @override
 
   /// the answer to your question
@@ -331,13 +327,17 @@ class _$QuestionResponseData implements QuestionResponseData {
 
   /// any related image
   final String? image;
+  @override
+
+  /// a related url
+  final String? url;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'QuestionResponse(url: $url, answer: $answer, image: $image)';
+    return 'QuestionResponse(answer: $answer, image: $image, url: $url)';
   }
 
   @override
@@ -345,17 +345,17 @@ class _$QuestionResponseData implements QuestionResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is QuestionResponseData &&
-            const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality().equals(other.answer, answer) &&
-            const DeepCollectionEquality().equals(other.image, image));
+            const DeepCollectionEquality().equals(other.image, image) &&
+            const DeepCollectionEquality().equals(other.url, url));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(answer),
-      const DeepCollectionEquality().hash(image));
+      const DeepCollectionEquality().hash(image),
+      const DeepCollectionEquality().hash(url));
 
   @JsonKey(ignore: true)
   @override
@@ -366,30 +366,30 @@ class _$QuestionResponseData implements QuestionResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? url, String? answer, String? image) $default, {
+    TResult Function(String? answer, String? image, String? url) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(url, answer, image);
+    return $default(answer, image, url);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? url, String? answer, String? image)? $default, {
+    TResult Function(String? answer, String? image, String? url)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(url, answer, image);
+    return $default?.call(answer, image, url);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? url, String? answer, String? image)? $default, {
+    TResult Function(String? answer, String? image, String? url)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(url, answer, image);
+      return $default(answer, image, url);
     }
     return orElse();
   }
@@ -433,19 +433,19 @@ class _$QuestionResponseData implements QuestionResponseData {
 
 abstract class QuestionResponseData implements QuestionResponse {
   const factory QuestionResponseData(
-      {String? url, String? answer, String? image}) = _$QuestionResponseData;
+      {String? answer, String? image, String? url}) = _$QuestionResponseData;
 
   factory QuestionResponseData.fromJson(Map<String, dynamic> json) =
       _$QuestionResponseData.fromJson;
-
-  /// a related url
-  String? get url;
 
   /// the answer to your question
   String? get answer;
 
   /// any related image
   String? get image;
+
+  /// a related url
+  String? get url;
   @JsonKey(ignore: true)
   $QuestionResponseDataCopyWith<QuestionResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -524,7 +524,7 @@ class _$QuestionResponseMerr implements QuestionResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? url, String? answer, String? image) $default, {
+    TResult Function(String? answer, String? image, String? url) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -533,7 +533,7 @@ class _$QuestionResponseMerr implements QuestionResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? url, String? answer, String? image)? $default, {
+    TResult Function(String? answer, String? image, String? url)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -542,7 +542,7 @@ class _$QuestionResponseMerr implements QuestionResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? url, String? answer, String? image)? $default, {
+    TResult Function(String? answer, String? image, String? url)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {

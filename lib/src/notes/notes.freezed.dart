@@ -1340,10 +1340,10 @@ EventsResponse _$EventsResponseFromJson(Map<String, dynamic> json) {
 class _$EventsResponseTearOff {
   const _$EventsResponseTearOff();
 
-  EventsResponseData call({Note? note, String? event}) {
+  EventsResponseData call({String? event, Note? note}) {
     return EventsResponseData(
-      note: note,
       event: event,
+      note: note,
     );
   }
 
@@ -1365,19 +1365,19 @@ const $EventsResponse = _$EventsResponseTearOff();
 mixin _$EventsResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Note? note, String? event) $default, {
+    TResult Function(String? event, Note? note) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Note? note, String? event)? $default, {
+    TResult Function(String? event, Note? note)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Note? note, String? event)? $default, {
+    TResult Function(String? event, Note? note)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -1426,7 +1426,7 @@ abstract class $EventsResponseDataCopyWith<$Res> {
   factory $EventsResponseDataCopyWith(
           EventsResponseData value, $Res Function(EventsResponseData) then) =
       _$EventsResponseDataCopyWithImpl<$Res>;
-  $Res call({Note? note, String? event});
+  $Res call({String? event, Note? note});
 
   $NoteCopyWith<$Res>? get note;
 }
@@ -1444,18 +1444,18 @@ class _$EventsResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? note = freezed,
     Object? event = freezed,
+    Object? note = freezed,
   }) {
     return _then(EventsResponseData(
-      note: note == freezed
-          ? _value.note
-          : note // ignore: cast_nullable_to_non_nullable
-              as Note?,
       event: event == freezed
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as String?,
+      note: note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as Note?,
     ));
   }
 
@@ -1474,7 +1474,7 @@ class _$EventsResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$EventsResponseData implements EventsResponseData {
-  const _$EventsResponseData({this.note, this.event, String? $type})
+  const _$EventsResponseData({this.event, this.note, String? $type})
       : $type = $type ?? 'default';
 
   factory _$EventsResponseData.fromJson(Map<String, dynamic> json) =>
@@ -1482,19 +1482,19 @@ class _$EventsResponseData implements EventsResponseData {
 
   @override
 
-  /// the note which the operation occured on
-  final Note? note;
-  @override
-
   /// the event which occured; create, delete, update
   final String? event;
+  @override
+
+  /// the note which the operation occured on
+  final Note? note;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'EventsResponse(note: $note, event: $event)';
+    return 'EventsResponse(event: $event, note: $note)';
   }
 
   @override
@@ -1502,15 +1502,15 @@ class _$EventsResponseData implements EventsResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is EventsResponseData &&
-            const DeepCollectionEquality().equals(other.note, note) &&
-            const DeepCollectionEquality().equals(other.event, event));
+            const DeepCollectionEquality().equals(other.event, event) &&
+            const DeepCollectionEquality().equals(other.note, note));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(note),
-      const DeepCollectionEquality().hash(event));
+      const DeepCollectionEquality().hash(event),
+      const DeepCollectionEquality().hash(note));
 
   @JsonKey(ignore: true)
   @override
@@ -1520,30 +1520,30 @@ class _$EventsResponseData implements EventsResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Note? note, String? event) $default, {
+    TResult Function(String? event, Note? note) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(note, event);
+    return $default(event, note);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Note? note, String? event)? $default, {
+    TResult Function(String? event, Note? note)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(note, event);
+    return $default?.call(event, note);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Note? note, String? event)? $default, {
+    TResult Function(String? event, Note? note)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(note, event);
+      return $default(event, note);
     }
     return orElse();
   }
@@ -1586,17 +1586,17 @@ class _$EventsResponseData implements EventsResponseData {
 }
 
 abstract class EventsResponseData implements EventsResponse {
-  const factory EventsResponseData({Note? note, String? event}) =
+  const factory EventsResponseData({String? event, Note? note}) =
       _$EventsResponseData;
 
   factory EventsResponseData.fromJson(Map<String, dynamic> json) =
       _$EventsResponseData.fromJson;
 
-  /// the note which the operation occured on
-  Note? get note;
-
   /// the event which occured; create, delete, update
   String? get event;
+
+  /// the note which the operation occured on
+  Note? get note;
   @JsonKey(ignore: true)
   $EventsResponseDataCopyWith<EventsResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1674,7 +1674,7 @@ class _$EventsResponseMerr implements EventsResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Note? note, String? event) $default, {
+    TResult Function(String? event, Note? note) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -1683,7 +1683,7 @@ class _$EventsResponseMerr implements EventsResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Note? note, String? event)? $default, {
+    TResult Function(String? event, Note? note)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -1692,7 +1692,7 @@ class _$EventsResponseMerr implements EventsResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Note? note, String? event)? $default, {
+    TResult Function(String? event, Note? note)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
@@ -2253,17 +2253,17 @@ class _$NoteTearOff {
   const _$NoteTearOff();
 
   _Note call(
-      {String? text,
+      {String? id,
+      String? text,
       String? title,
       String? updated,
-      String? created,
-      String? id}) {
+      String? created}) {
     return _Note(
+      id: id,
       text: text,
       title: title,
       updated: updated,
       created: created,
-      id: id,
     );
   }
 
@@ -2277,6 +2277,9 @@ const $Note = _$NoteTearOff();
 
 /// @nodoc
 mixin _$Note {
+  /// unique id for the note, generated if not specified
+  String? get id => throw _privateConstructorUsedError;
+
   /// text within the note
   String? get text => throw _privateConstructorUsedError;
 
@@ -2289,9 +2292,6 @@ mixin _$Note {
   /// time at which the note was created
   String? get created => throw _privateConstructorUsedError;
 
-  /// unique id for the note, generated if not specified
-  String? get id => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $NoteCopyWith<Note> get copyWith => throw _privateConstructorUsedError;
@@ -2302,11 +2302,11 @@ abstract class $NoteCopyWith<$Res> {
   factory $NoteCopyWith(Note value, $Res Function(Note) then) =
       _$NoteCopyWithImpl<$Res>;
   $Res call(
-      {String? text,
+      {String? id,
+      String? text,
       String? title,
       String? updated,
-      String? created,
-      String? id});
+      String? created});
 }
 
 /// @nodoc
@@ -2319,13 +2319,17 @@ class _$NoteCopyWithImpl<$Res> implements $NoteCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? text = freezed,
     Object? title = freezed,
     Object? updated = freezed,
     Object? created = freezed,
-    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -2342,10 +2346,6 @@ class _$NoteCopyWithImpl<$Res> implements $NoteCopyWith<$Res> {
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2356,11 +2356,11 @@ abstract class _$NoteCopyWith<$Res> implements $NoteCopyWith<$Res> {
       __$NoteCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? text,
+      {String? id,
+      String? text,
       String? title,
       String? updated,
-      String? created,
-      String? id});
+      String? created});
 }
 
 /// @nodoc
@@ -2374,13 +2374,17 @@ class __$NoteCopyWithImpl<$Res> extends _$NoteCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? text = freezed,
     Object? title = freezed,
     Object? updated = freezed,
     Object? created = freezed,
-    Object? id = freezed,
   }) {
     return _then(_Note(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -2397,10 +2401,6 @@ class __$NoteCopyWithImpl<$Res> extends _$NoteCopyWithImpl<$Res>
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2408,10 +2408,14 @@ class __$NoteCopyWithImpl<$Res> extends _$NoteCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Note implements _Note {
-  const _$_Note({this.text, this.title, this.updated, this.created, this.id});
+  const _$_Note({this.id, this.text, this.title, this.updated, this.created});
 
   factory _$_Note.fromJson(Map<String, dynamic> json) => _$$_NoteFromJson(json);
 
+  @override
+
+  /// unique id for the note, generated if not specified
+  final String? id;
   @override
 
   /// text within the note
@@ -2428,14 +2432,10 @@ class _$_Note implements _Note {
 
   /// time at which the note was created
   final String? created;
-  @override
-
-  /// unique id for the note, generated if not specified
-  final String? id;
 
   @override
   String toString() {
-    return 'Note(text: $text, title: $title, updated: $updated, created: $created, id: $id)';
+    return 'Note(id: $id, text: $text, title: $title, updated: $updated, created: $created)';
   }
 
   @override
@@ -2443,21 +2443,21 @@ class _$_Note implements _Note {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Note &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.text, text) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.updated, updated) &&
-            const DeepCollectionEquality().equals(other.created, created) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.created, created));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(text),
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(updated),
-      const DeepCollectionEquality().hash(created),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(created));
 
   @JsonKey(ignore: true)
   @override
@@ -2472,14 +2472,18 @@ class _$_Note implements _Note {
 
 abstract class _Note implements Note {
   const factory _Note(
-      {String? text,
+      {String? id,
+      String? text,
       String? title,
       String? updated,
-      String? created,
-      String? id}) = _$_Note;
+      String? created}) = _$_Note;
 
   factory _Note.fromJson(Map<String, dynamic> json) = _$_Note.fromJson;
 
+  @override
+
+  /// unique id for the note, generated if not specified
+  String? get id;
   @override
 
   /// text within the note
@@ -2496,10 +2500,6 @@ abstract class _Note implements Note {
 
   /// time at which the note was created
   String? get created;
-  @override
-
-  /// unique id for the note, generated if not specified
-  String? get id;
   @override
   @JsonKey(ignore: true)
   _$NoteCopyWith<_Note> get copyWith => throw _privateConstructorUsedError;

@@ -42,14 +42,14 @@ Map<String, dynamic> _$$CallResponseMerrToJson(_$CallResponseMerr instance) =>
 
 _$_StreamRequest _$$_StreamRequestFromJson(Map<String, dynamic> json) =>
     _$_StreamRequest(
-      messages: int64FromString(json['messages'] as String?),
       name: json['name'] as String?,
+      messages: int64FromString(json['messages'] as String?),
     );
 
 Map<String, dynamic> _$$_StreamRequestToJson(_$_StreamRequest instance) =>
     <String, dynamic>{
-      'messages': int64ToString(instance.messages),
       'name': instance.name,
+      'messages': int64ToString(instance.messages),
     };
 
 _$StreamResponseData _$$StreamResponseDataFromJson(Map<String, dynamic> json) =>

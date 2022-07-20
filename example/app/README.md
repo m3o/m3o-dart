@@ -4,12 +4,12 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/app/api](https
 
 Endpoints:
 
-## Delete
+## Reserve
 
-Delete an app
+Reserve apps beyond the free quota. Call Run after.
 
 
-[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
+[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
 
 ```dart
 import 'dart:io';
@@ -23,15 +23,15 @@ void main() async {
   "name": "helloworld"
 ,};
 
-  DeleteRequest req = DeleteRequest.fromJson(payload);
+  ReserveRequest req = ReserveRequest.fromJson(payload);
 
   
   try {
 
-	DeleteResponse res = await ser.delete(req);
+	ReserveResponse res = await ser.reserve(req);
 
     res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+	  Merr: (ReserveResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -150,6 +150,42 @@ void main() async {
   }
 }
 ```
+## Resolve
+
+Resolve an app by id to its raw backend endpoint
+
+
+[https://m3o.com/app/api#Resolve](https://m3o.com/app/api#Resolve)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/app/app.dart';
+
+void main() async {
+  final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "id": "helloworld"
+,};
+
+  ResolveRequest req = ResolveRequest.fromJson(payload);
+
+  
+  try {
+
+	ResolveResponse res = await ser.resolve(req);
+
+    res.map((value) => print(value),
+	  Merr: (ResolveResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Update
 
 Update the app. The latest source code will be downloaded, built and deployed.
@@ -178,6 +214,42 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Delete
+
+Delete an app
+
+
+[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/app/app.dart';
+
+void main() async {
+  final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "name": "helloworld"
+,};
+
+  DeleteRequest req = DeleteRequest.fromJson(payload);
+
+  
+  try {
+
+	DeleteResponse res = await ser.delete(req);
+
+    res.map((value) => print(value),
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -223,42 +295,6 @@ void main() async {
   }
 }
 ```
-## Reserve
-
-Reserve apps beyond the free quota. Call Run after.
-
-
-[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/app/app.dart';
-
-void main() async {
-  final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "name": "helloworld"
-,};
-
-  ReserveRequest req = ReserveRequest.fromJson(payload);
-
-  
-  try {
-
-	ReserveResponse res = await ser.reserve(req);
-
-    res.map((value) => print(value),
-	  Merr: (ReserveResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## List
 
 List all the apps
@@ -285,42 +321,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Resolve
-
-Resolve an app by id to its raw backend endpoint
-
-
-[https://m3o.com/app/api#Resolve](https://m3o.com/app/api#Resolve)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/app/app.dart';
-
-void main() async {
-  final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "id": "helloworld"
-,};
-
-  ResolveRequest req = ResolveRequest.fromJson(payload);
-
-  
-  try {
-
-	ResolveResponse res = await ser.resolve(req);
-
-    res.map((value) => print(value),
-	  Merr: (ResolveResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

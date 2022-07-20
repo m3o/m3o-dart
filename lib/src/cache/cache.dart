@@ -198,15 +198,15 @@ class GetRequest with _$GetRequest {
 @Freezed()
 class GetResponse with _$GetResponse {
   const factory GetResponse({
+    /// The value
+    String? value,
+
     /// The key
     String? key,
 
     /// Time to live in seconds
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
-
-    /// The value
-    String? value,
   }) = GetResponseData;
   const factory GetResponse.Merr({Map<String, dynamic>? body}) =
       GetResponseMerr;
@@ -217,12 +217,12 @@ class GetResponse with _$GetResponse {
 @Freezed()
 class IncrementRequest with _$IncrementRequest {
   const factory IncrementRequest({
-    /// The key to increment
-    String? key,
-
     /// The amount to increment the value by
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
+
+    /// The key to increment
+    String? key,
   }) = _IncrementRequest;
   factory IncrementRequest.fromJson(Map<String, dynamic> json) =>
       _$IncrementRequestFromJson(json);
