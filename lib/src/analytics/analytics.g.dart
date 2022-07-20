@@ -45,15 +45,15 @@ Map<String, dynamic> _$$DeleteResponseMerrToJson(
     };
 
 _$_Event _$$_EventFromJson(Map<String, dynamic> json) => _$_Event(
+      value: int64FromString(json['value'] as String?),
       created: json['created'] as String?,
       name: json['name'] as String?,
-      value: int64FromString(json['value'] as String?),
     );
 
 Map<String, dynamic> _$$_EventToJson(_$_Event instance) => <String, dynamic>{
+      'value': int64ToString(instance.value),
       'created': instance.created,
       'name': instance.name,
-      'value': int64ToString(instance.value),
     };
 
 _$_ListRequest _$$_ListRequestFromJson(Map<String, dynamic> json) =>

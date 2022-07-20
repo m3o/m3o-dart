@@ -342,15 +342,6 @@ class ResolveResponse with _$ResolveResponse {
 @Freezed()
 class RunRequest with _$RunRequest {
   const factory RunRequest({
-    /// branch. defaults to master
-    String? branch,
-
-    /// associated env vars to pass in
-    Map<String, String>? env_vars,
-
-    /// name of the app
-    String? name,
-
     /// port to run on
     int? port,
 
@@ -359,6 +350,15 @@ class RunRequest with _$RunRequest {
 
     /// source repository
     String? repo,
+
+    /// branch. defaults to master
+    String? branch,
+
+    /// associated env vars to pass in
+    Map<String, String>? env_vars,
+
+    /// name of the app
+    String? name,
   }) = _RunRequest;
   factory RunRequest.fromJson(Map<String, dynamic> json) =>
       _$RunRequestFromJson(json);
@@ -379,17 +379,17 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
-    /// associated env vars
-    Map<String, String>? env_vars,
+    /// unique id
+    String? id,
+
+    /// port running on
+    int? port,
 
     /// region running in
     String? region,
 
-    /// last updated
-    String? updated,
-
-    /// branch of code
-    String? branch,
+    /// source repository
+    String? repo,
 
     /// time of creation
     String? created,
@@ -397,23 +397,23 @@ class Service with _$Service {
     /// custom domains
     List<String>? custom_domains,
 
-    /// source repository
-    String? repo,
+    /// associated env vars
+    Map<String, String>? env_vars,
 
-    /// status of the app
-    String? status,
+    /// last updated
+    String? updated,
 
     /// app url
     String? url,
 
-    /// unique id
-    String? id,
+    /// branch of code
+    String? branch,
 
     /// name of the app
     String? name,
 
-    /// port running on
-    int? port,
+    /// status of the app
+    String? status,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);

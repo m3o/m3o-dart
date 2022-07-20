@@ -104,7 +104,7 @@ void main() async {
     "latitude": 51.511061,
     "longitude": -0.120022
   ,},
-  "numEntities": 10,
+  "limit": 10,
   "radius": 100,
   "type": "bike"
 };

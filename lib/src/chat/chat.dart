@@ -13,7 +13,7 @@ class ChatService {
     _client = Client(token: token);
   }
 
-  /// Create a new chat room
+  /// Create a new chat group
   Future<CreateResponse> create(CreateRequest req) async {
     Request request = Request(
       service: 'chat',
@@ -33,7 +33,7 @@ class ChatService {
     }
   }
 
-  /// Delete a chat room
+  /// Delete a chat group
   Future<DeleteResponse> delete(DeleteRequest req) async {
     Request request = Request(
       service: 'chat',
@@ -73,7 +73,7 @@ class ChatService {
     }
   }
 
-  /// Invite a user to a chat room
+  /// Invite a user to a chat group
   Future<InviteResponse> invite(InviteRequest req) async {
     Request request = Request(
       service: 'chat',
@@ -93,7 +93,7 @@ class ChatService {
     }
   }
 
-  /// Join a chat room
+  /// Join a chat group
 
   Stream<JoinResponse> join(JoinRequest req) async* {
     Request request = Request(
@@ -117,7 +117,7 @@ class ChatService {
     }
   }
 
-  /// Kick a user from a chat room
+  /// Kick a user from a chat group
   Future<KickResponse> kick(KickRequest req) async {
     Request request = Request(
       service: 'chat',
@@ -137,7 +137,7 @@ class ChatService {
     }
   }
 
-  /// Leave a chat room
+  /// Leave a chat group
   Future<LeaveResponse> leave(LeaveRequest req) async {
     Request request = Request(
       service: 'chat',
@@ -202,17 +202,17 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// chat description
-    String? description,
-
-    /// name of the room
-    String? name,
-
-    /// whether its a private room
+    /// whether its a private group
     bool? private,
 
     /// optional list of user ids
     List<String>? user_ids,
+
+    /// chat description
+    String? description,
+
+    /// name of the group
+    String? name,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -221,8 +221,8 @@ class CreateRequest with _$CreateRequest {
 @Freezed()
 class CreateResponse with _$CreateResponse {
   const factory CreateResponse({
-    /// the unique chat room
-    Room? room,
+    /// the unique chat group
+    Group? group,
   }) = CreateResponseData;
   const factory CreateResponse.Merr({Map<String, dynamic>? body}) =
       CreateResponseMerr;
@@ -233,8 +233,8 @@ class CreateResponse with _$CreateResponse {
 @Freezed()
 class DeleteRequest with _$DeleteRequest {
   const factory DeleteRequest({
-    /// the chat room id to delete
-    String? room_id,
+    /// the chat group id to delete
+    String? group_id,
   }) = _DeleteRequest;
   factory DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$DeleteRequestFromJson(json);
@@ -243,7 +243,7 @@ class DeleteRequest with _$DeleteRequest {
 @Freezed()
 class DeleteResponse with _$DeleteResponse {
   const factory DeleteResponse({
-    Room? room,
+    Group? group,
   }) = DeleteResponseData;
   const factory DeleteResponse.Merr({Map<String, dynamic>? body}) =
       DeleteResponseMerr;
@@ -252,10 +252,34 @@ class DeleteResponse with _$DeleteResponse {
 }
 
 @Freezed()
+class Group with _$Group {
+  const factory Group({
+    /// time of creation
+    String? created_at,
+
+    /// description of the that
+    String? description,
+
+    /// unique group id
+    String? id,
+
+    /// name of the chat
+    String? name,
+
+    /// whether its a private group
+    bool? private,
+
+    /// list of users
+    List<String>? user_ids,
+  }) = _Group;
+  factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
+}
+
+@Freezed()
 class HistoryRequest with _$HistoryRequest {
   const factory HistoryRequest({
-    /// the chat room id to get
-    String? room_id,
+    /// the chat group id to get
+    String? group_id,
   }) = _HistoryRequest;
   factory HistoryRequest.fromJson(Map<String, dynamic> json) =>
       _$HistoryRequestFromJson(json);
@@ -264,7 +288,7 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
-    /// messages in the chat room
+    /// messages in the chat group
     List<Message>? messages,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
@@ -276,8 +300,8 @@ class HistoryResponse with _$HistoryResponse {
 @Freezed()
 class InviteRequest with _$InviteRequest {
   const factory InviteRequest({
-    /// the room id
-    String? room_id,
+    /// the group id
+    String? group_id,
 
     /// the user id
     String? user_id,
@@ -289,7 +313,7 @@ class InviteRequest with _$InviteRequest {
 @Freezed()
 class InviteResponse with _$InviteResponse {
   const factory InviteResponse({
-    Room? room,
+    Group? group,
   }) = InviteResponseData;
   const factory InviteResponse.Merr({Map<String, dynamic>? body}) =
       InviteResponseMerr;
@@ -300,8 +324,8 @@ class InviteResponse with _$InviteResponse {
 @Freezed()
 class JoinRequest with _$JoinRequest {
   const factory JoinRequest({
-    /// chat room to join
-    String? room_id,
+    /// chat group to join
+    String? group_id,
 
     /// user id joining
     String? user_id,
@@ -324,8 +348,8 @@ class JoinResponse with _$JoinResponse {
 @Freezed()
 class KickRequest with _$KickRequest {
   const factory KickRequest({
-    /// the chat room id
-    String? room_id,
+    /// the chat group id
+    String? group_id,
 
     /// the user id
     String? user_id,
@@ -337,7 +361,7 @@ class KickRequest with _$KickRequest {
 @Freezed()
 class KickResponse with _$KickResponse {
   const factory KickResponse({
-    Room? room,
+    Group? group,
   }) = KickResponseData;
   const factory KickResponse.Merr({Map<String, dynamic>? body}) =
       KickResponseMerr;
@@ -348,8 +372,8 @@ class KickResponse with _$KickResponse {
 @Freezed()
 class LeaveRequest with _$LeaveRequest {
   const factory LeaveRequest({
-    /// the chat room id
-    String? room_id,
+    /// the chat group id
+    String? group_id,
 
     /// the user id
     String? user_id,
@@ -361,7 +385,7 @@ class LeaveRequest with _$LeaveRequest {
 @Freezed()
 class LeaveResponse with _$LeaveResponse {
   const factory LeaveResponse({
-    Room? room,
+    Group? group,
   }) = LeaveResponseData;
   const factory LeaveResponse.Merr({Map<String, dynamic>? body}) =
       LeaveResponseMerr;
@@ -382,7 +406,7 @@ class ListRequest with _$ListRequest {
 @Freezed()
 class ListResponse with _$ListResponse {
   const factory ListResponse({
-    List<Room>? rooms,
+    List<Group>? groups,
   }) = ListResponseData;
   const factory ListResponse.Merr({Map<String, dynamic>? body}) =
       ListResponseMerr;
@@ -393,12 +417,6 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
-    /// time the message was sent in RFC3339 format
-    String? sent_at,
-
-    /// subject of the message
-    String? subject,
-
     /// text of the message
     String? text,
 
@@ -408,43 +426,31 @@ class Message with _$Message {
     /// a client side id, should be validated by the server to make the request retry safe
     String? client,
 
+    /// id of the chat the message is being sent to / from
+    String? group_id,
+
     /// id of the message, allocated by the server
     String? id,
 
-    /// id of the chat the message is being sent to / from
-    String? room_id,
+    /// time the message was sent in RFC3339 format
+    String? sent_at,
+
+    /// subject of the message
+    String? subject,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
 }
 
 @Freezed()
-class Room with _$Room {
-  const factory Room({
-    /// list of users
-    List<String>? user_ids,
-
-    /// time of creation
-    String? created_at,
-
-    /// description of the that
-    String? description,
-
-    /// unique room id
-    String? id,
-
-    /// name of the chat
-    String? name,
-
-    /// whether its a private room
-    bool? private,
-  }) = _Room;
-  factory Room.fromJson(Map<String, dynamic> json) => _$RoomFromJson(json);
-}
-
-@Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
+    /// a client side id, should be validated by the server to make the request retry safe
+    String? client,
+
+    /// id of the chat group the message is being sent to / from
+    String? group_id,
+
     /// subject of the message
     String? subject,
 
@@ -453,12 +459,6 @@ class SendRequest with _$SendRequest {
 
     /// id of the user who sent the message
     String? user_id,
-
-    /// a client side id, should be validated by the server to make the request retry safe
-    String? client,
-
-    /// id of the chat room the message is being sent to / from
-    String? room_id,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);
