@@ -1,3 +1,9 @@
+## v1.0.127 - 2022-07-20
+
+[a64a67](https://github.com/micro/services/commit/a64a67a9ea2ab1932b30ee856c57e9694e369e69) Update examples.json (#424)
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.126...v1.0.127
+
 ## v1.0.126 - 2022-07-18
 
 [e7efc7](https://github.com/micro/services/commit/e7efc70cf59c96010c8a0fbf750b7567980934b8) Update API examples (#420)
