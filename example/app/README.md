@@ -4,6 +4,113 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/app/api](https
 
 Endpoints:
 
+## List
+
+List all the apps
+
+
+[https://m3o.com/app/api#List](https://m3o.com/app/api#List)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/app/app.dart';
+
+void main() async {
+  final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  ListRequest req = ListRequest.fromJson(payload);
+
+  
+  try {
+
+	ListResponse res = await ser.list(req);
+
+    res.map((value) => print(value),
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Resolve
+
+Resolve an app by id to its raw backend endpoint
+
+
+[https://m3o.com/app/api#Resolve](https://m3o.com/app/api#Resolve)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/app/app.dart';
+
+void main() async {
+  final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "id": "helloworld"
+,};
+
+  ResolveRequest req = ResolveRequest.fromJson(payload);
+
+  
+  try {
+
+	ResolveResponse res = await ser.resolve(req);
+
+    res.map((value) => print(value),
+	  Merr: (ResolveResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Logs
+
+Get the logs for an app
+
+
+[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/app/app.dart';
+
+void main() async {
+  final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "logs_type": "build",
+  "name": "helloworld"
+,};
+
+  LogsRequest req = LogsRequest.fromJson(payload);
+
+  
+  try {
+
+	LogsResponse res = await ser.logs(req);
+
+    res.map((value) => print(value),
+	  Merr: (LogsResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Reserve
 
 Reserve apps beyond the free quota. Call Run after.
@@ -114,76 +221,6 @@ void main() async {
   }
 }
 ```
-## Update
-
-Update the app. The latest source code will be downloaded, built and deployed.
-
-
-[https://m3o.com/app/api#Update](https://m3o.com/app/api#Update)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/app/app.dart';
-
-void main() async {
-  final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "name": "helloworld"
-,};
-
-  UpdateRequest req = UpdateRequest.fromJson(payload);
-
-  
-  try {
-
-	UpdateResponse res = await ser.update(req);
-
-    res.map((value) => print(value),
-	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## List
-
-List all the apps
-
-
-[https://m3o.com/app/api#List](https://m3o.com/app/api#List)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/app/app.dart';
-
-void main() async {
-  final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{};
-
-  ListRequest req = ListRequest.fromJson(payload);
-
-  
-  try {
-
-	ListResponse res = await ser.list(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Status
 
 Get the status of an app
@@ -220,12 +257,12 @@ void main() async {
   }
 }
 ```
-## Resolve
+## Update
 
-Resolve an app by id to its raw backend endpoint
+Update the app. The latest source code will be downloaded, built and deployed.
 
 
-[https://m3o.com/app/api#Resolve](https://m3o.com/app/api#Resolve)
+[https://m3o.com/app/api#Update](https://m3o.com/app/api#Update)
 
 ```dart
 import 'dart:io';
@@ -236,18 +273,18 @@ void main() async {
   final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "id": "helloworld"
+  "name": "helloworld"
 ,};
 
-  ResolveRequest req = ResolveRequest.fromJson(payload);
+  UpdateRequest req = UpdateRequest.fromJson(payload);
 
   
   try {
 
-	ResolveResponse res = await ser.resolve(req);
+	UpdateResponse res = await ser.update(req);
 
     res.map((value) => print(value),
-	  Merr: (ResolveResponseMerr err) => print(err.body!['body']));	
+	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -284,43 +321,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Logs
-
-Get the logs for an app
-
-
-[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/app/app.dart';
-
-void main() async {
-  final ser = AppService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "logs_type": "build",
-  "name": "helloworld"
-,};
-
-  LogsRequest req = LogsRequest.fromJson(payload);
-
-  
-  try {
-
-	LogsResponse res = await ser.logs(req);
-
-    res.map((value) => print(value),
-	  Merr: (LogsResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

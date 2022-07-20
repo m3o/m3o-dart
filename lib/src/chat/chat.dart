@@ -13,7 +13,7 @@ class ChatService {
     _client = Client(token: token);
   }
 
-  /// Create a new chat group
+  /// Create a new group
   Future<CreateResponse> create(CreateRequest req) async {
     Request request = Request(
       service: 'chat',
@@ -33,7 +33,7 @@ class ChatService {
     }
   }
 
-  /// Delete a chat group
+  /// Delete a group
   Future<DeleteResponse> delete(DeleteRequest req) async {
     Request request = Request(
       service: 'chat',
@@ -73,7 +73,7 @@ class ChatService {
     }
   }
 
-  /// Invite a user to a chat group
+  /// Invite a user to a group
   Future<InviteResponse> invite(InviteRequest req) async {
     Request request = Request(
       service: 'chat',
@@ -93,7 +93,7 @@ class ChatService {
     }
   }
 
-  /// Join a chat group
+  /// Join a group
 
   Stream<JoinResponse> join(JoinRequest req) async* {
     Request request = Request(
@@ -117,7 +117,7 @@ class ChatService {
     }
   }
 
-  /// Kick a user from a chat group
+  /// Kick a user from a group
   Future<KickResponse> kick(KickRequest req) async {
     Request request = Request(
       service: 'chat',
@@ -137,7 +137,7 @@ class ChatService {
     }
   }
 
-  /// Leave a chat group
+  /// Leave a group
   Future<LeaveResponse> leave(LeaveRequest req) async {
     Request request = Request(
       service: 'chat',
@@ -202,6 +202,9 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// name of the group
+    String? name,
+
     /// whether its a private group
     bool? private,
 
@@ -210,9 +213,6 @@ class CreateRequest with _$CreateRequest {
 
     /// chat description
     String? description,
-
-    /// name of the group
-    String? name,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -221,7 +221,7 @@ class CreateRequest with _$CreateRequest {
 @Freezed()
 class CreateResponse with _$CreateResponse {
   const factory CreateResponse({
-    /// the unique chat group
+    /// the unique group
     Group? group,
   }) = CreateResponseData;
   const factory CreateResponse.Merr({Map<String, dynamic>? body}) =
@@ -233,7 +233,7 @@ class CreateResponse with _$CreateResponse {
 @Freezed()
 class DeleteRequest with _$DeleteRequest {
   const factory DeleteRequest({
-    /// the chat group id to delete
+    /// the group id to delete
     String? group_id,
   }) = _DeleteRequest;
   factory DeleteRequest.fromJson(Map<String, dynamic> json) =>
@@ -254,15 +254,6 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Group with _$Group {
   const factory Group({
-    /// time of creation
-    String? created_at,
-
-    /// description of the that
-    String? description,
-
-    /// unique group id
-    String? id,
-
     /// name of the chat
     String? name,
 
@@ -271,6 +262,15 @@ class Group with _$Group {
 
     /// list of users
     List<String>? user_ids,
+
+    /// time of creation
+    String? created_at,
+
+    /// description of the that
+    String? description,
+
+    /// unique group id
+    String? id,
   }) = _Group;
   factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
 }
@@ -278,7 +278,7 @@ class Group with _$Group {
 @Freezed()
 class HistoryRequest with _$HistoryRequest {
   const factory HistoryRequest({
-    /// the chat group id to get
+    /// the group id to get
     String? group_id,
   }) = _HistoryRequest;
   factory HistoryRequest.fromJson(Map<String, dynamic> json) =>
@@ -288,7 +288,7 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
-    /// messages in the chat group
+    /// messages in the group
     List<Message>? messages,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
@@ -324,7 +324,7 @@ class InviteResponse with _$InviteResponse {
 @Freezed()
 class JoinRequest with _$JoinRequest {
   const factory JoinRequest({
-    /// chat group to join
+    /// group to join
     String? group_id,
 
     /// user id joining
@@ -348,7 +348,7 @@ class JoinResponse with _$JoinResponse {
 @Freezed()
 class KickRequest with _$KickRequest {
   const factory KickRequest({
-    /// the chat group id
+    /// the group id
     String? group_id,
 
     /// the user id
@@ -372,7 +372,7 @@ class KickResponse with _$KickResponse {
 @Freezed()
 class LeaveRequest with _$LeaveRequest {
   const factory LeaveRequest({
-    /// the chat group id
+    /// the group id
     String? group_id,
 
     /// the user id
@@ -417,15 +417,6 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
-    /// text of the message
-    String? text,
-
-    /// id of the user who sent the message
-    String? user_id,
-
-    /// a client side id, should be validated by the server to make the request retry safe
-    String? client,
-
     /// id of the chat the message is being sent to / from
     String? group_id,
 
@@ -437,6 +428,15 @@ class Message with _$Message {
 
     /// subject of the message
     String? subject,
+
+    /// text of the message
+    String? text,
+
+    /// id of the user who sent the message
+    String? user_id,
+
+    /// a client side id, should be validated by the server to make the request retry safe
+    String? client,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
@@ -448,7 +448,7 @@ class SendRequest with _$SendRequest {
     /// a client side id, should be validated by the server to make the request retry safe
     String? client,
 
-    /// id of the chat group the message is being sent to / from
+    /// id of the group the message is being sent to / from
     String? group_id,
 
     /// subject of the message

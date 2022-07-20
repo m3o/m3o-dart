@@ -6,7 +6,7 @@ void main() async {
   final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
 
   final payload = <String, dynamic>{
-    "description": "The general chat group",
+    "description": "The general group",
     "name": "general",
   };
 

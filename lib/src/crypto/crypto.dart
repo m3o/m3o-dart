@@ -116,6 +116,12 @@ class CryptoService {
 @Freezed()
 class Article with _$Article {
   const factory Article({
+    /// the source url
+    String? url,
+
+    /// the date published
+    String? date,
+
     /// its description
     String? description,
 
@@ -124,12 +130,6 @@ class Article with _$Article {
 
     /// title of the article
     String? title,
-
-    /// the source url
-    String? url,
-
-    /// the date published
-    String? date,
   }) = _Article;
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);
@@ -188,11 +188,11 @@ class NewsRequest with _$NewsRequest {
 @Freezed()
 class NewsResponse with _$NewsResponse {
   const factory NewsResponse({
-    /// symbol requested for
-    String? symbol,
-
     /// list of articles
     List<Article>? articles,
+
+    /// symbol requested for
+    String? symbol,
   }) = NewsResponseData;
   const factory NewsResponse.Merr({Map<String, dynamic>? body}) =
       NewsResponseMerr;

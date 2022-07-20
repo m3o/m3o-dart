@@ -134,11 +134,11 @@ class NextRequest with _$NextRequest {
 @Freezed()
 class NextResponse with _$NextResponse {
   const factory NextResponse({
-    /// number of seconds
-    int? seconds,
-
     /// in hh:mm:ss
     String? duration,
+
+    /// number of seconds
+    int? seconds,
   }) = NextResponseData;
   const factory NextResponse.Merr({Map<String, dynamic>? body}) =
       NextResponseMerr;
