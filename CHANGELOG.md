@@ -1,3 +1,9 @@
+## v1.0.128 - 2022-07-20
+
+[3c78b5](https://github.com/micro/services/commit/3c78b5494bed09666fdb40239c2694933371cc03) add a service client
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.127...v1.0.128
+
 ## v1.0.127 - 2022-07-20
 
 [a64a67](https://github.com/micro/services/commit/a64a67a9ea2ab1932b30ee856c57e9694e369e69) Update examples.json (#424)
