@@ -1,3 +1,9 @@
+## v1.0.132 - 2022-07-21
+
+[3553b8](https://github.com/micro/services/commit/3553b88d746ace63f30ee6f7dd067bd7231377b1) .
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.131...v1.0.132
+
 ## v1.0.131 - 2022-07-21
 
 [f74432](https://github.com/micro/services/commit/f74432f64f3f9309ff32083b39adf3ff26e6f969) add Url.Update
