@@ -36,14 +36,14 @@ class SmsService {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
+    /// the destination phone number including the international dialling code (e.g. +44)
+    String? to,
+
     /// who is the message from? The message will be suffixed with "Sent from <from>"
     String? from,
 
     /// the main body of the message to send
     String? message,
-
-    /// the destination phone number including the international dialling code (e.g. +44)
-    String? to,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);

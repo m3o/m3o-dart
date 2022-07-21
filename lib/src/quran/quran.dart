@@ -98,6 +98,9 @@ class QuranService {
 @Freezed()
 class Chapter with _$Chapter {
   const factory Chapter({
+    /// The arabic name of the chapter
+    String? arabic_name,
+
     /// The simple name of the chapter
     String? name,
 
@@ -107,14 +110,11 @@ class Chapter with _$Chapter {
     /// Should the chapter start with bismillah
     bool? prefix_bismillah,
 
-    /// The place of revelation
-    String? revelation_place,
+    /// The order in which it was revealed
+    int? revelation_order,
 
     /// The translated name
     String? translated_name,
-
-    /// The number of verses in the chapter
-    int? verses,
 
     /// The complex name of the chapter
     String? complex_name,
@@ -122,11 +122,11 @@ class Chapter with _$Chapter {
     /// The id of the chapter as a number e.g 1
     int? id,
 
-    /// The order in which it was revealed
-    int? revelation_order,
+    /// The place of revelation
+    String? revelation_place,
 
-    /// The arabic name of the chapter
-    String? arabic_name,
+    /// The number of verses in the chapter
+    int? verses,
   }) = _Chapter;
   factory Chapter.fromJson(Map<String, dynamic> json) =>
       _$ChapterFromJson(json);
@@ -156,14 +156,14 @@ class ChaptersResponse with _$ChaptersResponse {
 @Freezed()
 class Interpretation with _$Interpretation {
   const factory Interpretation({
-    /// The translated text
-    String? text,
-
     /// The unique id of the interpretation
     int? id,
 
     /// The source of the interpretation
     String? source,
+
+    /// The translated text
+    String? text,
   }) = _Interpretation;
   factory Interpretation.fromJson(Map<String, dynamic> json) =>
       _$InterpretationFromJson(json);
@@ -172,9 +172,6 @@ class Interpretation with _$Interpretation {
 @Freezed()
 class Result with _$Result {
   const factory Result({
-    /// The verse key e.g 1:1
-    String? verse_key,
-
     /// The associated arabic text
     String? text,
 
@@ -183,6 +180,9 @@ class Result with _$Result {
 
     /// The unique verse id across the Quran
     int? verse_id,
+
+    /// The verse key e.g 1:1
+    String? verse_key,
   }) = _Result;
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
 }
@@ -246,6 +246,9 @@ class SummaryRequest with _$SummaryRequest {
 @Freezed()
 class SummaryResponse with _$SummaryResponse {
   const factory SummaryResponse({
+    /// The chapter id
+    int? chapter,
+
     /// The source of the summary
     String? source,
 
@@ -254,9 +257,6 @@ class SummaryResponse with _$SummaryResponse {
 
     /// The full description for the chapter
     String? text,
-
-    /// The chapter id
-    int? chapter,
   }) = SummaryResponseData;
   const factory SummaryResponse.Merr({Map<String, dynamic>? body}) =
       SummaryResponseMerr;
@@ -283,26 +283,17 @@ class Translation with _$Translation {
 @Freezed()
 class Verse with _$Verse {
   const factory Verse({
-    /// The unique id of the verse in the whole book
-    int? id,
+    /// The individual words within the verse (Ayah)
+    List<Word>? words,
 
     /// The interpretations of the verse
     List<Interpretation>? interpretations,
 
-    /// The key of this verse (chapter:verse) e.g 1:1
-    String? key,
+    /// The verse number in this chapter
+    int? number,
 
     /// The page of the Quran this verse is on
     int? page,
-
-    /// The arabic text for this verse
-    String? text,
-
-    /// The alternative translations for the verse
-    List<Translation>? translations,
-
-    /// The verse number in this chapter
-    int? number,
 
     /// The basic translation of the verse
     String? translated_text,
@@ -310,8 +301,17 @@ class Verse with _$Verse {
     /// The phonetic transliteration from arabic
     String? transliteration,
 
-    /// The individual words within the verse (Ayah)
-    List<Word>? words,
+    /// The unique id of the verse in the whole book
+    int? id,
+
+    /// The key of this verse (chapter:verse) e.g 1:1
+    String? key,
+
+    /// The arabic text for this verse
+    String? text,
+
+    /// The alternative translations for the verse
+    List<Translation>? translations,
   }) = _Verse;
   factory Verse.fromJson(Map<String, dynamic> json) => _$VerseFromJson(json);
 }
@@ -319,12 +319,6 @@ class Verse with _$Verse {
 @Freezed()
 class VersesRequest with _$VersesRequest {
   const factory VersesRequest({
-    /// The chapter id to retrieve
-    int? chapter,
-
-    /// Return the interpretation (tafsir)
-    bool? interpret,
-
     /// The language of translation
     String? language,
 
@@ -339,6 +333,12 @@ class VersesRequest with _$VersesRequest {
 
     /// Return the individual words with the verses
     bool? words,
+
+    /// The chapter id to retrieve
+    int? chapter,
+
+    /// Return the interpretation (tafsir)
+    bool? interpret,
   }) = _VersesRequest;
   factory VersesRequest.fromJson(Map<String, dynamic> json) =>
       _$VersesRequestFromJson(json);
@@ -368,11 +368,14 @@ class VersesResponse with _$VersesResponse {
 @Freezed()
 class Word with _$Word {
   const factory Word({
-    /// The line number
-    int? line,
+    /// The id of the word within the verse
+    int? id,
 
     /// The page number
     int? page,
+
+    /// The position of the word
+    int? position,
 
     /// The transliteration text
     String? transliteration,
@@ -383,11 +386,8 @@ class Word with _$Word {
     /// The QCF v2 font code
     String? code,
 
-    /// The id of the word within the verse
-    int? id,
-
-    /// The position of the word
-    int? position,
+    /// The line number
+    int? line,
 
     /// The arabic text for this word
     String? text,

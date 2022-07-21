@@ -202,9 +202,6 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// whether its a private group
-    bool? private,
-
     /// optional list of user ids
     List<String>? user_ids,
 
@@ -213,6 +210,9 @@ class CreateRequest with _$CreateRequest {
 
     /// name of the group
     String? name,
+
+    /// whether its a private group
+    bool? private,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -254,9 +254,6 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Group with _$Group {
   const factory Group({
-    /// name of the chat
-    String? name,
-
     /// whether its a private group
     bool? private,
 
@@ -271,6 +268,9 @@ class Group with _$Group {
 
     /// unique group id
     String? id,
+
+    /// name of the chat
+    String? name,
   }) = _Group;
   factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
 }
@@ -417,6 +417,15 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
+    /// id of the chat the message is being sent to / from
+    String? group_id,
+
+    /// id of the message, allocated by the server
+    String? id,
+
+    /// time the message was sent in RFC3339 format
+    String? sent_at,
+
     /// subject of the message
     String? subject,
 
@@ -428,15 +437,6 @@ class Message with _$Message {
 
     /// a client side id, should be validated by the server to make the request retry safe
     String? client,
-
-    /// id of the chat the message is being sent to / from
-    String? group_id,
-
-    /// id of the message, allocated by the server
-    String? id,
-
-    /// time the message was sent in RFC3339 format
-    String? sent_at,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);

@@ -92,7 +92,7 @@ class UrlService {
     }
   }
 
-  /// Update the destination for a short url
+  /// Update the destination for a short URL
   Future<UpdateResponse> update(UpdateRequest req) async {
     Request request = Request(
       service: 'url',
@@ -204,10 +204,6 @@ class URLPair with _$URLPair {
 
     /// destination url
     String? destinationURL,
-
-    /// The number of times the short URL has been resolved
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
 
     /// shortened url
     String? shortURL,
