@@ -1,3 +1,9 @@
+## v1.0.134 - 2022-07-21
+
+[f28abc](https://github.com/micro/services/commit/f28abc48b980abdf7e0aa453388850f8657ef4ed) .
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.133...v1.0.134
+
 ## v1.0.133 - 2022-07-21
 
 [ffc0d8](https://github.com/micro/services/commit/ffc0d84797ad2e0aa93a84119d77edb3d9c8dcce) rename proxy endpoint to resolve
