@@ -1,3 +1,9 @@
+## v1.0.131 - 2022-07-21
+
+[f74432](https://github.com/micro/services/commit/f74432f64f3f9309ff32083b39adf3ff26e6f969) add Url.Update
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.130...v1.0.131
+
 ## v1.0.130 - 2022-07-20
 
 [1ea66c](https://github.com/micro/services/commit/1ea66cc25bd3c577a9a680967ae8749098af4242) update chat readme
