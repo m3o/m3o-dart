@@ -99,8 +99,8 @@ class BalanceResponse with _$BalanceResponse {
 @Freezed()
 class Input with _$Input {
   const factory Input({
-    Prev? prev_out,
     String? script,
+    Prev? prev_out,
   }) = _Input;
   factory Input.fromJson(Map<String, dynamic> json) => _$InputFromJson(json);
 }
@@ -108,12 +108,12 @@ class Input with _$Input {
 @Freezed()
 class Output with _$Output {
   const factory Output({
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? tx_index,
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
     String? address,
     String? hash,
     String? script,
     bool? spent,
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? tx_index,
   }) = _Output;
   factory Output.fromJson(Map<String, dynamic> json) => _$OutputFromJson(json);
 }
@@ -169,26 +169,12 @@ class TransactionRequest with _$TransactionRequest {
 @Freezed()
 class TransactionResponse with _$TransactionResponse {
   const factory TransactionResponse({
-    /// lock time
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? lock_time,
+    /// outputs
+    List<Output>? outputs,
 
     /// vout
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? vout_sz,
-
-    /// tx index
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? tx_index,
-
-    /// the version
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? version,
-
-    /// block height
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-        int? block_height,
 
     /// blck index
 
@@ -197,33 +183,47 @@ class TransactionResponse with _$TransactionResponse {
     /// inputs
     List<Input>? inputs,
 
-    /// transaction hash
-    String? hash,
+    /// the version
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? version,
 
     /// vin
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? vin_sz,
 
-    /// relay
-    String? relay,
+    /// double spend
+    bool? double_spend,
 
     /// transaction size
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
 
-    /// weight
+    /// transaction hash
+    String? hash,
 
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? weight,
+    /// lock time
 
-    /// double spend
-    bool? double_spend,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? lock_time,
+
+    /// tx index
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? tx_index,
+
+    /// block height
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+        int? block_height,
 
     /// fees
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? fee,
 
-    /// outputs
-    List<Output>? outputs,
+    /// relay
+    String? relay,
+
+    /// weight
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? weight,
   }) = TransactionResponseData;
   const factory TransactionResponse.Merr({Map<String, dynamic>? body}) =
       TransactionResponseMerr;

@@ -72,7 +72,7 @@ class UrlService {
     }
   }
 
-  /// Shorten a long URL
+  /// Shorten a URL
   Future<ShortenResponse> shorten(ShortenRequest req) async {
     Request request = Request(
       service: 'url',

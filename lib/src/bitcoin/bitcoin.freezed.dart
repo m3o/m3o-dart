@@ -612,10 +612,10 @@ Input _$InputFromJson(Map<String, dynamic> json) {
 class _$InputTearOff {
   const _$InputTearOff();
 
-  _Input call({Prev? prev_out, String? script}) {
+  _Input call({String? script, Prev? prev_out}) {
     return _Input(
-      prev_out: prev_out,
       script: script,
+      prev_out: prev_out,
     );
   }
 
@@ -629,8 +629,8 @@ const $Input = _$InputTearOff();
 
 /// @nodoc
 mixin _$Input {
-  Prev? get prev_out => throw _privateConstructorUsedError;
   String? get script => throw _privateConstructorUsedError;
+  Prev? get prev_out => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -641,7 +641,7 @@ mixin _$Input {
 abstract class $InputCopyWith<$Res> {
   factory $InputCopyWith(Input value, $Res Function(Input) then) =
       _$InputCopyWithImpl<$Res>;
-  $Res call({Prev? prev_out, String? script});
+  $Res call({String? script, Prev? prev_out});
 
   $PrevCopyWith<$Res>? get prev_out;
 }
@@ -656,18 +656,18 @@ class _$InputCopyWithImpl<$Res> implements $InputCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? prev_out = freezed,
     Object? script = freezed,
+    Object? prev_out = freezed,
   }) {
     return _then(_value.copyWith(
-      prev_out: prev_out == freezed
-          ? _value.prev_out
-          : prev_out // ignore: cast_nullable_to_non_nullable
-              as Prev?,
       script: script == freezed
           ? _value.script
           : script // ignore: cast_nullable_to_non_nullable
               as String?,
+      prev_out: prev_out == freezed
+          ? _value.prev_out
+          : prev_out // ignore: cast_nullable_to_non_nullable
+              as Prev?,
     ));
   }
 
@@ -688,7 +688,7 @@ abstract class _$InputCopyWith<$Res> implements $InputCopyWith<$Res> {
   factory _$InputCopyWith(_Input value, $Res Function(_Input) then) =
       __$InputCopyWithImpl<$Res>;
   @override
-  $Res call({Prev? prev_out, String? script});
+  $Res call({String? script, Prev? prev_out});
 
   @override
   $PrevCopyWith<$Res>? get prev_out;
@@ -705,18 +705,18 @@ class __$InputCopyWithImpl<$Res> extends _$InputCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? prev_out = freezed,
     Object? script = freezed,
+    Object? prev_out = freezed,
   }) {
     return _then(_Input(
-      prev_out: prev_out == freezed
-          ? _value.prev_out
-          : prev_out // ignore: cast_nullable_to_non_nullable
-              as Prev?,
       script: script == freezed
           ? _value.script
           : script // ignore: cast_nullable_to_non_nullable
               as String?,
+      prev_out: prev_out == freezed
+          ? _value.prev_out
+          : prev_out // ignore: cast_nullable_to_non_nullable
+              as Prev?,
     ));
   }
 }
@@ -724,19 +724,19 @@ class __$InputCopyWithImpl<$Res> extends _$InputCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Input implements _Input {
-  const _$_Input({this.prev_out, this.script});
+  const _$_Input({this.script, this.prev_out});
 
   factory _$_Input.fromJson(Map<String, dynamic> json) =>
       _$$_InputFromJson(json);
 
   @override
-  final Prev? prev_out;
-  @override
   final String? script;
+  @override
+  final Prev? prev_out;
 
   @override
   String toString() {
-    return 'Input(prev_out: $prev_out, script: $script)';
+    return 'Input(script: $script, prev_out: $prev_out)';
   }
 
   @override
@@ -744,15 +744,15 @@ class _$_Input implements _Input {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Input &&
-            const DeepCollectionEquality().equals(other.prev_out, prev_out) &&
-            const DeepCollectionEquality().equals(other.script, script));
+            const DeepCollectionEquality().equals(other.script, script) &&
+            const DeepCollectionEquality().equals(other.prev_out, prev_out));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(prev_out),
-      const DeepCollectionEquality().hash(script));
+      const DeepCollectionEquality().hash(script),
+      const DeepCollectionEquality().hash(prev_out));
 
   @JsonKey(ignore: true)
   @override
@@ -766,14 +766,14 @@ class _$_Input implements _Input {
 }
 
 abstract class _Input implements Input {
-  const factory _Input({Prev? prev_out, String? script}) = _$_Input;
+  const factory _Input({String? script, Prev? prev_out}) = _$_Input;
 
   factory _Input.fromJson(Map<String, dynamic> json) = _$_Input.fromJson;
 
   @override
-  Prev? get prev_out;
-  @override
   String? get script;
+  @override
+  Prev? get prev_out;
   @override
   @JsonKey(ignore: true)
   _$InputCopyWith<_Input> get copyWith => throw _privateConstructorUsedError;
@@ -788,21 +788,19 @@ class _$OutputTearOff {
   const _$OutputTearOff();
 
   _Output call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? value,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? tx_index,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
       String? address,
       String? hash,
       String? script,
-      bool? spent,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? tx_index}) {
+      bool? spent}) {
     return _Output(
+      tx_index: tx_index,
       value: value,
       address: address,
       hash: hash,
       script: script,
       spent: spent,
-      tx_index: tx_index,
     );
   }
 
@@ -817,13 +815,13 @@ const $Output = _$OutputTearOff();
 /// @nodoc
 mixin _$Output {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get tx_index => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get value => throw _privateConstructorUsedError;
   String? get address => throw _privateConstructorUsedError;
   String? get hash => throw _privateConstructorUsedError;
   String? get script => throw _privateConstructorUsedError;
   bool? get spent => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get tx_index => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -835,14 +833,12 @@ abstract class $OutputCopyWith<$Res> {
   factory $OutputCopyWith(Output value, $Res Function(Output) then) =
       _$OutputCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? value,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? tx_index,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
       String? address,
       String? hash,
       String? script,
-      bool? spent,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? tx_index});
+      bool? spent});
 }
 
 /// @nodoc
@@ -855,14 +851,18 @@ class _$OutputCopyWithImpl<$Res> implements $OutputCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? tx_index = freezed,
     Object? value = freezed,
     Object? address = freezed,
     Object? hash = freezed,
     Object? script = freezed,
     Object? spent = freezed,
-    Object? tx_index = freezed,
   }) {
     return _then(_value.copyWith(
+      tx_index: tx_index == freezed
+          ? _value.tx_index
+          : tx_index // ignore: cast_nullable_to_non_nullable
+              as int?,
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -883,10 +883,6 @@ class _$OutputCopyWithImpl<$Res> implements $OutputCopyWith<$Res> {
           ? _value.spent
           : spent // ignore: cast_nullable_to_non_nullable
               as bool?,
-      tx_index: tx_index == freezed
-          ? _value.tx_index
-          : tx_index // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -897,14 +893,12 @@ abstract class _$OutputCopyWith<$Res> implements $OutputCopyWith<$Res> {
       __$OutputCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? value,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? tx_index,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
       String? address,
       String? hash,
       String? script,
-      bool? spent,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? tx_index});
+      bool? spent});
 }
 
 /// @nodoc
@@ -918,14 +912,18 @@ class __$OutputCopyWithImpl<$Res> extends _$OutputCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? tx_index = freezed,
     Object? value = freezed,
     Object? address = freezed,
     Object? hash = freezed,
     Object? script = freezed,
     Object? spent = freezed,
-    Object? tx_index = freezed,
   }) {
     return _then(_Output(
+      tx_index: tx_index == freezed
+          ? _value.tx_index
+          : tx_index // ignore: cast_nullable_to_non_nullable
+              as int?,
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -946,10 +944,6 @@ class __$OutputCopyWithImpl<$Res> extends _$OutputCopyWithImpl<$Res>
           ? _value.spent
           : spent // ignore: cast_nullable_to_non_nullable
               as bool?,
-      tx_index: tx_index == freezed
-          ? _value.tx_index
-          : tx_index // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -958,18 +952,19 @@ class __$OutputCopyWithImpl<$Res> extends _$OutputCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Output implements _Output {
   const _$_Output(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.value,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.tx_index,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.value,
       this.address,
       this.hash,
       this.script,
-      this.spent,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.tx_index});
+      this.spent});
 
   factory _$_Output.fromJson(Map<String, dynamic> json) =>
       _$$_OutputFromJson(json);
 
+  @override
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? tx_index;
   @override
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? value;
@@ -981,13 +976,10 @@ class _$_Output implements _Output {
   final String? script;
   @override
   final bool? spent;
-  @override
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? tx_index;
 
   @override
   String toString() {
-    return 'Output(value: $value, address: $address, hash: $hash, script: $script, spent: $spent, tx_index: $tx_index)';
+    return 'Output(tx_index: $tx_index, value: $value, address: $address, hash: $hash, script: $script, spent: $spent)';
   }
 
   @override
@@ -995,23 +987,23 @@ class _$_Output implements _Output {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Output &&
+            const DeepCollectionEquality().equals(other.tx_index, tx_index) &&
             const DeepCollectionEquality().equals(other.value, value) &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.hash, hash) &&
             const DeepCollectionEquality().equals(other.script, script) &&
-            const DeepCollectionEquality().equals(other.spent, spent) &&
-            const DeepCollectionEquality().equals(other.tx_index, tx_index));
+            const DeepCollectionEquality().equals(other.spent, spent));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(tx_index),
       const DeepCollectionEquality().hash(value),
       const DeepCollectionEquality().hash(address),
       const DeepCollectionEquality().hash(hash),
       const DeepCollectionEquality().hash(script),
-      const DeepCollectionEquality().hash(spent),
-      const DeepCollectionEquality().hash(tx_index));
+      const DeepCollectionEquality().hash(spent));
 
   @JsonKey(ignore: true)
   @override
@@ -1026,17 +1018,18 @@ class _$_Output implements _Output {
 
 abstract class _Output implements Output {
   const factory _Output(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? value,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? tx_index,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
       String? address,
       String? hash,
       String? script,
-      bool? spent,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? tx_index}) = _$_Output;
+      bool? spent}) = _$_Output;
 
   factory _Output.fromJson(Map<String, dynamic> json) = _$_Output.fromJson;
 
+  @override
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get tx_index;
   @override
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get value;
@@ -1048,9 +1041,6 @@ abstract class _Output implements Output {
   String? get script;
   @override
   bool? get spent;
-  @override
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get tx_index;
   @override
   @JsonKey(ignore: true)
   _$OutputCopyWith<_Output> get copyWith => throw _privateConstructorUsedError;
@@ -2068,47 +2058,47 @@ class _$TransactionResponseTearOff {
   const _$TransactionResponseTearOff();
 
   TransactionResponseData call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? lock_time,
+      {List<Output>? outputs,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? vout_sz,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? tx_index,
+          int? block_index,
+      List<Input>? inputs,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? version,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? block_height,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? block_index,
-      List<Input>? inputs,
-      String? hash,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? vin_sz,
-      String? relay,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? size,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? weight,
       bool? double_spend,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? size,
+      String? hash,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? lock_time,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? tx_index,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? block_height,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? fee,
-      List<Output>? outputs}) {
+      String? relay,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? weight}) {
     return TransactionResponseData(
-      lock_time: lock_time,
+      outputs: outputs,
       vout_sz: vout_sz,
-      tx_index: tx_index,
-      version: version,
-      block_height: block_height,
       block_index: block_index,
       inputs: inputs,
-      hash: hash,
+      version: version,
       vin_sz: vin_sz,
-      relay: relay,
-      size: size,
-      weight: weight,
       double_spend: double_spend,
+      size: size,
+      hash: hash,
+      lock_time: lock_time,
+      tx_index: tx_index,
+      block_height: block_height,
       fee: fee,
-      outputs: outputs,
+      relay: relay,
+      weight: weight,
     );
   }
 
@@ -2131,31 +2121,31 @@ mixin _$TransactionResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? lock_time,
+            List<Output>? outputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vout_sz,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? tx_index,
+                int? block_index,
+            List<Input>? inputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? version,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_height,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_index,
-            List<Input>? inputs,
-            String? hash,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vin_sz,
-            String? relay,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? size,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? weight,
             bool? double_spend,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? size,
+            String? hash,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? lock_time,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? tx_index,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? block_height,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? fee,
-            List<Output>? outputs)
+            String? relay,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? weight)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
@@ -2163,31 +2153,31 @@ mixin _$TransactionResponse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? lock_time,
+            List<Output>? outputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vout_sz,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? tx_index,
+                int? block_index,
+            List<Input>? inputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? version,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_height,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_index,
-            List<Input>? inputs,
-            String? hash,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vin_sz,
-            String? relay,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? size,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? weight,
             bool? double_spend,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? size,
+            String? hash,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? lock_time,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? tx_index,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? block_height,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? fee,
-            List<Output>? outputs)?
+            String? relay,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? weight)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
@@ -2195,31 +2185,31 @@ mixin _$TransactionResponse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? lock_time,
+            List<Output>? outputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vout_sz,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? tx_index,
+                int? block_index,
+            List<Input>? inputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? version,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_height,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_index,
-            List<Input>? inputs,
-            String? hash,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vin_sz,
-            String? relay,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? size,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? weight,
             bool? double_spend,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? size,
+            String? hash,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? lock_time,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? tx_index,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? block_height,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? fee,
-            List<Output>? outputs)?
+            String? relay,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? weight)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -2270,31 +2260,31 @@ abstract class $TransactionResponseDataCopyWith<$Res> {
           $Res Function(TransactionResponseData) then) =
       _$TransactionResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? lock_time,
+      {List<Output>? outputs,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? vout_sz,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? tx_index,
+          int? block_index,
+      List<Input>? inputs,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? version,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? block_height,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? block_index,
-      List<Input>? inputs,
-      String? hash,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? vin_sz,
-      String? relay,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? size,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? weight,
       bool? double_spend,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? size,
+      String? hash,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? lock_time,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? tx_index,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? block_height,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? fee,
-      List<Output>? outputs});
+      String? relay,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? weight});
 }
 
 /// @nodoc
@@ -2310,42 +2300,30 @@ class _$TransactionResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? lock_time = freezed,
+    Object? outputs = freezed,
     Object? vout_sz = freezed,
-    Object? tx_index = freezed,
-    Object? version = freezed,
-    Object? block_height = freezed,
     Object? block_index = freezed,
     Object? inputs = freezed,
-    Object? hash = freezed,
+    Object? version = freezed,
     Object? vin_sz = freezed,
-    Object? relay = freezed,
-    Object? size = freezed,
-    Object? weight = freezed,
     Object? double_spend = freezed,
+    Object? size = freezed,
+    Object? hash = freezed,
+    Object? lock_time = freezed,
+    Object? tx_index = freezed,
+    Object? block_height = freezed,
     Object? fee = freezed,
-    Object? outputs = freezed,
+    Object? relay = freezed,
+    Object? weight = freezed,
   }) {
     return _then(TransactionResponseData(
-      lock_time: lock_time == freezed
-          ? _value.lock_time
-          : lock_time // ignore: cast_nullable_to_non_nullable
-              as int?,
+      outputs: outputs == freezed
+          ? _value.outputs
+          : outputs // ignore: cast_nullable_to_non_nullable
+              as List<Output>?,
       vout_sz: vout_sz == freezed
           ? _value.vout_sz
           : vout_sz // ignore: cast_nullable_to_non_nullable
-              as int?,
-      tx_index: tx_index == freezed
-          ? _value.tx_index
-          : tx_index // ignore: cast_nullable_to_non_nullable
-              as int?,
-      version: version == freezed
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as int?,
-      block_height: block_height == freezed
-          ? _value.block_height
-          : block_height // ignore: cast_nullable_to_non_nullable
               as int?,
       block_index: block_index == freezed
           ? _value.block_index
@@ -2355,38 +2333,50 @@ class _$TransactionResponseDataCopyWithImpl<$Res>
           ? _value.inputs
           : inputs // ignore: cast_nullable_to_non_nullable
               as List<Input>?,
-      hash: hash == freezed
-          ? _value.hash
-          : hash // ignore: cast_nullable_to_non_nullable
-              as String?,
+      version: version == freezed
+          ? _value.version
+          : version // ignore: cast_nullable_to_non_nullable
+              as int?,
       vin_sz: vin_sz == freezed
           ? _value.vin_sz
           : vin_sz // ignore: cast_nullable_to_non_nullable
-              as int?,
-      relay: relay == freezed
-          ? _value.relay
-          : relay // ignore: cast_nullable_to_non_nullable
-              as String?,
-      size: size == freezed
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int?,
-      weight: weight == freezed
-          ? _value.weight
-          : weight // ignore: cast_nullable_to_non_nullable
               as int?,
       double_spend: double_spend == freezed
           ? _value.double_spend
           : double_spend // ignore: cast_nullable_to_non_nullable
               as bool?,
+      size: size == freezed
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int?,
+      hash: hash == freezed
+          ? _value.hash
+          : hash // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lock_time: lock_time == freezed
+          ? _value.lock_time
+          : lock_time // ignore: cast_nullable_to_non_nullable
+              as int?,
+      tx_index: tx_index == freezed
+          ? _value.tx_index
+          : tx_index // ignore: cast_nullable_to_non_nullable
+              as int?,
+      block_height: block_height == freezed
+          ? _value.block_height
+          : block_height // ignore: cast_nullable_to_non_nullable
+              as int?,
       fee: fee == freezed
           ? _value.fee
           : fee // ignore: cast_nullable_to_non_nullable
               as int?,
-      outputs: outputs == freezed
-          ? _value.outputs
-          : outputs // ignore: cast_nullable_to_non_nullable
-              as List<Output>?,
+      relay: relay == freezed
+          ? _value.relay
+          : relay // ignore: cast_nullable_to_non_nullable
+              as String?,
+      weight: weight == freezed
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -2395,31 +2385,31 @@ class _$TransactionResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$TransactionResponseData implements TransactionResponseData {
   const _$TransactionResponseData(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.lock_time,
+      {this.outputs,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           this.vout_sz,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.tx_index,
+          this.block_index,
+      this.inputs,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           this.version,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.block_height,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.block_index,
-      this.inputs,
-      this.hash,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           this.vin_sz,
-      this.relay,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.size,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.weight,
       this.double_spend,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          this.size,
+      this.hash,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          this.lock_time,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          this.tx_index,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          this.block_height,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           this.fee,
-      this.outputs,
+      this.relay,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          this.weight,
       String? $type})
       : $type = $type ?? 'default';
 
@@ -2428,29 +2418,13 @@ class _$TransactionResponseData implements TransactionResponseData {
 
   @override
 
-  /// lock time
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? lock_time;
+  /// outputs
+  final List<Output>? outputs;
   @override
 
   /// vout
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? vout_sz;
-  @override
-
-  /// tx index
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? tx_index;
-  @override
-
-  /// the version
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? version;
-  @override
-
-  /// block height
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? block_height;
   @override
 
   /// blck index
@@ -2462,8 +2436,9 @@ class _$TransactionResponseData implements TransactionResponseData {
   final List<Input>? inputs;
   @override
 
-  /// transaction hash
-  final String? hash;
+  /// the version
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? version;
   @override
 
   /// vin
@@ -2471,8 +2446,8 @@ class _$TransactionResponseData implements TransactionResponseData {
   final int? vin_sz;
   @override
 
-  /// relay
-  final String? relay;
+  /// double spend
+  final bool? double_spend;
   @override
 
   /// transaction size
@@ -2480,13 +2455,23 @@ class _$TransactionResponseData implements TransactionResponseData {
   final int? size;
   @override
 
-  /// weight
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? weight;
+  /// transaction hash
+  final String? hash;
   @override
 
-  /// double spend
-  final bool? double_spend;
+  /// lock time
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? lock_time;
+  @override
+
+  /// tx index
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? tx_index;
+  @override
+
+  /// block height
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? block_height;
   @override
 
   /// fees
@@ -2494,15 +2479,20 @@ class _$TransactionResponseData implements TransactionResponseData {
   final int? fee;
   @override
 
-  /// outputs
-  final List<Output>? outputs;
+  /// relay
+  final String? relay;
+  @override
+
+  /// weight
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? weight;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'TransactionResponse(lock_time: $lock_time, vout_sz: $vout_sz, tx_index: $tx_index, version: $version, block_height: $block_height, block_index: $block_index, inputs: $inputs, hash: $hash, vin_sz: $vin_sz, relay: $relay, size: $size, weight: $weight, double_spend: $double_spend, fee: $fee, outputs: $outputs)';
+    return 'TransactionResponse(outputs: $outputs, vout_sz: $vout_sz, block_index: $block_index, inputs: $inputs, version: $version, vin_sz: $vin_sz, double_spend: $double_spend, size: $size, hash: $hash, lock_time: $lock_time, tx_index: $tx_index, block_height: $block_height, fee: $fee, relay: $relay, weight: $weight)';
   }
 
   @override
@@ -2510,44 +2500,44 @@ class _$TransactionResponseData implements TransactionResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is TransactionResponseData &&
-            const DeepCollectionEquality().equals(other.lock_time, lock_time) &&
+            const DeepCollectionEquality().equals(other.outputs, outputs) &&
             const DeepCollectionEquality().equals(other.vout_sz, vout_sz) &&
-            const DeepCollectionEquality().equals(other.tx_index, tx_index) &&
-            const DeepCollectionEquality().equals(other.version, version) &&
-            const DeepCollectionEquality()
-                .equals(other.block_height, block_height) &&
             const DeepCollectionEquality()
                 .equals(other.block_index, block_index) &&
             const DeepCollectionEquality().equals(other.inputs, inputs) &&
-            const DeepCollectionEquality().equals(other.hash, hash) &&
+            const DeepCollectionEquality().equals(other.version, version) &&
             const DeepCollectionEquality().equals(other.vin_sz, vin_sz) &&
-            const DeepCollectionEquality().equals(other.relay, relay) &&
-            const DeepCollectionEquality().equals(other.size, size) &&
-            const DeepCollectionEquality().equals(other.weight, weight) &&
             const DeepCollectionEquality()
                 .equals(other.double_spend, double_spend) &&
+            const DeepCollectionEquality().equals(other.size, size) &&
+            const DeepCollectionEquality().equals(other.hash, hash) &&
+            const DeepCollectionEquality().equals(other.lock_time, lock_time) &&
+            const DeepCollectionEquality().equals(other.tx_index, tx_index) &&
+            const DeepCollectionEquality()
+                .equals(other.block_height, block_height) &&
             const DeepCollectionEquality().equals(other.fee, fee) &&
-            const DeepCollectionEquality().equals(other.outputs, outputs));
+            const DeepCollectionEquality().equals(other.relay, relay) &&
+            const DeepCollectionEquality().equals(other.weight, weight));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(lock_time),
+      const DeepCollectionEquality().hash(outputs),
       const DeepCollectionEquality().hash(vout_sz),
-      const DeepCollectionEquality().hash(tx_index),
-      const DeepCollectionEquality().hash(version),
-      const DeepCollectionEquality().hash(block_height),
       const DeepCollectionEquality().hash(block_index),
       const DeepCollectionEquality().hash(inputs),
-      const DeepCollectionEquality().hash(hash),
+      const DeepCollectionEquality().hash(version),
       const DeepCollectionEquality().hash(vin_sz),
-      const DeepCollectionEquality().hash(relay),
-      const DeepCollectionEquality().hash(size),
-      const DeepCollectionEquality().hash(weight),
       const DeepCollectionEquality().hash(double_spend),
+      const DeepCollectionEquality().hash(size),
+      const DeepCollectionEquality().hash(hash),
+      const DeepCollectionEquality().hash(lock_time),
+      const DeepCollectionEquality().hash(tx_index),
+      const DeepCollectionEquality().hash(block_height),
       const DeepCollectionEquality().hash(fee),
-      const DeepCollectionEquality().hash(outputs));
+      const DeepCollectionEquality().hash(relay),
+      const DeepCollectionEquality().hash(weight));
 
   @JsonKey(ignore: true)
   @override
@@ -2559,152 +2549,152 @@ class _$TransactionResponseData implements TransactionResponseData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? lock_time,
+            List<Output>? outputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vout_sz,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? tx_index,
+                int? block_index,
+            List<Input>? inputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? version,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_height,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_index,
-            List<Input>? inputs,
-            String? hash,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vin_sz,
-            String? relay,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? size,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? weight,
             bool? double_spend,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? size,
+            String? hash,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? lock_time,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? tx_index,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? block_height,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? fee,
-            List<Output>? outputs)
+            String? relay,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? weight)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return $default(
-        lock_time,
+        outputs,
         vout_sz,
-        tx_index,
-        version,
-        block_height,
         block_index,
         inputs,
-        hash,
+        version,
         vin_sz,
-        relay,
-        size,
-        weight,
         double_spend,
+        size,
+        hash,
+        lock_time,
+        tx_index,
+        block_height,
         fee,
-        outputs);
+        relay,
+        weight);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? lock_time,
+            List<Output>? outputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vout_sz,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? tx_index,
+                int? block_index,
+            List<Input>? inputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? version,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_height,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_index,
-            List<Input>? inputs,
-            String? hash,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vin_sz,
-            String? relay,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? size,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? weight,
             bool? double_spend,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? size,
+            String? hash,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? lock_time,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? tx_index,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? block_height,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? fee,
-            List<Output>? outputs)?
+            String? relay,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? weight)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(
-        lock_time,
+        outputs,
         vout_sz,
-        tx_index,
-        version,
-        block_height,
         block_index,
         inputs,
-        hash,
+        version,
         vin_sz,
-        relay,
-        size,
-        weight,
         double_spend,
+        size,
+        hash,
+        lock_time,
+        tx_index,
+        block_height,
         fee,
-        outputs);
+        relay,
+        weight);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? lock_time,
+            List<Output>? outputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vout_sz,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? tx_index,
+                int? block_index,
+            List<Input>? inputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? version,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_height,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_index,
-            List<Input>? inputs,
-            String? hash,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vin_sz,
-            String? relay,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? size,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? weight,
             bool? double_spend,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? size,
+            String? hash,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? lock_time,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? tx_index,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? block_height,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? fee,
-            List<Output>? outputs)?
+            String? relay,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? weight)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
       return $default(
-          lock_time,
+          outputs,
           vout_sz,
-          tx_index,
-          version,
-          block_height,
           block_index,
           inputs,
-          hash,
+          version,
           vin_sz,
-          relay,
-          size,
-          weight,
           double_spend,
+          size,
+          hash,
+          lock_time,
+          tx_index,
+          block_height,
           fee,
-          outputs);
+          relay,
+          weight);
     }
     return orElse();
   }
@@ -2748,54 +2738,41 @@ class _$TransactionResponseData implements TransactionResponseData {
 
 abstract class TransactionResponseData implements TransactionResponse {
   const factory TransactionResponseData(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? lock_time,
+      {List<Output>? outputs,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? vout_sz,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? tx_index,
+          int? block_index,
+      List<Input>? inputs,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? version,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? block_height,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? block_index,
-      List<Input>? inputs,
-      String? hash,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? vin_sz,
-      String? relay,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? size,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? weight,
       bool? double_spend,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? size,
+      String? hash,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? lock_time,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? tx_index,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? block_height,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? fee,
-      List<Output>? outputs}) = _$TransactionResponseData;
+      String? relay,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? weight}) = _$TransactionResponseData;
 
   factory TransactionResponseData.fromJson(Map<String, dynamic> json) =
       _$TransactionResponseData.fromJson;
 
-  /// lock time
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get lock_time;
+  /// outputs
+  List<Output>? get outputs;
 
   /// vout
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get vout_sz;
-
-  /// tx index
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get tx_index;
-
-  /// the version
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get version;
-
-  /// block height
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get block_height;
 
   /// blck index
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
@@ -2804,33 +2781,46 @@ abstract class TransactionResponseData implements TransactionResponse {
   /// inputs
   List<Input>? get inputs;
 
-  /// transaction hash
-  String? get hash;
+  /// the version
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get version;
 
   /// vin
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get vin_sz;
 
-  /// relay
-  String? get relay;
+  /// double spend
+  bool? get double_spend;
 
   /// transaction size
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get size;
 
-  /// weight
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get weight;
+  /// transaction hash
+  String? get hash;
 
-  /// double spend
-  bool? get double_spend;
+  /// lock time
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get lock_time;
+
+  /// tx index
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get tx_index;
+
+  /// block height
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get block_height;
 
   /// fees
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get fee;
 
-  /// outputs
-  List<Output>? get outputs;
+  /// relay
+  String? get relay;
+
+  /// weight
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get weight;
   @JsonKey(ignore: true)
   $TransactionResponseDataCopyWith<TransactionResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2910,31 +2900,31 @@ class _$TransactionResponseMerr implements TransactionResponseMerr {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? lock_time,
+            List<Output>? outputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vout_sz,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? tx_index,
+                int? block_index,
+            List<Input>? inputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? version,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_height,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_index,
-            List<Input>? inputs,
-            String? hash,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vin_sz,
-            String? relay,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? size,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? weight,
             bool? double_spend,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? size,
+            String? hash,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? lock_time,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? tx_index,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? block_height,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? fee,
-            List<Output>? outputs)
+            String? relay,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? weight)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -2945,31 +2935,31 @@ class _$TransactionResponseMerr implements TransactionResponseMerr {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? lock_time,
+            List<Output>? outputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vout_sz,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? tx_index,
+                int? block_index,
+            List<Input>? inputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? version,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_height,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_index,
-            List<Input>? inputs,
-            String? hash,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vin_sz,
-            String? relay,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? size,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? weight,
             bool? double_spend,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? size,
+            String? hash,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? lock_time,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? tx_index,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? block_height,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? fee,
-            List<Output>? outputs)?
+            String? relay,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? weight)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -2980,31 +2970,31 @@ class _$TransactionResponseMerr implements TransactionResponseMerr {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? lock_time,
+            List<Output>? outputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vout_sz,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? tx_index,
+                int? block_index,
+            List<Input>? inputs,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? version,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_height,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? block_index,
-            List<Input>? inputs,
-            String? hash,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? vin_sz,
-            String? relay,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? size,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? weight,
             bool? double_spend,
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? size,
+            String? hash,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? lock_time,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? tx_index,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? block_height,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? fee,
-            List<Output>? outputs)?
+            String? relay,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+                int? weight)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

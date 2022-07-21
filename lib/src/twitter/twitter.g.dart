@@ -7,42 +7,42 @@ part of 'twitter.dart';
 // **************************************************************************
 
 _$_Profile _$$_ProfileFromJson(Map<String, dynamic> json) => _$_Profile(
-      created_at: json['created_at'] as String?,
-      image_url: json['image_url'] as String?,
-      username: json['username'] as String?,
-      description: json['description'] as String?,
+      verified: json['verified'] as bool?,
       followers: int64FromString(json['followers'] as String?),
       id: int64FromString(json['id'] as String?),
       location: json['location'] as String?,
       name: json['name'] as String?,
+      username: json['username'] as String?,
+      created_at: json['created_at'] as String?,
+      description: json['description'] as String?,
+      image_url: json['image_url'] as String?,
       private: json['private'] as bool?,
-      verified: json['verified'] as bool?,
     );
 
 Map<String, dynamic> _$$_ProfileToJson(_$_Profile instance) =>
     <String, dynamic>{
-      'created_at': instance.created_at,
-      'image_url': instance.image_url,
-      'username': instance.username,
-      'description': instance.description,
+      'verified': instance.verified,
       'followers': int64ToString(instance.followers),
       'id': int64ToString(instance.id),
       'location': instance.location,
       'name': instance.name,
+      'username': instance.username,
+      'created_at': instance.created_at,
+      'description': instance.description,
+      'image_url': instance.image_url,
       'private': instance.private,
-      'verified': instance.verified,
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
     _$_SearchRequest(
-      limit: json['limit'] as int?,
       query: json['query'] as String?,
+      limit: json['limit'] as int?,
     );
 
 Map<String, dynamic> _$$_SearchRequestToJson(_$_SearchRequest instance) =>
     <String, dynamic>{
-      'limit': instance.limit,
       'query': instance.query,
+      'limit': instance.limit,
     };
 
 _$SearchResponseData _$$SearchResponseDataFromJson(Map<String, dynamic> json) =>

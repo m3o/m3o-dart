@@ -77,7 +77,7 @@ void main() async {
 ```
 ## Shorten
 
-Shorten a long URL
+Shorten a URL
 
 
 [https://m3o.com/url/api#Shorten](https://m3o.com/url/api#Shorten)
