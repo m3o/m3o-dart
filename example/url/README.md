@@ -111,12 +111,12 @@ void main() async {
   }
 }
 ```
-## Proxy
+## Resolve
 
-Proxy returns the destination URL of a short URL.
+Resolve returns the destination URL of a short URL.
 
 
-[https://m3o.com/url/api#Proxy](https://m3o.com/url/api#Proxy)
+[https://m3o.com/url/api#Resolve](https://m3o.com/url/api#Resolve)
 
 ```dart
 import 'dart:io';
@@ -130,15 +130,15 @@ void main() async {
   "shortURL": "https://m3o.one/u/ck6SGVkYp"
 ,};
 
-  ProxyRequest req = ProxyRequest.fromJson(payload);
+  ResolveRequest req = ResolveRequest.fromJson(payload);
 
   
   try {
 
-	ProxyResponse res = await ser.proxy(req);
+	ResolveResponse res = await ser.resolve(req);
 
     res.map((value) => print(value),
-	  Merr: (ProxyResponseMerr err) => print(err.body!['body']));	
+	  Merr: (ResolveResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

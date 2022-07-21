@@ -1087,55 +1087,56 @@ abstract class ListResponseMerr implements ListResponse {
       throw _privateConstructorUsedError;
 }
 
-ProxyRequest _$ProxyRequestFromJson(Map<String, dynamic> json) {
-  return _ProxyRequest.fromJson(json);
+ResolveRequest _$ResolveRequestFromJson(Map<String, dynamic> json) {
+  return _ResolveRequest.fromJson(json);
 }
 
 /// @nodoc
-class _$ProxyRequestTearOff {
-  const _$ProxyRequestTearOff();
+class _$ResolveRequestTearOff {
+  const _$ResolveRequestTearOff();
 
-  _ProxyRequest call({String? shortURL}) {
-    return _ProxyRequest(
+  _ResolveRequest call({String? shortURL}) {
+    return _ResolveRequest(
       shortURL: shortURL,
     );
   }
 
-  ProxyRequest fromJson(Map<String, Object?> json) {
-    return ProxyRequest.fromJson(json);
+  ResolveRequest fromJson(Map<String, Object?> json) {
+    return ResolveRequest.fromJson(json);
   }
 }
 
 /// @nodoc
-const $ProxyRequest = _$ProxyRequestTearOff();
+const $ResolveRequest = _$ResolveRequestTearOff();
 
 /// @nodoc
-mixin _$ProxyRequest {
+mixin _$ResolveRequest {
   /// short url ID, without the domain, eg. if your short URL is
   /// `m3o.one/u/someshorturlid` then pass in `someshorturlid`
   String? get shortURL => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProxyRequestCopyWith<ProxyRequest> get copyWith =>
+  $ResolveRequestCopyWith<ResolveRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProxyRequestCopyWith<$Res> {
-  factory $ProxyRequestCopyWith(
-          ProxyRequest value, $Res Function(ProxyRequest) then) =
-      _$ProxyRequestCopyWithImpl<$Res>;
+abstract class $ResolveRequestCopyWith<$Res> {
+  factory $ResolveRequestCopyWith(
+          ResolveRequest value, $Res Function(ResolveRequest) then) =
+      _$ResolveRequestCopyWithImpl<$Res>;
   $Res call({String? shortURL});
 }
 
 /// @nodoc
-class _$ProxyRequestCopyWithImpl<$Res> implements $ProxyRequestCopyWith<$Res> {
-  _$ProxyRequestCopyWithImpl(this._value, this._then);
+class _$ResolveRequestCopyWithImpl<$Res>
+    implements $ResolveRequestCopyWith<$Res> {
+  _$ResolveRequestCopyWithImpl(this._value, this._then);
 
-  final ProxyRequest _value;
+  final ResolveRequest _value;
   // ignore: unused_field
-  final $Res Function(ProxyRequest) _then;
+  final $Res Function(ResolveRequest) _then;
 
   @override
   $Res call({
@@ -1151,30 +1152,31 @@ class _$ProxyRequestCopyWithImpl<$Res> implements $ProxyRequestCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ProxyRequestCopyWith<$Res>
-    implements $ProxyRequestCopyWith<$Res> {
-  factory _$ProxyRequestCopyWith(
-          _ProxyRequest value, $Res Function(_ProxyRequest) then) =
-      __$ProxyRequestCopyWithImpl<$Res>;
+abstract class _$ResolveRequestCopyWith<$Res>
+    implements $ResolveRequestCopyWith<$Res> {
+  factory _$ResolveRequestCopyWith(
+          _ResolveRequest value, $Res Function(_ResolveRequest) then) =
+      __$ResolveRequestCopyWithImpl<$Res>;
   @override
   $Res call({String? shortURL});
 }
 
 /// @nodoc
-class __$ProxyRequestCopyWithImpl<$Res> extends _$ProxyRequestCopyWithImpl<$Res>
-    implements _$ProxyRequestCopyWith<$Res> {
-  __$ProxyRequestCopyWithImpl(
-      _ProxyRequest _value, $Res Function(_ProxyRequest) _then)
-      : super(_value, (v) => _then(v as _ProxyRequest));
+class __$ResolveRequestCopyWithImpl<$Res>
+    extends _$ResolveRequestCopyWithImpl<$Res>
+    implements _$ResolveRequestCopyWith<$Res> {
+  __$ResolveRequestCopyWithImpl(
+      _ResolveRequest _value, $Res Function(_ResolveRequest) _then)
+      : super(_value, (v) => _then(v as _ResolveRequest));
 
   @override
-  _ProxyRequest get _value => super._value as _ProxyRequest;
+  _ResolveRequest get _value => super._value as _ResolveRequest;
 
   @override
   $Res call({
     Object? shortURL = freezed,
   }) {
-    return _then(_ProxyRequest(
+    return _then(_ResolveRequest(
       shortURL: shortURL == freezed
           ? _value.shortURL
           : shortURL // ignore: cast_nullable_to_non_nullable
@@ -1185,11 +1187,11 @@ class __$ProxyRequestCopyWithImpl<$Res> extends _$ProxyRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProxyRequest implements _ProxyRequest {
-  const _$_ProxyRequest({this.shortURL});
+class _$_ResolveRequest implements _ResolveRequest {
+  const _$_ResolveRequest({this.shortURL});
 
-  factory _$_ProxyRequest.fromJson(Map<String, dynamic> json) =>
-      _$$_ProxyRequestFromJson(json);
+  factory _$_ResolveRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_ResolveRequestFromJson(json);
 
   @override
 
@@ -1199,14 +1201,14 @@ class _$_ProxyRequest implements _ProxyRequest {
 
   @override
   String toString() {
-    return 'ProxyRequest(shortURL: $shortURL)';
+    return 'ResolveRequest(shortURL: $shortURL)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ProxyRequest &&
+            other is _ResolveRequest &&
             const DeepCollectionEquality().equals(other.shortURL, shortURL));
   }
 
@@ -1216,20 +1218,20 @@ class _$_ProxyRequest implements _ProxyRequest {
 
   @JsonKey(ignore: true)
   @override
-  _$ProxyRequestCopyWith<_ProxyRequest> get copyWith =>
-      __$ProxyRequestCopyWithImpl<_ProxyRequest>(this, _$identity);
+  _$ResolveRequestCopyWith<_ResolveRequest> get copyWith =>
+      __$ResolveRequestCopyWithImpl<_ResolveRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProxyRequestToJson(this);
+    return _$$_ResolveRequestToJson(this);
   }
 }
 
-abstract class _ProxyRequest implements ProxyRequest {
-  const factory _ProxyRequest({String? shortURL}) = _$_ProxyRequest;
+abstract class _ResolveRequest implements ResolveRequest {
+  const factory _ResolveRequest({String? shortURL}) = _$_ResolveRequest;
 
-  factory _ProxyRequest.fromJson(Map<String, dynamic> json) =
-      _$_ProxyRequest.fromJson;
+  factory _ResolveRequest.fromJson(Map<String, dynamic> json) =
+      _$_ResolveRequest.fromJson;
 
   @override
 
@@ -1238,49 +1240,49 @@ abstract class _ProxyRequest implements ProxyRequest {
   String? get shortURL;
   @override
   @JsonKey(ignore: true)
-  _$ProxyRequestCopyWith<_ProxyRequest> get copyWith =>
+  _$ResolveRequestCopyWith<_ResolveRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-ProxyResponse _$ProxyResponseFromJson(Map<String, dynamic> json) {
+ResolveResponse _$ResolveResponseFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'default':
-      return ProxyResponseData.fromJson(json);
+      return ResolveResponseData.fromJson(json);
     case 'Merr':
-      return ProxyResponseMerr.fromJson(json);
+      return ResolveResponseMerr.fromJson(json);
 
     default:
-      throw CheckedFromJsonException(json, 'runtimeType', 'ProxyResponse',
+      throw CheckedFromJsonException(json, 'runtimeType', 'ResolveResponse',
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
 
 /// @nodoc
-class _$ProxyResponseTearOff {
-  const _$ProxyResponseTearOff();
+class _$ResolveResponseTearOff {
+  const _$ResolveResponseTearOff();
 
-  ProxyResponseData call({String? destinationURL}) {
-    return ProxyResponseData(
+  ResolveResponseData call({String? destinationURL}) {
+    return ResolveResponseData(
       destinationURL: destinationURL,
     );
   }
 
-  ProxyResponseMerr Merr({Map<String, dynamic>? body}) {
-    return ProxyResponseMerr(
+  ResolveResponseMerr Merr({Map<String, dynamic>? body}) {
+    return ResolveResponseMerr(
       body: body,
     );
   }
 
-  ProxyResponse fromJson(Map<String, Object?> json) {
-    return ProxyResponse.fromJson(json);
+  ResolveResponse fromJson(Map<String, Object?> json) {
+    return ResolveResponse.fromJson(json);
   }
 }
 
 /// @nodoc
-const $ProxyResponse = _$ProxyResponseTearOff();
+const $ResolveResponse = _$ResolveResponseTearOff();
 
 /// @nodoc
-mixin _$ProxyResponse {
+mixin _$ResolveResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(String? destinationURL) $default, {
@@ -1302,20 +1304,20 @@ mixin _$ProxyResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(ProxyResponseData value) $default, {
-    required TResult Function(ProxyResponseMerr value) Merr,
+    TResult Function(ResolveResponseData value) $default, {
+    required TResult Function(ResolveResponseMerr value) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ProxyResponseData value)? $default, {
-    TResult Function(ProxyResponseMerr value)? Merr,
+    TResult Function(ResolveResponseData value)? $default, {
+    TResult Function(ResolveResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(ProxyResponseData value)? $default, {
-    TResult Function(ProxyResponseMerr value)? Merr,
+    TResult Function(ResolveResponseData value)? $default, {
+    TResult Function(ResolveResponseMerr value)? Merr,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1323,46 +1325,46 @@ mixin _$ProxyResponse {
 }
 
 /// @nodoc
-abstract class $ProxyResponseCopyWith<$Res> {
-  factory $ProxyResponseCopyWith(
-          ProxyResponse value, $Res Function(ProxyResponse) then) =
-      _$ProxyResponseCopyWithImpl<$Res>;
+abstract class $ResolveResponseCopyWith<$Res> {
+  factory $ResolveResponseCopyWith(
+          ResolveResponse value, $Res Function(ResolveResponse) then) =
+      _$ResolveResponseCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ProxyResponseCopyWithImpl<$Res>
-    implements $ProxyResponseCopyWith<$Res> {
-  _$ProxyResponseCopyWithImpl(this._value, this._then);
+class _$ResolveResponseCopyWithImpl<$Res>
+    implements $ResolveResponseCopyWith<$Res> {
+  _$ResolveResponseCopyWithImpl(this._value, this._then);
 
-  final ProxyResponse _value;
+  final ResolveResponse _value;
   // ignore: unused_field
-  final $Res Function(ProxyResponse) _then;
+  final $Res Function(ResolveResponse) _then;
 }
 
 /// @nodoc
-abstract class $ProxyResponseDataCopyWith<$Res> {
-  factory $ProxyResponseDataCopyWith(
-          ProxyResponseData value, $Res Function(ProxyResponseData) then) =
-      _$ProxyResponseDataCopyWithImpl<$Res>;
+abstract class $ResolveResponseDataCopyWith<$Res> {
+  factory $ResolveResponseDataCopyWith(
+          ResolveResponseData value, $Res Function(ResolveResponseData) then) =
+      _$ResolveResponseDataCopyWithImpl<$Res>;
   $Res call({String? destinationURL});
 }
 
 /// @nodoc
-class _$ProxyResponseDataCopyWithImpl<$Res>
-    extends _$ProxyResponseCopyWithImpl<$Res>
-    implements $ProxyResponseDataCopyWith<$Res> {
-  _$ProxyResponseDataCopyWithImpl(
-      ProxyResponseData _value, $Res Function(ProxyResponseData) _then)
-      : super(_value, (v) => _then(v as ProxyResponseData));
+class _$ResolveResponseDataCopyWithImpl<$Res>
+    extends _$ResolveResponseCopyWithImpl<$Res>
+    implements $ResolveResponseDataCopyWith<$Res> {
+  _$ResolveResponseDataCopyWithImpl(
+      ResolveResponseData _value, $Res Function(ResolveResponseData) _then)
+      : super(_value, (v) => _then(v as ResolveResponseData));
 
   @override
-  ProxyResponseData get _value => super._value as ProxyResponseData;
+  ResolveResponseData get _value => super._value as ResolveResponseData;
 
   @override
   $Res call({
     Object? destinationURL = freezed,
   }) {
-    return _then(ProxyResponseData(
+    return _then(ResolveResponseData(
       destinationURL: destinationURL == freezed
           ? _value.destinationURL
           : destinationURL // ignore: cast_nullable_to_non_nullable
@@ -1373,12 +1375,12 @@ class _$ProxyResponseDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ProxyResponseData implements ProxyResponseData {
-  const _$ProxyResponseData({this.destinationURL, String? $type})
+class _$ResolveResponseData implements ResolveResponseData {
+  const _$ResolveResponseData({this.destinationURL, String? $type})
       : $type = $type ?? 'default';
 
-  factory _$ProxyResponseData.fromJson(Map<String, dynamic> json) =>
-      _$$ProxyResponseDataFromJson(json);
+  factory _$ResolveResponseData.fromJson(Map<String, dynamic> json) =>
+      _$$ResolveResponseDataFromJson(json);
 
   @override
   final String? destinationURL;
@@ -1388,14 +1390,14 @@ class _$ProxyResponseData implements ProxyResponseData {
 
   @override
   String toString() {
-    return 'ProxyResponse(destinationURL: $destinationURL)';
+    return 'ResolveResponse(destinationURL: $destinationURL)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ProxyResponseData &&
+            other is ResolveResponseData &&
             const DeepCollectionEquality()
                 .equals(other.destinationURL, destinationURL));
   }
@@ -1406,8 +1408,8 @@ class _$ProxyResponseData implements ProxyResponseData {
 
   @JsonKey(ignore: true)
   @override
-  $ProxyResponseDataCopyWith<ProxyResponseData> get copyWith =>
-      _$ProxyResponseDataCopyWithImpl<ProxyResponseData>(this, _$identity);
+  $ResolveResponseDataCopyWith<ResolveResponseData> get copyWith =>
+      _$ResolveResponseDataCopyWithImpl<ResolveResponseData>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1443,8 +1445,8 @@ class _$ProxyResponseData implements ProxyResponseData {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(ProxyResponseData value) $default, {
-    required TResult Function(ProxyResponseMerr value) Merr,
+    TResult Function(ResolveResponseData value) $default, {
+    required TResult Function(ResolveResponseMerr value) Merr,
   }) {
     return $default(this);
   }
@@ -1452,8 +1454,8 @@ class _$ProxyResponseData implements ProxyResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ProxyResponseData value)? $default, {
-    TResult Function(ProxyResponseMerr value)? Merr,
+    TResult Function(ResolveResponseData value)? $default, {
+    TResult Function(ResolveResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -1461,8 +1463,8 @@ class _$ProxyResponseData implements ProxyResponseData {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(ProxyResponseData value)? $default, {
-    TResult Function(ProxyResponseMerr value)? Merr,
+    TResult Function(ResolveResponseData value)? $default, {
+    TResult Function(ResolveResponseMerr value)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -1473,47 +1475,47 @@ class _$ProxyResponseData implements ProxyResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ProxyResponseDataToJson(this);
+    return _$$ResolveResponseDataToJson(this);
   }
 }
 
-abstract class ProxyResponseData implements ProxyResponse {
-  const factory ProxyResponseData({String? destinationURL}) =
-      _$ProxyResponseData;
+abstract class ResolveResponseData implements ResolveResponse {
+  const factory ResolveResponseData({String? destinationURL}) =
+      _$ResolveResponseData;
 
-  factory ProxyResponseData.fromJson(Map<String, dynamic> json) =
-      _$ProxyResponseData.fromJson;
+  factory ResolveResponseData.fromJson(Map<String, dynamic> json) =
+      _$ResolveResponseData.fromJson;
 
   String? get destinationURL;
   @JsonKey(ignore: true)
-  $ProxyResponseDataCopyWith<ProxyResponseData> get copyWith =>
+  $ResolveResponseDataCopyWith<ResolveResponseData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProxyResponseMerrCopyWith<$Res> {
-  factory $ProxyResponseMerrCopyWith(
-          ProxyResponseMerr value, $Res Function(ProxyResponseMerr) then) =
-      _$ProxyResponseMerrCopyWithImpl<$Res>;
+abstract class $ResolveResponseMerrCopyWith<$Res> {
+  factory $ResolveResponseMerrCopyWith(
+          ResolveResponseMerr value, $Res Function(ResolveResponseMerr) then) =
+      _$ResolveResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$ProxyResponseMerrCopyWithImpl<$Res>
-    extends _$ProxyResponseCopyWithImpl<$Res>
-    implements $ProxyResponseMerrCopyWith<$Res> {
-  _$ProxyResponseMerrCopyWithImpl(
-      ProxyResponseMerr _value, $Res Function(ProxyResponseMerr) _then)
-      : super(_value, (v) => _then(v as ProxyResponseMerr));
+class _$ResolveResponseMerrCopyWithImpl<$Res>
+    extends _$ResolveResponseCopyWithImpl<$Res>
+    implements $ResolveResponseMerrCopyWith<$Res> {
+  _$ResolveResponseMerrCopyWithImpl(
+      ResolveResponseMerr _value, $Res Function(ResolveResponseMerr) _then)
+      : super(_value, (v) => _then(v as ResolveResponseMerr));
 
   @override
-  ProxyResponseMerr get _value => super._value as ProxyResponseMerr;
+  ResolveResponseMerr get _value => super._value as ResolveResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(ProxyResponseMerr(
+    return _then(ResolveResponseMerr(
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -1524,12 +1526,12 @@ class _$ProxyResponseMerrCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ProxyResponseMerr implements ProxyResponseMerr {
-  const _$ProxyResponseMerr({this.body, String? $type})
+class _$ResolveResponseMerr implements ResolveResponseMerr {
+  const _$ResolveResponseMerr({this.body, String? $type})
       : $type = $type ?? 'Merr';
 
-  factory _$ProxyResponseMerr.fromJson(Map<String, dynamic> json) =>
-      _$$ProxyResponseMerrFromJson(json);
+  factory _$ResolveResponseMerr.fromJson(Map<String, dynamic> json) =>
+      _$$ResolveResponseMerrFromJson(json);
 
   @override
   final Map<String, dynamic>? body;
@@ -1539,14 +1541,14 @@ class _$ProxyResponseMerr implements ProxyResponseMerr {
 
   @override
   String toString() {
-    return 'ProxyResponse.Merr(body: $body)';
+    return 'ResolveResponse.Merr(body: $body)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ProxyResponseMerr &&
+            other is ResolveResponseMerr &&
             const DeepCollectionEquality().equals(other.body, body));
   }
 
@@ -1556,8 +1558,8 @@ class _$ProxyResponseMerr implements ProxyResponseMerr {
 
   @JsonKey(ignore: true)
   @override
-  $ProxyResponseMerrCopyWith<ProxyResponseMerr> get copyWith =>
-      _$ProxyResponseMerrCopyWithImpl<ProxyResponseMerr>(this, _$identity);
+  $ResolveResponseMerrCopyWith<ResolveResponseMerr> get copyWith =>
+      _$ResolveResponseMerrCopyWithImpl<ResolveResponseMerr>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1593,8 +1595,8 @@ class _$ProxyResponseMerr implements ProxyResponseMerr {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(ProxyResponseData value) $default, {
-    required TResult Function(ProxyResponseMerr value) Merr,
+    TResult Function(ResolveResponseData value) $default, {
+    required TResult Function(ResolveResponseMerr value) Merr,
   }) {
     return Merr(this);
   }
@@ -1602,8 +1604,8 @@ class _$ProxyResponseMerr implements ProxyResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ProxyResponseData value)? $default, {
-    TResult Function(ProxyResponseMerr value)? Merr,
+    TResult Function(ResolveResponseData value)? $default, {
+    TResult Function(ResolveResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -1611,8 +1613,8 @@ class _$ProxyResponseMerr implements ProxyResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(ProxyResponseData value)? $default, {
-    TResult Function(ProxyResponseMerr value)? Merr,
+    TResult Function(ResolveResponseData value)? $default, {
+    TResult Function(ResolveResponseMerr value)? Merr,
     required TResult orElse(),
   }) {
     if (Merr != null) {
@@ -1623,20 +1625,20 @@ class _$ProxyResponseMerr implements ProxyResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ProxyResponseMerrToJson(this);
+    return _$$ResolveResponseMerrToJson(this);
   }
 }
 
-abstract class ProxyResponseMerr implements ProxyResponse {
-  const factory ProxyResponseMerr({Map<String, dynamic>? body}) =
-      _$ProxyResponseMerr;
+abstract class ResolveResponseMerr implements ResolveResponse {
+  const factory ResolveResponseMerr({Map<String, dynamic>? body}) =
+      _$ResolveResponseMerr;
 
-  factory ProxyResponseMerr.fromJson(Map<String, dynamic> json) =
-      _$ProxyResponseMerr.fromJson;
+  factory ResolveResponseMerr.fromJson(Map<String, dynamic> json) =
+      _$ResolveResponseMerr.fromJson;
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $ProxyResponseMerrCopyWith<ProxyResponseMerr> get copyWith =>
+  $ResolveResponseMerrCopyWith<ResolveResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2203,16 +2205,15 @@ class _$URLPairTearOff {
   const _$URLPairTearOff();
 
   _URLPair call(
-      {String? shortURL,
-      String? created,
+      {String? created,
       String? destinationURL,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? hitCount}) {
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
+      String? shortURL}) {
     return _URLPair(
-      shortURL: shortURL,
       created: created,
       destinationURL: destinationURL,
       hitCount: hitCount,
+      shortURL: shortURL,
     );
   }
 
@@ -2226,9 +2227,6 @@ const $URLPair = _$URLPairTearOff();
 
 /// @nodoc
 mixin _$URLPair {
-  /// shortened url
-  String? get shortURL => throw _privateConstructorUsedError;
-
   /// time of creation
   String? get created => throw _privateConstructorUsedError;
 
@@ -2238,6 +2236,9 @@ mixin _$URLPair {
   /// The number of times the short URL has been resolved
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get hitCount => throw _privateConstructorUsedError;
+
+  /// shortened url
+  String? get shortURL => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2249,11 +2250,10 @@ abstract class $URLPairCopyWith<$Res> {
   factory $URLPairCopyWith(URLPair value, $Res Function(URLPair) then) =
       _$URLPairCopyWithImpl<$Res>;
   $Res call(
-      {String? shortURL,
-      String? created,
+      {String? created,
       String? destinationURL,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? hitCount});
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
+      String? shortURL});
 }
 
 /// @nodoc
@@ -2266,16 +2266,12 @@ class _$URLPairCopyWithImpl<$Res> implements $URLPairCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? shortURL = freezed,
     Object? created = freezed,
     Object? destinationURL = freezed,
     Object? hitCount = freezed,
+    Object? shortURL = freezed,
   }) {
     return _then(_value.copyWith(
-      shortURL: shortURL == freezed
-          ? _value.shortURL
-          : shortURL // ignore: cast_nullable_to_non_nullable
-              as String?,
       created: created == freezed
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
@@ -2288,6 +2284,10 @@ class _$URLPairCopyWithImpl<$Res> implements $URLPairCopyWith<$Res> {
           ? _value.hitCount
           : hitCount // ignore: cast_nullable_to_non_nullable
               as int?,
+      shortURL: shortURL == freezed
+          ? _value.shortURL
+          : shortURL // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2298,11 +2298,10 @@ abstract class _$URLPairCopyWith<$Res> implements $URLPairCopyWith<$Res> {
       __$URLPairCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? shortURL,
-      String? created,
+      {String? created,
       String? destinationURL,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? hitCount});
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
+      String? shortURL});
 }
 
 /// @nodoc
@@ -2316,16 +2315,12 @@ class __$URLPairCopyWithImpl<$Res> extends _$URLPairCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? shortURL = freezed,
     Object? created = freezed,
     Object? destinationURL = freezed,
     Object? hitCount = freezed,
+    Object? shortURL = freezed,
   }) {
     return _then(_URLPair(
-      shortURL: shortURL == freezed
-          ? _value.shortURL
-          : shortURL // ignore: cast_nullable_to_non_nullable
-              as String?,
       created: created == freezed
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
@@ -2338,6 +2333,10 @@ class __$URLPairCopyWithImpl<$Res> extends _$URLPairCopyWithImpl<$Res>
           ? _value.hitCount
           : hitCount // ignore: cast_nullable_to_non_nullable
               as int?,
+      shortURL: shortURL == freezed
+          ? _value.shortURL
+          : shortURL // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2346,19 +2345,14 @@ class __$URLPairCopyWithImpl<$Res> extends _$URLPairCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_URLPair implements _URLPair {
   const _$_URLPair(
-      {this.shortURL,
-      this.created,
+      {this.created,
       this.destinationURL,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.hitCount});
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.hitCount,
+      this.shortURL});
 
   factory _$_URLPair.fromJson(Map<String, dynamic> json) =>
       _$$_URLPairFromJson(json);
 
-  @override
-
-  /// shortened url
-  final String? shortURL;
   @override
 
   /// time of creation
@@ -2372,10 +2366,14 @@ class _$_URLPair implements _URLPair {
   /// The number of times the short URL has been resolved
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? hitCount;
+  @override
+
+  /// shortened url
+  final String? shortURL;
 
   @override
   String toString() {
-    return 'URLPair(shortURL: $shortURL, created: $created, destinationURL: $destinationURL, hitCount: $hitCount)';
+    return 'URLPair(created: $created, destinationURL: $destinationURL, hitCount: $hitCount, shortURL: $shortURL)';
   }
 
   @override
@@ -2383,20 +2381,20 @@ class _$_URLPair implements _URLPair {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _URLPair &&
-            const DeepCollectionEquality().equals(other.shortURL, shortURL) &&
             const DeepCollectionEquality().equals(other.created, created) &&
             const DeepCollectionEquality()
                 .equals(other.destinationURL, destinationURL) &&
-            const DeepCollectionEquality().equals(other.hitCount, hitCount));
+            const DeepCollectionEquality().equals(other.hitCount, hitCount) &&
+            const DeepCollectionEquality().equals(other.shortURL, shortURL));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(shortURL),
       const DeepCollectionEquality().hash(created),
       const DeepCollectionEquality().hash(destinationURL),
-      const DeepCollectionEquality().hash(hitCount));
+      const DeepCollectionEquality().hash(hitCount),
+      const DeepCollectionEquality().hash(shortURL));
 
   @JsonKey(ignore: true)
   @override
@@ -2411,18 +2409,13 @@ class _$_URLPair implements _URLPair {
 
 abstract class _URLPair implements URLPair {
   const factory _URLPair(
-      {String? shortURL,
-      String? created,
+      {String? created,
       String? destinationURL,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? hitCount}) = _$_URLPair;
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
+      String? shortURL}) = _$_URLPair;
 
   factory _URLPair.fromJson(Map<String, dynamic> json) = _$_URLPair.fromJson;
 
-  @override
-
-  /// shortened url
-  String? get shortURL;
   @override
 
   /// time of creation
@@ -2436,6 +2429,10 @@ abstract class _URLPair implements URLPair {
   /// The number of times the short URL has been resolved
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get hitCount;
+  @override
+
+  /// shortened url
+  String? get shortURL;
   @override
   @JsonKey(ignore: true)
   _$URLPairCopyWith<_URLPair> get copyWith =>

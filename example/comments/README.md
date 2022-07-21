@@ -4,6 +4,40 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/comments/api](
 
 Endpoints:
 
+## List
+
+List all the comments
+
+
+[https://m3o.com/comments/api#List](https://m3o.com/comments/api#List)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/comments/comments.dart';
+
+void main() async {
+  final ser = CommentsService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  ListRequest req = ListRequest.fromJson(payload);
+
+  
+  try {
+
+	ListResponse res = await ser.list(req);
+
+    res.map((value) => print(value),
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Update
 
 Update a comment
@@ -183,40 +217,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (ReadResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## List
-
-List all the comments
-
-
-[https://m3o.com/comments/api#List](https://m3o.com/comments/api#List)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/comments/comments.dart';
-
-void main() async {
-  final ser = CommentsService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{};
-
-  ListRequest req = ListRequest.fromJson(payload);
-
-  
-  try {
-
-	ListResponse res = await ser.list(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

@@ -52,11 +52,11 @@ class UrlService {
     }
   }
 
-  /// Proxy returns the destination URL of a short URL.
-  Future<ProxyResponse> proxy(ProxyRequest req) async {
+  /// Resolve returns the destination URL of a short URL.
+  Future<ResolveResponse> resolve(ResolveRequest req) async {
     Request request = Request(
       service: 'url',
-      endpoint: 'Proxy',
+      endpoint: 'Resolve',
       body: req.toJson(),
     );
 
@@ -64,9 +64,9 @@ class UrlService {
       Response res = await _client.call(request);
       if (isError(res.body)) {
         final err = Merr(res.toJson());
-        return ProxyResponse.Merr(body: err.b);
+        return ResolveResponse.Merr(body: err.b);
       }
-      return ProxyResponseData.fromJson(res.body);
+      return ResolveResponseData.fromJson(res.body);
     } catch (e) {
       throw Exception(e);
     }
@@ -153,25 +153,25 @@ class ListResponse with _$ListResponse {
 }
 
 @Freezed()
-class ProxyRequest with _$ProxyRequest {
-  const factory ProxyRequest({
+class ResolveRequest with _$ResolveRequest {
+  const factory ResolveRequest({
     /// short url ID, without the domain, eg. if your short URL is
     /// `m3o.one/u/someshorturlid` then pass in `someshorturlid`
     String? shortURL,
-  }) = _ProxyRequest;
-  factory ProxyRequest.fromJson(Map<String, dynamic> json) =>
-      _$ProxyRequestFromJson(json);
+  }) = _ResolveRequest;
+  factory ResolveRequest.fromJson(Map<String, dynamic> json) =>
+      _$ResolveRequestFromJson(json);
 }
 
 @Freezed()
-class ProxyResponse with _$ProxyResponse {
-  const factory ProxyResponse({
+class ResolveResponse with _$ResolveResponse {
+  const factory ResolveResponse({
     String? destinationURL,
-  }) = ProxyResponseData;
-  const factory ProxyResponse.Merr({Map<String, dynamic>? body}) =
-      ProxyResponseMerr;
-  factory ProxyResponse.fromJson(Map<String, dynamic> json) =>
-      _$ProxyResponseFromJson(json);
+  }) = ResolveResponseData;
+  const factory ResolveResponse.Merr({Map<String, dynamic>? body}) =
+      ResolveResponseMerr;
+  factory ResolveResponse.fromJson(Map<String, dynamic> json) =>
+      _$ResolveResponseFromJson(json);
 }
 
 @Freezed()
@@ -199,9 +199,6 @@ class ShortenResponse with _$ShortenResponse {
 @Freezed()
 class URLPair with _$URLPair {
   const factory URLPair({
-    /// shortened url
-    String? shortURL,
-
     /// time of creation
     String? created,
 
@@ -211,6 +208,9 @@ class URLPair with _$URLPair {
     /// The number of times the short URL has been resolved
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
+
+    /// shortened url
+    String? shortURL,
   }) = _URLPair;
   factory URLPair.fromJson(Map<String, dynamic> json) =>
       _$URLPairFromJson(json);

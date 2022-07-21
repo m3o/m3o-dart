@@ -76,35 +76,39 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
       'runtimeType': instance.$type,
     };
 
-_$_ProxyRequest _$$_ProxyRequestFromJson(Map<String, dynamic> json) =>
-    _$_ProxyRequest(
+_$_ResolveRequest _$$_ResolveRequestFromJson(Map<String, dynamic> json) =>
+    _$_ResolveRequest(
       shortURL: json['shortURL'] as String?,
     );
 
-Map<String, dynamic> _$$_ProxyRequestToJson(_$_ProxyRequest instance) =>
+Map<String, dynamic> _$$_ResolveRequestToJson(_$_ResolveRequest instance) =>
     <String, dynamic>{
       'shortURL': instance.shortURL,
     };
 
-_$ProxyResponseData _$$ProxyResponseDataFromJson(Map<String, dynamic> json) =>
-    _$ProxyResponseData(
+_$ResolveResponseData _$$ResolveResponseDataFromJson(
+        Map<String, dynamic> json) =>
+    _$ResolveResponseData(
       destinationURL: json['destinationURL'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$ProxyResponseDataToJson(_$ProxyResponseData instance) =>
+Map<String, dynamic> _$$ResolveResponseDataToJson(
+        _$ResolveResponseData instance) =>
     <String, dynamic>{
       'destinationURL': instance.destinationURL,
       'runtimeType': instance.$type,
     };
 
-_$ProxyResponseMerr _$$ProxyResponseMerrFromJson(Map<String, dynamic> json) =>
-    _$ProxyResponseMerr(
+_$ResolveResponseMerr _$$ResolveResponseMerrFromJson(
+        Map<String, dynamic> json) =>
+    _$ResolveResponseMerr(
       body: json['body'] as Map<String, dynamic>?,
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$ProxyResponseMerrToJson(_$ProxyResponseMerr instance) =>
+Map<String, dynamic> _$$ResolveResponseMerrToJson(
+        _$ResolveResponseMerr instance) =>
     <String, dynamic>{
       'body': instance.body,
       'runtimeType': instance.$type,
@@ -149,18 +153,18 @@ Map<String, dynamic> _$$ShortenResponseMerrToJson(
     };
 
 _$_URLPair _$$_URLPairFromJson(Map<String, dynamic> json) => _$_URLPair(
-      shortURL: json['shortURL'] as String?,
       created: json['created'] as String?,
       destinationURL: json['destinationURL'] as String?,
       hitCount: int64FromString(json['hitCount'] as String?),
+      shortURL: json['shortURL'] as String?,
     );
 
 Map<String, dynamic> _$$_URLPairToJson(_$_URLPair instance) =>
     <String, dynamic>{
-      'shortURL': instance.shortURL,
       'created': instance.created,
       'destinationURL': instance.destinationURL,
       'hitCount': int64ToString(instance.hitCount),
+      'shortURL': instance.shortURL,
     };
 
 _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>
