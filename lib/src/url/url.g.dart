@@ -6,6 +6,46 @@ part of 'url.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
+    _$_CreateRequest(
+      id: json['id'] as String?,
+      destinationURL: json['destinationURL'] as String?,
+    );
+
+Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'destinationURL': instance.destinationURL,
+    };
+
+_$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
+    _$CreateResponseData(
+      url: json['url'] == null
+          ? null
+          : URLPair.fromJson(json['url'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$CreateResponseDataToJson(
+        _$CreateResponseData instance) =>
+    <String, dynamic>{
+      'url': instance.url,
+      'runtimeType': instance.$type,
+    };
+
+_$CreateResponseMerr _$$CreateResponseMerrFromJson(Map<String, dynamic> json) =>
+    _$CreateResponseMerr(
+      body: json['body'] as Map<String, dynamic>?,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$CreateResponseMerrToJson(
+        _$CreateResponseMerr instance) =>
+    <String, dynamic>{
+      'body': instance.body,
+      'runtimeType': instance.$type,
+    };
+
 _$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
     _$_DeleteRequest(
       shortURL: json['shortURL'] as String?,
@@ -153,16 +193,20 @@ Map<String, dynamic> _$$ShortenResponseMerrToJson(
     };
 
 _$_URLPair _$$_URLPairFromJson(Map<String, dynamic> json) => _$_URLPair(
+      id: json['id'] as String?,
+      shortURL: json['shortURL'] as String?,
       created: json['created'] as String?,
       destinationURL: json['destinationURL'] as String?,
-      shortURL: json['shortURL'] as String?,
+      hitCount: int64FromString(json['hitCount'] as String?),
     );
 
 Map<String, dynamic> _$$_URLPairToJson(_$_URLPair instance) =>
     <String, dynamic>{
+      'id': instance.id,
+      'shortURL': instance.shortURL,
       'created': instance.created,
       'destinationURL': instance.destinationURL,
-      'shortURL': instance.shortURL,
+      'hitCount': int64ToString(instance.hitCount),
     };
 
 _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>

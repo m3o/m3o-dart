@@ -202,9 +202,6 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// optional list of user ids
-    List<String>? user_ids,
-
     /// chat description
     String? description,
 
@@ -213,6 +210,9 @@ class CreateRequest with _$CreateRequest {
 
     /// whether its a private group
     bool? private,
+
+    /// optional list of user ids
+    List<String>? user_ids,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -254,12 +254,6 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Group with _$Group {
   const factory Group({
-    /// whether its a private group
-    bool? private,
-
-    /// list of users
-    List<String>? user_ids,
-
     /// time of creation
     String? created_at,
 
@@ -271,6 +265,12 @@ class Group with _$Group {
 
     /// name of the chat
     String? name,
+
+    /// whether its a private group
+    bool? private,
+
+    /// list of users
+    List<String>? user_ids,
   }) = _Group;
   factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
 }
@@ -324,11 +324,11 @@ class InviteResponse with _$InviteResponse {
 @Freezed()
 class JoinRequest with _$JoinRequest {
   const factory JoinRequest({
-    /// group to join
-    String? group_id,
-
     /// user id joining
     String? user_id,
+
+    /// group to join
+    String? group_id,
   }) = _JoinRequest;
   factory JoinRequest.fromJson(Map<String, dynamic> json) =>
       _$JoinRequestFromJson(json);
@@ -445,12 +445,6 @@ class Message with _$Message {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
-    /// a client side id, should be validated by the server to make the request retry safe
-    String? client,
-
-    /// id of the group the message is being sent to / from
-    String? group_id,
-
     /// subject of the message
     String? subject,
 
@@ -459,6 +453,12 @@ class SendRequest with _$SendRequest {
 
     /// id of the user who sent the message
     String? user_id,
+
+    /// a client side id, should be validated by the server to make the request retry safe
+    String? client,
+
+    /// id of the group the message is being sent to / from
+    String? group_id,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);

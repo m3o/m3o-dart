@@ -44,22 +44,22 @@ Map<String, dynamic> _$$ParseResponseMerrToJson(_$ParseResponseMerr instance) =>
 
 _$_SendRequest _$$_SendRequestFromJson(Map<String, dynamic> json) =>
     _$_SendRequest(
-      html_body: json['html_body'] as String?,
       reply_to: json['reply_to'] as String?,
       subject: json['subject'] as String?,
       text_body: json['text_body'] as String?,
       to: json['to'] as String?,
       from: json['from'] as String?,
+      html_body: json['html_body'] as String?,
     );
 
 Map<String, dynamic> _$$_SendRequestToJson(_$_SendRequest instance) =>
     <String, dynamic>{
-      'html_body': instance.html_body,
       'reply_to': instance.reply_to,
       'subject': instance.subject,
       'text_body': instance.text_body,
       'to': instance.to,
       'from': instance.from,
+      'html_body': instance.html_body,
     };
 
 _$SendResponseData _$$SendResponseDataFromJson(Map<String, dynamic> json) =>

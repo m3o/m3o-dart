@@ -2034,10 +2034,10 @@ SaveRequest _$SaveRequestFromJson(Map<String, dynamic> json) {
 class _$SaveRequestTearOff {
   const _$SaveRequestTearOff();
 
-  _SaveRequest call({Record? file, bool? public}) {
+  _SaveRequest call({bool? public, Record? file}) {
     return _SaveRequest(
-      file: file,
       public: public,
+      file: file,
     );
   }
 
@@ -2051,11 +2051,11 @@ const $SaveRequest = _$SaveRequestTearOff();
 
 /// @nodoc
 mixin _$SaveRequest {
-  /// The file to save
-  Record? get file => throw _privateConstructorUsedError;
-
   /// Make the file public: true or false
   bool? get public => throw _privateConstructorUsedError;
+
+  /// The file to save
+  Record? get file => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2068,7 +2068,7 @@ abstract class $SaveRequestCopyWith<$Res> {
   factory $SaveRequestCopyWith(
           SaveRequest value, $Res Function(SaveRequest) then) =
       _$SaveRequestCopyWithImpl<$Res>;
-  $Res call({Record? file, bool? public});
+  $Res call({bool? public, Record? file});
 
   $RecordCopyWith<$Res>? get file;
 }
@@ -2083,18 +2083,18 @@ class _$SaveRequestCopyWithImpl<$Res> implements $SaveRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? file = freezed,
     Object? public = freezed,
+    Object? file = freezed,
   }) {
     return _then(_value.copyWith(
-      file: file == freezed
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as Record?,
       public: public == freezed
           ? _value.public
           : public // ignore: cast_nullable_to_non_nullable
               as bool?,
+      file: file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as Record?,
     ));
   }
 
@@ -2117,7 +2117,7 @@ abstract class _$SaveRequestCopyWith<$Res>
           _SaveRequest value, $Res Function(_SaveRequest) then) =
       __$SaveRequestCopyWithImpl<$Res>;
   @override
-  $Res call({Record? file, bool? public});
+  $Res call({bool? public, Record? file});
 
   @override
   $RecordCopyWith<$Res>? get file;
@@ -2135,18 +2135,18 @@ class __$SaveRequestCopyWithImpl<$Res> extends _$SaveRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? file = freezed,
     Object? public = freezed,
+    Object? file = freezed,
   }) {
     return _then(_SaveRequest(
-      file: file == freezed
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as Record?,
       public: public == freezed
           ? _value.public
           : public // ignore: cast_nullable_to_non_nullable
               as bool?,
+      file: file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as Record?,
     ));
   }
 }
@@ -2154,23 +2154,23 @@ class __$SaveRequestCopyWithImpl<$Res> extends _$SaveRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SaveRequest implements _SaveRequest {
-  const _$_SaveRequest({this.file, this.public});
+  const _$_SaveRequest({this.public, this.file});
 
   factory _$_SaveRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SaveRequestFromJson(json);
 
   @override
 
-  /// The file to save
-  final Record? file;
-  @override
-
   /// Make the file public: true or false
   final bool? public;
+  @override
+
+  /// The file to save
+  final Record? file;
 
   @override
   String toString() {
-    return 'SaveRequest(file: $file, public: $public)';
+    return 'SaveRequest(public: $public, file: $file)';
   }
 
   @override
@@ -2178,15 +2178,15 @@ class _$_SaveRequest implements _SaveRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SaveRequest &&
-            const DeepCollectionEquality().equals(other.file, file) &&
-            const DeepCollectionEquality().equals(other.public, public));
+            const DeepCollectionEquality().equals(other.public, public) &&
+            const DeepCollectionEquality().equals(other.file, file));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(file),
-      const DeepCollectionEquality().hash(public));
+      const DeepCollectionEquality().hash(public),
+      const DeepCollectionEquality().hash(file));
 
   @JsonKey(ignore: true)
   @override
@@ -2200,19 +2200,19 @@ class _$_SaveRequest implements _SaveRequest {
 }
 
 abstract class _SaveRequest implements SaveRequest {
-  const factory _SaveRequest({Record? file, bool? public}) = _$_SaveRequest;
+  const factory _SaveRequest({bool? public, Record? file}) = _$_SaveRequest;
 
   factory _SaveRequest.fromJson(Map<String, dynamic> json) =
       _$_SaveRequest.fromJson;
 
   @override
 
-  /// The file to save
-  Record? get file;
-  @override
-
   /// Make the file public: true or false
   bool? get public;
+  @override
+
+  /// The file to save
+  Record? get file;
   @override
   @JsonKey(ignore: true)
   _$SaveRequestCopyWith<_SaveRequest> get copyWith =>

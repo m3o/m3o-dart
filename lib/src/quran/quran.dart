@@ -98,9 +98,6 @@ class QuranService {
 @Freezed()
 class Chapter with _$Chapter {
   const factory Chapter({
-    /// The arabic name of the chapter
-    String? arabic_name,
-
     /// The simple name of the chapter
     String? name,
 
@@ -110,23 +107,26 @@ class Chapter with _$Chapter {
     /// Should the chapter start with bismillah
     bool? prefix_bismillah,
 
-    /// The order in which it was revealed
-    int? revelation_order,
-
     /// The translated name
     String? translated_name,
 
-    /// The complex name of the chapter
-    String? complex_name,
+    /// The number of verses in the chapter
+    int? verses,
+
+    /// The arabic name of the chapter
+    String? arabic_name,
 
     /// The id of the chapter as a number e.g 1
     int? id,
 
+    /// The order in which it was revealed
+    int? revelation_order,
+
     /// The place of revelation
     String? revelation_place,
 
-    /// The number of verses in the chapter
-    int? verses,
+    /// The complex name of the chapter
+    String? complex_name,
   }) = _Chapter;
   factory Chapter.fromJson(Map<String, dynamic> json) =>
       _$ChapterFromJson(json);
@@ -283,14 +283,11 @@ class Translation with _$Translation {
 @Freezed()
 class Verse with _$Verse {
   const factory Verse({
-    /// The individual words within the verse (Ayah)
-    List<Word>? words,
+    /// The unique id of the verse in the whole book
+    int? id,
 
-    /// The interpretations of the verse
-    List<Interpretation>? interpretations,
-
-    /// The verse number in this chapter
-    int? number,
+    /// The key of this verse (chapter:verse) e.g 1:1
+    String? key,
 
     /// The page of the Quran this verse is on
     int? page,
@@ -301,17 +298,20 @@ class Verse with _$Verse {
     /// The phonetic transliteration from arabic
     String? transliteration,
 
-    /// The unique id of the verse in the whole book
-    int? id,
+    /// The interpretations of the verse
+    List<Interpretation>? interpretations,
 
-    /// The key of this verse (chapter:verse) e.g 1:1
-    String? key,
+    /// The verse number in this chapter
+    int? number,
 
     /// The arabic text for this verse
     String? text,
 
     /// The alternative translations for the verse
     List<Translation>? translations,
+
+    /// The individual words within the verse (Ayah)
+    List<Word>? words,
   }) = _Verse;
   factory Verse.fromJson(Map<String, dynamic> json) => _$VerseFromJson(json);
 }
@@ -319,6 +319,9 @@ class Verse with _$Verse {
 @Freezed()
 class VersesRequest with _$VersesRequest {
   const factory VersesRequest({
+    /// Return the interpretation (tafsir)
+    bool? interpret,
+
     /// The language of translation
     String? language,
 
@@ -336,9 +339,6 @@ class VersesRequest with _$VersesRequest {
 
     /// The chapter id to retrieve
     int? chapter,
-
-    /// Return the interpretation (tafsir)
-    bool? interpret,
   }) = _VersesRequest;
   factory VersesRequest.fromJson(Map<String, dynamic> json) =>
       _$VersesRequestFromJson(json);
@@ -347,6 +347,9 @@ class VersesRequest with _$VersesRequest {
 @Freezed()
 class VersesResponse with _$VersesResponse {
   const factory VersesResponse({
+    /// The chapter requested
+    int? chapter,
+
     /// The page requested
     int? page,
 
@@ -355,9 +358,6 @@ class VersesResponse with _$VersesResponse {
 
     /// The verses on the page
     List<Verse>? verses,
-
-    /// The chapter requested
-    int? chapter,
   }) = VersesResponseData;
   const factory VersesResponse.Merr({Map<String, dynamic>? body}) =
       VersesResponseMerr;
@@ -371,11 +371,11 @@ class Word with _$Word {
     /// The id of the word within the verse
     int? id,
 
-    /// The page number
-    int? page,
-
     /// The position of the word
     int? position,
+
+    /// The arabic text for this word
+    String? text,
 
     /// The transliteration text
     String? transliteration,
@@ -389,8 +389,8 @@ class Word with _$Word {
     /// The line number
     int? line,
 
-    /// The arabic text for this word
-    String? text,
+    /// The page number
+    int? page,
 
     /// The translated text
     String? translation,

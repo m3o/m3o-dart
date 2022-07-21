@@ -22,10 +22,10 @@ CreateRequest _$CreateRequestFromJson(Map<String, dynamic> json) {
 class _$CreateRequestTearOff {
   const _$CreateRequestTearOff();
 
-  _CreateRequest call({String? name, List? items}) {
+  _CreateRequest call({List? items, String? name}) {
     return _CreateRequest(
-      name: name,
       items: items,
+      name: name,
     );
   }
 
@@ -39,11 +39,11 @@ const $CreateRequest = _$CreateRequestTearOff();
 
 /// @nodoc
 mixin _$CreateRequest {
-  /// list name
-  String? get name => throw _privateConstructorUsedError;
-
   /// list items
   List? get items => throw _privateConstructorUsedError;
+
+  /// list name
+  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,7 +56,7 @@ abstract class $CreateRequestCopyWith<$Res> {
   factory $CreateRequestCopyWith(
           CreateRequest value, $Res Function(CreateRequest) then) =
       _$CreateRequestCopyWithImpl<$Res>;
-  $Res call({String? name, List? items});
+  $Res call({List? items, String? name});
 
   $ListCopyWith<$Res>? get items;
 }
@@ -72,18 +72,18 @@ class _$CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? items = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       items: items == freezed
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
@@ -106,7 +106,7 @@ abstract class _$CreateRequestCopyWith<$Res>
           _CreateRequest value, $Res Function(_CreateRequest) then) =
       __$CreateRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? name, List? items});
+  $Res call({List? items, String? name});
 
   @override
   $ListCopyWith<$Res>? get items;
@@ -125,18 +125,18 @@ class __$CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? items = freezed,
+    Object? name = freezed,
   }) {
     return _then(_CreateRequest(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       items: items == freezed
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -144,23 +144,23 @@ class __$CreateRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateRequest implements _CreateRequest {
-  const _$_CreateRequest({this.name, this.items});
+  const _$_CreateRequest({this.items, this.name});
 
   factory _$_CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateRequestFromJson(json);
 
   @override
 
-  /// list name
-  final String? name;
-  @override
-
   /// list items
   final List? items;
+  @override
+
+  /// list name
+  final String? name;
 
   @override
   String toString() {
-    return 'CreateRequest(name: $name, items: $items)';
+    return 'CreateRequest(items: $items, name: $name)';
   }
 
   @override
@@ -168,15 +168,15 @@ class _$_CreateRequest implements _CreateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _CreateRequest &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.items, items));
+            const DeepCollectionEquality().equals(other.items, items) &&
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(items));
+      const DeepCollectionEquality().hash(items),
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
@@ -190,19 +190,19 @@ class _$_CreateRequest implements _CreateRequest {
 }
 
 abstract class _CreateRequest implements CreateRequest {
-  const factory _CreateRequest({String? name, List? items}) = _$_CreateRequest;
+  const factory _CreateRequest({List? items, String? name}) = _$_CreateRequest;
 
   factory _CreateRequest.fromJson(Map<String, dynamic> json) =
       _$_CreateRequest.fromJson;
 
   @override
 
-  /// list name
-  String? get name;
-  @override
-
   /// list items
   List? get items;
+  @override
+
+  /// list name
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$CreateRequestCopyWith<_CreateRequest> get copyWith =>
@@ -1776,17 +1776,17 @@ class _$ListTearOff {
   const _$ListTearOff();
 
   _List call(
-      {String? created,
-      String? id,
-      List? items,
+      {List? items,
       String? name,
-      String? updated}) {
+      String? updated,
+      String? created,
+      String? id}) {
     return _List(
-      created: created,
-      id: id,
       items: items,
       name: name,
       updated: updated,
+      created: created,
+      id: id,
     );
   }
 
@@ -1800,12 +1800,6 @@ const $List = _$ListTearOff();
 
 /// @nodoc
 mixin _$List {
-  /// time at which the list was created
-  String? get created => throw _privateConstructorUsedError;
-
-  /// unique id for the list, generated if not specified
-  String? get id => throw _privateConstructorUsedError;
-
   /// items within the list
   List? get items => throw _privateConstructorUsedError;
 
@@ -1814,6 +1808,12 @@ mixin _$List {
 
   /// time at which the list was updated
   String? get updated => throw _privateConstructorUsedError;
+
+  /// time at which the list was created
+  String? get created => throw _privateConstructorUsedError;
+
+  /// unique id for the list, generated if not specified
+  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1825,11 +1825,11 @@ abstract class $ListCopyWith<$Res> {
   factory $ListCopyWith(List value, $Res Function(List) then) =
       _$ListCopyWithImpl<$Res>;
   $Res call(
-      {String? created,
-      String? id,
-      List? items,
+      {List? items,
       String? name,
-      String? updated});
+      String? updated,
+      String? created,
+      String? id});
 
   $ListCopyWith<$Res>? get items;
 }
@@ -1844,21 +1844,13 @@ class _$ListCopyWithImpl<$Res> implements $ListCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? created = freezed,
-    Object? id = freezed,
     Object? items = freezed,
     Object? name = freezed,
     Object? updated = freezed,
+    Object? created = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
-      created: created == freezed
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       items: items == freezed
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
@@ -1870,6 +1862,14 @@ class _$ListCopyWithImpl<$Res> implements $ListCopyWith<$Res> {
       updated: updated == freezed
           ? _value.updated
           : updated // ignore: cast_nullable_to_non_nullable
+              as String?,
+      created: created == freezed
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1892,11 +1892,11 @@ abstract class _$ListCopyWith<$Res> implements $ListCopyWith<$Res> {
       __$ListCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? created,
-      String? id,
-      List? items,
+      {List? items,
       String? name,
-      String? updated});
+      String? updated,
+      String? created,
+      String? id});
 
   @override
   $ListCopyWith<$Res>? get items;
@@ -1913,21 +1913,13 @@ class __$ListCopyWithImpl<$Res> extends _$ListCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? created = freezed,
-    Object? id = freezed,
     Object? items = freezed,
     Object? name = freezed,
     Object? updated = freezed,
+    Object? created = freezed,
+    Object? id = freezed,
   }) {
     return _then(_List(
-      created: created == freezed
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       items: items == freezed
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
@@ -1940,6 +1932,14 @@ class __$ListCopyWithImpl<$Res> extends _$ListCopyWithImpl<$Res>
           ? _value.updated
           : updated // ignore: cast_nullable_to_non_nullable
               as String?,
+      created: created == freezed
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1947,18 +1947,10 @@ class __$ListCopyWithImpl<$Res> extends _$ListCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_List implements _List {
-  const _$_List({this.created, this.id, this.items, this.name, this.updated});
+  const _$_List({this.items, this.name, this.updated, this.created, this.id});
 
   factory _$_List.fromJson(Map<String, dynamic> json) => _$$_ListFromJson(json);
 
-  @override
-
-  /// time at which the list was created
-  final String? created;
-  @override
-
-  /// unique id for the list, generated if not specified
-  final String? id;
   @override
 
   /// items within the list
@@ -1971,10 +1963,18 @@ class _$_List implements _List {
 
   /// time at which the list was updated
   final String? updated;
+  @override
+
+  /// time at which the list was created
+  final String? created;
+  @override
+
+  /// unique id for the list, generated if not specified
+  final String? id;
 
   @override
   String toString() {
-    return 'List(created: $created, id: $id, items: $items, name: $name, updated: $updated)';
+    return 'List(items: $items, name: $name, updated: $updated, created: $created, id: $id)';
   }
 
   @override
@@ -1982,21 +1982,21 @@ class _$_List implements _List {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _List &&
-            const DeepCollectionEquality().equals(other.created, created) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.items, items) &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.updated, updated));
+            const DeepCollectionEquality().equals(other.updated, updated) &&
+            const DeepCollectionEquality().equals(other.created, created) &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(created),
-      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(items),
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(updated));
+      const DeepCollectionEquality().hash(updated),
+      const DeepCollectionEquality().hash(created),
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -2011,22 +2011,14 @@ class _$_List implements _List {
 
 abstract class _List implements List {
   const factory _List(
-      {String? created,
-      String? id,
-      List? items,
+      {List? items,
       String? name,
-      String? updated}) = _$_List;
+      String? updated,
+      String? created,
+      String? id}) = _$_List;
 
   factory _List.fromJson(Map<String, dynamic> json) = _$_List.fromJson;
 
-  @override
-
-  /// time at which the list was created
-  String? get created;
-  @override
-
-  /// unique id for the list, generated if not specified
-  String? get id;
   @override
 
   /// items within the list
@@ -2039,6 +2031,14 @@ abstract class _List implements List {
 
   /// time at which the list was updated
   String? get updated;
+  @override
+
+  /// time at which the list was created
+  String? get created;
+  @override
+
+  /// unique id for the list, generated if not specified
+  String? get id;
   @override
   @JsonKey(ignore: true)
   _$ListCopyWith<_List> get copyWith => throw _privateConstructorUsedError;

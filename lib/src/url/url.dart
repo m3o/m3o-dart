@@ -12,6 +12,26 @@ class UrlService {
     _client = Client(token: token);
   }
 
+  /// Create a URL
+  Future<CreateResponse> create(CreateRequest req) async {
+    Request request = Request(
+      service: 'url',
+      endpoint: 'Create',
+      body: req.toJson(),
+    );
+
+    try {
+      Response res = await _client.call(request);
+      if (isError(res.body)) {
+        final err = Merr(res.toJson());
+        return CreateResponse.Merr(body: err.b);
+      }
+      return CreateResponseData.fromJson(res.body);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
   /// Delete a URL
   Future<DeleteResponse> delete(DeleteRequest req) async {
     Request request = Request(
@@ -114,6 +134,30 @@ class UrlService {
 }
 
 @Freezed()
+class CreateRequest with _$CreateRequest {
+  const factory CreateRequest({
+    /// a unique id e.g uuid or my-url
+    String? id,
+
+    /// destination url
+    String? destinationURL,
+  }) = _CreateRequest;
+  factory CreateRequest.fromJson(Map<String, dynamic> json) =>
+      _$CreateRequestFromJson(json);
+}
+
+@Freezed()
+class CreateResponse with _$CreateResponse {
+  const factory CreateResponse({
+    URLPair? url,
+  }) = CreateResponseData;
+  const factory CreateResponse.Merr({Map<String, dynamic>? body}) =
+      CreateResponseMerr;
+  factory CreateResponse.fromJson(Map<String, dynamic> json) =>
+      _$CreateResponseFromJson(json);
+}
+
+@Freezed()
 class DeleteRequest with _$DeleteRequest {
   const factory DeleteRequest({
     String? shortURL,
@@ -199,14 +243,21 @@ class ShortenResponse with _$ShortenResponse {
 @Freezed()
 class URLPair with _$URLPair {
   const factory URLPair({
+    /// url id
+    String? id,
+
+    /// shortened url
+    String? shortURL,
+
     /// time of creation
     String? created,
 
     /// destination url
     String? destinationURL,
 
-    /// shortened url
-    String? shortURL,
+    /// The number of times the short URL has been resolved
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
   }) = _URLPair;
   factory URLPair.fromJson(Map<String, dynamic> json) =>
       _$URLPairFromJson(json);

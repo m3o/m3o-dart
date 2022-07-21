@@ -56,17 +56,17 @@ class WordleService {
 @Freezed()
 class Char with _$Char {
   const factory Char({
-    /// whether it's in the word
-    bool? in_word,
-
-    /// the character itself
-    String? letter,
-
     /// position in the string
     int? position,
 
     /// whether it was correct
     bool? correct,
+
+    /// whether it's in the word
+    bool? in_word,
+
+    /// the character itself
+    String? letter,
   }) = _Char;
   factory Char.fromJson(Map<String, dynamic> json) => _$CharFromJson(json);
 }
@@ -134,11 +134,11 @@ class NextRequest with _$NextRequest {
 @Freezed()
 class NextResponse with _$NextResponse {
   const factory NextResponse({
-    /// number of seconds
-    int? seconds,
-
     /// in hh:mm:ss
     String? duration,
+
+    /// number of seconds
+    int? seconds,
   }) = NextResponseData;
   const factory NextResponse.Merr({Map<String, dynamic>? body}) =
       NextResponseMerr;

@@ -154,12 +154,6 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
-    /// the asking price
-    double? ask_price,
-
-    /// the ask size
-    int? ask_size,
-
     /// the bidding price
     double? bid_price,
 
@@ -171,6 +165,12 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the UTC timestamp of the quote
     String? timestamp,
+
+    /// the asking price
+    double? ask_price,
+
+    /// the ask size
+    int? ask_size,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;

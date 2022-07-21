@@ -4,40 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/postcode/api](
 
 Endpoints:
 
-## Random
-
-Return a random postcode and its related info
-
-
-[https://m3o.com/postcode/api#Random](https://m3o.com/postcode/api#Random)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/postcode/postcode.dart';
-
-void main() async {
-  final ser = PostcodeService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{};
-
-  RandomRequest req = RandomRequest.fromJson(payload);
-
-  
-  try {
-
-	RandomResponse res = await ser.random(req);
-
-    res.map((value) => print(value),
-	  Merr: (RandomResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Validate
 
 Validate a postcode.
@@ -102,6 +68,40 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (LookupResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Random
+
+Return a random postcode and its related info
+
+
+[https://m3o.com/postcode/api#Random](https://m3o.com/postcode/api#Random)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/postcode/postcode.dart';
+
+void main() async {
+  final ser = PostcodeService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  RandomRequest req = RandomRequest.fromJson(payload);
+
+  
+  try {
+
+	RandomResponse res = await ser.random(req);
+
+    res.map((value) => print(value),
+	  Merr: (RandomResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
