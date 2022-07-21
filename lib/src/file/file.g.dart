@@ -140,16 +140,16 @@ Map<String, dynamic> _$$_RecordToJson(_$_Record instance) => <String, dynamic>{
 
 _$_SaveRequest _$$_SaveRequestFromJson(Map<String, dynamic> json) =>
     _$_SaveRequest(
-      public: json['public'] as bool?,
       file: json['file'] == null
           ? null
           : Record.fromJson(json['file'] as Map<String, dynamic>),
+      public: json['public'] as bool?,
     );
 
 Map<String, dynamic> _$$_SaveRequestToJson(_$_SaveRequest instance) =>
     <String, dynamic>{
-      'public': instance.public,
       'file': instance.file,
+      'public': instance.public,
     };
 
 _$SaveResponseData _$$SaveResponseDataFromJson(Map<String, dynamic> json) =>

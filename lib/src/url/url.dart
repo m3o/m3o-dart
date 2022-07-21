@@ -136,11 +136,11 @@ class UrlService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// a unique id e.g uuid or my-url
-    String? id,
-
     /// destination url
     String? destinationURL,
+
+    /// a unique id e.g uuid or my-url
+    String? id,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -160,6 +160,10 @@ class CreateResponse with _$CreateResponse {
 @Freezed()
 class DeleteRequest with _$DeleteRequest {
   const factory DeleteRequest({
+    /// specify id or shortURL
+    String? id,
+
+    /// optional shortURL
     String? shortURL,
   }) = _DeleteRequest;
   factory DeleteRequest.fromJson(Map<String, dynamic> json) =>
@@ -199,8 +203,7 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class ResolveRequest with _$ResolveRequest {
   const factory ResolveRequest({
-    /// short url ID, without the domain, eg. if your short URL is
-    /// `m3o.one/u/someshorturlid` then pass in `someshorturlid`
+    /// short url to resolve
     String? shortURL,
   }) = _ResolveRequest;
   factory ResolveRequest.fromJson(Map<String, dynamic> json) =>
@@ -269,7 +272,10 @@ class UpdateRequest with _$UpdateRequest {
     /// the destination to update to
     String? destinationURL,
 
-    /// the short url to update
+    /// update by id
+    String? id,
+
+    /// update by short url
     String? shortURL,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
