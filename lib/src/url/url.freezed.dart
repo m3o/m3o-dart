@@ -629,10 +629,10 @@ const $DeleteRequest = _$DeleteRequestTearOff();
 
 /// @nodoc
 mixin _$DeleteRequest {
-  /// specify id or shortURL
+  /// delete by id
   String? get id => throw _privateConstructorUsedError;
 
-  /// optional shortURL
+  /// delete by shortURL
   String? get shortURL => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -725,11 +725,11 @@ class _$_DeleteRequest implements _DeleteRequest {
 
   @override
 
-  /// specify id or shortURL
+  /// delete by id
   final String? id;
   @override
 
-  /// optional shortURL
+  /// delete by shortURL
   final String? shortURL;
 
   @override
@@ -772,11 +772,11 @@ abstract class _DeleteRequest implements DeleteRequest {
 
   @override
 
-  /// specify id or shortURL
+  /// delete by id
   String? get id;
   @override
 
-  /// optional shortURL
+  /// delete by shortURL
   String? get shortURL;
   @override
   @JsonKey(ignore: true)

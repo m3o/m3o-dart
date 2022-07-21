@@ -42,22 +42,22 @@ Map<String, dynamic> _$$AutocompleteResponseMerrToJson(
 
 _$_NearbyRequest _$$_NearbyRequestFromJson(Map<String, dynamic> json) =>
     _$_NearbyRequest(
+      keyword: json['keyword'] as String?,
       location: json['location'] as String?,
       name: json['name'] as String?,
       open_now: json['open_now'] as bool?,
       radius: json['radius'] as int?,
       type: json['type'] as String?,
-      keyword: json['keyword'] as String?,
     );
 
 Map<String, dynamic> _$$_NearbyRequestToJson(_$_NearbyRequest instance) =>
     <String, dynamic>{
+      'keyword': instance.keyword,
       'location': instance.location,
       'name': instance.name,
       'open_now': instance.open_now,
       'radius': instance.radius,
       'type': instance.type,
-      'keyword': instance.keyword,
     };
 
 _$NearbyResponseData _$$NearbyResponseDataFromJson(Map<String, dynamic> json) =>
@@ -94,10 +94,10 @@ _$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
       address: json['address'] as String?,
       location: json['location'] as String?,
       name: json['name'] as String?,
+      open_now: json['open_now'] as bool?,
       rating: (json['rating'] as num?)?.toDouble(),
       type: json['type'] as String?,
       icon_url: json['icon_url'] as String?,
-      open_now: json['open_now'] as bool?,
       opening_hours: (json['opening_hours'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
@@ -109,10 +109,10 @@ Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
       'address': instance.address,
       'location': instance.location,
       'name': instance.name,
+      'open_now': instance.open_now,
       'rating': instance.rating,
       'type': instance.type,
       'icon_url': instance.icon_url,
-      'open_now': instance.open_now,
       'opening_hours': instance.opening_hours,
       'vicinity': instance.vicinity,
     };

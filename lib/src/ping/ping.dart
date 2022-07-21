@@ -100,11 +100,11 @@ class IpResponse with _$IpResponse {
 @Freezed()
 class TcpRequest with _$TcpRequest {
   const factory TcpRequest({
-    /// optional data to send
-    String? data,
-
     /// address to dial
     String? address,
+
+    /// optional data to send
+    String? data,
   }) = _TcpRequest;
   factory TcpRequest.fromJson(Map<String, dynamic> json) =>
       _$TcpRequestFromJson(json);

@@ -12,8 +12,7 @@ class StreamService {
     _client = Client(token: token);
   }
 
-  /// Create a channel with a given name and description. Channels are created automatically but
-// this allows you to specify a description that's persisted for the lifetime of the channel.
+  /// Create a channel by name
   Future<CreateChannelResponse> createChannel(CreateChannelRequest req) async {
     Request request = Request(
       service: 'stream',
@@ -97,14 +96,14 @@ class StreamService {
 @Freezed()
 class Channel with _$Channel {
   const factory Channel({
+    /// description for the channel
+    String? description,
+
     /// last activity time
     String? last_active,
 
     /// name of the channel
     String? name,
-
-    /// description for the channel
-    String? description,
   }) = _Channel;
   factory Channel.fromJson(Map<String, dynamic> json) =>
       _$ChannelFromJson(json);
@@ -153,11 +152,11 @@ class ListChannelsResponse with _$ListChannelsResponse {
 @Freezed()
 class ListMessagesRequest with _$ListMessagesRequest {
   const factory ListMessagesRequest({
-    /// The channel to subscribe to
-    String? channel,
-
     /// number of message to return
     int? limit,
+
+    /// The channel to subscribe to
+    String? channel,
   }) = _ListMessagesRequest;
   factory ListMessagesRequest.fromJson(Map<String, dynamic> json) =>
       _$ListMessagesRequestFromJson(json);
@@ -181,9 +180,6 @@ class ListMessagesResponse with _$ListMessagesResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
-    /// the associated metadata
-    Map<String, String>? metadata,
-
     /// text of the message
     String? text,
 
@@ -195,6 +191,9 @@ class Message with _$Message {
 
     /// id of the message
     String? id,
+
+    /// the associated metadata
+    Map<String, String>? metadata,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
@@ -203,11 +202,11 @@ class Message with _$Message {
 @Freezed()
 class SendMessageRequest with _$SendMessageRequest {
   const factory SendMessageRequest({
-    /// The channel to send to
-    String? channel,
-
     /// The message text to send
     String? text,
+
+    /// The channel to send to
+    String? channel,
   }) = _SendMessageRequest;
   factory SendMessageRequest.fromJson(Map<String, dynamic> json) =>
       _$SendMessageRequestFromJson(json);

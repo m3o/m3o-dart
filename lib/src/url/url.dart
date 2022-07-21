@@ -160,10 +160,10 @@ class CreateResponse with _$CreateResponse {
 @Freezed()
 class DeleteRequest with _$DeleteRequest {
   const factory DeleteRequest({
-    /// specify id or shortURL
+    /// delete by id
     String? id,
 
-    /// optional shortURL
+    /// delete by shortURL
     String? shortURL,
   }) = _DeleteRequest;
   factory DeleteRequest.fromJson(Map<String, dynamic> json) =>

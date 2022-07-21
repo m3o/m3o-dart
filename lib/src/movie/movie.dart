@@ -38,18 +38,18 @@ class MovieInfo with _$MovieInfo {
   const factory MovieInfo({
     bool? adult,
     String? poster_path,
+    String? release_date,
     String? title,
-    bool? video,
+    double? vote_average,
     String? backdrop_path,
+    int? id,
+    double? popularity,
+    List<int>? genre_ids,
     String? overview,
     int? vote_count,
-    int? id,
     String? original_language,
     String? original_title,
-    String? release_date,
-    double? vote_average,
-    List<int>? genre_ids,
-    double? popularity,
+    bool? video,
   }) = _MovieInfo;
   factory MovieInfo.fromJson(Map<String, dynamic> json) =>
       _$MovieInfoFromJson(json);

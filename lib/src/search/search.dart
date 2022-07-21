@@ -216,11 +216,11 @@ class IndexResponse with _$IndexResponse {
 @Freezed()
 class Record with _$Record {
   const factory Record({
-    /// The ID for this record. If blank, one will be generated
-    String? id,
-
     /// The JSON contents of the record
     Map<String, dynamic>? data,
+
+    /// The ID for this record. If blank, one will be generated
+    String? id,
   }) = _Record;
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }

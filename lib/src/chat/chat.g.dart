@@ -8,20 +8,20 @@ part of 'chat.dart';
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      user_ids: (json['user_ids'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
       description: json['description'] as String?,
       name: json['name'] as String?,
       private: json['private'] as bool?,
+      user_ids: (json['user_ids'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
-      'user_ids': instance.user_ids,
       'description': instance.description,
       'name': instance.name,
       'private': instance.private,
+      'user_ids': instance.user_ids,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -91,23 +91,23 @@ Map<String, dynamic> _$$DeleteResponseMerrToJson(
     };
 
 _$_Group _$$_GroupFromJson(Map<String, dynamic> json) => _$_Group(
+      name: json['name'] as String?,
+      private: json['private'] as bool?,
       user_ids: (json['user_ids'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       created_at: json['created_at'] as String?,
       description: json['description'] as String?,
       id: json['id'] as String?,
-      name: json['name'] as String?,
-      private: json['private'] as bool?,
     );
 
 Map<String, dynamic> _$$_GroupToJson(_$_Group instance) => <String, dynamic>{
+      'name': instance.name,
+      'private': instance.private,
       'user_ids': instance.user_ids,
       'created_at': instance.created_at,
       'description': instance.description,
       'id': instance.id,
-      'name': instance.name,
-      'private': instance.private,
     };
 
 _$_HistoryRequest _$$_HistoryRequestFromJson(Map<String, dynamic> json) =>
@@ -341,42 +341,42 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
     };
 
 _$_Message _$$_MessageFromJson(Map<String, dynamic> json) => _$_Message(
-      client: json['client'] as String?,
-      group_id: json['group_id'] as String?,
-      id: json['id'] as String?,
       sent_at: json['sent_at'] as String?,
       subject: json['subject'] as String?,
       text: json['text'] as String?,
       user_id: json['user_id'] as String?,
+      client: json['client'] as String?,
+      group_id: json['group_id'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_MessageToJson(_$_Message instance) =>
     <String, dynamic>{
-      'client': instance.client,
-      'group_id': instance.group_id,
-      'id': instance.id,
       'sent_at': instance.sent_at,
       'subject': instance.subject,
       'text': instance.text,
       'user_id': instance.user_id,
+      'client': instance.client,
+      'group_id': instance.group_id,
+      'id': instance.id,
     };
 
 _$_SendRequest _$$_SendRequestFromJson(Map<String, dynamic> json) =>
     _$_SendRequest(
+      client: json['client'] as String?,
       group_id: json['group_id'] as String?,
       subject: json['subject'] as String?,
       text: json['text'] as String?,
       user_id: json['user_id'] as String?,
-      client: json['client'] as String?,
     );
 
 Map<String, dynamic> _$$_SendRequestToJson(_$_SendRequest instance) =>
     <String, dynamic>{
+      'client': instance.client,
       'group_id': instance.group_id,
       'subject': instance.subject,
       'text': instance.text,
       'user_id': instance.user_id,
-      'client': instance.client,
     };
 
 _$SendResponseData _$$SendResponseDataFromJson(Map<String, dynamic> json) =>
