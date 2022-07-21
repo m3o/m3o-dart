@@ -1,3 +1,9 @@
+## v1.0.136 - 2022-07-21
+
+[1c3226](https://github.com/micro/services/commit/1c3226ed2674773494287e15ae816ce0ee77cfdd) support update/delete by id
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.135...v1.0.136
+
 ## v1.0.135 - 2022-07-21
 
 [488ddf](https://github.com/micro/services/commit/488ddf1d18fac3aa1b79a344622fb8cebcd23a8c) .
