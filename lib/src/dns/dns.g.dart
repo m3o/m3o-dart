@@ -34,33 +34,33 @@ Map<String, dynamic> _$$_QueryRequestToJson(_$_QueryRequest instance) =>
 
 _$QueryResponseData _$$QueryResponseDataFromJson(Map<String, dynamic> json) =>
     _$QueryResponseData(
+      AD: json['AD'] as bool?,
       CD: json['CD'] as bool?,
+      RD: json['RD'] as bool?,
       TC: json['TC'] as bool?,
-      answer: (json['answer'] as List<dynamic>?)
-          ?.map((e) => Answer.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      provider: json['provider'] as String?,
       question: (json['question'] as List<dynamic>?)
           ?.map((e) => Question.fromJson(e as Map<String, dynamic>))
           .toList(),
-      status: json['status'] as int?,
-      AD: json['AD'] as bool?,
       RA: json['RA'] as bool?,
-      RD: json['RD'] as bool?,
-      provider: json['provider'] as String?,
+      answer: (json['answer'] as List<dynamic>?)
+          ?.map((e) => Answer.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      status: json['status'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$QueryResponseDataToJson(_$QueryResponseData instance) =>
     <String, dynamic>{
-      'CD': instance.CD,
-      'TC': instance.TC,
-      'answer': instance.answer,
-      'question': instance.question,
-      'status': instance.status,
       'AD': instance.AD,
-      'RA': instance.RA,
+      'CD': instance.CD,
       'RD': instance.RD,
+      'TC': instance.TC,
       'provider': instance.provider,
+      'question': instance.question,
+      'RA': instance.RA,
+      'answer': instance.answer,
+      'status': instance.status,
       'runtimeType': instance.$type,
     };
 
@@ -77,12 +77,12 @@ Map<String, dynamic> _$$QueryResponseMerrToJson(_$QueryResponseMerr instance) =>
     };
 
 _$_Question _$$_QuestionFromJson(Map<String, dynamic> json) => _$_Question(
-      name: json['name'] as String?,
       type: json['type'] as int?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_QuestionToJson(_$_Question instance) =>
     <String, dynamic>{
-      'name': instance.name,
       'type': instance.type,
+      'name': instance.name,
     };

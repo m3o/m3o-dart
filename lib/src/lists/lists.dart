@@ -197,11 +197,11 @@ class EventsRequest with _$EventsRequest {
 @Freezed()
 class EventsResponse with _$EventsResponse {
   const factory EventsResponse({
-    /// the event which occured; create, delete, update
-    String? event,
-
     /// the list which the operation occured on
     List? list,
+
+    /// the event which occured; create, delete, update
+    String? event,
   }) = EventsResponseData;
   const factory EventsResponse.Merr({Map<String, dynamic>? body}) =
       EventsResponseMerr;

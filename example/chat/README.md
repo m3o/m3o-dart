@@ -38,47 +38,6 @@ void main() async {
   }
 }
 ```
-## Send
-
-Connect to a chat to receive a stream of messages
-Send a message to a chat
-
-
-[https://m3o.com/chat/api#Send](https://m3o.com/chat/api#Send)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/chat/chat.dart';
-
-void main() async {
-  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "client": "web",
-  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "subject": "Random",
-  "text": "Hey whats up?",
-  "user_id": "user-1"
-,};
-
-  SendRequest req = SendRequest.fromJson(payload);
-
-  
-  try {
-
-	SendResponse res = await ser.send(req);
-
-    res.map((value) => print(value),
-	  Merr: (SendResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## History
 
 List the messages in a chat
@@ -154,6 +113,43 @@ void main() async {
   }
 }
 ```
+## Kick
+
+Kick a user from a group
+
+
+[https://m3o.com/chat/api#Kick](https://m3o.com/chat/api#Kick)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/chat/chat.dart';
+
+void main() async {
+  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-1"
+,};
+
+  KickRequest req = KickRequest.fromJson(payload);
+
+  
+  try {
+
+	KickResponse res = await ser.kick(req);
+
+    res.map((value) => print(value),
+	  Merr: (KickResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Create
 
 Create a new group
@@ -183,6 +179,42 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (CreateResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Delete
+
+Delete a group
+
+
+[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/chat/chat.dart';
+
+void main() async {
+  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
+,};
+
+  DeleteRequest req = DeleteRequest.fromJson(payload);
+
+  
+  try {
+
+	DeleteResponse res = await ser.delete(req);
+
+    res.map((value) => print(value),
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -228,12 +260,13 @@ void main() async {
   }
 }
 ```
-## Kick
+## Send
 
-Kick a user from a group
+Connect to a chat to receive a stream of messages
+Send a message to a chat
 
 
-[https://m3o.com/chat/api#Kick](https://m3o.com/chat/api#Kick)
+[https://m3o.com/chat/api#Send](https://m3o.com/chat/api#Send)
 
 ```dart
 import 'dart:io';
@@ -244,19 +277,22 @@ void main() async {
   final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
+  "client": "web",
   "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "subject": "Random",
+  "text": "Hey whats up?",
   "user_id": "user-1"
 ,};
 
-  KickRequest req = KickRequest.fromJson(payload);
+  SendRequest req = SendRequest.fromJson(payload);
 
   
   try {
 
-	KickResponse res = await ser.kick(req);
+	SendResponse res = await ser.send(req);
 
     res.map((value) => print(value),
-	  Merr: (KickResponseMerr err) => print(err.body!['body']));	
+	  Merr: (SendResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -294,42 +330,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (LeaveResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Delete
-
-Delete a group
-
-
-[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/chat/chat.dart';
-
-void main() async {
-  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
-,};
-
-  DeleteRequest req = DeleteRequest.fromJson(payload);
-
-  
-  try {
-
-	DeleteResponse res = await ser.delete(req);
-
-    res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

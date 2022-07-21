@@ -149,16 +149,52 @@ Map<String, dynamic> _$$ShortenResponseMerrToJson(
     };
 
 _$_URLPair _$$_URLPairFromJson(Map<String, dynamic> json) => _$_URLPair(
+      shortURL: json['shortURL'] as String?,
       created: json['created'] as String?,
       destinationURL: json['destinationURL'] as String?,
       hitCount: int64FromString(json['hitCount'] as String?),
-      shortURL: json['shortURL'] as String?,
     );
 
 Map<String, dynamic> _$$_URLPairToJson(_$_URLPair instance) =>
     <String, dynamic>{
+      'shortURL': instance.shortURL,
       'created': instance.created,
       'destinationURL': instance.destinationURL,
       'hitCount': int64ToString(instance.hitCount),
+    };
+
+_$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>
+    _$_UpdateRequest(
+      destinationURL: json['destinationURL'] as String?,
+      shortURL: json['shortURL'] as String?,
+    );
+
+Map<String, dynamic> _$$_UpdateRequestToJson(_$_UpdateRequest instance) =>
+    <String, dynamic>{
+      'destinationURL': instance.destinationURL,
       'shortURL': instance.shortURL,
+    };
+
+_$UpdateResponseData _$$UpdateResponseDataFromJson(Map<String, dynamic> json) =>
+    _$UpdateResponseData(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$UpdateResponseDataToJson(
+        _$UpdateResponseData instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$UpdateResponseMerr _$$UpdateResponseMerrFromJson(Map<String, dynamic> json) =>
+    _$UpdateResponseMerr(
+      body: json['body'] as Map<String, dynamic>?,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$UpdateResponseMerrToJson(
+        _$UpdateResponseMerr instance) =>
+    <String, dynamic>{
+      'body': instance.body,
+      'runtimeType': instance.$type,
     };

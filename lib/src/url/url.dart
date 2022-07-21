@@ -91,6 +91,26 @@ class UrlService {
       throw Exception(e);
     }
   }
+
+  /// Update the destination for a short url
+  Future<UpdateResponse> update(UpdateRequest req) async {
+    Request request = Request(
+      service: 'url',
+      endpoint: 'Update',
+      body: req.toJson(),
+    );
+
+    try {
+      Response res = await _client.call(request);
+      if (isError(res.body)) {
+        final err = Merr(res.toJson());
+        return UpdateResponse.Merr(body: err.b);
+      }
+      return UpdateResponseData.fromJson(res.body);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
 }
 
 @Freezed()
@@ -179,6 +199,9 @@ class ShortenResponse with _$ShortenResponse {
 @Freezed()
 class URLPair with _$URLPair {
   const factory URLPair({
+    /// shortened url
+    String? shortURL,
+
     /// time of creation
     String? created,
 
@@ -188,10 +211,29 @@ class URLPair with _$URLPair {
     /// The number of times the short URL has been resolved
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
-
-    /// shortened url
-    String? shortURL,
   }) = _URLPair;
   factory URLPair.fromJson(Map<String, dynamic> json) =>
       _$URLPairFromJson(json);
+}
+
+@Freezed()
+class UpdateRequest with _$UpdateRequest {
+  const factory UpdateRequest({
+    /// the destination to update to
+    String? destinationURL,
+
+    /// the short url to update
+    String? shortURL,
+  }) = _UpdateRequest;
+  factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
+      _$UpdateRequestFromJson(json);
+}
+
+@Freezed()
+class UpdateResponse with _$UpdateResponse {
+  const factory UpdateResponse() = UpdateResponseData;
+  const factory UpdateResponse.Merr({Map<String, dynamic>? body}) =
+      UpdateResponseMerr;
+  factory UpdateResponse.fromJson(Map<String, dynamic> json) =>
+      _$UpdateResponseFromJson(json);
 }

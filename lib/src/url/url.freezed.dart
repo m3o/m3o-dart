@@ -2203,15 +2203,16 @@ class _$URLPairTearOff {
   const _$URLPairTearOff();
 
   _URLPair call(
-      {String? created,
+      {String? shortURL,
+      String? created,
       String? destinationURL,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
-      String? shortURL}) {
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? hitCount}) {
     return _URLPair(
+      shortURL: shortURL,
       created: created,
       destinationURL: destinationURL,
       hitCount: hitCount,
-      shortURL: shortURL,
     );
   }
 
@@ -2225,6 +2226,9 @@ const $URLPair = _$URLPairTearOff();
 
 /// @nodoc
 mixin _$URLPair {
+  /// shortened url
+  String? get shortURL => throw _privateConstructorUsedError;
+
   /// time of creation
   String? get created => throw _privateConstructorUsedError;
 
@@ -2234,9 +2238,6 @@ mixin _$URLPair {
   /// The number of times the short URL has been resolved
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get hitCount => throw _privateConstructorUsedError;
-
-  /// shortened url
-  String? get shortURL => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2248,10 +2249,11 @@ abstract class $URLPairCopyWith<$Res> {
   factory $URLPairCopyWith(URLPair value, $Res Function(URLPair) then) =
       _$URLPairCopyWithImpl<$Res>;
   $Res call(
-      {String? created,
+      {String? shortURL,
+      String? created,
       String? destinationURL,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
-      String? shortURL});
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? hitCount});
 }
 
 /// @nodoc
@@ -2264,12 +2266,16 @@ class _$URLPairCopyWithImpl<$Res> implements $URLPairCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? shortURL = freezed,
     Object? created = freezed,
     Object? destinationURL = freezed,
     Object? hitCount = freezed,
-    Object? shortURL = freezed,
   }) {
     return _then(_value.copyWith(
+      shortURL: shortURL == freezed
+          ? _value.shortURL
+          : shortURL // ignore: cast_nullable_to_non_nullable
+              as String?,
       created: created == freezed
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
@@ -2282,10 +2288,6 @@ class _$URLPairCopyWithImpl<$Res> implements $URLPairCopyWith<$Res> {
           ? _value.hitCount
           : hitCount // ignore: cast_nullable_to_non_nullable
               as int?,
-      shortURL: shortURL == freezed
-          ? _value.shortURL
-          : shortURL // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2296,10 +2298,11 @@ abstract class _$URLPairCopyWith<$Res> implements $URLPairCopyWith<$Res> {
       __$URLPairCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? created,
+      {String? shortURL,
+      String? created,
       String? destinationURL,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
-      String? shortURL});
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? hitCount});
 }
 
 /// @nodoc
@@ -2313,12 +2316,16 @@ class __$URLPairCopyWithImpl<$Res> extends _$URLPairCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? shortURL = freezed,
     Object? created = freezed,
     Object? destinationURL = freezed,
     Object? hitCount = freezed,
-    Object? shortURL = freezed,
   }) {
     return _then(_URLPair(
+      shortURL: shortURL == freezed
+          ? _value.shortURL
+          : shortURL // ignore: cast_nullable_to_non_nullable
+              as String?,
       created: created == freezed
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
@@ -2331,10 +2338,6 @@ class __$URLPairCopyWithImpl<$Res> extends _$URLPairCopyWithImpl<$Res>
           ? _value.hitCount
           : hitCount // ignore: cast_nullable_to_non_nullable
               as int?,
-      shortURL: shortURL == freezed
-          ? _value.shortURL
-          : shortURL // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2343,14 +2346,19 @@ class __$URLPairCopyWithImpl<$Res> extends _$URLPairCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_URLPair implements _URLPair {
   const _$_URLPair(
-      {this.created,
+      {this.shortURL,
+      this.created,
       this.destinationURL,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.hitCount,
-      this.shortURL});
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          this.hitCount});
 
   factory _$_URLPair.fromJson(Map<String, dynamic> json) =>
       _$$_URLPairFromJson(json);
 
+  @override
+
+  /// shortened url
+  final String? shortURL;
   @override
 
   /// time of creation
@@ -2364,14 +2372,10 @@ class _$_URLPair implements _URLPair {
   /// The number of times the short URL has been resolved
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? hitCount;
-  @override
-
-  /// shortened url
-  final String? shortURL;
 
   @override
   String toString() {
-    return 'URLPair(created: $created, destinationURL: $destinationURL, hitCount: $hitCount, shortURL: $shortURL)';
+    return 'URLPair(shortURL: $shortURL, created: $created, destinationURL: $destinationURL, hitCount: $hitCount)';
   }
 
   @override
@@ -2379,20 +2383,20 @@ class _$_URLPair implements _URLPair {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _URLPair &&
+            const DeepCollectionEquality().equals(other.shortURL, shortURL) &&
             const DeepCollectionEquality().equals(other.created, created) &&
             const DeepCollectionEquality()
                 .equals(other.destinationURL, destinationURL) &&
-            const DeepCollectionEquality().equals(other.hitCount, hitCount) &&
-            const DeepCollectionEquality().equals(other.shortURL, shortURL));
+            const DeepCollectionEquality().equals(other.hitCount, hitCount));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(shortURL),
       const DeepCollectionEquality().hash(created),
       const DeepCollectionEquality().hash(destinationURL),
-      const DeepCollectionEquality().hash(hitCount),
-      const DeepCollectionEquality().hash(shortURL));
+      const DeepCollectionEquality().hash(hitCount));
 
   @JsonKey(ignore: true)
   @override
@@ -2407,13 +2411,18 @@ class _$_URLPair implements _URLPair {
 
 abstract class _URLPair implements URLPair {
   const factory _URLPair(
-      {String? created,
+      {String? shortURL,
+      String? created,
       String? destinationURL,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
-      String? shortURL}) = _$_URLPair;
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? hitCount}) = _$_URLPair;
 
   factory _URLPair.fromJson(Map<String, dynamic> json) = _$_URLPair.fromJson;
 
+  @override
+
+  /// shortened url
+  String? get shortURL;
   @override
 
   /// time of creation
@@ -2428,11 +2437,552 @@ abstract class _URLPair implements URLPair {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get hitCount;
   @override
+  @JsonKey(ignore: true)
+  _$URLPairCopyWith<_URLPair> get copyWith =>
+      throw _privateConstructorUsedError;
+}
 
-  /// shortened url
+UpdateRequest _$UpdateRequestFromJson(Map<String, dynamic> json) {
+  return _UpdateRequest.fromJson(json);
+}
+
+/// @nodoc
+class _$UpdateRequestTearOff {
+  const _$UpdateRequestTearOff();
+
+  _UpdateRequest call({String? destinationURL, String? shortURL}) {
+    return _UpdateRequest(
+      destinationURL: destinationURL,
+      shortURL: shortURL,
+    );
+  }
+
+  UpdateRequest fromJson(Map<String, Object?> json) {
+    return UpdateRequest.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $UpdateRequest = _$UpdateRequestTearOff();
+
+/// @nodoc
+mixin _$UpdateRequest {
+  /// the destination to update to
+  String? get destinationURL => throw _privateConstructorUsedError;
+
+  /// the short url to update
+  String? get shortURL => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UpdateRequestCopyWith<UpdateRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UpdateRequestCopyWith<$Res> {
+  factory $UpdateRequestCopyWith(
+          UpdateRequest value, $Res Function(UpdateRequest) then) =
+      _$UpdateRequestCopyWithImpl<$Res>;
+  $Res call({String? destinationURL, String? shortURL});
+}
+
+/// @nodoc
+class _$UpdateRequestCopyWithImpl<$Res>
+    implements $UpdateRequestCopyWith<$Res> {
+  _$UpdateRequestCopyWithImpl(this._value, this._then);
+
+  final UpdateRequest _value;
+  // ignore: unused_field
+  final $Res Function(UpdateRequest) _then;
+
+  @override
+  $Res call({
+    Object? destinationURL = freezed,
+    Object? shortURL = freezed,
+  }) {
+    return _then(_value.copyWith(
+      destinationURL: destinationURL == freezed
+          ? _value.destinationURL
+          : destinationURL // ignore: cast_nullable_to_non_nullable
+              as String?,
+      shortURL: shortURL == freezed
+          ? _value.shortURL
+          : shortURL // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$UpdateRequestCopyWith<$Res>
+    implements $UpdateRequestCopyWith<$Res> {
+  factory _$UpdateRequestCopyWith(
+          _UpdateRequest value, $Res Function(_UpdateRequest) then) =
+      __$UpdateRequestCopyWithImpl<$Res>;
+  @override
+  $Res call({String? destinationURL, String? shortURL});
+}
+
+/// @nodoc
+class __$UpdateRequestCopyWithImpl<$Res>
+    extends _$UpdateRequestCopyWithImpl<$Res>
+    implements _$UpdateRequestCopyWith<$Res> {
+  __$UpdateRequestCopyWithImpl(
+      _UpdateRequest _value, $Res Function(_UpdateRequest) _then)
+      : super(_value, (v) => _then(v as _UpdateRequest));
+
+  @override
+  _UpdateRequest get _value => super._value as _UpdateRequest;
+
+  @override
+  $Res call({
+    Object? destinationURL = freezed,
+    Object? shortURL = freezed,
+  }) {
+    return _then(_UpdateRequest(
+      destinationURL: destinationURL == freezed
+          ? _value.destinationURL
+          : destinationURL // ignore: cast_nullable_to_non_nullable
+              as String?,
+      shortURL: shortURL == freezed
+          ? _value.shortURL
+          : shortURL // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_UpdateRequest implements _UpdateRequest {
+  const _$_UpdateRequest({this.destinationURL, this.shortURL});
+
+  factory _$_UpdateRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_UpdateRequestFromJson(json);
+
+  @override
+
+  /// the destination to update to
+  final String? destinationURL;
+  @override
+
+  /// the short url to update
+  final String? shortURL;
+
+  @override
+  String toString() {
+    return 'UpdateRequest(destinationURL: $destinationURL, shortURL: $shortURL)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _UpdateRequest &&
+            const DeepCollectionEquality()
+                .equals(other.destinationURL, destinationURL) &&
+            const DeepCollectionEquality().equals(other.shortURL, shortURL));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(destinationURL),
+      const DeepCollectionEquality().hash(shortURL));
+
+  @JsonKey(ignore: true)
+  @override
+  _$UpdateRequestCopyWith<_UpdateRequest> get copyWith =>
+      __$UpdateRequestCopyWithImpl<_UpdateRequest>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_UpdateRequestToJson(this);
+  }
+}
+
+abstract class _UpdateRequest implements UpdateRequest {
+  const factory _UpdateRequest({String? destinationURL, String? shortURL}) =
+      _$_UpdateRequest;
+
+  factory _UpdateRequest.fromJson(Map<String, dynamic> json) =
+      _$_UpdateRequest.fromJson;
+
+  @override
+
+  /// the destination to update to
+  String? get destinationURL;
+  @override
+
+  /// the short url to update
   String? get shortURL;
   @override
   @JsonKey(ignore: true)
-  _$URLPairCopyWith<_URLPair> get copyWith =>
+  _$UpdateRequestCopyWith<_UpdateRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+UpdateResponse _$UpdateResponseFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'default':
+      return UpdateResponseData.fromJson(json);
+    case 'Merr':
+      return UpdateResponseMerr.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'UpdateResponse',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
+/// @nodoc
+class _$UpdateResponseTearOff {
+  const _$UpdateResponseTearOff();
+
+  UpdateResponseData call() {
+    return const UpdateResponseData();
+  }
+
+  UpdateResponseMerr Merr({Map<String, dynamic>? body}) {
+    return UpdateResponseMerr(
+      body: body,
+    );
+  }
+
+  UpdateResponse fromJson(Map<String, Object?> json) {
+    return UpdateResponse.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $UpdateResponse = _$UpdateResponseTearOff();
+
+/// @nodoc
+mixin _$UpdateResponse {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(UpdateResponseData value) $default, {
+    required TResult Function(UpdateResponseMerr value) Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(UpdateResponseData value)? $default, {
+    TResult Function(UpdateResponseMerr value)? Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(UpdateResponseData value)? $default, {
+    TResult Function(UpdateResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UpdateResponseCopyWith<$Res> {
+  factory $UpdateResponseCopyWith(
+          UpdateResponse value, $Res Function(UpdateResponse) then) =
+      _$UpdateResponseCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UpdateResponseCopyWithImpl<$Res>
+    implements $UpdateResponseCopyWith<$Res> {
+  _$UpdateResponseCopyWithImpl(this._value, this._then);
+
+  final UpdateResponse _value;
+  // ignore: unused_field
+  final $Res Function(UpdateResponse) _then;
+}
+
+/// @nodoc
+abstract class $UpdateResponseDataCopyWith<$Res> {
+  factory $UpdateResponseDataCopyWith(
+          UpdateResponseData value, $Res Function(UpdateResponseData) then) =
+      _$UpdateResponseDataCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UpdateResponseDataCopyWithImpl<$Res>
+    extends _$UpdateResponseCopyWithImpl<$Res>
+    implements $UpdateResponseDataCopyWith<$Res> {
+  _$UpdateResponseDataCopyWithImpl(
+      UpdateResponseData _value, $Res Function(UpdateResponseData) _then)
+      : super(_value, (v) => _then(v as UpdateResponseData));
+
+  @override
+  UpdateResponseData get _value => super._value as UpdateResponseData;
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UpdateResponseData implements UpdateResponseData {
+  const _$UpdateResponseData({String? $type}) : $type = $type ?? 'default';
+
+  factory _$UpdateResponseData.fromJson(Map<String, dynamic> json) =>
+      _$$UpdateResponseDataFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'UpdateResponse()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is UpdateResponseData);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) {
+    return $default();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+  }) {
+    return $default?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(UpdateResponseData value) $default, {
+    required TResult Function(UpdateResponseMerr value) Merr,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(UpdateResponseData value)? $default, {
+    TResult Function(UpdateResponseMerr value)? Merr,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(UpdateResponseData value)? $default, {
+    TResult Function(UpdateResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UpdateResponseDataToJson(this);
+  }
+}
+
+abstract class UpdateResponseData implements UpdateResponse {
+  const factory UpdateResponseData() = _$UpdateResponseData;
+
+  factory UpdateResponseData.fromJson(Map<String, dynamic> json) =
+      _$UpdateResponseData.fromJson;
+}
+
+/// @nodoc
+abstract class $UpdateResponseMerrCopyWith<$Res> {
+  factory $UpdateResponseMerrCopyWith(
+          UpdateResponseMerr value, $Res Function(UpdateResponseMerr) then) =
+      _$UpdateResponseMerrCopyWithImpl<$Res>;
+  $Res call({Map<String, dynamic>? body});
+}
+
+/// @nodoc
+class _$UpdateResponseMerrCopyWithImpl<$Res>
+    extends _$UpdateResponseCopyWithImpl<$Res>
+    implements $UpdateResponseMerrCopyWith<$Res> {
+  _$UpdateResponseMerrCopyWithImpl(
+      UpdateResponseMerr _value, $Res Function(UpdateResponseMerr) _then)
+      : super(_value, (v) => _then(v as UpdateResponseMerr));
+
+  @override
+  UpdateResponseMerr get _value => super._value as UpdateResponseMerr;
+
+  @override
+  $Res call({
+    Object? body = freezed,
+  }) {
+    return _then(UpdateResponseMerr(
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UpdateResponseMerr implements UpdateResponseMerr {
+  const _$UpdateResponseMerr({this.body, String? $type})
+      : $type = $type ?? 'Merr';
+
+  factory _$UpdateResponseMerr.fromJson(Map<String, dynamic> json) =>
+      _$$UpdateResponseMerrFromJson(json);
+
+  @override
+  final Map<String, dynamic>? body;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'UpdateResponse.Merr(body: $body)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UpdateResponseMerr &&
+            const DeepCollectionEquality().equals(other.body, body));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
+
+  @JsonKey(ignore: true)
+  @override
+  $UpdateResponseMerrCopyWith<UpdateResponseMerr> get copyWith =>
+      _$UpdateResponseMerrCopyWithImpl<UpdateResponseMerr>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) {
+    return Merr(body);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+  }) {
+    return Merr?.call(body);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) {
+    if (Merr != null) {
+      return Merr(body);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(UpdateResponseData value) $default, {
+    required TResult Function(UpdateResponseMerr value) Merr,
+  }) {
+    return Merr(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(UpdateResponseData value)? $default, {
+    TResult Function(UpdateResponseMerr value)? Merr,
+  }) {
+    return Merr?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(UpdateResponseData value)? $default, {
+    TResult Function(UpdateResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) {
+    if (Merr != null) {
+      return Merr(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UpdateResponseMerrToJson(this);
+  }
+}
+
+abstract class UpdateResponseMerr implements UpdateResponse {
+  const factory UpdateResponseMerr({Map<String, dynamic>? body}) =
+      _$UpdateResponseMerr;
+
+  factory UpdateResponseMerr.fromJson(Map<String, dynamic> json) =
+      _$UpdateResponseMerr.fromJson;
+
+  Map<String, dynamic>? get body;
+  @JsonKey(ignore: true)
+  $UpdateResponseMerrCopyWith<UpdateResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }

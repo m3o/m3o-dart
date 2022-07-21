@@ -354,17 +354,17 @@ class _$TimesRequestTearOff {
   const _$TimesRequestTearOff();
 
   _TimesRequest call(
-      {int? days,
-      double? latitude,
+      {double? latitude,
       String? location,
       double? longitude,
-      String? date}) {
+      String? date,
+      int? days}) {
     return _TimesRequest(
-      days: days,
       latitude: latitude,
       location: location,
       longitude: longitude,
       date: date,
+      days: days,
     );
   }
 
@@ -378,9 +378,6 @@ const $TimesRequest = _$TimesRequestTearOff();
 
 /// @nodoc
 mixin _$TimesRequest {
-  /// number of days to request times for
-  int? get days => throw _privateConstructorUsedError;
-
   /// optional latitude used in place of location
   double? get latitude => throw _privateConstructorUsedError;
 
@@ -394,6 +391,9 @@ mixin _$TimesRequest {
   /// optional date in YYYY-MM-DD format, otherwise uses today
   String? get date => throw _privateConstructorUsedError;
 
+  /// number of days to request times for
+  int? get days => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TimesRequestCopyWith<TimesRequest> get copyWith =>
@@ -406,11 +406,11 @@ abstract class $TimesRequestCopyWith<$Res> {
           TimesRequest value, $Res Function(TimesRequest) then) =
       _$TimesRequestCopyWithImpl<$Res>;
   $Res call(
-      {int? days,
-      double? latitude,
+      {double? latitude,
       String? location,
       double? longitude,
-      String? date});
+      String? date,
+      int? days});
 }
 
 /// @nodoc
@@ -423,17 +423,13 @@ class _$TimesRequestCopyWithImpl<$Res> implements $TimesRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? days = freezed,
     Object? latitude = freezed,
     Object? location = freezed,
     Object? longitude = freezed,
     Object? date = freezed,
+    Object? days = freezed,
   }) {
     return _then(_value.copyWith(
-      days: days == freezed
-          ? _value.days
-          : days // ignore: cast_nullable_to_non_nullable
-              as int?,
       latitude: latitude == freezed
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
@@ -450,6 +446,10 @@ class _$TimesRequestCopyWithImpl<$Res> implements $TimesRequestCopyWith<$Res> {
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String?,
+      days: days == freezed
+          ? _value.days
+          : days // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -462,11 +462,11 @@ abstract class _$TimesRequestCopyWith<$Res>
       __$TimesRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int? days,
-      double? latitude,
+      {double? latitude,
       String? location,
       double? longitude,
-      String? date});
+      String? date,
+      int? days});
 }
 
 /// @nodoc
@@ -481,17 +481,13 @@ class __$TimesRequestCopyWithImpl<$Res> extends _$TimesRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? days = freezed,
     Object? latitude = freezed,
     Object? location = freezed,
     Object? longitude = freezed,
     Object? date = freezed,
+    Object? days = freezed,
   }) {
     return _then(_TimesRequest(
-      days: days == freezed
-          ? _value.days
-          : days // ignore: cast_nullable_to_non_nullable
-              as int?,
       latitude: latitude == freezed
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
@@ -508,6 +504,10 @@ class __$TimesRequestCopyWithImpl<$Res> extends _$TimesRequestCopyWithImpl<$Res>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String?,
+      days: days == freezed
+          ? _value.days
+          : days // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -516,15 +516,11 @@ class __$TimesRequestCopyWithImpl<$Res> extends _$TimesRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TimesRequest implements _TimesRequest {
   const _$_TimesRequest(
-      {this.days, this.latitude, this.location, this.longitude, this.date});
+      {this.latitude, this.location, this.longitude, this.date, this.days});
 
   factory _$_TimesRequest.fromJson(Map<String, dynamic> json) =>
       _$$_TimesRequestFromJson(json);
 
-  @override
-
-  /// number of days to request times for
-  final int? days;
   @override
 
   /// optional latitude used in place of location
@@ -542,10 +538,14 @@ class _$_TimesRequest implements _TimesRequest {
 
   /// optional date in YYYY-MM-DD format, otherwise uses today
   final String? date;
+  @override
+
+  /// number of days to request times for
+  final int? days;
 
   @override
   String toString() {
-    return 'TimesRequest(days: $days, latitude: $latitude, location: $location, longitude: $longitude, date: $date)';
+    return 'TimesRequest(latitude: $latitude, location: $location, longitude: $longitude, date: $date, days: $days)';
   }
 
   @override
@@ -553,21 +553,21 @@ class _$_TimesRequest implements _TimesRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TimesRequest &&
-            const DeepCollectionEquality().equals(other.days, days) &&
             const DeepCollectionEquality().equals(other.latitude, latitude) &&
             const DeepCollectionEquality().equals(other.location, location) &&
             const DeepCollectionEquality().equals(other.longitude, longitude) &&
-            const DeepCollectionEquality().equals(other.date, date));
+            const DeepCollectionEquality().equals(other.date, date) &&
+            const DeepCollectionEquality().equals(other.days, days));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(days),
       const DeepCollectionEquality().hash(latitude),
       const DeepCollectionEquality().hash(location),
       const DeepCollectionEquality().hash(longitude),
-      const DeepCollectionEquality().hash(date));
+      const DeepCollectionEquality().hash(date),
+      const DeepCollectionEquality().hash(days));
 
   @JsonKey(ignore: true)
   @override
@@ -582,19 +582,15 @@ class _$_TimesRequest implements _TimesRequest {
 
 abstract class _TimesRequest implements TimesRequest {
   const factory _TimesRequest(
-      {int? days,
-      double? latitude,
+      {double? latitude,
       String? location,
       double? longitude,
-      String? date}) = _$_TimesRequest;
+      String? date,
+      int? days}) = _$_TimesRequest;
 
   factory _TimesRequest.fromJson(Map<String, dynamic> json) =
       _$_TimesRequest.fromJson;
 
-  @override
-
-  /// number of days to request times for
-  int? get days;
   @override
 
   /// optional latitude used in place of location
@@ -612,6 +608,10 @@ abstract class _TimesRequest implements TimesRequest {
 
   /// optional date in YYYY-MM-DD format, otherwise uses today
   String? get date;
+  @override
+
+  /// number of days to request times for
+  int? get days;
   @override
   @JsonKey(ignore: true)
   _$TimesRequestCopyWith<_TimesRequest> get copyWith =>
