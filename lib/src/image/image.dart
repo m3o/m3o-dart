@@ -178,8 +178,8 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Point with _$Point {
   const factory Point({
-    int? x,
     int? y,
+    int? x,
   }) = _Point;
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 }
@@ -197,6 +197,9 @@ class Rectangle with _$Rectangle {
 @Freezed()
 class ResizeRequest with _$ResizeRequest {
   const factory ResizeRequest({
+    /// output name of the image including extension, ie. "cat.png"
+    String? name,
+
     /// make output a URL and not a base64 response
     bool? outputURL,
 
@@ -215,9 +218,6 @@ class ResizeRequest with _$ResizeRequest {
     /// The image file to resize
     String? file,
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
-
-    /// output name of the image including extension, ie. "cat.png"
-    String? name,
   }) = _ResizeRequest;
   factory ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$ResizeRequestFromJson(json);

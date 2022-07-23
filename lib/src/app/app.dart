@@ -379,14 +379,11 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
-    /// branch of code
-    String? branch,
+    /// name of the app
+    String? name,
 
-    /// time of creation
-    String? created,
-
-    /// app url
-    String? url,
+    /// port running on
+    int? port,
 
     /// region running in
     String? region,
@@ -397,23 +394,26 @@ class Service with _$Service {
     /// status of the app
     String? status,
 
+    /// branch of code
+    String? branch,
+
     /// custom domains
     List<String>? custom_domains,
 
     /// associated env vars
     Map<String, String>? env_vars,
 
+    /// last updated
+    String? updated,
+
+    /// time of creation
+    String? created,
+
     /// unique id
     String? id,
 
-    /// name of the app
-    String? name,
-
-    /// port running on
-    int? port,
-
-    /// last updated
-    String? updated,
+    /// app url
+    String? url,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);

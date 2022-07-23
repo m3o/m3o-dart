@@ -254,9 +254,6 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Group with _$Group {
   const factory Group({
-    /// name of the chat
-    String? name,
-
     /// whether its a private group
     bool? private,
 
@@ -271,6 +268,9 @@ class Group with _$Group {
 
     /// unique group id
     String? id,
+
+    /// name of the chat
+    String? name,
   }) = _Group;
   factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
 }

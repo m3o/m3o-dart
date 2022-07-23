@@ -7,30 +7,30 @@ part of 'quran.dart';
 // **************************************************************************
 
 _$_Chapter _$$_ChapterFromJson(Map<String, dynamic> json) => _$_Chapter(
-      prefix_bismillah: json['prefix_bismillah'] as bool?,
-      revelation_order: json['revelation_order'] as int?,
-      verses: json['verses'] as int?,
-      arabic_name: json['arabic_name'] as String?,
       complex_name: json['complex_name'] as String?,
       id: json['id'] as int?,
-      name: json['name'] as String?,
       pages: (json['pages'] as List<dynamic>?)?.map((e) => e as int).toList(),
-      revelation_place: json['revelation_place'] as String?,
       translated_name: json['translated_name'] as String?,
+      revelation_place: json['revelation_place'] as String?,
+      verses: json['verses'] as int?,
+      arabic_name: json['arabic_name'] as String?,
+      name: json['name'] as String?,
+      prefix_bismillah: json['prefix_bismillah'] as bool?,
+      revelation_order: json['revelation_order'] as int?,
     );
 
 Map<String, dynamic> _$$_ChapterToJson(_$_Chapter instance) =>
     <String, dynamic>{
-      'prefix_bismillah': instance.prefix_bismillah,
-      'revelation_order': instance.revelation_order,
-      'verses': instance.verses,
-      'arabic_name': instance.arabic_name,
       'complex_name': instance.complex_name,
       'id': instance.id,
-      'name': instance.name,
       'pages': instance.pages,
-      'revelation_place': instance.revelation_place,
       'translated_name': instance.translated_name,
+      'revelation_place': instance.revelation_place,
+      'verses': instance.verses,
+      'arabic_name': instance.arabic_name,
+      'name': instance.name,
+      'prefix_bismillah': instance.prefix_bismillah,
+      'revelation_order': instance.revelation_order,
     };
 
 _$_ChaptersRequest _$$_ChaptersRequestFromJson(Map<String, dynamic> json) =>
@@ -88,19 +88,19 @@ Map<String, dynamic> _$$_InterpretationToJson(_$_Interpretation instance) =>
     };
 
 _$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+      text: json['text'] as String?,
       translations: (json['translations'] as List<dynamic>?)
           ?.map((e) => Translation.fromJson(e as Map<String, dynamic>))
           .toList(),
       verse_id: json['verse_id'] as int?,
       verse_key: json['verse_key'] as String?,
-      text: json['text'] as String?,
     );
 
 Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+      'text': instance.text,
       'translations': instance.translations,
       'verse_id': instance.verse_id,
       'verse_key': instance.verse_key,
-      'text': instance.text,
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
@@ -216,35 +216,35 @@ Map<String, dynamic> _$$_TranslationToJson(_$_Translation instance) =>
     };
 
 _$_Verse _$$_VerseFromJson(Map<String, dynamic> json) => _$_Verse(
-      translated_text: json['translated_text'] as String?,
-      transliteration: json['transliteration'] as String?,
-      id: json['id'] as int?,
-      key: json['key'] as String?,
-      number: json['number'] as int?,
-      page: json['page'] as int?,
-      text: json['text'] as String?,
-      interpretations: (json['interpretations'] as List<dynamic>?)
-          ?.map((e) => Interpretation.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      translations: (json['translations'] as List<dynamic>?)
-          ?.map((e) => Translation.fromJson(e as Map<String, dynamic>))
-          .toList(),
       words: (json['words'] as List<dynamic>?)
           ?.map((e) => Word.fromJson(e as Map<String, dynamic>))
           .toList(),
+      key: json['key'] as String?,
+      text: json['text'] as String?,
+      transliteration: json['transliteration'] as String?,
+      page: json['page'] as int?,
+      translated_text: json['translated_text'] as String?,
+      translations: (json['translations'] as List<dynamic>?)
+          ?.map((e) => Translation.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      id: json['id'] as int?,
+      interpretations: (json['interpretations'] as List<dynamic>?)
+          ?.map((e) => Interpretation.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      number: json['number'] as int?,
     );
 
 Map<String, dynamic> _$$_VerseToJson(_$_Verse instance) => <String, dynamic>{
-      'translated_text': instance.translated_text,
-      'transliteration': instance.transliteration,
-      'id': instance.id,
-      'key': instance.key,
-      'number': instance.number,
-      'page': instance.page,
-      'text': instance.text,
-      'interpretations': instance.interpretations,
-      'translations': instance.translations,
       'words': instance.words,
+      'key': instance.key,
+      'text': instance.text,
+      'transliteration': instance.transliteration,
+      'page': instance.page,
+      'translated_text': instance.translated_text,
+      'translations': instance.translations,
+      'id': instance.id,
+      'interpretations': instance.interpretations,
+      'number': instance.number,
     };
 
 _$_VersesRequest _$$_VersesRequestFromJson(Map<String, dynamic> json) =>
@@ -271,22 +271,22 @@ Map<String, dynamic> _$$_VersesRequestToJson(_$_VersesRequest instance) =>
 
 _$VersesResponseData _$$VersesResponseDataFromJson(Map<String, dynamic> json) =>
     _$VersesResponseData(
-      chapter: json['chapter'] as int?,
-      page: json['page'] as int?,
       total_pages: json['total_pages'] as int?,
       verses: (json['verses'] as List<dynamic>?)
           ?.map((e) => Verse.fromJson(e as Map<String, dynamic>))
           .toList(),
+      chapter: json['chapter'] as int?,
+      page: json['page'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$VersesResponseDataToJson(
         _$VersesResponseData instance) =>
     <String, dynamic>{
-      'chapter': instance.chapter,
-      'page': instance.page,
       'total_pages': instance.total_pages,
       'verses': instance.verses,
+      'chapter': instance.chapter,
+      'page': instance.page,
       'runtimeType': instance.$type,
     };
 
@@ -304,25 +304,25 @@ Map<String, dynamic> _$$VersesResponseMerrToJson(
     };
 
 _$_Word _$$_WordFromJson(Map<String, dynamic> json) => _$_Word(
-      code: json['code'] as String?,
-      id: json['id'] as int?,
-      text: json['text'] as String?,
       transliteration: json['transliteration'] as String?,
-      char_type: json['char_type'] as String?,
+      id: json['id'] as int?,
       line: json['line'] as int?,
-      page: json['page'] as int?,
       position: json['position'] as int?,
       translation: json['translation'] as String?,
+      char_type: json['char_type'] as String?,
+      code: json['code'] as String?,
+      page: json['page'] as int?,
+      text: json['text'] as String?,
     );
 
 Map<String, dynamic> _$$_WordToJson(_$_Word instance) => <String, dynamic>{
-      'code': instance.code,
-      'id': instance.id,
-      'text': instance.text,
       'transliteration': instance.transliteration,
-      'char_type': instance.char_type,
+      'id': instance.id,
       'line': instance.line,
-      'page': instance.page,
       'position': instance.position,
       'translation': instance.translation,
+      'char_type': instance.char_type,
+      'code': instance.code,
+      'page': instance.page,
+      'text': instance.text,
     };

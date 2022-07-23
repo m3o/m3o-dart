@@ -4,6 +4,43 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/cache/api](htt
 
 Endpoints:
 
+## Set
+
+Set an item in the cache. Overwrites any existing value already set.
+
+
+[https://m3o.com/cache/api#Set](https://m3o.com/cache/api#Set)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/cache/cache.dart';
+
+void main() async {
+  final ser = CacheService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "key": "foo",
+  "value": "bar"
+,};
+
+  SetRequest req = SetRequest.fromJson(payload);
+
+  
+  try {
+
+	SetResponse res = await ser.set(req);
+
+    res.map((value) => print(value),
+	  Merr: (SetResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Get
 
 Get an item from the cache by key. If key is not found, an empty response is returned.
@@ -176,43 +213,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (ListKeysResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Set
-
-Set an item in the cache. Overwrites any existing value already set.
-
-
-[https://m3o.com/cache/api#Set](https://m3o.com/cache/api#Set)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/cache/cache.dart';
-
-void main() async {
-  final ser = CacheService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "key": "foo",
-  "value": "bar"
-,};
-
-  SetRequest req = SetRequest.fromJson(payload);
-
-  
-  try {
-
-	SetResponse res = await ser.set(req);
-
-    res.map((value) => print(value),
-	  Merr: (SetResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

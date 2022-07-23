@@ -1243,19 +1243,19 @@ class _$GroupTearOff {
   const _$GroupTearOff();
 
   _Group call(
-      {String? name,
-      bool? private,
+      {bool? private,
       List<String>? user_ids,
       String? created_at,
       String? description,
-      String? id}) {
+      String? id,
+      String? name}) {
     return _Group(
-      name: name,
       private: private,
       user_ids: user_ids,
       created_at: created_at,
       description: description,
       id: id,
+      name: name,
     );
   }
 
@@ -1269,9 +1269,6 @@ const $Group = _$GroupTearOff();
 
 /// @nodoc
 mixin _$Group {
-  /// name of the chat
-  String? get name => throw _privateConstructorUsedError;
-
   /// whether its a private group
   bool? get private => throw _privateConstructorUsedError;
 
@@ -1287,6 +1284,9 @@ mixin _$Group {
   /// unique group id
   String? get id => throw _privateConstructorUsedError;
 
+  /// name of the chat
+  String? get name => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GroupCopyWith<Group> get copyWith => throw _privateConstructorUsedError;
@@ -1297,12 +1297,12 @@ abstract class $GroupCopyWith<$Res> {
   factory $GroupCopyWith(Group value, $Res Function(Group) then) =
       _$GroupCopyWithImpl<$Res>;
   $Res call(
-      {String? name,
-      bool? private,
+      {bool? private,
       List<String>? user_ids,
       String? created_at,
       String? description,
-      String? id});
+      String? id,
+      String? name});
 }
 
 /// @nodoc
@@ -1315,18 +1315,14 @@ class _$GroupCopyWithImpl<$Res> implements $GroupCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? private = freezed,
     Object? user_ids = freezed,
     Object? created_at = freezed,
     Object? description = freezed,
     Object? id = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       private: private == freezed
           ? _value.private
           : private // ignore: cast_nullable_to_non_nullable
@@ -1347,6 +1343,10 @@ class _$GroupCopyWithImpl<$Res> implements $GroupCopyWith<$Res> {
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1357,12 +1357,12 @@ abstract class _$GroupCopyWith<$Res> implements $GroupCopyWith<$Res> {
       __$GroupCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? name,
-      bool? private,
+      {bool? private,
       List<String>? user_ids,
       String? created_at,
       String? description,
-      String? id});
+      String? id,
+      String? name});
 }
 
 /// @nodoc
@@ -1376,18 +1376,14 @@ class __$GroupCopyWithImpl<$Res> extends _$GroupCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? private = freezed,
     Object? user_ids = freezed,
     Object? created_at = freezed,
     Object? description = freezed,
     Object? id = freezed,
+    Object? name = freezed,
   }) {
     return _then(_Group(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       private: private == freezed
           ? _value.private
           : private // ignore: cast_nullable_to_non_nullable
@@ -1408,6 +1404,10 @@ class __$GroupCopyWithImpl<$Res> extends _$GroupCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1416,20 +1416,16 @@ class __$GroupCopyWithImpl<$Res> extends _$GroupCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Group implements _Group {
   const _$_Group(
-      {this.name,
-      this.private,
+      {this.private,
       this.user_ids,
       this.created_at,
       this.description,
-      this.id});
+      this.id,
+      this.name});
 
   factory _$_Group.fromJson(Map<String, dynamic> json) =>
       _$$_GroupFromJson(json);
 
-  @override
-
-  /// name of the chat
-  final String? name;
   @override
 
   /// whether its a private group
@@ -1450,10 +1446,14 @@ class _$_Group implements _Group {
 
   /// unique group id
   final String? id;
+  @override
+
+  /// name of the chat
+  final String? name;
 
   @override
   String toString() {
-    return 'Group(name: $name, private: $private, user_ids: $user_ids, created_at: $created_at, description: $description, id: $id)';
+    return 'Group(private: $private, user_ids: $user_ids, created_at: $created_at, description: $description, id: $id, name: $name)';
   }
 
   @override
@@ -1461,25 +1461,25 @@ class _$_Group implements _Group {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Group &&
-            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.private, private) &&
             const DeepCollectionEquality().equals(other.user_ids, user_ids) &&
             const DeepCollectionEquality()
                 .equals(other.created_at, created_at) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(private),
       const DeepCollectionEquality().hash(user_ids),
       const DeepCollectionEquality().hash(created_at),
       const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
@@ -1494,19 +1494,15 @@ class _$_Group implements _Group {
 
 abstract class _Group implements Group {
   const factory _Group(
-      {String? name,
-      bool? private,
+      {bool? private,
       List<String>? user_ids,
       String? created_at,
       String? description,
-      String? id}) = _$_Group;
+      String? id,
+      String? name}) = _$_Group;
 
   factory _Group.fromJson(Map<String, dynamic> json) = _$_Group.fromJson;
 
-  @override
-
-  /// name of the chat
-  String? get name;
   @override
 
   /// whether its a private group
@@ -1527,6 +1523,10 @@ abstract class _Group implements Group {
 
   /// unique group id
   String? get id;
+  @override
+
+  /// name of the chat
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$GroupCopyWith<_Group> get copyWith => throw _privateConstructorUsedError;

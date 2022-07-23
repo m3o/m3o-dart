@@ -245,9 +245,6 @@ class DownloadResponse with _$DownloadResponse {
 @Freezed()
 class HeadObject with _$HeadObject {
   const factory HeadObject({
-    /// when was this created
-    String? created,
-
     /// when was this last modified
     String? modified,
     String? name,
@@ -257,6 +254,9 @@ class HeadObject with _$HeadObject {
 
     /// is this public or private
     String? visibility,
+
+    /// when was this created
+    String? created,
   }) = _HeadObject;
   factory HeadObject.fromJson(Map<String, dynamic> json) =>
       _$HeadObjectFromJson(json);

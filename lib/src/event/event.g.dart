@@ -106,16 +106,16 @@ Map<String, dynamic> _$$PublishResponseMerrToJson(
 
 _$_ReadRequest _$$_ReadRequestFromJson(Map<String, dynamic> json) =>
     _$_ReadRequest(
-      offset: json['offset'] as int?,
       topic: json['topic'] as String?,
       limit: json['limit'] as int?,
+      offset: json['offset'] as int?,
     );
 
 Map<String, dynamic> _$$_ReadRequestToJson(_$_ReadRequest instance) =>
     <String, dynamic>{
-      'offset': instance.offset,
       'topic': instance.topic,
       'limit': instance.limit,
+      'offset': instance.offset,
     };
 
 _$ReadResponseData _$$ReadResponseDataFromJson(Map<String, dynamic> json) =>

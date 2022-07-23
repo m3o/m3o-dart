@@ -50,14 +50,14 @@ Map<String, dynamic> _$$GenerateResponseMerrToJson(
 
 _$_ValidateRequest _$$_ValidateRequestFromJson(Map<String, dynamic> json) =>
     _$_ValidateRequest(
-      id: json['id'] as String?,
       code: json['code'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_ValidateRequestToJson(_$_ValidateRequest instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'code': instance.code,
+      'id': instance.id,
     };
 
 _$ValidateResponseData _$$ValidateResponseDataFromJson(
