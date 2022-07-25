@@ -116,9 +116,6 @@ class CryptoService {
 @Freezed()
 class Article with _$Article {
   const factory Article({
-    /// the source
-    String? source,
-
     /// title of the article
     String? title,
 
@@ -130,6 +127,9 @@ class Article with _$Article {
 
     /// its description
     String? description,
+
+    /// the source
+    String? source,
   }) = _Article;
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);
@@ -148,12 +148,6 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
-    /// the volume
-    double? volume,
-
-    /// the close price
-    double? close,
-
     /// the date
     String? date,
 
@@ -168,6 +162,12 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the crypto symbol
     String? symbol,
+
+    /// the volume
+    double? volume,
+
+    /// the close price
+    double? close,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -213,11 +213,11 @@ class PriceRequest with _$PriceRequest {
 @Freezed()
 class PriceResponse with _$PriceResponse {
   const factory PriceResponse({
-    /// the crypto symbol e.g BTCUSD
-    String? symbol,
-
     /// the last price
     double? price,
+
+    /// the crypto symbol e.g BTCUSD
+    String? symbol,
   }) = PriceResponseData;
   const factory PriceResponse.Merr({Map<String, dynamic>? body}) =
       PriceResponseMerr;

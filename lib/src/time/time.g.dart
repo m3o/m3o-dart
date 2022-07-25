@@ -64,12 +64,12 @@ _$ZoneResponseData _$$ZoneResponseDataFromJson(Map<String, dynamic> json) =>
       longitude: (json['longitude'] as num?)?.toDouble(),
       region: json['region'] as String?,
       timezone: json['timezone'] as String?,
-      country: json['country'] as String?,
       dst: json['dst'] as bool?,
-      localtime: json['localtime'] as String?,
-      abbreviation: json['abbreviation'] as String?,
+      country: json['country'] as String?,
       latitude: (json['latitude'] as num?)?.toDouble(),
+      localtime: json['localtime'] as String?,
       offset: json['offset'] as int?,
+      abbreviation: json['abbreviation'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
@@ -79,12 +79,12 @@ Map<String, dynamic> _$$ZoneResponseDataToJson(_$ZoneResponseData instance) =>
       'longitude': instance.longitude,
       'region': instance.region,
       'timezone': instance.timezone,
-      'country': instance.country,
       'dst': instance.dst,
-      'localtime': instance.localtime,
-      'abbreviation': instance.abbreviation,
+      'country': instance.country,
       'latitude': instance.latitude,
+      'localtime': instance.localtime,
       'offset': instance.offset,
+      'abbreviation': instance.abbreviation,
       'runtimeType': instance.$type,
     };
 
