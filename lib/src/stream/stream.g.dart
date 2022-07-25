@@ -100,15 +100,15 @@ Map<String, dynamic> _$$ListChannelsResponseMerrToJson(
 _$_ListMessagesRequest _$$_ListMessagesRequestFromJson(
         Map<String, dynamic> json) =>
     _$_ListMessagesRequest(
-      limit: json['limit'] as int?,
       channel: json['channel'] as String?,
+      limit: json['limit'] as int?,
     );
 
 Map<String, dynamic> _$$_ListMessagesRequestToJson(
         _$_ListMessagesRequest instance) =>
     <String, dynamic>{
-      'limit': instance.limit,
       'channel': instance.channel,
+      'limit': instance.limit,
     };
 
 _$ListMessagesResponseData _$$ListMessagesResponseDataFromJson(

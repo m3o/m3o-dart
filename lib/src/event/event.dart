@@ -81,14 +81,14 @@ class EventService {
 @Freezed()
 class ConsumeRequest with _$ConsumeRequest {
   const factory ConsumeRequest({
-    /// The topic to subscribe to
-    String? topic,
-
     /// Optional group for the subscription
     String? group,
 
     /// Optional offset to read from e.g "2006-01-02T15:04:05.999Z07:00"
     String? offset,
+
+    /// The topic to subscribe to
+    String? topic,
   }) = _ConsumeRequest;
   factory ConsumeRequest.fromJson(Map<String, dynamic> json) =>
       _$ConsumeRequestFromJson(json);
@@ -118,14 +118,14 @@ class ConsumeResponse with _$ConsumeResponse {
 @Freezed()
 class Ev with _$Ev {
   const factory Ev({
-    /// event timestamp
-    String? timestamp,
-
     /// event id
     String? id,
 
     /// event message
     Map<String, dynamic>? message,
+
+    /// event timestamp
+    String? timestamp,
   }) = _Ev;
   factory Ev.fromJson(Map<String, dynamic> json) => _$EvFromJson(json);
 }
@@ -133,11 +133,11 @@ class Ev with _$Ev {
 @Freezed()
 class PublishRequest with _$PublishRequest {
   const factory PublishRequest({
-    /// The topic to publish to
-    String? topic,
-
     /// The json message to publish
     Map<String, dynamic>? message,
+
+    /// The topic to publish to
+    String? topic,
   }) = _PublishRequest;
   factory PublishRequest.fromJson(Map<String, dynamic> json) =>
       _$PublishRequestFromJson(json);
@@ -155,14 +155,14 @@ class PublishResponse with _$PublishResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
-    /// topic to read from
-    String? topic,
-
     /// number of events to read; default 25
     int? limit,
 
     /// offset for the events; default 0
     int? offset,
+
+    /// topic to read from
+    String? topic,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);

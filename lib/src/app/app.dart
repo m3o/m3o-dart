@@ -276,9 +276,6 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
-    /// associated token
-    String? token,
-
     /// time of reservation
     String? created,
 
@@ -290,6 +287,9 @@ class Reservation with _$Reservation {
 
     /// owner id
     String? owner,
+
+    /// associated token
+    String? token,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);
@@ -342,9 +342,6 @@ class ResolveResponse with _$ResolveResponse {
 @Freezed()
 class RunRequest with _$RunRequest {
   const factory RunRequest({
-    /// branch. defaults to master
-    String? branch,
-
     /// associated env vars to pass in
     Map<String, String>? env_vars,
 
@@ -359,6 +356,9 @@ class RunRequest with _$RunRequest {
 
     /// source repository
     String? repo,
+
+    /// branch. defaults to master
+    String? branch,
   }) = _RunRequest;
   factory RunRequest.fromJson(Map<String, dynamic> json) =>
       _$RunRequestFromJson(json);
@@ -379,14 +379,26 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
+    /// region running in
+    String? region,
+
+    /// source repository
+    String? repo,
+
+    /// time of creation
+    String? created,
+
     /// associated env vars
     Map<String, String>? env_vars,
+
+    /// name of the app
+    String? name,
 
     /// port running on
     int? port,
 
-    /// source repository
-    String? repo,
+    /// status of the app
+    String? status,
 
     /// last updated
     String? updated,
@@ -402,18 +414,6 @@ class Service with _$Service {
 
     /// unique id
     String? id,
-
-    /// name of the app
-    String? name,
-
-    /// region running in
-    String? region,
-
-    /// status of the app
-    String? status,
-
-    /// time of creation
-    String? created,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);
