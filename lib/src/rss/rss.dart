@@ -96,6 +96,9 @@ class RssService {
 @Freezed()
 class AddRequest with _$AddRequest {
   const factory AddRequest({
+    /// category to add e.g news
+    String? category,
+
     /// rss feed name
     /// eg. a16z
     String? name,
@@ -103,9 +106,6 @@ class AddRequest with _$AddRequest {
     /// rss feed url
     /// eg. http://a16z.com/feed/
     String? url,
-
-    /// category to add e.g news
-    String? category,
   }) = _AddRequest;
   factory AddRequest.fromJson(Map<String, dynamic> json) =>
       _$AddRequestFromJson(json);
