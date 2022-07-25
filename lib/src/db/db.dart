@@ -305,14 +305,6 @@ class ListTablesResponse with _$ListTablesResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
-    /// Read by id. Equivalent to 'id == "your-id"'
-    String? id,
-
-    /// Maximum number of records to return. Default limit is 25.
-    /// Maximum limit is 1000. Anything higher will return an error.
-    int? limit,
-    int? offset,
-
     /// 'asc' (default), 'desc'
     String? order,
 
@@ -328,6 +320,14 @@ class ReadRequest with _$ReadRequest {
 
     /// Optional table name. Defaults to 'default'
     String? table,
+
+    /// Read by id. Equivalent to 'id == "your-id"'
+    String? id,
+
+    /// Maximum number of records to return. Default limit is 25.
+    /// Maximum limit is 1000. Anything higher will return an error.
+    int? limit,
+    int? offset,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);

@@ -86,11 +86,11 @@ class GenerateResponse with _$GenerateResponse {
 @Freezed()
 class ValidateRequest with _$ValidateRequest {
   const factory ValidateRequest({
-    /// one time pass code to validate
-    String? code,
-
     /// unique id, email or user for which the code was generated
     String? id,
+
+    /// one time pass code to validate
+    String? code,
   }) = _ValidateRequest;
   factory ValidateRequest.fromJson(Map<String, dynamic> json) =>
       _$ValidateRequestFromJson(json);

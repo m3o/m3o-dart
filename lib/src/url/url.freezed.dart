@@ -612,10 +612,10 @@ DeleteRequest _$DeleteRequestFromJson(Map<String, dynamic> json) {
 class _$DeleteRequestTearOff {
   const _$DeleteRequestTearOff();
 
-  _DeleteRequest call({String? shortURL, String? id}) {
+  _DeleteRequest call({String? id, String? shortURL}) {
     return _DeleteRequest(
-      shortURL: shortURL,
       id: id,
+      shortURL: shortURL,
     );
   }
 
@@ -629,11 +629,11 @@ const $DeleteRequest = _$DeleteRequestTearOff();
 
 /// @nodoc
 mixin _$DeleteRequest {
-  /// delete by shortURL
-  String? get shortURL => throw _privateConstructorUsedError;
-
   /// delete by id
   String? get id => throw _privateConstructorUsedError;
+
+  /// delete by shortURL
+  String? get shortURL => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -646,7 +646,7 @@ abstract class $DeleteRequestCopyWith<$Res> {
   factory $DeleteRequestCopyWith(
           DeleteRequest value, $Res Function(DeleteRequest) then) =
       _$DeleteRequestCopyWithImpl<$Res>;
-  $Res call({String? shortURL, String? id});
+  $Res call({String? id, String? shortURL});
 }
 
 /// @nodoc
@@ -660,17 +660,17 @@ class _$DeleteRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? shortURL = freezed,
     Object? id = freezed,
+    Object? shortURL = freezed,
   }) {
     return _then(_value.copyWith(
-      shortURL: shortURL == freezed
-          ? _value.shortURL
-          : shortURL // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      shortURL: shortURL == freezed
+          ? _value.shortURL
+          : shortURL // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -683,7 +683,7 @@ abstract class _$DeleteRequestCopyWith<$Res>
           _DeleteRequest value, $Res Function(_DeleteRequest) then) =
       __$DeleteRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? shortURL, String? id});
+  $Res call({String? id, String? shortURL});
 }
 
 /// @nodoc
@@ -699,17 +699,17 @@ class __$DeleteRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? shortURL = freezed,
     Object? id = freezed,
+    Object? shortURL = freezed,
   }) {
     return _then(_DeleteRequest(
-      shortURL: shortURL == freezed
-          ? _value.shortURL
-          : shortURL // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      shortURL: shortURL == freezed
+          ? _value.shortURL
+          : shortURL // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -718,23 +718,23 @@ class __$DeleteRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_DeleteRequest implements _DeleteRequest {
-  const _$_DeleteRequest({this.shortURL, this.id});
+  const _$_DeleteRequest({this.id, this.shortURL});
 
   factory _$_DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$$_DeleteRequestFromJson(json);
 
   @override
 
-  /// delete by shortURL
-  final String? shortURL;
-  @override
-
   /// delete by id
   final String? id;
+  @override
+
+  /// delete by shortURL
+  final String? shortURL;
 
   @override
   String toString() {
-    return 'DeleteRequest(shortURL: $shortURL, id: $id)';
+    return 'DeleteRequest(id: $id, shortURL: $shortURL)';
   }
 
   @override
@@ -742,15 +742,15 @@ class _$_DeleteRequest implements _DeleteRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _DeleteRequest &&
-            const DeepCollectionEquality().equals(other.shortURL, shortURL) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.shortURL, shortURL));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(shortURL),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(shortURL));
 
   @JsonKey(ignore: true)
   @override
@@ -764,7 +764,7 @@ class _$_DeleteRequest implements _DeleteRequest {
 }
 
 abstract class _DeleteRequest implements DeleteRequest {
-  const factory _DeleteRequest({String? shortURL, String? id}) =
+  const factory _DeleteRequest({String? id, String? shortURL}) =
       _$_DeleteRequest;
 
   factory _DeleteRequest.fromJson(Map<String, dynamic> json) =
@@ -772,12 +772,12 @@ abstract class _DeleteRequest implements DeleteRequest {
 
   @override
 
-  /// delete by shortURL
-  String? get shortURL;
-  @override
-
   /// delete by id
   String? get id;
+  @override
+
+  /// delete by shortURL
+  String? get shortURL;
   @override
   @JsonKey(ignore: true)
   _$DeleteRequestCopyWith<_DeleteRequest> get copyWith =>

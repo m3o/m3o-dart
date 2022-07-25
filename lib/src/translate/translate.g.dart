@@ -8,20 +8,20 @@ part of 'translate.dart';
 
 _$_TextRequest _$$_TextRequestFromJson(Map<String, dynamic> json) =>
     _$_TextRequest(
+      model: json['model'] as String?,
       source: json['source'] as String?,
       target: json['target'] as String?,
       content: json['content'] as String?,
       format: json['format'] as String?,
-      model: json['model'] as String?,
     );
 
 Map<String, dynamic> _$$_TextRequestToJson(_$_TextRequest instance) =>
     <String, dynamic>{
+      'model': instance.model,
       'source': instance.source,
       'target': instance.target,
       'content': instance.content,
       'format': instance.format,
-      'model': instance.model,
     };
 
 _$TextResponseData _$$TextResponseDataFromJson(Map<String, dynamic> json) =>

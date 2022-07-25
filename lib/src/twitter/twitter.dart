@@ -96,25 +96,18 @@ class TwitterService {
 @Freezed()
 class Profile with _$Profile {
   const factory Profile({
-    /// The user's profile picture
-    String? image_url,
-
-    /// the user's location
-    String? location,
-
-    /// if the account is verified
-    bool? verified,
+    /// the account creation date
+    String? created_at,
 
     /// the user id
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
 
-    /// the user description
-    String? description,
+    /// The user's profile picture
+    String? image_url,
 
-    /// the follower count
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
+    /// the user's location
+    String? location,
 
     /// display name of the user
     String? name,
@@ -125,8 +118,15 @@ class Profile with _$Profile {
     /// the username
     String? username,
 
-    /// the account creation date
-    String? created_at,
+    /// the user description
+    String? description,
+
+    /// the follower count
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
+
+    /// if the account is verified
+    bool? verified,
   }) = _Profile;
   factory Profile.fromJson(Map<String, dynamic> json) =>
       _$ProfileFromJson(json);
@@ -221,6 +221,11 @@ class TrendsResponse with _$TrendsResponse {
 @Freezed()
 class Tweet with _$Tweet {
   const factory Tweet({
+    /// number of times retweeted
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+        int? retweeted_count,
+
     /// text of the tweet
     String? text,
 
@@ -238,11 +243,6 @@ class Tweet with _$Tweet {
     /// id of the tweet
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
-
-    /// number of times retweeted
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-        int? retweeted_count,
   }) = _Tweet;
   factory Tweet.fromJson(Map<String, dynamic> json) => _$TweetFromJson(json);
 }

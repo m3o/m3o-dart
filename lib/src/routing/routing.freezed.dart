@@ -23,21 +23,21 @@ class _$DirectionTearOff {
   const _$DirectionTearOff();
 
   _Direction call(
-      {String? reference,
-      double? distance,
+      {double? distance,
       double? duration,
       String? instruction,
       List<Intersection>? intersections,
       Maneuver? maneuver,
-      String? name}) {
+      String? name,
+      String? reference}) {
     return _Direction(
-      reference: reference,
       distance: distance,
       duration: duration,
       instruction: instruction,
       intersections: intersections,
       maneuver: maneuver,
       name: name,
+      reference: reference,
     );
   }
 
@@ -51,9 +51,6 @@ const $Direction = _$DirectionTearOff();
 
 /// @nodoc
 mixin _$Direction {
-  /// alternative reference
-  String? get reference => throw _privateConstructorUsedError;
-
   /// distance to travel in meters
   double? get distance => throw _privateConstructorUsedError;
 
@@ -72,6 +69,9 @@ mixin _$Direction {
   /// street name or location
   String? get name => throw _privateConstructorUsedError;
 
+  /// alternative reference
+  String? get reference => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $DirectionCopyWith<Direction> get copyWith =>
@@ -83,13 +83,13 @@ abstract class $DirectionCopyWith<$Res> {
   factory $DirectionCopyWith(Direction value, $Res Function(Direction) then) =
       _$DirectionCopyWithImpl<$Res>;
   $Res call(
-      {String? reference,
-      double? distance,
+      {double? distance,
       double? duration,
       String? instruction,
       List<Intersection>? intersections,
       Maneuver? maneuver,
-      String? name});
+      String? name,
+      String? reference});
 
   $ManeuverCopyWith<$Res>? get maneuver;
 }
@@ -104,19 +104,15 @@ class _$DirectionCopyWithImpl<$Res> implements $DirectionCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? reference = freezed,
     Object? distance = freezed,
     Object? duration = freezed,
     Object? instruction = freezed,
     Object? intersections = freezed,
     Object? maneuver = freezed,
     Object? name = freezed,
+    Object? reference = freezed,
   }) {
     return _then(_value.copyWith(
-      reference: reference == freezed
-          ? _value.reference
-          : reference // ignore: cast_nullable_to_non_nullable
-              as String?,
       distance: distance == freezed
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
@@ -140,6 +136,10 @@ class _$DirectionCopyWithImpl<$Res> implements $DirectionCopyWith<$Res> {
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      reference: reference == freezed
+          ? _value.reference
+          : reference // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -163,13 +163,13 @@ abstract class _$DirectionCopyWith<$Res> implements $DirectionCopyWith<$Res> {
       __$DirectionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? reference,
-      double? distance,
+      {double? distance,
       double? duration,
       String? instruction,
       List<Intersection>? intersections,
       Maneuver? maneuver,
-      String? name});
+      String? name,
+      String? reference});
 
   @override
   $ManeuverCopyWith<$Res>? get maneuver;
@@ -186,19 +186,15 @@ class __$DirectionCopyWithImpl<$Res> extends _$DirectionCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? reference = freezed,
     Object? distance = freezed,
     Object? duration = freezed,
     Object? instruction = freezed,
     Object? intersections = freezed,
     Object? maneuver = freezed,
     Object? name = freezed,
+    Object? reference = freezed,
   }) {
     return _then(_Direction(
-      reference: reference == freezed
-          ? _value.reference
-          : reference // ignore: cast_nullable_to_non_nullable
-              as String?,
       distance: distance == freezed
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
@@ -223,6 +219,10 @@ class __$DirectionCopyWithImpl<$Res> extends _$DirectionCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      reference: reference == freezed
+          ? _value.reference
+          : reference // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -231,21 +231,17 @@ class __$DirectionCopyWithImpl<$Res> extends _$DirectionCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Direction implements _Direction {
   const _$_Direction(
-      {this.reference,
-      this.distance,
+      {this.distance,
       this.duration,
       this.instruction,
       this.intersections,
       this.maneuver,
-      this.name});
+      this.name,
+      this.reference});
 
   factory _$_Direction.fromJson(Map<String, dynamic> json) =>
       _$$_DirectionFromJson(json);
 
-  @override
-
-  /// alternative reference
-  final String? reference;
   @override
 
   /// distance to travel in meters
@@ -270,10 +266,14 @@ class _$_Direction implements _Direction {
 
   /// street name or location
   final String? name;
+  @override
+
+  /// alternative reference
+  final String? reference;
 
   @override
   String toString() {
-    return 'Direction(reference: $reference, distance: $distance, duration: $duration, instruction: $instruction, intersections: $intersections, maneuver: $maneuver, name: $name)';
+    return 'Direction(distance: $distance, duration: $duration, instruction: $instruction, intersections: $intersections, maneuver: $maneuver, name: $name, reference: $reference)';
   }
 
   @override
@@ -281,7 +281,6 @@ class _$_Direction implements _Direction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Direction &&
-            const DeepCollectionEquality().equals(other.reference, reference) &&
             const DeepCollectionEquality().equals(other.distance, distance) &&
             const DeepCollectionEquality().equals(other.duration, duration) &&
             const DeepCollectionEquality()
@@ -289,19 +288,20 @@ class _$_Direction implements _Direction {
             const DeepCollectionEquality()
                 .equals(other.intersections, intersections) &&
             const DeepCollectionEquality().equals(other.maneuver, maneuver) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.reference, reference));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(reference),
       const DeepCollectionEquality().hash(distance),
       const DeepCollectionEquality().hash(duration),
       const DeepCollectionEquality().hash(instruction),
       const DeepCollectionEquality().hash(intersections),
       const DeepCollectionEquality().hash(maneuver),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(reference));
 
   @JsonKey(ignore: true)
   @override
@@ -316,21 +316,17 @@ class _$_Direction implements _Direction {
 
 abstract class _Direction implements Direction {
   const factory _Direction(
-      {String? reference,
-      double? distance,
+      {double? distance,
       double? duration,
       String? instruction,
       List<Intersection>? intersections,
       Maneuver? maneuver,
-      String? name}) = _$_Direction;
+      String? name,
+      String? reference}) = _$_Direction;
 
   factory _Direction.fromJson(Map<String, dynamic> json) =
       _$_Direction.fromJson;
 
-  @override
-
-  /// alternative reference
-  String? get reference;
   @override
 
   /// distance to travel in meters
@@ -355,6 +351,10 @@ abstract class _Direction implements Direction {
 
   /// street name or location
   String? get name;
+  @override
+
+  /// alternative reference
+  String? get reference;
   @override
   @JsonKey(ignore: true)
   _$DirectionCopyWith<_Direction> get copyWith =>

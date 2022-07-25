@@ -154,17 +154,17 @@ Map<String, dynamic> _$$_RatesRequestToJson(_$_RatesRequest instance) =>
 
 _$RatesResponseData _$$RatesResponseDataFromJson(Map<String, dynamic> json) =>
     _$RatesResponseData(
-      code: json['code'] as String?,
       rates: (json['rates'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, (e as num).toDouble()),
       ),
+      code: json['code'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$RatesResponseDataToJson(_$RatesResponseData instance) =>
     <String, dynamic>{
-      'code': instance.code,
       'rates': instance.rates,
+      'code': instance.code,
       'runtimeType': instance.$type,
     };
 
