@@ -111,20 +111,20 @@ Map<String, dynamic> _$$_HistoryRequestToJson(_$_HistoryRequest instance) =>
 _$HistoryResponseData _$$HistoryResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$HistoryResponseData(
-      code: json['code'] as String?,
-      date: json['date'] as String?,
       rates: (json['rates'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, (e as num).toDouble()),
       ),
+      code: json['code'] as String?,
+      date: json['date'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$HistoryResponseDataToJson(
         _$HistoryResponseData instance) =>
     <String, dynamic>{
+      'rates': instance.rates,
       'code': instance.code,
       'date': instance.date,
-      'rates': instance.rates,
       'runtimeType': instance.$type,
     };
 
@@ -154,17 +154,17 @@ Map<String, dynamic> _$$_RatesRequestToJson(_$_RatesRequest instance) =>
 
 _$RatesResponseData _$$RatesResponseDataFromJson(Map<String, dynamic> json) =>
     _$RatesResponseData(
+      code: json['code'] as String?,
       rates: (json['rates'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, (e as num).toDouble()),
       ),
-      code: json['code'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$RatesResponseDataToJson(_$RatesResponseData instance) =>
     <String, dynamic>{
-      'rates': instance.rates,
       'code': instance.code,
+      'rates': instance.rates,
       'runtimeType': instance.$type,
     };
 

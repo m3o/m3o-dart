@@ -8,8 +8,6 @@ part of 'tunnel.dart';
 
 _$_SendRequest _$$_SendRequestFromJson(Map<String, dynamic> json) =>
     _$_SendRequest(
-      path: json['path'] as String?,
-      url: json['url'] as String?,
       body: json['body'] as String?,
       headers: (json['headers'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
@@ -19,36 +17,38 @@ _$_SendRequest _$$_SendRequestFromJson(Map<String, dynamic> json) =>
       params: (json['params'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
+      path: json['path'] as String?,
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic> _$$_SendRequestToJson(_$_SendRequest instance) =>
     <String, dynamic>{
-      'path': instance.path,
-      'url': instance.url,
       'body': instance.body,
       'headers': instance.headers,
       'host': instance.host,
       'method': instance.method,
       'params': instance.params,
+      'path': instance.path,
+      'url': instance.url,
     };
 
 _$SendResponseData _$$SendResponseDataFromJson(Map<String, dynamic> json) =>
     _$SendResponseData(
-      body: json['body'] as String?,
       headers: (json['headers'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
       status: json['status'] as String?,
       status_code: json['status_code'] as int?,
+      body: json['body'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$SendResponseDataToJson(_$SendResponseData instance) =>
     <String, dynamic>{
-      'body': instance.body,
       'headers': instance.headers,
       'status': instance.status,
       'status_code': instance.status_code,
+      'body': instance.body,
       'runtimeType': instance.$type,
     };
 

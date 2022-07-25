@@ -288,38 +288,38 @@ Map<String, dynamic> _$$RunResponseMerrToJson(_$RunResponseMerr instance) =>
     };
 
 _$_Service _$$_ServiceFromJson(Map<String, dynamic> json) => _$_Service(
-      repo: json['repo'] as String?,
-      url: json['url'] as String?,
       created: json['created'] as String?,
       custom_domains: (json['custom_domains'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
+      id: json['id'] as String?,
+      port: json['port'] as int?,
+      region: json['region'] as String?,
+      repo: json['repo'] as String?,
+      status: json['status'] as String?,
+      branch: json['branch'] as String?,
       env_vars: (json['env_vars'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
       name: json['name'] as String?,
-      region: json['region'] as String?,
-      branch: json['branch'] as String?,
-      id: json['id'] as String?,
-      port: json['port'] as int?,
-      status: json['status'] as String?,
       updated: json['updated'] as String?,
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic> _$$_ServiceToJson(_$_Service instance) =>
     <String, dynamic>{
-      'repo': instance.repo,
-      'url': instance.url,
       'created': instance.created,
       'custom_domains': instance.custom_domains,
-      'env_vars': instance.env_vars,
-      'name': instance.name,
-      'region': instance.region,
-      'branch': instance.branch,
       'id': instance.id,
       'port': instance.port,
+      'region': instance.region,
+      'repo': instance.repo,
       'status': instance.status,
+      'branch': instance.branch,
+      'env_vars': instance.env_vars,
+      'name': instance.name,
       'updated': instance.updated,
+      'url': instance.url,
     };
 
 _$_StatusRequest _$$_StatusRequestFromJson(Map<String, dynamic> json) =>

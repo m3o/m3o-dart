@@ -23,19 +23,19 @@ class _$ClassifyRequestTearOff {
   const _$ClassifyRequestTearOff();
 
   _ClassifyRequest call(
-      {String? email_body,
-      String? from,
-      String? html_body,
-      String? subject,
+      {String? subject,
       String? text_body,
-      String? to}) {
+      String? to,
+      String? email_body,
+      String? from,
+      String? html_body}) {
     return _ClassifyRequest(
-      email_body: email_body,
-      from: from,
-      html_body: html_body,
       subject: subject,
       text_body: text_body,
       to: to,
+      email_body: email_body,
+      from: from,
+      html_body: html_body,
     );
   }
 
@@ -49,15 +49,6 @@ const $ClassifyRequest = _$ClassifyRequestTearOff();
 
 /// @nodoc
 mixin _$ClassifyRequest {
-  /// The raw body of the email including headers etc per RFC 822. Alternatively, use the other parameters to correctly format the message
-  String? get email_body => throw _privateConstructorUsedError;
-
-  /// The email address it has been sent from
-  String? get from => throw _privateConstructorUsedError;
-
-  /// the HTML version of the email body
-  String? get html_body => throw _privateConstructorUsedError;
-
   /// The subject of the email
   String? get subject => throw _privateConstructorUsedError;
 
@@ -66,6 +57,15 @@ mixin _$ClassifyRequest {
 
   /// The email address it is being sent to
   String? get to => throw _privateConstructorUsedError;
+
+  /// The raw body of the email including headers etc per RFC 822. Alternatively, use the other parameters to correctly format the message
+  String? get email_body => throw _privateConstructorUsedError;
+
+  /// The email address it has been sent from
+  String? get from => throw _privateConstructorUsedError;
+
+  /// the HTML version of the email body
+  String? get html_body => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -79,12 +79,12 @@ abstract class $ClassifyRequestCopyWith<$Res> {
           ClassifyRequest value, $Res Function(ClassifyRequest) then) =
       _$ClassifyRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? email_body,
-      String? from,
-      String? html_body,
-      String? subject,
+      {String? subject,
       String? text_body,
-      String? to});
+      String? to,
+      String? email_body,
+      String? from,
+      String? html_body});
 }
 
 /// @nodoc
@@ -98,26 +98,14 @@ class _$ClassifyRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? email_body = freezed,
-    Object? from = freezed,
-    Object? html_body = freezed,
     Object? subject = freezed,
     Object? text_body = freezed,
     Object? to = freezed,
+    Object? email_body = freezed,
+    Object? from = freezed,
+    Object? html_body = freezed,
   }) {
     return _then(_value.copyWith(
-      email_body: email_body == freezed
-          ? _value.email_body
-          : email_body // ignore: cast_nullable_to_non_nullable
-              as String?,
-      from: from == freezed
-          ? _value.from
-          : from // ignore: cast_nullable_to_non_nullable
-              as String?,
-      html_body: html_body == freezed
-          ? _value.html_body
-          : html_body // ignore: cast_nullable_to_non_nullable
-              as String?,
       subject: subject == freezed
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -129,6 +117,18 @@ class _$ClassifyRequestCopyWithImpl<$Res>
       to: to == freezed
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email_body: email_body == freezed
+          ? _value.email_body
+          : email_body // ignore: cast_nullable_to_non_nullable
+              as String?,
+      from: from == freezed
+          ? _value.from
+          : from // ignore: cast_nullable_to_non_nullable
+              as String?,
+      html_body: html_body == freezed
+          ? _value.html_body
+          : html_body // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -142,12 +142,12 @@ abstract class _$ClassifyRequestCopyWith<$Res>
       __$ClassifyRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? email_body,
-      String? from,
-      String? html_body,
-      String? subject,
+      {String? subject,
       String? text_body,
-      String? to});
+      String? to,
+      String? email_body,
+      String? from,
+      String? html_body});
 }
 
 /// @nodoc
@@ -163,26 +163,14 @@ class __$ClassifyRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? email_body = freezed,
-    Object? from = freezed,
-    Object? html_body = freezed,
     Object? subject = freezed,
     Object? text_body = freezed,
     Object? to = freezed,
+    Object? email_body = freezed,
+    Object? from = freezed,
+    Object? html_body = freezed,
   }) {
     return _then(_ClassifyRequest(
-      email_body: email_body == freezed
-          ? _value.email_body
-          : email_body // ignore: cast_nullable_to_non_nullable
-              as String?,
-      from: from == freezed
-          ? _value.from
-          : from // ignore: cast_nullable_to_non_nullable
-              as String?,
-      html_body: html_body == freezed
-          ? _value.html_body
-          : html_body // ignore: cast_nullable_to_non_nullable
-              as String?,
       subject: subject == freezed
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -195,6 +183,18 @@ class __$ClassifyRequestCopyWithImpl<$Res>
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
               as String?,
+      email_body: email_body == freezed
+          ? _value.email_body
+          : email_body // ignore: cast_nullable_to_non_nullable
+              as String?,
+      from: from == freezed
+          ? _value.from
+          : from // ignore: cast_nullable_to_non_nullable
+              as String?,
+      html_body: html_body == freezed
+          ? _value.html_body
+          : html_body // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -203,28 +203,16 @@ class __$ClassifyRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ClassifyRequest implements _ClassifyRequest {
   const _$_ClassifyRequest(
-      {this.email_body,
-      this.from,
-      this.html_body,
-      this.subject,
+      {this.subject,
       this.text_body,
-      this.to});
+      this.to,
+      this.email_body,
+      this.from,
+      this.html_body});
 
   factory _$_ClassifyRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ClassifyRequestFromJson(json);
 
-  @override
-
-  /// The raw body of the email including headers etc per RFC 822. Alternatively, use the other parameters to correctly format the message
-  final String? email_body;
-  @override
-
-  /// The email address it has been sent from
-  final String? from;
-  @override
-
-  /// the HTML version of the email body
-  final String? html_body;
   @override
 
   /// The subject of the email
@@ -237,10 +225,22 @@ class _$_ClassifyRequest implements _ClassifyRequest {
 
   /// The email address it is being sent to
   final String? to;
+  @override
+
+  /// The raw body of the email including headers etc per RFC 822. Alternatively, use the other parameters to correctly format the message
+  final String? email_body;
+  @override
+
+  /// The email address it has been sent from
+  final String? from;
+  @override
+
+  /// the HTML version of the email body
+  final String? html_body;
 
   @override
   String toString() {
-    return 'ClassifyRequest(email_body: $email_body, from: $from, html_body: $html_body, subject: $subject, text_body: $text_body, to: $to)';
+    return 'ClassifyRequest(subject: $subject, text_body: $text_body, to: $to, email_body: $email_body, from: $from, html_body: $html_body)';
   }
 
   @override
@@ -248,24 +248,24 @@ class _$_ClassifyRequest implements _ClassifyRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ClassifyRequest &&
+            const DeepCollectionEquality().equals(other.subject, subject) &&
+            const DeepCollectionEquality().equals(other.text_body, text_body) &&
+            const DeepCollectionEquality().equals(other.to, to) &&
             const DeepCollectionEquality()
                 .equals(other.email_body, email_body) &&
             const DeepCollectionEquality().equals(other.from, from) &&
-            const DeepCollectionEquality().equals(other.html_body, html_body) &&
-            const DeepCollectionEquality().equals(other.subject, subject) &&
-            const DeepCollectionEquality().equals(other.text_body, text_body) &&
-            const DeepCollectionEquality().equals(other.to, to));
+            const DeepCollectionEquality().equals(other.html_body, html_body));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(email_body),
-      const DeepCollectionEquality().hash(from),
-      const DeepCollectionEquality().hash(html_body),
       const DeepCollectionEquality().hash(subject),
       const DeepCollectionEquality().hash(text_body),
-      const DeepCollectionEquality().hash(to));
+      const DeepCollectionEquality().hash(to),
+      const DeepCollectionEquality().hash(email_body),
+      const DeepCollectionEquality().hash(from),
+      const DeepCollectionEquality().hash(html_body));
 
   @JsonKey(ignore: true)
   @override
@@ -280,28 +280,16 @@ class _$_ClassifyRequest implements _ClassifyRequest {
 
 abstract class _ClassifyRequest implements ClassifyRequest {
   const factory _ClassifyRequest(
-      {String? email_body,
-      String? from,
-      String? html_body,
-      String? subject,
+      {String? subject,
       String? text_body,
-      String? to}) = _$_ClassifyRequest;
+      String? to,
+      String? email_body,
+      String? from,
+      String? html_body}) = _$_ClassifyRequest;
 
   factory _ClassifyRequest.fromJson(Map<String, dynamic> json) =
       _$_ClassifyRequest.fromJson;
 
-  @override
-
-  /// The raw body of the email including headers etc per RFC 822. Alternatively, use the other parameters to correctly format the message
-  String? get email_body;
-  @override
-
-  /// The email address it has been sent from
-  String? get from;
-  @override
-
-  /// the HTML version of the email body
-  String? get html_body;
   @override
 
   /// The subject of the email
@@ -314,6 +302,18 @@ abstract class _ClassifyRequest implements ClassifyRequest {
 
   /// The email address it is being sent to
   String? get to;
+  @override
+
+  /// The raw body of the email including headers etc per RFC 822. Alternatively, use the other parameters to correctly format the message
+  String? get email_body;
+  @override
+
+  /// The email address it has been sent from
+  String? get from;
+  @override
+
+  /// the HTML version of the email body
+  String? get html_body;
   @override
   @JsonKey(ignore: true)
   _$ClassifyRequestCopyWith<_ClassifyRequest> get copyWith =>
