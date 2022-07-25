@@ -8,16 +8,16 @@ part of 'space.dart';
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      name: json['name'] as String?,
       object: json['object'] as String?,
       visibility: json['visibility'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
-      'name': instance.name,
       'object': instance.object,
       'visibility': instance.visibility,
+      'name': instance.name,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -284,16 +284,16 @@ Map<String, dynamic> _$$_SpaceObjectToJson(_$_SpaceObject instance) =>
 
 _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>
     _$_UpdateRequest(
+      object: json['object'] as String?,
       visibility: json['visibility'] as String?,
       name: json['name'] as String?,
-      object: json['object'] as String?,
     );
 
 Map<String, dynamic> _$$_UpdateRequestToJson(_$_UpdateRequest instance) =>
     <String, dynamic>{
+      'object': instance.object,
       'visibility': instance.visibility,
       'name': instance.name,
-      'object': instance.object,
     };
 
 _$UpdateResponseData _$$UpdateResponseDataFromJson(Map<String, dynamic> json) =>

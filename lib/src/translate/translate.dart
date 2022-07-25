@@ -73,14 +73,14 @@ class TextResponse with _$TextResponse {
 @Freezed()
 class Translation with _$Translation {
   const factory Translation({
-    /// The translation result
-    String? text,
-
     /// The model used in translation
     String? model,
 
     /// The source of the query string
     String? source,
+
+    /// The translation result
+    String? text,
   }) = _Translation;
   factory Translation.fromJson(Map<String, dynamic> json) =>
       _$TranslationFromJson(json);

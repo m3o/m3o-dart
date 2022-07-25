@@ -176,14 +176,14 @@ class SpaceService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
-    String? name,
-
     /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
     String? object,
 
     /// Who can see this object? "public" or "private", defaults to "private"
     String? visibility,
+
+    /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
+    String? name,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -369,14 +369,14 @@ class SpaceObject with _$SpaceObject {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
+    /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
+    String? object,
+
     /// Who can see this object? "public" or "private", defaults to "private"
     String? visibility,
 
     /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
     String? name,
-
-    /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
-    String? object,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

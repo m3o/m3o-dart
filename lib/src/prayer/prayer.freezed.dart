@@ -354,17 +354,17 @@ class _$TimesRequestTearOff {
   const _$TimesRequestTearOff();
 
   _TimesRequest call(
-      {String? location,
-      double? longitude,
-      String? date,
+      {String? date,
       int? days,
-      double? latitude}) {
+      double? latitude,
+      String? location,
+      double? longitude}) {
     return _TimesRequest(
-      location: location,
-      longitude: longitude,
       date: date,
       days: days,
       latitude: latitude,
+      location: location,
+      longitude: longitude,
     );
   }
 
@@ -378,13 +378,6 @@ const $TimesRequest = _$TimesRequestTearOff();
 
 /// @nodoc
 mixin _$TimesRequest {
-  /// location to retrieve prayer times for.
-  /// this can be a specific address, city, etc
-  String? get location => throw _privateConstructorUsedError;
-
-  /// optional longitude used in place of location
-  double? get longitude => throw _privateConstructorUsedError;
-
   /// optional date in YYYY-MM-DD format, otherwise uses today
   String? get date => throw _privateConstructorUsedError;
 
@@ -393,6 +386,13 @@ mixin _$TimesRequest {
 
   /// optional latitude used in place of location
   double? get latitude => throw _privateConstructorUsedError;
+
+  /// location to retrieve prayer times for.
+  /// this can be a specific address, city, etc
+  String? get location => throw _privateConstructorUsedError;
+
+  /// optional longitude used in place of location
+  double? get longitude => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -406,11 +406,11 @@ abstract class $TimesRequestCopyWith<$Res> {
           TimesRequest value, $Res Function(TimesRequest) then) =
       _$TimesRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? location,
-      double? longitude,
-      String? date,
+      {String? date,
       int? days,
-      double? latitude});
+      double? latitude,
+      String? location,
+      double? longitude});
 }
 
 /// @nodoc
@@ -423,21 +423,13 @@ class _$TimesRequestCopyWithImpl<$Res> implements $TimesRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? location = freezed,
-    Object? longitude = freezed,
     Object? date = freezed,
     Object? days = freezed,
     Object? latitude = freezed,
+    Object? location = freezed,
+    Object? longitude = freezed,
   }) {
     return _then(_value.copyWith(
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String?,
-      longitude: longitude == freezed
-          ? _value.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as double?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -449,6 +441,14 @@ class _$TimesRequestCopyWithImpl<$Res> implements $TimesRequestCopyWith<$Res> {
       latitude: latitude == freezed
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
+              as double?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
+      longitude: longitude == freezed
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
   }
@@ -462,11 +462,11 @@ abstract class _$TimesRequestCopyWith<$Res>
       __$TimesRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? location,
-      double? longitude,
-      String? date,
+      {String? date,
       int? days,
-      double? latitude});
+      double? latitude,
+      String? location,
+      double? longitude});
 }
 
 /// @nodoc
@@ -481,21 +481,13 @@ class __$TimesRequestCopyWithImpl<$Res> extends _$TimesRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? location = freezed,
-    Object? longitude = freezed,
     Object? date = freezed,
     Object? days = freezed,
     Object? latitude = freezed,
+    Object? location = freezed,
+    Object? longitude = freezed,
   }) {
     return _then(_TimesRequest(
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String?,
-      longitude: longitude == freezed
-          ? _value.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as double?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -508,6 +500,14 @@ class __$TimesRequestCopyWithImpl<$Res> extends _$TimesRequestCopyWithImpl<$Res>
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
               as double?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
+      longitude: longitude == freezed
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -516,20 +516,11 @@ class __$TimesRequestCopyWithImpl<$Res> extends _$TimesRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TimesRequest implements _TimesRequest {
   const _$_TimesRequest(
-      {this.location, this.longitude, this.date, this.days, this.latitude});
+      {this.date, this.days, this.latitude, this.location, this.longitude});
 
   factory _$_TimesRequest.fromJson(Map<String, dynamic> json) =>
       _$$_TimesRequestFromJson(json);
 
-  @override
-
-  /// location to retrieve prayer times for.
-  /// this can be a specific address, city, etc
-  final String? location;
-  @override
-
-  /// optional longitude used in place of location
-  final double? longitude;
   @override
 
   /// optional date in YYYY-MM-DD format, otherwise uses today
@@ -542,10 +533,19 @@ class _$_TimesRequest implements _TimesRequest {
 
   /// optional latitude used in place of location
   final double? latitude;
+  @override
+
+  /// location to retrieve prayer times for.
+  /// this can be a specific address, city, etc
+  final String? location;
+  @override
+
+  /// optional longitude used in place of location
+  final double? longitude;
 
   @override
   String toString() {
-    return 'TimesRequest(location: $location, longitude: $longitude, date: $date, days: $days, latitude: $latitude)';
+    return 'TimesRequest(date: $date, days: $days, latitude: $latitude, location: $location, longitude: $longitude)';
   }
 
   @override
@@ -553,21 +553,21 @@ class _$_TimesRequest implements _TimesRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TimesRequest &&
-            const DeepCollectionEquality().equals(other.location, location) &&
-            const DeepCollectionEquality().equals(other.longitude, longitude) &&
             const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality().equals(other.days, days) &&
-            const DeepCollectionEquality().equals(other.latitude, latitude));
+            const DeepCollectionEquality().equals(other.latitude, latitude) &&
+            const DeepCollectionEquality().equals(other.location, location) &&
+            const DeepCollectionEquality().equals(other.longitude, longitude));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(location),
-      const DeepCollectionEquality().hash(longitude),
       const DeepCollectionEquality().hash(date),
       const DeepCollectionEquality().hash(days),
-      const DeepCollectionEquality().hash(latitude));
+      const DeepCollectionEquality().hash(latitude),
+      const DeepCollectionEquality().hash(location),
+      const DeepCollectionEquality().hash(longitude));
 
   @JsonKey(ignore: true)
   @override
@@ -582,24 +582,15 @@ class _$_TimesRequest implements _TimesRequest {
 
 abstract class _TimesRequest implements TimesRequest {
   const factory _TimesRequest(
-      {String? location,
-      double? longitude,
-      String? date,
+      {String? date,
       int? days,
-      double? latitude}) = _$_TimesRequest;
+      double? latitude,
+      String? location,
+      double? longitude}) = _$_TimesRequest;
 
   factory _TimesRequest.fromJson(Map<String, dynamic> json) =
       _$_TimesRequest.fromJson;
 
-  @override
-
-  /// location to retrieve prayer times for.
-  /// this can be a specific address, city, etc
-  String? get location;
-  @override
-
-  /// optional longitude used in place of location
-  double? get longitude;
   @override
 
   /// optional date in YYYY-MM-DD format, otherwise uses today
@@ -612,6 +603,15 @@ abstract class _TimesRequest implements TimesRequest {
 
   /// optional latitude used in place of location
   double? get latitude;
+  @override
+
+  /// location to retrieve prayer times for.
+  /// this can be a specific address, city, etc
+  String? get location;
+  @override
+
+  /// optional longitude used in place of location
+  double? get longitude;
   @override
   @JsonKey(ignore: true)
   _$TimesRequestCopyWith<_TimesRequest> get copyWith =>

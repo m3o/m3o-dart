@@ -702,11 +702,11 @@ Ev _$EvFromJson(Map<String, dynamic> json) {
 class _$EvTearOff {
   const _$EvTearOff();
 
-  _Ev call({String? id, Map<String, dynamic>? message, String? timestamp}) {
+  _Ev call({String? timestamp, String? id, Map<String, dynamic>? message}) {
     return _Ev(
+      timestamp: timestamp,
       id: id,
       message: message,
-      timestamp: timestamp,
     );
   }
 
@@ -720,14 +720,14 @@ const $Ev = _$EvTearOff();
 
 /// @nodoc
 mixin _$Ev {
+  /// event timestamp
+  String? get timestamp => throw _privateConstructorUsedError;
+
   /// event id
   String? get id => throw _privateConstructorUsedError;
 
   /// event message
   Map<String, dynamic>? get message => throw _privateConstructorUsedError;
-
-  /// event timestamp
-  String? get timestamp => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -738,7 +738,7 @@ mixin _$Ev {
 abstract class $EvCopyWith<$Res> {
   factory $EvCopyWith(Ev value, $Res Function(Ev) then) =
       _$EvCopyWithImpl<$Res>;
-  $Res call({String? id, Map<String, dynamic>? message, String? timestamp});
+  $Res call({String? timestamp, String? id, Map<String, dynamic>? message});
 }
 
 /// @nodoc
@@ -751,11 +751,15 @@ class _$EvCopyWithImpl<$Res> implements $EvCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? timestamp = freezed,
     Object? id = freezed,
     Object? message = freezed,
-    Object? timestamp = freezed,
   }) {
     return _then(_value.copyWith(
+      timestamp: timestamp == freezed
+          ? _value.timestamp
+          : timestamp // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -764,10 +768,6 @@ class _$EvCopyWithImpl<$Res> implements $EvCopyWith<$Res> {
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      timestamp: timestamp == freezed
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -777,7 +777,7 @@ abstract class _$EvCopyWith<$Res> implements $EvCopyWith<$Res> {
   factory _$EvCopyWith(_Ev value, $Res Function(_Ev) then) =
       __$EvCopyWithImpl<$Res>;
   @override
-  $Res call({String? id, Map<String, dynamic>? message, String? timestamp});
+  $Res call({String? timestamp, String? id, Map<String, dynamic>? message});
 }
 
 /// @nodoc
@@ -791,11 +791,15 @@ class __$EvCopyWithImpl<$Res> extends _$EvCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? timestamp = freezed,
     Object? id = freezed,
     Object? message = freezed,
-    Object? timestamp = freezed,
   }) {
     return _then(_Ev(
+      timestamp: timestamp == freezed
+          ? _value.timestamp
+          : timestamp // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -804,10 +808,6 @@ class __$EvCopyWithImpl<$Res> extends _$EvCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      timestamp: timestamp == freezed
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -815,10 +815,14 @@ class __$EvCopyWithImpl<$Res> extends _$EvCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Ev implements _Ev {
-  const _$_Ev({this.id, this.message, this.timestamp});
+  const _$_Ev({this.timestamp, this.id, this.message});
 
   factory _$_Ev.fromJson(Map<String, dynamic> json) => _$$_EvFromJson(json);
 
+  @override
+
+  /// event timestamp
+  final String? timestamp;
   @override
 
   /// event id
@@ -827,14 +831,10 @@ class _$_Ev implements _Ev {
 
   /// event message
   final Map<String, dynamic>? message;
-  @override
-
-  /// event timestamp
-  final String? timestamp;
 
   @override
   String toString() {
-    return 'Ev(id: $id, message: $message, timestamp: $timestamp)';
+    return 'Ev(timestamp: $timestamp, id: $id, message: $message)';
   }
 
   @override
@@ -842,17 +842,17 @@ class _$_Ev implements _Ev {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Ev &&
+            const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.message, message) &&
-            const DeepCollectionEquality().equals(other.timestamp, timestamp));
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(timestamp),
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(message),
-      const DeepCollectionEquality().hash(timestamp));
+      const DeepCollectionEquality().hash(message));
 
   @JsonKey(ignore: true)
   @override
@@ -866,10 +866,14 @@ class _$_Ev implements _Ev {
 
 abstract class _Ev implements Ev {
   const factory _Ev(
-      {String? id, Map<String, dynamic>? message, String? timestamp}) = _$_Ev;
+      {String? timestamp, String? id, Map<String, dynamic>? message}) = _$_Ev;
 
   factory _Ev.fromJson(Map<String, dynamic> json) = _$_Ev.fromJson;
 
+  @override
+
+  /// event timestamp
+  String? get timestamp;
   @override
 
   /// event id
@@ -878,10 +882,6 @@ abstract class _Ev implements Ev {
 
   /// event message
   Map<String, dynamic>? get message;
-  @override
-
-  /// event timestamp
-  String? get timestamp;
   @override
   @JsonKey(ignore: true)
   _$EvCopyWith<_Ev> get copyWith => throw _privateConstructorUsedError;
