@@ -7,17 +7,17 @@ part of 'location.dart';
 // **************************************************************************
 
 _$_Entity _$$_EntityFromJson(Map<String, dynamic> json) => _$_Entity(
+      type: json['type'] as String?,
       id: json['id'] as String?,
       location: json['location'] == null
           ? null
           : Point.fromJson(json['location'] as Map<String, dynamic>),
-      type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$$_EntityToJson(_$_Entity instance) => <String, dynamic>{
+      'type': instance.type,
       'id': instance.id,
       'location': instance.location,
-      'type': instance.type,
     };
 
 _$_Point _$$_PointFromJson(Map<String, dynamic> json) => _$_Point(

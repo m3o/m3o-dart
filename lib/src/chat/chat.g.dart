@@ -230,14 +230,14 @@ Map<String, dynamic> _$$JoinResponseMerrToJson(_$JoinResponseMerr instance) =>
 
 _$_KickRequest _$$_KickRequestFromJson(Map<String, dynamic> json) =>
     _$_KickRequest(
-      user_id: json['user_id'] as String?,
       group_id: json['group_id'] as String?,
+      user_id: json['user_id'] as String?,
     );
 
 Map<String, dynamic> _$$_KickRequestToJson(_$_KickRequest instance) =>
     <String, dynamic>{
-      'user_id': instance.user_id,
       'group_id': instance.group_id,
+      'user_id': instance.user_id,
     };
 
 _$KickResponseData _$$KickResponseDataFromJson(Map<String, dynamic> json) =>
@@ -341,24 +341,24 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
     };
 
 _$_Message _$$_MessageFromJson(Map<String, dynamic> json) => _$_Message(
+      text: json['text'] as String?,
+      user_id: json['user_id'] as String?,
       client: json['client'] as String?,
       group_id: json['group_id'] as String?,
       id: json['id'] as String?,
       sent_at: json['sent_at'] as String?,
       subject: json['subject'] as String?,
-      text: json['text'] as String?,
-      user_id: json['user_id'] as String?,
     );
 
 Map<String, dynamic> _$$_MessageToJson(_$_Message instance) =>
     <String, dynamic>{
+      'text': instance.text,
+      'user_id': instance.user_id,
       'client': instance.client,
       'group_id': instance.group_id,
       'id': instance.id,
       'sent_at': instance.sent_at,
       'subject': instance.subject,
-      'text': instance.text,
-      'user_id': instance.user_id,
     };
 
 _$_SendRequest _$$_SendRequestFromJson(Map<String, dynamic> json) =>

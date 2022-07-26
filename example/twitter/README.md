@@ -4,6 +4,76 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/twitter/api](h
 
 Endpoints:
 
+## Trends
+
+Get the current global trending topics
+
+
+[https://m3o.com/twitter/api#Trends](https://m3o.com/twitter/api#Trends)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/twitter/twitter.dart';
+
+void main() async {
+  final ser = TwitterService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  TrendsRequest req = TrendsRequest.fromJson(payload);
+
+  
+  try {
+
+	TrendsResponse res = await ser.trends(req);
+
+    res.map((value) => print(value),
+	  Merr: (TrendsResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## User
+
+Get a user's twitter profile
+
+
+[https://m3o.com/twitter/api#User](https://m3o.com/twitter/api#User)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/twitter/twitter.dart';
+
+void main() async {
+  final ser = TwitterService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "username": "crufter"
+,};
+
+  UserRequest req = UserRequest.fromJson(payload);
+
+  
+  try {
+
+	UserResponse res = await ser.user(req);
+
+    res.map((value) => print(value),
+	  Merr: (UserResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Timeline
 
 Get the timeline for a given user
@@ -69,76 +139,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Trends
-
-Get the current global trending topics
-
-
-[https://m3o.com/twitter/api#Trends](https://m3o.com/twitter/api#Trends)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/twitter/twitter.dart';
-
-void main() async {
-  final ser = TwitterService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{};
-
-  TrendsRequest req = TrendsRequest.fromJson(payload);
-
-  
-  try {
-
-	TrendsResponse res = await ser.trends(req);
-
-    res.map((value) => print(value),
-	  Merr: (TrendsResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## User
-
-Get a user's twitter profile
-
-
-[https://m3o.com/twitter/api#User](https://m3o.com/twitter/api#User)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/twitter/twitter.dart';
-
-void main() async {
-  final ser = TwitterService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "username": "crufter"
-,};
-
-  UserRequest req = UserRequest.fromJson(payload);
-
-  
-  try {
-
-	UserResponse res = await ser.user(req);
-
-    res.map((value) => print(value),
-	  Merr: (UserResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

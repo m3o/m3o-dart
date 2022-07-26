@@ -116,50 +116,50 @@ class NftService {
 @Freezed()
 class Asset with _$Asset {
   const factory Asset({
-    /// asset contract
-    Contract? contract,
-
-    /// id of the asset
-    int? id,
-
-    /// last time sold
-    Sale? last_sale,
-
-    /// Owner of the NFT
-    User? owner,
-
-    /// the permalink
-    String? permalink,
-
-    /// name of the asset
-    String? name,
-
-    /// number of sales
-    int? sales,
-
-    /// the token id
-    String? token_id,
-
-    /// traits associated with the item
-    List<Map<String, dynamic>>? traits,
-
-    /// associated collection
-    Collection? collection,
-
-    /// related description
-    String? description,
+    /// is it a presale
+    bool? presale,
 
     /// the image url
     String? image_url,
 
-    /// is it a presale
-    bool? presale,
+    /// last time sold
+    Sale? last_sale,
+
+    /// the permalink
+    String? permalink,
+
+    /// the token id
+    String? token_id,
+
+    /// asset contract
+    Contract? contract,
 
     /// Creator of the NFT
     User? creator,
 
+    /// number of sales
+    int? sales,
+
+    /// traits associated with the item
+    List<Map<String, dynamic>>? traits,
+
+    /// related description
+    String? description,
+
+    /// name of the asset
+    String? name,
+
     /// listing date
     String? listing_date,
+
+    /// Owner of the NFT
+    User? owner,
+
+    /// associated collection
+    Collection? collection,
+
+    /// id of the asset
+    int? id,
   }) = _Asset;
   factory Asset.fromJson(Map<String, dynamic> json) => _$AssetFromJson(json);
 }
@@ -188,6 +188,15 @@ class AssetResponse with _$AssetResponse {
 @Freezed()
 class AssetsRequest with _$AssetsRequest {
   const factory AssetsRequest({
+    /// order "asc" or "desc"
+    String? order,
+
+    /// order by "sale_date", "sale_count", "sale_price", "total_price"
+    String? order_by,
+
+    /// owner wallet address
+    String? owner,
+
     /// limit to members of a collection by slug name (case sensitive)
     String? collection,
 
@@ -199,15 +208,6 @@ class AssetsRequest with _$AssetsRequest {
 
     /// DEPRECATED offset for pagination, please use cursor instead
     int? offset,
-
-    /// order "asc" or "desc"
-    String? order,
-
-    /// order by "sale_date", "sale_count", "sale_price", "total_price"
-    String? order_by,
-
-    /// owner wallet address
-    String? owner,
   }) = _AssetsRequest;
   factory AssetsRequest.fromJson(Map<String, dynamic> json) =>
       _$AssetsRequestFromJson(json);
@@ -234,20 +234,35 @@ class AssetsResponse with _$AssetsResponse {
 @Freezed()
 class Collection with _$Collection {
   const factory Collection({
-    /// description of the collection
-    String? description,
-
-    /// approved editors for this collection
-    List<String>? editors,
-
-    /// a list of the contracts associated with this collection
-    List<Contract>? primary_asset_contracts,
+    /// payout address for the collection's royalties
+    String? payout_address,
 
     /// the fees that get paid out when a sale is made
     String? seller_fees,
 
     /// sales statistics associated with the collection
     Map<String, dynamic>? stats,
+
+    /// creation time
+    String? created_at,
+
+    /// description of the collection
+    String? description,
+
+    /// external link to the original website for the collection
+    String? external_link,
+
+    /// the payment tokens accepted for this collection
+    List<Token>? payment_tokens,
+
+    /// a list of the contracts associated with this collection
+    List<Contract>? primary_asset_contracts,
+
+    /// image used in the banner for the collection
+    String? banner_image_url,
+
+    /// approved editors for this collection
+    List<String>? editors,
 
     /// an image for the collection
     String? image_url,
@@ -258,23 +273,8 @@ class Collection with _$Collection {
     /// listing of all the trait types available within this collection
     Map<String, dynamic>? traits,
 
-    /// creation time
-    String? created_at,
-
-    /// payout address for the collection's royalties
-    String? payout_address,
-
-    /// image used in the banner for the collection
-    String? banner_image_url,
-
-    /// external link to the original website for the collection
-    String? external_link,
-
     /// name of the collection
     String? name,
-
-    /// the payment tokens accepted for this collection
-    List<Token>? payment_tokens,
 
     /// the collection's approval status on OpenSea
     String? safelist_request_status,
@@ -306,10 +306,11 @@ class CollectionResponse with _$CollectionResponse {
 @Freezed()
 class CollectionsRequest with _$CollectionsRequest {
   const factory CollectionsRequest({
-    /// owner wallet address
-    String? owner,
     int? limit,
     int? offset,
+
+    /// owner wallet address
+    String? owner,
   }) = _CollectionsRequest;
   factory CollectionsRequest.fromJson(Map<String, dynamic> json) =>
       _$CollectionsRequestFromJson(json);
@@ -335,20 +336,20 @@ class Contract with _$Contract {
     /// type of contract e.g "semi-fungible"
     String? type,
 
-    /// owner id
-    int? owner,
+    /// description of contract
+    String? description,
 
     /// payout address
     String? payout_address,
 
-    /// seller fees
-    String? seller_fees,
-
-    /// name of contract
-    String? name,
-
     /// aka "ERC1155"
     String? schema,
+
+    /// owner id
+    int? owner,
+
+    /// seller fees
+    String? seller_fees,
 
     /// ethereum address
     String? address,
@@ -356,8 +357,8 @@ class Contract with _$Contract {
     /// timestamp of creation
     String? created_at,
 
-    /// description of contract
-    String? description,
+    /// name of contract
+    String? name,
   }) = _Contract;
   factory Contract.fromJson(Map<String, dynamic> json) =>
       _$ContractFromJson(json);
@@ -366,6 +367,9 @@ class Contract with _$Contract {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// name of the NFT
+    String? name,
+
     /// data if not image
     String? data,
 
@@ -374,9 +378,6 @@ class CreateRequest with _$CreateRequest {
 
     /// image data
     String? image,
-
-    /// name of the NFT
-    String? name,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -396,15 +397,15 @@ class CreateResponse with _$CreateResponse {
 @Freezed()
 class Sale with _$Sale {
   const factory Sale({
-    String? created_at,
-    String? event_type,
-    String? total_price,
-    String? asset_token_id,
-    String? event_timestamp,
-    Token? payment_token,
     String? quantity,
     Transaction? transaction,
     int? asset_decimals,
+    String? created_at,
+    String? event_type,
+    Token? payment_token,
+    String? asset_token_id,
+    String? event_timestamp,
+    String? total_price,
   }) = _Sale;
   factory Sale.fromJson(Map<String, dynamic> json) => _$SaleFromJson(json);
 }
@@ -412,6 +413,7 @@ class Sale with _$Sale {
 @Freezed()
 class Token with _$Token {
   const factory Token({
+    int? id,
     String? image_url,
     String? name,
     String? symbol,
@@ -419,7 +421,6 @@ class Token with _$Token {
     String? address,
     int? decimals,
     String? eth_price,
-    int? id,
   }) = _Token;
   factory Token.fromJson(Map<String, dynamic> json) => _$TokenFromJson(json);
 }
@@ -427,6 +428,7 @@ class Token with _$Token {
 @Freezed()
 class Transaction with _$Transaction {
   const factory Transaction({
+    String? timestamp,
     User? to_account,
     String? transaction_hash,
     String? transaction_index,
@@ -434,7 +436,6 @@ class Transaction with _$Transaction {
     String? block_number,
     User? from_account,
     int? id,
-    String? timestamp,
   }) = _Transaction;
   factory Transaction.fromJson(Map<String, dynamic> json) =>
       _$TransactionFromJson(json);
@@ -443,9 +444,9 @@ class Transaction with _$Transaction {
 @Freezed()
 class User with _$User {
   const factory User({
+    String? username,
     String? address,
     String? profile_url,
-    String? username,
   }) = _User;
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }
