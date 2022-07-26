@@ -113,18 +113,18 @@ Map<String, dynamic> _$$_PointToJson(_$_Point instance) => <String, dynamic>{
     };
 
 _$_Rectangle _$$_RectangleFromJson(Map<String, dynamic> json) => _$_Rectangle(
-      max: json['max'] == null
-          ? null
-          : Point.fromJson(json['max'] as Map<String, dynamic>),
       min: json['min'] == null
           ? null
           : Point.fromJson(json['min'] as Map<String, dynamic>),
+      max: json['max'] == null
+          ? null
+          : Point.fromJson(json['max'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_RectangleToJson(_$_Rectangle instance) =>
     <String, dynamic>{
-      'max': instance.max,
       'min': instance.min,
+      'max': instance.max,
     };
 
 _$_ResizeRequest _$$_ResizeRequestFromJson(Map<String, dynamic> json) =>
@@ -183,18 +183,18 @@ Map<String, dynamic> _$$ResizeResponseMerrToJson(
 
 _$_UploadRequest _$$_UploadRequestFromJson(Map<String, dynamic> json) =>
     _$_UploadRequest(
+      base64: json['base64'] as String?,
       file: json['file'] as String?,
       name: json['name'] as String?,
       url: json['url'] as String?,
-      base64: json['base64'] as String?,
     );
 
 Map<String, dynamic> _$$_UploadRequestToJson(_$_UploadRequest instance) =>
     <String, dynamic>{
+      'base64': instance.base64,
       'file': instance.file,
       'name': instance.name,
       'url': instance.url,
-      'base64': instance.base64,
     };
 
 _$UploadResponseData _$$UploadResponseDataFromJson(Map<String, dynamic> json) =>

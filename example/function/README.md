@@ -4,6 +4,48 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/function/api](
 
 Endpoints:
 
+## Deploy
+
+Deploy a group of functions
+
+
+[https://m3o.com/function/api#Deploy](https://m3o.com/function/api#Deploy)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/function/function.dart';
+
+void main() async {
+  final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "branch": "main",
+  "entrypoint": "Helloworld",
+  "name": "helloworld",
+  "region": "europe-west1",
+  "repo": "https://github.com/m3o/m3o",
+  "runtime": "go116",
+  "subfolder": "examples/go-function"
+,};
+
+  DeployRequest req = DeployRequest.fromJson(payload);
+
+  
+  try {
+
+	DeployResponse res = await ser.deploy(req);
+
+    res.map((value) => print(value),
+	  Merr: (DeployResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Delete
 
 Delete a function by name
@@ -32,42 +74,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Describe
-
-Get the info for a deployed function
-
-
-[https://m3o.com/function/api#Describe](https://m3o.com/function/api#Describe)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/function/function.dart';
-
-void main() async {
-  final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "name": "helloworld"
-,};
-
-  DescribeRequest req = DescribeRequest.fromJson(payload);
-
-  
-  try {
-
-	DescribeResponse res = await ser.describe(req);
-
-    res.map((value) => print(value),
-	  Merr: (DescribeResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -112,12 +118,12 @@ void main() async {
   }
 }
 ```
-## Logs
+## Update
 
-Get the logs for a function
+Update a function. Downloads the source, builds and redeploys
 
 
-[https://m3o.com/function/api#Logs](https://m3o.com/function/api#Logs)
+[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
 
 ```dart
 import 'dart:io';
@@ -128,19 +134,18 @@ void main() async {
   final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "logs_type": "build",
   "name": "helloworld"
 ,};
 
-  LogsRequest req = LogsRequest.fromJson(payload);
+  UpdateRequest req = UpdateRequest.fromJson(payload);
 
   
   try {
 
-	LogsResponse res = await ser.logs(req);
+	UpdateResponse res = await ser.update(req);
 
     res.map((value) => print(value),
-	  Merr: (LogsResponseMerr err) => print(err.body!['body']));	
+	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -149,12 +154,12 @@ void main() async {
   }
 }
 ```
-## Deploy
+## Call
 
-Deploy a group of functions
+Call a function by name
 
 
-[https://m3o.com/function/api#Deploy](https://m3o.com/function/api#Deploy)
+[https://m3o.com/function/api#Call](https://m3o.com/function/api#Call)
 
 ```dart
 import 'dart:io';
@@ -165,24 +170,21 @@ void main() async {
   final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "branch": "main",
-  "entrypoint": "Helloworld",
   "name": "helloworld",
-  "region": "europe-west1",
-  "repo": "https://github.com/m3o/m3o",
-  "runtime": "go116",
-  "subfolder": "examples/go-function"
-,};
+  "request": {
+    "name": "Alice"
+  ,}
+};
 
-  DeployRequest req = DeployRequest.fromJson(payload);
+  CallRequest req = CallRequest.fromJson(payload);
 
   
   try {
 
-	DeployResponse res = await ser.deploy(req);
+	CallResponse res = await ser.call(req);
 
     res.map((value) => print(value),
-	  Merr: (DeployResponseMerr err) => print(err.body!['body']));	
+	  Merr: (CallResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -217,6 +219,42 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Describe
+
+Get the info for a deployed function
+
+
+[https://m3o.com/function/api#Describe](https://m3o.com/function/api#Describe)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/function/function.dart';
+
+void main() async {
+  final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "name": "helloworld"
+,};
+
+  DescribeRequest req = DescribeRequest.fromJson(payload);
+
+  
+  try {
+
+	DescribeResponse res = await ser.describe(req);
+
+    res.map((value) => print(value),
+	  Merr: (DescribeResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -329,12 +367,12 @@ void main() async {
   }
 }
 ```
-## Update
+## Logs
 
-Update a function. Downloads the source, builds and redeploys
+Get the logs for a function
 
 
-[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
+[https://m3o.com/function/api#Logs](https://m3o.com/function/api#Logs)
 
 ```dart
 import 'dart:io';
@@ -345,57 +383,19 @@ void main() async {
   final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
+  "logs_type": "build",
   "name": "helloworld"
 ,};
 
-  UpdateRequest req = UpdateRequest.fromJson(payload);
+  LogsRequest req = LogsRequest.fromJson(payload);
 
   
   try {
 
-	UpdateResponse res = await ser.update(req);
+	LogsResponse res = await ser.logs(req);
 
     res.map((value) => print(value),
-	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Call
-
-Call a function by name
-
-
-[https://m3o.com/function/api#Call](https://m3o.com/function/api#Call)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/function/function.dart';
-
-void main() async {
-  final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "name": "helloworld",
-  "request": {
-    "name": "Alice"
-  ,}
-};
-
-  CallRequest req = CallRequest.fromJson(payload);
-
-  
-  try {
-
-	CallResponse res = await ser.call(req);
-
-    res.map((value) => print(value),
-	  Merr: (CallResponseMerr err) => print(err.body!['body']));	
+	  Merr: (LogsResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
