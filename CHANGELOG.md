@@ -1,3 +1,9 @@
+## v1.0.147 - 2022-07-26
+
+[293187](https://github.com/micro/services/commit/293187778bc9864b3a736ed328ae31c54c07da97) update wallet readme
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.146...v1.0.147
+
 ## v1.0.146 - 2022-07-26
 
 [639714](https://github.com/micro/services/commit/639714367ee00cc2e8827b29ef147f5290572938) Wallet service [WIP] (#428)
