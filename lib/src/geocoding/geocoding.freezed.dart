@@ -1062,10 +1062,10 @@ ReverseRequest _$ReverseRequestFromJson(Map<String, dynamic> json) {
 class _$ReverseRequestTearOff {
   const _$ReverseRequestTearOff();
 
-  _ReverseRequest call({double? longitude, double? latitude}) {
+  _ReverseRequest call({double? latitude, double? longitude}) {
     return _ReverseRequest(
-      longitude: longitude,
       latitude: latitude,
+      longitude: longitude,
     );
   }
 
@@ -1079,8 +1079,8 @@ const $ReverseRequest = _$ReverseRequestTearOff();
 
 /// @nodoc
 mixin _$ReverseRequest {
-  double? get longitude => throw _privateConstructorUsedError;
   double? get latitude => throw _privateConstructorUsedError;
+  double? get longitude => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1093,7 +1093,7 @@ abstract class $ReverseRequestCopyWith<$Res> {
   factory $ReverseRequestCopyWith(
           ReverseRequest value, $Res Function(ReverseRequest) then) =
       _$ReverseRequestCopyWithImpl<$Res>;
-  $Res call({double? longitude, double? latitude});
+  $Res call({double? latitude, double? longitude});
 }
 
 /// @nodoc
@@ -1107,17 +1107,17 @@ class _$ReverseRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? longitude = freezed,
     Object? latitude = freezed,
+    Object? longitude = freezed,
   }) {
     return _then(_value.copyWith(
-      longitude: longitude == freezed
-          ? _value.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as double?,
       latitude: latitude == freezed
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
+              as double?,
+      longitude: longitude == freezed
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
   }
@@ -1130,7 +1130,7 @@ abstract class _$ReverseRequestCopyWith<$Res>
           _ReverseRequest value, $Res Function(_ReverseRequest) then) =
       __$ReverseRequestCopyWithImpl<$Res>;
   @override
-  $Res call({double? longitude, double? latitude});
+  $Res call({double? latitude, double? longitude});
 }
 
 /// @nodoc
@@ -1146,17 +1146,17 @@ class __$ReverseRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? longitude = freezed,
     Object? latitude = freezed,
+    Object? longitude = freezed,
   }) {
     return _then(_ReverseRequest(
-      longitude: longitude == freezed
-          ? _value.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as double?,
       latitude: latitude == freezed
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
+              as double?,
+      longitude: longitude == freezed
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
   }
@@ -1165,19 +1165,19 @@ class __$ReverseRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ReverseRequest implements _ReverseRequest {
-  const _$_ReverseRequest({this.longitude, this.latitude});
+  const _$_ReverseRequest({this.latitude, this.longitude});
 
   factory _$_ReverseRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ReverseRequestFromJson(json);
 
   @override
-  final double? longitude;
-  @override
   final double? latitude;
+  @override
+  final double? longitude;
 
   @override
   String toString() {
-    return 'ReverseRequest(longitude: $longitude, latitude: $latitude)';
+    return 'ReverseRequest(latitude: $latitude, longitude: $longitude)';
   }
 
   @override
@@ -1185,15 +1185,15 @@ class _$_ReverseRequest implements _ReverseRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ReverseRequest &&
-            const DeepCollectionEquality().equals(other.longitude, longitude) &&
-            const DeepCollectionEquality().equals(other.latitude, latitude));
+            const DeepCollectionEquality().equals(other.latitude, latitude) &&
+            const DeepCollectionEquality().equals(other.longitude, longitude));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(longitude),
-      const DeepCollectionEquality().hash(latitude));
+      const DeepCollectionEquality().hash(latitude),
+      const DeepCollectionEquality().hash(longitude));
 
   @JsonKey(ignore: true)
   @override
@@ -1207,16 +1207,16 @@ class _$_ReverseRequest implements _ReverseRequest {
 }
 
 abstract class _ReverseRequest implements ReverseRequest {
-  const factory _ReverseRequest({double? longitude, double? latitude}) =
+  const factory _ReverseRequest({double? latitude, double? longitude}) =
       _$_ReverseRequest;
 
   factory _ReverseRequest.fromJson(Map<String, dynamic> json) =
       _$_ReverseRequest.fromJson;
 
   @override
-  double? get longitude;
-  @override
   double? get latitude;
+  @override
+  double? get longitude;
   @override
   @JsonKey(ignore: true)
   _$ReverseRequestCopyWith<_ReverseRequest> get copyWith =>

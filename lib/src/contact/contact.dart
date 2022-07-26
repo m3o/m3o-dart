@@ -129,26 +129,29 @@ class Address with _$Address {
 @Freezed()
 class ContactInfo with _$ContactInfo {
   const factory ContactInfo({
+    /// note of the contact
+    String? note,
+
     /// the address
     List<Address>? addresses,
 
-    /// contact id
-    String? id,
+    /// the birthday
+    String? birthday,
+
+    /// the contact links
+    List<Link>? links,
 
     /// the contact name
     String? name,
 
-    /// note of the contact
-    String? note,
-
     /// the phone numbers
     List<Phone>? phones,
 
+    /// the social media username
+    List<SocialMedia>? social_medias,
+
     /// update date string in RFC3339
     String? updated_at,
-
-    /// the birthday
-    String? birthday,
 
     /// create date string in RFC3339
     String? created_at,
@@ -156,11 +159,8 @@ class ContactInfo with _$ContactInfo {
     /// the emails
     List<Email>? emails,
 
-    /// the contact links
-    List<Link>? links,
-
-    /// the social media username
-    List<SocialMedia>? social_medias,
+    /// contact id
+    String? id,
   }) = _ContactInfo;
   factory ContactInfo.fromJson(Map<String, dynamic> json) =>
       _$ContactInfoFromJson(json);
@@ -169,18 +169,6 @@ class ContactInfo with _$ContactInfo {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// optional, phone numbers
-    List<Phone>? phones,
-
-    /// optional, social media
-    List<SocialMedia>? social_medias,
-
-    /// optional, location
-    List<Address>? addresses,
-
-    /// optional, birthday
-    String? birthday,
-
     /// optional, emails
     List<Email>? emails,
 
@@ -192,6 +180,18 @@ class CreateRequest with _$CreateRequest {
 
     /// optional, note of the contact
     String? note,
+
+    /// optional, phone numbers
+    List<Phone>? phones,
+
+    /// optional, social media
+    List<SocialMedia>? social_medias,
+
+    /// optional, location
+    List<Address>? addresses,
+
+    /// optional, birthday
+    String? birthday,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -230,11 +230,11 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Email with _$Email {
   const factory Email({
-    /// the label of the email
-    String? label,
-
     /// the email address
     String? address,
+
+    /// the label of the email
+    String? label,
   }) = _Email;
   factory Email.fromJson(Map<String, dynamic> json) => _$EmailFromJson(json);
 }
@@ -242,11 +242,11 @@ class Email with _$Email {
 @Freezed()
 class Link with _$Link {
   const factory Link({
-    /// the label of the link
-    String? label,
-
     /// the url of the contact
     String? url,
+
+    /// the label of the link
+    String? label,
   }) = _Link;
   factory Link.fromJson(Map<String, dynamic> json) => _$LinkFromJson(json);
 }
@@ -254,11 +254,11 @@ class Link with _$Link {
 @Freezed()
 class ListRequest with _$ListRequest {
   const factory ListRequest({
-    /// optional, default is 30
-    int? limit,
-
     /// optional
     int? offset,
+
+    /// optional, default is 30
+    int? limit,
   }) = _ListRequest;
   factory ListRequest.fromJson(Map<String, dynamic> json) =>
       _$ListRequestFromJson(json);
@@ -323,17 +323,20 @@ class SocialMedia with _$SocialMedia {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
+    /// optional, links
+    List<Link>? links,
+
+    /// required, the name
+    String? name,
+
+    /// optional, note
+    String? note,
+
     /// optional, addresses
     List<Address>? addresses,
 
     /// optional, birthday
     String? birthday,
-
-    /// optional, note
-    String? note,
-
-    /// optional, phone number
-    List<Phone>? phones,
 
     /// optional, emails
     List<Email>? emails,
@@ -341,11 +344,8 @@ class UpdateRequest with _$UpdateRequest {
     /// required, the contact id
     String? id,
 
-    /// optional, links
-    List<Link>? links,
-
-    /// required, the name
-    String? name,
+    /// optional, phone number
+    List<Phone>? phones,
 
     /// optional, social media
     List<SocialMedia>? social_medias,
