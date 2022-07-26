@@ -46,20 +46,23 @@ class LookupRequest with _$LookupRequest {
 @Freezed()
 class LookupResponse with _$LookupResponse {
   const factory LookupResponse({
-    /// type approvale
-    String? type_approval,
+    /// fuel type e.g petrol, diesel
+    String? fuel_type,
 
-    /// colour of vehicle
-    String? colour,
+    /// registration number
+    String? registration,
 
-    /// month of first registration
-    String? month_of_first_registration,
+    /// tax due data
+    String? tax_due_date,
 
     /// mot status
     String? mot_status,
 
-    /// registration number
-    String? registration,
+    /// co2 emmissions
+    double? co2_emissions,
+
+    /// date of last v5 issue
+    String? last_v5_issued,
 
     /// url of logo for the make
     String? logo_url,
@@ -67,32 +70,29 @@ class LookupResponse with _$LookupResponse {
     /// mot expiry
     String? mot_expiry,
 
-    /// fuel type e.g petrol, diesel
-    String? fuel_type,
-
-    /// make of vehicle
-    String? make,
-
-    /// co2 emmissions
-    double? co2_emissions,
-
-    /// engine capacity
-    int? engine_capacity,
-
-    /// tax status
-    String? tax_status,
-
-    /// wheel plan
-    String? wheelplan,
+    /// type approvale
+    String? type_approval,
 
     /// year of manufacture
     int? year_of_manufacture,
 
-    /// date of last v5 issue
-    String? last_v5_issued,
+    /// engine capacity
+    int? engine_capacity,
 
-    /// tax due data
-    String? tax_due_date,
+    /// make of vehicle
+    String? make,
+
+    /// month of first registration
+    String? month_of_first_registration,
+
+    /// tax status
+    String? tax_status,
+
+    /// colour of vehicle
+    String? colour,
+
+    /// wheel plan
+    String? wheelplan,
   }) = LookupResponseData;
   const factory LookupResponse.Merr({Map<String, dynamic>? body}) =
       LookupResponseMerr;

@@ -2823,17 +2823,17 @@ class _$URLPairTearOff {
   const _$URLPairTearOff();
 
   _URLPair call(
-      {String? shortURL,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
+      String? id,
+      String? shortURL,
       String? created,
-      String? destinationURL,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
-      String? id}) {
+      String? destinationURL}) {
     return _URLPair(
+      hitCount: hitCount,
+      id: id,
       shortURL: shortURL,
       created: created,
       destinationURL: destinationURL,
-      hitCount: hitCount,
-      id: id,
     );
   }
 
@@ -2847,6 +2847,13 @@ const $URLPair = _$URLPairTearOff();
 
 /// @nodoc
 mixin _$URLPair {
+  /// The number of times the short URL has been resolved
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get hitCount => throw _privateConstructorUsedError;
+
+  /// url id
+  String? get id => throw _privateConstructorUsedError;
+
   /// shortened url
   String? get shortURL => throw _privateConstructorUsedError;
 
@@ -2855,13 +2862,6 @@ mixin _$URLPair {
 
   /// destination url
   String? get destinationURL => throw _privateConstructorUsedError;
-
-  /// The number of times the short URL has been resolved
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get hitCount => throw _privateConstructorUsedError;
-
-  /// url id
-  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2873,11 +2873,11 @@ abstract class $URLPairCopyWith<$Res> {
   factory $URLPairCopyWith(URLPair value, $Res Function(URLPair) then) =
       _$URLPairCopyWithImpl<$Res>;
   $Res call(
-      {String? shortURL,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
+      String? id,
+      String? shortURL,
       String? created,
-      String? destinationURL,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
-      String? id});
+      String? destinationURL});
 }
 
 /// @nodoc
@@ -2890,13 +2890,21 @@ class _$URLPairCopyWithImpl<$Res> implements $URLPairCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? hitCount = freezed,
+    Object? id = freezed,
     Object? shortURL = freezed,
     Object? created = freezed,
     Object? destinationURL = freezed,
-    Object? hitCount = freezed,
-    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
+      hitCount: hitCount == freezed
+          ? _value.hitCount
+          : hitCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       shortURL: shortURL == freezed
           ? _value.shortURL
           : shortURL // ignore: cast_nullable_to_non_nullable
@@ -2909,14 +2917,6 @@ class _$URLPairCopyWithImpl<$Res> implements $URLPairCopyWith<$Res> {
           ? _value.destinationURL
           : destinationURL // ignore: cast_nullable_to_non_nullable
               as String?,
-      hitCount: hitCount == freezed
-          ? _value.hitCount
-          : hitCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2927,11 +2927,11 @@ abstract class _$URLPairCopyWith<$Res> implements $URLPairCopyWith<$Res> {
       __$URLPairCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? shortURL,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
+      String? id,
+      String? shortURL,
       String? created,
-      String? destinationURL,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
-      String? id});
+      String? destinationURL});
 }
 
 /// @nodoc
@@ -2945,13 +2945,21 @@ class __$URLPairCopyWithImpl<$Res> extends _$URLPairCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? hitCount = freezed,
+    Object? id = freezed,
     Object? shortURL = freezed,
     Object? created = freezed,
     Object? destinationURL = freezed,
-    Object? hitCount = freezed,
-    Object? id = freezed,
   }) {
     return _then(_URLPair(
+      hitCount: hitCount == freezed
+          ? _value.hitCount
+          : hitCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       shortURL: shortURL == freezed
           ? _value.shortURL
           : shortURL // ignore: cast_nullable_to_non_nullable
@@ -2964,14 +2972,6 @@ class __$URLPairCopyWithImpl<$Res> extends _$URLPairCopyWithImpl<$Res>
           ? _value.destinationURL
           : destinationURL // ignore: cast_nullable_to_non_nullable
               as String?,
-      hitCount: hitCount == freezed
-          ? _value.hitCount
-          : hitCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2980,15 +2980,24 @@ class __$URLPairCopyWithImpl<$Res> extends _$URLPairCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_URLPair implements _URLPair {
   const _$_URLPair(
-      {this.shortURL,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.hitCount,
+      this.id,
+      this.shortURL,
       this.created,
-      this.destinationURL,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.hitCount,
-      this.id});
+      this.destinationURL});
 
   factory _$_URLPair.fromJson(Map<String, dynamic> json) =>
       _$$_URLPairFromJson(json);
 
+  @override
+
+  /// The number of times the short URL has been resolved
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? hitCount;
+  @override
+
+  /// url id
+  final String? id;
   @override
 
   /// shortened url
@@ -3001,19 +3010,10 @@ class _$_URLPair implements _URLPair {
 
   /// destination url
   final String? destinationURL;
-  @override
-
-  /// The number of times the short URL has been resolved
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? hitCount;
-  @override
-
-  /// url id
-  final String? id;
 
   @override
   String toString() {
-    return 'URLPair(shortURL: $shortURL, created: $created, destinationURL: $destinationURL, hitCount: $hitCount, id: $id)';
+    return 'URLPair(hitCount: $hitCount, id: $id, shortURL: $shortURL, created: $created, destinationURL: $destinationURL)';
   }
 
   @override
@@ -3021,22 +3021,22 @@ class _$_URLPair implements _URLPair {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _URLPair &&
+            const DeepCollectionEquality().equals(other.hitCount, hitCount) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.shortURL, shortURL) &&
             const DeepCollectionEquality().equals(other.created, created) &&
             const DeepCollectionEquality()
-                .equals(other.destinationURL, destinationURL) &&
-            const DeepCollectionEquality().equals(other.hitCount, hitCount) &&
-            const DeepCollectionEquality().equals(other.id, id));
+                .equals(other.destinationURL, destinationURL));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(hitCount),
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(shortURL),
       const DeepCollectionEquality().hash(created),
-      const DeepCollectionEquality().hash(destinationURL),
-      const DeepCollectionEquality().hash(hitCount),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(destinationURL));
 
   @JsonKey(ignore: true)
   @override
@@ -3051,14 +3051,23 @@ class _$_URLPair implements _URLPair {
 
 abstract class _URLPair implements URLPair {
   const factory _URLPair(
-      {String? shortURL,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
+      String? id,
+      String? shortURL,
       String? created,
-      String? destinationURL,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
-      String? id}) = _$_URLPair;
+      String? destinationURL}) = _$_URLPair;
 
   factory _URLPair.fromJson(Map<String, dynamic> json) = _$_URLPair.fromJson;
 
+  @override
+
+  /// The number of times the short URL has been resolved
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get hitCount;
+  @override
+
+  /// url id
+  String? get id;
   @override
 
   /// shortened url
@@ -3071,15 +3080,6 @@ abstract class _URLPair implements URLPair {
 
   /// destination url
   String? get destinationURL;
-  @override
-
-  /// The number of times the short URL has been resolved
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get hitCount;
-  @override
-
-  /// url id
-  String? get id;
   @override
   @JsonKey(ignore: true)
   _$URLPairCopyWith<_URLPair> get copyWith =>

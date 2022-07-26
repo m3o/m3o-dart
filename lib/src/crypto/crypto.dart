@@ -116,9 +116,6 @@ class CryptoService {
 @Freezed()
 class Article with _$Article {
   const factory Article({
-    /// the date published
-    String? date,
-
     /// its description
     String? description,
 
@@ -130,6 +127,9 @@ class Article with _$Article {
 
     /// the source url
     String? url,
+
+    /// the date published
+    String? date,
   }) = _Article;
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);

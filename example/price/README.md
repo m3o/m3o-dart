@@ -4,40 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/price/api](htt
 
 Endpoints:
 
-## Index
-
-Get the index for available prices
-
-
-[https://m3o.com/price/api#Index](https://m3o.com/price/api#Index)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/price/price.dart';
-
-void main() async {
-  final ser = PriceService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{};
-
-  IndexRequest req = IndexRequest.fromJson(payload);
-
-  
-  try {
-
-	IndexResponse res = await ser.index(req);
-
-    res.map((value) => print(value),
-	  Merr: (IndexResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Report
 
 Report an invalid price
@@ -179,6 +145,40 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Index
+
+Get the index for available prices
+
+
+[https://m3o.com/price/api#Index](https://m3o.com/price/api#Index)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/price/price.dart';
+
+void main() async {
+  final ser = PriceService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  IndexRequest req = IndexRequest.fromJson(payload);
+
+  
+  try {
+
+	IndexResponse res = await ser.index(req);
+
+    res.map((value) => print(value),
+	  Merr: (IndexResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
