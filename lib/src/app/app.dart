@@ -234,11 +234,11 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class LogsRequest with _$LogsRequest {
   const factory LogsRequest({
-    /// name of the app
-    String? name,
-
     /// type of logs to retrieve, currently supported options - "build"
     String? logs_type,
+
+    /// name of the app
+    String? name,
   }) = _LogsRequest;
   factory LogsRequest.fromJson(Map<String, dynamic> json) =>
       _$LogsRequestFromJson(json);
@@ -342,6 +342,9 @@ class ResolveResponse with _$ResolveResponse {
 @Freezed()
 class RunRequest with _$RunRequest {
   const factory RunRequest({
+    /// region to run in
+    String? region,
+
     /// source repository
     String? repo,
 
@@ -356,9 +359,6 @@ class RunRequest with _$RunRequest {
 
     /// port to run on
     int? port,
-
-    /// region to run in
-    String? region,
   }) = _RunRequest;
   factory RunRequest.fromJson(Map<String, dynamic> json) =>
       _$RunRequestFromJson(json);
@@ -379,14 +379,20 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
+    /// time of creation
+    String? created,
+
     /// unique id
     String? id,
 
+    /// name of the app
+    String? name,
+
+    /// source repository
+    String? repo,
+
     /// status of the app
     String? status,
-
-    /// app url
-    String? url,
 
     /// branch of code
     String? branch,
@@ -397,23 +403,17 @@ class Service with _$Service {
     /// associated env vars
     Map<String, String>? env_vars,
 
-    /// name of the app
-    String? name,
-
     /// port running on
     int? port,
 
     /// region running in
     String? region,
 
-    /// source repository
-    String? repo,
-
     /// last updated
     String? updated,
 
-    /// time of creation
-    String? created,
+    /// app url
+    String? url,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);

@@ -46,6 +46,9 @@ class PingRequest with _$PingRequest {
 @Freezed()
 class PingResponse with _$PingResponse {
   const factory PingResponse({
+    /// Max players ever
+    int? max_players,
+
     /// Message of the day
     String? motd,
 
@@ -66,9 +69,6 @@ class PingResponse with _$PingResponse {
 
     /// Latency (ms) between us and the server (EU)
     int? latency,
-
-    /// Max players ever
-    int? max_players,
   }) = PingResponseData;
   const factory PingResponse.Merr({Map<String, dynamic>? body}) =
       PingResponseMerr;

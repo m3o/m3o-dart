@@ -157,19 +157,19 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
     };
 
 _$_Note _$$_NoteFromJson(Map<String, dynamic> json) => _$_Note(
-      title: json['title'] as String?,
-      updated: json['updated'] as String?,
       created: json['created'] as String?,
       id: json['id'] as String?,
       text: json['text'] as String?,
+      title: json['title'] as String?,
+      updated: json['updated'] as String?,
     );
 
 Map<String, dynamic> _$$_NoteToJson(_$_Note instance) => <String, dynamic>{
-      'title': instance.title,
-      'updated': instance.updated,
       'created': instance.created,
       'id': instance.id,
       'text': instance.text,
+      'title': instance.title,
+      'updated': instance.updated,
     };
 
 _$_ReadRequest _$$_ReadRequestFromJson(Map<String, dynamic> json) =>

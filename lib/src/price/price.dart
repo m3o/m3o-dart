@@ -212,14 +212,14 @@ class IndexResponse with _$IndexResponse {
 @Freezed()
 class ListRequest with _$ListRequest {
   const factory ListRequest({
-    /// currency to get
-    String? currency,
-
     /// limit number of values
     int? limit,
 
     /// offset to read from
     int? offset,
+
+    /// currency to get
+    String? currency,
   }) = _ListRequest;
   factory ListRequest.fromJson(Map<String, dynamic> json) =>
       _$ListRequestFromJson(json);
@@ -239,10 +239,10 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Report with _$Report {
   const factory Report({
+    String? author,
     String? comment,
     String? name,
     String? symbol,
-    String? author,
   }) = _Report;
   factory Report.fromJson(Map<String, dynamic> json) => _$ReportFromJson(json);
 }
@@ -250,14 +250,14 @@ class Report with _$Report {
 @Freezed()
 class ReportRequest with _$ReportRequest {
   const factory ReportRequest({
-    /// symbol of value
-    String? symbol,
-
     /// additional comment
     String? comment,
 
     /// name of value
     String? name,
+
+    /// symbol of value
+    String? symbol,
   }) = _ReportRequest;
   factory ReportRequest.fromJson(Map<String, dynamic> json) =>
       _$ReportRequestFromJson(json);

@@ -254,6 +254,9 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Group with _$Group {
   const factory Group({
+    /// list of users
+    List<String>? user_ids,
+
     /// time of creation
     String? created_at,
 
@@ -268,9 +271,6 @@ class Group with _$Group {
 
     /// whether its a private group
     bool? private,
-
-    /// list of users
-    List<String>? user_ids,
   }) = _Group;
   factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
 }
@@ -300,11 +300,11 @@ class HistoryResponse with _$HistoryResponse {
 @Freezed()
 class InviteRequest with _$InviteRequest {
   const factory InviteRequest({
-    /// the group id
-    String? group_id,
-
     /// the user id
     String? user_id,
+
+    /// the group id
+    String? group_id,
   }) = _InviteRequest;
   factory InviteRequest.fromJson(Map<String, dynamic> json) =>
       _$InviteRequestFromJson(json);
@@ -417,6 +417,12 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
+    /// time the message was sent in RFC3339 format
+    String? sent_at,
+
+    /// subject of the message
+    String? subject,
+
     /// text of the message
     String? text,
 
@@ -431,12 +437,6 @@ class Message with _$Message {
 
     /// id of the message, allocated by the server
     String? id,
-
-    /// time the message was sent in RFC3339 format
-    String? sent_at,
-
-    /// subject of the message
-    String? subject,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
