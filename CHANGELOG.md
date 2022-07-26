@@ -1,3 +1,9 @@
+## v1.0.149 - 2022-07-26
+
+[76e69d](https://github.com/micro/services/commit/76e69dc5da2e52495c4bdb89e41c1731ecb7817d) add currency to wallet
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.148...v1.0.149
+
 ## v1.0.148 - 2022-07-26
 
 [8cbc5b](https://github.com/micro/services/commit/8cbc5b335747b9b7d428970ceaf272b473c14fc7) fix comment
