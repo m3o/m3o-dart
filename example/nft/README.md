@@ -4,42 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/nft/api](https
 
 Endpoints:
 
-## Collection
-
-Get a collection by its slug
-
-
-[https://m3o.com/nft/api#Collection](https://m3o.com/nft/api#Collection)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/nft/nft.dart';
-
-void main() async {
-  final ser = NftService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "slug": "doodles-official"
-,};
-
-  CollectionRequest req = CollectionRequest.fromJson(payload);
-
-  
-  try {
-
-	CollectionResponse res = await ser.collection(req);
-
-    res.map((value) => print(value),
-	  Merr: (CollectionResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Assets
 
 Return a list of assets
@@ -179,6 +143,42 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (AssetResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Collection
+
+Get a collection by its slug
+
+
+[https://m3o.com/nft/api#Collection](https://m3o.com/nft/api#Collection)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/nft/nft.dart';
+
+void main() async {
+  final ser = NftService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "slug": "doodles-official"
+,};
+
+  CollectionRequest req = CollectionRequest.fromJson(payload);
+
+  
+  try {
+
+	CollectionResponse res = await ser.collection(req);
+
+    res.map((value) => print(value),
+	  Merr: (CollectionResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
