@@ -1,3 +1,9 @@
+## v1.0.151 - 2022-07-27
+
+[dd10bb](https://github.com/micro/services/commit/dd10bb829a182920234c6cd411199637f19e83e2) increase nft pricing
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.150...v1.0.151
+
 ## v1.0.150 - 2022-07-26
 
 [36861e](https://github.com/micro/services/commit/36861e6a76a261d3887453fde86250034b4ec8ea) remove currency
