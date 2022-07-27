@@ -8,10 +8,10 @@ environment:
 
 dev_dependencies:
   test: ^1.16.0
-  freezed: ^1.1.0
+  freezed: ^2.1.0
   build_runner: ^2.1.5
   json_serializable: ^6.1.3
   
 dependencies: 
   json_annotation: ^4.4.0
-  freezed_annotation: ^1.1.0
+  freezed_annotation: ^2.1.0
