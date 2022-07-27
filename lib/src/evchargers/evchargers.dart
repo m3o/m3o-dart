@@ -56,19 +56,19 @@ class EvchargersService {
 @Freezed()
 class Address with _$Address {
   const factory Address({
-    Coordinates? location,
+    String? country_id,
+    String? lat_lng,
     String? state_or_province,
-    String? title,
     String? town,
 
     /// Any comments about how to access the charger
     String? access_comments,
-    String? lat_lng,
-    Country? country,
-    String? country_id,
-    String? postcode,
     String? address_line_1,
+    Coordinates? location,
+    String? postcode,
+    String? title,
     String? address_line_2,
+    Country? country,
   }) = _Address;
   factory Address.fromJson(Map<String, dynamic> json) =>
       _$AddressFromJson(json);
@@ -113,17 +113,17 @@ class CheckinStatusType with _$CheckinStatusType {
 @Freezed()
 class Connection with _$Connection {
   const factory Connection({
-    String? reference,
-
     /// The amps offered
     double? amps,
     ConnectionType? connection_type,
 
-    /// The power in KW
-    double? power,
+    /// The current
+    String? current,
+    ChargerType? level,
 
     /// The level of charging power available
     String? level_id,
+    String? reference,
 
     /// The voltage offered
     double? voltage,
@@ -131,9 +131,8 @@ class Connection with _$Connection {
     /// The ID of the connection type
     String? connection_type_id,
 
-    /// The current
-    String? current,
-    ChargerType? level,
+    /// The power in KW
+    double? power,
   }) = _Connection;
   factory Connection.fromJson(Map<String, dynamic> json) =>
       _$ConnectionFromJson(json);
@@ -142,11 +141,11 @@ class Connection with _$Connection {
 @Freezed()
 class ConnectionType with _$ConnectionType {
   const factory ConnectionType({
+    String? title,
     String? formal_name,
     String? id,
     bool? is_discontinued,
     bool? is_obsolete,
-    String? title,
   }) = _ConnectionType;
   factory ConnectionType.fromJson(Map<String, dynamic> json) =>
       _$ConnectionTypeFromJson(json);
@@ -188,14 +187,13 @@ class CurrentType with _$CurrentType {
 @Freezed()
 class DataProvider with _$DataProvider {
   const factory DataProvider({
-    String? comments,
-    DataProviderStatusType? data_provider_status_type,
-    String? id,
-
     /// How is this data licensed
     String? license,
     String? title,
     String? website,
+    String? comments,
+    DataProviderStatusType? data_provider_status_type,
+    String? id,
   }) = _DataProvider;
   factory DataProvider.fromJson(Map<String, dynamic> json) =>
       _$DataProviderFromJson(json);
@@ -215,17 +213,17 @@ class DataProviderStatusType with _$DataProviderStatusType {
 @Freezed()
 class Operator with _$Operator {
   const factory Operator({
-    String? phone_primary,
-    String? website,
+    String? title,
     String? comments,
-    String? contact_email,
 
     /// Is this operator a private individual vs a company
     bool? is_private_individual,
-    String? phone_secondary,
-    String? title,
-    String? fault_report_email,
     String? id,
+    String? phone_primary,
+    String? phone_secondary,
+    String? website,
+    String? contact_email,
+    String? fault_report_email,
   }) = _Operator;
   factory Operator.fromJson(Map<String, dynamic> json) =>
       _$OperatorFromJson(json);
@@ -234,36 +232,36 @@ class Operator with _$Operator {
 @Freezed()
 class Poi with _$Poi {
   const factory Poi({
-    /// The address
-    Address? address,
-
-    /// The connections available at this charge point
-    List<Connection>? connections,
-
     /// The ID of the data provider
     String? data_provider_id,
 
     /// The ID of the charger
     String? id,
 
-    /// The number of charging points
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? num_points,
+    /// The operator
+    Operator? operator,
 
     /// The ID of the operator of the charger
     String? operator_id,
 
-    /// The type of usage for this charger point (is it public, membership required, etc)
-    String? usage_type_id,
+    /// The type of usage
+    UsageType? usage_type,
+
+    /// The connections available at this charge point
+    List<Connection>? connections,
 
     /// The cost of charging
     String? cost,
 
-    /// The operator
-    Operator? operator,
+    /// The number of charging points
 
-    /// The type of usage
-    UsageType? usage_type,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? num_points,
+
+    /// The type of usage for this charger point (is it public, membership required, etc)
+    String? usage_type_id,
+
+    /// The address
+    Address? address,
   }) = _Poi;
   factory Poi.fromJson(Map<String, dynamic> json) => _$PoiFromJson(json);
 }
@@ -278,29 +276,17 @@ class ReferenceDataRequest with _$ReferenceDataRequest {
 @Freezed()
 class ReferenceDataResponse with _$ReferenceDataResponse {
   const factory ReferenceDataResponse({
-    /// The companies operating the chargers
-    List<Operator>? operators,
-
     /// The different types of usage
     List<UsageType>? usage_types,
 
-    /// The types of checkin status
-    List<CheckinStatusType>? checkin_status_types,
+    /// The types of user comment
+    List<UserCommentType>? user_comment_types,
 
     /// The types of connection
     List<ConnectionType>? connection_types,
 
     /// The countries
     List<Country>? countries,
-
-    /// The types of current
-    List<CurrentType>? current_types,
-
-    /// The types of user comment
-    List<UserCommentType>? user_comment_types,
-
-    /// The types of charger
-    List<ChargerType>? charger_types,
 
     /// The providers of the charger data
     List<DataProvider>? data_providers,
@@ -310,6 +296,18 @@ class ReferenceDataResponse with _$ReferenceDataResponse {
 
     /// The status of a submission
     List<SubmissionStatusType>? submission_status_types,
+
+    /// The types of charger
+    List<ChargerType>? charger_types,
+
+    /// The types of checkin status
+    List<CheckinStatusType>? checkin_status_types,
+
+    /// The types of current
+    List<CurrentType>? current_types,
+
+    /// The companies operating the chargers
+    List<Operator>? operators,
   }) = ReferenceDataResponseData;
   const factory ReferenceDataResponse.Merr({Map<String, dynamic>? body}) =
       ReferenceDataResponseMerr;
@@ -320,6 +318,13 @@ class ReferenceDataResponse with _$ReferenceDataResponse {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
+    /// Search distance from point in metres, defaults to 5000m
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? distance,
+
+    /// Coordinates from which to begin search
+    Coordinates? location,
+
     /// IDs of the the EV charger operator
     List<String>? operators,
 
@@ -329,21 +334,6 @@ class SearchRequest with _$SearchRequest {
     /// Bounding box to search within (top left and bottom right coordinates)
     BoundingBox? box,
 
-    /// Search distance from point in metres, defaults to 5000m
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? distance,
-
-    /// Minimum power in KW. Note: data not available for many chargers
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? min_power,
-
-    /// Coordinates from which to begin search
-    Coordinates? location,
-
-    /// Maximum number of results to return, defaults to 100
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? max_results,
-
     /// IDs of the connection type
     List<String>? connection_types,
 
@@ -352,6 +342,14 @@ class SearchRequest with _$SearchRequest {
 
     /// Supported charging levels
     List<String>? levels,
+
+    /// Maximum number of results to return, defaults to 100
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? max_results,
+
+    /// Minimum power in KW. Note: data not available for many chargers
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? min_power,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);
@@ -371,9 +369,9 @@ class SearchResponse with _$SearchResponse {
 @Freezed()
 class StatusType with _$StatusType {
   const factory StatusType({
-    String? title,
     String? id,
     bool? is_operational,
+    String? title,
   }) = _StatusType;
   factory StatusType.fromJson(Map<String, dynamic> json) =>
       _$StatusTypeFromJson(json);
@@ -382,9 +380,9 @@ class StatusType with _$StatusType {
 @Freezed()
 class SubmissionStatusType with _$SubmissionStatusType {
   const factory SubmissionStatusType({
+    String? title,
     String? id,
     bool? is_live,
-    String? title,
   }) = _SubmissionStatusType;
   factory SubmissionStatusType.fromJson(Map<String, dynamic> json) =>
       _$SubmissionStatusTypeFromJson(json);
@@ -393,11 +391,11 @@ class SubmissionStatusType with _$SubmissionStatusType {
 @Freezed()
 class UsageType with _$UsageType {
   const factory UsageType({
-    bool? is_pay_at_location,
-    String? title,
     String? id,
     bool? is_access_key_required,
     bool? is_membership_required,
+    bool? is_pay_at_location,
+    String? title,
   }) = _UsageType;
   factory UsageType.fromJson(Map<String, dynamic> json) =>
       _$UsageTypeFromJson(json);

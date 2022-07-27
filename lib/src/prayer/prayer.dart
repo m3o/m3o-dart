@@ -36,12 +36,6 @@ class PrayerService {
 @Freezed()
 class PrayerTime with _$PrayerTime {
   const factory PrayerTime({
-    /// fajr time
-    String? fajr,
-
-    /// isha time
-    String? isha,
-
     /// maghrib time
     String? maghrib,
 
@@ -56,6 +50,12 @@ class PrayerTime with _$PrayerTime {
 
     /// date for prayer times in YYYY-MM-DD format
     String? date,
+
+    /// fajr time
+    String? fajr,
+
+    /// isha time
+    String? isha,
   }) = _PrayerTime;
   factory PrayerTime.fromJson(Map<String, dynamic> json) =>
       _$PrayerTimeFromJson(json);
@@ -64,13 +64,6 @@ class PrayerTime with _$PrayerTime {
 @Freezed()
 class TimesRequest with _$TimesRequest {
   const factory TimesRequest({
-    /// location to retrieve prayer times for.
-    /// this can be a specific address, city, etc
-    String? location,
-
-    /// optional longitude used in place of location
-    double? longitude,
-
     /// optional date in YYYY-MM-DD format, otherwise uses today
     String? date,
 
@@ -79,6 +72,13 @@ class TimesRequest with _$TimesRequest {
 
     /// optional latitude used in place of location
     double? latitude,
+
+    /// location to retrieve prayer times for.
+    /// this can be a specific address, city, etc
+    String? location,
+
+    /// optional longitude used in place of location
+    double? longitude,
   }) = _TimesRequest;
   factory TimesRequest.fromJson(Map<String, dynamic> json) =>
       _$TimesRequestFromJson(json);
@@ -87,6 +87,9 @@ class TimesRequest with _$TimesRequest {
 @Freezed()
 class TimesResponse with _$TimesResponse {
   const factory TimesResponse({
+    /// number of days
+    int? days,
+
     /// latitude of location
     double? latitude,
 
@@ -101,9 +104,6 @@ class TimesResponse with _$TimesResponse {
 
     /// date of request
     String? date,
-
-    /// number of days
-    int? days,
   }) = TimesResponseData;
   const factory TimesResponse.Merr({Map<String, dynamic>? body}) =
       TimesResponseMerr;

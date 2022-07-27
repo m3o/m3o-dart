@@ -106,9 +106,6 @@ class ImageService {
 @Freezed()
 class ConvertRequest with _$ConvertRequest {
   const factory ConvertRequest({
-    /// make output a URL and not a base64 response
-    bool? outputURL,
-
     /// url of the image to resize
     String? url,
 
@@ -120,6 +117,9 @@ class ConvertRequest with _$ConvertRequest {
 
     /// output name of the image including extension, ie. "cat.png"
     String? name,
+
+    /// make output a URL and not a base64 response
+    bool? outputURL,
   }) = _ConvertRequest;
   factory ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$ConvertRequestFromJson(json);
@@ -140,17 +140,17 @@ class ConvertResponse with _$ConvertResponse {
 @Freezed()
 class CropOptions with _$CropOptions {
   const factory CropOptions({
-    /// height to crop to
-    int? height,
-
-    /// width to crop to
-    int? width,
-
     /// Crop anchor point: "top", "top left", "top right",
     /// "left", "center", "right"
     /// "bottom left", "bottom", "bottom right".
     /// Optional. Defaults to center.
     String? anchor,
+
+    /// height to crop to
+    int? height,
+
+    /// width to crop to
+    int? width,
   }) = _CropOptions;
   factory CropOptions.fromJson(Map<String, dynamic> json) =>
       _$CropOptionsFromJson(json);
@@ -178,8 +178,8 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Point with _$Point {
   const factory Point({
-    int? y,
     int? x,
+    int? y,
   }) = _Point;
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 }
@@ -197,6 +197,11 @@ class Rectangle with _$Rectangle {
 @Freezed()
 class ResizeRequest with _$ResizeRequest {
   const factory ResizeRequest({
+    /// optional crop options
+    /// if provided, after resize, the image
+    /// will be cropped
+    CropOptions? cropOptions,
+
     /// The image file to resize
     String? file,
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
@@ -213,11 +218,6 @@ class ResizeRequest with _$ResizeRequest {
 
     /// base64 encoded image to resize,
     String? base64,
-
-    /// optional crop options
-    /// if provided, after resize, the image
-    /// will be cropped
-    CropOptions? cropOptions,
   }) = _ResizeRequest;
   factory ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$ResizeRequestFromJson(json);

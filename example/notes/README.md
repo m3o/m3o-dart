@@ -4,43 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/notes/api](htt
 
 Endpoints:
 
-## Create
-
-Create a new note
-
-
-[https://m3o.com/notes/api#Create](https://m3o.com/notes/api#Create)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/notes/notes.dart';
-
-void main() async {
-  final ser = NotesService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "text": "This is my note",
-  "title": "New Note"
-,};
-
-  CreateRequest req = CreateRequest.fromJson(payload);
-
-  
-  try {
-
-	CreateResponse res = await ser.create(req);
-
-    res.map((value) => print(value),
-	  Merr: (CreateResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Read
 
 Read a note
@@ -218,6 +181,43 @@ void main() async {
 	  sr.map((value) => print(value),
 		Merr: (EventsResponseMerr err) => print(err.body));
 	  }
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Create
+
+Create a new note
+
+
+[https://m3o.com/notes/api#Create](https://m3o.com/notes/api#Create)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/notes/notes.dart';
+
+void main() async {
+  final ser = NotesService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "text": "This is my note",
+  "title": "New Note"
+,};
+
+  CreateRequest req = CreateRequest.fromJson(payload);
+
+  
+  try {
+
+	CreateResponse res = await ser.create(req);
+
+    res.map((value) => print(value),
+	  Merr: (CreateResponseMerr err) => print(err.body!['body']));	
+  
   } catch (e) {
     print(e);
   } finally {
