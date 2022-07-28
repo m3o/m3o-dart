@@ -12,27 +12,11 @@ part of 'place.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AutocompleteRequest _$AutocompleteRequestFromJson(Map<String, dynamic> json) {
   return _AutocompleteRequest.fromJson(json);
 }
-
-/// @nodoc
-class _$AutocompleteRequestTearOff {
-  const _$AutocompleteRequestTearOff();
-
-  _AutocompleteRequest call() {
-    return const _AutocompleteRequest();
-  }
-
-  AutocompleteRequest fromJson(Map<String, Object?> json) {
-    return AutocompleteRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AutocompleteRequest = _$AutocompleteRequestTearOff();
 
 /// @nodoc
 mixin _$AutocompleteRequest {
@@ -57,22 +41,22 @@ class _$AutocompleteRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AutocompleteRequestCopyWith<$Res> {
-  factory _$AutocompleteRequestCopyWith(_AutocompleteRequest value,
-          $Res Function(_AutocompleteRequest) then) =
-      __$AutocompleteRequestCopyWithImpl<$Res>;
+abstract class _$$_AutocompleteRequestCopyWith<$Res> {
+  factory _$$_AutocompleteRequestCopyWith(_$_AutocompleteRequest value,
+          $Res Function(_$_AutocompleteRequest) then) =
+      __$$_AutocompleteRequestCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$AutocompleteRequestCopyWithImpl<$Res>
+class __$$_AutocompleteRequestCopyWithImpl<$Res>
     extends _$AutocompleteRequestCopyWithImpl<$Res>
-    implements _$AutocompleteRequestCopyWith<$Res> {
-  __$AutocompleteRequestCopyWithImpl(
-      _AutocompleteRequest _value, $Res Function(_AutocompleteRequest) _then)
-      : super(_value, (v) => _then(v as _AutocompleteRequest));
+    implements _$$_AutocompleteRequestCopyWith<$Res> {
+  __$$_AutocompleteRequestCopyWithImpl(_$_AutocompleteRequest _value,
+      $Res Function(_$_AutocompleteRequest) _then)
+      : super(_value, (v) => _then(v as _$_AutocompleteRequest));
 
   @override
-  _AutocompleteRequest get _value => super._value as _AutocompleteRequest;
+  _$_AutocompleteRequest get _value => super._value as _$_AutocompleteRequest;
 }
 
 /// @nodoc
@@ -91,15 +75,18 @@ class _$_AutocompleteRequest implements _AutocompleteRequest {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _AutocompleteRequest);
+        (other.runtimeType == runtimeType && other is _$_AutocompleteRequest);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AutocompleteRequestToJson(this);
+    return _$$_AutocompleteRequestToJson(
+      this,
+    );
   }
 }
 
@@ -125,28 +112,6 @@ AutocompleteResponse _$AutocompleteResponseFromJson(Map<String, dynamic> json) {
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
-
-/// @nodoc
-class _$AutocompleteResponseTearOff {
-  const _$AutocompleteResponseTearOff();
-
-  AutocompleteResponseData call() {
-    return const AutocompleteResponseData();
-  }
-
-  AutocompleteResponseMerr Merr({Map<String, dynamic>? body}) {
-    return AutocompleteResponseMerr(
-      body: body,
-    );
-  }
-
-  AutocompleteResponse fromJson(Map<String, Object?> json) {
-    return AutocompleteResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AutocompleteResponse = _$AutocompleteResponseTearOff();
 
 /// @nodoc
 mixin _$AutocompleteResponse {
@@ -209,29 +174,29 @@ class _$AutocompleteResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $AutocompleteResponseDataCopyWith<$Res> {
-  factory $AutocompleteResponseDataCopyWith(AutocompleteResponseData value,
-          $Res Function(AutocompleteResponseData) then) =
-      _$AutocompleteResponseDataCopyWithImpl<$Res>;
+abstract class _$$AutocompleteResponseDataCopyWith<$Res> {
+  factory _$$AutocompleteResponseDataCopyWith(_$AutocompleteResponseData value,
+          $Res Function(_$AutocompleteResponseData) then) =
+      __$$AutocompleteResponseDataCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AutocompleteResponseDataCopyWithImpl<$Res>
+class __$$AutocompleteResponseDataCopyWithImpl<$Res>
     extends _$AutocompleteResponseCopyWithImpl<$Res>
-    implements $AutocompleteResponseDataCopyWith<$Res> {
-  _$AutocompleteResponseDataCopyWithImpl(AutocompleteResponseData _value,
-      $Res Function(AutocompleteResponseData) _then)
-      : super(_value, (v) => _then(v as AutocompleteResponseData));
+    implements _$$AutocompleteResponseDataCopyWith<$Res> {
+  __$$AutocompleteResponseDataCopyWithImpl(_$AutocompleteResponseData _value,
+      $Res Function(_$AutocompleteResponseData) _then)
+      : super(_value, (v) => _then(v as _$AutocompleteResponseData));
 
   @override
-  AutocompleteResponseData get _value =>
-      super._value as AutocompleteResponseData;
+  _$AutocompleteResponseData get _value =>
+      super._value as _$AutocompleteResponseData;
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$AutocompleteResponseData implements AutocompleteResponseData {
-  const _$AutocompleteResponseData({String? $type})
+  const _$AutocompleteResponseData({final String? $type})
       : $type = $type ?? 'default';
 
   factory _$AutocompleteResponseData.fromJson(Map<String, dynamic> json) =>
@@ -248,9 +213,11 @@ class _$AutocompleteResponseData implements AutocompleteResponseData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is AutocompleteResponseData);
+        (other.runtimeType == runtimeType &&
+            other is _$AutocompleteResponseData);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -318,7 +285,9 @@ class _$AutocompleteResponseData implements AutocompleteResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AutocompleteResponseDataToJson(this);
+    return _$$AutocompleteResponseDataToJson(
+      this,
+    );
   }
 }
 
@@ -330,32 +299,32 @@ abstract class AutocompleteResponseData implements AutocompleteResponse {
 }
 
 /// @nodoc
-abstract class $AutocompleteResponseMerrCopyWith<$Res> {
-  factory $AutocompleteResponseMerrCopyWith(AutocompleteResponseMerr value,
-          $Res Function(AutocompleteResponseMerr) then) =
-      _$AutocompleteResponseMerrCopyWithImpl<$Res>;
+abstract class _$$AutocompleteResponseMerrCopyWith<$Res> {
+  factory _$$AutocompleteResponseMerrCopyWith(_$AutocompleteResponseMerr value,
+          $Res Function(_$AutocompleteResponseMerr) then) =
+      __$$AutocompleteResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$AutocompleteResponseMerrCopyWithImpl<$Res>
+class __$$AutocompleteResponseMerrCopyWithImpl<$Res>
     extends _$AutocompleteResponseCopyWithImpl<$Res>
-    implements $AutocompleteResponseMerrCopyWith<$Res> {
-  _$AutocompleteResponseMerrCopyWithImpl(AutocompleteResponseMerr _value,
-      $Res Function(AutocompleteResponseMerr) _then)
-      : super(_value, (v) => _then(v as AutocompleteResponseMerr));
+    implements _$$AutocompleteResponseMerrCopyWith<$Res> {
+  __$$AutocompleteResponseMerrCopyWithImpl(_$AutocompleteResponseMerr _value,
+      $Res Function(_$AutocompleteResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$AutocompleteResponseMerr));
 
   @override
-  AutocompleteResponseMerr get _value =>
-      super._value as AutocompleteResponseMerr;
+  _$AutocompleteResponseMerr get _value =>
+      super._value as _$AutocompleteResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(AutocompleteResponseMerr(
+    return _then(_$AutocompleteResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -365,14 +334,22 @@ class _$AutocompleteResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AutocompleteResponseMerr implements AutocompleteResponseMerr {
-  const _$AutocompleteResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$AutocompleteResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$AutocompleteResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$AutocompleteResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -386,19 +363,21 @@ class _$AutocompleteResponseMerr implements AutocompleteResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AutocompleteResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$AutocompleteResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $AutocompleteResponseMerrCopyWith<AutocompleteResponseMerr> get copyWith =>
-      _$AutocompleteResponseMerrCopyWithImpl<AutocompleteResponseMerr>(
-          this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$AutocompleteResponseMerrCopyWith<_$AutocompleteResponseMerr>
+      get copyWith =>
+          __$$AutocompleteResponseMerrCopyWithImpl<_$AutocompleteResponseMerr>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -464,12 +443,14 @@ class _$AutocompleteResponseMerr implements AutocompleteResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AutocompleteResponseMerrToJson(this);
+    return _$$AutocompleteResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class AutocompleteResponseMerr implements AutocompleteResponse {
-  const factory AutocompleteResponseMerr({Map<String, dynamic>? body}) =
+  const factory AutocompleteResponseMerr({final Map<String, dynamic>? body}) =
       _$AutocompleteResponseMerr;
 
   factory AutocompleteResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -477,8 +458,8 @@ abstract class AutocompleteResponseMerr implements AutocompleteResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $AutocompleteResponseMerrCopyWith<AutocompleteResponseMerr> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$AutocompleteResponseMerrCopyWith<_$AutocompleteResponseMerr>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 NearbyRequest _$NearbyRequestFromJson(Map<String, dynamic> json) {
@@ -486,36 +467,10 @@ NearbyRequest _$NearbyRequestFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$NearbyRequestTearOff {
-  const _$NearbyRequestTearOff();
-
-  _NearbyRequest call(
-      {int? radius,
-      String? type,
-      String? keyword,
-      String? location,
-      String? name,
-      bool? open_now}) {
-    return _NearbyRequest(
-      radius: radius,
-      type: type,
-      keyword: keyword,
-      location: location,
-      name: name,
-      open_now: open_now,
-    );
-  }
-
-  NearbyRequest fromJson(Map<String, Object?> json) {
-    return NearbyRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $NearbyRequest = _$NearbyRequestTearOff();
-
-/// @nodoc
 mixin _$NearbyRequest {
+  /// Whether the place is open now
+  bool? get open_now => throw _privateConstructorUsedError;
+
   /// radius in meters within which to search
   int? get radius => throw _privateConstructorUsedError;
 
@@ -531,9 +486,6 @@ mixin _$NearbyRequest {
   /// Name of the place to search for
   String? get name => throw _privateConstructorUsedError;
 
-  /// Whether the place is open now
-  bool? get open_now => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $NearbyRequestCopyWith<NearbyRequest> get copyWith =>
@@ -546,12 +498,12 @@ abstract class $NearbyRequestCopyWith<$Res> {
           NearbyRequest value, $Res Function(NearbyRequest) then) =
       _$NearbyRequestCopyWithImpl<$Res>;
   $Res call(
-      {int? radius,
+      {bool? open_now,
+      int? radius,
       String? type,
       String? keyword,
       String? location,
-      String? name,
-      bool? open_now});
+      String? name});
 }
 
 /// @nodoc
@@ -565,14 +517,18 @@ class _$NearbyRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? open_now = freezed,
     Object? radius = freezed,
     Object? type = freezed,
     Object? keyword = freezed,
     Object? location = freezed,
     Object? name = freezed,
-    Object? open_now = freezed,
   }) {
     return _then(_value.copyWith(
+      open_now: open_now == freezed
+          ? _value.open_now
+          : open_now // ignore: cast_nullable_to_non_nullable
+              as bool?,
       radius: radius == freezed
           ? _value.radius
           : radius // ignore: cast_nullable_to_non_nullable
@@ -593,51 +549,51 @@ class _$NearbyRequestCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      open_now: open_now == freezed
-          ? _value.open_now
-          : open_now // ignore: cast_nullable_to_non_nullable
-              as bool?,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$NearbyRequestCopyWith<$Res>
+abstract class _$$_NearbyRequestCopyWith<$Res>
     implements $NearbyRequestCopyWith<$Res> {
-  factory _$NearbyRequestCopyWith(
-          _NearbyRequest value, $Res Function(_NearbyRequest) then) =
-      __$NearbyRequestCopyWithImpl<$Res>;
+  factory _$$_NearbyRequestCopyWith(
+          _$_NearbyRequest value, $Res Function(_$_NearbyRequest) then) =
+      __$$_NearbyRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int? radius,
+      {bool? open_now,
+      int? radius,
       String? type,
       String? keyword,
       String? location,
-      String? name,
-      bool? open_now});
+      String? name});
 }
 
 /// @nodoc
-class __$NearbyRequestCopyWithImpl<$Res>
+class __$$_NearbyRequestCopyWithImpl<$Res>
     extends _$NearbyRequestCopyWithImpl<$Res>
-    implements _$NearbyRequestCopyWith<$Res> {
-  __$NearbyRequestCopyWithImpl(
-      _NearbyRequest _value, $Res Function(_NearbyRequest) _then)
-      : super(_value, (v) => _then(v as _NearbyRequest));
+    implements _$$_NearbyRequestCopyWith<$Res> {
+  __$$_NearbyRequestCopyWithImpl(
+      _$_NearbyRequest _value, $Res Function(_$_NearbyRequest) _then)
+      : super(_value, (v) => _then(v as _$_NearbyRequest));
 
   @override
-  _NearbyRequest get _value => super._value as _NearbyRequest;
+  _$_NearbyRequest get _value => super._value as _$_NearbyRequest;
 
   @override
   $Res call({
+    Object? open_now = freezed,
     Object? radius = freezed,
     Object? type = freezed,
     Object? keyword = freezed,
     Object? location = freezed,
     Object? name = freezed,
-    Object? open_now = freezed,
   }) {
-    return _then(_NearbyRequest(
+    return _then(_$_NearbyRequest(
+      open_now: open_now == freezed
+          ? _value.open_now
+          : open_now // ignore: cast_nullable_to_non_nullable
+              as bool?,
       radius: radius == freezed
           ? _value.radius
           : radius // ignore: cast_nullable_to_non_nullable
@@ -658,10 +614,6 @@ class __$NearbyRequestCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      open_now: open_now == freezed
-          ? _value.open_now
-          : open_now // ignore: cast_nullable_to_non_nullable
-              as bool?,
     ));
   }
 }
@@ -670,92 +622,98 @@ class __$NearbyRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_NearbyRequest implements _NearbyRequest {
   const _$_NearbyRequest(
-      {this.radius,
+      {this.open_now,
+      this.radius,
       this.type,
       this.keyword,
       this.location,
-      this.name,
-      this.open_now});
+      this.name});
 
   factory _$_NearbyRequest.fromJson(Map<String, dynamic> json) =>
       _$$_NearbyRequestFromJson(json);
 
+  /// Whether the place is open now
   @override
+  final bool? open_now;
 
   /// radius in meters within which to search
-  final int? radius;
   @override
+  final int? radius;
 
   /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
-  final String? type;
   @override
+  final String? type;
 
   /// Keyword to include in the search
-  final String? keyword;
   @override
+  final String? keyword;
 
   /// specify the location by lat,lng e.g -33.8670522,-151.1957362
-  final String? location;
   @override
+  final String? location;
 
   /// Name of the place to search for
-  final String? name;
   @override
-
-  /// Whether the place is open now
-  final bool? open_now;
+  final String? name;
 
   @override
   String toString() {
-    return 'NearbyRequest(radius: $radius, type: $type, keyword: $keyword, location: $location, name: $name, open_now: $open_now)';
+    return 'NearbyRequest(open_now: $open_now, radius: $radius, type: $type, keyword: $keyword, location: $location, name: $name)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NearbyRequest &&
+            other is _$_NearbyRequest &&
+            const DeepCollectionEquality().equals(other.open_now, open_now) &&
             const DeepCollectionEquality().equals(other.radius, radius) &&
             const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality().equals(other.keyword, keyword) &&
             const DeepCollectionEquality().equals(other.location, location) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.open_now, open_now));
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(open_now),
       const DeepCollectionEquality().hash(radius),
       const DeepCollectionEquality().hash(type),
       const DeepCollectionEquality().hash(keyword),
       const DeepCollectionEquality().hash(location),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(open_now));
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
-  _$NearbyRequestCopyWith<_NearbyRequest> get copyWith =>
-      __$NearbyRequestCopyWithImpl<_NearbyRequest>(this, _$identity);
+  _$$_NearbyRequestCopyWith<_$_NearbyRequest> get copyWith =>
+      __$$_NearbyRequestCopyWithImpl<_$_NearbyRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NearbyRequestToJson(this);
+    return _$$_NearbyRequestToJson(
+      this,
+    );
   }
 }
 
 abstract class _NearbyRequest implements NearbyRequest {
   const factory _NearbyRequest(
-      {int? radius,
-      String? type,
-      String? keyword,
-      String? location,
-      String? name,
-      bool? open_now}) = _$_NearbyRequest;
+      {final bool? open_now,
+      final int? radius,
+      final String? type,
+      final String? keyword,
+      final String? location,
+      final String? name}) = _$_NearbyRequest;
 
   factory _NearbyRequest.fromJson(Map<String, dynamic> json) =
       _$_NearbyRequest.fromJson;
 
+  @override
+
+  /// Whether the place is open now
+  bool? get open_now;
   @override
 
   /// radius in meters within which to search
@@ -777,12 +735,8 @@ abstract class _NearbyRequest implements NearbyRequest {
   /// Name of the place to search for
   String? get name;
   @override
-
-  /// Whether the place is open now
-  bool? get open_now;
-  @override
   @JsonKey(ignore: true)
-  _$NearbyRequestCopyWith<_NearbyRequest> get copyWith =>
+  _$$_NearbyRequestCopyWith<_$_NearbyRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -798,30 +752,6 @@ NearbyResponse _$NearbyResponseFromJson(Map<String, dynamic> json) {
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
-
-/// @nodoc
-class _$NearbyResponseTearOff {
-  const _$NearbyResponseTearOff();
-
-  NearbyResponseData call({List<Result>? results}) {
-    return NearbyResponseData(
-      results: results,
-    );
-  }
-
-  NearbyResponseMerr Merr({Map<String, dynamic>? body}) {
-    return NearbyResponseMerr(
-      body: body,
-    );
-  }
-
-  NearbyResponse fromJson(Map<String, Object?> json) {
-    return NearbyResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $NearbyResponse = _$NearbyResponseTearOff();
 
 /// @nodoc
 mixin _$NearbyResponse {
@@ -884,31 +814,31 @@ class _$NearbyResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $NearbyResponseDataCopyWith<$Res> {
-  factory $NearbyResponseDataCopyWith(
-          NearbyResponseData value, $Res Function(NearbyResponseData) then) =
-      _$NearbyResponseDataCopyWithImpl<$Res>;
+abstract class _$$NearbyResponseDataCopyWith<$Res> {
+  factory _$$NearbyResponseDataCopyWith(_$NearbyResponseData value,
+          $Res Function(_$NearbyResponseData) then) =
+      __$$NearbyResponseDataCopyWithImpl<$Res>;
   $Res call({List<Result>? results});
 }
 
 /// @nodoc
-class _$NearbyResponseDataCopyWithImpl<$Res>
+class __$$NearbyResponseDataCopyWithImpl<$Res>
     extends _$NearbyResponseCopyWithImpl<$Res>
-    implements $NearbyResponseDataCopyWith<$Res> {
-  _$NearbyResponseDataCopyWithImpl(
-      NearbyResponseData _value, $Res Function(NearbyResponseData) _then)
-      : super(_value, (v) => _then(v as NearbyResponseData));
+    implements _$$NearbyResponseDataCopyWith<$Res> {
+  __$$NearbyResponseDataCopyWithImpl(
+      _$NearbyResponseData _value, $Res Function(_$NearbyResponseData) _then)
+      : super(_value, (v) => _then(v as _$NearbyResponseData));
 
   @override
-  NearbyResponseData get _value => super._value as NearbyResponseData;
+  _$NearbyResponseData get _value => super._value as _$NearbyResponseData;
 
   @override
   $Res call({
     Object? results = freezed,
   }) {
-    return _then(NearbyResponseData(
+    return _then(_$NearbyResponseData(
       results: results == freezed
-          ? _value.results
+          ? _value._results
           : results // ignore: cast_nullable_to_non_nullable
               as List<Result>?,
     ));
@@ -918,14 +848,21 @@ class _$NearbyResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$NearbyResponseData implements NearbyResponseData {
-  const _$NearbyResponseData({this.results, String? $type})
-      : $type = $type ?? 'default';
+  const _$NearbyResponseData({final List<Result>? results, final String? $type})
+      : _results = results,
+        $type = $type ?? 'default';
 
   factory _$NearbyResponseData.fromJson(Map<String, dynamic> json) =>
       _$$NearbyResponseDataFromJson(json);
 
+  final List<Result>? _results;
   @override
-  final List<Result>? results;
+  List<Result>? get results {
+    final value = _results;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -939,18 +876,20 @@ class _$NearbyResponseData implements NearbyResponseData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is NearbyResponseData &&
-            const DeepCollectionEquality().equals(other.results, results));
+            other is _$NearbyResponseData &&
+            const DeepCollectionEquality().equals(other._results, _results));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(results));
 
   @JsonKey(ignore: true)
   @override
-  $NearbyResponseDataCopyWith<NearbyResponseData> get copyWith =>
-      _$NearbyResponseDataCopyWithImpl<NearbyResponseData>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_results));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$NearbyResponseDataCopyWith<_$NearbyResponseData> get copyWith =>
+      __$$NearbyResponseDataCopyWithImpl<_$NearbyResponseData>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1016,12 +955,14 @@ class _$NearbyResponseData implements NearbyResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$NearbyResponseDataToJson(this);
+    return _$$NearbyResponseDataToJson(
+      this,
+    );
   }
 }
 
 abstract class NearbyResponseData implements NearbyResponse {
-  const factory NearbyResponseData({List<Result>? results}) =
+  const factory NearbyResponseData({final List<Result>? results}) =
       _$NearbyResponseData;
 
   factory NearbyResponseData.fromJson(Map<String, dynamic> json) =
@@ -1029,36 +970,36 @@ abstract class NearbyResponseData implements NearbyResponse {
 
   List<Result>? get results;
   @JsonKey(ignore: true)
-  $NearbyResponseDataCopyWith<NearbyResponseData> get copyWith =>
+  _$$NearbyResponseDataCopyWith<_$NearbyResponseData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $NearbyResponseMerrCopyWith<$Res> {
-  factory $NearbyResponseMerrCopyWith(
-          NearbyResponseMerr value, $Res Function(NearbyResponseMerr) then) =
-      _$NearbyResponseMerrCopyWithImpl<$Res>;
+abstract class _$$NearbyResponseMerrCopyWith<$Res> {
+  factory _$$NearbyResponseMerrCopyWith(_$NearbyResponseMerr value,
+          $Res Function(_$NearbyResponseMerr) then) =
+      __$$NearbyResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$NearbyResponseMerrCopyWithImpl<$Res>
+class __$$NearbyResponseMerrCopyWithImpl<$Res>
     extends _$NearbyResponseCopyWithImpl<$Res>
-    implements $NearbyResponseMerrCopyWith<$Res> {
-  _$NearbyResponseMerrCopyWithImpl(
-      NearbyResponseMerr _value, $Res Function(NearbyResponseMerr) _then)
-      : super(_value, (v) => _then(v as NearbyResponseMerr));
+    implements _$$NearbyResponseMerrCopyWith<$Res> {
+  __$$NearbyResponseMerrCopyWithImpl(
+      _$NearbyResponseMerr _value, $Res Function(_$NearbyResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$NearbyResponseMerr));
 
   @override
-  NearbyResponseMerr get _value => super._value as NearbyResponseMerr;
+  _$NearbyResponseMerr get _value => super._value as _$NearbyResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(NearbyResponseMerr(
+    return _then(_$NearbyResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -1068,14 +1009,22 @@ class _$NearbyResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$NearbyResponseMerr implements NearbyResponseMerr {
-  const _$NearbyResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$NearbyResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$NearbyResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$NearbyResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -1089,18 +1038,20 @@ class _$NearbyResponseMerr implements NearbyResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is NearbyResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$NearbyResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $NearbyResponseMerrCopyWith<NearbyResponseMerr> get copyWith =>
-      _$NearbyResponseMerrCopyWithImpl<NearbyResponseMerr>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$NearbyResponseMerrCopyWith<_$NearbyResponseMerr> get copyWith =>
+      __$$NearbyResponseMerrCopyWithImpl<_$NearbyResponseMerr>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1166,12 +1117,14 @@ class _$NearbyResponseMerr implements NearbyResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$NearbyResponseMerrToJson(this);
+    return _$$NearbyResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class NearbyResponseMerr implements NearbyResponse {
-  const factory NearbyResponseMerr({Map<String, dynamic>? body}) =
+  const factory NearbyResponseMerr({final Map<String, dynamic>? body}) =
       _$NearbyResponseMerr;
 
   factory NearbyResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -1179,7 +1132,7 @@ abstract class NearbyResponseMerr implements NearbyResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $NearbyResponseMerrCopyWith<NearbyResponseMerr> get copyWith =>
+  _$$NearbyResponseMerrCopyWith<_$NearbyResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1188,52 +1141,12 @@ Result _$ResultFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$ResultTearOff {
-  const _$ResultTearOff();
-
-  _Result call(
-      {bool? open_now,
-      String? location,
-      String? name,
-      List<String>? opening_hours,
-      double? rating,
-      String? type,
-      List<String>? types,
-      String? vicinity,
-      String? address,
-      String? icon_url}) {
-    return _Result(
-      open_now: open_now,
-      location: location,
-      name: name,
-      opening_hours: opening_hours,
-      rating: rating,
-      type: type,
-      types: types,
-      vicinity: vicinity,
-      address: address,
-      icon_url: icon_url,
-    );
-  }
-
-  Result fromJson(Map<String, Object?> json) {
-    return Result.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Result = _$ResultTearOff();
-
-/// @nodoc
 mixin _$Result {
-  /// open now
-  bool? get open_now => throw _privateConstructorUsedError;
+  /// address of place
+  String? get address => throw _privateConstructorUsedError;
 
-  /// lat/lng of place
-  String? get location => throw _privateConstructorUsedError;
-
-  /// name of the place
-  String? get name => throw _privateConstructorUsedError;
+  /// url of an icon
+  String? get icon_url => throw _privateConstructorUsedError;
 
   /// opening hours
   List<String>? get opening_hours => throw _privateConstructorUsedError;
@@ -1250,11 +1163,14 @@ mixin _$Result {
   /// simplified address
   String? get vicinity => throw _privateConstructorUsedError;
 
-  /// address of place
-  String? get address => throw _privateConstructorUsedError;
+  /// lat/lng of place
+  String? get location => throw _privateConstructorUsedError;
 
-  /// url of an icon
-  String? get icon_url => throw _privateConstructorUsedError;
+  /// name of the place
+  String? get name => throw _privateConstructorUsedError;
+
+  /// open now
+  bool? get open_now => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1266,16 +1182,16 @@ abstract class $ResultCopyWith<$Res> {
   factory $ResultCopyWith(Result value, $Res Function(Result) then) =
       _$ResultCopyWithImpl<$Res>;
   $Res call(
-      {bool? open_now,
-      String? location,
-      String? name,
+      {String? address,
+      String? icon_url,
       List<String>? opening_hours,
       double? rating,
       String? type,
       List<String>? types,
       String? vicinity,
-      String? address,
-      String? icon_url});
+      String? location,
+      String? name,
+      bool? open_now});
 }
 
 /// @nodoc
@@ -1288,29 +1204,25 @@ class _$ResultCopyWithImpl<$Res> implements $ResultCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? open_now = freezed,
-    Object? location = freezed,
-    Object? name = freezed,
+    Object? address = freezed,
+    Object? icon_url = freezed,
     Object? opening_hours = freezed,
     Object? rating = freezed,
     Object? type = freezed,
     Object? types = freezed,
     Object? vicinity = freezed,
-    Object? address = freezed,
-    Object? icon_url = freezed,
+    Object? location = freezed,
+    Object? name = freezed,
+    Object? open_now = freezed,
   }) {
     return _then(_value.copyWith(
-      open_now: open_now == freezed
-          ? _value.open_now
-          : open_now // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      icon_url: icon_url == freezed
+          ? _value.icon_url
+          : icon_url // ignore: cast_nullable_to_non_nullable
               as String?,
       opening_hours: opening_hours == freezed
           ? _value.opening_hours
@@ -1332,73 +1244,73 @@ class _$ResultCopyWithImpl<$Res> implements $ResultCopyWith<$Res> {
           ? _value.vicinity
           : vicinity // ignore: cast_nullable_to_non_nullable
               as String?,
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
               as String?,
-      icon_url: icon_url == freezed
-          ? _value.icon_url
-          : icon_url // ignore: cast_nullable_to_non_nullable
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      open_now: open_now == freezed
+          ? _value.open_now
+          : open_now // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
-  factory _$ResultCopyWith(_Result value, $Res Function(_Result) then) =
-      __$ResultCopyWithImpl<$Res>;
+abstract class _$$_ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
+  factory _$$_ResultCopyWith(_$_Result value, $Res Function(_$_Result) then) =
+      __$$_ResultCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool? open_now,
-      String? location,
-      String? name,
+      {String? address,
+      String? icon_url,
       List<String>? opening_hours,
       double? rating,
       String? type,
       List<String>? types,
       String? vicinity,
-      String? address,
-      String? icon_url});
+      String? location,
+      String? name,
+      bool? open_now});
 }
 
 /// @nodoc
-class __$ResultCopyWithImpl<$Res> extends _$ResultCopyWithImpl<$Res>
-    implements _$ResultCopyWith<$Res> {
-  __$ResultCopyWithImpl(_Result _value, $Res Function(_Result) _then)
-      : super(_value, (v) => _then(v as _Result));
+class __$$_ResultCopyWithImpl<$Res> extends _$ResultCopyWithImpl<$Res>
+    implements _$$_ResultCopyWith<$Res> {
+  __$$_ResultCopyWithImpl(_$_Result _value, $Res Function(_$_Result) _then)
+      : super(_value, (v) => _then(v as _$_Result));
 
   @override
-  _Result get _value => super._value as _Result;
+  _$_Result get _value => super._value as _$_Result;
 
   @override
   $Res call({
-    Object? open_now = freezed,
-    Object? location = freezed,
-    Object? name = freezed,
+    Object? address = freezed,
+    Object? icon_url = freezed,
     Object? opening_hours = freezed,
     Object? rating = freezed,
     Object? type = freezed,
     Object? types = freezed,
     Object? vicinity = freezed,
-    Object? address = freezed,
-    Object? icon_url = freezed,
+    Object? location = freezed,
+    Object? name = freezed,
+    Object? open_now = freezed,
   }) {
-    return _then(_Result(
-      open_now: open_now == freezed
-          ? _value.open_now
-          : open_now // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
+    return _then(_$_Result(
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      icon_url: icon_url == freezed
+          ? _value.icon_url
+          : icon_url // ignore: cast_nullable_to_non_nullable
               as String?,
       opening_hours: opening_hours == freezed
-          ? _value.opening_hours
+          ? _value._opening_hours
           : opening_hours // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       rating: rating == freezed
@@ -1410,21 +1322,25 @@ class __$ResultCopyWithImpl<$Res> extends _$ResultCopyWithImpl<$Res>
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
       types: types == freezed
-          ? _value.types
+          ? _value._types
           : types // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       vicinity: vicinity == freezed
           ? _value.vicinity
           : vicinity // ignore: cast_nullable_to_non_nullable
               as String?,
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
               as String?,
-      icon_url: icon_url == freezed
-          ? _value.icon_url
-          : icon_url // ignore: cast_nullable_to_non_nullable
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      open_now: open_now == freezed
+          ? _value.open_now
+          : open_now // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -1433,136 +1349,152 @@ class __$ResultCopyWithImpl<$Res> extends _$ResultCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Result implements _Result {
   const _$_Result(
-      {this.open_now,
-      this.location,
-      this.name,
-      this.opening_hours,
+      {this.address,
+      this.icon_url,
+      final List<String>? opening_hours,
       this.rating,
       this.type,
-      this.types,
+      final List<String>? types,
       this.vicinity,
-      this.address,
-      this.icon_url});
+      this.location,
+      this.name,
+      this.open_now})
+      : _opening_hours = opening_hours,
+        _types = types;
 
   factory _$_Result.fromJson(Map<String, dynamic> json) =>
       _$$_ResultFromJson(json);
 
-  @override
-
-  /// open now
-  final bool? open_now;
-  @override
-
-  /// lat/lng of place
-  final String? location;
-  @override
-
-  /// name of the place
-  final String? name;
-  @override
-
-  /// opening hours
-  final List<String>? opening_hours;
-  @override
-
-  /// rating from 1.0 to 5.0
-  final double? rating;
-  @override
-
-  /// type of location
-  final String? type;
-  @override
-
-  /// feature types
-  final List<String>? types;
-  @override
-
-  /// simplified address
-  final String? vicinity;
-  @override
-
   /// address of place
-  final String? address;
   @override
+  final String? address;
 
   /// url of an icon
+  @override
   final String? icon_url;
+
+  /// opening hours
+  final List<String>? _opening_hours;
+
+  /// opening hours
+  @override
+  List<String>? get opening_hours {
+    final value = _opening_hours;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  /// rating from 1.0 to 5.0
+  @override
+  final double? rating;
+
+  /// type of location
+  @override
+  final String? type;
+
+  /// feature types
+  final List<String>? _types;
+
+  /// feature types
+  @override
+  List<String>? get types {
+    final value = _types;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  /// simplified address
+  @override
+  final String? vicinity;
+
+  /// lat/lng of place
+  @override
+  final String? location;
+
+  /// name of the place
+  @override
+  final String? name;
+
+  /// open now
+  @override
+  final bool? open_now;
 
   @override
   String toString() {
-    return 'Result(open_now: $open_now, location: $location, name: $name, opening_hours: $opening_hours, rating: $rating, type: $type, types: $types, vicinity: $vicinity, address: $address, icon_url: $icon_url)';
+    return 'Result(address: $address, icon_url: $icon_url, opening_hours: $opening_hours, rating: $rating, type: $type, types: $types, vicinity: $vicinity, location: $location, name: $name, open_now: $open_now)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Result &&
-            const DeepCollectionEquality().equals(other.open_now, open_now) &&
-            const DeepCollectionEquality().equals(other.location, location) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
+            other is _$_Result &&
+            const DeepCollectionEquality().equals(other.address, address) &&
+            const DeepCollectionEquality().equals(other.icon_url, icon_url) &&
             const DeepCollectionEquality()
-                .equals(other.opening_hours, opening_hours) &&
+                .equals(other._opening_hours, _opening_hours) &&
             const DeepCollectionEquality().equals(other.rating, rating) &&
             const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.types, types) &&
+            const DeepCollectionEquality().equals(other._types, _types) &&
             const DeepCollectionEquality().equals(other.vicinity, vicinity) &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.icon_url, icon_url));
+            const DeepCollectionEquality().equals(other.location, location) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.open_now, open_now));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(open_now),
-      const DeepCollectionEquality().hash(location),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(opening_hours),
-      const DeepCollectionEquality().hash(rating),
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(types),
-      const DeepCollectionEquality().hash(vicinity),
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(icon_url));
 
   @JsonKey(ignore: true)
   @override
-  _$ResultCopyWith<_Result> get copyWith =>
-      __$ResultCopyWithImpl<_Result>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(address),
+      const DeepCollectionEquality().hash(icon_url),
+      const DeepCollectionEquality().hash(_opening_hours),
+      const DeepCollectionEquality().hash(rating),
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(_types),
+      const DeepCollectionEquality().hash(vicinity),
+      const DeepCollectionEquality().hash(location),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(open_now));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ResultCopyWith<_$_Result> get copyWith =>
+      __$$_ResultCopyWithImpl<_$_Result>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResultToJson(this);
+    return _$$_ResultToJson(
+      this,
+    );
   }
 }
 
 abstract class _Result implements Result {
   const factory _Result(
-      {bool? open_now,
-      String? location,
-      String? name,
-      List<String>? opening_hours,
-      double? rating,
-      String? type,
-      List<String>? types,
-      String? vicinity,
-      String? address,
-      String? icon_url}) = _$_Result;
+      {final String? address,
+      final String? icon_url,
+      final List<String>? opening_hours,
+      final double? rating,
+      final String? type,
+      final List<String>? types,
+      final String? vicinity,
+      final String? location,
+      final String? name,
+      final bool? open_now}) = _$_Result;
 
   factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
 
   @override
 
-  /// open now
-  bool? get open_now;
+  /// address of place
+  String? get address;
   @override
 
-  /// lat/lng of place
-  String? get location;
-  @override
-
-  /// name of the place
-  String? get name;
+  /// url of an icon
+  String? get icon_url;
   @override
 
   /// opening hours
@@ -1585,15 +1517,20 @@ abstract class _Result implements Result {
   String? get vicinity;
   @override
 
-  /// address of place
-  String? get address;
+  /// lat/lng of place
+  String? get location;
   @override
 
-  /// url of an icon
-  String? get icon_url;
+  /// name of the place
+  String? get name;
+  @override
+
+  /// open now
+  bool? get open_now;
   @override
   @JsonKey(ignore: true)
-  _$ResultCopyWith<_Result> get copyWith => throw _privateConstructorUsedError;
+  _$$_ResultCopyWith<_$_Result> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 SearchRequest _$SearchRequestFromJson(Map<String, dynamic> json) {
@@ -1601,40 +1538,7 @@ SearchRequest _$SearchRequestFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$SearchRequestTearOff {
-  const _$SearchRequestTearOff();
-
-  _SearchRequest call(
-      {int? radius,
-      String? type,
-      String? location,
-      bool? open_now,
-      String? query}) {
-    return _SearchRequest(
-      radius: radius,
-      type: type,
-      location: location,
-      open_now: open_now,
-      query: query,
-    );
-  }
-
-  SearchRequest fromJson(Map<String, Object?> json) {
-    return SearchRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SearchRequest = _$SearchRequestTearOff();
-
-/// @nodoc
 mixin _$SearchRequest {
-  /// radius in meters within which to search
-  int? get radius => throw _privateConstructorUsedError;
-
-  /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
-  String? get type => throw _privateConstructorUsedError;
-
   /// the location by lat,lng e.g -33.8670522,-151.1957362
   String? get location => throw _privateConstructorUsedError;
 
@@ -1643,6 +1547,12 @@ mixin _$SearchRequest {
 
   /// the text string on which to search, for example: "restaurant"
   String? get query => throw _privateConstructorUsedError;
+
+  /// radius in meters within which to search
+  int? get radius => throw _privateConstructorUsedError;
+
+  /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
+  String? get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1656,11 +1566,11 @@ abstract class $SearchRequestCopyWith<$Res> {
           SearchRequest value, $Res Function(SearchRequest) then) =
       _$SearchRequestCopyWithImpl<$Res>;
   $Res call(
-      {int? radius,
-      String? type,
-      String? location,
+      {String? location,
       bool? open_now,
-      String? query});
+      String? query,
+      int? radius,
+      String? type});
 }
 
 /// @nodoc
@@ -1674,21 +1584,13 @@ class _$SearchRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? radius = freezed,
-    Object? type = freezed,
     Object? location = freezed,
     Object? open_now = freezed,
     Object? query = freezed,
+    Object? radius = freezed,
+    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
-      radius: radius == freezed
-          ? _value.radius
-          : radius // ignore: cast_nullable_to_non_nullable
-              as int?,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -1700,54 +1602,54 @@ class _$SearchRequestCopyWithImpl<$Res>
       query: query == freezed
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
+              as String?,
+      radius: radius == freezed
+          ? _value.radius
+          : radius // ignore: cast_nullable_to_non_nullable
+              as int?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$SearchRequestCopyWith<$Res>
+abstract class _$$_SearchRequestCopyWith<$Res>
     implements $SearchRequestCopyWith<$Res> {
-  factory _$SearchRequestCopyWith(
-          _SearchRequest value, $Res Function(_SearchRequest) then) =
-      __$SearchRequestCopyWithImpl<$Res>;
+  factory _$$_SearchRequestCopyWith(
+          _$_SearchRequest value, $Res Function(_$_SearchRequest) then) =
+      __$$_SearchRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int? radius,
-      String? type,
-      String? location,
+      {String? location,
       bool? open_now,
-      String? query});
+      String? query,
+      int? radius,
+      String? type});
 }
 
 /// @nodoc
-class __$SearchRequestCopyWithImpl<$Res>
+class __$$_SearchRequestCopyWithImpl<$Res>
     extends _$SearchRequestCopyWithImpl<$Res>
-    implements _$SearchRequestCopyWith<$Res> {
-  __$SearchRequestCopyWithImpl(
-      _SearchRequest _value, $Res Function(_SearchRequest) _then)
-      : super(_value, (v) => _then(v as _SearchRequest));
+    implements _$$_SearchRequestCopyWith<$Res> {
+  __$$_SearchRequestCopyWithImpl(
+      _$_SearchRequest _value, $Res Function(_$_SearchRequest) _then)
+      : super(_value, (v) => _then(v as _$_SearchRequest));
 
   @override
-  _SearchRequest get _value => super._value as _SearchRequest;
+  _$_SearchRequest get _value => super._value as _$_SearchRequest;
 
   @override
   $Res call({
-    Object? radius = freezed,
-    Object? type = freezed,
     Object? location = freezed,
     Object? open_now = freezed,
     Object? query = freezed,
+    Object? radius = freezed,
+    Object? type = freezed,
   }) {
-    return _then(_SearchRequest(
-      radius: radius == freezed
-          ? _value.radius
-          : radius // ignore: cast_nullable_to_non_nullable
-              as int?,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+    return _then(_$_SearchRequest(
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -1759,6 +1661,14 @@ class __$SearchRequestCopyWithImpl<$Res>
       query: query == freezed
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
+              as String?,
+      radius: radius == freezed
+          ? _value.radius
+          : radius // ignore: cast_nullable_to_non_nullable
+              as int?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1768,88 +1678,82 @@ class __$SearchRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SearchRequest implements _SearchRequest {
   const _$_SearchRequest(
-      {this.radius, this.type, this.location, this.open_now, this.query});
+      {this.location, this.open_now, this.query, this.radius, this.type});
 
   factory _$_SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SearchRequestFromJson(json);
 
-  @override
-
-  /// radius in meters within which to search
-  final int? radius;
-  @override
-
-  /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
-  final String? type;
-  @override
-
   /// the location by lat,lng e.g -33.8670522,-151.1957362
-  final String? location;
   @override
+  final String? location;
 
   /// Whether the place is open now
-  final bool? open_now;
   @override
+  final bool? open_now;
 
   /// the text string on which to search, for example: "restaurant"
+  @override
   final String? query;
+
+  /// radius in meters within which to search
+  @override
+  final int? radius;
+
+  /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
+  @override
+  final String? type;
 
   @override
   String toString() {
-    return 'SearchRequest(radius: $radius, type: $type, location: $location, open_now: $open_now, query: $query)';
+    return 'SearchRequest(location: $location, open_now: $open_now, query: $query, radius: $radius, type: $type)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SearchRequest &&
-            const DeepCollectionEquality().equals(other.radius, radius) &&
-            const DeepCollectionEquality().equals(other.type, type) &&
+            other is _$_SearchRequest &&
             const DeepCollectionEquality().equals(other.location, location) &&
             const DeepCollectionEquality().equals(other.open_now, open_now) &&
-            const DeepCollectionEquality().equals(other.query, query));
+            const DeepCollectionEquality().equals(other.query, query) &&
+            const DeepCollectionEquality().equals(other.radius, radius) &&
+            const DeepCollectionEquality().equals(other.type, type));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(radius),
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(location),
-      const DeepCollectionEquality().hash(open_now),
-      const DeepCollectionEquality().hash(query));
 
   @JsonKey(ignore: true)
   @override
-  _$SearchRequestCopyWith<_SearchRequest> get copyWith =>
-      __$SearchRequestCopyWithImpl<_SearchRequest>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(location),
+      const DeepCollectionEquality().hash(open_now),
+      const DeepCollectionEquality().hash(query),
+      const DeepCollectionEquality().hash(radius),
+      const DeepCollectionEquality().hash(type));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SearchRequestCopyWith<_$_SearchRequest> get copyWith =>
+      __$$_SearchRequestCopyWithImpl<_$_SearchRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SearchRequestToJson(this);
+    return _$$_SearchRequestToJson(
+      this,
+    );
   }
 }
 
 abstract class _SearchRequest implements SearchRequest {
   const factory _SearchRequest(
-      {int? radius,
-      String? type,
-      String? location,
-      bool? open_now,
-      String? query}) = _$_SearchRequest;
+      {final String? location,
+      final bool? open_now,
+      final String? query,
+      final int? radius,
+      final String? type}) = _$_SearchRequest;
 
   factory _SearchRequest.fromJson(Map<String, dynamic> json) =
       _$_SearchRequest.fromJson;
 
-  @override
-
-  /// radius in meters within which to search
-  int? get radius;
-  @override
-
-  /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
-  String? get type;
   @override
 
   /// the location by lat,lng e.g -33.8670522,-151.1957362
@@ -1863,8 +1767,16 @@ abstract class _SearchRequest implements SearchRequest {
   /// the text string on which to search, for example: "restaurant"
   String? get query;
   @override
+
+  /// radius in meters within which to search
+  int? get radius;
+  @override
+
+  /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
+  String? get type;
+  @override
   @JsonKey(ignore: true)
-  _$SearchRequestCopyWith<_SearchRequest> get copyWith =>
+  _$$_SearchRequestCopyWith<_$_SearchRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1880,30 +1792,6 @@ SearchResponse _$SearchResponseFromJson(Map<String, dynamic> json) {
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
-
-/// @nodoc
-class _$SearchResponseTearOff {
-  const _$SearchResponseTearOff();
-
-  SearchResponseData call({List<Result>? results}) {
-    return SearchResponseData(
-      results: results,
-    );
-  }
-
-  SearchResponseMerr Merr({Map<String, dynamic>? body}) {
-    return SearchResponseMerr(
-      body: body,
-    );
-  }
-
-  SearchResponse fromJson(Map<String, Object?> json) {
-    return SearchResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SearchResponse = _$SearchResponseTearOff();
 
 /// @nodoc
 mixin _$SearchResponse {
@@ -1966,31 +1854,31 @@ class _$SearchResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $SearchResponseDataCopyWith<$Res> {
-  factory $SearchResponseDataCopyWith(
-          SearchResponseData value, $Res Function(SearchResponseData) then) =
-      _$SearchResponseDataCopyWithImpl<$Res>;
+abstract class _$$SearchResponseDataCopyWith<$Res> {
+  factory _$$SearchResponseDataCopyWith(_$SearchResponseData value,
+          $Res Function(_$SearchResponseData) then) =
+      __$$SearchResponseDataCopyWithImpl<$Res>;
   $Res call({List<Result>? results});
 }
 
 /// @nodoc
-class _$SearchResponseDataCopyWithImpl<$Res>
+class __$$SearchResponseDataCopyWithImpl<$Res>
     extends _$SearchResponseCopyWithImpl<$Res>
-    implements $SearchResponseDataCopyWith<$Res> {
-  _$SearchResponseDataCopyWithImpl(
-      SearchResponseData _value, $Res Function(SearchResponseData) _then)
-      : super(_value, (v) => _then(v as SearchResponseData));
+    implements _$$SearchResponseDataCopyWith<$Res> {
+  __$$SearchResponseDataCopyWithImpl(
+      _$SearchResponseData _value, $Res Function(_$SearchResponseData) _then)
+      : super(_value, (v) => _then(v as _$SearchResponseData));
 
   @override
-  SearchResponseData get _value => super._value as SearchResponseData;
+  _$SearchResponseData get _value => super._value as _$SearchResponseData;
 
   @override
   $Res call({
     Object? results = freezed,
   }) {
-    return _then(SearchResponseData(
+    return _then(_$SearchResponseData(
       results: results == freezed
-          ? _value.results
+          ? _value._results
           : results // ignore: cast_nullable_to_non_nullable
               as List<Result>?,
     ));
@@ -2000,14 +1888,21 @@ class _$SearchResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SearchResponseData implements SearchResponseData {
-  const _$SearchResponseData({this.results, String? $type})
-      : $type = $type ?? 'default';
+  const _$SearchResponseData({final List<Result>? results, final String? $type})
+      : _results = results,
+        $type = $type ?? 'default';
 
   factory _$SearchResponseData.fromJson(Map<String, dynamic> json) =>
       _$$SearchResponseDataFromJson(json);
 
+  final List<Result>? _results;
   @override
-  final List<Result>? results;
+  List<Result>? get results {
+    final value = _results;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -2021,18 +1916,20 @@ class _$SearchResponseData implements SearchResponseData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SearchResponseData &&
-            const DeepCollectionEquality().equals(other.results, results));
+            other is _$SearchResponseData &&
+            const DeepCollectionEquality().equals(other._results, _results));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(results));
 
   @JsonKey(ignore: true)
   @override
-  $SearchResponseDataCopyWith<SearchResponseData> get copyWith =>
-      _$SearchResponseDataCopyWithImpl<SearchResponseData>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_results));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SearchResponseDataCopyWith<_$SearchResponseData> get copyWith =>
+      __$$SearchResponseDataCopyWithImpl<_$SearchResponseData>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2098,12 +1995,14 @@ class _$SearchResponseData implements SearchResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SearchResponseDataToJson(this);
+    return _$$SearchResponseDataToJson(
+      this,
+    );
   }
 }
 
 abstract class SearchResponseData implements SearchResponse {
-  const factory SearchResponseData({List<Result>? results}) =
+  const factory SearchResponseData({final List<Result>? results}) =
       _$SearchResponseData;
 
   factory SearchResponseData.fromJson(Map<String, dynamic> json) =
@@ -2111,36 +2010,36 @@ abstract class SearchResponseData implements SearchResponse {
 
   List<Result>? get results;
   @JsonKey(ignore: true)
-  $SearchResponseDataCopyWith<SearchResponseData> get copyWith =>
+  _$$SearchResponseDataCopyWith<_$SearchResponseData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SearchResponseMerrCopyWith<$Res> {
-  factory $SearchResponseMerrCopyWith(
-          SearchResponseMerr value, $Res Function(SearchResponseMerr) then) =
-      _$SearchResponseMerrCopyWithImpl<$Res>;
+abstract class _$$SearchResponseMerrCopyWith<$Res> {
+  factory _$$SearchResponseMerrCopyWith(_$SearchResponseMerr value,
+          $Res Function(_$SearchResponseMerr) then) =
+      __$$SearchResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$SearchResponseMerrCopyWithImpl<$Res>
+class __$$SearchResponseMerrCopyWithImpl<$Res>
     extends _$SearchResponseCopyWithImpl<$Res>
-    implements $SearchResponseMerrCopyWith<$Res> {
-  _$SearchResponseMerrCopyWithImpl(
-      SearchResponseMerr _value, $Res Function(SearchResponseMerr) _then)
-      : super(_value, (v) => _then(v as SearchResponseMerr));
+    implements _$$SearchResponseMerrCopyWith<$Res> {
+  __$$SearchResponseMerrCopyWithImpl(
+      _$SearchResponseMerr _value, $Res Function(_$SearchResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$SearchResponseMerr));
 
   @override
-  SearchResponseMerr get _value => super._value as SearchResponseMerr;
+  _$SearchResponseMerr get _value => super._value as _$SearchResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(SearchResponseMerr(
+    return _then(_$SearchResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -2150,14 +2049,22 @@ class _$SearchResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SearchResponseMerr implements SearchResponseMerr {
-  const _$SearchResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$SearchResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$SearchResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$SearchResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -2171,18 +2078,20 @@ class _$SearchResponseMerr implements SearchResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SearchResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$SearchResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $SearchResponseMerrCopyWith<SearchResponseMerr> get copyWith =>
-      _$SearchResponseMerrCopyWithImpl<SearchResponseMerr>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SearchResponseMerrCopyWith<_$SearchResponseMerr> get copyWith =>
+      __$$SearchResponseMerrCopyWithImpl<_$SearchResponseMerr>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2248,12 +2157,14 @@ class _$SearchResponseMerr implements SearchResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SearchResponseMerrToJson(this);
+    return _$$SearchResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class SearchResponseMerr implements SearchResponse {
-  const factory SearchResponseMerr({Map<String, dynamic>? body}) =
+  const factory SearchResponseMerr({final Map<String, dynamic>? body}) =
       _$SearchResponseMerr;
 
   factory SearchResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -2261,6 +2172,6 @@ abstract class SearchResponseMerr implements SearchResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $SearchResponseMerrCopyWith<SearchResponseMerr> get copyWith =>
+  _$$SearchResponseMerrCopyWith<_$SearchResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }

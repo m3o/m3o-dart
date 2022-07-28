@@ -12,38 +12,11 @@ part of 'joke.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 JokeInfo _$JokeInfoFromJson(Map<String, dynamic> json) {
   return _JokeInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$JokeInfoTearOff {
-  const _$JokeInfoTearOff();
-
-  _JokeInfo call(
-      {String? body,
-      String? category,
-      String? id,
-      String? source,
-      String? title}) {
-    return _JokeInfo(
-      body: body,
-      category: category,
-      id: id,
-      source: source,
-      title: title,
-    );
-  }
-
-  JokeInfo fromJson(Map<String, Object?> json) {
-    return JokeInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $JokeInfo = _$JokeInfoTearOff();
 
 /// @nodoc
 mixin _$JokeInfo {
@@ -113,9 +86,10 @@ class _$JokeInfoCopyWithImpl<$Res> implements $JokeInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$JokeInfoCopyWith<$Res> implements $JokeInfoCopyWith<$Res> {
-  factory _$JokeInfoCopyWith(_JokeInfo value, $Res Function(_JokeInfo) then) =
-      __$JokeInfoCopyWithImpl<$Res>;
+abstract class _$$_JokeInfoCopyWith<$Res> implements $JokeInfoCopyWith<$Res> {
+  factory _$$_JokeInfoCopyWith(
+          _$_JokeInfo value, $Res Function(_$_JokeInfo) then) =
+      __$$_JokeInfoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String? body,
@@ -126,13 +100,14 @@ abstract class _$JokeInfoCopyWith<$Res> implements $JokeInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$JokeInfoCopyWithImpl<$Res> extends _$JokeInfoCopyWithImpl<$Res>
-    implements _$JokeInfoCopyWith<$Res> {
-  __$JokeInfoCopyWithImpl(_JokeInfo _value, $Res Function(_JokeInfo) _then)
-      : super(_value, (v) => _then(v as _JokeInfo));
+class __$$_JokeInfoCopyWithImpl<$Res> extends _$JokeInfoCopyWithImpl<$Res>
+    implements _$$_JokeInfoCopyWith<$Res> {
+  __$$_JokeInfoCopyWithImpl(
+      _$_JokeInfo _value, $Res Function(_$_JokeInfo) _then)
+      : super(_value, (v) => _then(v as _$_JokeInfo));
 
   @override
-  _JokeInfo get _value => super._value as _JokeInfo;
+  _$_JokeInfo get _value => super._value as _$_JokeInfo;
 
   @override
   $Res call({
@@ -142,7 +117,7 @@ class __$JokeInfoCopyWithImpl<$Res> extends _$JokeInfoCopyWithImpl<$Res>
     Object? source = freezed,
     Object? title = freezed,
   }) {
-    return _then(_JokeInfo(
+    return _then(_$_JokeInfo(
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -196,7 +171,7 @@ class _$_JokeInfo implements _JokeInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _JokeInfo &&
+            other is _$_JokeInfo &&
             const DeepCollectionEquality().equals(other.body, body) &&
             const DeepCollectionEquality().equals(other.category, category) &&
             const DeepCollectionEquality().equals(other.id, id) &&
@@ -204,6 +179,7 @@ class _$_JokeInfo implements _JokeInfo {
             const DeepCollectionEquality().equals(other.title, title));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -215,22 +191,24 @@ class _$_JokeInfo implements _JokeInfo {
 
   @JsonKey(ignore: true)
   @override
-  _$JokeInfoCopyWith<_JokeInfo> get copyWith =>
-      __$JokeInfoCopyWithImpl<_JokeInfo>(this, _$identity);
+  _$$_JokeInfoCopyWith<_$_JokeInfo> get copyWith =>
+      __$$_JokeInfoCopyWithImpl<_$_JokeInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_JokeInfoToJson(this);
+    return _$$_JokeInfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _JokeInfo implements JokeInfo {
   const factory _JokeInfo(
-      {String? body,
-      String? category,
-      String? id,
-      String? source,
-      String? title}) = _$_JokeInfo;
+      {final String? body,
+      final String? category,
+      final String? id,
+      final String? source,
+      final String? title}) = _$_JokeInfo;
 
   factory _JokeInfo.fromJson(Map<String, dynamic> json) = _$_JokeInfo.fromJson;
 
@@ -246,31 +224,13 @@ abstract class _JokeInfo implements JokeInfo {
   String? get title;
   @override
   @JsonKey(ignore: true)
-  _$JokeInfoCopyWith<_JokeInfo> get copyWith =>
+  _$$_JokeInfoCopyWith<_$_JokeInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 RandomRequest _$RandomRequestFromJson(Map<String, dynamic> json) {
   return _RandomRequest.fromJson(json);
 }
-
-/// @nodoc
-class _$RandomRequestTearOff {
-  const _$RandomRequestTearOff();
-
-  _RandomRequest call({int? count}) {
-    return _RandomRequest(
-      count: count,
-    );
-  }
-
-  RandomRequest fromJson(Map<String, Object?> json) {
-    return RandomRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RandomRequest = _$RandomRequestTearOff();
 
 /// @nodoc
 mixin _$RandomRequest {
@@ -314,31 +274,31 @@ class _$RandomRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RandomRequestCopyWith<$Res>
+abstract class _$$_RandomRequestCopyWith<$Res>
     implements $RandomRequestCopyWith<$Res> {
-  factory _$RandomRequestCopyWith(
-          _RandomRequest value, $Res Function(_RandomRequest) then) =
-      __$RandomRequestCopyWithImpl<$Res>;
+  factory _$$_RandomRequestCopyWith(
+          _$_RandomRequest value, $Res Function(_$_RandomRequest) then) =
+      __$$_RandomRequestCopyWithImpl<$Res>;
   @override
   $Res call({int? count});
 }
 
 /// @nodoc
-class __$RandomRequestCopyWithImpl<$Res>
+class __$$_RandomRequestCopyWithImpl<$Res>
     extends _$RandomRequestCopyWithImpl<$Res>
-    implements _$RandomRequestCopyWith<$Res> {
-  __$RandomRequestCopyWithImpl(
-      _RandomRequest _value, $Res Function(_RandomRequest) _then)
-      : super(_value, (v) => _then(v as _RandomRequest));
+    implements _$$_RandomRequestCopyWith<$Res> {
+  __$$_RandomRequestCopyWithImpl(
+      _$_RandomRequest _value, $Res Function(_$_RandomRequest) _then)
+      : super(_value, (v) => _then(v as _$_RandomRequest));
 
   @override
-  _RandomRequest get _value => super._value as _RandomRequest;
+  _$_RandomRequest get _value => super._value as _$_RandomRequest;
 
   @override
   $Res call({
     Object? count = freezed,
   }) {
-    return _then(_RandomRequest(
+    return _then(_$_RandomRequest(
       count: count == freezed
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -355,9 +315,8 @@ class _$_RandomRequest implements _RandomRequest {
   factory _$_RandomRequest.fromJson(Map<String, dynamic> json) =>
       _$$_RandomRequestFromJson(json);
 
-  @override
-
   /// the count of random jokes want, maximum: 10
+  @override
   final int? count;
 
   @override
@@ -369,27 +328,30 @@ class _$_RandomRequest implements _RandomRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RandomRequest &&
+            other is _$_RandomRequest &&
             const DeepCollectionEquality().equals(other.count, count));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(count));
 
   @JsonKey(ignore: true)
   @override
-  _$RandomRequestCopyWith<_RandomRequest> get copyWith =>
-      __$RandomRequestCopyWithImpl<_RandomRequest>(this, _$identity);
+  _$$_RandomRequestCopyWith<_$_RandomRequest> get copyWith =>
+      __$$_RandomRequestCopyWithImpl<_$_RandomRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RandomRequestToJson(this);
+    return _$$_RandomRequestToJson(
+      this,
+    );
   }
 }
 
 abstract class _RandomRequest implements RandomRequest {
-  const factory _RandomRequest({int? count}) = _$_RandomRequest;
+  const factory _RandomRequest({final int? count}) = _$_RandomRequest;
 
   factory _RandomRequest.fromJson(Map<String, dynamic> json) =
       _$_RandomRequest.fromJson;
@@ -400,7 +362,7 @@ abstract class _RandomRequest implements RandomRequest {
   int? get count;
   @override
   @JsonKey(ignore: true)
-  _$RandomRequestCopyWith<_RandomRequest> get copyWith =>
+  _$$_RandomRequestCopyWith<_$_RandomRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -416,30 +378,6 @@ RandomResponse _$RandomResponseFromJson(Map<String, dynamic> json) {
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
-
-/// @nodoc
-class _$RandomResponseTearOff {
-  const _$RandomResponseTearOff();
-
-  RandomResponseData call({List<JokeInfo>? jokes}) {
-    return RandomResponseData(
-      jokes: jokes,
-    );
-  }
-
-  RandomResponseMerr Merr({Map<String, dynamic>? body}) {
-    return RandomResponseMerr(
-      body: body,
-    );
-  }
-
-  RandomResponse fromJson(Map<String, Object?> json) {
-    return RandomResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RandomResponse = _$RandomResponseTearOff();
 
 /// @nodoc
 mixin _$RandomResponse {
@@ -502,31 +440,31 @@ class _$RandomResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $RandomResponseDataCopyWith<$Res> {
-  factory $RandomResponseDataCopyWith(
-          RandomResponseData value, $Res Function(RandomResponseData) then) =
-      _$RandomResponseDataCopyWithImpl<$Res>;
+abstract class _$$RandomResponseDataCopyWith<$Res> {
+  factory _$$RandomResponseDataCopyWith(_$RandomResponseData value,
+          $Res Function(_$RandomResponseData) then) =
+      __$$RandomResponseDataCopyWithImpl<$Res>;
   $Res call({List<JokeInfo>? jokes});
 }
 
 /// @nodoc
-class _$RandomResponseDataCopyWithImpl<$Res>
+class __$$RandomResponseDataCopyWithImpl<$Res>
     extends _$RandomResponseCopyWithImpl<$Res>
-    implements $RandomResponseDataCopyWith<$Res> {
-  _$RandomResponseDataCopyWithImpl(
-      RandomResponseData _value, $Res Function(RandomResponseData) _then)
-      : super(_value, (v) => _then(v as RandomResponseData));
+    implements _$$RandomResponseDataCopyWith<$Res> {
+  __$$RandomResponseDataCopyWithImpl(
+      _$RandomResponseData _value, $Res Function(_$RandomResponseData) _then)
+      : super(_value, (v) => _then(v as _$RandomResponseData));
 
   @override
-  RandomResponseData get _value => super._value as RandomResponseData;
+  _$RandomResponseData get _value => super._value as _$RandomResponseData;
 
   @override
   $Res call({
     Object? jokes = freezed,
   }) {
-    return _then(RandomResponseData(
+    return _then(_$RandomResponseData(
       jokes: jokes == freezed
-          ? _value.jokes
+          ? _value._jokes
           : jokes // ignore: cast_nullable_to_non_nullable
               as List<JokeInfo>?,
     ));
@@ -536,14 +474,21 @@ class _$RandomResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$RandomResponseData implements RandomResponseData {
-  const _$RandomResponseData({this.jokes, String? $type})
-      : $type = $type ?? 'default';
+  const _$RandomResponseData({final List<JokeInfo>? jokes, final String? $type})
+      : _jokes = jokes,
+        $type = $type ?? 'default';
 
   factory _$RandomResponseData.fromJson(Map<String, dynamic> json) =>
       _$$RandomResponseDataFromJson(json);
 
+  final List<JokeInfo>? _jokes;
   @override
-  final List<JokeInfo>? jokes;
+  List<JokeInfo>? get jokes {
+    final value = _jokes;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -557,18 +502,20 @@ class _$RandomResponseData implements RandomResponseData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is RandomResponseData &&
-            const DeepCollectionEquality().equals(other.jokes, jokes));
+            other is _$RandomResponseData &&
+            const DeepCollectionEquality().equals(other._jokes, _jokes));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(jokes));
 
   @JsonKey(ignore: true)
   @override
-  $RandomResponseDataCopyWith<RandomResponseData> get copyWith =>
-      _$RandomResponseDataCopyWithImpl<RandomResponseData>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_jokes));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$RandomResponseDataCopyWith<_$RandomResponseData> get copyWith =>
+      __$$RandomResponseDataCopyWithImpl<_$RandomResponseData>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -634,12 +581,14 @@ class _$RandomResponseData implements RandomResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RandomResponseDataToJson(this);
+    return _$$RandomResponseDataToJson(
+      this,
+    );
   }
 }
 
 abstract class RandomResponseData implements RandomResponse {
-  const factory RandomResponseData({List<JokeInfo>? jokes}) =
+  const factory RandomResponseData({final List<JokeInfo>? jokes}) =
       _$RandomResponseData;
 
   factory RandomResponseData.fromJson(Map<String, dynamic> json) =
@@ -647,36 +596,36 @@ abstract class RandomResponseData implements RandomResponse {
 
   List<JokeInfo>? get jokes;
   @JsonKey(ignore: true)
-  $RandomResponseDataCopyWith<RandomResponseData> get copyWith =>
+  _$$RandomResponseDataCopyWith<_$RandomResponseData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RandomResponseMerrCopyWith<$Res> {
-  factory $RandomResponseMerrCopyWith(
-          RandomResponseMerr value, $Res Function(RandomResponseMerr) then) =
-      _$RandomResponseMerrCopyWithImpl<$Res>;
+abstract class _$$RandomResponseMerrCopyWith<$Res> {
+  factory _$$RandomResponseMerrCopyWith(_$RandomResponseMerr value,
+          $Res Function(_$RandomResponseMerr) then) =
+      __$$RandomResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$RandomResponseMerrCopyWithImpl<$Res>
+class __$$RandomResponseMerrCopyWithImpl<$Res>
     extends _$RandomResponseCopyWithImpl<$Res>
-    implements $RandomResponseMerrCopyWith<$Res> {
-  _$RandomResponseMerrCopyWithImpl(
-      RandomResponseMerr _value, $Res Function(RandomResponseMerr) _then)
-      : super(_value, (v) => _then(v as RandomResponseMerr));
+    implements _$$RandomResponseMerrCopyWith<$Res> {
+  __$$RandomResponseMerrCopyWithImpl(
+      _$RandomResponseMerr _value, $Res Function(_$RandomResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$RandomResponseMerr));
 
   @override
-  RandomResponseMerr get _value => super._value as RandomResponseMerr;
+  _$RandomResponseMerr get _value => super._value as _$RandomResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(RandomResponseMerr(
+    return _then(_$RandomResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -686,14 +635,22 @@ class _$RandomResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$RandomResponseMerr implements RandomResponseMerr {
-  const _$RandomResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$RandomResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$RandomResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$RandomResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -707,18 +664,20 @@ class _$RandomResponseMerr implements RandomResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is RandomResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$RandomResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $RandomResponseMerrCopyWith<RandomResponseMerr> get copyWith =>
-      _$RandomResponseMerrCopyWithImpl<RandomResponseMerr>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$RandomResponseMerrCopyWith<_$RandomResponseMerr> get copyWith =>
+      __$$RandomResponseMerrCopyWithImpl<_$RandomResponseMerr>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -784,12 +743,14 @@ class _$RandomResponseMerr implements RandomResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RandomResponseMerrToJson(this);
+    return _$$RandomResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class RandomResponseMerr implements RandomResponse {
-  const factory RandomResponseMerr({Map<String, dynamic>? body}) =
+  const factory RandomResponseMerr({final Map<String, dynamic>? body}) =
       _$RandomResponseMerr;
 
   factory RandomResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -797,6 +758,6 @@ abstract class RandomResponseMerr implements RandomResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $RandomResponseMerrCopyWith<RandomResponseMerr> get copyWith =>
+  _$$RandomResponseMerrCopyWith<_$RandomResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }

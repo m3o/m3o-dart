@@ -8,24 +8,24 @@ part of 'prayer.dart';
 
 _$_PrayerTime _$$_PrayerTimeFromJson(Map<String, dynamic> json) =>
     _$_PrayerTime(
-      maghrib: json['maghrib'] as String?,
-      sunrise: json['sunrise'] as String?,
       zuhr: json['zuhr'] as String?,
       asr: json['asr'] as String?,
       date: json['date'] as String?,
       fajr: json['fajr'] as String?,
       isha: json['isha'] as String?,
+      maghrib: json['maghrib'] as String?,
+      sunrise: json['sunrise'] as String?,
     );
 
 Map<String, dynamic> _$$_PrayerTimeToJson(_$_PrayerTime instance) =>
     <String, dynamic>{
-      'maghrib': instance.maghrib,
-      'sunrise': instance.sunrise,
       'zuhr': instance.zuhr,
       'asr': instance.asr,
       'date': instance.date,
       'fajr': instance.fajr,
       'isha': instance.isha,
+      'maghrib': instance.maghrib,
+      'sunrise': instance.sunrise,
     };
 
 _$_TimesRequest _$$_TimesRequestFromJson(Map<String, dynamic> json) =>
@@ -48,6 +48,7 @@ Map<String, dynamic> _$$_TimesRequestToJson(_$_TimesRequest instance) =>
 
 _$TimesResponseData _$$TimesResponseDataFromJson(Map<String, dynamic> json) =>
     _$TimesResponseData(
+      date: json['date'] as String?,
       days: json['days'] as int?,
       latitude: (json['latitude'] as num?)?.toDouble(),
       location: json['location'] as String?,
@@ -55,18 +56,17 @@ _$TimesResponseData _$$TimesResponseDataFromJson(Map<String, dynamic> json) =>
       times: (json['times'] as List<dynamic>?)
           ?.map((e) => PrayerTime.fromJson(e as Map<String, dynamic>))
           .toList(),
-      date: json['date'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$TimesResponseDataToJson(_$TimesResponseData instance) =>
     <String, dynamic>{
+      'date': instance.date,
       'days': instance.days,
       'latitude': instance.latitude,
       'location': instance.location,
       'longitude': instance.longitude,
       'times': instance.times,
-      'date': instance.date,
       'runtimeType': instance.$type,
     };
 

@@ -69,8 +69,8 @@ class Address with _$Address {
 @Freezed()
 class Location with _$Location {
   const factory Location({
-    double? latitude,
     double? longitude,
+    double? latitude,
   }) = _Location;
   factory Location.fromJson(Map<String, dynamic> json) =>
       _$LocationFromJson(json);
@@ -79,10 +79,10 @@ class Location with _$Location {
 @Freezed()
 class LookupRequest with _$LookupRequest {
   const factory LookupRequest({
+    String? address,
     String? city,
     String? country,
     String? postcode,
-    String? address,
   }) = _LookupRequest;
   factory LookupRequest.fromJson(Map<String, dynamic> json) =>
       _$LookupRequestFromJson(json);
@@ -103,8 +103,8 @@ class LookupResponse with _$LookupResponse {
 @Freezed()
 class ReverseRequest with _$ReverseRequest {
   const factory ReverseRequest({
-    double? latitude,
     double? longitude,
+    double? latitude,
   }) = _ReverseRequest;
   factory ReverseRequest.fromJson(Map<String, dynamic> json) =>
       _$ReverseRequestFromJson(json);

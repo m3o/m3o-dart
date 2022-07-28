@@ -305,14 +305,6 @@ class ListTablesResponse with _$ListTablesResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
-    int? offset,
-
-    /// 'asc' (default), 'desc'
-    String? order,
-
-    /// field name to order by
-    String? orderBy,
-
     /// Examples: 'age >= 18', 'age >= 18 and verified == true'
     /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
     /// Logical operator: 'and'
@@ -329,6 +321,13 @@ class ReadRequest with _$ReadRequest {
     /// Maximum number of records to return. Default limit is 25.
     /// Maximum limit is 1000. Anything higher will return an error.
     int? limit,
+    int? offset,
+
+    /// 'asc' (default), 'desc'
+    String? order,
+
+    /// field name to order by
+    String? orderBy,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);

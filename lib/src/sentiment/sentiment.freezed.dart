@@ -12,30 +12,11 @@ part of 'sentiment.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AnalyzeRequest _$AnalyzeRequestFromJson(Map<String, dynamic> json) {
   return _AnalyzeRequest.fromJson(json);
 }
-
-/// @nodoc
-class _$AnalyzeRequestTearOff {
-  const _$AnalyzeRequestTearOff();
-
-  _AnalyzeRequest call({String? lang, String? text}) {
-    return _AnalyzeRequest(
-      lang: lang,
-      text: text,
-    );
-  }
-
-  AnalyzeRequest fromJson(Map<String, Object?> json) {
-    return AnalyzeRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AnalyzeRequest = _$AnalyzeRequestTearOff();
 
 /// @nodoc
 mixin _$AnalyzeRequest {
@@ -87,32 +68,32 @@ class _$AnalyzeRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AnalyzeRequestCopyWith<$Res>
+abstract class _$$_AnalyzeRequestCopyWith<$Res>
     implements $AnalyzeRequestCopyWith<$Res> {
-  factory _$AnalyzeRequestCopyWith(
-          _AnalyzeRequest value, $Res Function(_AnalyzeRequest) then) =
-      __$AnalyzeRequestCopyWithImpl<$Res>;
+  factory _$$_AnalyzeRequestCopyWith(
+          _$_AnalyzeRequest value, $Res Function(_$_AnalyzeRequest) then) =
+      __$$_AnalyzeRequestCopyWithImpl<$Res>;
   @override
   $Res call({String? lang, String? text});
 }
 
 /// @nodoc
-class __$AnalyzeRequestCopyWithImpl<$Res>
+class __$$_AnalyzeRequestCopyWithImpl<$Res>
     extends _$AnalyzeRequestCopyWithImpl<$Res>
-    implements _$AnalyzeRequestCopyWith<$Res> {
-  __$AnalyzeRequestCopyWithImpl(
-      _AnalyzeRequest _value, $Res Function(_AnalyzeRequest) _then)
-      : super(_value, (v) => _then(v as _AnalyzeRequest));
+    implements _$$_AnalyzeRequestCopyWith<$Res> {
+  __$$_AnalyzeRequestCopyWithImpl(
+      _$_AnalyzeRequest _value, $Res Function(_$_AnalyzeRequest) _then)
+      : super(_value, (v) => _then(v as _$_AnalyzeRequest));
 
   @override
-  _AnalyzeRequest get _value => super._value as _AnalyzeRequest;
+  _$_AnalyzeRequest get _value => super._value as _$_AnalyzeRequest;
 
   @override
   $Res call({
     Object? lang = freezed,
     Object? text = freezed,
   }) {
-    return _then(_AnalyzeRequest(
+    return _then(_$_AnalyzeRequest(
       lang: lang == freezed
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
@@ -133,13 +114,12 @@ class _$_AnalyzeRequest implements _AnalyzeRequest {
   factory _$_AnalyzeRequest.fromJson(Map<String, dynamic> json) =>
       _$$_AnalyzeRequestFromJson(json);
 
-  @override
-
   /// The language. Defaults to english.
-  final String? lang;
   @override
+  final String? lang;
 
   /// The text to analyze
+  @override
   final String? text;
 
   @override
@@ -151,11 +131,12 @@ class _$_AnalyzeRequest implements _AnalyzeRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AnalyzeRequest &&
+            other is _$_AnalyzeRequest &&
             const DeepCollectionEquality().equals(other.lang, lang) &&
             const DeepCollectionEquality().equals(other.text, text));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -164,17 +145,19 @@ class _$_AnalyzeRequest implements _AnalyzeRequest {
 
   @JsonKey(ignore: true)
   @override
-  _$AnalyzeRequestCopyWith<_AnalyzeRequest> get copyWith =>
-      __$AnalyzeRequestCopyWithImpl<_AnalyzeRequest>(this, _$identity);
+  _$$_AnalyzeRequestCopyWith<_$_AnalyzeRequest> get copyWith =>
+      __$$_AnalyzeRequestCopyWithImpl<_$_AnalyzeRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AnalyzeRequestToJson(this);
+    return _$$_AnalyzeRequestToJson(
+      this,
+    );
   }
 }
 
 abstract class _AnalyzeRequest implements AnalyzeRequest {
-  const factory _AnalyzeRequest({String? lang, String? text}) =
+  const factory _AnalyzeRequest({final String? lang, final String? text}) =
       _$_AnalyzeRequest;
 
   factory _AnalyzeRequest.fromJson(Map<String, dynamic> json) =
@@ -190,7 +173,7 @@ abstract class _AnalyzeRequest implements AnalyzeRequest {
   String? get text;
   @override
   @JsonKey(ignore: true)
-  _$AnalyzeRequestCopyWith<_AnalyzeRequest> get copyWith =>
+  _$$_AnalyzeRequestCopyWith<_$_AnalyzeRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -206,30 +189,6 @@ AnalyzeResponse _$AnalyzeResponseFromJson(Map<String, dynamic> json) {
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
-
-/// @nodoc
-class _$AnalyzeResponseTearOff {
-  const _$AnalyzeResponseTearOff();
-
-  AnalyzeResponseData call({double? score}) {
-    return AnalyzeResponseData(
-      score: score,
-    );
-  }
-
-  AnalyzeResponseMerr Merr({Map<String, dynamic>? body}) {
-    return AnalyzeResponseMerr(
-      body: body,
-    );
-  }
-
-  AnalyzeResponse fromJson(Map<String, Object?> json) {
-    return AnalyzeResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AnalyzeResponse = _$AnalyzeResponseTearOff();
 
 /// @nodoc
 mixin _$AnalyzeResponse {
@@ -292,29 +251,29 @@ class _$AnalyzeResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $AnalyzeResponseDataCopyWith<$Res> {
-  factory $AnalyzeResponseDataCopyWith(
-          AnalyzeResponseData value, $Res Function(AnalyzeResponseData) then) =
-      _$AnalyzeResponseDataCopyWithImpl<$Res>;
+abstract class _$$AnalyzeResponseDataCopyWith<$Res> {
+  factory _$$AnalyzeResponseDataCopyWith(_$AnalyzeResponseData value,
+          $Res Function(_$AnalyzeResponseData) then) =
+      __$$AnalyzeResponseDataCopyWithImpl<$Res>;
   $Res call({double? score});
 }
 
 /// @nodoc
-class _$AnalyzeResponseDataCopyWithImpl<$Res>
+class __$$AnalyzeResponseDataCopyWithImpl<$Res>
     extends _$AnalyzeResponseCopyWithImpl<$Res>
-    implements $AnalyzeResponseDataCopyWith<$Res> {
-  _$AnalyzeResponseDataCopyWithImpl(
-      AnalyzeResponseData _value, $Res Function(AnalyzeResponseData) _then)
-      : super(_value, (v) => _then(v as AnalyzeResponseData));
+    implements _$$AnalyzeResponseDataCopyWith<$Res> {
+  __$$AnalyzeResponseDataCopyWithImpl(
+      _$AnalyzeResponseData _value, $Res Function(_$AnalyzeResponseData) _then)
+      : super(_value, (v) => _then(v as _$AnalyzeResponseData));
 
   @override
-  AnalyzeResponseData get _value => super._value as AnalyzeResponseData;
+  _$AnalyzeResponseData get _value => super._value as _$AnalyzeResponseData;
 
   @override
   $Res call({
     Object? score = freezed,
   }) {
-    return _then(AnalyzeResponseData(
+    return _then(_$AnalyzeResponseData(
       score: score == freezed
           ? _value.score
           : score // ignore: cast_nullable_to_non_nullable
@@ -326,15 +285,14 @@ class _$AnalyzeResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AnalyzeResponseData implements AnalyzeResponseData {
-  const _$AnalyzeResponseData({this.score, String? $type})
+  const _$AnalyzeResponseData({this.score, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$AnalyzeResponseData.fromJson(Map<String, dynamic> json) =>
       _$$AnalyzeResponseDataFromJson(json);
 
-  @override
-
   /// The score of the text {positive is 1, negative is 0}
+  @override
   final double? score;
 
   @JsonKey(name: 'runtimeType')
@@ -349,18 +307,20 @@ class _$AnalyzeResponseData implements AnalyzeResponseData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AnalyzeResponseData &&
+            other is _$AnalyzeResponseData &&
             const DeepCollectionEquality().equals(other.score, score));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(score));
 
   @JsonKey(ignore: true)
   @override
-  $AnalyzeResponseDataCopyWith<AnalyzeResponseData> get copyWith =>
-      _$AnalyzeResponseDataCopyWithImpl<AnalyzeResponseData>(this, _$identity);
+  _$$AnalyzeResponseDataCopyWith<_$AnalyzeResponseData> get copyWith =>
+      __$$AnalyzeResponseDataCopyWithImpl<_$AnalyzeResponseData>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -426,12 +386,15 @@ class _$AnalyzeResponseData implements AnalyzeResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AnalyzeResponseDataToJson(this);
+    return _$$AnalyzeResponseDataToJson(
+      this,
+    );
   }
 }
 
 abstract class AnalyzeResponseData implements AnalyzeResponse {
-  const factory AnalyzeResponseData({double? score}) = _$AnalyzeResponseData;
+  const factory AnalyzeResponseData({final double? score}) =
+      _$AnalyzeResponseData;
 
   factory AnalyzeResponseData.fromJson(Map<String, dynamic> json) =
       _$AnalyzeResponseData.fromJson;
@@ -439,36 +402,36 @@ abstract class AnalyzeResponseData implements AnalyzeResponse {
   /// The score of the text {positive is 1, negative is 0}
   double? get score;
   @JsonKey(ignore: true)
-  $AnalyzeResponseDataCopyWith<AnalyzeResponseData> get copyWith =>
+  _$$AnalyzeResponseDataCopyWith<_$AnalyzeResponseData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AnalyzeResponseMerrCopyWith<$Res> {
-  factory $AnalyzeResponseMerrCopyWith(
-          AnalyzeResponseMerr value, $Res Function(AnalyzeResponseMerr) then) =
-      _$AnalyzeResponseMerrCopyWithImpl<$Res>;
+abstract class _$$AnalyzeResponseMerrCopyWith<$Res> {
+  factory _$$AnalyzeResponseMerrCopyWith(_$AnalyzeResponseMerr value,
+          $Res Function(_$AnalyzeResponseMerr) then) =
+      __$$AnalyzeResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$AnalyzeResponseMerrCopyWithImpl<$Res>
+class __$$AnalyzeResponseMerrCopyWithImpl<$Res>
     extends _$AnalyzeResponseCopyWithImpl<$Res>
-    implements $AnalyzeResponseMerrCopyWith<$Res> {
-  _$AnalyzeResponseMerrCopyWithImpl(
-      AnalyzeResponseMerr _value, $Res Function(AnalyzeResponseMerr) _then)
-      : super(_value, (v) => _then(v as AnalyzeResponseMerr));
+    implements _$$AnalyzeResponseMerrCopyWith<$Res> {
+  __$$AnalyzeResponseMerrCopyWithImpl(
+      _$AnalyzeResponseMerr _value, $Res Function(_$AnalyzeResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$AnalyzeResponseMerr));
 
   @override
-  AnalyzeResponseMerr get _value => super._value as AnalyzeResponseMerr;
+  _$AnalyzeResponseMerr get _value => super._value as _$AnalyzeResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(AnalyzeResponseMerr(
+    return _then(_$AnalyzeResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -478,14 +441,22 @@ class _$AnalyzeResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AnalyzeResponseMerr implements AnalyzeResponseMerr {
-  const _$AnalyzeResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$AnalyzeResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$AnalyzeResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$AnalyzeResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -499,18 +470,20 @@ class _$AnalyzeResponseMerr implements AnalyzeResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AnalyzeResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$AnalyzeResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $AnalyzeResponseMerrCopyWith<AnalyzeResponseMerr> get copyWith =>
-      _$AnalyzeResponseMerrCopyWithImpl<AnalyzeResponseMerr>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$AnalyzeResponseMerrCopyWith<_$AnalyzeResponseMerr> get copyWith =>
+      __$$AnalyzeResponseMerrCopyWithImpl<_$AnalyzeResponseMerr>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -576,12 +549,14 @@ class _$AnalyzeResponseMerr implements AnalyzeResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AnalyzeResponseMerrToJson(this);
+    return _$$AnalyzeResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class AnalyzeResponseMerr implements AnalyzeResponse {
-  const factory AnalyzeResponseMerr({Map<String, dynamic>? body}) =
+  const factory AnalyzeResponseMerr({final Map<String, dynamic>? body}) =
       _$AnalyzeResponseMerr;
 
   factory AnalyzeResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -589,6 +564,6 @@ abstract class AnalyzeResponseMerr implements AnalyzeResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $AnalyzeResponseMerrCopyWith<AnalyzeResponseMerr> get copyWith =>
+  _$$AnalyzeResponseMerrCopyWith<_$AnalyzeResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }

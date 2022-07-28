@@ -12,34 +12,11 @@ part of 'otp.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 GenerateRequest _$GenerateRequestFromJson(Map<String, dynamic> json) {
   return _GenerateRequest.fromJson(json);
 }
-
-/// @nodoc
-class _$GenerateRequestTearOff {
-  const _$GenerateRequestTearOff();
-
-  _GenerateRequest call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? expiry,
-      String? id,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size}) {
-    return _GenerateRequest(
-      expiry: expiry,
-      id: id,
-      size: size,
-    );
-  }
-
-  GenerateRequest fromJson(Map<String, Object?> json) {
-    return GenerateRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $GenerateRequest = _$GenerateRequestTearOff();
 
 /// @nodoc
 mixin _$GenerateRequest {
@@ -104,11 +81,11 @@ class _$GenerateRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$GenerateRequestCopyWith<$Res>
+abstract class _$$_GenerateRequestCopyWith<$Res>
     implements $GenerateRequestCopyWith<$Res> {
-  factory _$GenerateRequestCopyWith(
-          _GenerateRequest value, $Res Function(_GenerateRequest) then) =
-      __$GenerateRequestCopyWithImpl<$Res>;
+  factory _$$_GenerateRequestCopyWith(
+          _$_GenerateRequest value, $Res Function(_$_GenerateRequest) then) =
+      __$$_GenerateRequestCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? expiry,
@@ -117,15 +94,15 @@ abstract class _$GenerateRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$GenerateRequestCopyWithImpl<$Res>
+class __$$_GenerateRequestCopyWithImpl<$Res>
     extends _$GenerateRequestCopyWithImpl<$Res>
-    implements _$GenerateRequestCopyWith<$Res> {
-  __$GenerateRequestCopyWithImpl(
-      _GenerateRequest _value, $Res Function(_GenerateRequest) _then)
-      : super(_value, (v) => _then(v as _GenerateRequest));
+    implements _$$_GenerateRequestCopyWith<$Res> {
+  __$$_GenerateRequestCopyWithImpl(
+      _$_GenerateRequest _value, $Res Function(_$_GenerateRequest) _then)
+      : super(_value, (v) => _then(v as _$_GenerateRequest));
 
   @override
-  _GenerateRequest get _value => super._value as _GenerateRequest;
+  _$_GenerateRequest get _value => super._value as _$_GenerateRequest;
 
   @override
   $Res call({
@@ -133,7 +110,7 @@ class __$GenerateRequestCopyWithImpl<$Res>
     Object? id = freezed,
     Object? size = freezed,
   }) {
-    return _then(_GenerateRequest(
+    return _then(_$_GenerateRequest(
       expiry: expiry == freezed
           ? _value.expiry
           : expiry // ignore: cast_nullable_to_non_nullable
@@ -161,18 +138,17 @@ class _$_GenerateRequest implements _GenerateRequest {
   factory _$_GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_GenerateRequestFromJson(json);
 
-  @override
-
   /// expiration in seconds (default: 60)
+  @override
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? expiry;
-  @override
 
   /// unique id, email or user to generate an OTP for
-  final String? id;
   @override
+  final String? id;
 
   /// number of characters (default: 6)
+  @override
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? size;
 
@@ -185,12 +161,13 @@ class _$_GenerateRequest implements _GenerateRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _GenerateRequest &&
+            other is _$_GenerateRequest &&
             const DeepCollectionEquality().equals(other.expiry, expiry) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.size, size));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -200,22 +177,24 @@ class _$_GenerateRequest implements _GenerateRequest {
 
   @JsonKey(ignore: true)
   @override
-  _$GenerateRequestCopyWith<_GenerateRequest> get copyWith =>
-      __$GenerateRequestCopyWithImpl<_GenerateRequest>(this, _$identity);
+  _$$_GenerateRequestCopyWith<_$_GenerateRequest> get copyWith =>
+      __$$_GenerateRequestCopyWithImpl<_$_GenerateRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GenerateRequestToJson(this);
+    return _$$_GenerateRequestToJson(
+      this,
+    );
   }
 }
 
 abstract class _GenerateRequest implements GenerateRequest {
   const factory _GenerateRequest(
       {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? expiry,
-      String? id,
+          final int? expiry,
+      final String? id,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? size}) = _$_GenerateRequest;
+          final int? size}) = _$_GenerateRequest;
 
   factory _GenerateRequest.fromJson(Map<String, dynamic> json) =
       _$_GenerateRequest.fromJson;
@@ -236,7 +215,7 @@ abstract class _GenerateRequest implements GenerateRequest {
   int? get size;
   @override
   @JsonKey(ignore: true)
-  _$GenerateRequestCopyWith<_GenerateRequest> get copyWith =>
+  _$$_GenerateRequestCopyWith<_$_GenerateRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -252,30 +231,6 @@ GenerateResponse _$GenerateResponseFromJson(Map<String, dynamic> json) {
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
-
-/// @nodoc
-class _$GenerateResponseTearOff {
-  const _$GenerateResponseTearOff();
-
-  GenerateResponseData call({String? code}) {
-    return GenerateResponseData(
-      code: code,
-    );
-  }
-
-  GenerateResponseMerr Merr({Map<String, dynamic>? body}) {
-    return GenerateResponseMerr(
-      body: body,
-    );
-  }
-
-  GenerateResponse fromJson(Map<String, Object?> json) {
-    return GenerateResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $GenerateResponse = _$GenerateResponseTearOff();
 
 /// @nodoc
 mixin _$GenerateResponse {
@@ -338,29 +293,29 @@ class _$GenerateResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $GenerateResponseDataCopyWith<$Res> {
-  factory $GenerateResponseDataCopyWith(GenerateResponseData value,
-          $Res Function(GenerateResponseData) then) =
-      _$GenerateResponseDataCopyWithImpl<$Res>;
+abstract class _$$GenerateResponseDataCopyWith<$Res> {
+  factory _$$GenerateResponseDataCopyWith(_$GenerateResponseData value,
+          $Res Function(_$GenerateResponseData) then) =
+      __$$GenerateResponseDataCopyWithImpl<$Res>;
   $Res call({String? code});
 }
 
 /// @nodoc
-class _$GenerateResponseDataCopyWithImpl<$Res>
+class __$$GenerateResponseDataCopyWithImpl<$Res>
     extends _$GenerateResponseCopyWithImpl<$Res>
-    implements $GenerateResponseDataCopyWith<$Res> {
-  _$GenerateResponseDataCopyWithImpl(
-      GenerateResponseData _value, $Res Function(GenerateResponseData) _then)
-      : super(_value, (v) => _then(v as GenerateResponseData));
+    implements _$$GenerateResponseDataCopyWith<$Res> {
+  __$$GenerateResponseDataCopyWithImpl(_$GenerateResponseData _value,
+      $Res Function(_$GenerateResponseData) _then)
+      : super(_value, (v) => _then(v as _$GenerateResponseData));
 
   @override
-  GenerateResponseData get _value => super._value as GenerateResponseData;
+  _$GenerateResponseData get _value => super._value as _$GenerateResponseData;
 
   @override
   $Res call({
     Object? code = freezed,
   }) {
-    return _then(GenerateResponseData(
+    return _then(_$GenerateResponseData(
       code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -372,15 +327,14 @@ class _$GenerateResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$GenerateResponseData implements GenerateResponseData {
-  const _$GenerateResponseData({this.code, String? $type})
+  const _$GenerateResponseData({this.code, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$GenerateResponseData.fromJson(Map<String, dynamic> json) =>
       _$$GenerateResponseDataFromJson(json);
 
-  @override
-
   /// one time pass code
+  @override
   final String? code;
 
   @JsonKey(name: 'runtimeType')
@@ -395,18 +349,19 @@ class _$GenerateResponseData implements GenerateResponseData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is GenerateResponseData &&
+            other is _$GenerateResponseData &&
             const DeepCollectionEquality().equals(other.code, code));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(code));
 
   @JsonKey(ignore: true)
   @override
-  $GenerateResponseDataCopyWith<GenerateResponseData> get copyWith =>
-      _$GenerateResponseDataCopyWithImpl<GenerateResponseData>(
+  _$$GenerateResponseDataCopyWith<_$GenerateResponseData> get copyWith =>
+      __$$GenerateResponseDataCopyWithImpl<_$GenerateResponseData>(
           this, _$identity);
 
   @override
@@ -473,12 +428,15 @@ class _$GenerateResponseData implements GenerateResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GenerateResponseDataToJson(this);
+    return _$$GenerateResponseDataToJson(
+      this,
+    );
   }
 }
 
 abstract class GenerateResponseData implements GenerateResponse {
-  const factory GenerateResponseData({String? code}) = _$GenerateResponseData;
+  const factory GenerateResponseData({final String? code}) =
+      _$GenerateResponseData;
 
   factory GenerateResponseData.fromJson(Map<String, dynamic> json) =
       _$GenerateResponseData.fromJson;
@@ -486,36 +444,36 @@ abstract class GenerateResponseData implements GenerateResponse {
   /// one time pass code
   String? get code;
   @JsonKey(ignore: true)
-  $GenerateResponseDataCopyWith<GenerateResponseData> get copyWith =>
+  _$$GenerateResponseDataCopyWith<_$GenerateResponseData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GenerateResponseMerrCopyWith<$Res> {
-  factory $GenerateResponseMerrCopyWith(GenerateResponseMerr value,
-          $Res Function(GenerateResponseMerr) then) =
-      _$GenerateResponseMerrCopyWithImpl<$Res>;
+abstract class _$$GenerateResponseMerrCopyWith<$Res> {
+  factory _$$GenerateResponseMerrCopyWith(_$GenerateResponseMerr value,
+          $Res Function(_$GenerateResponseMerr) then) =
+      __$$GenerateResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$GenerateResponseMerrCopyWithImpl<$Res>
+class __$$GenerateResponseMerrCopyWithImpl<$Res>
     extends _$GenerateResponseCopyWithImpl<$Res>
-    implements $GenerateResponseMerrCopyWith<$Res> {
-  _$GenerateResponseMerrCopyWithImpl(
-      GenerateResponseMerr _value, $Res Function(GenerateResponseMerr) _then)
-      : super(_value, (v) => _then(v as GenerateResponseMerr));
+    implements _$$GenerateResponseMerrCopyWith<$Res> {
+  __$$GenerateResponseMerrCopyWithImpl(_$GenerateResponseMerr _value,
+      $Res Function(_$GenerateResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$GenerateResponseMerr));
 
   @override
-  GenerateResponseMerr get _value => super._value as GenerateResponseMerr;
+  _$GenerateResponseMerr get _value => super._value as _$GenerateResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(GenerateResponseMerr(
+    return _then(_$GenerateResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -525,14 +483,22 @@ class _$GenerateResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$GenerateResponseMerr implements GenerateResponseMerr {
-  const _$GenerateResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$GenerateResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$GenerateResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$GenerateResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -546,18 +512,19 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is GenerateResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$GenerateResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $GenerateResponseMerrCopyWith<GenerateResponseMerr> get copyWith =>
-      _$GenerateResponseMerrCopyWithImpl<GenerateResponseMerr>(
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$GenerateResponseMerrCopyWith<_$GenerateResponseMerr> get copyWith =>
+      __$$GenerateResponseMerrCopyWithImpl<_$GenerateResponseMerr>(
           this, _$identity);
 
   @override
@@ -624,12 +591,14 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GenerateResponseMerrToJson(this);
+    return _$$GenerateResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class GenerateResponseMerr implements GenerateResponse {
-  const factory GenerateResponseMerr({Map<String, dynamic>? body}) =
+  const factory GenerateResponseMerr({final Map<String, dynamic>? body}) =
       _$GenerateResponseMerr;
 
   factory GenerateResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -637,7 +606,7 @@ abstract class GenerateResponseMerr implements GenerateResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $GenerateResponseMerrCopyWith<GenerateResponseMerr> get copyWith =>
+  _$$GenerateResponseMerrCopyWith<_$GenerateResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -646,31 +615,12 @@ ValidateRequest _$ValidateRequestFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$ValidateRequestTearOff {
-  const _$ValidateRequestTearOff();
-
-  _ValidateRequest call({String? code, String? id}) {
-    return _ValidateRequest(
-      code: code,
-      id: id,
-    );
-  }
-
-  ValidateRequest fromJson(Map<String, Object?> json) {
-    return ValidateRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ValidateRequest = _$ValidateRequestTearOff();
-
-/// @nodoc
 mixin _$ValidateRequest {
-  /// one time pass code to validate
-  String? get code => throw _privateConstructorUsedError;
-
   /// unique id, email or user for which the code was generated
   String? get id => throw _privateConstructorUsedError;
+
+  /// one time pass code to validate
+  String? get code => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -683,7 +633,7 @@ abstract class $ValidateRequestCopyWith<$Res> {
   factory $ValidateRequestCopyWith(
           ValidateRequest value, $Res Function(ValidateRequest) then) =
       _$ValidateRequestCopyWithImpl<$Res>;
-  $Res call({String? code, String? id});
+  $Res call({String? id, String? code});
 }
 
 /// @nodoc
@@ -697,56 +647,56 @@ class _$ValidateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? code = freezed,
     Object? id = freezed,
+    Object? code = freezed,
   }) {
     return _then(_value.copyWith(
-      code: code == freezed
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$ValidateRequestCopyWith<$Res>
+abstract class _$$_ValidateRequestCopyWith<$Res>
     implements $ValidateRequestCopyWith<$Res> {
-  factory _$ValidateRequestCopyWith(
-          _ValidateRequest value, $Res Function(_ValidateRequest) then) =
-      __$ValidateRequestCopyWithImpl<$Res>;
+  factory _$$_ValidateRequestCopyWith(
+          _$_ValidateRequest value, $Res Function(_$_ValidateRequest) then) =
+      __$$_ValidateRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? code, String? id});
+  $Res call({String? id, String? code});
 }
 
 /// @nodoc
-class __$ValidateRequestCopyWithImpl<$Res>
+class __$$_ValidateRequestCopyWithImpl<$Res>
     extends _$ValidateRequestCopyWithImpl<$Res>
-    implements _$ValidateRequestCopyWith<$Res> {
-  __$ValidateRequestCopyWithImpl(
-      _ValidateRequest _value, $Res Function(_ValidateRequest) _then)
-      : super(_value, (v) => _then(v as _ValidateRequest));
+    implements _$$_ValidateRequestCopyWith<$Res> {
+  __$$_ValidateRequestCopyWithImpl(
+      _$_ValidateRequest _value, $Res Function(_$_ValidateRequest) _then)
+      : super(_value, (v) => _then(v as _$_ValidateRequest));
 
   @override
-  _ValidateRequest get _value => super._value as _ValidateRequest;
+  _$_ValidateRequest get _value => super._value as _$_ValidateRequest;
 
   @override
   $Res call({
-    Object? code = freezed,
     Object? id = freezed,
+    Object? code = freezed,
   }) {
-    return _then(_ValidateRequest(
-      code: code == freezed
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
+    return _then(_$_ValidateRequest(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -755,53 +705,55 @@ class __$ValidateRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ValidateRequest implements _ValidateRequest {
-  const _$_ValidateRequest({this.code, this.id});
+  const _$_ValidateRequest({this.id, this.code});
 
   factory _$_ValidateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ValidateRequestFromJson(json);
 
+  /// unique id, email or user for which the code was generated
   @override
+  final String? id;
 
   /// one time pass code to validate
-  final String? code;
   @override
-
-  /// unique id, email or user for which the code was generated
-  final String? id;
+  final String? code;
 
   @override
   String toString() {
-    return 'ValidateRequest(code: $code, id: $id)';
+    return 'ValidateRequest(id: $id, code: $code)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ValidateRequest &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            other is _$_ValidateRequest &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.code, code));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
-  _$ValidateRequestCopyWith<_ValidateRequest> get copyWith =>
-      __$ValidateRequestCopyWithImpl<_ValidateRequest>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(code));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ValidateRequestCopyWith<_$_ValidateRequest> get copyWith =>
+      __$$_ValidateRequestCopyWithImpl<_$_ValidateRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ValidateRequestToJson(this);
+    return _$$_ValidateRequestToJson(
+      this,
+    );
   }
 }
 
 abstract class _ValidateRequest implements ValidateRequest {
-  const factory _ValidateRequest({String? code, String? id}) =
+  const factory _ValidateRequest({final String? id, final String? code}) =
       _$_ValidateRequest;
 
   factory _ValidateRequest.fromJson(Map<String, dynamic> json) =
@@ -809,15 +761,15 @@ abstract class _ValidateRequest implements ValidateRequest {
 
   @override
 
-  /// one time pass code to validate
-  String? get code;
-  @override
-
   /// unique id, email or user for which the code was generated
   String? get id;
   @override
+
+  /// one time pass code to validate
+  String? get code;
+  @override
   @JsonKey(ignore: true)
-  _$ValidateRequestCopyWith<_ValidateRequest> get copyWith =>
+  _$$_ValidateRequestCopyWith<_$_ValidateRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -833,30 +785,6 @@ ValidateResponse _$ValidateResponseFromJson(Map<String, dynamic> json) {
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
-
-/// @nodoc
-class _$ValidateResponseTearOff {
-  const _$ValidateResponseTearOff();
-
-  ValidateResponseData call({bool? success}) {
-    return ValidateResponseData(
-      success: success,
-    );
-  }
-
-  ValidateResponseMerr Merr({Map<String, dynamic>? body}) {
-    return ValidateResponseMerr(
-      body: body,
-    );
-  }
-
-  ValidateResponse fromJson(Map<String, Object?> json) {
-    return ValidateResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ValidateResponse = _$ValidateResponseTearOff();
 
 /// @nodoc
 mixin _$ValidateResponse {
@@ -919,29 +847,29 @@ class _$ValidateResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $ValidateResponseDataCopyWith<$Res> {
-  factory $ValidateResponseDataCopyWith(ValidateResponseData value,
-          $Res Function(ValidateResponseData) then) =
-      _$ValidateResponseDataCopyWithImpl<$Res>;
+abstract class _$$ValidateResponseDataCopyWith<$Res> {
+  factory _$$ValidateResponseDataCopyWith(_$ValidateResponseData value,
+          $Res Function(_$ValidateResponseData) then) =
+      __$$ValidateResponseDataCopyWithImpl<$Res>;
   $Res call({bool? success});
 }
 
 /// @nodoc
-class _$ValidateResponseDataCopyWithImpl<$Res>
+class __$$ValidateResponseDataCopyWithImpl<$Res>
     extends _$ValidateResponseCopyWithImpl<$Res>
-    implements $ValidateResponseDataCopyWith<$Res> {
-  _$ValidateResponseDataCopyWithImpl(
-      ValidateResponseData _value, $Res Function(ValidateResponseData) _then)
-      : super(_value, (v) => _then(v as ValidateResponseData));
+    implements _$$ValidateResponseDataCopyWith<$Res> {
+  __$$ValidateResponseDataCopyWithImpl(_$ValidateResponseData _value,
+      $Res Function(_$ValidateResponseData) _then)
+      : super(_value, (v) => _then(v as _$ValidateResponseData));
 
   @override
-  ValidateResponseData get _value => super._value as ValidateResponseData;
+  _$ValidateResponseData get _value => super._value as _$ValidateResponseData;
 
   @override
   $Res call({
     Object? success = freezed,
   }) {
-    return _then(ValidateResponseData(
+    return _then(_$ValidateResponseData(
       success: success == freezed
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
@@ -953,15 +881,14 @@ class _$ValidateResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ValidateResponseData implements ValidateResponseData {
-  const _$ValidateResponseData({this.success, String? $type})
+  const _$ValidateResponseData({this.success, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$ValidateResponseData.fromJson(Map<String, dynamic> json) =>
       _$$ValidateResponseDataFromJson(json);
 
-  @override
-
   /// returns true if the code is valid for the ID
+  @override
   final bool? success;
 
   @JsonKey(name: 'runtimeType')
@@ -976,18 +903,19 @@ class _$ValidateResponseData implements ValidateResponseData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ValidateResponseData &&
+            other is _$ValidateResponseData &&
             const DeepCollectionEquality().equals(other.success, success));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(success));
 
   @JsonKey(ignore: true)
   @override
-  $ValidateResponseDataCopyWith<ValidateResponseData> get copyWith =>
-      _$ValidateResponseDataCopyWithImpl<ValidateResponseData>(
+  _$$ValidateResponseDataCopyWith<_$ValidateResponseData> get copyWith =>
+      __$$ValidateResponseDataCopyWithImpl<_$ValidateResponseData>(
           this, _$identity);
 
   @override
@@ -1054,12 +982,15 @@ class _$ValidateResponseData implements ValidateResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ValidateResponseDataToJson(this);
+    return _$$ValidateResponseDataToJson(
+      this,
+    );
   }
 }
 
 abstract class ValidateResponseData implements ValidateResponse {
-  const factory ValidateResponseData({bool? success}) = _$ValidateResponseData;
+  const factory ValidateResponseData({final bool? success}) =
+      _$ValidateResponseData;
 
   factory ValidateResponseData.fromJson(Map<String, dynamic> json) =
       _$ValidateResponseData.fromJson;
@@ -1067,36 +998,36 @@ abstract class ValidateResponseData implements ValidateResponse {
   /// returns true if the code is valid for the ID
   bool? get success;
   @JsonKey(ignore: true)
-  $ValidateResponseDataCopyWith<ValidateResponseData> get copyWith =>
+  _$$ValidateResponseDataCopyWith<_$ValidateResponseData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ValidateResponseMerrCopyWith<$Res> {
-  factory $ValidateResponseMerrCopyWith(ValidateResponseMerr value,
-          $Res Function(ValidateResponseMerr) then) =
-      _$ValidateResponseMerrCopyWithImpl<$Res>;
+abstract class _$$ValidateResponseMerrCopyWith<$Res> {
+  factory _$$ValidateResponseMerrCopyWith(_$ValidateResponseMerr value,
+          $Res Function(_$ValidateResponseMerr) then) =
+      __$$ValidateResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$ValidateResponseMerrCopyWithImpl<$Res>
+class __$$ValidateResponseMerrCopyWithImpl<$Res>
     extends _$ValidateResponseCopyWithImpl<$Res>
-    implements $ValidateResponseMerrCopyWith<$Res> {
-  _$ValidateResponseMerrCopyWithImpl(
-      ValidateResponseMerr _value, $Res Function(ValidateResponseMerr) _then)
-      : super(_value, (v) => _then(v as ValidateResponseMerr));
+    implements _$$ValidateResponseMerrCopyWith<$Res> {
+  __$$ValidateResponseMerrCopyWithImpl(_$ValidateResponseMerr _value,
+      $Res Function(_$ValidateResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$ValidateResponseMerr));
 
   @override
-  ValidateResponseMerr get _value => super._value as ValidateResponseMerr;
+  _$ValidateResponseMerr get _value => super._value as _$ValidateResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(ValidateResponseMerr(
+    return _then(_$ValidateResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -1106,14 +1037,22 @@ class _$ValidateResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ValidateResponseMerr implements ValidateResponseMerr {
-  const _$ValidateResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$ValidateResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$ValidateResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$ValidateResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -1127,18 +1066,19 @@ class _$ValidateResponseMerr implements ValidateResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ValidateResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$ValidateResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $ValidateResponseMerrCopyWith<ValidateResponseMerr> get copyWith =>
-      _$ValidateResponseMerrCopyWithImpl<ValidateResponseMerr>(
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ValidateResponseMerrCopyWith<_$ValidateResponseMerr> get copyWith =>
+      __$$ValidateResponseMerrCopyWithImpl<_$ValidateResponseMerr>(
           this, _$identity);
 
   @override
@@ -1205,12 +1145,14 @@ class _$ValidateResponseMerr implements ValidateResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ValidateResponseMerrToJson(this);
+    return _$$ValidateResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class ValidateResponseMerr implements ValidateResponse {
-  const factory ValidateResponseMerr({Map<String, dynamic>? body}) =
+  const factory ValidateResponseMerr({final Map<String, dynamic>? body}) =
       _$ValidateResponseMerr;
 
   factory ValidateResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -1218,6 +1160,6 @@ abstract class ValidateResponseMerr implements ValidateResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $ValidateResponseMerrCopyWith<ValidateResponseMerr> get copyWith =>
+  _$$ValidateResponseMerrCopyWith<_$ValidateResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,31 +12,11 @@ part of 'location.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Entity _$EntityFromJson(Map<String, dynamic> json) {
   return _Entity.fromJson(json);
 }
-
-/// @nodoc
-class _$EntityTearOff {
-  const _$EntityTearOff();
-
-  _Entity call({String? id, Point? location, String? type}) {
-    return _Entity(
-      id: id,
-      location: location,
-      type: type,
-    );
-  }
-
-  Entity fromJson(Map<String, Object?> json) {
-    return Entity.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Entity = _$EntityTearOff();
 
 /// @nodoc
 mixin _$Entity {
@@ -101,9 +81,9 @@ class _$EntityCopyWithImpl<$Res> implements $EntityCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$EntityCopyWith<$Res> implements $EntityCopyWith<$Res> {
-  factory _$EntityCopyWith(_Entity value, $Res Function(_Entity) then) =
-      __$EntityCopyWithImpl<$Res>;
+abstract class _$$_EntityCopyWith<$Res> implements $EntityCopyWith<$Res> {
+  factory _$$_EntityCopyWith(_$_Entity value, $Res Function(_$_Entity) then) =
+      __$$_EntityCopyWithImpl<$Res>;
   @override
   $Res call({String? id, Point? location, String? type});
 
@@ -112,13 +92,13 @@ abstract class _$EntityCopyWith<$Res> implements $EntityCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$EntityCopyWithImpl<$Res> extends _$EntityCopyWithImpl<$Res>
-    implements _$EntityCopyWith<$Res> {
-  __$EntityCopyWithImpl(_Entity _value, $Res Function(_Entity) _then)
-      : super(_value, (v) => _then(v as _Entity));
+class __$$_EntityCopyWithImpl<$Res> extends _$EntityCopyWithImpl<$Res>
+    implements _$$_EntityCopyWith<$Res> {
+  __$$_EntityCopyWithImpl(_$_Entity _value, $Res Function(_$_Entity) _then)
+      : super(_value, (v) => _then(v as _$_Entity));
 
   @override
-  _Entity get _value => super._value as _Entity;
+  _$_Entity get _value => super._value as _$_Entity;
 
   @override
   $Res call({
@@ -126,7 +106,7 @@ class __$EntityCopyWithImpl<$Res> extends _$EntityCopyWithImpl<$Res>
     Object? location = freezed,
     Object? type = freezed,
   }) {
-    return _then(_Entity(
+    return _then(_$_Entity(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -167,12 +147,13 @@ class _$_Entity implements _Entity {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Entity &&
+            other is _$_Entity &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.location, location) &&
             const DeepCollectionEquality().equals(other.type, type));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -182,18 +163,22 @@ class _$_Entity implements _Entity {
 
   @JsonKey(ignore: true)
   @override
-  _$EntityCopyWith<_Entity> get copyWith =>
-      __$EntityCopyWithImpl<_Entity>(this, _$identity);
+  _$$_EntityCopyWith<_$_Entity> get copyWith =>
+      __$$_EntityCopyWithImpl<_$_Entity>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EntityToJson(this);
+    return _$$_EntityToJson(
+      this,
+    );
   }
 }
 
 abstract class _Entity implements Entity {
-  const factory _Entity({String? id, Point? location, String? type}) =
-      _$_Entity;
+  const factory _Entity(
+      {final String? id,
+      final Point? location,
+      final String? type}) = _$_Entity;
 
   factory _Entity.fromJson(Map<String, dynamic> json) = _$_Entity.fromJson;
 
@@ -205,35 +190,13 @@ abstract class _Entity implements Entity {
   String? get type;
   @override
   @JsonKey(ignore: true)
-  _$EntityCopyWith<_Entity> get copyWith => throw _privateConstructorUsedError;
+  _$$_EntityCopyWith<_$_Entity> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 Point _$PointFromJson(Map<String, dynamic> json) {
   return _Point.fromJson(json);
 }
-
-/// @nodoc
-class _$PointTearOff {
-  const _$PointTearOff();
-
-  _Point call(
-      {double? longitude,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? timestamp,
-      double? latitude}) {
-    return _Point(
-      longitude: longitude,
-      timestamp: timestamp,
-      latitude: latitude,
-    );
-  }
-
-  Point fromJson(Map<String, Object?> json) {
-    return Point.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Point = _$PointTearOff();
 
 /// @nodoc
 mixin _$Point {
@@ -289,9 +252,9 @@ class _$PointCopyWithImpl<$Res> implements $PointCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$PointCopyWith<$Res> implements $PointCopyWith<$Res> {
-  factory _$PointCopyWith(_Point value, $Res Function(_Point) then) =
-      __$PointCopyWithImpl<$Res>;
+abstract class _$$_PointCopyWith<$Res> implements $PointCopyWith<$Res> {
+  factory _$$_PointCopyWith(_$_Point value, $Res Function(_$_Point) then) =
+      __$$_PointCopyWithImpl<$Res>;
   @override
   $Res call(
       {double? longitude,
@@ -300,13 +263,13 @@ abstract class _$PointCopyWith<$Res> implements $PointCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$PointCopyWithImpl<$Res> extends _$PointCopyWithImpl<$Res>
-    implements _$PointCopyWith<$Res> {
-  __$PointCopyWithImpl(_Point _value, $Res Function(_Point) _then)
-      : super(_value, (v) => _then(v as _Point));
+class __$$_PointCopyWithImpl<$Res> extends _$PointCopyWithImpl<$Res>
+    implements _$$_PointCopyWith<$Res> {
+  __$$_PointCopyWithImpl(_$_Point _value, $Res Function(_$_Point) _then)
+      : super(_value, (v) => _then(v as _$_Point));
 
   @override
-  _Point get _value => super._value as _Point;
+  _$_Point get _value => super._value as _$_Point;
 
   @override
   $Res call({
@@ -314,7 +277,7 @@ class __$PointCopyWithImpl<$Res> extends _$PointCopyWithImpl<$Res>
     Object? timestamp = freezed,
     Object? latitude = freezed,
   }) {
-    return _then(_Point(
+    return _then(_$_Point(
       longitude: longitude == freezed
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
@@ -359,12 +322,13 @@ class _$_Point implements _Point {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Point &&
+            other is _$_Point &&
             const DeepCollectionEquality().equals(other.longitude, longitude) &&
             const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
             const DeepCollectionEquality().equals(other.latitude, latitude));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -374,20 +338,23 @@ class _$_Point implements _Point {
 
   @JsonKey(ignore: true)
   @override
-  _$PointCopyWith<_Point> get copyWith =>
-      __$PointCopyWithImpl<_Point>(this, _$identity);
+  _$$_PointCopyWith<_$_Point> get copyWith =>
+      __$$_PointCopyWithImpl<_$_Point>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PointToJson(this);
+    return _$$_PointToJson(
+      this,
+    );
   }
 }
 
 abstract class _Point implements Point {
   const factory _Point(
-      {double? longitude,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? timestamp,
-      double? latitude}) = _$_Point;
+      {final double? longitude,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          final int? timestamp,
+      final double? latitude}) = _$_Point;
 
   factory _Point.fromJson(Map<String, dynamic> json) = _$_Point.fromJson;
 
@@ -400,30 +367,13 @@ abstract class _Point implements Point {
   double? get latitude;
   @override
   @JsonKey(ignore: true)
-  _$PointCopyWith<_Point> get copyWith => throw _privateConstructorUsedError;
+  _$$_PointCopyWith<_$_Point> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 ReadRequest _$ReadRequestFromJson(Map<String, dynamic> json) {
   return _ReadRequest.fromJson(json);
 }
-
-/// @nodoc
-class _$ReadRequestTearOff {
-  const _$ReadRequestTearOff();
-
-  _ReadRequest call({String? id}) {
-    return _ReadRequest(
-      id: id,
-    );
-  }
-
-  ReadRequest fromJson(Map<String, Object?> json) {
-    return ReadRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ReadRequest = _$ReadRequestTearOff();
 
 /// @nodoc
 mixin _$ReadRequest {
@@ -466,30 +416,30 @@ class _$ReadRequestCopyWithImpl<$Res> implements $ReadRequestCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ReadRequestCopyWith<$Res>
+abstract class _$$_ReadRequestCopyWith<$Res>
     implements $ReadRequestCopyWith<$Res> {
-  factory _$ReadRequestCopyWith(
-          _ReadRequest value, $Res Function(_ReadRequest) then) =
-      __$ReadRequestCopyWithImpl<$Res>;
+  factory _$$_ReadRequestCopyWith(
+          _$_ReadRequest value, $Res Function(_$_ReadRequest) then) =
+      __$$_ReadRequestCopyWithImpl<$Res>;
   @override
   $Res call({String? id});
 }
 
 /// @nodoc
-class __$ReadRequestCopyWithImpl<$Res> extends _$ReadRequestCopyWithImpl<$Res>
-    implements _$ReadRequestCopyWith<$Res> {
-  __$ReadRequestCopyWithImpl(
-      _ReadRequest _value, $Res Function(_ReadRequest) _then)
-      : super(_value, (v) => _then(v as _ReadRequest));
+class __$$_ReadRequestCopyWithImpl<$Res> extends _$ReadRequestCopyWithImpl<$Res>
+    implements _$$_ReadRequestCopyWith<$Res> {
+  __$$_ReadRequestCopyWithImpl(
+      _$_ReadRequest _value, $Res Function(_$_ReadRequest) _then)
+      : super(_value, (v) => _then(v as _$_ReadRequest));
 
   @override
-  _ReadRequest get _value => super._value as _ReadRequest;
+  _$_ReadRequest get _value => super._value as _$_ReadRequest;
 
   @override
   $Res call({
     Object? id = freezed,
   }) {
-    return _then(_ReadRequest(
+    return _then(_$_ReadRequest(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -506,9 +456,8 @@ class _$_ReadRequest implements _ReadRequest {
   factory _$_ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ReadRequestFromJson(json);
 
-  @override
-
   /// the entity id
+  @override
   final String? id;
 
   @override
@@ -520,27 +469,30 @@ class _$_ReadRequest implements _ReadRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ReadRequest &&
+            other is _$_ReadRequest &&
             const DeepCollectionEquality().equals(other.id, id));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
-  _$ReadRequestCopyWith<_ReadRequest> get copyWith =>
-      __$ReadRequestCopyWithImpl<_ReadRequest>(this, _$identity);
+  _$$_ReadRequestCopyWith<_$_ReadRequest> get copyWith =>
+      __$$_ReadRequestCopyWithImpl<_$_ReadRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ReadRequestToJson(this);
+    return _$$_ReadRequestToJson(
+      this,
+    );
   }
 }
 
 abstract class _ReadRequest implements ReadRequest {
-  const factory _ReadRequest({String? id}) = _$_ReadRequest;
+  const factory _ReadRequest({final String? id}) = _$_ReadRequest;
 
   factory _ReadRequest.fromJson(Map<String, dynamic> json) =
       _$_ReadRequest.fromJson;
@@ -551,7 +503,7 @@ abstract class _ReadRequest implements ReadRequest {
   String? get id;
   @override
   @JsonKey(ignore: true)
-  _$ReadRequestCopyWith<_ReadRequest> get copyWith =>
+  _$$_ReadRequestCopyWith<_$_ReadRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -567,30 +519,6 @@ ReadResponse _$ReadResponseFromJson(Map<String, dynamic> json) {
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
-
-/// @nodoc
-class _$ReadResponseTearOff {
-  const _$ReadResponseTearOff();
-
-  ReadResponseData call({Entity? entity}) {
-    return ReadResponseData(
-      entity: entity,
-    );
-  }
-
-  ReadResponseMerr Merr({Map<String, dynamic>? body}) {
-    return ReadResponseMerr(
-      body: body,
-    );
-  }
-
-  ReadResponse fromJson(Map<String, Object?> json) {
-    return ReadResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ReadResponse = _$ReadResponseTearOff();
 
 /// @nodoc
 mixin _$ReadResponse {
@@ -652,31 +580,31 @@ class _$ReadResponseCopyWithImpl<$Res> implements $ReadResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class $ReadResponseDataCopyWith<$Res> {
-  factory $ReadResponseDataCopyWith(
-          ReadResponseData value, $Res Function(ReadResponseData) then) =
-      _$ReadResponseDataCopyWithImpl<$Res>;
+abstract class _$$ReadResponseDataCopyWith<$Res> {
+  factory _$$ReadResponseDataCopyWith(
+          _$ReadResponseData value, $Res Function(_$ReadResponseData) then) =
+      __$$ReadResponseDataCopyWithImpl<$Res>;
   $Res call({Entity? entity});
 
   $EntityCopyWith<$Res>? get entity;
 }
 
 /// @nodoc
-class _$ReadResponseDataCopyWithImpl<$Res>
+class __$$ReadResponseDataCopyWithImpl<$Res>
     extends _$ReadResponseCopyWithImpl<$Res>
-    implements $ReadResponseDataCopyWith<$Res> {
-  _$ReadResponseDataCopyWithImpl(
-      ReadResponseData _value, $Res Function(ReadResponseData) _then)
-      : super(_value, (v) => _then(v as ReadResponseData));
+    implements _$$ReadResponseDataCopyWith<$Res> {
+  __$$ReadResponseDataCopyWithImpl(
+      _$ReadResponseData _value, $Res Function(_$ReadResponseData) _then)
+      : super(_value, (v) => _then(v as _$ReadResponseData));
 
   @override
-  ReadResponseData get _value => super._value as ReadResponseData;
+  _$ReadResponseData get _value => super._value as _$ReadResponseData;
 
   @override
   $Res call({
     Object? entity = freezed,
   }) {
-    return _then(ReadResponseData(
+    return _then(_$ReadResponseData(
       entity: entity == freezed
           ? _value.entity
           : entity // ignore: cast_nullable_to_non_nullable
@@ -699,7 +627,7 @@ class _$ReadResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ReadResponseData implements ReadResponseData {
-  const _$ReadResponseData({this.entity, String? $type})
+  const _$ReadResponseData({this.entity, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$ReadResponseData.fromJson(Map<String, dynamic> json) =>
@@ -720,18 +648,19 @@ class _$ReadResponseData implements ReadResponseData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ReadResponseData &&
+            other is _$ReadResponseData &&
             const DeepCollectionEquality().equals(other.entity, entity));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(entity));
 
   @JsonKey(ignore: true)
   @override
-  $ReadResponseDataCopyWith<ReadResponseData> get copyWith =>
-      _$ReadResponseDataCopyWithImpl<ReadResponseData>(this, _$identity);
+  _$$ReadResponseDataCopyWith<_$ReadResponseData> get copyWith =>
+      __$$ReadResponseDataCopyWithImpl<_$ReadResponseData>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -797,48 +726,50 @@ class _$ReadResponseData implements ReadResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ReadResponseDataToJson(this);
+    return _$$ReadResponseDataToJson(
+      this,
+    );
   }
 }
 
 abstract class ReadResponseData implements ReadResponse {
-  const factory ReadResponseData({Entity? entity}) = _$ReadResponseData;
+  const factory ReadResponseData({final Entity? entity}) = _$ReadResponseData;
 
   factory ReadResponseData.fromJson(Map<String, dynamic> json) =
       _$ReadResponseData.fromJson;
 
   Entity? get entity;
   @JsonKey(ignore: true)
-  $ReadResponseDataCopyWith<ReadResponseData> get copyWith =>
+  _$$ReadResponseDataCopyWith<_$ReadResponseData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ReadResponseMerrCopyWith<$Res> {
-  factory $ReadResponseMerrCopyWith(
-          ReadResponseMerr value, $Res Function(ReadResponseMerr) then) =
-      _$ReadResponseMerrCopyWithImpl<$Res>;
+abstract class _$$ReadResponseMerrCopyWith<$Res> {
+  factory _$$ReadResponseMerrCopyWith(
+          _$ReadResponseMerr value, $Res Function(_$ReadResponseMerr) then) =
+      __$$ReadResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$ReadResponseMerrCopyWithImpl<$Res>
+class __$$ReadResponseMerrCopyWithImpl<$Res>
     extends _$ReadResponseCopyWithImpl<$Res>
-    implements $ReadResponseMerrCopyWith<$Res> {
-  _$ReadResponseMerrCopyWithImpl(
-      ReadResponseMerr _value, $Res Function(ReadResponseMerr) _then)
-      : super(_value, (v) => _then(v as ReadResponseMerr));
+    implements _$$ReadResponseMerrCopyWith<$Res> {
+  __$$ReadResponseMerrCopyWithImpl(
+      _$ReadResponseMerr _value, $Res Function(_$ReadResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$ReadResponseMerr));
 
   @override
-  ReadResponseMerr get _value => super._value as ReadResponseMerr;
+  _$ReadResponseMerr get _value => super._value as _$ReadResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(ReadResponseMerr(
+    return _then(_$ReadResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -848,14 +779,22 @@ class _$ReadResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ReadResponseMerr implements ReadResponseMerr {
-  const _$ReadResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$ReadResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$ReadResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$ReadResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -869,18 +808,19 @@ class _$ReadResponseMerr implements ReadResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ReadResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$ReadResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $ReadResponseMerrCopyWith<ReadResponseMerr> get copyWith =>
-      _$ReadResponseMerrCopyWithImpl<ReadResponseMerr>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ReadResponseMerrCopyWith<_$ReadResponseMerr> get copyWith =>
+      __$$ReadResponseMerrCopyWithImpl<_$ReadResponseMerr>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -946,12 +886,14 @@ class _$ReadResponseMerr implements ReadResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ReadResponseMerrToJson(this);
+    return _$$ReadResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class ReadResponseMerr implements ReadResponse {
-  const factory ReadResponseMerr({Map<String, dynamic>? body}) =
+  const factory ReadResponseMerr({final Map<String, dynamic>? body}) =
       _$ReadResponseMerr;
 
   factory ReadResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -959,31 +901,13 @@ abstract class ReadResponseMerr implements ReadResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $ReadResponseMerrCopyWith<ReadResponseMerr> get copyWith =>
+  _$$ReadResponseMerrCopyWith<_$ReadResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 SaveRequest _$SaveRequestFromJson(Map<String, dynamic> json) {
   return _SaveRequest.fromJson(json);
 }
-
-/// @nodoc
-class _$SaveRequestTearOff {
-  const _$SaveRequestTearOff();
-
-  _SaveRequest call({Entity? entity}) {
-    return _SaveRequest(
-      entity: entity,
-    );
-  }
-
-  SaveRequest fromJson(Map<String, Object?> json) {
-    return SaveRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SaveRequest = _$SaveRequestTearOff();
 
 /// @nodoc
 mixin _$SaveRequest {
@@ -1038,11 +962,11 @@ class _$SaveRequestCopyWithImpl<$Res> implements $SaveRequestCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$SaveRequestCopyWith<$Res>
+abstract class _$$_SaveRequestCopyWith<$Res>
     implements $SaveRequestCopyWith<$Res> {
-  factory _$SaveRequestCopyWith(
-          _SaveRequest value, $Res Function(_SaveRequest) then) =
-      __$SaveRequestCopyWithImpl<$Res>;
+  factory _$$_SaveRequestCopyWith(
+          _$_SaveRequest value, $Res Function(_$_SaveRequest) then) =
+      __$$_SaveRequestCopyWithImpl<$Res>;
   @override
   $Res call({Entity? entity});
 
@@ -1051,20 +975,20 @@ abstract class _$SaveRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SaveRequestCopyWithImpl<$Res> extends _$SaveRequestCopyWithImpl<$Res>
-    implements _$SaveRequestCopyWith<$Res> {
-  __$SaveRequestCopyWithImpl(
-      _SaveRequest _value, $Res Function(_SaveRequest) _then)
-      : super(_value, (v) => _then(v as _SaveRequest));
+class __$$_SaveRequestCopyWithImpl<$Res> extends _$SaveRequestCopyWithImpl<$Res>
+    implements _$$_SaveRequestCopyWith<$Res> {
+  __$$_SaveRequestCopyWithImpl(
+      _$_SaveRequest _value, $Res Function(_$_SaveRequest) _then)
+      : super(_value, (v) => _then(v as _$_SaveRequest));
 
   @override
-  _SaveRequest get _value => super._value as _SaveRequest;
+  _$_SaveRequest get _value => super._value as _$_SaveRequest;
 
   @override
   $Res call({
     Object? entity = freezed,
   }) {
-    return _then(_SaveRequest(
+    return _then(_$_SaveRequest(
       entity: entity == freezed
           ? _value.entity
           : entity // ignore: cast_nullable_to_non_nullable
@@ -1093,27 +1017,30 @@ class _$_SaveRequest implements _SaveRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SaveRequest &&
+            other is _$_SaveRequest &&
             const DeepCollectionEquality().equals(other.entity, entity));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(entity));
 
   @JsonKey(ignore: true)
   @override
-  _$SaveRequestCopyWith<_SaveRequest> get copyWith =>
-      __$SaveRequestCopyWithImpl<_SaveRequest>(this, _$identity);
+  _$$_SaveRequestCopyWith<_$_SaveRequest> get copyWith =>
+      __$$_SaveRequestCopyWithImpl<_$_SaveRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SaveRequestToJson(this);
+    return _$$_SaveRequestToJson(
+      this,
+    );
   }
 }
 
 abstract class _SaveRequest implements SaveRequest {
-  const factory _SaveRequest({Entity? entity}) = _$_SaveRequest;
+  const factory _SaveRequest({final Entity? entity}) = _$_SaveRequest;
 
   factory _SaveRequest.fromJson(Map<String, dynamic> json) =
       _$_SaveRequest.fromJson;
@@ -1122,7 +1049,7 @@ abstract class _SaveRequest implements SaveRequest {
   Entity? get entity;
   @override
   @JsonKey(ignore: true)
-  _$SaveRequestCopyWith<_SaveRequest> get copyWith =>
+  _$$_SaveRequestCopyWith<_$_SaveRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1138,28 +1065,6 @@ SaveResponse _$SaveResponseFromJson(Map<String, dynamic> json) {
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
-
-/// @nodoc
-class _$SaveResponseTearOff {
-  const _$SaveResponseTearOff();
-
-  SaveResponseData call() {
-    return const SaveResponseData();
-  }
-
-  SaveResponseMerr Merr({Map<String, dynamic>? body}) {
-    return SaveResponseMerr(
-      body: body,
-    );
-  }
-
-  SaveResponse fromJson(Map<String, Object?> json) {
-    return SaveResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SaveResponse = _$SaveResponseTearOff();
 
 /// @nodoc
 mixin _$SaveResponse {
@@ -1221,28 +1126,28 @@ class _$SaveResponseCopyWithImpl<$Res> implements $SaveResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class $SaveResponseDataCopyWith<$Res> {
-  factory $SaveResponseDataCopyWith(
-          SaveResponseData value, $Res Function(SaveResponseData) then) =
-      _$SaveResponseDataCopyWithImpl<$Res>;
+abstract class _$$SaveResponseDataCopyWith<$Res> {
+  factory _$$SaveResponseDataCopyWith(
+          _$SaveResponseData value, $Res Function(_$SaveResponseData) then) =
+      __$$SaveResponseDataCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SaveResponseDataCopyWithImpl<$Res>
+class __$$SaveResponseDataCopyWithImpl<$Res>
     extends _$SaveResponseCopyWithImpl<$Res>
-    implements $SaveResponseDataCopyWith<$Res> {
-  _$SaveResponseDataCopyWithImpl(
-      SaveResponseData _value, $Res Function(SaveResponseData) _then)
-      : super(_value, (v) => _then(v as SaveResponseData));
+    implements _$$SaveResponseDataCopyWith<$Res> {
+  __$$SaveResponseDataCopyWithImpl(
+      _$SaveResponseData _value, $Res Function(_$SaveResponseData) _then)
+      : super(_value, (v) => _then(v as _$SaveResponseData));
 
   @override
-  SaveResponseData get _value => super._value as SaveResponseData;
+  _$SaveResponseData get _value => super._value as _$SaveResponseData;
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$SaveResponseData implements SaveResponseData {
-  const _$SaveResponseData({String? $type}) : $type = $type ?? 'default';
+  const _$SaveResponseData({final String? $type}) : $type = $type ?? 'default';
 
   factory _$SaveResponseData.fromJson(Map<String, dynamic> json) =>
       _$$SaveResponseDataFromJson(json);
@@ -1258,9 +1163,10 @@ class _$SaveResponseData implements SaveResponseData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is SaveResponseData);
+        (other.runtimeType == runtimeType && other is _$SaveResponseData);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -1328,7 +1234,9 @@ class _$SaveResponseData implements SaveResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SaveResponseDataToJson(this);
+    return _$$SaveResponseDataToJson(
+      this,
+    );
   }
 }
 
@@ -1340,31 +1248,31 @@ abstract class SaveResponseData implements SaveResponse {
 }
 
 /// @nodoc
-abstract class $SaveResponseMerrCopyWith<$Res> {
-  factory $SaveResponseMerrCopyWith(
-          SaveResponseMerr value, $Res Function(SaveResponseMerr) then) =
-      _$SaveResponseMerrCopyWithImpl<$Res>;
+abstract class _$$SaveResponseMerrCopyWith<$Res> {
+  factory _$$SaveResponseMerrCopyWith(
+          _$SaveResponseMerr value, $Res Function(_$SaveResponseMerr) then) =
+      __$$SaveResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$SaveResponseMerrCopyWithImpl<$Res>
+class __$$SaveResponseMerrCopyWithImpl<$Res>
     extends _$SaveResponseCopyWithImpl<$Res>
-    implements $SaveResponseMerrCopyWith<$Res> {
-  _$SaveResponseMerrCopyWithImpl(
-      SaveResponseMerr _value, $Res Function(SaveResponseMerr) _then)
-      : super(_value, (v) => _then(v as SaveResponseMerr));
+    implements _$$SaveResponseMerrCopyWith<$Res> {
+  __$$SaveResponseMerrCopyWithImpl(
+      _$SaveResponseMerr _value, $Res Function(_$SaveResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$SaveResponseMerr));
 
   @override
-  SaveResponseMerr get _value => super._value as SaveResponseMerr;
+  _$SaveResponseMerr get _value => super._value as _$SaveResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(SaveResponseMerr(
+    return _then(_$SaveResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -1374,14 +1282,22 @@ class _$SaveResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SaveResponseMerr implements SaveResponseMerr {
-  const _$SaveResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$SaveResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$SaveResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$SaveResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -1395,18 +1311,19 @@ class _$SaveResponseMerr implements SaveResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SaveResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$SaveResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $SaveResponseMerrCopyWith<SaveResponseMerr> get copyWith =>
-      _$SaveResponseMerrCopyWithImpl<SaveResponseMerr>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SaveResponseMerrCopyWith<_$SaveResponseMerr> get copyWith =>
+      __$$SaveResponseMerrCopyWithImpl<_$SaveResponseMerr>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1472,12 +1389,14 @@ class _$SaveResponseMerr implements SaveResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SaveResponseMerrToJson(this);
+    return _$$SaveResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class SaveResponseMerr implements SaveResponse {
-  const factory SaveResponseMerr({Map<String, dynamic>? body}) =
+  const factory SaveResponseMerr({final Map<String, dynamic>? body}) =
       _$SaveResponseMerr;
 
   factory SaveResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -1485,7 +1404,7 @@ abstract class SaveResponseMerr implements SaveResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $SaveResponseMerrCopyWith<SaveResponseMerr> get copyWith =>
+  _$$SaveResponseMerrCopyWith<_$SaveResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1494,36 +1413,7 @@ SearchRequest _$SearchRequestFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$SearchRequestTearOff {
-  const _$SearchRequestTearOff();
-
-  _SearchRequest call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit,
-      double? radius,
-      String? type,
-      Point? center}) {
-    return _SearchRequest(
-      limit: limit,
-      radius: radius,
-      type: type,
-      center: center,
-    );
-  }
-
-  SearchRequest fromJson(Map<String, Object?> json) {
-    return SearchRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SearchRequest = _$SearchRequestTearOff();
-
-/// @nodoc
 mixin _$SearchRequest {
-  /// Maximum number of entities to return
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get limit => throw _privateConstructorUsedError;
-
   /// radius in meters
   double? get radius => throw _privateConstructorUsedError;
 
@@ -1532,6 +1422,10 @@ mixin _$SearchRequest {
 
   /// Central position to search from
   Point? get center => throw _privateConstructorUsedError;
+
+  /// Maximum number of entities to return
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get limit => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1545,10 +1439,10 @@ abstract class $SearchRequestCopyWith<$Res> {
           SearchRequest value, $Res Function(SearchRequest) then) =
       _$SearchRequestCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit,
-      double? radius,
+      {double? radius,
       String? type,
-      Point? center});
+      Point? center,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit});
 
   $PointCopyWith<$Res>? get center;
 }
@@ -1564,16 +1458,12 @@ class _$SearchRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? limit = freezed,
     Object? radius = freezed,
     Object? type = freezed,
     Object? center = freezed,
+    Object? limit = freezed,
   }) {
     return _then(_value.copyWith(
-      limit: limit == freezed
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int?,
       radius: radius == freezed
           ? _value.radius
           : radius // ignore: cast_nullable_to_non_nullable
@@ -1586,6 +1476,10 @@ class _$SearchRequestCopyWithImpl<$Res>
           ? _value.center
           : center // ignore: cast_nullable_to_non_nullable
               as Point?,
+      limit: limit == freezed
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 
@@ -1602,45 +1496,41 @@ class _$SearchRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SearchRequestCopyWith<$Res>
+abstract class _$$_SearchRequestCopyWith<$Res>
     implements $SearchRequestCopyWith<$Res> {
-  factory _$SearchRequestCopyWith(
-          _SearchRequest value, $Res Function(_SearchRequest) then) =
-      __$SearchRequestCopyWithImpl<$Res>;
+  factory _$$_SearchRequestCopyWith(
+          _$_SearchRequest value, $Res Function(_$_SearchRequest) then) =
+      __$$_SearchRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit,
-      double? radius,
+      {double? radius,
       String? type,
-      Point? center});
+      Point? center,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit});
 
   @override
   $PointCopyWith<$Res>? get center;
 }
 
 /// @nodoc
-class __$SearchRequestCopyWithImpl<$Res>
+class __$$_SearchRequestCopyWithImpl<$Res>
     extends _$SearchRequestCopyWithImpl<$Res>
-    implements _$SearchRequestCopyWith<$Res> {
-  __$SearchRequestCopyWithImpl(
-      _SearchRequest _value, $Res Function(_SearchRequest) _then)
-      : super(_value, (v) => _then(v as _SearchRequest));
+    implements _$$_SearchRequestCopyWith<$Res> {
+  __$$_SearchRequestCopyWithImpl(
+      _$_SearchRequest _value, $Res Function(_$_SearchRequest) _then)
+      : super(_value, (v) => _then(v as _$_SearchRequest));
 
   @override
-  _SearchRequest get _value => super._value as _SearchRequest;
+  _$_SearchRequest get _value => super._value as _$_SearchRequest;
 
   @override
   $Res call({
-    Object? limit = freezed,
     Object? radius = freezed,
     Object? type = freezed,
     Object? center = freezed,
+    Object? limit = freezed,
   }) {
-    return _then(_SearchRequest(
-      limit: limit == freezed
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int?,
+    return _then(_$_SearchRequest(
       radius: radius == freezed
           ? _value.radius
           : radius // ignore: cast_nullable_to_non_nullable
@@ -1653,6 +1543,10 @@ class __$SearchRequestCopyWithImpl<$Res>
           ? _value.center
           : center // ignore: cast_nullable_to_non_nullable
               as Point?,
+      limit: limit == freezed
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -1661,82 +1555,80 @@ class __$SearchRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SearchRequest implements _SearchRequest {
   const _$_SearchRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.limit,
-      this.radius,
+      {this.radius,
       this.type,
-      this.center});
+      this.center,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.limit});
 
   factory _$_SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SearchRequestFromJson(json);
 
-  @override
-
-  /// Maximum number of entities to return
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? limit;
-  @override
-
   /// radius in meters
-  final double? radius;
   @override
+  final double? radius;
 
   /// type of entities to filter
-  final String? type;
   @override
+  final String? type;
 
   /// Central position to search from
+  @override
   final Point? center;
+
+  /// Maximum number of entities to return
+  @override
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? limit;
 
   @override
   String toString() {
-    return 'SearchRequest(limit: $limit, radius: $radius, type: $type, center: $center)';
+    return 'SearchRequest(radius: $radius, type: $type, center: $center, limit: $limit)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SearchRequest &&
-            const DeepCollectionEquality().equals(other.limit, limit) &&
+            other is _$_SearchRequest &&
             const DeepCollectionEquality().equals(other.radius, radius) &&
             const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.center, center));
+            const DeepCollectionEquality().equals(other.center, center) &&
+            const DeepCollectionEquality().equals(other.limit, limit));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(limit),
-      const DeepCollectionEquality().hash(radius),
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(center));
 
   @JsonKey(ignore: true)
   @override
-  _$SearchRequestCopyWith<_SearchRequest> get copyWith =>
-      __$SearchRequestCopyWithImpl<_SearchRequest>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(radius),
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(center),
+      const DeepCollectionEquality().hash(limit));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SearchRequestCopyWith<_$_SearchRequest> get copyWith =>
+      __$$_SearchRequestCopyWithImpl<_$_SearchRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SearchRequestToJson(this);
+    return _$$_SearchRequestToJson(
+      this,
+    );
   }
 }
 
 abstract class _SearchRequest implements SearchRequest {
   const factory _SearchRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit,
-      double? radius,
-      String? type,
-      Point? center}) = _$_SearchRequest;
+      {final double? radius,
+      final String? type,
+      final Point? center,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          final int? limit}) = _$_SearchRequest;
 
   factory _SearchRequest.fromJson(Map<String, dynamic> json) =
       _$_SearchRequest.fromJson;
 
-  @override
-
-  /// Maximum number of entities to return
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get limit;
   @override
 
   /// radius in meters
@@ -1750,8 +1642,13 @@ abstract class _SearchRequest implements SearchRequest {
   /// Central position to search from
   Point? get center;
   @override
+
+  /// Maximum number of entities to return
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get limit;
+  @override
   @JsonKey(ignore: true)
-  _$SearchRequestCopyWith<_SearchRequest> get copyWith =>
+  _$$_SearchRequestCopyWith<_$_SearchRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1767,30 +1664,6 @@ SearchResponse _$SearchResponseFromJson(Map<String, dynamic> json) {
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
-
-/// @nodoc
-class _$SearchResponseTearOff {
-  const _$SearchResponseTearOff();
-
-  SearchResponseData call({List<Entity>? entities}) {
-    return SearchResponseData(
-      entities: entities,
-    );
-  }
-
-  SearchResponseMerr Merr({Map<String, dynamic>? body}) {
-    return SearchResponseMerr(
-      body: body,
-    );
-  }
-
-  SearchResponse fromJson(Map<String, Object?> json) {
-    return SearchResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SearchResponse = _$SearchResponseTearOff();
 
 /// @nodoc
 mixin _$SearchResponse {
@@ -1853,31 +1726,31 @@ class _$SearchResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $SearchResponseDataCopyWith<$Res> {
-  factory $SearchResponseDataCopyWith(
-          SearchResponseData value, $Res Function(SearchResponseData) then) =
-      _$SearchResponseDataCopyWithImpl<$Res>;
+abstract class _$$SearchResponseDataCopyWith<$Res> {
+  factory _$$SearchResponseDataCopyWith(_$SearchResponseData value,
+          $Res Function(_$SearchResponseData) then) =
+      __$$SearchResponseDataCopyWithImpl<$Res>;
   $Res call({List<Entity>? entities});
 }
 
 /// @nodoc
-class _$SearchResponseDataCopyWithImpl<$Res>
+class __$$SearchResponseDataCopyWithImpl<$Res>
     extends _$SearchResponseCopyWithImpl<$Res>
-    implements $SearchResponseDataCopyWith<$Res> {
-  _$SearchResponseDataCopyWithImpl(
-      SearchResponseData _value, $Res Function(SearchResponseData) _then)
-      : super(_value, (v) => _then(v as SearchResponseData));
+    implements _$$SearchResponseDataCopyWith<$Res> {
+  __$$SearchResponseDataCopyWithImpl(
+      _$SearchResponseData _value, $Res Function(_$SearchResponseData) _then)
+      : super(_value, (v) => _then(v as _$SearchResponseData));
 
   @override
-  SearchResponseData get _value => super._value as SearchResponseData;
+  _$SearchResponseData get _value => super._value as _$SearchResponseData;
 
   @override
   $Res call({
     Object? entities = freezed,
   }) {
-    return _then(SearchResponseData(
+    return _then(_$SearchResponseData(
       entities: entities == freezed
-          ? _value.entities
+          ? _value._entities
           : entities // ignore: cast_nullable_to_non_nullable
               as List<Entity>?,
     ));
@@ -1887,14 +1760,22 @@ class _$SearchResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SearchResponseData implements SearchResponseData {
-  const _$SearchResponseData({this.entities, String? $type})
-      : $type = $type ?? 'default';
+  const _$SearchResponseData(
+      {final List<Entity>? entities, final String? $type})
+      : _entities = entities,
+        $type = $type ?? 'default';
 
   factory _$SearchResponseData.fromJson(Map<String, dynamic> json) =>
       _$$SearchResponseDataFromJson(json);
 
+  final List<Entity>? _entities;
   @override
-  final List<Entity>? entities;
+  List<Entity>? get entities {
+    final value = _entities;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -1908,18 +1789,20 @@ class _$SearchResponseData implements SearchResponseData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SearchResponseData &&
-            const DeepCollectionEquality().equals(other.entities, entities));
+            other is _$SearchResponseData &&
+            const DeepCollectionEquality().equals(other._entities, _entities));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(entities));
 
   @JsonKey(ignore: true)
   @override
-  $SearchResponseDataCopyWith<SearchResponseData> get copyWith =>
-      _$SearchResponseDataCopyWithImpl<SearchResponseData>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_entities));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SearchResponseDataCopyWith<_$SearchResponseData> get copyWith =>
+      __$$SearchResponseDataCopyWithImpl<_$SearchResponseData>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1985,12 +1868,14 @@ class _$SearchResponseData implements SearchResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SearchResponseDataToJson(this);
+    return _$$SearchResponseDataToJson(
+      this,
+    );
   }
 }
 
 abstract class SearchResponseData implements SearchResponse {
-  const factory SearchResponseData({List<Entity>? entities}) =
+  const factory SearchResponseData({final List<Entity>? entities}) =
       _$SearchResponseData;
 
   factory SearchResponseData.fromJson(Map<String, dynamic> json) =
@@ -1998,36 +1883,36 @@ abstract class SearchResponseData implements SearchResponse {
 
   List<Entity>? get entities;
   @JsonKey(ignore: true)
-  $SearchResponseDataCopyWith<SearchResponseData> get copyWith =>
+  _$$SearchResponseDataCopyWith<_$SearchResponseData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SearchResponseMerrCopyWith<$Res> {
-  factory $SearchResponseMerrCopyWith(
-          SearchResponseMerr value, $Res Function(SearchResponseMerr) then) =
-      _$SearchResponseMerrCopyWithImpl<$Res>;
+abstract class _$$SearchResponseMerrCopyWith<$Res> {
+  factory _$$SearchResponseMerrCopyWith(_$SearchResponseMerr value,
+          $Res Function(_$SearchResponseMerr) then) =
+      __$$SearchResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$SearchResponseMerrCopyWithImpl<$Res>
+class __$$SearchResponseMerrCopyWithImpl<$Res>
     extends _$SearchResponseCopyWithImpl<$Res>
-    implements $SearchResponseMerrCopyWith<$Res> {
-  _$SearchResponseMerrCopyWithImpl(
-      SearchResponseMerr _value, $Res Function(SearchResponseMerr) _then)
-      : super(_value, (v) => _then(v as SearchResponseMerr));
+    implements _$$SearchResponseMerrCopyWith<$Res> {
+  __$$SearchResponseMerrCopyWithImpl(
+      _$SearchResponseMerr _value, $Res Function(_$SearchResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$SearchResponseMerr));
 
   @override
-  SearchResponseMerr get _value => super._value as SearchResponseMerr;
+  _$SearchResponseMerr get _value => super._value as _$SearchResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(SearchResponseMerr(
+    return _then(_$SearchResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -2037,14 +1922,22 @@ class _$SearchResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SearchResponseMerr implements SearchResponseMerr {
-  const _$SearchResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$SearchResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$SearchResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$SearchResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -2058,18 +1951,20 @@ class _$SearchResponseMerr implements SearchResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SearchResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$SearchResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $SearchResponseMerrCopyWith<SearchResponseMerr> get copyWith =>
-      _$SearchResponseMerrCopyWithImpl<SearchResponseMerr>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SearchResponseMerrCopyWith<_$SearchResponseMerr> get copyWith =>
+      __$$SearchResponseMerrCopyWithImpl<_$SearchResponseMerr>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2135,12 +2030,14 @@ class _$SearchResponseMerr implements SearchResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SearchResponseMerrToJson(this);
+    return _$$SearchResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class SearchResponseMerr implements SearchResponse {
-  const factory SearchResponseMerr({Map<String, dynamic>? body}) =
+  const factory SearchResponseMerr({final Map<String, dynamic>? body}) =
       _$SearchResponseMerr;
 
   factory SearchResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -2148,6 +2045,6 @@ abstract class SearchResponseMerr implements SearchResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $SearchResponseMerrCopyWith<SearchResponseMerr> get copyWith =>
+  _$$SearchResponseMerrCopyWith<_$SearchResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }

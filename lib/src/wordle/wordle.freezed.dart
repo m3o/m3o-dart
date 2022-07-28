@@ -12,35 +12,17 @@ part of 'wordle.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Char _$CharFromJson(Map<String, dynamic> json) {
   return _Char.fromJson(json);
 }
 
 /// @nodoc
-class _$CharTearOff {
-  const _$CharTearOff();
-
-  _Char call({bool? correct, bool? in_word, String? letter, int? position}) {
-    return _Char(
-      correct: correct,
-      in_word: in_word,
-      letter: letter,
-      position: position,
-    );
-  }
-
-  Char fromJson(Map<String, Object?> json) {
-    return Char.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Char = _$CharTearOff();
-
-/// @nodoc
 mixin _$Char {
+  /// position in the string
+  int? get position => throw _privateConstructorUsedError;
+
   /// whether it was correct
   bool? get correct => throw _privateConstructorUsedError;
 
@@ -49,9 +31,6 @@ mixin _$Char {
 
   /// the character itself
   String? get letter => throw _privateConstructorUsedError;
-
-  /// position in the string
-  int? get position => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -62,7 +41,7 @@ mixin _$Char {
 abstract class $CharCopyWith<$Res> {
   factory $CharCopyWith(Char value, $Res Function(Char) then) =
       _$CharCopyWithImpl<$Res>;
-  $Res call({bool? correct, bool? in_word, String? letter, int? position});
+  $Res call({int? position, bool? correct, bool? in_word, String? letter});
 }
 
 /// @nodoc
@@ -75,12 +54,16 @@ class _$CharCopyWithImpl<$Res> implements $CharCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? position = freezed,
     Object? correct = freezed,
     Object? in_word = freezed,
     Object? letter = freezed,
-    Object? position = freezed,
   }) {
     return _then(_value.copyWith(
+      position: position == freezed
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as int?,
       correct: correct == freezed
           ? _value.correct
           : correct // ignore: cast_nullable_to_non_nullable
@@ -93,39 +76,39 @@ class _$CharCopyWithImpl<$Res> implements $CharCopyWith<$Res> {
           ? _value.letter
           : letter // ignore: cast_nullable_to_non_nullable
               as String?,
-      position: position == freezed
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$CharCopyWith<$Res> implements $CharCopyWith<$Res> {
-  factory _$CharCopyWith(_Char value, $Res Function(_Char) then) =
-      __$CharCopyWithImpl<$Res>;
+abstract class _$$_CharCopyWith<$Res> implements $CharCopyWith<$Res> {
+  factory _$$_CharCopyWith(_$_Char value, $Res Function(_$_Char) then) =
+      __$$_CharCopyWithImpl<$Res>;
   @override
-  $Res call({bool? correct, bool? in_word, String? letter, int? position});
+  $Res call({int? position, bool? correct, bool? in_word, String? letter});
 }
 
 /// @nodoc
-class __$CharCopyWithImpl<$Res> extends _$CharCopyWithImpl<$Res>
-    implements _$CharCopyWith<$Res> {
-  __$CharCopyWithImpl(_Char _value, $Res Function(_Char) _then)
-      : super(_value, (v) => _then(v as _Char));
+class __$$_CharCopyWithImpl<$Res> extends _$CharCopyWithImpl<$Res>
+    implements _$$_CharCopyWith<$Res> {
+  __$$_CharCopyWithImpl(_$_Char _value, $Res Function(_$_Char) _then)
+      : super(_value, (v) => _then(v as _$_Char));
 
   @override
-  _Char get _value => super._value as _Char;
+  _$_Char get _value => super._value as _$_Char;
 
   @override
   $Res call({
+    Object? position = freezed,
     Object? correct = freezed,
     Object? in_word = freezed,
     Object? letter = freezed,
-    Object? position = freezed,
   }) {
-    return _then(_Char(
+    return _then(_$_Char(
+      position: position == freezed
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as int?,
       correct: correct == freezed
           ? _value.correct
           : correct // ignore: cast_nullable_to_non_nullable
@@ -138,10 +121,6 @@ class __$CharCopyWithImpl<$Res> extends _$CharCopyWithImpl<$Res>
           ? _value.letter
           : letter // ignore: cast_nullable_to_non_nullable
               as String?,
-      position: position == freezed
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -149,68 +128,77 @@ class __$CharCopyWithImpl<$Res> extends _$CharCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Char implements _Char {
-  const _$_Char({this.correct, this.in_word, this.letter, this.position});
+  const _$_Char({this.position, this.correct, this.in_word, this.letter});
 
   factory _$_Char.fromJson(Map<String, dynamic> json) => _$$_CharFromJson(json);
 
+  /// position in the string
   @override
+  final int? position;
 
   /// whether it was correct
-  final bool? correct;
   @override
+  final bool? correct;
 
   /// whether it's in the word
-  final bool? in_word;
   @override
+  final bool? in_word;
 
   /// the character itself
-  final String? letter;
   @override
-
-  /// position in the string
-  final int? position;
+  final String? letter;
 
   @override
   String toString() {
-    return 'Char(correct: $correct, in_word: $in_word, letter: $letter, position: $position)';
+    return 'Char(position: $position, correct: $correct, in_word: $in_word, letter: $letter)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Char &&
+            other is _$_Char &&
+            const DeepCollectionEquality().equals(other.position, position) &&
             const DeepCollectionEquality().equals(other.correct, correct) &&
             const DeepCollectionEquality().equals(other.in_word, in_word) &&
-            const DeepCollectionEquality().equals(other.letter, letter) &&
-            const DeepCollectionEquality().equals(other.position, position));
+            const DeepCollectionEquality().equals(other.letter, letter));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(correct),
-      const DeepCollectionEquality().hash(in_word),
-      const DeepCollectionEquality().hash(letter),
-      const DeepCollectionEquality().hash(position));
 
   @JsonKey(ignore: true)
   @override
-  _$CharCopyWith<_Char> get copyWith =>
-      __$CharCopyWithImpl<_Char>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(position),
+      const DeepCollectionEquality().hash(correct),
+      const DeepCollectionEquality().hash(in_word),
+      const DeepCollectionEquality().hash(letter));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_CharCopyWith<_$_Char> get copyWith =>
+      __$$_CharCopyWithImpl<_$_Char>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CharToJson(this);
+    return _$$_CharToJson(
+      this,
+    );
   }
 }
 
 abstract class _Char implements Char {
   const factory _Char(
-      {bool? correct, bool? in_word, String? letter, int? position}) = _$_Char;
+      {final int? position,
+      final bool? correct,
+      final bool? in_word,
+      final String? letter}) = _$_Char;
 
   factory _Char.fromJson(Map<String, dynamic> json) = _$_Char.fromJson;
 
+  @override
+
+  /// position in the string
+  int? get position;
   @override
 
   /// whether it was correct
@@ -224,12 +212,8 @@ abstract class _Char implements Char {
   /// the character itself
   String? get letter;
   @override
-
-  /// position in the string
-  int? get position;
-  @override
   @JsonKey(ignore: true)
-  _$CharCopyWith<_Char> get copyWith => throw _privateConstructorUsedError;
+  _$$_CharCopyWith<_$_Char> get copyWith => throw _privateConstructorUsedError;
 }
 
 Guess _$GuessFromJson(Map<String, dynamic> json) {
@@ -237,36 +221,16 @@ Guess _$GuessFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$GuessTearOff {
-  const _$GuessTearOff();
-
-  _Guess call({String? highlight, String? word, List<Char>? chars}) {
-    return _Guess(
-      highlight: highlight,
-      word: word,
-      chars: chars,
-    );
-  }
-
-  Guess fromJson(Map<String, Object?> json) {
-    return Guess.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Guess = _$GuessTearOff();
-
-/// @nodoc
 mixin _$Guess {
+  /// individual characters
+  List<Char>? get chars => throw _privateConstructorUsedError;
+
   /// the highlighted word e.g n[o]is{e}
   /// where [ ] is correct, { } is in word
   String? get highlight => throw _privateConstructorUsedError;
 
   /// the full guess word
   String? get word => throw _privateConstructorUsedError;
-
-  /// individual characters
-  List<Char>? get chars => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -277,7 +241,7 @@ mixin _$Guess {
 abstract class $GuessCopyWith<$Res> {
   factory $GuessCopyWith(Guess value, $Res Function(Guess) then) =
       _$GuessCopyWithImpl<$Res>;
-  $Res call({String? highlight, String? word, List<Char>? chars});
+  $Res call({List<Char>? chars, String? highlight, String? word});
 }
 
 /// @nodoc
@@ -290,11 +254,15 @@ class _$GuessCopyWithImpl<$Res> implements $GuessCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? chars = freezed,
     Object? highlight = freezed,
     Object? word = freezed,
-    Object? chars = freezed,
   }) {
     return _then(_value.copyWith(
+      chars: chars == freezed
+          ? _value.chars
+          : chars // ignore: cast_nullable_to_non_nullable
+              as List<Char>?,
       highlight: highlight == freezed
           ? _value.highlight
           : highlight // ignore: cast_nullable_to_non_nullable
@@ -303,38 +271,38 @@ class _$GuessCopyWithImpl<$Res> implements $GuessCopyWith<$Res> {
           ? _value.word
           : word // ignore: cast_nullable_to_non_nullable
               as String?,
-      chars: chars == freezed
-          ? _value.chars
-          : chars // ignore: cast_nullable_to_non_nullable
-              as List<Char>?,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$GuessCopyWith<$Res> implements $GuessCopyWith<$Res> {
-  factory _$GuessCopyWith(_Guess value, $Res Function(_Guess) then) =
-      __$GuessCopyWithImpl<$Res>;
+abstract class _$$_GuessCopyWith<$Res> implements $GuessCopyWith<$Res> {
+  factory _$$_GuessCopyWith(_$_Guess value, $Res Function(_$_Guess) then) =
+      __$$_GuessCopyWithImpl<$Res>;
   @override
-  $Res call({String? highlight, String? word, List<Char>? chars});
+  $Res call({List<Char>? chars, String? highlight, String? word});
 }
 
 /// @nodoc
-class __$GuessCopyWithImpl<$Res> extends _$GuessCopyWithImpl<$Res>
-    implements _$GuessCopyWith<$Res> {
-  __$GuessCopyWithImpl(_Guess _value, $Res Function(_Guess) _then)
-      : super(_value, (v) => _then(v as _Guess));
+class __$$_GuessCopyWithImpl<$Res> extends _$GuessCopyWithImpl<$Res>
+    implements _$$_GuessCopyWith<$Res> {
+  __$$_GuessCopyWithImpl(_$_Guess _value, $Res Function(_$_Guess) _then)
+      : super(_value, (v) => _then(v as _$_Guess));
 
   @override
-  _Guess get _value => super._value as _Guess;
+  _$_Guess get _value => super._value as _$_Guess;
 
   @override
   $Res call({
+    Object? chars = freezed,
     Object? highlight = freezed,
     Object? word = freezed,
-    Object? chars = freezed,
   }) {
-    return _then(_Guess(
+    return _then(_$_Guess(
+      chars: chars == freezed
+          ? _value._chars
+          : chars // ignore: cast_nullable_to_non_nullable
+              as List<Char>?,
       highlight: highlight == freezed
           ? _value.highlight
           : highlight // ignore: cast_nullable_to_non_nullable
@@ -343,10 +311,6 @@ class __$GuessCopyWithImpl<$Res> extends _$GuessCopyWithImpl<$Res>
           ? _value.word
           : word // ignore: cast_nullable_to_non_nullable
               as String?,
-      chars: chars == freezed
-          ? _value.chars
-          : chars // ignore: cast_nullable_to_non_nullable
-              as List<Char>?,
     ));
   }
 }
@@ -354,64 +318,81 @@ class __$GuessCopyWithImpl<$Res> extends _$GuessCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Guess implements _Guess {
-  const _$_Guess({this.highlight, this.word, this.chars});
+  const _$_Guess({final List<Char>? chars, this.highlight, this.word})
+      : _chars = chars;
 
   factory _$_Guess.fromJson(Map<String, dynamic> json) =>
       _$$_GuessFromJson(json);
 
+  /// individual characters
+  final List<Char>? _chars;
+
+  /// individual characters
   @override
+  List<Char>? get chars {
+    final value = _chars;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   /// the highlighted word e.g n[o]is{e}
   /// where [ ] is correct, { } is in word
-  final String? highlight;
   @override
+  final String? highlight;
 
   /// the full guess word
-  final String? word;
   @override
-
-  /// individual characters
-  final List<Char>? chars;
+  final String? word;
 
   @override
   String toString() {
-    return 'Guess(highlight: $highlight, word: $word, chars: $chars)';
+    return 'Guess(chars: $chars, highlight: $highlight, word: $word)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Guess &&
+            other is _$_Guess &&
+            const DeepCollectionEquality().equals(other._chars, _chars) &&
             const DeepCollectionEquality().equals(other.highlight, highlight) &&
-            const DeepCollectionEquality().equals(other.word, word) &&
-            const DeepCollectionEquality().equals(other.chars, chars));
+            const DeepCollectionEquality().equals(other.word, word));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(highlight),
-      const DeepCollectionEquality().hash(word),
-      const DeepCollectionEquality().hash(chars));
 
   @JsonKey(ignore: true)
   @override
-  _$GuessCopyWith<_Guess> get copyWith =>
-      __$GuessCopyWithImpl<_Guess>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_chars),
+      const DeepCollectionEquality().hash(highlight),
+      const DeepCollectionEquality().hash(word));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_GuessCopyWith<_$_Guess> get copyWith =>
+      __$$_GuessCopyWithImpl<_$_Guess>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GuessToJson(this);
+    return _$$_GuessToJson(
+      this,
+    );
   }
 }
 
 abstract class _Guess implements Guess {
-  const factory _Guess({String? highlight, String? word, List<Char>? chars}) =
-      _$_Guess;
+  const factory _Guess(
+      {final List<Char>? chars,
+      final String? highlight,
+      final String? word}) = _$_Guess;
 
   factory _Guess.fromJson(Map<String, dynamic> json) = _$_Guess.fromJson;
 
+  @override
+
+  /// individual characters
+  List<Char>? get chars;
   @override
 
   /// the highlighted word e.g n[o]is{e}
@@ -422,12 +403,9 @@ abstract class _Guess implements Guess {
   /// the full guess word
   String? get word;
   @override
-
-  /// individual characters
-  List<Char>? get chars;
-  @override
   @JsonKey(ignore: true)
-  _$GuessCopyWith<_Guess> get copyWith => throw _privateConstructorUsedError;
+  _$$_GuessCopyWith<_$_Guess> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 GuessRequest _$GuessRequestFromJson(Map<String, dynamic> json) {
@@ -435,31 +413,12 @@ GuessRequest _$GuessRequestFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$GuessRequestTearOff {
-  const _$GuessRequestTearOff();
-
-  _GuessRequest call({String? player, String? word}) {
-    return _GuessRequest(
-      player: player,
-      word: word,
-    );
-  }
-
-  GuessRequest fromJson(Map<String, Object?> json) {
-    return GuessRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $GuessRequest = _$GuessRequestTearOff();
-
-/// @nodoc
 mixin _$GuessRequest {
-  /// player
-  String? get player => throw _privateConstructorUsedError;
-
   /// guess word
   String? get word => throw _privateConstructorUsedError;
+
+  /// player
+  String? get player => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -472,7 +431,7 @@ abstract class $GuessRequestCopyWith<$Res> {
   factory $GuessRequestCopyWith(
           GuessRequest value, $Res Function(GuessRequest) then) =
       _$GuessRequestCopyWithImpl<$Res>;
-  $Res call({String? player, String? word});
+  $Res call({String? word, String? player});
 }
 
 /// @nodoc
@@ -485,55 +444,56 @@ class _$GuessRequestCopyWithImpl<$Res> implements $GuessRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? player = freezed,
     Object? word = freezed,
+    Object? player = freezed,
   }) {
     return _then(_value.copyWith(
-      player: player == freezed
-          ? _value.player
-          : player // ignore: cast_nullable_to_non_nullable
-              as String?,
       word: word == freezed
           ? _value.word
           : word // ignore: cast_nullable_to_non_nullable
+              as String?,
+      player: player == freezed
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$GuessRequestCopyWith<$Res>
+abstract class _$$_GuessRequestCopyWith<$Res>
     implements $GuessRequestCopyWith<$Res> {
-  factory _$GuessRequestCopyWith(
-          _GuessRequest value, $Res Function(_GuessRequest) then) =
-      __$GuessRequestCopyWithImpl<$Res>;
+  factory _$$_GuessRequestCopyWith(
+          _$_GuessRequest value, $Res Function(_$_GuessRequest) then) =
+      __$$_GuessRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? player, String? word});
+  $Res call({String? word, String? player});
 }
 
 /// @nodoc
-class __$GuessRequestCopyWithImpl<$Res> extends _$GuessRequestCopyWithImpl<$Res>
-    implements _$GuessRequestCopyWith<$Res> {
-  __$GuessRequestCopyWithImpl(
-      _GuessRequest _value, $Res Function(_GuessRequest) _then)
-      : super(_value, (v) => _then(v as _GuessRequest));
+class __$$_GuessRequestCopyWithImpl<$Res>
+    extends _$GuessRequestCopyWithImpl<$Res>
+    implements _$$_GuessRequestCopyWith<$Res> {
+  __$$_GuessRequestCopyWithImpl(
+      _$_GuessRequest _value, $Res Function(_$_GuessRequest) _then)
+      : super(_value, (v) => _then(v as _$_GuessRequest));
 
   @override
-  _GuessRequest get _value => super._value as _GuessRequest;
+  _$_GuessRequest get _value => super._value as _$_GuessRequest;
 
   @override
   $Res call({
-    Object? player = freezed,
     Object? word = freezed,
+    Object? player = freezed,
   }) {
-    return _then(_GuessRequest(
-      player: player == freezed
-          ? _value.player
-          : player // ignore: cast_nullable_to_non_nullable
-              as String?,
+    return _then(_$_GuessRequest(
       word: word == freezed
           ? _value.word
           : word // ignore: cast_nullable_to_non_nullable
+              as String?,
+      player: player == freezed
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -542,68 +502,71 @@ class __$GuessRequestCopyWithImpl<$Res> extends _$GuessRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_GuessRequest implements _GuessRequest {
-  const _$_GuessRequest({this.player, this.word});
+  const _$_GuessRequest({this.word, this.player});
 
   factory _$_GuessRequest.fromJson(Map<String, dynamic> json) =>
       _$$_GuessRequestFromJson(json);
 
+  /// guess word
   @override
+  final String? word;
 
   /// player
-  final String? player;
   @override
-
-  /// guess word
-  final String? word;
+  final String? player;
 
   @override
   String toString() {
-    return 'GuessRequest(player: $player, word: $word)';
+    return 'GuessRequest(word: $word, player: $player)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _GuessRequest &&
-            const DeepCollectionEquality().equals(other.player, player) &&
-            const DeepCollectionEquality().equals(other.word, word));
+            other is _$_GuessRequest &&
+            const DeepCollectionEquality().equals(other.word, word) &&
+            const DeepCollectionEquality().equals(other.player, player));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(player),
-      const DeepCollectionEquality().hash(word));
 
   @JsonKey(ignore: true)
   @override
-  _$GuessRequestCopyWith<_GuessRequest> get copyWith =>
-      __$GuessRequestCopyWithImpl<_GuessRequest>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(word),
+      const DeepCollectionEquality().hash(player));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_GuessRequestCopyWith<_$_GuessRequest> get copyWith =>
+      __$$_GuessRequestCopyWithImpl<_$_GuessRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GuessRequestToJson(this);
+    return _$$_GuessRequestToJson(
+      this,
+    );
   }
 }
 
 abstract class _GuessRequest implements GuessRequest {
-  const factory _GuessRequest({String? player, String? word}) = _$_GuessRequest;
+  const factory _GuessRequest({final String? word, final String? player}) =
+      _$_GuessRequest;
 
   factory _GuessRequest.fromJson(Map<String, dynamic> json) =
       _$_GuessRequest.fromJson;
 
   @override
 
-  /// player
-  String? get player;
-  @override
-
   /// guess word
   String? get word;
   @override
+
+  /// player
+  String? get player;
+  @override
   @JsonKey(ignore: true)
-  _$GuessRequestCopyWith<_GuessRequest> get copyWith =>
+  _$$_GuessRequestCopyWith<_$_GuessRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -621,60 +584,27 @@ GuessResponse _$GuessResponseFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$GuessResponseTearOff {
-  const _$GuessResponseTearOff();
-
-  GuessResponseData call(
-      {String? answer,
-      bool? correct,
-      List<Guess>? guesses,
-      String? status,
-      int? tries_left}) {
-    return GuessResponseData(
-      answer: answer,
-      correct: correct,
-      guesses: guesses,
-      status: status,
-      tries_left: tries_left,
-    );
-  }
-
-  GuessResponseMerr Merr({Map<String, dynamic>? body}) {
-    return GuessResponseMerr(
-      body: body,
-    );
-  }
-
-  GuessResponse fromJson(Map<String, Object?> json) {
-    return GuessResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $GuessResponse = _$GuessResponseTearOff();
-
-/// @nodoc
 mixin _$GuessResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? answer, bool? correct, List<Guess>? guesses,
-            String? status, int? tries_left)
+    TResult Function(List<Guess>? guesses, String? status, int? tries_left,
+            String? answer, bool? correct)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? answer, bool? correct, List<Guess>? guesses,
-            String? status, int? tries_left)?
+    TResult Function(List<Guess>? guesses, String? status, int? tries_left,
+            String? answer, bool? correct)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? answer, bool? correct, List<Guess>? guesses,
-            String? status, int? tries_left)?
+    TResult Function(List<Guess>? guesses, String? status, int? tries_left,
+            String? answer, bool? correct)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -720,48 +650,40 @@ class _$GuessResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $GuessResponseDataCopyWith<$Res> {
-  factory $GuessResponseDataCopyWith(
-          GuessResponseData value, $Res Function(GuessResponseData) then) =
-      _$GuessResponseDataCopyWithImpl<$Res>;
+abstract class _$$GuessResponseDataCopyWith<$Res> {
+  factory _$$GuessResponseDataCopyWith(
+          _$GuessResponseData value, $Res Function(_$GuessResponseData) then) =
+      __$$GuessResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {String? answer,
-      bool? correct,
-      List<Guess>? guesses,
+      {List<Guess>? guesses,
       String? status,
-      int? tries_left});
+      int? tries_left,
+      String? answer,
+      bool? correct});
 }
 
 /// @nodoc
-class _$GuessResponseDataCopyWithImpl<$Res>
+class __$$GuessResponseDataCopyWithImpl<$Res>
     extends _$GuessResponseCopyWithImpl<$Res>
-    implements $GuessResponseDataCopyWith<$Res> {
-  _$GuessResponseDataCopyWithImpl(
-      GuessResponseData _value, $Res Function(GuessResponseData) _then)
-      : super(_value, (v) => _then(v as GuessResponseData));
+    implements _$$GuessResponseDataCopyWith<$Res> {
+  __$$GuessResponseDataCopyWithImpl(
+      _$GuessResponseData _value, $Res Function(_$GuessResponseData) _then)
+      : super(_value, (v) => _then(v as _$GuessResponseData));
 
   @override
-  GuessResponseData get _value => super._value as GuessResponseData;
+  _$GuessResponseData get _value => super._value as _$GuessResponseData;
 
   @override
   $Res call({
-    Object? answer = freezed,
-    Object? correct = freezed,
     Object? guesses = freezed,
     Object? status = freezed,
     Object? tries_left = freezed,
+    Object? answer = freezed,
+    Object? correct = freezed,
   }) {
-    return _then(GuessResponseData(
-      answer: answer == freezed
-          ? _value.answer
-          : answer // ignore: cast_nullable_to_non_nullable
-              as String?,
-      correct: correct == freezed
-          ? _value.correct
-          : correct // ignore: cast_nullable_to_non_nullable
-              as bool?,
+    return _then(_$GuessResponseData(
       guesses: guesses == freezed
-          ? _value.guesses
+          ? _value._guesses
           : guesses // ignore: cast_nullable_to_non_nullable
               as List<Guess>?,
       status: status == freezed
@@ -772,6 +694,14 @@ class _$GuessResponseDataCopyWithImpl<$Res>
           ? _value.tries_left
           : tries_left // ignore: cast_nullable_to_non_nullable
               as int?,
+      answer: answer == freezed
+          ? _value.answer
+          : answer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correct: correct == freezed
+          ? _value.correct
+          : correct // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -780,106 +710,115 @@ class _$GuessResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GuessResponseData implements GuessResponseData {
   const _$GuessResponseData(
-      {this.answer,
-      this.correct,
-      this.guesses,
+      {final List<Guess>? guesses,
       this.status,
       this.tries_left,
-      String? $type})
-      : $type = $type ?? 'default';
+      this.answer,
+      this.correct,
+      final String? $type})
+      : _guesses = guesses,
+        $type = $type ?? 'default';
 
   factory _$GuessResponseData.fromJson(Map<String, dynamic> json) =>
       _$$GuessResponseDataFromJson(json);
 
-  @override
-
-  /// the actual word if failed
-  final String? answer;
-  @override
-
-  /// whether it was correct
-  final bool? correct;
-  @override
+  /// the guess words tried
+  final List<Guess>? _guesses;
 
   /// the guess words tried
-  final List<Guess>? guesses;
   @override
+  List<Guess>? get guesses {
+    final value = _guesses;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   /// informational message
-  final String? status;
   @override
+  final String? status;
 
   /// number of tries left
+  @override
   final int? tries_left;
+
+  /// the actual word if failed
+  @override
+  final String? answer;
+
+  /// whether it was correct
+  @override
+  final bool? correct;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'GuessResponse(answer: $answer, correct: $correct, guesses: $guesses, status: $status, tries_left: $tries_left)';
+    return 'GuessResponse(guesses: $guesses, status: $status, tries_left: $tries_left, answer: $answer, correct: $correct)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is GuessResponseData &&
-            const DeepCollectionEquality().equals(other.answer, answer) &&
-            const DeepCollectionEquality().equals(other.correct, correct) &&
-            const DeepCollectionEquality().equals(other.guesses, guesses) &&
+            other is _$GuessResponseData &&
+            const DeepCollectionEquality().equals(other._guesses, _guesses) &&
             const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality()
-                .equals(other.tries_left, tries_left));
+                .equals(other.tries_left, tries_left) &&
+            const DeepCollectionEquality().equals(other.answer, answer) &&
+            const DeepCollectionEquality().equals(other.correct, correct));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(answer),
-      const DeepCollectionEquality().hash(correct),
-      const DeepCollectionEquality().hash(guesses),
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(tries_left));
 
   @JsonKey(ignore: true)
   @override
-  $GuessResponseDataCopyWith<GuessResponseData> get copyWith =>
-      _$GuessResponseDataCopyWithImpl<GuessResponseData>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_guesses),
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(tries_left),
+      const DeepCollectionEquality().hash(answer),
+      const DeepCollectionEquality().hash(correct));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$GuessResponseDataCopyWith<_$GuessResponseData> get copyWith =>
+      __$$GuessResponseDataCopyWithImpl<_$GuessResponseData>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? answer, bool? correct, List<Guess>? guesses,
-            String? status, int? tries_left)
+    TResult Function(List<Guess>? guesses, String? status, int? tries_left,
+            String? answer, bool? correct)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(answer, correct, guesses, status, tries_left);
+    return $default(guesses, status, tries_left, answer, correct);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? answer, bool? correct, List<Guess>? guesses,
-            String? status, int? tries_left)?
+    TResult Function(List<Guess>? guesses, String? status, int? tries_left,
+            String? answer, bool? correct)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(answer, correct, guesses, status, tries_left);
+    return $default?.call(guesses, status, tries_left, answer, correct);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? answer, bool? correct, List<Guess>? guesses,
-            String? status, int? tries_left)?
+    TResult Function(List<Guess>? guesses, String? status, int? tries_left,
+            String? answer, bool? correct)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(answer, correct, guesses, status, tries_left);
+      return $default(guesses, status, tries_left, answer, correct);
     }
     return orElse();
   }
@@ -917,26 +856,22 @@ class _$GuessResponseData implements GuessResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GuessResponseDataToJson(this);
+    return _$$GuessResponseDataToJson(
+      this,
+    );
   }
 }
 
 abstract class GuessResponseData implements GuessResponse {
   const factory GuessResponseData(
-      {String? answer,
-      bool? correct,
-      List<Guess>? guesses,
-      String? status,
-      int? tries_left}) = _$GuessResponseData;
+      {final List<Guess>? guesses,
+      final String? status,
+      final int? tries_left,
+      final String? answer,
+      final bool? correct}) = _$GuessResponseData;
 
   factory GuessResponseData.fromJson(Map<String, dynamic> json) =
       _$GuessResponseData.fromJson;
-
-  /// the actual word if failed
-  String? get answer;
-
-  /// whether it was correct
-  bool? get correct;
 
   /// the guess words tried
   List<Guess>? get guesses;
@@ -946,37 +881,43 @@ abstract class GuessResponseData implements GuessResponse {
 
   /// number of tries left
   int? get tries_left;
+
+  /// the actual word if failed
+  String? get answer;
+
+  /// whether it was correct
+  bool? get correct;
   @JsonKey(ignore: true)
-  $GuessResponseDataCopyWith<GuessResponseData> get copyWith =>
+  _$$GuessResponseDataCopyWith<_$GuessResponseData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GuessResponseMerrCopyWith<$Res> {
-  factory $GuessResponseMerrCopyWith(
-          GuessResponseMerr value, $Res Function(GuessResponseMerr) then) =
-      _$GuessResponseMerrCopyWithImpl<$Res>;
+abstract class _$$GuessResponseMerrCopyWith<$Res> {
+  factory _$$GuessResponseMerrCopyWith(
+          _$GuessResponseMerr value, $Res Function(_$GuessResponseMerr) then) =
+      __$$GuessResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$GuessResponseMerrCopyWithImpl<$Res>
+class __$$GuessResponseMerrCopyWithImpl<$Res>
     extends _$GuessResponseCopyWithImpl<$Res>
-    implements $GuessResponseMerrCopyWith<$Res> {
-  _$GuessResponseMerrCopyWithImpl(
-      GuessResponseMerr _value, $Res Function(GuessResponseMerr) _then)
-      : super(_value, (v) => _then(v as GuessResponseMerr));
+    implements _$$GuessResponseMerrCopyWith<$Res> {
+  __$$GuessResponseMerrCopyWithImpl(
+      _$GuessResponseMerr _value, $Res Function(_$GuessResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$GuessResponseMerr));
 
   @override
-  GuessResponseMerr get _value => super._value as GuessResponseMerr;
+  _$GuessResponseMerr get _value => super._value as _$GuessResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(GuessResponseMerr(
+    return _then(_$GuessResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -986,14 +927,22 @@ class _$GuessResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$GuessResponseMerr implements GuessResponseMerr {
-  const _$GuessResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$GuessResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$GuessResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$GuessResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -1007,24 +956,25 @@ class _$GuessResponseMerr implements GuessResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is GuessResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$GuessResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $GuessResponseMerrCopyWith<GuessResponseMerr> get copyWith =>
-      _$GuessResponseMerrCopyWithImpl<GuessResponseMerr>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$GuessResponseMerrCopyWith<_$GuessResponseMerr> get copyWith =>
+      __$$GuessResponseMerrCopyWithImpl<_$GuessResponseMerr>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? answer, bool? correct, List<Guess>? guesses,
-            String? status, int? tries_left)
+    TResult Function(List<Guess>? guesses, String? status, int? tries_left,
+            String? answer, bool? correct)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -1034,8 +984,8 @@ class _$GuessResponseMerr implements GuessResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? answer, bool? correct, List<Guess>? guesses,
-            String? status, int? tries_left)?
+    TResult Function(List<Guess>? guesses, String? status, int? tries_left,
+            String? answer, bool? correct)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -1045,8 +995,8 @@ class _$GuessResponseMerr implements GuessResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? answer, bool? correct, List<Guess>? guesses,
-            String? status, int? tries_left)?
+    TResult Function(List<Guess>? guesses, String? status, int? tries_left,
+            String? answer, bool? correct)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -1090,12 +1040,14 @@ class _$GuessResponseMerr implements GuessResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GuessResponseMerrToJson(this);
+    return _$$GuessResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class GuessResponseMerr implements GuessResponse {
-  const factory GuessResponseMerr({Map<String, dynamic>? body}) =
+  const factory GuessResponseMerr({final Map<String, dynamic>? body}) =
       _$GuessResponseMerr;
 
   factory GuessResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -1103,29 +1055,13 @@ abstract class GuessResponseMerr implements GuessResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $GuessResponseMerrCopyWith<GuessResponseMerr> get copyWith =>
+  _$$GuessResponseMerrCopyWith<_$GuessResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 NextRequest _$NextRequestFromJson(Map<String, dynamic> json) {
   return _NextRequest.fromJson(json);
 }
-
-/// @nodoc
-class _$NextRequestTearOff {
-  const _$NextRequestTearOff();
-
-  _NextRequest call() {
-    return const _NextRequest();
-  }
-
-  NextRequest fromJson(Map<String, Object?> json) {
-    return NextRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $NextRequest = _$NextRequestTearOff();
 
 /// @nodoc
 mixin _$NextRequest {
@@ -1149,21 +1085,21 @@ class _$NextRequestCopyWithImpl<$Res> implements $NextRequestCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$NextRequestCopyWith<$Res> {
-  factory _$NextRequestCopyWith(
-          _NextRequest value, $Res Function(_NextRequest) then) =
-      __$NextRequestCopyWithImpl<$Res>;
+abstract class _$$_NextRequestCopyWith<$Res> {
+  factory _$$_NextRequestCopyWith(
+          _$_NextRequest value, $Res Function(_$_NextRequest) then) =
+      __$$_NextRequestCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$NextRequestCopyWithImpl<$Res> extends _$NextRequestCopyWithImpl<$Res>
-    implements _$NextRequestCopyWith<$Res> {
-  __$NextRequestCopyWithImpl(
-      _NextRequest _value, $Res Function(_NextRequest) _then)
-      : super(_value, (v) => _then(v as _NextRequest));
+class __$$_NextRequestCopyWithImpl<$Res> extends _$NextRequestCopyWithImpl<$Res>
+    implements _$$_NextRequestCopyWith<$Res> {
+  __$$_NextRequestCopyWithImpl(
+      _$_NextRequest _value, $Res Function(_$_NextRequest) _then)
+      : super(_value, (v) => _then(v as _$_NextRequest));
 
   @override
-  _NextRequest get _value => super._value as _NextRequest;
+  _$_NextRequest get _value => super._value as _$_NextRequest;
 }
 
 /// @nodoc
@@ -1182,15 +1118,18 @@ class _$_NextRequest implements _NextRequest {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _NextRequest);
+        (other.runtimeType == runtimeType && other is _$_NextRequest);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NextRequestToJson(this);
+    return _$$_NextRequestToJson(
+      this,
+    );
   }
 }
 
@@ -1213,31 +1152,6 @@ NextResponse _$NextResponseFromJson(Map<String, dynamic> json) {
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
-
-/// @nodoc
-class _$NextResponseTearOff {
-  const _$NextResponseTearOff();
-
-  NextResponseData call({String? duration, int? seconds}) {
-    return NextResponseData(
-      duration: duration,
-      seconds: seconds,
-    );
-  }
-
-  NextResponseMerr Merr({Map<String, dynamic>? body}) {
-    return NextResponseMerr(
-      body: body,
-    );
-  }
-
-  NextResponse fromJson(Map<String, Object?> json) {
-    return NextResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $NextResponse = _$NextResponseTearOff();
 
 /// @nodoc
 mixin _$NextResponse {
@@ -1299,30 +1213,30 @@ class _$NextResponseCopyWithImpl<$Res> implements $NextResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class $NextResponseDataCopyWith<$Res> {
-  factory $NextResponseDataCopyWith(
-          NextResponseData value, $Res Function(NextResponseData) then) =
-      _$NextResponseDataCopyWithImpl<$Res>;
+abstract class _$$NextResponseDataCopyWith<$Res> {
+  factory _$$NextResponseDataCopyWith(
+          _$NextResponseData value, $Res Function(_$NextResponseData) then) =
+      __$$NextResponseDataCopyWithImpl<$Res>;
   $Res call({String? duration, int? seconds});
 }
 
 /// @nodoc
-class _$NextResponseDataCopyWithImpl<$Res>
+class __$$NextResponseDataCopyWithImpl<$Res>
     extends _$NextResponseCopyWithImpl<$Res>
-    implements $NextResponseDataCopyWith<$Res> {
-  _$NextResponseDataCopyWithImpl(
-      NextResponseData _value, $Res Function(NextResponseData) _then)
-      : super(_value, (v) => _then(v as NextResponseData));
+    implements _$$NextResponseDataCopyWith<$Res> {
+  __$$NextResponseDataCopyWithImpl(
+      _$NextResponseData _value, $Res Function(_$NextResponseData) _then)
+      : super(_value, (v) => _then(v as _$NextResponseData));
 
   @override
-  NextResponseData get _value => super._value as NextResponseData;
+  _$NextResponseData get _value => super._value as _$NextResponseData;
 
   @override
   $Res call({
     Object? duration = freezed,
     Object? seconds = freezed,
   }) {
-    return _then(NextResponseData(
+    return _then(_$NextResponseData(
       duration: duration == freezed
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
@@ -1338,19 +1252,18 @@ class _$NextResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$NextResponseData implements NextResponseData {
-  const _$NextResponseData({this.duration, this.seconds, String? $type})
+  const _$NextResponseData({this.duration, this.seconds, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$NextResponseData.fromJson(Map<String, dynamic> json) =>
       _$$NextResponseDataFromJson(json);
 
-  @override
-
   /// in hh:mm:ss
-  final String? duration;
   @override
+  final String? duration;
 
   /// number of seconds
+  @override
   final int? seconds;
 
   @JsonKey(name: 'runtimeType')
@@ -1365,11 +1278,12 @@ class _$NextResponseData implements NextResponseData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is NextResponseData &&
+            other is _$NextResponseData &&
             const DeepCollectionEquality().equals(other.duration, duration) &&
             const DeepCollectionEquality().equals(other.seconds, seconds));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -1378,8 +1292,8 @@ class _$NextResponseData implements NextResponseData {
 
   @JsonKey(ignore: true)
   @override
-  $NextResponseDataCopyWith<NextResponseData> get copyWith =>
-      _$NextResponseDataCopyWithImpl<NextResponseData>(this, _$identity);
+  _$$NextResponseDataCopyWith<_$NextResponseData> get copyWith =>
+      __$$NextResponseDataCopyWithImpl<_$NextResponseData>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1445,12 +1359,14 @@ class _$NextResponseData implements NextResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$NextResponseDataToJson(this);
+    return _$$NextResponseDataToJson(
+      this,
+    );
   }
 }
 
 abstract class NextResponseData implements NextResponse {
-  const factory NextResponseData({String? duration, int? seconds}) =
+  const factory NextResponseData({final String? duration, final int? seconds}) =
       _$NextResponseData;
 
   factory NextResponseData.fromJson(Map<String, dynamic> json) =
@@ -1462,36 +1378,36 @@ abstract class NextResponseData implements NextResponse {
   /// number of seconds
   int? get seconds;
   @JsonKey(ignore: true)
-  $NextResponseDataCopyWith<NextResponseData> get copyWith =>
+  _$$NextResponseDataCopyWith<_$NextResponseData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $NextResponseMerrCopyWith<$Res> {
-  factory $NextResponseMerrCopyWith(
-          NextResponseMerr value, $Res Function(NextResponseMerr) then) =
-      _$NextResponseMerrCopyWithImpl<$Res>;
+abstract class _$$NextResponseMerrCopyWith<$Res> {
+  factory _$$NextResponseMerrCopyWith(
+          _$NextResponseMerr value, $Res Function(_$NextResponseMerr) then) =
+      __$$NextResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$NextResponseMerrCopyWithImpl<$Res>
+class __$$NextResponseMerrCopyWithImpl<$Res>
     extends _$NextResponseCopyWithImpl<$Res>
-    implements $NextResponseMerrCopyWith<$Res> {
-  _$NextResponseMerrCopyWithImpl(
-      NextResponseMerr _value, $Res Function(NextResponseMerr) _then)
-      : super(_value, (v) => _then(v as NextResponseMerr));
+    implements _$$NextResponseMerrCopyWith<$Res> {
+  __$$NextResponseMerrCopyWithImpl(
+      _$NextResponseMerr _value, $Res Function(_$NextResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$NextResponseMerr));
 
   @override
-  NextResponseMerr get _value => super._value as NextResponseMerr;
+  _$NextResponseMerr get _value => super._value as _$NextResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(NextResponseMerr(
+    return _then(_$NextResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -1501,14 +1417,22 @@ class _$NextResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$NextResponseMerr implements NextResponseMerr {
-  const _$NextResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$NextResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$NextResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$NextResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -1522,18 +1446,19 @@ class _$NextResponseMerr implements NextResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is NextResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$NextResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $NextResponseMerrCopyWith<NextResponseMerr> get copyWith =>
-      _$NextResponseMerrCopyWithImpl<NextResponseMerr>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$NextResponseMerrCopyWith<_$NextResponseMerr> get copyWith =>
+      __$$NextResponseMerrCopyWithImpl<_$NextResponseMerr>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1599,12 +1524,14 @@ class _$NextResponseMerr implements NextResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$NextResponseMerrToJson(this);
+    return _$$NextResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class NextResponseMerr implements NextResponse {
-  const factory NextResponseMerr({Map<String, dynamic>? body}) =
+  const factory NextResponseMerr({final Map<String, dynamic>? body}) =
       _$NextResponseMerr;
 
   factory NextResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -1612,6 +1539,6 @@ abstract class NextResponseMerr implements NextResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $NextResponseMerrCopyWith<NextResponseMerr> get copyWith =>
+  _$$NextResponseMerrCopyWith<_$NextResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }

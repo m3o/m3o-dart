@@ -236,11 +236,11 @@ class FunctionService {
 @Freezed()
 class CallRequest with _$CallRequest {
   const factory CallRequest({
-    /// Request body that will be passed to the function
-    Map<String, dynamic>? request,
-
     /// Name of the function
     String? name,
+
+    /// Request body that will be passed to the function
+    Map<String, dynamic>? request,
   }) = _CallRequest;
   factory CallRequest.fromJson(Map<String, dynamic> json) =>
       _$CallRequestFromJson(json);
@@ -280,24 +280,11 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class DeployRequest with _$DeployRequest {
   const factory DeployRequest({
-    /// entry point, ie. handler name in the source code
-    /// if not provided, defaults to the name parameter
-    String? entrypoint,
-
-    /// inline source code
-    String? source,
-
-    /// branch to deploy. defaults to master
-    String? branch,
-
     /// environment variables to pass in at runtime
     Map<String, String>? env_vars,
 
     /// function name
     String? name,
-
-    /// region to deploy in. defaults to europe-west1
-    String? region,
 
     /// github url for a repo
     String? repo,
@@ -310,6 +297,19 @@ class DeployRequest with _$DeployRequest {
 
     /// optional subfolder path
     String? subfolder,
+
+    /// entry point, ie. handler name in the source code
+    /// if not provided, defaults to the name parameter
+    String? entrypoint,
+
+    /// region to deploy in. defaults to europe-west1
+    String? region,
+
+    /// inline source code
+    String? source,
+
+    /// branch to deploy. defaults to master
+    String? branch,
   }) = _DeployRequest;
   factory DeployRequest.fromJson(Map<String, dynamic> json) =>
       _$DeployRequestFromJson(json);
@@ -351,14 +351,29 @@ class DescribeResponse with _$DescribeResponse {
 @Freezed()
 class Func with _$Func {
   const factory Func({
-    /// name of handler in source code
-    String? entrypoint,
+    /// the source code
+    String? source,
+
+    /// branch to deploy. defaults to master
+    String? branch,
 
     /// id of the function
     String? id,
 
-    /// time it was updated
-    String? updated,
+    /// runtime/language of the function e.g php74,
+    /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
+    /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
+    /// python37, python38, python39
+    String? runtime,
+
+    /// name of handler in source code
+    String? entrypoint,
+
+    /// unique url of the function
+    String? url,
+
+    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+    String? status,
 
     /// time of creation
     String? created,
@@ -370,32 +385,17 @@ class Func with _$Func {
     /// limitation: must be unique across projects
     String? name,
 
+    /// time it was updated
+    String? updated,
+
     /// region to deploy in. defaults to europe-west1
     String? region,
-
-    /// the source code
-    String? source,
-
-    /// subfolder path to entrypoint
-    String? subfolder,
-
-    /// unique url of the function
-    String? url,
-
-    /// branch to deploy. defaults to master
-    String? branch,
 
     /// git repo address
     String? repo,
 
-    /// runtime/language of the function e.g php74,
-    /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
-    /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
-    /// python37, python38, python39
-    String? runtime,
-
-    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-    String? status,
+    /// subfolder path to entrypoint
+    String? subfolder,
   }) = _Func;
   factory Func.fromJson(Map<String, dynamic> json) => _$FuncFromJson(json);
 }
@@ -486,6 +486,9 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
+    /// associated token
+    String? token,
+
     /// time of reservation
     String? created,
 
@@ -497,9 +500,6 @@ class Reservation with _$Reservation {
 
     /// owner id
     String? owner,
-
-    /// associated token
-    String? token,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);

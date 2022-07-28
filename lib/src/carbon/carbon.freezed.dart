@@ -12,27 +12,11 @@ part of 'carbon.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 OffsetRequest _$OffsetRequestFromJson(Map<String, dynamic> json) {
   return _OffsetRequest.fromJson(json);
 }
-
-/// @nodoc
-class _$OffsetRequestTearOff {
-  const _$OffsetRequestTearOff();
-
-  _OffsetRequest call() {
-    return const _OffsetRequest();
-  }
-
-  OffsetRequest fromJson(Map<String, Object?> json) {
-    return OffsetRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $OffsetRequest = _$OffsetRequestTearOff();
 
 /// @nodoc
 mixin _$OffsetRequest {
@@ -57,22 +41,22 @@ class _$OffsetRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$OffsetRequestCopyWith<$Res> {
-  factory _$OffsetRequestCopyWith(
-          _OffsetRequest value, $Res Function(_OffsetRequest) then) =
-      __$OffsetRequestCopyWithImpl<$Res>;
+abstract class _$$_OffsetRequestCopyWith<$Res> {
+  factory _$$_OffsetRequestCopyWith(
+          _$_OffsetRequest value, $Res Function(_$_OffsetRequest) then) =
+      __$$_OffsetRequestCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$OffsetRequestCopyWithImpl<$Res>
+class __$$_OffsetRequestCopyWithImpl<$Res>
     extends _$OffsetRequestCopyWithImpl<$Res>
-    implements _$OffsetRequestCopyWith<$Res> {
-  __$OffsetRequestCopyWithImpl(
-      _OffsetRequest _value, $Res Function(_OffsetRequest) _then)
-      : super(_value, (v) => _then(v as _OffsetRequest));
+    implements _$$_OffsetRequestCopyWith<$Res> {
+  __$$_OffsetRequestCopyWithImpl(
+      _$_OffsetRequest _value, $Res Function(_$_OffsetRequest) _then)
+      : super(_value, (v) => _then(v as _$_OffsetRequest));
 
   @override
-  _OffsetRequest get _value => super._value as _OffsetRequest;
+  _$_OffsetRequest get _value => super._value as _$_OffsetRequest;
 }
 
 /// @nodoc
@@ -91,15 +75,18 @@ class _$_OffsetRequest implements _OffsetRequest {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _OffsetRequest);
+        (other.runtimeType == runtimeType && other is _$_OffsetRequest);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_OffsetRequestToJson(this);
+    return _$$_OffsetRequestToJson(
+      this,
+    );
   }
 }
 
@@ -122,34 +109,6 @@ OffsetResponse _$OffsetResponseFromJson(Map<String, dynamic> json) {
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
-
-/// @nodoc
-class _$OffsetResponseTearOff {
-  const _$OffsetResponseTearOff();
-
-  OffsetResponseData call(
-      {String? metric, List<Project>? projects, double? tonnes, int? units}) {
-    return OffsetResponseData(
-      metric: metric,
-      projects: projects,
-      tonnes: tonnes,
-      units: units,
-    );
-  }
-
-  OffsetResponseMerr Merr({Map<String, dynamic>? body}) {
-    return OffsetResponseMerr(
-      body: body,
-    );
-  }
-
-  OffsetResponse fromJson(Map<String, Object?> json) {
-    return OffsetResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $OffsetResponse = _$OffsetResponseTearOff();
 
 /// @nodoc
 mixin _$OffsetResponse {
@@ -218,24 +177,24 @@ class _$OffsetResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $OffsetResponseDataCopyWith<$Res> {
-  factory $OffsetResponseDataCopyWith(
-          OffsetResponseData value, $Res Function(OffsetResponseData) then) =
-      _$OffsetResponseDataCopyWithImpl<$Res>;
+abstract class _$$OffsetResponseDataCopyWith<$Res> {
+  factory _$$OffsetResponseDataCopyWith(_$OffsetResponseData value,
+          $Res Function(_$OffsetResponseData) then) =
+      __$$OffsetResponseDataCopyWithImpl<$Res>;
   $Res call(
       {String? metric, List<Project>? projects, double? tonnes, int? units});
 }
 
 /// @nodoc
-class _$OffsetResponseDataCopyWithImpl<$Res>
+class __$$OffsetResponseDataCopyWithImpl<$Res>
     extends _$OffsetResponseCopyWithImpl<$Res>
-    implements $OffsetResponseDataCopyWith<$Res> {
-  _$OffsetResponseDataCopyWithImpl(
-      OffsetResponseData _value, $Res Function(OffsetResponseData) _then)
-      : super(_value, (v) => _then(v as OffsetResponseData));
+    implements _$$OffsetResponseDataCopyWith<$Res> {
+  __$$OffsetResponseDataCopyWithImpl(
+      _$OffsetResponseData _value, $Res Function(_$OffsetResponseData) _then)
+      : super(_value, (v) => _then(v as _$OffsetResponseData));
 
   @override
-  OffsetResponseData get _value => super._value as OffsetResponseData;
+  _$OffsetResponseData get _value => super._value as _$OffsetResponseData;
 
   @override
   $Res call({
@@ -244,13 +203,13 @@ class _$OffsetResponseDataCopyWithImpl<$Res>
     Object? tonnes = freezed,
     Object? units = freezed,
   }) {
-    return _then(OffsetResponseData(
+    return _then(_$OffsetResponseData(
       metric: metric == freezed
           ? _value.metric
           : metric // ignore: cast_nullable_to_non_nullable
               as String?,
       projects: projects == freezed
-          ? _value.projects
+          ? _value._projects
           : projects // ignore: cast_nullable_to_non_nullable
               as List<Project>?,
       tonnes: tonnes == freezed
@@ -269,27 +228,39 @@ class _$OffsetResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$OffsetResponseData implements OffsetResponseData {
   const _$OffsetResponseData(
-      {this.metric, this.projects, this.tonnes, this.units, String? $type})
-      : $type = $type ?? 'default';
+      {this.metric,
+      final List<Project>? projects,
+      this.tonnes,
+      this.units,
+      final String? $type})
+      : _projects = projects,
+        $type = $type ?? 'default';
 
   factory _$OffsetResponseData.fromJson(Map<String, dynamic> json) =>
       _$$OffsetResponseDataFromJson(json);
 
-  @override
-
   /// the metric used e.g KG or Tonnes
-  final String? metric;
   @override
+  final String? metric;
 
   /// projects it was allocated to
-  final List<Project>? projects;
+  final List<Project>? _projects;
+
+  /// projects it was allocated to
   @override
+  List<Project>? get projects {
+    final value = _projects;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   /// number of tonnes
-  final double? tonnes;
   @override
+  final double? tonnes;
 
   /// number of units purchased
+  @override
   final int? units;
 
   @JsonKey(name: 'runtimeType')
@@ -304,25 +275,27 @@ class _$OffsetResponseData implements OffsetResponseData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is OffsetResponseData &&
+            other is _$OffsetResponseData &&
             const DeepCollectionEquality().equals(other.metric, metric) &&
-            const DeepCollectionEquality().equals(other.projects, projects) &&
+            const DeepCollectionEquality().equals(other._projects, _projects) &&
             const DeepCollectionEquality().equals(other.tonnes, tonnes) &&
             const DeepCollectionEquality().equals(other.units, units));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(metric),
-      const DeepCollectionEquality().hash(projects),
+      const DeepCollectionEquality().hash(_projects),
       const DeepCollectionEquality().hash(tonnes),
       const DeepCollectionEquality().hash(units));
 
   @JsonKey(ignore: true)
   @override
-  $OffsetResponseDataCopyWith<OffsetResponseData> get copyWith =>
-      _$OffsetResponseDataCopyWithImpl<OffsetResponseData>(this, _$identity);
+  _$$OffsetResponseDataCopyWith<_$OffsetResponseData> get copyWith =>
+      __$$OffsetResponseDataCopyWithImpl<_$OffsetResponseData>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -394,16 +367,18 @@ class _$OffsetResponseData implements OffsetResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OffsetResponseDataToJson(this);
+    return _$$OffsetResponseDataToJson(
+      this,
+    );
   }
 }
 
 abstract class OffsetResponseData implements OffsetResponse {
   const factory OffsetResponseData(
-      {String? metric,
-      List<Project>? projects,
-      double? tonnes,
-      int? units}) = _$OffsetResponseData;
+      {final String? metric,
+      final List<Project>? projects,
+      final double? tonnes,
+      final int? units}) = _$OffsetResponseData;
 
   factory OffsetResponseData.fromJson(Map<String, dynamic> json) =
       _$OffsetResponseData.fromJson;
@@ -420,36 +395,36 @@ abstract class OffsetResponseData implements OffsetResponse {
   /// number of units purchased
   int? get units;
   @JsonKey(ignore: true)
-  $OffsetResponseDataCopyWith<OffsetResponseData> get copyWith =>
+  _$$OffsetResponseDataCopyWith<_$OffsetResponseData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OffsetResponseMerrCopyWith<$Res> {
-  factory $OffsetResponseMerrCopyWith(
-          OffsetResponseMerr value, $Res Function(OffsetResponseMerr) then) =
-      _$OffsetResponseMerrCopyWithImpl<$Res>;
+abstract class _$$OffsetResponseMerrCopyWith<$Res> {
+  factory _$$OffsetResponseMerrCopyWith(_$OffsetResponseMerr value,
+          $Res Function(_$OffsetResponseMerr) then) =
+      __$$OffsetResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$OffsetResponseMerrCopyWithImpl<$Res>
+class __$$OffsetResponseMerrCopyWithImpl<$Res>
     extends _$OffsetResponseCopyWithImpl<$Res>
-    implements $OffsetResponseMerrCopyWith<$Res> {
-  _$OffsetResponseMerrCopyWithImpl(
-      OffsetResponseMerr _value, $Res Function(OffsetResponseMerr) _then)
-      : super(_value, (v) => _then(v as OffsetResponseMerr));
+    implements _$$OffsetResponseMerrCopyWith<$Res> {
+  __$$OffsetResponseMerrCopyWithImpl(
+      _$OffsetResponseMerr _value, $Res Function(_$OffsetResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$OffsetResponseMerr));
 
   @override
-  OffsetResponseMerr get _value => super._value as OffsetResponseMerr;
+  _$OffsetResponseMerr get _value => super._value as _$OffsetResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(OffsetResponseMerr(
+    return _then(_$OffsetResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -459,14 +434,22 @@ class _$OffsetResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$OffsetResponseMerr implements OffsetResponseMerr {
-  const _$OffsetResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$OffsetResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$OffsetResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$OffsetResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -480,18 +463,20 @@ class _$OffsetResponseMerr implements OffsetResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is OffsetResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$OffsetResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $OffsetResponseMerrCopyWith<OffsetResponseMerr> get copyWith =>
-      _$OffsetResponseMerrCopyWithImpl<OffsetResponseMerr>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$OffsetResponseMerrCopyWith<_$OffsetResponseMerr> get copyWith =>
+      __$$OffsetResponseMerrCopyWithImpl<_$OffsetResponseMerr>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -563,12 +548,14 @@ class _$OffsetResponseMerr implements OffsetResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OffsetResponseMerrToJson(this);
+    return _$$OffsetResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class OffsetResponseMerr implements OffsetResponse {
-  const factory OffsetResponseMerr({Map<String, dynamic>? body}) =
+  const factory OffsetResponseMerr({final Map<String, dynamic>? body}) =
       _$OffsetResponseMerr;
 
   factory OffsetResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -576,33 +563,13 @@ abstract class OffsetResponseMerr implements OffsetResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $OffsetResponseMerrCopyWith<OffsetResponseMerr> get copyWith =>
+  _$$OffsetResponseMerrCopyWith<_$OffsetResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 Project _$ProjectFromJson(Map<String, dynamic> json) {
   return _Project.fromJson(json);
 }
-
-/// @nodoc
-class _$ProjectTearOff {
-  const _$ProjectTearOff();
-
-  _Project call({String? name, double? percentage, double? tonnes}) {
-    return _Project(
-      name: name,
-      percentage: percentage,
-      tonnes: tonnes,
-    );
-  }
-
-  Project fromJson(Map<String, Object?> json) {
-    return Project.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Project = _$ProjectTearOff();
 
 /// @nodoc
 mixin _$Project {
@@ -659,21 +626,22 @@ class _$ProjectCopyWithImpl<$Res> implements $ProjectCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
-  factory _$ProjectCopyWith(_Project value, $Res Function(_Project) then) =
-      __$ProjectCopyWithImpl<$Res>;
+abstract class _$$_ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
+  factory _$$_ProjectCopyWith(
+          _$_Project value, $Res Function(_$_Project) then) =
+      __$$_ProjectCopyWithImpl<$Res>;
   @override
   $Res call({String? name, double? percentage, double? tonnes});
 }
 
 /// @nodoc
-class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
-    implements _$ProjectCopyWith<$Res> {
-  __$ProjectCopyWithImpl(_Project _value, $Res Function(_Project) _then)
-      : super(_value, (v) => _then(v as _Project));
+class __$$_ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
+    implements _$$_ProjectCopyWith<$Res> {
+  __$$_ProjectCopyWithImpl(_$_Project _value, $Res Function(_$_Project) _then)
+      : super(_value, (v) => _then(v as _$_Project));
 
   @override
-  _Project get _value => super._value as _Project;
+  _$_Project get _value => super._value as _$_Project;
 
   @override
   $Res call({
@@ -681,7 +649,7 @@ class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
     Object? percentage = freezed,
     Object? tonnes = freezed,
   }) {
-    return _then(_Project(
+    return _then(_$_Project(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -706,17 +674,16 @@ class _$_Project implements _Project {
   factory _$_Project.fromJson(Map<String, dynamic> json) =>
       _$$_ProjectFromJson(json);
 
-  @override
-
   /// name of the project
-  final String? name;
   @override
+  final String? name;
 
   /// percentage that went to this
-  final double? percentage;
   @override
+  final double? percentage;
 
   /// amount in tonnes
+  @override
   final double? tonnes;
 
   @override
@@ -728,13 +695,14 @@ class _$_Project implements _Project {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Project &&
+            other is _$_Project &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
                 .equals(other.percentage, percentage) &&
             const DeepCollectionEquality().equals(other.tonnes, tonnes));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -744,18 +712,22 @@ class _$_Project implements _Project {
 
   @JsonKey(ignore: true)
   @override
-  _$ProjectCopyWith<_Project> get copyWith =>
-      __$ProjectCopyWithImpl<_Project>(this, _$identity);
+  _$$_ProjectCopyWith<_$_Project> get copyWith =>
+      __$$_ProjectCopyWithImpl<_$_Project>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProjectToJson(this);
+    return _$$_ProjectToJson(
+      this,
+    );
   }
 }
 
 abstract class _Project implements Project {
-  const factory _Project({String? name, double? percentage, double? tonnes}) =
-      _$_Project;
+  const factory _Project(
+      {final String? name,
+      final double? percentage,
+      final double? tonnes}) = _$_Project;
 
   factory _Project.fromJson(Map<String, dynamic> json) = _$_Project.fromJson;
 
@@ -773,6 +745,6 @@ abstract class _Project implements Project {
   double? get tonnes;
   @override
   @JsonKey(ignore: true)
-  _$ProjectCopyWith<_Project> get copyWith =>
+  _$$_ProjectCopyWith<_$_Project> get copyWith =>
       throw _privateConstructorUsedError;
 }

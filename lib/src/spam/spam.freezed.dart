@@ -12,40 +12,11 @@ part of 'spam.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ClassifyRequest _$ClassifyRequestFromJson(Map<String, dynamic> json) {
   return _ClassifyRequest.fromJson(json);
 }
-
-/// @nodoc
-class _$ClassifyRequestTearOff {
-  const _$ClassifyRequestTearOff();
-
-  _ClassifyRequest call(
-      {String? html_body,
-      String? subject,
-      String? text_body,
-      String? to,
-      String? email_body,
-      String? from}) {
-    return _ClassifyRequest(
-      html_body: html_body,
-      subject: subject,
-      text_body: text_body,
-      to: to,
-      email_body: email_body,
-      from: from,
-    );
-  }
-
-  ClassifyRequest fromJson(Map<String, Object?> json) {
-    return ClassifyRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ClassifyRequest = _$ClassifyRequestTearOff();
 
 /// @nodoc
 mixin _$ClassifyRequest {
@@ -135,11 +106,11 @@ class _$ClassifyRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ClassifyRequestCopyWith<$Res>
+abstract class _$$_ClassifyRequestCopyWith<$Res>
     implements $ClassifyRequestCopyWith<$Res> {
-  factory _$ClassifyRequestCopyWith(
-          _ClassifyRequest value, $Res Function(_ClassifyRequest) then) =
-      __$ClassifyRequestCopyWithImpl<$Res>;
+  factory _$$_ClassifyRequestCopyWith(
+          _$_ClassifyRequest value, $Res Function(_$_ClassifyRequest) then) =
+      __$$_ClassifyRequestCopyWithImpl<$Res>;
   @override
   $Res call(
       {String? html_body,
@@ -151,15 +122,15 @@ abstract class _$ClassifyRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ClassifyRequestCopyWithImpl<$Res>
+class __$$_ClassifyRequestCopyWithImpl<$Res>
     extends _$ClassifyRequestCopyWithImpl<$Res>
-    implements _$ClassifyRequestCopyWith<$Res> {
-  __$ClassifyRequestCopyWithImpl(
-      _ClassifyRequest _value, $Res Function(_ClassifyRequest) _then)
-      : super(_value, (v) => _then(v as _ClassifyRequest));
+    implements _$$_ClassifyRequestCopyWith<$Res> {
+  __$$_ClassifyRequestCopyWithImpl(
+      _$_ClassifyRequest _value, $Res Function(_$_ClassifyRequest) _then)
+      : super(_value, (v) => _then(v as _$_ClassifyRequest));
 
   @override
-  _ClassifyRequest get _value => super._value as _ClassifyRequest;
+  _$_ClassifyRequest get _value => super._value as _$_ClassifyRequest;
 
   @override
   $Res call({
@@ -170,7 +141,7 @@ class __$ClassifyRequestCopyWithImpl<$Res>
     Object? email_body = freezed,
     Object? from = freezed,
   }) {
-    return _then(_ClassifyRequest(
+    return _then(_$_ClassifyRequest(
       html_body: html_body == freezed
           ? _value.html_body
           : html_body // ignore: cast_nullable_to_non_nullable
@@ -213,29 +184,28 @@ class _$_ClassifyRequest implements _ClassifyRequest {
   factory _$_ClassifyRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ClassifyRequestFromJson(json);
 
-  @override
-
   /// the HTML version of the email body
-  final String? html_body;
   @override
+  final String? html_body;
 
   /// The subject of the email
-  final String? subject;
   @override
+  final String? subject;
 
   /// the plain text version of the email body
-  final String? text_body;
   @override
+  final String? text_body;
 
   /// The email address it is being sent to
-  final String? to;
   @override
+  final String? to;
 
   /// The raw body of the email including headers etc per RFC 822. Alternatively, use the other parameters to correctly format the message
-  final String? email_body;
   @override
+  final String? email_body;
 
   /// The email address it has been sent from
+  @override
   final String? from;
 
   @override
@@ -247,7 +217,7 @@ class _$_ClassifyRequest implements _ClassifyRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ClassifyRequest &&
+            other is _$_ClassifyRequest &&
             const DeepCollectionEquality().equals(other.html_body, html_body) &&
             const DeepCollectionEquality().equals(other.subject, subject) &&
             const DeepCollectionEquality().equals(other.text_body, text_body) &&
@@ -257,6 +227,7 @@ class _$_ClassifyRequest implements _ClassifyRequest {
             const DeepCollectionEquality().equals(other.from, from));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -269,23 +240,25 @@ class _$_ClassifyRequest implements _ClassifyRequest {
 
   @JsonKey(ignore: true)
   @override
-  _$ClassifyRequestCopyWith<_ClassifyRequest> get copyWith =>
-      __$ClassifyRequestCopyWithImpl<_ClassifyRequest>(this, _$identity);
+  _$$_ClassifyRequestCopyWith<_$_ClassifyRequest> get copyWith =>
+      __$$_ClassifyRequestCopyWithImpl<_$_ClassifyRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ClassifyRequestToJson(this);
+    return _$$_ClassifyRequestToJson(
+      this,
+    );
   }
 }
 
 abstract class _ClassifyRequest implements ClassifyRequest {
   const factory _ClassifyRequest(
-      {String? html_body,
-      String? subject,
-      String? text_body,
-      String? to,
-      String? email_body,
-      String? from}) = _$_ClassifyRequest;
+      {final String? html_body,
+      final String? subject,
+      final String? text_body,
+      final String? to,
+      final String? email_body,
+      final String? from}) = _$_ClassifyRequest;
 
   factory _ClassifyRequest.fromJson(Map<String, dynamic> json) =
       _$_ClassifyRequest.fromJson;
@@ -316,7 +289,7 @@ abstract class _ClassifyRequest implements ClassifyRequest {
   String? get from;
   @override
   @JsonKey(ignore: true)
-  _$ClassifyRequestCopyWith<_ClassifyRequest> get copyWith =>
+  _$$_ClassifyRequestCopyWith<_$_ClassifyRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -332,33 +305,6 @@ ClassifyResponse _$ClassifyResponseFromJson(Map<String, dynamic> json) {
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
-
-/// @nodoc
-class _$ClassifyResponseTearOff {
-  const _$ClassifyResponseTearOff();
-
-  ClassifyResponseData call(
-      {List<String>? details, bool? is_spam, double? score}) {
-    return ClassifyResponseData(
-      details: details,
-      is_spam: is_spam,
-      score: score,
-    );
-  }
-
-  ClassifyResponseMerr Merr({Map<String, dynamic>? body}) {
-    return ClassifyResponseMerr(
-      body: body,
-    );
-  }
-
-  ClassifyResponse fromJson(Map<String, Object?> json) {
-    return ClassifyResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ClassifyResponse = _$ClassifyResponseTearOff();
 
 /// @nodoc
 mixin _$ClassifyResponse {
@@ -424,23 +370,23 @@ class _$ClassifyResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $ClassifyResponseDataCopyWith<$Res> {
-  factory $ClassifyResponseDataCopyWith(ClassifyResponseData value,
-          $Res Function(ClassifyResponseData) then) =
-      _$ClassifyResponseDataCopyWithImpl<$Res>;
+abstract class _$$ClassifyResponseDataCopyWith<$Res> {
+  factory _$$ClassifyResponseDataCopyWith(_$ClassifyResponseData value,
+          $Res Function(_$ClassifyResponseData) then) =
+      __$$ClassifyResponseDataCopyWithImpl<$Res>;
   $Res call({List<String>? details, bool? is_spam, double? score});
 }
 
 /// @nodoc
-class _$ClassifyResponseDataCopyWithImpl<$Res>
+class __$$ClassifyResponseDataCopyWithImpl<$Res>
     extends _$ClassifyResponseCopyWithImpl<$Res>
-    implements $ClassifyResponseDataCopyWith<$Res> {
-  _$ClassifyResponseDataCopyWithImpl(
-      ClassifyResponseData _value, $Res Function(ClassifyResponseData) _then)
-      : super(_value, (v) => _then(v as ClassifyResponseData));
+    implements _$$ClassifyResponseDataCopyWith<$Res> {
+  __$$ClassifyResponseDataCopyWithImpl(_$ClassifyResponseData _value,
+      $Res Function(_$ClassifyResponseData) _then)
+      : super(_value, (v) => _then(v as _$ClassifyResponseData));
 
   @override
-  ClassifyResponseData get _value => super._value as ClassifyResponseData;
+  _$ClassifyResponseData get _value => super._value as _$ClassifyResponseData;
 
   @override
   $Res call({
@@ -448,9 +394,9 @@ class _$ClassifyResponseDataCopyWithImpl<$Res>
     Object? is_spam = freezed,
     Object? score = freezed,
   }) {
-    return _then(ClassifyResponseData(
+    return _then(_$ClassifyResponseData(
       details: details == freezed
-          ? _value.details
+          ? _value._details
           : details // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       is_spam: is_spam == freezed
@@ -469,23 +415,34 @@ class _$ClassifyResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ClassifyResponseData implements ClassifyResponseData {
   const _$ClassifyResponseData(
-      {this.details, this.is_spam, this.score, String? $type})
-      : $type = $type ?? 'default';
+      {final List<String>? details,
+      this.is_spam,
+      this.score,
+      final String? $type})
+      : _details = details,
+        $type = $type ?? 'default';
 
   factory _$ClassifyResponseData.fromJson(Map<String, dynamic> json) =>
       _$$ClassifyResponseDataFromJson(json);
 
-  @override
+  /// The rules that have contributed to this score
+  final List<String>? _details;
 
   /// The rules that have contributed to this score
-  final List<String>? details;
   @override
+  List<String>? get details {
+    final value = _details;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   /// Is it spam? Returns true if its score is > 5
-  final bool? is_spam;
   @override
+  final bool? is_spam;
 
   /// The score evaluated for this email. A higher number means it is more likely to be spam
+  @override
   final double? score;
 
   @JsonKey(name: 'runtimeType')
@@ -500,23 +457,24 @@ class _$ClassifyResponseData implements ClassifyResponseData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ClassifyResponseData &&
-            const DeepCollectionEquality().equals(other.details, details) &&
+            other is _$ClassifyResponseData &&
+            const DeepCollectionEquality().equals(other._details, _details) &&
             const DeepCollectionEquality().equals(other.is_spam, is_spam) &&
             const DeepCollectionEquality().equals(other.score, score));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(details),
+      const DeepCollectionEquality().hash(_details),
       const DeepCollectionEquality().hash(is_spam),
       const DeepCollectionEquality().hash(score));
 
   @JsonKey(ignore: true)
   @override
-  $ClassifyResponseDataCopyWith<ClassifyResponseData> get copyWith =>
-      _$ClassifyResponseDataCopyWithImpl<ClassifyResponseData>(
+  _$$ClassifyResponseDataCopyWith<_$ClassifyResponseData> get copyWith =>
+      __$$ClassifyResponseDataCopyWithImpl<_$ClassifyResponseData>(
           this, _$identity);
 
   @override
@@ -586,15 +544,17 @@ class _$ClassifyResponseData implements ClassifyResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ClassifyResponseDataToJson(this);
+    return _$$ClassifyResponseDataToJson(
+      this,
+    );
   }
 }
 
 abstract class ClassifyResponseData implements ClassifyResponse {
   const factory ClassifyResponseData(
-      {List<String>? details,
-      bool? is_spam,
-      double? score}) = _$ClassifyResponseData;
+      {final List<String>? details,
+      final bool? is_spam,
+      final double? score}) = _$ClassifyResponseData;
 
   factory ClassifyResponseData.fromJson(Map<String, dynamic> json) =
       _$ClassifyResponseData.fromJson;
@@ -608,36 +568,36 @@ abstract class ClassifyResponseData implements ClassifyResponse {
   /// The score evaluated for this email. A higher number means it is more likely to be spam
   double? get score;
   @JsonKey(ignore: true)
-  $ClassifyResponseDataCopyWith<ClassifyResponseData> get copyWith =>
+  _$$ClassifyResponseDataCopyWith<_$ClassifyResponseData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ClassifyResponseMerrCopyWith<$Res> {
-  factory $ClassifyResponseMerrCopyWith(ClassifyResponseMerr value,
-          $Res Function(ClassifyResponseMerr) then) =
-      _$ClassifyResponseMerrCopyWithImpl<$Res>;
+abstract class _$$ClassifyResponseMerrCopyWith<$Res> {
+  factory _$$ClassifyResponseMerrCopyWith(_$ClassifyResponseMerr value,
+          $Res Function(_$ClassifyResponseMerr) then) =
+      __$$ClassifyResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$ClassifyResponseMerrCopyWithImpl<$Res>
+class __$$ClassifyResponseMerrCopyWithImpl<$Res>
     extends _$ClassifyResponseCopyWithImpl<$Res>
-    implements $ClassifyResponseMerrCopyWith<$Res> {
-  _$ClassifyResponseMerrCopyWithImpl(
-      ClassifyResponseMerr _value, $Res Function(ClassifyResponseMerr) _then)
-      : super(_value, (v) => _then(v as ClassifyResponseMerr));
+    implements _$$ClassifyResponseMerrCopyWith<$Res> {
+  __$$ClassifyResponseMerrCopyWithImpl(_$ClassifyResponseMerr _value,
+      $Res Function(_$ClassifyResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$ClassifyResponseMerr));
 
   @override
-  ClassifyResponseMerr get _value => super._value as ClassifyResponseMerr;
+  _$ClassifyResponseMerr get _value => super._value as _$ClassifyResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(ClassifyResponseMerr(
+    return _then(_$ClassifyResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -647,14 +607,22 @@ class _$ClassifyResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ClassifyResponseMerr implements ClassifyResponseMerr {
-  const _$ClassifyResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$ClassifyResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$ClassifyResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$ClassifyResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -668,18 +636,19 @@ class _$ClassifyResponseMerr implements ClassifyResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ClassifyResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$ClassifyResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $ClassifyResponseMerrCopyWith<ClassifyResponseMerr> get copyWith =>
-      _$ClassifyResponseMerrCopyWithImpl<ClassifyResponseMerr>(
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ClassifyResponseMerrCopyWith<_$ClassifyResponseMerr> get copyWith =>
+      __$$ClassifyResponseMerrCopyWithImpl<_$ClassifyResponseMerr>(
           this, _$identity);
 
   @override
@@ -749,12 +718,14 @@ class _$ClassifyResponseMerr implements ClassifyResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ClassifyResponseMerrToJson(this);
+    return _$$ClassifyResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class ClassifyResponseMerr implements ClassifyResponse {
-  const factory ClassifyResponseMerr({Map<String, dynamic>? body}) =
+  const factory ClassifyResponseMerr({final Map<String, dynamic>? body}) =
       _$ClassifyResponseMerr;
 
   factory ClassifyResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -762,6 +733,6 @@ abstract class ClassifyResponseMerr implements ClassifyResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $ClassifyResponseMerrCopyWith<ClassifyResponseMerr> get copyWith =>
+  _$$ClassifyResponseMerrCopyWith<_$ClassifyResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }

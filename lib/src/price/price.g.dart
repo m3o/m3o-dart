@@ -8,22 +8,22 @@ part of 'price.dart';
 
 _$_AddRequest _$$_AddRequestFromJson(Map<String, dynamic> json) =>
     _$_AddRequest(
+      currency: json['currency'] as String?,
       name: json['name'] as String?,
       price: (json['price'] as num?)?.toDouble(),
       source: json['source'] as String?,
       symbol: json['symbol'] as String?,
       author: json['author'] as String?,
-      currency: json['currency'] as String?,
     );
 
 Map<String, dynamic> _$$_AddRequestToJson(_$_AddRequest instance) =>
     <String, dynamic>{
+      'currency': instance.currency,
       'name': instance.name,
       'price': instance.price,
       'source': instance.source,
       'symbol': instance.symbol,
       'author': instance.author,
-      'currency': instance.currency,
     };
 
 _$AddResponseData _$$AddResponseDataFromJson(Map<String, dynamic> json) =>
@@ -93,15 +93,15 @@ Map<String, dynamic> _$$GetResponseMerrToJson(_$GetResponseMerr instance) =>
     };
 
 _$_Index _$$_IndexFromJson(Map<String, dynamic> json) => _$_Index(
-      symbol: json['symbol'] as String?,
       currency: json['currency'] as String?,
       name: json['name'] as String?,
+      symbol: json['symbol'] as String?,
     );
 
 Map<String, dynamic> _$$_IndexToJson(_$_Index instance) => <String, dynamic>{
-      'symbol': instance.symbol,
       'currency': instance.currency,
       'name': instance.name,
+      'symbol': instance.symbol,
     };
 
 _$_IndexRequest _$$_IndexRequestFromJson(Map<String, dynamic> json) =>
@@ -229,21 +229,21 @@ Map<String, dynamic> _$$ReportResponseMerrToJson(
     };
 
 _$_Value _$$_ValueFromJson(Map<String, dynamic> json) => _$_Value(
-      author: json['author'] as String?,
-      currency: json['currency'] as String?,
       name: json['name'] as String?,
       price: (json['price'] as num?)?.toDouble(),
       source: json['source'] as String?,
       symbol: json['symbol'] as String?,
       timestamp: json['timestamp'] as String?,
+      author: json['author'] as String?,
+      currency: json['currency'] as String?,
     );
 
 Map<String, dynamic> _$$_ValueToJson(_$_Value instance) => <String, dynamic>{
-      'author': instance.author,
-      'currency': instance.currency,
       'name': instance.name,
       'price': instance.price,
       'source': instance.source,
       'symbol': instance.symbol,
       'timestamp': instance.timestamp,
+      'author': instance.author,
+      'currency': instance.currency,
     };

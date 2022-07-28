@@ -12,30 +12,11 @@ part of 'mq.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PublishRequest _$PublishRequestFromJson(Map<String, dynamic> json) {
   return _PublishRequest.fromJson(json);
 }
-
-/// @nodoc
-class _$PublishRequestTearOff {
-  const _$PublishRequestTearOff();
-
-  _PublishRequest call({Map<String, dynamic>? message, String? topic}) {
-    return _PublishRequest(
-      message: message,
-      topic: topic,
-    );
-  }
-
-  PublishRequest fromJson(Map<String, Object?> json) {
-    return PublishRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PublishRequest = _$PublishRequestTearOff();
 
 /// @nodoc
 mixin _$PublishRequest {
@@ -87,34 +68,34 @@ class _$PublishRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$PublishRequestCopyWith<$Res>
+abstract class _$$_PublishRequestCopyWith<$Res>
     implements $PublishRequestCopyWith<$Res> {
-  factory _$PublishRequestCopyWith(
-          _PublishRequest value, $Res Function(_PublishRequest) then) =
-      __$PublishRequestCopyWithImpl<$Res>;
+  factory _$$_PublishRequestCopyWith(
+          _$_PublishRequest value, $Res Function(_$_PublishRequest) then) =
+      __$$_PublishRequestCopyWithImpl<$Res>;
   @override
   $Res call({Map<String, dynamic>? message, String? topic});
 }
 
 /// @nodoc
-class __$PublishRequestCopyWithImpl<$Res>
+class __$$_PublishRequestCopyWithImpl<$Res>
     extends _$PublishRequestCopyWithImpl<$Res>
-    implements _$PublishRequestCopyWith<$Res> {
-  __$PublishRequestCopyWithImpl(
-      _PublishRequest _value, $Res Function(_PublishRequest) _then)
-      : super(_value, (v) => _then(v as _PublishRequest));
+    implements _$$_PublishRequestCopyWith<$Res> {
+  __$$_PublishRequestCopyWithImpl(
+      _$_PublishRequest _value, $Res Function(_$_PublishRequest) _then)
+      : super(_value, (v) => _then(v as _$_PublishRequest));
 
   @override
-  _PublishRequest get _value => super._value as _PublishRequest;
+  _$_PublishRequest get _value => super._value as _$_PublishRequest;
 
   @override
   $Res call({
     Object? message = freezed,
     Object? topic = freezed,
   }) {
-    return _then(_PublishRequest(
+    return _then(_$_PublishRequest(
       message: message == freezed
-          ? _value.message
+          ? _value._message
           : message // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       topic: topic == freezed
@@ -128,18 +109,26 @@ class __$PublishRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PublishRequest implements _PublishRequest {
-  const _$_PublishRequest({this.message, this.topic});
+  const _$_PublishRequest({final Map<String, dynamic>? message, this.topic})
+      : _message = message;
 
   factory _$_PublishRequest.fromJson(Map<String, dynamic> json) =>
       _$$_PublishRequestFromJson(json);
 
-  @override
+  /// The json message to publish
+  final Map<String, dynamic>? _message;
 
   /// The json message to publish
-  final Map<String, dynamic>? message;
   @override
+  Map<String, dynamic>? get message {
+    final value = _message;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   /// The topic to publish to
+  @override
   final String? topic;
 
   @override
@@ -151,31 +140,35 @@ class _$_PublishRequest implements _PublishRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PublishRequest &&
-            const DeepCollectionEquality().equals(other.message, message) &&
+            other is _$_PublishRequest &&
+            const DeepCollectionEquality().equals(other._message, _message) &&
             const DeepCollectionEquality().equals(other.topic, topic));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(message),
+      const DeepCollectionEquality().hash(_message),
       const DeepCollectionEquality().hash(topic));
 
   @JsonKey(ignore: true)
   @override
-  _$PublishRequestCopyWith<_PublishRequest> get copyWith =>
-      __$PublishRequestCopyWithImpl<_PublishRequest>(this, _$identity);
+  _$$_PublishRequestCopyWith<_$_PublishRequest> get copyWith =>
+      __$$_PublishRequestCopyWithImpl<_$_PublishRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PublishRequestToJson(this);
+    return _$$_PublishRequestToJson(
+      this,
+    );
   }
 }
 
 abstract class _PublishRequest implements PublishRequest {
   const factory _PublishRequest(
-      {Map<String, dynamic>? message, String? topic}) = _$_PublishRequest;
+      {final Map<String, dynamic>? message,
+      final String? topic}) = _$_PublishRequest;
 
   factory _PublishRequest.fromJson(Map<String, dynamic> json) =
       _$_PublishRequest.fromJson;
@@ -190,7 +183,7 @@ abstract class _PublishRequest implements PublishRequest {
   String? get topic;
   @override
   @JsonKey(ignore: true)
-  _$PublishRequestCopyWith<_PublishRequest> get copyWith =>
+  _$$_PublishRequestCopyWith<_$_PublishRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -206,28 +199,6 @@ PublishResponse _$PublishResponseFromJson(Map<String, dynamic> json) {
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
-
-/// @nodoc
-class _$PublishResponseTearOff {
-  const _$PublishResponseTearOff();
-
-  PublishResponseData call() {
-    return const PublishResponseData();
-  }
-
-  PublishResponseMerr Merr({Map<String, dynamic>? body}) {
-    return PublishResponseMerr(
-      body: body,
-    );
-  }
-
-  PublishResponse fromJson(Map<String, Object?> json) {
-    return PublishResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PublishResponse = _$PublishResponseTearOff();
 
 /// @nodoc
 mixin _$PublishResponse {
@@ -290,28 +261,29 @@ class _$PublishResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $PublishResponseDataCopyWith<$Res> {
-  factory $PublishResponseDataCopyWith(
-          PublishResponseData value, $Res Function(PublishResponseData) then) =
-      _$PublishResponseDataCopyWithImpl<$Res>;
+abstract class _$$PublishResponseDataCopyWith<$Res> {
+  factory _$$PublishResponseDataCopyWith(_$PublishResponseData value,
+          $Res Function(_$PublishResponseData) then) =
+      __$$PublishResponseDataCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$PublishResponseDataCopyWithImpl<$Res>
+class __$$PublishResponseDataCopyWithImpl<$Res>
     extends _$PublishResponseCopyWithImpl<$Res>
-    implements $PublishResponseDataCopyWith<$Res> {
-  _$PublishResponseDataCopyWithImpl(
-      PublishResponseData _value, $Res Function(PublishResponseData) _then)
-      : super(_value, (v) => _then(v as PublishResponseData));
+    implements _$$PublishResponseDataCopyWith<$Res> {
+  __$$PublishResponseDataCopyWithImpl(
+      _$PublishResponseData _value, $Res Function(_$PublishResponseData) _then)
+      : super(_value, (v) => _then(v as _$PublishResponseData));
 
   @override
-  PublishResponseData get _value => super._value as PublishResponseData;
+  _$PublishResponseData get _value => super._value as _$PublishResponseData;
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$PublishResponseData implements PublishResponseData {
-  const _$PublishResponseData({String? $type}) : $type = $type ?? 'default';
+  const _$PublishResponseData({final String? $type})
+      : $type = $type ?? 'default';
 
   factory _$PublishResponseData.fromJson(Map<String, dynamic> json) =>
       _$$PublishResponseDataFromJson(json);
@@ -327,9 +299,10 @@ class _$PublishResponseData implements PublishResponseData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is PublishResponseData);
+        (other.runtimeType == runtimeType && other is _$PublishResponseData);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -397,7 +370,9 @@ class _$PublishResponseData implements PublishResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PublishResponseDataToJson(this);
+    return _$$PublishResponseDataToJson(
+      this,
+    );
   }
 }
 
@@ -409,31 +384,31 @@ abstract class PublishResponseData implements PublishResponse {
 }
 
 /// @nodoc
-abstract class $PublishResponseMerrCopyWith<$Res> {
-  factory $PublishResponseMerrCopyWith(
-          PublishResponseMerr value, $Res Function(PublishResponseMerr) then) =
-      _$PublishResponseMerrCopyWithImpl<$Res>;
+abstract class _$$PublishResponseMerrCopyWith<$Res> {
+  factory _$$PublishResponseMerrCopyWith(_$PublishResponseMerr value,
+          $Res Function(_$PublishResponseMerr) then) =
+      __$$PublishResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$PublishResponseMerrCopyWithImpl<$Res>
+class __$$PublishResponseMerrCopyWithImpl<$Res>
     extends _$PublishResponseCopyWithImpl<$Res>
-    implements $PublishResponseMerrCopyWith<$Res> {
-  _$PublishResponseMerrCopyWithImpl(
-      PublishResponseMerr _value, $Res Function(PublishResponseMerr) _then)
-      : super(_value, (v) => _then(v as PublishResponseMerr));
+    implements _$$PublishResponseMerrCopyWith<$Res> {
+  __$$PublishResponseMerrCopyWithImpl(
+      _$PublishResponseMerr _value, $Res Function(_$PublishResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$PublishResponseMerr));
 
   @override
-  PublishResponseMerr get _value => super._value as PublishResponseMerr;
+  _$PublishResponseMerr get _value => super._value as _$PublishResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(PublishResponseMerr(
+    return _then(_$PublishResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -443,14 +418,22 @@ class _$PublishResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$PublishResponseMerr implements PublishResponseMerr {
-  const _$PublishResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$PublishResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$PublishResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$PublishResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -464,18 +447,20 @@ class _$PublishResponseMerr implements PublishResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is PublishResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$PublishResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $PublishResponseMerrCopyWith<PublishResponseMerr> get copyWith =>
-      _$PublishResponseMerrCopyWithImpl<PublishResponseMerr>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$PublishResponseMerrCopyWith<_$PublishResponseMerr> get copyWith =>
+      __$$PublishResponseMerrCopyWithImpl<_$PublishResponseMerr>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -541,12 +526,14 @@ class _$PublishResponseMerr implements PublishResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PublishResponseMerrToJson(this);
+    return _$$PublishResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class PublishResponseMerr implements PublishResponse {
-  const factory PublishResponseMerr({Map<String, dynamic>? body}) =
+  const factory PublishResponseMerr({final Map<String, dynamic>? body}) =
       _$PublishResponseMerr;
 
   factory PublishResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -554,31 +541,13 @@ abstract class PublishResponseMerr implements PublishResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $PublishResponseMerrCopyWith<PublishResponseMerr> get copyWith =>
+  _$$PublishResponseMerrCopyWith<_$PublishResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 SubscribeRequest _$SubscribeRequestFromJson(Map<String, dynamic> json) {
   return _SubscribeRequest.fromJson(json);
 }
-
-/// @nodoc
-class _$SubscribeRequestTearOff {
-  const _$SubscribeRequestTearOff();
-
-  _SubscribeRequest call({String? topic}) {
-    return _SubscribeRequest(
-      topic: topic,
-    );
-  }
-
-  SubscribeRequest fromJson(Map<String, Object?> json) {
-    return SubscribeRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SubscribeRequest = _$SubscribeRequestTearOff();
 
 /// @nodoc
 mixin _$SubscribeRequest {
@@ -622,31 +591,31 @@ class _$SubscribeRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SubscribeRequestCopyWith<$Res>
+abstract class _$$_SubscribeRequestCopyWith<$Res>
     implements $SubscribeRequestCopyWith<$Res> {
-  factory _$SubscribeRequestCopyWith(
-          _SubscribeRequest value, $Res Function(_SubscribeRequest) then) =
-      __$SubscribeRequestCopyWithImpl<$Res>;
+  factory _$$_SubscribeRequestCopyWith(
+          _$_SubscribeRequest value, $Res Function(_$_SubscribeRequest) then) =
+      __$$_SubscribeRequestCopyWithImpl<$Res>;
   @override
   $Res call({String? topic});
 }
 
 /// @nodoc
-class __$SubscribeRequestCopyWithImpl<$Res>
+class __$$_SubscribeRequestCopyWithImpl<$Res>
     extends _$SubscribeRequestCopyWithImpl<$Res>
-    implements _$SubscribeRequestCopyWith<$Res> {
-  __$SubscribeRequestCopyWithImpl(
-      _SubscribeRequest _value, $Res Function(_SubscribeRequest) _then)
-      : super(_value, (v) => _then(v as _SubscribeRequest));
+    implements _$$_SubscribeRequestCopyWith<$Res> {
+  __$$_SubscribeRequestCopyWithImpl(
+      _$_SubscribeRequest _value, $Res Function(_$_SubscribeRequest) _then)
+      : super(_value, (v) => _then(v as _$_SubscribeRequest));
 
   @override
-  _SubscribeRequest get _value => super._value as _SubscribeRequest;
+  _$_SubscribeRequest get _value => super._value as _$_SubscribeRequest;
 
   @override
   $Res call({
     Object? topic = freezed,
   }) {
-    return _then(_SubscribeRequest(
+    return _then(_$_SubscribeRequest(
       topic: topic == freezed
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
@@ -663,9 +632,8 @@ class _$_SubscribeRequest implements _SubscribeRequest {
   factory _$_SubscribeRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SubscribeRequestFromJson(json);
 
-  @override
-
   /// The topic to subscribe to
+  @override
   final String? topic;
 
   @override
@@ -677,27 +645,30 @@ class _$_SubscribeRequest implements _SubscribeRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SubscribeRequest &&
+            other is _$_SubscribeRequest &&
             const DeepCollectionEquality().equals(other.topic, topic));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(topic));
 
   @JsonKey(ignore: true)
   @override
-  _$SubscribeRequestCopyWith<_SubscribeRequest> get copyWith =>
-      __$SubscribeRequestCopyWithImpl<_SubscribeRequest>(this, _$identity);
+  _$$_SubscribeRequestCopyWith<_$_SubscribeRequest> get copyWith =>
+      __$$_SubscribeRequestCopyWithImpl<_$_SubscribeRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SubscribeRequestToJson(this);
+    return _$$_SubscribeRequestToJson(
+      this,
+    );
   }
 }
 
 abstract class _SubscribeRequest implements SubscribeRequest {
-  const factory _SubscribeRequest({String? topic}) = _$_SubscribeRequest;
+  const factory _SubscribeRequest({final String? topic}) = _$_SubscribeRequest;
 
   factory _SubscribeRequest.fromJson(Map<String, dynamic> json) =
       _$_SubscribeRequest.fromJson;
@@ -708,7 +679,7 @@ abstract class _SubscribeRequest implements SubscribeRequest {
   String? get topic;
   @override
   @JsonKey(ignore: true)
-  _$SubscribeRequestCopyWith<_SubscribeRequest> get copyWith =>
+  _$$_SubscribeRequestCopyWith<_$_SubscribeRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -726,47 +697,22 @@ SubscribeResponse _$SubscribeResponseFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$SubscribeResponseTearOff {
-  const _$SubscribeResponseTearOff();
-
-  SubscribeResponseData call({Map<String, dynamic>? message, String? topic}) {
-    return SubscribeResponseData(
-      message: message,
-      topic: topic,
-    );
-  }
-
-  SubscribeResponseMerr Merr({Map<String, dynamic>? body}) {
-    return SubscribeResponseMerr(
-      body: body,
-    );
-  }
-
-  SubscribeResponse fromJson(Map<String, Object?> json) {
-    return SubscribeResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SubscribeResponse = _$SubscribeResponseTearOff();
-
-/// @nodoc
 mixin _$SubscribeResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? message, String? topic) $default, {
+    TResult Function(String? topic, Map<String, dynamic>? message) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? message, String? topic)? $default, {
+    TResult Function(String? topic, Map<String, dynamic>? message)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? message, String? topic)? $default, {
+    TResult Function(String? topic, Map<String, dynamic>? message)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -811,38 +757,38 @@ class _$SubscribeResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $SubscribeResponseDataCopyWith<$Res> {
-  factory $SubscribeResponseDataCopyWith(SubscribeResponseData value,
-          $Res Function(SubscribeResponseData) then) =
-      _$SubscribeResponseDataCopyWithImpl<$Res>;
-  $Res call({Map<String, dynamic>? message, String? topic});
+abstract class _$$SubscribeResponseDataCopyWith<$Res> {
+  factory _$$SubscribeResponseDataCopyWith(_$SubscribeResponseData value,
+          $Res Function(_$SubscribeResponseData) then) =
+      __$$SubscribeResponseDataCopyWithImpl<$Res>;
+  $Res call({String? topic, Map<String, dynamic>? message});
 }
 
 /// @nodoc
-class _$SubscribeResponseDataCopyWithImpl<$Res>
+class __$$SubscribeResponseDataCopyWithImpl<$Res>
     extends _$SubscribeResponseCopyWithImpl<$Res>
-    implements $SubscribeResponseDataCopyWith<$Res> {
-  _$SubscribeResponseDataCopyWithImpl(
-      SubscribeResponseData _value, $Res Function(SubscribeResponseData) _then)
-      : super(_value, (v) => _then(v as SubscribeResponseData));
+    implements _$$SubscribeResponseDataCopyWith<$Res> {
+  __$$SubscribeResponseDataCopyWithImpl(_$SubscribeResponseData _value,
+      $Res Function(_$SubscribeResponseData) _then)
+      : super(_value, (v) => _then(v as _$SubscribeResponseData));
 
   @override
-  SubscribeResponseData get _value => super._value as SubscribeResponseData;
+  _$SubscribeResponseData get _value => super._value as _$SubscribeResponseData;
 
   @override
   $Res call({
-    Object? message = freezed,
     Object? topic = freezed,
+    Object? message = freezed,
   }) {
-    return _then(SubscribeResponseData(
-      message: message == freezed
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+    return _then(_$SubscribeResponseData(
       topic: topic == freezed
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String?,
+      message: message == freezed
+          ? _value._message
+          : message // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -850,77 +796,87 @@ class _$SubscribeResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SubscribeResponseData implements SubscribeResponseData {
-  const _$SubscribeResponseData({this.message, this.topic, String? $type})
-      : $type = $type ?? 'default';
+  const _$SubscribeResponseData(
+      {this.topic, final Map<String, dynamic>? message, final String? $type})
+      : _message = message,
+        $type = $type ?? 'default';
 
   factory _$SubscribeResponseData.fromJson(Map<String, dynamic> json) =>
       _$$SubscribeResponseDataFromJson(json);
 
+  /// The topic subscribed to
   @override
+  final String? topic;
 
   /// The next json message on the topic
-  final Map<String, dynamic>? message;
-  @override
+  final Map<String, dynamic>? _message;
 
-  /// The topic subscribed to
-  final String? topic;
+  /// The next json message on the topic
+  @override
+  Map<String, dynamic>? get message {
+    final value = _message;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'SubscribeResponse(message: $message, topic: $topic)';
+    return 'SubscribeResponse(topic: $topic, message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SubscribeResponseData &&
-            const DeepCollectionEquality().equals(other.message, message) &&
-            const DeepCollectionEquality().equals(other.topic, topic));
+            other is _$SubscribeResponseData &&
+            const DeepCollectionEquality().equals(other.topic, topic) &&
+            const DeepCollectionEquality().equals(other._message, _message));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(message),
-      const DeepCollectionEquality().hash(topic));
 
   @JsonKey(ignore: true)
   @override
-  $SubscribeResponseDataCopyWith<SubscribeResponseData> get copyWith =>
-      _$SubscribeResponseDataCopyWithImpl<SubscribeResponseData>(
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(topic),
+      const DeepCollectionEquality().hash(_message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SubscribeResponseDataCopyWith<_$SubscribeResponseData> get copyWith =>
+      __$$SubscribeResponseDataCopyWithImpl<_$SubscribeResponseData>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? message, String? topic) $default, {
+    TResult Function(String? topic, Map<String, dynamic>? message) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(message, topic);
+    return $default(topic, message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? message, String? topic)? $default, {
+    TResult Function(String? topic, Map<String, dynamic>? message)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(message, topic);
+    return $default?.call(topic, message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? message, String? topic)? $default, {
+    TResult Function(String? topic, Map<String, dynamic>? message)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(message, topic);
+      return $default(topic, message);
     }
     return orElse();
   }
@@ -958,53 +914,56 @@ class _$SubscribeResponseData implements SubscribeResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SubscribeResponseDataToJson(this);
+    return _$$SubscribeResponseDataToJson(
+      this,
+    );
   }
 }
 
 abstract class SubscribeResponseData implements SubscribeResponse {
   const factory SubscribeResponseData(
-      {Map<String, dynamic>? message, String? topic}) = _$SubscribeResponseData;
+      {final String? topic,
+      final Map<String, dynamic>? message}) = _$SubscribeResponseData;
 
   factory SubscribeResponseData.fromJson(Map<String, dynamic> json) =
       _$SubscribeResponseData.fromJson;
 
-  /// The next json message on the topic
-  Map<String, dynamic>? get message;
-
   /// The topic subscribed to
   String? get topic;
+
+  /// The next json message on the topic
+  Map<String, dynamic>? get message;
   @JsonKey(ignore: true)
-  $SubscribeResponseDataCopyWith<SubscribeResponseData> get copyWith =>
+  _$$SubscribeResponseDataCopyWith<_$SubscribeResponseData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SubscribeResponseMerrCopyWith<$Res> {
-  factory $SubscribeResponseMerrCopyWith(SubscribeResponseMerr value,
-          $Res Function(SubscribeResponseMerr) then) =
-      _$SubscribeResponseMerrCopyWithImpl<$Res>;
+abstract class _$$SubscribeResponseMerrCopyWith<$Res> {
+  factory _$$SubscribeResponseMerrCopyWith(_$SubscribeResponseMerr value,
+          $Res Function(_$SubscribeResponseMerr) then) =
+      __$$SubscribeResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$SubscribeResponseMerrCopyWithImpl<$Res>
+class __$$SubscribeResponseMerrCopyWithImpl<$Res>
     extends _$SubscribeResponseCopyWithImpl<$Res>
-    implements $SubscribeResponseMerrCopyWith<$Res> {
-  _$SubscribeResponseMerrCopyWithImpl(
-      SubscribeResponseMerr _value, $Res Function(SubscribeResponseMerr) _then)
-      : super(_value, (v) => _then(v as SubscribeResponseMerr));
+    implements _$$SubscribeResponseMerrCopyWith<$Res> {
+  __$$SubscribeResponseMerrCopyWithImpl(_$SubscribeResponseMerr _value,
+      $Res Function(_$SubscribeResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$SubscribeResponseMerr));
 
   @override
-  SubscribeResponseMerr get _value => super._value as SubscribeResponseMerr;
+  _$SubscribeResponseMerr get _value => super._value as _$SubscribeResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(SubscribeResponseMerr(
+    return _then(_$SubscribeResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -1014,14 +973,22 @@ class _$SubscribeResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SubscribeResponseMerr implements SubscribeResponseMerr {
-  const _$SubscribeResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$SubscribeResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$SubscribeResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$SubscribeResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -1035,24 +1002,25 @@ class _$SubscribeResponseMerr implements SubscribeResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SubscribeResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$SubscribeResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $SubscribeResponseMerrCopyWith<SubscribeResponseMerr> get copyWith =>
-      _$SubscribeResponseMerrCopyWithImpl<SubscribeResponseMerr>(
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SubscribeResponseMerrCopyWith<_$SubscribeResponseMerr> get copyWith =>
+      __$$SubscribeResponseMerrCopyWithImpl<_$SubscribeResponseMerr>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? message, String? topic) $default, {
+    TResult Function(String? topic, Map<String, dynamic>? message) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -1061,7 +1029,7 @@ class _$SubscribeResponseMerr implements SubscribeResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? message, String? topic)? $default, {
+    TResult Function(String? topic, Map<String, dynamic>? message)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -1070,7 +1038,7 @@ class _$SubscribeResponseMerr implements SubscribeResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? message, String? topic)? $default, {
+    TResult Function(String? topic, Map<String, dynamic>? message)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
@@ -1113,12 +1081,14 @@ class _$SubscribeResponseMerr implements SubscribeResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SubscribeResponseMerrToJson(this);
+    return _$$SubscribeResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class SubscribeResponseMerr implements SubscribeResponse {
-  const factory SubscribeResponseMerr({Map<String, dynamic>? body}) =
+  const factory SubscribeResponseMerr({final Map<String, dynamic>? body}) =
       _$SubscribeResponseMerr;
 
   factory SubscribeResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -1126,6 +1096,6 @@ abstract class SubscribeResponseMerr implements SubscribeResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $SubscribeResponseMerrCopyWith<SubscribeResponseMerr> get copyWith =>
+  _$$SubscribeResponseMerrCopyWith<_$SubscribeResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }

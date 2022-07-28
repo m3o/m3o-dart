@@ -12,29 +12,11 @@ part of 'answer.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 QuestionRequest _$QuestionRequestFromJson(Map<String, dynamic> json) {
   return _QuestionRequest.fromJson(json);
 }
-
-/// @nodoc
-class _$QuestionRequestTearOff {
-  const _$QuestionRequestTearOff();
-
-  _QuestionRequest call({String? query}) {
-    return _QuestionRequest(
-      query: query,
-    );
-  }
-
-  QuestionRequest fromJson(Map<String, Object?> json) {
-    return QuestionRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $QuestionRequest = _$QuestionRequestTearOff();
 
 /// @nodoc
 mixin _$QuestionRequest {
@@ -78,31 +60,31 @@ class _$QuestionRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$QuestionRequestCopyWith<$Res>
+abstract class _$$_QuestionRequestCopyWith<$Res>
     implements $QuestionRequestCopyWith<$Res> {
-  factory _$QuestionRequestCopyWith(
-          _QuestionRequest value, $Res Function(_QuestionRequest) then) =
-      __$QuestionRequestCopyWithImpl<$Res>;
+  factory _$$_QuestionRequestCopyWith(
+          _$_QuestionRequest value, $Res Function(_$_QuestionRequest) then) =
+      __$$_QuestionRequestCopyWithImpl<$Res>;
   @override
   $Res call({String? query});
 }
 
 /// @nodoc
-class __$QuestionRequestCopyWithImpl<$Res>
+class __$$_QuestionRequestCopyWithImpl<$Res>
     extends _$QuestionRequestCopyWithImpl<$Res>
-    implements _$QuestionRequestCopyWith<$Res> {
-  __$QuestionRequestCopyWithImpl(
-      _QuestionRequest _value, $Res Function(_QuestionRequest) _then)
-      : super(_value, (v) => _then(v as _QuestionRequest));
+    implements _$$_QuestionRequestCopyWith<$Res> {
+  __$$_QuestionRequestCopyWithImpl(
+      _$_QuestionRequest _value, $Res Function(_$_QuestionRequest) _then)
+      : super(_value, (v) => _then(v as _$_QuestionRequest));
 
   @override
-  _QuestionRequest get _value => super._value as _QuestionRequest;
+  _$_QuestionRequest get _value => super._value as _$_QuestionRequest;
 
   @override
   $Res call({
     Object? query = freezed,
   }) {
-    return _then(_QuestionRequest(
+    return _then(_$_QuestionRequest(
       query: query == freezed
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -119,9 +101,8 @@ class _$_QuestionRequest implements _QuestionRequest {
   factory _$_QuestionRequest.fromJson(Map<String, dynamic> json) =>
       _$$_QuestionRequestFromJson(json);
 
-  @override
-
   /// the question to answer
+  @override
   final String? query;
 
   @override
@@ -133,27 +114,30 @@ class _$_QuestionRequest implements _QuestionRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _QuestionRequest &&
+            other is _$_QuestionRequest &&
             const DeepCollectionEquality().equals(other.query, query));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(query));
 
   @JsonKey(ignore: true)
   @override
-  _$QuestionRequestCopyWith<_QuestionRequest> get copyWith =>
-      __$QuestionRequestCopyWithImpl<_QuestionRequest>(this, _$identity);
+  _$$_QuestionRequestCopyWith<_$_QuestionRequest> get copyWith =>
+      __$$_QuestionRequestCopyWithImpl<_$_QuestionRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_QuestionRequestToJson(this);
+    return _$$_QuestionRequestToJson(
+      this,
+    );
   }
 }
 
 abstract class _QuestionRequest implements QuestionRequest {
-  const factory _QuestionRequest({String? query}) = _$_QuestionRequest;
+  const factory _QuestionRequest({final String? query}) = _$_QuestionRequest;
 
   factory _QuestionRequest.fromJson(Map<String, dynamic> json) =
       _$_QuestionRequest.fromJson;
@@ -164,7 +148,7 @@ abstract class _QuestionRequest implements QuestionRequest {
   String? get query;
   @override
   @JsonKey(ignore: true)
-  _$QuestionRequestCopyWith<_QuestionRequest> get copyWith =>
+  _$$_QuestionRequestCopyWith<_$_QuestionRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -180,32 +164,6 @@ QuestionResponse _$QuestionResponseFromJson(Map<String, dynamic> json) {
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
-
-/// @nodoc
-class _$QuestionResponseTearOff {
-  const _$QuestionResponseTearOff();
-
-  QuestionResponseData call({String? answer, String? image, String? url}) {
-    return QuestionResponseData(
-      answer: answer,
-      image: image,
-      url: url,
-    );
-  }
-
-  QuestionResponseMerr Merr({Map<String, dynamic>? body}) {
-    return QuestionResponseMerr(
-      body: body,
-    );
-  }
-
-  QuestionResponse fromJson(Map<String, Object?> json) {
-    return QuestionResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $QuestionResponse = _$QuestionResponseTearOff();
 
 /// @nodoc
 mixin _$QuestionResponse {
@@ -268,23 +226,23 @@ class _$QuestionResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $QuestionResponseDataCopyWith<$Res> {
-  factory $QuestionResponseDataCopyWith(QuestionResponseData value,
-          $Res Function(QuestionResponseData) then) =
-      _$QuestionResponseDataCopyWithImpl<$Res>;
+abstract class _$$QuestionResponseDataCopyWith<$Res> {
+  factory _$$QuestionResponseDataCopyWith(_$QuestionResponseData value,
+          $Res Function(_$QuestionResponseData) then) =
+      __$$QuestionResponseDataCopyWithImpl<$Res>;
   $Res call({String? answer, String? image, String? url});
 }
 
 /// @nodoc
-class _$QuestionResponseDataCopyWithImpl<$Res>
+class __$$QuestionResponseDataCopyWithImpl<$Res>
     extends _$QuestionResponseCopyWithImpl<$Res>
-    implements $QuestionResponseDataCopyWith<$Res> {
-  _$QuestionResponseDataCopyWithImpl(
-      QuestionResponseData _value, $Res Function(QuestionResponseData) _then)
-      : super(_value, (v) => _then(v as QuestionResponseData));
+    implements _$$QuestionResponseDataCopyWith<$Res> {
+  __$$QuestionResponseDataCopyWithImpl(_$QuestionResponseData _value,
+      $Res Function(_$QuestionResponseData) _then)
+      : super(_value, (v) => _then(v as _$QuestionResponseData));
 
   @override
-  QuestionResponseData get _value => super._value as QuestionResponseData;
+  _$QuestionResponseData get _value => super._value as _$QuestionResponseData;
 
   @override
   $Res call({
@@ -292,7 +250,7 @@ class _$QuestionResponseDataCopyWithImpl<$Res>
     Object? image = freezed,
     Object? url = freezed,
   }) {
-    return _then(QuestionResponseData(
+    return _then(_$QuestionResponseData(
       answer: answer == freezed
           ? _value.answer
           : answer // ignore: cast_nullable_to_non_nullable
@@ -313,23 +271,22 @@ class _$QuestionResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$QuestionResponseData implements QuestionResponseData {
   const _$QuestionResponseData(
-      {this.answer, this.image, this.url, String? $type})
+      {this.answer, this.image, this.url, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$QuestionResponseData.fromJson(Map<String, dynamic> json) =>
       _$$QuestionResponseDataFromJson(json);
 
-  @override
-
   /// the answer to your question
-  final String? answer;
   @override
+  final String? answer;
 
   /// any related image
-  final String? image;
   @override
+  final String? image;
 
   /// a related url
+  @override
   final String? url;
 
   @JsonKey(name: 'runtimeType')
@@ -344,12 +301,13 @@ class _$QuestionResponseData implements QuestionResponseData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is QuestionResponseData &&
+            other is _$QuestionResponseData &&
             const DeepCollectionEquality().equals(other.answer, answer) &&
             const DeepCollectionEquality().equals(other.image, image) &&
             const DeepCollectionEquality().equals(other.url, url));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -359,8 +317,8 @@ class _$QuestionResponseData implements QuestionResponseData {
 
   @JsonKey(ignore: true)
   @override
-  $QuestionResponseDataCopyWith<QuestionResponseData> get copyWith =>
-      _$QuestionResponseDataCopyWithImpl<QuestionResponseData>(
+  _$$QuestionResponseDataCopyWith<_$QuestionResponseData> get copyWith =>
+      __$$QuestionResponseDataCopyWithImpl<_$QuestionResponseData>(
           this, _$identity);
 
   @override
@@ -427,13 +385,17 @@ class _$QuestionResponseData implements QuestionResponseData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$QuestionResponseDataToJson(this);
+    return _$$QuestionResponseDataToJson(
+      this,
+    );
   }
 }
 
 abstract class QuestionResponseData implements QuestionResponse {
   const factory QuestionResponseData(
-      {String? answer, String? image, String? url}) = _$QuestionResponseData;
+      {final String? answer,
+      final String? image,
+      final String? url}) = _$QuestionResponseData;
 
   factory QuestionResponseData.fromJson(Map<String, dynamic> json) =
       _$QuestionResponseData.fromJson;
@@ -447,36 +409,36 @@ abstract class QuestionResponseData implements QuestionResponse {
   /// a related url
   String? get url;
   @JsonKey(ignore: true)
-  $QuestionResponseDataCopyWith<QuestionResponseData> get copyWith =>
+  _$$QuestionResponseDataCopyWith<_$QuestionResponseData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $QuestionResponseMerrCopyWith<$Res> {
-  factory $QuestionResponseMerrCopyWith(QuestionResponseMerr value,
-          $Res Function(QuestionResponseMerr) then) =
-      _$QuestionResponseMerrCopyWithImpl<$Res>;
+abstract class _$$QuestionResponseMerrCopyWith<$Res> {
+  factory _$$QuestionResponseMerrCopyWith(_$QuestionResponseMerr value,
+          $Res Function(_$QuestionResponseMerr) then) =
+      __$$QuestionResponseMerrCopyWithImpl<$Res>;
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
-class _$QuestionResponseMerrCopyWithImpl<$Res>
+class __$$QuestionResponseMerrCopyWithImpl<$Res>
     extends _$QuestionResponseCopyWithImpl<$Res>
-    implements $QuestionResponseMerrCopyWith<$Res> {
-  _$QuestionResponseMerrCopyWithImpl(
-      QuestionResponseMerr _value, $Res Function(QuestionResponseMerr) _then)
-      : super(_value, (v) => _then(v as QuestionResponseMerr));
+    implements _$$QuestionResponseMerrCopyWith<$Res> {
+  __$$QuestionResponseMerrCopyWithImpl(_$QuestionResponseMerr _value,
+      $Res Function(_$QuestionResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$QuestionResponseMerr));
 
   @override
-  QuestionResponseMerr get _value => super._value as QuestionResponseMerr;
+  _$QuestionResponseMerr get _value => super._value as _$QuestionResponseMerr;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(QuestionResponseMerr(
+    return _then(_$QuestionResponseMerr(
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -486,14 +448,22 @@ class _$QuestionResponseMerrCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$QuestionResponseMerr implements QuestionResponseMerr {
-  const _$QuestionResponseMerr({this.body, String? $type})
-      : $type = $type ?? 'Merr';
+  const _$QuestionResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
 
   factory _$QuestionResponseMerr.fromJson(Map<String, dynamic> json) =>
       _$$QuestionResponseMerrFromJson(json);
 
+  final Map<String, dynamic>? _body;
   @override
-  final Map<String, dynamic>? body;
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -507,18 +477,19 @@ class _$QuestionResponseMerr implements QuestionResponseMerr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is QuestionResponseMerr &&
-            const DeepCollectionEquality().equals(other.body, body));
+            other is _$QuestionResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
-  $QuestionResponseMerrCopyWith<QuestionResponseMerr> get copyWith =>
-      _$QuestionResponseMerrCopyWithImpl<QuestionResponseMerr>(
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$QuestionResponseMerrCopyWith<_$QuestionResponseMerr> get copyWith =>
+      __$$QuestionResponseMerrCopyWithImpl<_$QuestionResponseMerr>(
           this, _$identity);
 
   @override
@@ -585,12 +556,14 @@ class _$QuestionResponseMerr implements QuestionResponseMerr {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$QuestionResponseMerrToJson(this);
+    return _$$QuestionResponseMerrToJson(
+      this,
+    );
   }
 }
 
 abstract class QuestionResponseMerr implements QuestionResponse {
-  const factory QuestionResponseMerr({Map<String, dynamic>? body}) =
+  const factory QuestionResponseMerr({final Map<String, dynamic>? body}) =
       _$QuestionResponseMerr;
 
   factory QuestionResponseMerr.fromJson(Map<String, dynamic> json) =
@@ -598,6 +571,6 @@ abstract class QuestionResponseMerr implements QuestionResponse {
 
   Map<String, dynamic>? get body;
   @JsonKey(ignore: true)
-  $QuestionResponseMerrCopyWith<QuestionResponseMerr> get copyWith =>
+  _$$QuestionResponseMerrCopyWith<_$QuestionResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }
