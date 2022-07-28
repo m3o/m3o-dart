@@ -1,3 +1,9 @@
+## v1.0.152 - 2022-07-28
+
+[81ca74](https://github.com/micro/services/commit/81ca74912e4a43060972b6d64d55c2cd19d23c0e) add wallet to services client
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.151...v1.0.152
+
 ## v1.0.151 - 2022-07-27
 
 [dd10bb](https://github.com/micro/services/commit/dd10bb829a182920234c6cd411199637f19e83e2) increase nft pricing
