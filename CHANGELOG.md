@@ -1,3 +1,9 @@
+## v1.0.153 - 2022-07-29
+
+[81ca74](https://github.com/micro/services/commit/81ca74912e4a43060972b6d64d55c2cd19d23c0e) add wallet to services client
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.152...v1.0.153
+
 ## v1.0.152 - 2022-07-28
 
 [81ca74](https://github.com/micro/services/commit/81ca74912e4a43060972b6d64d55c2cd19d23c0e) add wallet to services client
