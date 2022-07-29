@@ -36,6 +36,9 @@ class TranslateService {
 @Freezed()
 class TextRequest with _$TextRequest {
   const factory TextRequest({
+    /// The string format, `text` or `html`
+    String? format,
+
     /// The model to use for translation, `nmt` or `base`,
     /// See https://cloud.google.com/translate/docs/advanced/translating-text-v3#comparing-models for more information
     String? model,
@@ -50,9 +53,6 @@ class TextRequest with _$TextRequest {
 
     /// The contents to be translated
     String? content,
-
-    /// The string format, `text` or `html`
-    String? format,
   }) = _TextRequest;
   factory TextRequest.fromJson(Map<String, dynamic> json) =>
       _$TextRequestFromJson(json);

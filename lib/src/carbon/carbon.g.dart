@@ -14,22 +14,22 @@ Map<String, dynamic> _$$_OffsetRequestToJson(_$_OffsetRequest instance) =>
 
 _$OffsetResponseData _$$OffsetResponseDataFromJson(Map<String, dynamic> json) =>
     _$OffsetResponseData(
+      tonnes: (json['tonnes'] as num?)?.toDouble(),
+      units: json['units'] as int?,
       metric: json['metric'] as String?,
       projects: (json['projects'] as List<dynamic>?)
           ?.map((e) => Project.fromJson(e as Map<String, dynamic>))
           .toList(),
-      tonnes: (json['tonnes'] as num?)?.toDouble(),
-      units: json['units'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$OffsetResponseDataToJson(
         _$OffsetResponseData instance) =>
     <String, dynamic>{
-      'metric': instance.metric,
-      'projects': instance.projects,
       'tonnes': instance.tonnes,
       'units': instance.units,
+      'metric': instance.metric,
+      'projects': instance.projects,
       'runtimeType': instance.$type,
     };
 

@@ -8,14 +8,14 @@ part of 'mq.dart';
 
 _$_PublishRequest _$$_PublishRequestFromJson(Map<String, dynamic> json) =>
     _$_PublishRequest(
-      message: json['message'] as Map<String, dynamic>?,
       topic: json['topic'] as String?,
+      message: json['message'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$$_PublishRequestToJson(_$_PublishRequest instance) =>
     <String, dynamic>{
-      'message': instance.message,
       'topic': instance.topic,
+      'message': instance.message,
     };
 
 _$PublishResponseData _$$PublishResponseDataFromJson(
