@@ -1,3 +1,9 @@
+## v1.0.155 - 2022-08-08
+
+[07b82d](https://github.com/micro/services/commit/07b82d51703e58751ba91f2d468552429a395060) add qr codes example
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.154...v1.0.155
+
 ## v1.0.154 - 2022-08-08
 
 [c1d612](https://github.com/micro/services/commit/c1d612505206fd3f9f49281fb971df8bef2d2fdf) skip jokes
