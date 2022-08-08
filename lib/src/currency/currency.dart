@@ -96,11 +96,11 @@ class CurrencyService {
 @Freezed()
 class Code with _$Code {
   const factory Code({
-    /// e.g United States Dollar
-    String? currency,
-
     /// e.g USD
     String? name,
+
+    /// e.g United States Dollar
+    String? currency,
   }) = _Code;
   factory Code.fromJson(Map<String, dynamic> json) => _$CodeFromJson(json);
 }
@@ -126,14 +126,14 @@ class CodesResponse with _$CodesResponse {
 @Freezed()
 class ConvertRequest with _$ConvertRequest {
   const factory ConvertRequest({
-    /// target code to convert to e.g GBP
-    String? to,
-
     /// optional amount to convert e.g 10.0
     double? amount,
 
     /// base code to convert from e.g USD
     String? from,
+
+    /// target code to convert to e.g GBP
+    String? to,
   }) = _ConvertRequest;
   factory ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$ConvertRequestFromJson(json);
@@ -142,17 +142,17 @@ class ConvertRequest with _$ConvertRequest {
 @Freezed()
 class ConvertResponse with _$ConvertResponse {
   const factory ConvertResponse({
-    /// converted amount e.g 7.10
-    double? amount,
-
-    /// the base code e.g USD
-    String? from,
-
     /// conversion rate e.g 0.71
     double? rate,
 
     /// the target code e.g GBP
     String? to,
+
+    /// converted amount e.g 7.10
+    double? amount,
+
+    /// the base code e.g USD
+    String? from,
   }) = ConvertResponseData;
   const factory ConvertResponse.Merr({Map<String, dynamic>? body}) =
       ConvertResponseMerr;

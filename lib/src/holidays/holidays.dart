@@ -87,12 +87,6 @@ class Country with _$Country {
 @Freezed()
 class Holiday with _$Holiday {
   const factory Holiday({
-    /// the country this holiday occurs in
-    String? country_code,
-
-    /// date of the holiday in yyyy-mm-dd format
-    String? date,
-
     /// the local name of the holiday
     String? local_name,
 
@@ -104,6 +98,12 @@ class Holiday with _$Holiday {
 
     /// the type of holiday Public, Bank, School, Authorities, Optional, Observance
     List<String>? types,
+
+    /// the country this holiday occurs in
+    String? country_code,
+
+    /// date of the holiday in yyyy-mm-dd format
+    String? date,
   }) = _Holiday;
   factory Holiday.fromJson(Map<String, dynamic> json) =>
       _$HolidayFromJson(json);
@@ -112,12 +112,12 @@ class Holiday with _$Holiday {
 @Freezed()
 class ListRequest with _$ListRequest {
   const factory ListRequest({
-    /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
-    String? country_code,
-
     /// The year to list holidays for
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? year,
+
+    /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
+    String? country_code,
   }) = _ListRequest;
   factory ListRequest.fromJson(Map<String, dynamic> json) =>
       _$ListRequestFromJson(json);

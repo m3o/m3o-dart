@@ -117,9 +117,6 @@ class GenerateResponse with _$GenerateResponse {
 @Freezed()
 class Template with _$Template {
   const factory Template({
-    /// name of the memegen
-    String? name,
-
     /// url of the memegen
     String? url,
 
@@ -134,6 +131,9 @@ class Template with _$Template {
 
     /// id of the memegen
     String? id,
+
+    /// name of the memegen
+    String? name,
   }) = _Template;
   factory Template.fromJson(Map<String, dynamic> json) =>
       _$TemplateFromJson(json);
