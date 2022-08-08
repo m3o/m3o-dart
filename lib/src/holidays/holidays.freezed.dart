@@ -501,11 +501,11 @@ Country _$CountryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Country {
-  /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
-  String? get code => throw _privateConstructorUsedError;
-
   /// The English name of the country
   String? get name => throw _privateConstructorUsedError;
+
+  /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
+  String? get code => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -516,7 +516,7 @@ mixin _$Country {
 abstract class $CountryCopyWith<$Res> {
   factory $CountryCopyWith(Country value, $Res Function(Country) then) =
       _$CountryCopyWithImpl<$Res>;
-  $Res call({String? code, String? name});
+  $Res call({String? name, String? code});
 }
 
 /// @nodoc
@@ -529,17 +529,17 @@ class _$CountryCopyWithImpl<$Res> implements $CountryCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? code = freezed,
     Object? name = freezed,
+    Object? code = freezed,
   }) {
     return _then(_value.copyWith(
-      code: code == freezed
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -551,7 +551,7 @@ abstract class _$$_CountryCopyWith<$Res> implements $CountryCopyWith<$Res> {
           _$_Country value, $Res Function(_$_Country) then) =
       __$$_CountryCopyWithImpl<$Res>;
   @override
-  $Res call({String? code, String? name});
+  $Res call({String? name, String? code});
 }
 
 /// @nodoc
@@ -565,17 +565,17 @@ class __$$_CountryCopyWithImpl<$Res> extends _$CountryCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? code = freezed,
     Object? name = freezed,
+    Object? code = freezed,
   }) {
     return _then(_$_Country(
-      code: code == freezed
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -584,22 +584,22 @@ class __$$_CountryCopyWithImpl<$Res> extends _$CountryCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Country implements _Country {
-  const _$_Country({this.code, this.name});
+  const _$_Country({this.name, this.code});
 
   factory _$_Country.fromJson(Map<String, dynamic> json) =>
       _$$_CountryFromJson(json);
-
-  /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
-  @override
-  final String? code;
 
   /// The English name of the country
   @override
   final String? name;
 
+  /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
+  @override
+  final String? code;
+
   @override
   String toString() {
-    return 'Country(code: $code, name: $name)';
+    return 'Country(name: $name, code: $code)';
   }
 
   @override
@@ -607,16 +607,16 @@ class _$_Country implements _Country {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Country &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.code, code));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(code));
 
   @JsonKey(ignore: true)
   @override
@@ -632,18 +632,18 @@ class _$_Country implements _Country {
 }
 
 abstract class _Country implements Country {
-  const factory _Country({final String? code, final String? name}) = _$_Country;
+  const factory _Country({final String? name, final String? code}) = _$_Country;
 
   factory _Country.fromJson(Map<String, dynamic> json) = _$_Country.fromJson;
 
   @override
 
-  /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
-  String? get code;
-  @override
-
   /// The English name of the country
   String? get name;
+  @override
+
+  /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
+  String? get code;
   @override
   @JsonKey(ignore: true)
   _$$_CountryCopyWith<_$_Country> get copyWith =>
@@ -656,9 +656,6 @@ Holiday _$HolidayFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Holiday {
-  /// date of the holiday in yyyy-mm-dd format
-  String? get date => throw _privateConstructorUsedError;
-
   /// the local name of the holiday
   String? get local_name => throw _privateConstructorUsedError;
 
@@ -674,6 +671,9 @@ mixin _$Holiday {
   /// the country this holiday occurs in
   String? get country_code => throw _privateConstructorUsedError;
 
+  /// date of the holiday in yyyy-mm-dd format
+  String? get date => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $HolidayCopyWith<Holiday> get copyWith => throw _privateConstructorUsedError;
@@ -684,12 +684,12 @@ abstract class $HolidayCopyWith<$Res> {
   factory $HolidayCopyWith(Holiday value, $Res Function(Holiday) then) =
       _$HolidayCopyWithImpl<$Res>;
   $Res call(
-      {String? date,
-      String? local_name,
+      {String? local_name,
       String? name,
       List<String>? regions,
       List<String>? types,
-      String? country_code});
+      String? country_code,
+      String? date});
 }
 
 /// @nodoc
@@ -702,18 +702,14 @@ class _$HolidayCopyWithImpl<$Res> implements $HolidayCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? date = freezed,
     Object? local_name = freezed,
     Object? name = freezed,
     Object? regions = freezed,
     Object? types = freezed,
     Object? country_code = freezed,
+    Object? date = freezed,
   }) {
     return _then(_value.copyWith(
-      date: date == freezed
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String?,
       local_name: local_name == freezed
           ? _value.local_name
           : local_name // ignore: cast_nullable_to_non_nullable
@@ -734,6 +730,10 @@ class _$HolidayCopyWithImpl<$Res> implements $HolidayCopyWith<$Res> {
           ? _value.country_code
           : country_code // ignore: cast_nullable_to_non_nullable
               as String?,
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -745,12 +745,12 @@ abstract class _$$_HolidayCopyWith<$Res> implements $HolidayCopyWith<$Res> {
       __$$_HolidayCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? date,
-      String? local_name,
+      {String? local_name,
       String? name,
       List<String>? regions,
       List<String>? types,
-      String? country_code});
+      String? country_code,
+      String? date});
 }
 
 /// @nodoc
@@ -764,18 +764,14 @@ class __$$_HolidayCopyWithImpl<$Res> extends _$HolidayCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? date = freezed,
     Object? local_name = freezed,
     Object? name = freezed,
     Object? regions = freezed,
     Object? types = freezed,
     Object? country_code = freezed,
+    Object? date = freezed,
   }) {
     return _then(_$_Holiday(
-      date: date == freezed
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String?,
       local_name: local_name == freezed
           ? _value.local_name
           : local_name // ignore: cast_nullable_to_non_nullable
@@ -796,6 +792,10 @@ class __$$_HolidayCopyWithImpl<$Res> extends _$HolidayCopyWithImpl<$Res>
           ? _value.country_code
           : country_code // ignore: cast_nullable_to_non_nullable
               as String?,
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -804,21 +804,17 @@ class __$$_HolidayCopyWithImpl<$Res> extends _$HolidayCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Holiday implements _Holiday {
   const _$_Holiday(
-      {this.date,
-      this.local_name,
+      {this.local_name,
       this.name,
       final List<String>? regions,
       final List<String>? types,
-      this.country_code})
+      this.country_code,
+      this.date})
       : _regions = regions,
         _types = types;
 
   factory _$_Holiday.fromJson(Map<String, dynamic> json) =>
       _$$_HolidayFromJson(json);
-
-  /// date of the holiday in yyyy-mm-dd format
-  @override
-  final String? date;
 
   /// the local name of the holiday
   @override
@@ -856,9 +852,13 @@ class _$_Holiday implements _Holiday {
   @override
   final String? country_code;
 
+  /// date of the holiday in yyyy-mm-dd format
+  @override
+  final String? date;
+
   @override
   String toString() {
-    return 'Holiday(date: $date, local_name: $local_name, name: $name, regions: $regions, types: $types, country_code: $country_code)';
+    return 'Holiday(local_name: $local_name, name: $name, regions: $regions, types: $types, country_code: $country_code, date: $date)';
   }
 
   @override
@@ -866,26 +866,26 @@ class _$_Holiday implements _Holiday {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Holiday &&
-            const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality()
                 .equals(other.local_name, local_name) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other._regions, _regions) &&
             const DeepCollectionEquality().equals(other._types, _types) &&
             const DeepCollectionEquality()
-                .equals(other.country_code, country_code));
+                .equals(other.country_code, country_code) &&
+            const DeepCollectionEquality().equals(other.date, date));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(date),
       const DeepCollectionEquality().hash(local_name),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(_regions),
       const DeepCollectionEquality().hash(_types),
-      const DeepCollectionEquality().hash(country_code));
+      const DeepCollectionEquality().hash(country_code),
+      const DeepCollectionEquality().hash(date));
 
   @JsonKey(ignore: true)
   @override
@@ -902,19 +902,15 @@ class _$_Holiday implements _Holiday {
 
 abstract class _Holiday implements Holiday {
   const factory _Holiday(
-      {final String? date,
-      final String? local_name,
+      {final String? local_name,
       final String? name,
       final List<String>? regions,
       final List<String>? types,
-      final String? country_code}) = _$_Holiday;
+      final String? country_code,
+      final String? date}) = _$_Holiday;
 
   factory _Holiday.fromJson(Map<String, dynamic> json) = _$_Holiday.fromJson;
 
-  @override
-
-  /// date of the holiday in yyyy-mm-dd format
-  String? get date;
   @override
 
   /// the local name of the holiday
@@ -935,6 +931,10 @@ abstract class _Holiday implements Holiday {
 
   /// the country this holiday occurs in
   String? get country_code;
+  @override
+
+  /// date of the holiday in yyyy-mm-dd format
+  String? get date;
   @override
   @JsonKey(ignore: true)
   _$$_HolidayCopyWith<_$_Holiday> get copyWith =>

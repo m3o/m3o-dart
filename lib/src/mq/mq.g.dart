@@ -57,16 +57,16 @@ Map<String, dynamic> _$$_SubscribeRequestToJson(_$_SubscribeRequest instance) =>
 _$SubscribeResponseData _$$SubscribeResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$SubscribeResponseData(
-      topic: json['topic'] as String?,
       message: json['message'] as Map<String, dynamic>?,
+      topic: json['topic'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$SubscribeResponseDataToJson(
         _$SubscribeResponseData instance) =>
     <String, dynamic>{
-      'topic': instance.topic,
       'message': instance.message,
+      'topic': instance.topic,
       'runtimeType': instance.$type,
     };
 
