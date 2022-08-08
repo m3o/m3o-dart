@@ -1,3 +1,9 @@
+## v1.0.157 - 2022-08-08
+
+[446f52](https://github.com/micro/services/commit/446f5224b71db4454ae13311e697edd39538602d) fix ui
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.156...v1.0.157
+
 ## v1.0.156 - 2022-08-08
 
 [a62e39](https://github.com/micro/services/commit/a62e395865701f1d2be163009fafbb3058ee4499) remove webhook
