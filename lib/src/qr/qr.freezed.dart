@@ -14,18 +14,690 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Code _$CodeFromJson(Map<String, dynamic> json) {
+  return _Code.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Code {
+  /// time of creation
+  String? get created => throw _privateConstructorUsedError;
+
+  /// file name
+  String? get file => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+
+  /// text of the QR code
+  String? get text => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CodeCopyWith<Code> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CodeCopyWith<$Res> {
+  factory $CodeCopyWith(Code value, $Res Function(Code) then) =
+      _$CodeCopyWithImpl<$Res>;
+  $Res call({String? created, String? file, String? id, String? text});
+}
+
+/// @nodoc
+class _$CodeCopyWithImpl<$Res> implements $CodeCopyWith<$Res> {
+  _$CodeCopyWithImpl(this._value, this._then);
+
+  final Code _value;
+  // ignore: unused_field
+  final $Res Function(Code) _then;
+
+  @override
+  $Res call({
+    Object? created = freezed,
+    Object? file = freezed,
+    Object? id = freezed,
+    Object? text = freezed,
+  }) {
+    return _then(_value.copyWith(
+      created: created == freezed
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
+      file: file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_CodeCopyWith<$Res> implements $CodeCopyWith<$Res> {
+  factory _$$_CodeCopyWith(_$_Code value, $Res Function(_$_Code) then) =
+      __$$_CodeCopyWithImpl<$Res>;
+  @override
+  $Res call({String? created, String? file, String? id, String? text});
+}
+
+/// @nodoc
+class __$$_CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res>
+    implements _$$_CodeCopyWith<$Res> {
+  __$$_CodeCopyWithImpl(_$_Code _value, $Res Function(_$_Code) _then)
+      : super(_value, (v) => _then(v as _$_Code));
+
+  @override
+  _$_Code get _value => super._value as _$_Code;
+
+  @override
+  $Res call({
+    Object? created = freezed,
+    Object? file = freezed,
+    Object? id = freezed,
+    Object? text = freezed,
+  }) {
+    return _then(_$_Code(
+      created: created == freezed
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
+      file: file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Code implements _Code {
+  const _$_Code({this.created, this.file, this.id, this.text});
+
+  factory _$_Code.fromJson(Map<String, dynamic> json) => _$$_CodeFromJson(json);
+
+  /// time of creation
+  @override
+  final String? created;
+
+  /// file name
+  @override
+  final String? file;
+  @override
+  final String? id;
+
+  /// text of the QR code
+  @override
+  final String? text;
+
+  @override
+  String toString() {
+    return 'Code(created: $created, file: $file, id: $id, text: $text)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Code &&
+            const DeepCollectionEquality().equals(other.created, created) &&
+            const DeepCollectionEquality().equals(other.file, file) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.text, text));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(created),
+      const DeepCollectionEquality().hash(file),
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(text));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_CodeCopyWith<_$_Code> get copyWith =>
+      __$$_CodeCopyWithImpl<_$_Code>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_CodeToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Code implements Code {
+  const factory _Code(
+      {final String? created,
+      final String? file,
+      final String? id,
+      final String? text}) = _$_Code;
+
+  factory _Code.fromJson(Map<String, dynamic> json) = _$_Code.fromJson;
+
+  @override
+
+  /// time of creation
+  String? get created;
+  @override
+
+  /// file name
+  String? get file;
+  @override
+  String? get id;
+  @override
+
+  /// text of the QR code
+  String? get text;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CodeCopyWith<_$_Code> get copyWith => throw _privateConstructorUsedError;
+}
+
+CodesRequest _$CodesRequestFromJson(Map<String, dynamic> json) {
+  return _CodesRequest.fromJson(json);
+}
+
+/// @nodoc
+mixin _$CodesRequest {
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CodesRequestCopyWith<$Res> {
+  factory $CodesRequestCopyWith(
+          CodesRequest value, $Res Function(CodesRequest) then) =
+      _$CodesRequestCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$CodesRequestCopyWithImpl<$Res> implements $CodesRequestCopyWith<$Res> {
+  _$CodesRequestCopyWithImpl(this._value, this._then);
+
+  final CodesRequest _value;
+  // ignore: unused_field
+  final $Res Function(CodesRequest) _then;
+}
+
+/// @nodoc
+abstract class _$$_CodesRequestCopyWith<$Res> {
+  factory _$$_CodesRequestCopyWith(
+          _$_CodesRequest value, $Res Function(_$_CodesRequest) then) =
+      __$$_CodesRequestCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CodesRequestCopyWithImpl<$Res>
+    extends _$CodesRequestCopyWithImpl<$Res>
+    implements _$$_CodesRequestCopyWith<$Res> {
+  __$$_CodesRequestCopyWithImpl(
+      _$_CodesRequest _value, $Res Function(_$_CodesRequest) _then)
+      : super(_value, (v) => _then(v as _$_CodesRequest));
+
+  @override
+  _$_CodesRequest get _value => super._value as _$_CodesRequest;
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_CodesRequest implements _CodesRequest {
+  const _$_CodesRequest();
+
+  factory _$_CodesRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_CodesRequestFromJson(json);
+
+  @override
+  String toString() {
+    return 'CodesRequest()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CodesRequest);
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_CodesRequestToJson(
+      this,
+    );
+  }
+}
+
+abstract class _CodesRequest implements CodesRequest {
+  const factory _CodesRequest() = _$_CodesRequest;
+
+  factory _CodesRequest.fromJson(Map<String, dynamic> json) =
+      _$_CodesRequest.fromJson;
+}
+
+CodesResponse _$CodesResponseFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'default':
+      return CodesResponseData.fromJson(json);
+    case 'Merr':
+      return CodesResponseMerr.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'CodesResponse',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
+/// @nodoc
+mixin _$CodesResponse {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(List<Code>? codes) $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(List<Code>? codes)? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(List<Code>? codes)? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(CodesResponseData value) $default, {
+    required TResult Function(CodesResponseMerr value) Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(CodesResponseData value)? $default, {
+    TResult Function(CodesResponseMerr value)? Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CodesResponseData value)? $default, {
+    TResult Function(CodesResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CodesResponseCopyWith<$Res> {
+  factory $CodesResponseCopyWith(
+          CodesResponse value, $Res Function(CodesResponse) then) =
+      _$CodesResponseCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$CodesResponseCopyWithImpl<$Res>
+    implements $CodesResponseCopyWith<$Res> {
+  _$CodesResponseCopyWithImpl(this._value, this._then);
+
+  final CodesResponse _value;
+  // ignore: unused_field
+  final $Res Function(CodesResponse) _then;
+}
+
+/// @nodoc
+abstract class _$$CodesResponseDataCopyWith<$Res> {
+  factory _$$CodesResponseDataCopyWith(
+          _$CodesResponseData value, $Res Function(_$CodesResponseData) then) =
+      __$$CodesResponseDataCopyWithImpl<$Res>;
+  $Res call({List<Code>? codes});
+}
+
+/// @nodoc
+class __$$CodesResponseDataCopyWithImpl<$Res>
+    extends _$CodesResponseCopyWithImpl<$Res>
+    implements _$$CodesResponseDataCopyWith<$Res> {
+  __$$CodesResponseDataCopyWithImpl(
+      _$CodesResponseData _value, $Res Function(_$CodesResponseData) _then)
+      : super(_value, (v) => _then(v as _$CodesResponseData));
+
+  @override
+  _$CodesResponseData get _value => super._value as _$CodesResponseData;
+
+  @override
+  $Res call({
+    Object? codes = freezed,
+  }) {
+    return _then(_$CodesResponseData(
+      codes: codes == freezed
+          ? _value._codes
+          : codes // ignore: cast_nullable_to_non_nullable
+              as List<Code>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CodesResponseData implements CodesResponseData {
+  const _$CodesResponseData({final List<Code>? codes, final String? $type})
+      : _codes = codes,
+        $type = $type ?? 'default';
+
+  factory _$CodesResponseData.fromJson(Map<String, dynamic> json) =>
+      _$$CodesResponseDataFromJson(json);
+
+  final List<Code>? _codes;
+  @override
+  List<Code>? get codes {
+    final value = _codes;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'CodesResponse(codes: $codes)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CodesResponseData &&
+            const DeepCollectionEquality().equals(other._codes, _codes));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_codes));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$CodesResponseDataCopyWith<_$CodesResponseData> get copyWith =>
+      __$$CodesResponseDataCopyWithImpl<_$CodesResponseData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(List<Code>? codes) $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) {
+    return $default(codes);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(List<Code>? codes)? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+  }) {
+    return $default?.call(codes);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(List<Code>? codes)? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(codes);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(CodesResponseData value) $default, {
+    required TResult Function(CodesResponseMerr value) Merr,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(CodesResponseData value)? $default, {
+    TResult Function(CodesResponseMerr value)? Merr,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CodesResponseData value)? $default, {
+    TResult Function(CodesResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CodesResponseDataToJson(
+      this,
+    );
+  }
+}
+
+abstract class CodesResponseData implements CodesResponse {
+  const factory CodesResponseData({final List<Code>? codes}) =
+      _$CodesResponseData;
+
+  factory CodesResponseData.fromJson(Map<String, dynamic> json) =
+      _$CodesResponseData.fromJson;
+
+  List<Code>? get codes;
+  @JsonKey(ignore: true)
+  _$$CodesResponseDataCopyWith<_$CodesResponseData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CodesResponseMerrCopyWith<$Res> {
+  factory _$$CodesResponseMerrCopyWith(
+          _$CodesResponseMerr value, $Res Function(_$CodesResponseMerr) then) =
+      __$$CodesResponseMerrCopyWithImpl<$Res>;
+  $Res call({Map<String, dynamic>? body});
+}
+
+/// @nodoc
+class __$$CodesResponseMerrCopyWithImpl<$Res>
+    extends _$CodesResponseCopyWithImpl<$Res>
+    implements _$$CodesResponseMerrCopyWith<$Res> {
+  __$$CodesResponseMerrCopyWithImpl(
+      _$CodesResponseMerr _value, $Res Function(_$CodesResponseMerr) _then)
+      : super(_value, (v) => _then(v as _$CodesResponseMerr));
+
+  @override
+  _$CodesResponseMerr get _value => super._value as _$CodesResponseMerr;
+
+  @override
+  $Res call({
+    Object? body = freezed,
+  }) {
+    return _then(_$CodesResponseMerr(
+      body: body == freezed
+          ? _value._body
+          : body // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CodesResponseMerr implements CodesResponseMerr {
+  const _$CodesResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
+
+  factory _$CodesResponseMerr.fromJson(Map<String, dynamic> json) =>
+      _$$CodesResponseMerrFromJson(json);
+
+  final Map<String, dynamic>? _body;
+  @override
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'CodesResponse.Merr(body: $body)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CodesResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$CodesResponseMerrCopyWith<_$CodesResponseMerr> get copyWith =>
+      __$$CodesResponseMerrCopyWithImpl<_$CodesResponseMerr>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(List<Code>? codes) $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) {
+    return Merr(body);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(List<Code>? codes)? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+  }) {
+    return Merr?.call(body);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(List<Code>? codes)? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) {
+    if (Merr != null) {
+      return Merr(body);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(CodesResponseData value) $default, {
+    required TResult Function(CodesResponseMerr value) Merr,
+  }) {
+    return Merr(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(CodesResponseData value)? $default, {
+    TResult Function(CodesResponseMerr value)? Merr,
+  }) {
+    return Merr?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CodesResponseData value)? $default, {
+    TResult Function(CodesResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) {
+    if (Merr != null) {
+      return Merr(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CodesResponseMerrToJson(
+      this,
+    );
+  }
+}
+
+abstract class CodesResponseMerr implements CodesResponse {
+  const factory CodesResponseMerr({final Map<String, dynamic>? body}) =
+      _$CodesResponseMerr;
+
+  factory CodesResponseMerr.fromJson(Map<String, dynamic> json) =
+      _$CodesResponseMerr.fromJson;
+
+  Map<String, dynamic>? get body;
+  @JsonKey(ignore: true)
+  _$$CodesResponseMerrCopyWith<_$CodesResponseMerr> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 GenerateRequest _$GenerateRequestFromJson(Map<String, dynamic> json) {
   return _GenerateRequest.fromJson(json);
 }
 
 /// @nodoc
 mixin _$GenerateRequest {
+  /// the text to encode as a QR code (URL, phone number, email, etc)
+  String? get text => throw _privateConstructorUsedError;
+
   /// the size (height and width) in pixels of the generated QR code. Defaults to 256
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get size => throw _privateConstructorUsedError;
-
-  /// the text to encode as a QR code (URL, phone number, email, etc)
-  String? get text => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,8 +711,8 @@ abstract class $GenerateRequestCopyWith<$Res> {
           GenerateRequest value, $Res Function(GenerateRequest) then) =
       _$GenerateRequestCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
-      String? text});
+      {String? text,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size});
 }
 
 /// @nodoc
@@ -54,18 +726,18 @@ class _$GenerateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? size = freezed,
     Object? text = freezed,
+    Object? size = freezed,
   }) {
     return _then(_value.copyWith(
-      size: size == freezed
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int?,
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
+      size: size == freezed
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -78,8 +750,8 @@ abstract class _$$_GenerateRequestCopyWith<$Res>
       __$$_GenerateRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
-      String? text});
+      {String? text,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size});
 }
 
 /// @nodoc
@@ -95,18 +767,18 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? size = freezed,
     Object? text = freezed,
+    Object? size = freezed,
   }) {
     return _then(_$_GenerateRequest(
-      size: size == freezed
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int?,
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
+      size: size == freezed
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -115,24 +787,24 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GenerateRequest implements _GenerateRequest {
   const _$_GenerateRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.size,
-      this.text});
+      {this.text,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.size});
 
   factory _$_GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_GenerateRequestFromJson(json);
+
+  /// the text to encode as a QR code (URL, phone number, email, etc)
+  @override
+  final String? text;
 
   /// the size (height and width) in pixels of the generated QR code. Defaults to 256
   @override
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? size;
 
-  /// the text to encode as a QR code (URL, phone number, email, etc)
-  @override
-  final String? text;
-
   @override
   String toString() {
-    return 'GenerateRequest(size: $size, text: $text)';
+    return 'GenerateRequest(text: $text, size: $size)';
   }
 
   @override
@@ -140,16 +812,16 @@ class _$_GenerateRequest implements _GenerateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GenerateRequest &&
-            const DeepCollectionEquality().equals(other.size, size) &&
-            const DeepCollectionEquality().equals(other.text, text));
+            const DeepCollectionEquality().equals(other.text, text) &&
+            const DeepCollectionEquality().equals(other.size, size));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(size),
-      const DeepCollectionEquality().hash(text));
+      const DeepCollectionEquality().hash(text),
+      const DeepCollectionEquality().hash(size));
 
   @JsonKey(ignore: true)
   @override
@@ -166,22 +838,22 @@ class _$_GenerateRequest implements _GenerateRequest {
 
 abstract class _GenerateRequest implements GenerateRequest {
   const factory _GenerateRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? size,
-      final String? text}) = _$_GenerateRequest;
+      {final String? text,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          final int? size}) = _$_GenerateRequest;
 
   factory _GenerateRequest.fromJson(Map<String, dynamic> json) =
       _$_GenerateRequest.fromJson;
 
   @override
 
+  /// the text to encode as a QR code (URL, phone number, email, etc)
+  String? get text;
+  @override
+
   /// the size (height and width) in pixels of the generated QR code. Defaults to 256
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get size;
-  @override
-
-  /// the text to encode as a QR code (URL, phone number, email, etc)
-  String? get text;
   @override
   @JsonKey(ignore: true)
   _$$_GenerateRequestCopyWith<_$_GenerateRequest> get copyWith =>

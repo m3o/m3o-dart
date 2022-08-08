@@ -12,6 +12,26 @@ class QrService {
     _client = Client(token: token);
   }
 
+  /// List your QR codes
+  Future<CodesResponse> codes(CodesRequest req) async {
+    Request request = Request(
+      service: 'qr',
+      endpoint: 'Codes',
+      body: req.toJson(),
+    );
+
+    try {
+      Response res = await _client.call(request);
+      if (isError(res.body)) {
+        final err = Merr(res.toJson());
+        return CodesResponse.Merr(body: err.b);
+      }
+      return CodesResponseData.fromJson(res.body);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
   /// Generate a QR code with a specific text and size
   Future<GenerateResponse> generate(GenerateRequest req) async {
     Request request = Request(
@@ -34,14 +54,48 @@ class QrService {
 }
 
 @Freezed()
+class Code with _$Code {
+  const factory Code({
+    /// time of creation
+    String? created,
+
+    /// file name
+    String? file,
+    String? id,
+
+    /// text of the QR code
+    String? text,
+  }) = _Code;
+  factory Code.fromJson(Map<String, dynamic> json) => _$CodeFromJson(json);
+}
+
+@Freezed()
+class CodesRequest with _$CodesRequest {
+  const factory CodesRequest() = _CodesRequest;
+  factory CodesRequest.fromJson(Map<String, dynamic> json) =>
+      _$CodesRequestFromJson(json);
+}
+
+@Freezed()
+class CodesResponse with _$CodesResponse {
+  const factory CodesResponse({
+    List<Code>? codes,
+  }) = CodesResponseData;
+  const factory CodesResponse.Merr({Map<String, dynamic>? body}) =
+      CodesResponseMerr;
+  factory CodesResponse.fromJson(Map<String, dynamic> json) =>
+      _$CodesResponseFromJson(json);
+}
+
+@Freezed()
 class GenerateRequest with _$GenerateRequest {
   const factory GenerateRequest({
+    /// the text to encode as a QR code (URL, phone number, email, etc)
+    String? text,
+
     /// the size (height and width) in pixels of the generated QR code. Defaults to 256
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
-
-    /// the text to encode as a QR code (URL, phone number, email, etc)
-    String? text,
   }) = _GenerateRequest;
   factory GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$GenerateRequestFromJson(json);

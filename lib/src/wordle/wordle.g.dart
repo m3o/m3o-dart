@@ -21,17 +21,17 @@ Map<String, dynamic> _$$_CharToJson(_$_Char instance) => <String, dynamic>{
     };
 
 _$_Guess _$$_GuessFromJson(Map<String, dynamic> json) => _$_Guess(
-      highlight: json['highlight'] as String?,
-      word: json['word'] as String?,
       chars: (json['chars'] as List<dynamic>?)
           ?.map((e) => Char.fromJson(e as Map<String, dynamic>))
           .toList(),
+      highlight: json['highlight'] as String?,
+      word: json['word'] as String?,
     );
 
 Map<String, dynamic> _$$_GuessToJson(_$_Guess instance) => <String, dynamic>{
+      'chars': instance.chars,
       'highlight': instance.highlight,
       'word': instance.word,
-      'chars': instance.chars,
     };
 
 _$_GuessRequest _$$_GuessRequestFromJson(Map<String, dynamic> json) =>
@@ -48,23 +48,23 @@ Map<String, dynamic> _$$_GuessRequestToJson(_$_GuessRequest instance) =>
 
 _$GuessResponseData _$$GuessResponseDataFromJson(Map<String, dynamic> json) =>
     _$GuessResponseData(
-      status: json['status'] as String?,
-      tries_left: json['tries_left'] as int?,
       answer: json['answer'] as String?,
       correct: json['correct'] as bool?,
       guesses: (json['guesses'] as List<dynamic>?)
           ?.map((e) => Guess.fromJson(e as Map<String, dynamic>))
           .toList(),
+      status: json['status'] as String?,
+      tries_left: json['tries_left'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$GuessResponseDataToJson(_$GuessResponseData instance) =>
     <String, dynamic>{
-      'status': instance.status,
-      'tries_left': instance.tries_left,
       'answer': instance.answer,
       'correct': instance.correct,
       'guesses': instance.guesses,
+      'status': instance.status,
+      'tries_left': instance.tries_left,
       'runtimeType': instance.$type,
     };
 
@@ -88,15 +88,15 @@ Map<String, dynamic> _$$_NextRequestToJson(_$_NextRequest instance) =>
 
 _$NextResponseData _$$NextResponseDataFromJson(Map<String, dynamic> json) =>
     _$NextResponseData(
-      duration: json['duration'] as String?,
       seconds: json['seconds'] as int?,
+      duration: json['duration'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$NextResponseDataToJson(_$NextResponseData instance) =>
     <String, dynamic>{
-      'duration': instance.duration,
       'seconds': instance.seconds,
+      'duration': instance.duration,
       'runtimeType': instance.$type,
     };
 

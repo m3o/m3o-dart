@@ -76,6 +76,9 @@ class RoutingService {
 @Freezed()
 class Direction with _$Direction {
   const factory Direction({
+    /// alternative reference
+    String? reference,
+
     /// distance to travel in meters
     double? distance,
 
@@ -93,9 +96,6 @@ class Direction with _$Direction {
 
     /// street name or location
     String? name,
-
-    /// alternative reference
-    String? reference,
   }) = _Direction;
   factory Direction.fromJson(Map<String, dynamic> json) =>
       _$DirectionFromJson(json);
@@ -117,6 +117,9 @@ class DirectionsRequest with _$DirectionsRequest {
 @Freezed()
 class DirectionsResponse with _$DirectionsResponse {
   const factory DirectionsResponse({
+    /// Turn by turn directions
+    List<Direction>? directions,
+
     /// Estimated distance of the route in meters
     double? distance,
 
@@ -125,9 +128,6 @@ class DirectionsResponse with _$DirectionsResponse {
 
     /// The waypoints on the route
     List<Waypoint>? waypoints,
-
-    /// Turn by turn directions
-    List<Direction>? directions,
   }) = DirectionsResponseData;
   const factory DirectionsResponse.Merr({Map<String, dynamic>? body}) =
       DirectionsResponseMerr;
@@ -138,6 +138,9 @@ class DirectionsResponse with _$DirectionsResponse {
 @Freezed()
 class EtaRequest with _$EtaRequest {
   const factory EtaRequest({
+    /// The end point for the eta calculation
+    Point? destination,
+
     /// The starting point for the eta calculation
     Point? origin,
 
@@ -146,9 +149,6 @@ class EtaRequest with _$EtaRequest {
 
     /// type of transport. Only "car" is supported currently.
     String? type,
-
-    /// The end point for the eta calculation
-    Point? destination,
   }) = _EtaRequest;
   factory EtaRequest.fromJson(Map<String, dynamic> json) =>
       _$EtaRequestFromJson(json);
@@ -217,14 +217,14 @@ class RouteRequest with _$RouteRequest {
 @Freezed()
 class RouteResponse with _$RouteResponse {
   const factory RouteResponse({
+    /// estimated distance in meters
+    double? distance,
+
     /// estimated duration in seconds
     double? duration,
 
     /// waypoints on the route
     List<Waypoint>? waypoints,
-
-    /// estimated distance in meters
-    double? distance,
   }) = RouteResponseData;
   const factory RouteResponse.Merr({Map<String, dynamic>? body}) =
       RouteResponseMerr;
