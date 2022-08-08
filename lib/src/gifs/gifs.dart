@@ -36,32 +36,32 @@ class GifsService {
 @Freezed()
 class Gif with _$Gif {
   const factory Gif({
-    /// The different formats available for this GIF
-    ImageFormats? images,
-
-    /// A short URL for this GIF
-    String? short_url,
-
     /// The slug used in the GIF's URL
     String? slug,
-
-    /// The URL for this GIF
-    String? url,
-
-    /// The ID of the GIF
-    String? id,
-
-    /// The content rating for the GIF
-    String? rating,
-
-    /// The page on which this GIF was found
-    String? source,
 
     /// The title for this GIF
     String? title,
 
+    /// The content rating for the GIF
+    String? rating,
+
+    /// A short URL for this GIF
+    String? short_url,
+
+    /// The different formats available for this GIF
+    ImageFormats? images,
+
+    /// The page on which this GIF was found
+    String? source,
+
+    /// The URL for this GIF
+    String? url,
+
     /// URL used for embedding the GIF
     String? embed_url,
+
+    /// The ID of the GIF
+    String? id,
   }) = _Gif;
   factory Gif.fromJson(Map<String, dynamic> json) => _$GifFromJson(json);
 }
@@ -100,17 +100,11 @@ class ImageFormat with _$ImageFormat {
 @Freezed()
 class ImageFormats with _$ImageFormats {
   const factory ImageFormats({
-    /// A downsized version of the GIF < 2MB
-    ImageFormat? downsized,
+    /// Static image of the GIF with fixed width of 100 pixels
+    ImageFormat? fixed_width_small_still,
 
-    /// Static image of the GIF with fixed height of 100 pixels
-    ImageFormat? fixed_height_small_still,
-
-    /// Version of the GIF with fixed width of 200 pixels. Good for mobile use
-    ImageFormat? fixed_width,
-
-    /// Version of the GIF with fixed width of 200 pixels and number of frames reduced to 6
-    ImageFormat? fixed_width_downsampled,
+    /// mp4 version of the GIF <50kb displaying first 1-2 secs
+    ImageFormat? preview,
 
     /// A downsized version of the GIF < 8MB
     ImageFormat? downsized_large,
@@ -118,23 +112,32 @@ class ImageFormats with _$ImageFormats {
     /// Static image of the downsized version of the GIF
     ImageFormat? downsized_still,
 
-    /// Static image of the GIF with fixed height of 200 pixels
-    ImageFormat? fixed_height_still,
+    /// Version of the GIF with fixed height of 200 pixels. Good for mobile use
+    ImageFormat? fixed_height,
 
-    /// Version of the GIF with fixed width of 100 pixels. Good for mobile keyboards
-    ImageFormat? fixed_width_small,
+    /// Version of the GIF with fixed width of 200 pixels. Good for mobile use
+    ImageFormat? fixed_width,
 
-    /// Static image of the GIF with fixed width of 100 pixels
-    ImageFormat? fixed_width_small_still,
+    /// Version of the GIF with fixed width of 200 pixels and number of frames reduced to 6
+    ImageFormat? fixed_width_downsampled,
 
-    /// A downsized version of the GIF < 200kb
-    ImageFormat? downsized_small,
+    /// A downsized version of the GIF < 2MB
+    ImageFormat? downsized,
+
+    /// A downsized version of the GIF < 5MB
+    ImageFormat? downsized_medium,
+
+    /// Static image of the original version of the GIF
+    ImageFormat? original_still,
+
+    /// Version of the GIF <50kb displaying first 1-2 secs
+    ImageFormat? preview_gif,
 
     /// Version of the GIF with fixed height of 200 pixels and number of frames reduced to 6
     ImageFormat? fixed_height_downsampled,
 
-    /// Version of the GIF with fixed height of 100 pixels. Good for mobile keyboards
-    ImageFormat? fixed_height_small,
+    /// Static image of the GIF with fixed height of 100 pixels
+    ImageFormat? fixed_height_small_still,
 
     /// Static image of the GIF with fixed width of 200 pixels
     ImageFormat? fixed_width_still,
@@ -142,23 +145,20 @@ class ImageFormats with _$ImageFormats {
     /// 15 second version of the GIF looping
     ImageFormat? looping,
 
-    /// A downsized version of the GIF < 5MB
-    ImageFormat? downsized_medium,
-
-    /// Version of the GIF with fixed height of 200 pixels. Good for mobile use
-    ImageFormat? fixed_height,
-
     /// The original GIF. Good for desktop use
     ImageFormat? original,
 
-    /// Static image of the original version of the GIF
-    ImageFormat? original_still,
+    /// A downsized version of the GIF < 200kb
+    ImageFormat? downsized_small,
 
-    /// mp4 version of the GIF <50kb displaying first 1-2 secs
-    ImageFormat? preview,
+    /// Version of the GIF with fixed height of 100 pixels. Good for mobile keyboards
+    ImageFormat? fixed_height_small,
 
-    /// Version of the GIF <50kb displaying first 1-2 secs
-    ImageFormat? preview_gif,
+    /// Static image of the GIF with fixed height of 200 pixels
+    ImageFormat? fixed_height_still,
+
+    /// Version of the GIF with fixed width of 100 pixels. Good for mobile keyboards
+    ImageFormat? fixed_width_small,
   }) = _ImageFormats;
   factory ImageFormats.fromJson(Map<String, dynamic> json) =>
       _$ImageFormatsFromJson(json);

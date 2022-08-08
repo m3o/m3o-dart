@@ -169,13 +169,13 @@ Map<String, dynamic> _$$IndexResponseMerrToJson(_$IndexResponseMerr instance) =>
     };
 
 _$_Record _$$_RecordFromJson(Map<String, dynamic> json) => _$_Record(
-      data: json['data'] as Map<String, dynamic>?,
       id: json['id'] as String?,
+      data: json['data'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$$_RecordToJson(_$_Record instance) => <String, dynamic>{
-      'data': instance.data,
       'id': instance.id,
+      'data': instance.data,
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>

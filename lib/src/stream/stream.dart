@@ -180,6 +180,12 @@ class ListMessagesResponse with _$ListMessagesResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
+    /// text of the message
+    String? text,
+
+    /// time of message creation
+    String? timestamp,
+
     /// the channel name
     String? channel,
 
@@ -188,12 +194,6 @@ class Message with _$Message {
 
     /// the associated metadata
     Map<String, String>? metadata,
-
-    /// text of the message
-    String? text,
-
-    /// time of message creation
-    String? timestamp,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
