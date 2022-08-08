@@ -1,3 +1,9 @@
+## v1.0.156 - 2022-08-08
+
+[a62e39](https://github.com/micro/services/commit/a62e395865701f1d2be163009fafbb3058ee4499) remove webhook
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.155...v1.0.156
+
 ## v1.0.155 - 2022-08-08
 
 [07b82d](https://github.com/micro/services/commit/07b82d51703e58751ba91f2d468552429a395060) add qr codes example
