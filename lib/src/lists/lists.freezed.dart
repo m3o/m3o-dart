@@ -1290,19 +1290,19 @@ EventsResponse _$EventsResponseFromJson(Map<String, dynamic> json) {
 mixin _$EventsResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? event, List? list) $default, {
+    TResult Function(List? list, String? event) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? event, List? list)? $default, {
+    TResult Function(List? list, String? event)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? event, List? list)? $default, {
+    TResult Function(List? list, String? event)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -1351,7 +1351,7 @@ abstract class _$$EventsResponseDataCopyWith<$Res> {
   factory _$$EventsResponseDataCopyWith(_$EventsResponseData value,
           $Res Function(_$EventsResponseData) then) =
       __$$EventsResponseDataCopyWithImpl<$Res>;
-  $Res call({String? event, List? list});
+  $Res call({List? list, String? event});
 
   $ListCopyWith<$Res>? get list;
 }
@@ -1369,18 +1369,18 @@ class __$$EventsResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? event = freezed,
     Object? list = freezed,
+    Object? event = freezed,
   }) {
     return _then(_$EventsResponseData(
-      event: event == freezed
-          ? _value.event
-          : event // ignore: cast_nullable_to_non_nullable
-              as String?,
       list: list == freezed
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
               as List?,
+      event: event == freezed
+          ? _value.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
@@ -1399,26 +1399,26 @@ class __$$EventsResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$EventsResponseData implements EventsResponseData {
-  const _$EventsResponseData({this.event, this.list, final String? $type})
+  const _$EventsResponseData({this.list, this.event, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$EventsResponseData.fromJson(Map<String, dynamic> json) =>
       _$$EventsResponseDataFromJson(json);
 
-  /// the event which occured; create, delete, update
-  @override
-  final String? event;
-
   /// the list which the operation occured on
   @override
   final List? list;
+
+  /// the event which occured; create, delete, update
+  @override
+  final String? event;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'EventsResponse(event: $event, list: $list)';
+    return 'EventsResponse(list: $list, event: $event)';
   }
 
   @override
@@ -1426,16 +1426,16 @@ class _$EventsResponseData implements EventsResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EventsResponseData &&
-            const DeepCollectionEquality().equals(other.event, event) &&
-            const DeepCollectionEquality().equals(other.list, list));
+            const DeepCollectionEquality().equals(other.list, list) &&
+            const DeepCollectionEquality().equals(other.event, event));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(event),
-      const DeepCollectionEquality().hash(list));
+      const DeepCollectionEquality().hash(list),
+      const DeepCollectionEquality().hash(event));
 
   @JsonKey(ignore: true)
   @override
@@ -1446,30 +1446,30 @@ class _$EventsResponseData implements EventsResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? event, List? list) $default, {
+    TResult Function(List? list, String? event) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(event, list);
+    return $default(list, event);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? event, List? list)? $default, {
+    TResult Function(List? list, String? event)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(event, list);
+    return $default?.call(list, event);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? event, List? list)? $default, {
+    TResult Function(List? list, String? event)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(event, list);
+      return $default(list, event);
     }
     return orElse();
   }
@@ -1514,17 +1514,17 @@ class _$EventsResponseData implements EventsResponseData {
 }
 
 abstract class EventsResponseData implements EventsResponse {
-  const factory EventsResponseData({final String? event, final List? list}) =
+  const factory EventsResponseData({final List? list, final String? event}) =
       _$EventsResponseData;
 
   factory EventsResponseData.fromJson(Map<String, dynamic> json) =
       _$EventsResponseData.fromJson;
 
-  /// the event which occured; create, delete, update
-  String? get event;
-
   /// the list which the operation occured on
   List? get list;
+
+  /// the event which occured; create, delete, update
+  String? get event;
   @JsonKey(ignore: true)
   _$$EventsResponseDataCopyWith<_$EventsResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1612,7 +1612,7 @@ class _$EventsResponseMerr implements EventsResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? event, List? list) $default, {
+    TResult Function(List? list, String? event) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -1621,7 +1621,7 @@ class _$EventsResponseMerr implements EventsResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? event, List? list)? $default, {
+    TResult Function(List? list, String? event)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -1630,7 +1630,7 @@ class _$EventsResponseMerr implements EventsResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? event, List? list)? $default, {
+    TResult Function(List? list, String? event)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {

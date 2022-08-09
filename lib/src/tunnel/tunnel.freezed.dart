@@ -20,15 +20,6 @@ SendRequest _$SendRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SendRequest {
-  /// alternatively specify a full url e.g https://www.google.com/news
-  String? get url => throw _privateConstructorUsedError;
-
-  /// body of the request
-  String? get body => throw _privateConstructorUsedError;
-
-  /// headers to include e.g Content-Type: application/json
-  Map<String, String>? get headers => throw _privateConstructorUsedError;
-
   /// host to send to e.g www.google.com
   String? get host => throw _privateConstructorUsedError;
 
@@ -40,6 +31,15 @@ mixin _$SendRequest {
 
   /// path to request e.g /news
   String? get path => throw _privateConstructorUsedError;
+
+  /// alternatively specify a full url e.g https://www.google.com/news
+  String? get url => throw _privateConstructorUsedError;
+
+  /// body of the request
+  String? get body => throw _privateConstructorUsedError;
+
+  /// headers to include e.g Content-Type: application/json
+  Map<String, String>? get headers => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,13 +53,13 @@ abstract class $SendRequestCopyWith<$Res> {
           SendRequest value, $Res Function(SendRequest) then) =
       _$SendRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? url,
-      String? body,
-      Map<String, String>? headers,
-      String? host,
+      {String? host,
       String? method,
       Map<String, String>? params,
-      String? path});
+      String? path,
+      String? url,
+      String? body,
+      Map<String, String>? headers});
 }
 
 /// @nodoc
@@ -72,27 +72,15 @@ class _$SendRequestCopyWithImpl<$Res> implements $SendRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? url = freezed,
-    Object? body = freezed,
-    Object? headers = freezed,
     Object? host = freezed,
     Object? method = freezed,
     Object? params = freezed,
     Object? path = freezed,
+    Object? url = freezed,
+    Object? body = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_value.copyWith(
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      body: body == freezed
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as String?,
-      headers: headers == freezed
-          ? _value.headers
-          : headers // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>?,
       host: host == freezed
           ? _value.host
           : host // ignore: cast_nullable_to_non_nullable
@@ -109,6 +97,18 @@ class _$SendRequestCopyWithImpl<$Res> implements $SendRequestCopyWith<$Res> {
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String?,
+      headers: headers == freezed
+          ? _value.headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 }
@@ -121,13 +121,13 @@ abstract class _$$_SendRequestCopyWith<$Res>
       __$$_SendRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? url,
-      String? body,
-      Map<String, String>? headers,
-      String? host,
+      {String? host,
       String? method,
       Map<String, String>? params,
-      String? path});
+      String? path,
+      String? url,
+      String? body,
+      Map<String, String>? headers});
 }
 
 /// @nodoc
@@ -142,27 +142,15 @@ class __$$_SendRequestCopyWithImpl<$Res> extends _$SendRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? url = freezed,
-    Object? body = freezed,
-    Object? headers = freezed,
     Object? host = freezed,
     Object? method = freezed,
     Object? params = freezed,
     Object? path = freezed,
+    Object? url = freezed,
+    Object? body = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$_SendRequest(
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      body: body == freezed
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as String?,
-      headers: headers == freezed
-          ? _value._headers
-          : headers // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>?,
       host: host == freezed
           ? _value.host
           : host // ignore: cast_nullable_to_non_nullable
@@ -179,6 +167,18 @@ class __$$_SendRequestCopyWithImpl<$Res> extends _$SendRequestCopyWithImpl<$Res>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String?,
+      headers: headers == freezed
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 }
@@ -187,38 +187,18 @@ class __$$_SendRequestCopyWithImpl<$Res> extends _$SendRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SendRequest implements _SendRequest {
   const _$_SendRequest(
-      {this.url,
-      this.body,
-      final Map<String, String>? headers,
-      this.host,
+      {this.host,
       this.method,
       final Map<String, String>? params,
-      this.path})
-      : _headers = headers,
-        _params = params;
+      this.path,
+      this.url,
+      this.body,
+      final Map<String, String>? headers})
+      : _params = params,
+        _headers = headers;
 
   factory _$_SendRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SendRequestFromJson(json);
-
-  /// alternatively specify a full url e.g https://www.google.com/news
-  @override
-  final String? url;
-
-  /// body of the request
-  @override
-  final String? body;
-
-  /// headers to include e.g Content-Type: application/json
-  final Map<String, String>? _headers;
-
-  /// headers to include e.g Content-Type: application/json
-  @override
-  Map<String, String>? get headers {
-    final value = _headers;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
 
   /// host to send to e.g www.google.com
   @override
@@ -244,9 +224,29 @@ class _$_SendRequest implements _SendRequest {
   @override
   final String? path;
 
+  /// alternatively specify a full url e.g https://www.google.com/news
+  @override
+  final String? url;
+
+  /// body of the request
+  @override
+  final String? body;
+
+  /// headers to include e.g Content-Type: application/json
+  final Map<String, String>? _headers;
+
+  /// headers to include e.g Content-Type: application/json
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   String toString() {
-    return 'SendRequest(url: $url, body: $body, headers: $headers, host: $host, method: $method, params: $params, path: $path)';
+    return 'SendRequest(host: $host, method: $method, params: $params, path: $path, url: $url, body: $body, headers: $headers)';
   }
 
   @override
@@ -254,26 +254,26 @@ class _$_SendRequest implements _SendRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SendRequest &&
-            const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality().equals(other.body, body) &&
-            const DeepCollectionEquality().equals(other._headers, _headers) &&
             const DeepCollectionEquality().equals(other.host, host) &&
             const DeepCollectionEquality().equals(other.method, method) &&
             const DeepCollectionEquality().equals(other._params, _params) &&
-            const DeepCollectionEquality().equals(other.path, path));
+            const DeepCollectionEquality().equals(other.path, path) &&
+            const DeepCollectionEquality().equals(other.url, url) &&
+            const DeepCollectionEquality().equals(other.body, body) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(body),
-      const DeepCollectionEquality().hash(_headers),
       const DeepCollectionEquality().hash(host),
       const DeepCollectionEquality().hash(method),
       const DeepCollectionEquality().hash(_params),
-      const DeepCollectionEquality().hash(path));
+      const DeepCollectionEquality().hash(path),
+      const DeepCollectionEquality().hash(url),
+      const DeepCollectionEquality().hash(body),
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -290,29 +290,17 @@ class _$_SendRequest implements _SendRequest {
 
 abstract class _SendRequest implements SendRequest {
   const factory _SendRequest(
-      {final String? url,
-      final String? body,
-      final Map<String, String>? headers,
-      final String? host,
+      {final String? host,
       final String? method,
       final Map<String, String>? params,
-      final String? path}) = _$_SendRequest;
+      final String? path,
+      final String? url,
+      final String? body,
+      final Map<String, String>? headers}) = _$_SendRequest;
 
   factory _SendRequest.fromJson(Map<String, dynamic> json) =
       _$_SendRequest.fromJson;
 
-  @override
-
-  /// alternatively specify a full url e.g https://www.google.com/news
-  String? get url;
-  @override
-
-  /// body of the request
-  String? get body;
-  @override
-
-  /// headers to include e.g Content-Type: application/json
-  Map<String, String>? get headers;
   @override
 
   /// host to send to e.g www.google.com
@@ -329,6 +317,18 @@ abstract class _SendRequest implements SendRequest {
 
   /// path to request e.g /news
   String? get path;
+  @override
+
+  /// alternatively specify a full url e.g https://www.google.com/news
+  String? get url;
+  @override
+
+  /// body of the request
+  String? get body;
+  @override
+
+  /// headers to include e.g Content-Type: application/json
+  Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
   _$$_SendRequestCopyWith<_$_SendRequest> get copyWith =>

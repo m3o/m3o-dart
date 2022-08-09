@@ -113,8 +113,8 @@ class ReverseRequest with _$ReverseRequest {
 @Freezed()
 class ReverseResponse with _$ReverseResponse {
   const factory ReverseResponse({
-    Location? location,
     Address? address,
+    Location? location,
   }) = ReverseResponseData;
   const factory ReverseResponse.Merr({Map<String, dynamic>? body}) =
       ReverseResponseMerr;

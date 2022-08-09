@@ -20,7 +20,7 @@ void main() async {
   final ser = BitcoinService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "symbol": "BTCUSD"
+  "symbol": "USD"
 ,};
 
   PriceRequest req = PriceRequest.fromJson(payload);

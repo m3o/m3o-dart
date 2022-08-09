@@ -123,6 +123,9 @@ class AddResponse with _$AddResponse {
 @Freezed()
 class Entry with _$Entry {
   const factory Entry({
+    /// title of the entry
+    String? title,
+
     /// article content
     String? content,
 
@@ -140,9 +143,6 @@ class Entry with _$Entry {
 
     /// article summary
     String? summary,
-
-    /// title of the entry
-    String? title,
   }) = _Entry;
   factory Entry.fromJson(Map<String, dynamic> json) => _$EntryFromJson(json);
 }

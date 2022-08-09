@@ -20,12 +20,6 @@ AddRequest _$AddRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AddRequest {
-  /// name of the thing e.g bitcoin
-  String? get name => throw _privateConstructorUsedError;
-
-  /// price of the thing e.g 10001.00
-  double? get price => throw _privateConstructorUsedError;
-
   /// source of the price
   String? get source => throw _privateConstructorUsedError;
 
@@ -37,6 +31,12 @@ mixin _$AddRequest {
 
   /// currency e.g USD
   String? get currency => throw _privateConstructorUsedError;
+
+  /// name of the thing e.g bitcoin
+  String? get name => throw _privateConstructorUsedError;
+
+  /// price of the thing e.g 10001.00
+  double? get price => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,12 +50,12 @@ abstract class $AddRequestCopyWith<$Res> {
           AddRequest value, $Res Function(AddRequest) then) =
       _$AddRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? name,
-      double? price,
-      String? source,
+      {String? source,
       String? symbol,
       String? author,
-      String? currency});
+      String? currency,
+      String? name,
+      double? price});
 }
 
 /// @nodoc
@@ -68,22 +68,14 @@ class _$AddRequestCopyWithImpl<$Res> implements $AddRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? name = freezed,
-    Object? price = freezed,
     Object? source = freezed,
     Object? symbol = freezed,
     Object? author = freezed,
     Object? currency = freezed,
+    Object? name = freezed,
+    Object? price = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      price: price == freezed
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as double?,
       source: source == freezed
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
@@ -100,6 +92,14 @@ class _$AddRequestCopyWithImpl<$Res> implements $AddRequestCopyWith<$Res> {
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      price: price == freezed
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -112,12 +112,12 @@ abstract class _$$_AddRequestCopyWith<$Res>
       __$$_AddRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? name,
-      double? price,
-      String? source,
+      {String? source,
       String? symbol,
       String? author,
-      String? currency});
+      String? currency,
+      String? name,
+      double? price});
 }
 
 /// @nodoc
@@ -132,22 +132,14 @@ class __$$_AddRequestCopyWithImpl<$Res> extends _$AddRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
-    Object? price = freezed,
     Object? source = freezed,
     Object? symbol = freezed,
     Object? author = freezed,
     Object? currency = freezed,
+    Object? name = freezed,
+    Object? price = freezed,
   }) {
     return _then(_$_AddRequest(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      price: price == freezed
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as double?,
       source: source == freezed
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
@@ -164,6 +156,14 @@ class __$$_AddRequestCopyWithImpl<$Res> extends _$AddRequestCopyWithImpl<$Res>
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      price: price == freezed
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -172,23 +172,15 @@ class __$$_AddRequestCopyWithImpl<$Res> extends _$AddRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_AddRequest implements _AddRequest {
   const _$_AddRequest(
-      {this.name,
-      this.price,
-      this.source,
+      {this.source,
       this.symbol,
       this.author,
-      this.currency});
+      this.currency,
+      this.name,
+      this.price});
 
   factory _$_AddRequest.fromJson(Map<String, dynamic> json) =>
       _$$_AddRequestFromJson(json);
-
-  /// name of the thing e.g bitcoin
-  @override
-  final String? name;
-
-  /// price of the thing e.g 10001.00
-  @override
-  final double? price;
 
   /// source of the price
   @override
@@ -206,9 +198,17 @@ class _$_AddRequest implements _AddRequest {
   @override
   final String? currency;
 
+  /// name of the thing e.g bitcoin
+  @override
+  final String? name;
+
+  /// price of the thing e.g 10001.00
+  @override
+  final double? price;
+
   @override
   String toString() {
-    return 'AddRequest(name: $name, price: $price, source: $source, symbol: $symbol, author: $author, currency: $currency)';
+    return 'AddRequest(source: $source, symbol: $symbol, author: $author, currency: $currency, name: $name, price: $price)';
   }
 
   @override
@@ -216,24 +216,24 @@ class _$_AddRequest implements _AddRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddRequest &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.price, price) &&
             const DeepCollectionEquality().equals(other.source, source) &&
             const DeepCollectionEquality().equals(other.symbol, symbol) &&
             const DeepCollectionEquality().equals(other.author, author) &&
-            const DeepCollectionEquality().equals(other.currency, currency));
+            const DeepCollectionEquality().equals(other.currency, currency) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.price, price));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(price),
       const DeepCollectionEquality().hash(source),
       const DeepCollectionEquality().hash(symbol),
       const DeepCollectionEquality().hash(author),
-      const DeepCollectionEquality().hash(currency));
+      const DeepCollectionEquality().hash(currency),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(price));
 
   @JsonKey(ignore: true)
   @override
@@ -250,24 +250,16 @@ class _$_AddRequest implements _AddRequest {
 
 abstract class _AddRequest implements AddRequest {
   const factory _AddRequest(
-      {final String? name,
-      final double? price,
-      final String? source,
+      {final String? source,
       final String? symbol,
       final String? author,
-      final String? currency}) = _$_AddRequest;
+      final String? currency,
+      final String? name,
+      final double? price}) = _$_AddRequest;
 
   factory _AddRequest.fromJson(Map<String, dynamic> json) =
       _$_AddRequest.fromJson;
 
-  @override
-
-  /// name of the thing e.g bitcoin
-  String? get name;
-  @override
-
-  /// price of the thing e.g 10001.00
-  double? get price;
   @override
 
   /// source of the price
@@ -284,6 +276,14 @@ abstract class _AddRequest implements AddRequest {
 
   /// currency e.g USD
   String? get currency;
+  @override
+
+  /// name of the thing e.g bitcoin
+  String? get name;
+  @override
+
+  /// price of the thing e.g 10001.00
+  double? get price;
   @override
   @JsonKey(ignore: true)
   _$$_AddRequestCopyWith<_$_AddRequest> get copyWith =>
@@ -1273,14 +1273,14 @@ Index _$IndexFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Index {
-  /// symbol of item
-  String? get symbol => throw _privateConstructorUsedError;
-
   /// currency of value
   String? get currency => throw _privateConstructorUsedError;
 
   /// name of item
   String? get name => throw _privateConstructorUsedError;
+
+  /// symbol of item
+  String? get symbol => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1291,7 +1291,7 @@ mixin _$Index {
 abstract class $IndexCopyWith<$Res> {
   factory $IndexCopyWith(Index value, $Res Function(Index) then) =
       _$IndexCopyWithImpl<$Res>;
-  $Res call({String? symbol, String? currency, String? name});
+  $Res call({String? currency, String? name, String? symbol});
 }
 
 /// @nodoc
@@ -1304,15 +1304,11 @@ class _$IndexCopyWithImpl<$Res> implements $IndexCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? symbol = freezed,
     Object? currency = freezed,
     Object? name = freezed,
+    Object? symbol = freezed,
   }) {
     return _then(_value.copyWith(
-      symbol: symbol == freezed
-          ? _value.symbol
-          : symbol // ignore: cast_nullable_to_non_nullable
-              as String?,
       currency: currency == freezed
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
@@ -1320,6 +1316,10 @@ class _$IndexCopyWithImpl<$Res> implements $IndexCopyWith<$Res> {
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      symbol: symbol == freezed
+          ? _value.symbol
+          : symbol // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1330,7 +1330,7 @@ abstract class _$$_IndexCopyWith<$Res> implements $IndexCopyWith<$Res> {
   factory _$$_IndexCopyWith(_$_Index value, $Res Function(_$_Index) then) =
       __$$_IndexCopyWithImpl<$Res>;
   @override
-  $Res call({String? symbol, String? currency, String? name});
+  $Res call({String? currency, String? name, String? symbol});
 }
 
 /// @nodoc
@@ -1344,15 +1344,11 @@ class __$$_IndexCopyWithImpl<$Res> extends _$IndexCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? symbol = freezed,
     Object? currency = freezed,
     Object? name = freezed,
+    Object? symbol = freezed,
   }) {
     return _then(_$_Index(
-      symbol: symbol == freezed
-          ? _value.symbol
-          : symbol // ignore: cast_nullable_to_non_nullable
-              as String?,
       currency: currency == freezed
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
@@ -1361,6 +1357,10 @@ class __$$_IndexCopyWithImpl<$Res> extends _$IndexCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      symbol: symbol == freezed
+          ? _value.symbol
+          : symbol // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1368,14 +1368,10 @@ class __$$_IndexCopyWithImpl<$Res> extends _$IndexCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Index implements _Index {
-  const _$_Index({this.symbol, this.currency, this.name});
+  const _$_Index({this.currency, this.name, this.symbol});
 
   factory _$_Index.fromJson(Map<String, dynamic> json) =>
       _$$_IndexFromJson(json);
-
-  /// symbol of item
-  @override
-  final String? symbol;
 
   /// currency of value
   @override
@@ -1385,9 +1381,13 @@ class _$_Index implements _Index {
   @override
   final String? name;
 
+  /// symbol of item
+  @override
+  final String? symbol;
+
   @override
   String toString() {
-    return 'Index(symbol: $symbol, currency: $currency, name: $name)';
+    return 'Index(currency: $currency, name: $name, symbol: $symbol)';
   }
 
   @override
@@ -1395,18 +1395,18 @@ class _$_Index implements _Index {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Index &&
-            const DeepCollectionEquality().equals(other.symbol, symbol) &&
             const DeepCollectionEquality().equals(other.currency, currency) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.symbol, symbol));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(symbol),
       const DeepCollectionEquality().hash(currency),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(symbol));
 
   @JsonKey(ignore: true)
   @override
@@ -1423,16 +1423,12 @@ class _$_Index implements _Index {
 
 abstract class _Index implements Index {
   const factory _Index(
-      {final String? symbol,
-      final String? currency,
-      final String? name}) = _$_Index;
+      {final String? currency,
+      final String? name,
+      final String? symbol}) = _$_Index;
 
   factory _Index.fromJson(Map<String, dynamic> json) = _$_Index.fromJson;
 
-  @override
-
-  /// symbol of item
-  String? get symbol;
   @override
 
   /// currency of value
@@ -1441,6 +1437,10 @@ abstract class _Index implements Index {
 
   /// name of item
   String? get name;
+  @override
+
+  /// symbol of item
+  String? get symbol;
   @override
   @JsonKey(ignore: true)
   _$$_IndexCopyWith<_$_Index> get copyWith =>
@@ -1929,14 +1929,14 @@ ListRequest _$ListRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListRequest {
+  /// currency to get
+  String? get currency => throw _privateConstructorUsedError;
+
   /// limit number of values
   int? get limit => throw _privateConstructorUsedError;
 
   /// offset to read from
   int? get offset => throw _privateConstructorUsedError;
-
-  /// currency to get
-  String? get currency => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1949,7 +1949,7 @@ abstract class $ListRequestCopyWith<$Res> {
   factory $ListRequestCopyWith(
           ListRequest value, $Res Function(ListRequest) then) =
       _$ListRequestCopyWithImpl<$Res>;
-  $Res call({int? limit, int? offset, String? currency});
+  $Res call({String? currency, int? limit, int? offset});
 }
 
 /// @nodoc
@@ -1962,11 +1962,15 @@ class _$ListRequestCopyWithImpl<$Res> implements $ListRequestCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? currency = freezed,
     Object? limit = freezed,
     Object? offset = freezed,
-    Object? currency = freezed,
   }) {
     return _then(_value.copyWith(
+      currency: currency == freezed
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String?,
       limit: limit == freezed
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
@@ -1975,10 +1979,6 @@ class _$ListRequestCopyWithImpl<$Res> implements $ListRequestCopyWith<$Res> {
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
               as int?,
-      currency: currency == freezed
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1990,7 +1990,7 @@ abstract class _$$_ListRequestCopyWith<$Res>
           _$_ListRequest value, $Res Function(_$_ListRequest) then) =
       __$$_ListRequestCopyWithImpl<$Res>;
   @override
-  $Res call({int? limit, int? offset, String? currency});
+  $Res call({String? currency, int? limit, int? offset});
 }
 
 /// @nodoc
@@ -2005,11 +2005,15 @@ class __$$_ListRequestCopyWithImpl<$Res> extends _$ListRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? currency = freezed,
     Object? limit = freezed,
     Object? offset = freezed,
-    Object? currency = freezed,
   }) {
     return _then(_$_ListRequest(
+      currency: currency == freezed
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String?,
       limit: limit == freezed
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
@@ -2018,10 +2022,6 @@ class __$$_ListRequestCopyWithImpl<$Res> extends _$ListRequestCopyWithImpl<$Res>
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
               as int?,
-      currency: currency == freezed
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2029,10 +2029,14 @@ class __$$_ListRequestCopyWithImpl<$Res> extends _$ListRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ListRequest implements _ListRequest {
-  const _$_ListRequest({this.limit, this.offset, this.currency});
+  const _$_ListRequest({this.currency, this.limit, this.offset});
 
   factory _$_ListRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ListRequestFromJson(json);
+
+  /// currency to get
+  @override
+  final String? currency;
 
   /// limit number of values
   @override
@@ -2042,13 +2046,9 @@ class _$_ListRequest implements _ListRequest {
   @override
   final int? offset;
 
-  /// currency to get
-  @override
-  final String? currency;
-
   @override
   String toString() {
-    return 'ListRequest(limit: $limit, offset: $offset, currency: $currency)';
+    return 'ListRequest(currency: $currency, limit: $limit, offset: $offset)';
   }
 
   @override
@@ -2056,18 +2056,18 @@ class _$_ListRequest implements _ListRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ListRequest &&
+            const DeepCollectionEquality().equals(other.currency, currency) &&
             const DeepCollectionEquality().equals(other.limit, limit) &&
-            const DeepCollectionEquality().equals(other.offset, offset) &&
-            const DeepCollectionEquality().equals(other.currency, currency));
+            const DeepCollectionEquality().equals(other.offset, offset));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(currency),
       const DeepCollectionEquality().hash(limit),
-      const DeepCollectionEquality().hash(offset),
-      const DeepCollectionEquality().hash(currency));
+      const DeepCollectionEquality().hash(offset));
 
   @JsonKey(ignore: true)
   @override
@@ -2084,13 +2084,17 @@ class _$_ListRequest implements _ListRequest {
 
 abstract class _ListRequest implements ListRequest {
   const factory _ListRequest(
-      {final int? limit,
-      final int? offset,
-      final String? currency}) = _$_ListRequest;
+      {final String? currency,
+      final int? limit,
+      final int? offset}) = _$_ListRequest;
 
   factory _ListRequest.fromJson(Map<String, dynamic> json) =
       _$_ListRequest.fromJson;
 
+  @override
+
+  /// currency to get
+  String? get currency;
   @override
 
   /// limit number of values
@@ -2099,10 +2103,6 @@ abstract class _ListRequest implements ListRequest {
 
   /// offset to read from
   int? get offset;
-  @override
-
-  /// currency to get
-  String? get currency;
   @override
   @JsonKey(ignore: true)
   _$$_ListRequestCopyWith<_$_ListRequest> get copyWith =>
@@ -2508,10 +2508,10 @@ Report _$ReportFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Report {
-  String? get author => throw _privateConstructorUsedError;
-  String? get comment => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get symbol => throw _privateConstructorUsedError;
+  String? get author => throw _privateConstructorUsedError;
+  String? get comment => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2522,7 +2522,7 @@ mixin _$Report {
 abstract class $ReportCopyWith<$Res> {
   factory $ReportCopyWith(Report value, $Res Function(Report) then) =
       _$ReportCopyWithImpl<$Res>;
-  $Res call({String? author, String? comment, String? name, String? symbol});
+  $Res call({String? name, String? symbol, String? author, String? comment});
 }
 
 /// @nodoc
@@ -2535,20 +2535,12 @@ class _$ReportCopyWithImpl<$Res> implements $ReportCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? author = freezed,
-    Object? comment = freezed,
     Object? name = freezed,
     Object? symbol = freezed,
+    Object? author = freezed,
+    Object? comment = freezed,
   }) {
     return _then(_value.copyWith(
-      author: author == freezed
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
-              as String?,
-      comment: comment == freezed
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -2556,6 +2548,14 @@ class _$ReportCopyWithImpl<$Res> implements $ReportCopyWith<$Res> {
       symbol: symbol == freezed
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
+              as String?,
+      author: author == freezed
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String?,
+      comment: comment == freezed
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2566,7 +2566,7 @@ abstract class _$$_ReportCopyWith<$Res> implements $ReportCopyWith<$Res> {
   factory _$$_ReportCopyWith(_$_Report value, $Res Function(_$_Report) then) =
       __$$_ReportCopyWithImpl<$Res>;
   @override
-  $Res call({String? author, String? comment, String? name, String? symbol});
+  $Res call({String? name, String? symbol, String? author, String? comment});
 }
 
 /// @nodoc
@@ -2580,20 +2580,12 @@ class __$$_ReportCopyWithImpl<$Res> extends _$ReportCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? author = freezed,
-    Object? comment = freezed,
     Object? name = freezed,
     Object? symbol = freezed,
+    Object? author = freezed,
+    Object? comment = freezed,
   }) {
     return _then(_$_Report(
-      author: author == freezed
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
-              as String?,
-      comment: comment == freezed
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -2602,6 +2594,14 @@ class __$$_ReportCopyWithImpl<$Res> extends _$ReportCopyWithImpl<$Res>
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String?,
+      author: author == freezed
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String?,
+      comment: comment == freezed
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2609,23 +2609,23 @@ class __$$_ReportCopyWithImpl<$Res> extends _$ReportCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Report implements _Report {
-  const _$_Report({this.author, this.comment, this.name, this.symbol});
+  const _$_Report({this.name, this.symbol, this.author, this.comment});
 
   factory _$_Report.fromJson(Map<String, dynamic> json) =>
       _$$_ReportFromJson(json);
 
   @override
-  final String? author;
-  @override
-  final String? comment;
-  @override
   final String? name;
   @override
   final String? symbol;
+  @override
+  final String? author;
+  @override
+  final String? comment;
 
   @override
   String toString() {
-    return 'Report(author: $author, comment: $comment, name: $name, symbol: $symbol)';
+    return 'Report(name: $name, symbol: $symbol, author: $author, comment: $comment)';
   }
 
   @override
@@ -2633,20 +2633,20 @@ class _$_Report implements _Report {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Report &&
-            const DeepCollectionEquality().equals(other.author, author) &&
-            const DeepCollectionEquality().equals(other.comment, comment) &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.symbol, symbol));
+            const DeepCollectionEquality().equals(other.symbol, symbol) &&
+            const DeepCollectionEquality().equals(other.author, author) &&
+            const DeepCollectionEquality().equals(other.comment, comment));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(author),
-      const DeepCollectionEquality().hash(comment),
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(symbol));
+      const DeepCollectionEquality().hash(symbol),
+      const DeepCollectionEquality().hash(author),
+      const DeepCollectionEquality().hash(comment));
 
   @JsonKey(ignore: true)
   @override
@@ -2663,21 +2663,21 @@ class _$_Report implements _Report {
 
 abstract class _Report implements Report {
   const factory _Report(
-      {final String? author,
-      final String? comment,
-      final String? name,
-      final String? symbol}) = _$_Report;
+      {final String? name,
+      final String? symbol,
+      final String? author,
+      final String? comment}) = _$_Report;
 
   factory _Report.fromJson(Map<String, dynamic> json) = _$_Report.fromJson;
 
   @override
-  String? get author;
-  @override
-  String? get comment;
-  @override
   String? get name;
   @override
   String? get symbol;
+  @override
+  String? get author;
+  @override
+  String? get comment;
   @override
   @JsonKey(ignore: true)
   _$$_ReportCopyWith<_$_Report> get copyWith =>
@@ -3236,12 +3236,6 @@ Value _$ValueFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Value {
-  /// time it was added
-  String? get timestamp => throw _privateConstructorUsedError;
-
-  /// who added it
-  String? get author => throw _privateConstructorUsedError;
-
   /// currency of thing
   String? get currency => throw _privateConstructorUsedError;
 
@@ -3257,6 +3251,12 @@ mixin _$Value {
   /// symbol of value
   String? get symbol => throw _privateConstructorUsedError;
 
+  /// time it was added
+  String? get timestamp => throw _privateConstructorUsedError;
+
+  /// who added it
+  String? get author => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ValueCopyWith<Value> get copyWith => throw _privateConstructorUsedError;
@@ -3267,13 +3267,13 @@ abstract class $ValueCopyWith<$Res> {
   factory $ValueCopyWith(Value value, $Res Function(Value) then) =
       _$ValueCopyWithImpl<$Res>;
   $Res call(
-      {String? timestamp,
-      String? author,
-      String? currency,
+      {String? currency,
       String? name,
       double? price,
       String? source,
-      String? symbol});
+      String? symbol,
+      String? timestamp,
+      String? author});
 }
 
 /// @nodoc
@@ -3286,23 +3286,15 @@ class _$ValueCopyWithImpl<$Res> implements $ValueCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? timestamp = freezed,
-    Object? author = freezed,
     Object? currency = freezed,
     Object? name = freezed,
     Object? price = freezed,
     Object? source = freezed,
     Object? symbol = freezed,
+    Object? timestamp = freezed,
+    Object? author = freezed,
   }) {
     return _then(_value.copyWith(
-      timestamp: timestamp == freezed
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as String?,
-      author: author == freezed
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
-              as String?,
       currency: currency == freezed
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
@@ -3323,6 +3315,14 @@ class _$ValueCopyWithImpl<$Res> implements $ValueCopyWith<$Res> {
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String?,
+      timestamp: timestamp == freezed
+          ? _value.timestamp
+          : timestamp // ignore: cast_nullable_to_non_nullable
+              as String?,
+      author: author == freezed
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -3333,13 +3333,13 @@ abstract class _$$_ValueCopyWith<$Res> implements $ValueCopyWith<$Res> {
       __$$_ValueCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? timestamp,
-      String? author,
-      String? currency,
+      {String? currency,
       String? name,
       double? price,
       String? source,
-      String? symbol});
+      String? symbol,
+      String? timestamp,
+      String? author});
 }
 
 /// @nodoc
@@ -3353,23 +3353,15 @@ class __$$_ValueCopyWithImpl<$Res> extends _$ValueCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? timestamp = freezed,
-    Object? author = freezed,
     Object? currency = freezed,
     Object? name = freezed,
     Object? price = freezed,
     Object? source = freezed,
     Object? symbol = freezed,
+    Object? timestamp = freezed,
+    Object? author = freezed,
   }) {
     return _then(_$_Value(
-      timestamp: timestamp == freezed
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as String?,
-      author: author == freezed
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
-              as String?,
       currency: currency == freezed
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
@@ -3390,6 +3382,14 @@ class __$$_ValueCopyWithImpl<$Res> extends _$ValueCopyWithImpl<$Res>
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String?,
+      timestamp: timestamp == freezed
+          ? _value.timestamp
+          : timestamp // ignore: cast_nullable_to_non_nullable
+              as String?,
+      author: author == freezed
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -3398,24 +3398,16 @@ class __$$_ValueCopyWithImpl<$Res> extends _$ValueCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Value implements _Value {
   const _$_Value(
-      {this.timestamp,
-      this.author,
-      this.currency,
+      {this.currency,
       this.name,
       this.price,
       this.source,
-      this.symbol});
+      this.symbol,
+      this.timestamp,
+      this.author});
 
   factory _$_Value.fromJson(Map<String, dynamic> json) =>
       _$$_ValueFromJson(json);
-
-  /// time it was added
-  @override
-  final String? timestamp;
-
-  /// who added it
-  @override
-  final String? author;
 
   /// currency of thing
   @override
@@ -3437,9 +3429,17 @@ class _$_Value implements _Value {
   @override
   final String? symbol;
 
+  /// time it was added
+  @override
+  final String? timestamp;
+
+  /// who added it
+  @override
+  final String? author;
+
   @override
   String toString() {
-    return 'Value(timestamp: $timestamp, author: $author, currency: $currency, name: $name, price: $price, source: $source, symbol: $symbol)';
+    return 'Value(currency: $currency, name: $name, price: $price, source: $source, symbol: $symbol, timestamp: $timestamp, author: $author)';
   }
 
   @override
@@ -3447,26 +3447,26 @@ class _$_Value implements _Value {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Value &&
-            const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
-            const DeepCollectionEquality().equals(other.author, author) &&
             const DeepCollectionEquality().equals(other.currency, currency) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.price, price) &&
             const DeepCollectionEquality().equals(other.source, source) &&
-            const DeepCollectionEquality().equals(other.symbol, symbol));
+            const DeepCollectionEquality().equals(other.symbol, symbol) &&
+            const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
+            const DeepCollectionEquality().equals(other.author, author));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(timestamp),
-      const DeepCollectionEquality().hash(author),
       const DeepCollectionEquality().hash(currency),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(price),
       const DeepCollectionEquality().hash(source),
-      const DeepCollectionEquality().hash(symbol));
+      const DeepCollectionEquality().hash(symbol),
+      const DeepCollectionEquality().hash(timestamp),
+      const DeepCollectionEquality().hash(author));
 
   @JsonKey(ignore: true)
   @override
@@ -3483,24 +3483,16 @@ class _$_Value implements _Value {
 
 abstract class _Value implements Value {
   const factory _Value(
-      {final String? timestamp,
-      final String? author,
-      final String? currency,
+      {final String? currency,
       final String? name,
       final double? price,
       final String? source,
-      final String? symbol}) = _$_Value;
+      final String? symbol,
+      final String? timestamp,
+      final String? author}) = _$_Value;
 
   factory _Value.fromJson(Map<String, dynamic> json) = _$_Value.fromJson;
 
-  @override
-
-  /// time it was added
-  String? get timestamp;
-  @override
-
-  /// who added it
-  String? get author;
   @override
 
   /// currency of thing
@@ -3521,6 +3513,14 @@ abstract class _Value implements Value {
 
   /// symbol of value
   String? get symbol;
+  @override
+
+  /// time it was added
+  String? get timestamp;
+  @override
+
+  /// who added it
+  String? get author;
   @override
   @JsonKey(ignore: true)
   _$$_ValueCopyWith<_$_Value> get copyWith =>

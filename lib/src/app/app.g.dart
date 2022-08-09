@@ -145,20 +145,20 @@ Map<String, dynamic> _$$RegionsResponseMerrToJson(
 
 _$_Reservation _$$_ReservationFromJson(Map<String, dynamic> json) =>
     _$_Reservation(
+      created: json['created'] as String?,
+      expires: json['expires'] as String?,
       name: json['name'] as String?,
       owner: json['owner'] as String?,
       token: json['token'] as String?,
-      created: json['created'] as String?,
-      expires: json['expires'] as String?,
     );
 
 Map<String, dynamic> _$$_ReservationToJson(_$_Reservation instance) =>
     <String, dynamic>{
+      'created': instance.created,
+      'expires': instance.expires,
       'name': instance.name,
       'owner': instance.owner,
       'token': instance.token,
-      'created': instance.created,
-      'expires': instance.expires,
     };
 
 _$_ReserveRequest _$$_ReserveRequestFromJson(Map<String, dynamic> json) =>
@@ -288,37 +288,37 @@ Map<String, dynamic> _$$RunResponseMerrToJson(_$RunResponseMerr instance) =>
     };
 
 _$_Service _$$_ServiceFromJson(Map<String, dynamic> json) => _$_Service(
+      status: json['status'] as String?,
+      updated: json['updated'] as String?,
       url: json['url'] as String?,
-      custom_domains: (json['custom_domains'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
+      branch: json['branch'] as String?,
       env_vars: (json['env_vars'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
-      name: json['name'] as String?,
-      repo: json['repo'] as String?,
-      region: json['region'] as String?,
-      status: json['status'] as String?,
-      updated: json['updated'] as String?,
-      branch: json['branch'] as String?,
-      created: json['created'] as String?,
       id: json['id'] as String?,
+      region: json['region'] as String?,
+      repo: json['repo'] as String?,
+      created: json['created'] as String?,
+      custom_domains: (json['custom_domains'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      name: json['name'] as String?,
       port: json['port'] as int?,
     );
 
 Map<String, dynamic> _$$_ServiceToJson(_$_Service instance) =>
     <String, dynamic>{
-      'url': instance.url,
-      'custom_domains': instance.custom_domains,
-      'env_vars': instance.env_vars,
-      'name': instance.name,
-      'repo': instance.repo,
-      'region': instance.region,
       'status': instance.status,
       'updated': instance.updated,
+      'url': instance.url,
       'branch': instance.branch,
-      'created': instance.created,
+      'env_vars': instance.env_vars,
       'id': instance.id,
+      'region': instance.region,
+      'repo': instance.repo,
+      'created': instance.created,
+      'custom_domains': instance.custom_domains,
+      'name': instance.name,
       'port': instance.port,
     };
 
