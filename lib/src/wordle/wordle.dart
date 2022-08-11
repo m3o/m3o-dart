@@ -90,11 +90,11 @@ class Guess with _$Guess {
 @Freezed()
 class GuessRequest with _$GuessRequest {
   const factory GuessRequest({
-    /// guess word
-    String? word,
-
     /// player
     String? player,
+
+    /// guess word
+    String? word,
   }) = _GuessRequest;
   factory GuessRequest.fromJson(Map<String, dynamic> json) =>
       _$GuessRequestFromJson(json);
@@ -103,6 +103,9 @@ class GuessRequest with _$GuessRequest {
 @Freezed()
 class GuessResponse with _$GuessResponse {
   const factory GuessResponse({
+    /// the actual word if failed
+    String? answer,
+
     /// whether it was correct
     bool? correct,
 
@@ -114,9 +117,6 @@ class GuessResponse with _$GuessResponse {
 
     /// number of tries left
     int? tries_left,
-
-    /// the actual word if failed
-    String? answer,
   }) = GuessResponseData;
   const factory GuessResponse.Merr({Map<String, dynamic>? body}) =
       GuessResponseMerr;

@@ -129,20 +129,17 @@ class Address with _$Address {
 @Freezed()
 class ContactInfo with _$ContactInfo {
   const factory ContactInfo({
+    /// the contact links
+    List<Link>? links,
+
+    /// the social media username
+    List<SocialMedia>? social_medias,
+
     /// the address
     List<Address>? addresses,
 
     /// the birthday
     String? birthday,
-
-    /// update date string in RFC3339
-    String? updated_at,
-
-    /// the social media username
-    List<SocialMedia>? social_medias,
-
-    /// create date string in RFC3339
-    String? created_at,
 
     /// the emails
     List<Email>? emails,
@@ -150,8 +147,11 @@ class ContactInfo with _$ContactInfo {
     /// contact id
     String? id,
 
-    /// the contact links
-    List<Link>? links,
+    /// update date string in RFC3339
+    String? updated_at,
+
+    /// create date string in RFC3339
+    String? created_at,
 
     /// the contact name
     String? name,
@@ -254,11 +254,11 @@ class Link with _$Link {
 @Freezed()
 class ListRequest with _$ListRequest {
   const factory ListRequest({
-    /// optional, default is 30
-    int? limit,
-
     /// optional
     int? offset,
+
+    /// optional, default is 30
+    int? limit,
   }) = _ListRequest;
   factory ListRequest.fromJson(Map<String, dynamic> json) =>
       _$ListRequestFromJson(json);
@@ -323,32 +323,32 @@ class SocialMedia with _$SocialMedia {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// required, the contact id
-    String? id,
-
-    /// optional, phone number
-    List<Phone>? phones,
+    /// required, the name
+    String? name,
 
     /// optional, social media
     List<SocialMedia>? social_medias,
 
-    /// optional, emails
-    List<Email>? emails,
+    /// optional, addresses
+    List<Address>? addresses,
 
     /// optional, birthday
     String? birthday,
 
+    /// optional, emails
+    List<Email>? emails,
+
+    /// required, the contact id
+    String? id,
+
     /// optional, links
     List<Link>? links,
-
-    /// required, the name
-    String? name,
 
     /// optional, note
     String? note,
 
-    /// optional, addresses
-    List<Address>? addresses,
+    /// optional, phone number
+    List<Phone>? phones,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

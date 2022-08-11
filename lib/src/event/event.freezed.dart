@@ -219,24 +219,24 @@ ConsumeResponse _$ConsumeResponseFromJson(Map<String, dynamic> json) {
 mixin _$ConsumeResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? topic, String? id, Map<String, dynamic>? message,
-            String? timestamp)
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? topic, String? id, Map<String, dynamic>? message,
-            String? timestamp)?
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? topic, String? id, Map<String, dynamic>? message,
-            String? timestamp)?
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -287,10 +287,10 @@ abstract class _$$ConsumeResponseDataCopyWith<$Res> {
           $Res Function(_$ConsumeResponseData) then) =
       __$$ConsumeResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {String? topic,
-      String? id,
-      Map<String, dynamic>? message,
-      String? timestamp});
+      {Map<String, dynamic>? message,
+      String? timestamp,
+      String? topic,
+      String? id});
 }
 
 /// @nodoc
@@ -306,20 +306,12 @@ class __$$ConsumeResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? topic = freezed,
-    Object? id = freezed,
     Object? message = freezed,
     Object? timestamp = freezed,
+    Object? topic = freezed,
+    Object? id = freezed,
   }) {
     return _then(_$ConsumeResponseData(
-      topic: topic == freezed
-          ? _value.topic
-          : topic // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       message: message == freezed
           ? _value._message
           : message // ignore: cast_nullable_to_non_nullable
@@ -327,6 +319,14 @@ class __$$ConsumeResponseDataCopyWithImpl<$Res>
       timestamp: timestamp == freezed
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
+              as String?,
+      topic: topic == freezed
+          ? _value.topic
+          : topic // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -336,24 +336,16 @@ class __$$ConsumeResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ConsumeResponseData implements ConsumeResponseData {
   const _$ConsumeResponseData(
-      {this.topic,
-      this.id,
-      final Map<String, dynamic>? message,
+      {final Map<String, dynamic>? message,
       this.timestamp,
+      this.topic,
+      this.id,
       final String? $type})
       : _message = message,
         $type = $type ?? 'default';
 
   factory _$ConsumeResponseData.fromJson(Map<String, dynamic> json) =>
       _$$ConsumeResponseDataFromJson(json);
-
-  /// The topic subscribed to
-  @override
-  final String? topic;
-
-  /// Unique message id
-  @override
-  final String? id;
 
   /// The next json message on the topic
   final Map<String, dynamic>? _message;
@@ -371,12 +363,20 @@ class _$ConsumeResponseData implements ConsumeResponseData {
   @override
   final String? timestamp;
 
+  /// The topic subscribed to
+  @override
+  final String? topic;
+
+  /// Unique message id
+  @override
+  final String? id;
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'ConsumeResponse(topic: $topic, id: $id, message: $message, timestamp: $timestamp)';
+    return 'ConsumeResponse(message: $message, timestamp: $timestamp, topic: $topic, id: $id)';
   }
 
   @override
@@ -384,20 +384,20 @@ class _$ConsumeResponseData implements ConsumeResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ConsumeResponseData &&
-            const DeepCollectionEquality().equals(other.topic, topic) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other._message, _message) &&
-            const DeepCollectionEquality().equals(other.timestamp, timestamp));
+            const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
+            const DeepCollectionEquality().equals(other.topic, topic) &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(topic),
-      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(_message),
-      const DeepCollectionEquality().hash(timestamp));
+      const DeepCollectionEquality().hash(timestamp),
+      const DeepCollectionEquality().hash(topic),
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -408,36 +408,36 @@ class _$ConsumeResponseData implements ConsumeResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? topic, String? id, Map<String, dynamic>? message,
-            String? timestamp)
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(topic, id, message, timestamp);
+    return $default(message, timestamp, topic, id);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? topic, String? id, Map<String, dynamic>? message,
-            String? timestamp)?
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(topic, id, message, timestamp);
+    return $default?.call(message, timestamp, topic, id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? topic, String? id, Map<String, dynamic>? message,
-            String? timestamp)?
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(topic, id, message, timestamp);
+      return $default(message, timestamp, topic, id);
     }
     return orElse();
   }
@@ -483,25 +483,25 @@ class _$ConsumeResponseData implements ConsumeResponseData {
 
 abstract class ConsumeResponseData implements ConsumeResponse {
   const factory ConsumeResponseData(
-      {final String? topic,
-      final String? id,
-      final Map<String, dynamic>? message,
-      final String? timestamp}) = _$ConsumeResponseData;
+      {final Map<String, dynamic>? message,
+      final String? timestamp,
+      final String? topic,
+      final String? id}) = _$ConsumeResponseData;
 
   factory ConsumeResponseData.fromJson(Map<String, dynamic> json) =
       _$ConsumeResponseData.fromJson;
-
-  /// The topic subscribed to
-  String? get topic;
-
-  /// Unique message id
-  String? get id;
 
   /// The next json message on the topic
   Map<String, dynamic>? get message;
 
   /// Timestamp of publishing
   String? get timestamp;
+
+  /// The topic subscribed to
+  String? get topic;
+
+  /// Unique message id
+  String? get id;
   @JsonKey(ignore: true)
   _$$ConsumeResponseDataCopyWith<_$ConsumeResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -589,8 +589,8 @@ class _$ConsumeResponseMerr implements ConsumeResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? topic, String? id, Map<String, dynamic>? message,
-            String? timestamp)
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -600,8 +600,8 @@ class _$ConsumeResponseMerr implements ConsumeResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? topic, String? id, Map<String, dynamic>? message,
-            String? timestamp)?
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -611,8 +611,8 @@ class _$ConsumeResponseMerr implements ConsumeResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? topic, String? id, Map<String, dynamic>? message,
-            String? timestamp)?
+    TResult Function(Map<String, dynamic>? message, String? timestamp,
+            String? topic, String? id)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

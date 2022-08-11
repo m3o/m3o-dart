@@ -84,14 +84,14 @@ Map<String, dynamic> _$$LookupResponseMerrToJson(
 
 _$_ReverseRequest _$$_ReverseRequestFromJson(Map<String, dynamic> json) =>
     _$_ReverseRequest(
-      latitude: (json['latitude'] as num?)?.toDouble(),
       longitude: (json['longitude'] as num?)?.toDouble(),
+      latitude: (json['latitude'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_ReverseRequestToJson(_$_ReverseRequest instance) =>
     <String, dynamic>{
-      'latitude': instance.latitude,
       'longitude': instance.longitude,
+      'latitude': instance.latitude,
     };
 
 _$ReverseResponseData _$$ReverseResponseDataFromJson(

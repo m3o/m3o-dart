@@ -4,6 +4,45 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/wallet/api](ht
 
 Endpoints:
 
+## Debit
+
+Debit a wallet
+
+
+[https://m3o.com/wallet/api#Debit](https://m3o.com/wallet/api#Debit)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/wallet/wallet.dart';
+
+void main() async {
+  final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "amount": "5",
+  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6",
+  "reference": "test debit",
+  "visible": true
+,};
+
+  DebitRequest req = DebitRequest.fromJson(payload);
+
+  
+  try {
+
+	DebitResponse res = await ser.debit(req);
+
+    res.map((value) => print(value),
+	  Merr: (DebitResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## List
 
 List your wallets
@@ -70,78 +109,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (TransferResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Balance
-
-Get the balance of a wallet
-
-
-[https://m3o.com/wallet/api#Balance](https://m3o.com/wallet/api#Balance)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/wallet/wallet.dart';
-
-void main() async {
-  final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
-,};
-
-  BalanceRequest req = BalanceRequest.fromJson(payload);
-
-  
-  try {
-
-	BalanceResponse res = await ser.balance(req);
-
-    res.map((value) => print(value),
-	  Merr: (BalanceResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Transactions
-
-List the transactions for a wallet
-
-
-[https://m3o.com/wallet/api#Transactions](https://m3o.com/wallet/api#Transactions)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/wallet/wallet.dart';
-
-void main() async {
-  final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
-,};
-
-  TransactionsRequest req = TransactionsRequest.fromJson(payload);
-
-  
-  try {
-
-	TransactionsResponse res = await ser.transactions(req);
-
-    res.map((value) => print(value),
-	  Merr: (TransactionsResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -298,12 +265,12 @@ void main() async {
   }
 }
 ```
-## Debit
+## Balance
 
-Debit a wallet
+Get the balance of a wallet
 
 
-[https://m3o.com/wallet/api#Debit](https://m3o.com/wallet/api#Debit)
+[https://m3o.com/wallet/api#Balance](https://m3o.com/wallet/api#Balance)
 
 ```dart
 import 'dart:io';
@@ -314,21 +281,54 @@ void main() async {
   final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "amount": "5",
-  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6",
-  "reference": "test debit",
-  "visible": true
+  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
 ,};
 
-  DebitRequest req = DebitRequest.fromJson(payload);
+  BalanceRequest req = BalanceRequest.fromJson(payload);
 
   
   try {
 
-	DebitResponse res = await ser.debit(req);
+	BalanceResponse res = await ser.balance(req);
 
     res.map((value) => print(value),
-	  Merr: (DebitResponseMerr err) => print(err.body!['body']));	
+	  Merr: (BalanceResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Transactions
+
+List the transactions for a wallet
+
+
+[https://m3o.com/wallet/api#Transactions](https://m3o.com/wallet/api#Transactions)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/wallet/wallet.dart';
+
+void main() async {
+  final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
+,};
+
+  TransactionsRequest req = TransactionsRequest.fromJson(payload);
+
+  
+  try {
+
+	TransactionsResponse res = await ser.transactions(req);
+
+    res.map((value) => print(value),
+	  Merr: (TransactionsResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
