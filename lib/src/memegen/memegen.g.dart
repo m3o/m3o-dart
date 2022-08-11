@@ -73,22 +73,22 @@ Map<String, dynamic> _$$GenerateResponseMerrToJson(
     };
 
 _$_Template _$$_TemplateFromJson(Map<String, dynamic> json) => _$_Template(
-      width: json['width'] as int?,
-      box_count: json['box_count'] as int?,
       height: json['height'] as int?,
       id: json['id'] as String?,
       name: json['name'] as String?,
       url: json['url'] as String?,
+      width: json['width'] as int?,
+      box_count: json['box_count'] as int?,
     );
 
 Map<String, dynamic> _$$_TemplateToJson(_$_Template instance) =>
     <String, dynamic>{
-      'width': instance.width,
-      'box_count': instance.box_count,
       'height': instance.height,
       'id': instance.id,
       'name': instance.name,
       'url': instance.url,
+      'width': instance.width,
+      'box_count': instance.box_count,
     };
 
 _$_TemplatesRequest _$$_TemplatesRequestFromJson(Map<String, dynamic> json) =>

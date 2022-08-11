@@ -3690,9 +3690,6 @@ SpaceObject _$SpaceObjectFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SpaceObject {
-  /// name of object
-  String? get name => throw _privateConstructorUsedError;
-
   /// URL to access the object if it is public
   String? get url => throw _privateConstructorUsedError;
 
@@ -3708,6 +3705,9 @@ mixin _$SpaceObject {
   /// when was this last modified
   String? get modified => throw _privateConstructorUsedError;
 
+  /// name of object
+  String? get name => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SpaceObjectCopyWith<SpaceObject> get copyWith =>
@@ -3720,12 +3720,12 @@ abstract class $SpaceObjectCopyWith<$Res> {
           SpaceObject value, $Res Function(SpaceObject) then) =
       _$SpaceObjectCopyWithImpl<$Res>;
   $Res call(
-      {String? name,
-      String? url,
+      {String? url,
       String? visibility,
       String? created,
       String? data,
-      String? modified});
+      String? modified,
+      String? name});
 }
 
 /// @nodoc
@@ -3738,18 +3738,14 @@ class _$SpaceObjectCopyWithImpl<$Res> implements $SpaceObjectCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? url = freezed,
     Object? visibility = freezed,
     Object? created = freezed,
     Object? data = freezed,
     Object? modified = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -3770,6 +3766,10 @@ class _$SpaceObjectCopyWithImpl<$Res> implements $SpaceObjectCopyWith<$Res> {
           ? _value.modified
           : modified // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -3782,12 +3782,12 @@ abstract class _$$_SpaceObjectCopyWith<$Res>
       __$$_SpaceObjectCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? name,
-      String? url,
+      {String? url,
       String? visibility,
       String? created,
       String? data,
-      String? modified});
+      String? modified,
+      String? name});
 }
 
 /// @nodoc
@@ -3802,18 +3802,14 @@ class __$$_SpaceObjectCopyWithImpl<$Res> extends _$SpaceObjectCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? url = freezed,
     Object? visibility = freezed,
     Object? created = freezed,
     Object? data = freezed,
     Object? modified = freezed,
+    Object? name = freezed,
   }) {
     return _then(_$_SpaceObject(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -3834,6 +3830,10 @@ class __$$_SpaceObjectCopyWithImpl<$Res> extends _$SpaceObjectCopyWithImpl<$Res>
           ? _value.modified
           : modified // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -3842,19 +3842,15 @@ class __$$_SpaceObjectCopyWithImpl<$Res> extends _$SpaceObjectCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SpaceObject implements _SpaceObject {
   const _$_SpaceObject(
-      {this.name,
-      this.url,
+      {this.url,
       this.visibility,
       this.created,
       this.data,
-      this.modified});
+      this.modified,
+      this.name});
 
   factory _$_SpaceObject.fromJson(Map<String, dynamic> json) =>
       _$$_SpaceObjectFromJson(json);
-
-  /// name of object
-  @override
-  final String? name;
 
   /// URL to access the object if it is public
   @override
@@ -3876,9 +3872,13 @@ class _$_SpaceObject implements _SpaceObject {
   @override
   final String? modified;
 
+  /// name of object
+  @override
+  final String? name;
+
   @override
   String toString() {
-    return 'SpaceObject(name: $name, url: $url, visibility: $visibility, created: $created, data: $data, modified: $modified)';
+    return 'SpaceObject(url: $url, visibility: $visibility, created: $created, data: $data, modified: $modified, name: $name)';
   }
 
   @override
@@ -3886,25 +3886,25 @@ class _$_SpaceObject implements _SpaceObject {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SpaceObject &&
-            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality()
                 .equals(other.visibility, visibility) &&
             const DeepCollectionEquality().equals(other.created, created) &&
             const DeepCollectionEquality().equals(other.data, data) &&
-            const DeepCollectionEquality().equals(other.modified, modified));
+            const DeepCollectionEquality().equals(other.modified, modified) &&
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(visibility),
       const DeepCollectionEquality().hash(created),
       const DeepCollectionEquality().hash(data),
-      const DeepCollectionEquality().hash(modified));
+      const DeepCollectionEquality().hash(modified),
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
@@ -3921,20 +3921,16 @@ class _$_SpaceObject implements _SpaceObject {
 
 abstract class _SpaceObject implements SpaceObject {
   const factory _SpaceObject(
-      {final String? name,
-      final String? url,
+      {final String? url,
       final String? visibility,
       final String? created,
       final String? data,
-      final String? modified}) = _$_SpaceObject;
+      final String? modified,
+      final String? name}) = _$_SpaceObject;
 
   factory _SpaceObject.fromJson(Map<String, dynamic> json) =
       _$_SpaceObject.fromJson;
 
-  @override
-
-  /// name of object
-  String? get name;
   @override
 
   /// URL to access the object if it is public
@@ -3955,6 +3951,10 @@ abstract class _SpaceObject implements SpaceObject {
 
   /// when was this last modified
   String? get modified;
+  @override
+
+  /// name of object
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$$_SpaceObjectCopyWith<_$_SpaceObject> get copyWith =>

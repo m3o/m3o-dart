@@ -8,14 +8,14 @@ part of 'notes.dart';
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      title: json['title'] as String?,
       text: json['text'] as String?,
+      title: json['title'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
-      'title': instance.title,
       'text': instance.text,
+      'title': instance.title,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>

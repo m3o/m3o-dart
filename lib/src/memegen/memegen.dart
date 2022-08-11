@@ -117,12 +117,6 @@ class GenerateResponse with _$GenerateResponse {
 @Freezed()
 class Template with _$Template {
   const factory Template({
-    /// width in pixels
-    int? width,
-
-    /// number of boxes used
-    int? box_count,
-
     /// height in pixels
     int? height,
 
@@ -134,6 +128,12 @@ class Template with _$Template {
 
     /// url of the memegen
     String? url,
+
+    /// width in pixels
+    int? width,
+
+    /// number of boxes used
+    int? box_count,
   }) = _Template;
   factory Template.fromJson(Map<String, dynamic> json) =>
       _$TemplateFromJson(json);

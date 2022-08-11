@@ -7,60 +7,60 @@ part of 'dns.dart';
 // **************************************************************************
 
 _$_Answer _$$_AnswerFromJson(Map<String, dynamic> json) => _$_Answer(
-      data: json['data'] as String?,
-      name: json['name'] as String?,
       type: json['type'] as int?,
       TTL: json['TTL'] as int?,
+      data: json['data'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_AnswerToJson(_$_Answer instance) => <String, dynamic>{
-      'data': instance.data,
-      'name': instance.name,
       'type': instance.type,
       'TTL': instance.TTL,
+      'data': instance.data,
+      'name': instance.name,
     };
 
 _$_QueryRequest _$$_QueryRequestFromJson(Map<String, dynamic> json) =>
     _$_QueryRequest(
-      type: json['type'] as String?,
       name: json['name'] as String?,
+      type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$$_QueryRequestToJson(_$_QueryRequest instance) =>
     <String, dynamic>{
-      'type': instance.type,
       'name': instance.name,
+      'type': instance.type,
     };
 
 _$QueryResponseData _$$QueryResponseDataFromJson(Map<String, dynamic> json) =>
     _$QueryResponseData(
-      question: (json['question'] as List<dynamic>?)
-          ?.map((e) => Question.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      status: json['status'] as int?,
+      CD: json['CD'] as bool?,
       TC: json['TC'] as bool?,
+      status: json['status'] as int?,
+      AD: json['AD'] as bool?,
+      RA: json['RA'] as bool?,
+      RD: json['RD'] as bool?,
       answer: (json['answer'] as List<dynamic>?)
           ?.map((e) => Answer.fromJson(e as Map<String, dynamic>))
           .toList(),
-      RA: json['RA'] as bool?,
-      RD: json['RD'] as bool?,
       provider: json['provider'] as String?,
-      AD: json['AD'] as bool?,
-      CD: json['CD'] as bool?,
+      question: (json['question'] as List<dynamic>?)
+          ?.map((e) => Question.fromJson(e as Map<String, dynamic>))
+          .toList(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$QueryResponseDataToJson(_$QueryResponseData instance) =>
     <String, dynamic>{
-      'question': instance.question,
-      'status': instance.status,
+      'CD': instance.CD,
       'TC': instance.TC,
-      'answer': instance.answer,
+      'status': instance.status,
+      'AD': instance.AD,
       'RA': instance.RA,
       'RD': instance.RD,
+      'answer': instance.answer,
       'provider': instance.provider,
-      'AD': instance.AD,
-      'CD': instance.CD,
+      'question': instance.question,
       'runtimeType': instance.$type,
     };
 
