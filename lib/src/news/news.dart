@@ -42,32 +42,32 @@ class Article with _$Article {
     /// article description
     String? description,
 
-    /// article id
-    String? id,
-
-    /// the article language
-    String? language,
+    /// related keywords
+    String? keywords,
 
     /// the locale
     String? locale,
 
-    /// time it was published
-    String? published_at,
+    /// first 60 characters of article body
+    String? snippet,
+
+    /// article title
+    String? title,
+
+    /// article id
+    String? id,
 
     /// image url
     String? image_url,
 
-    /// related keywords
-    String? keywords,
+    /// the article language
+    String? language,
 
-    /// first 60 characters of article body
-    String? snippet,
+    /// time it was published
+    String? published_at,
 
     /// source of news
     String? source,
-
-    /// article title
-    String? title,
 
     /// url of the article
     String? url,

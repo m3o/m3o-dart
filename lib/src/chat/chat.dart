@@ -202,17 +202,17 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// chat description
-    String? description,
-
-    /// name of the group
-    String? name,
-
     /// whether its a private group
     bool? private,
 
     /// optional list of user ids
     List<String>? user_ids,
+
+    /// chat description
+    String? description,
+
+    /// name of the group
+    String? name,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -348,11 +348,11 @@ class JoinResponse with _$JoinResponse {
 @Freezed()
 class KickRequest with _$KickRequest {
   const factory KickRequest({
-    /// the group id
-    String? group_id,
-
     /// the user id
     String? user_id,
+
+    /// the group id
+    String? group_id,
   }) = _KickRequest;
   factory KickRequest.fromJson(Map<String, dynamic> json) =>
       _$KickRequestFromJson(json);
@@ -417,15 +417,6 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
-    /// time the message was sent in RFC3339 format
-    String? sent_at,
-
-    /// subject of the message
-    String? subject,
-
-    /// text of the message
-    String? text,
-
     /// id of the user who sent the message
     String? user_id,
 
@@ -437,6 +428,15 @@ class Message with _$Message {
 
     /// id of the message, allocated by the server
     String? id,
+
+    /// time the message was sent in RFC3339 format
+    String? sent_at,
+
+    /// subject of the message
+    String? subject,
+
+    /// text of the message
+    String? text,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);

@@ -36,10 +36,6 @@ class TranslateService {
 @Freezed()
 class TextRequest with _$TextRequest {
   const factory TextRequest({
-    /// Source language, format in ISO-639-1 codes
-    /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
-    String? source,
-
     /// Target language, format in ISO-639-1 codes
     /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
     String? target,
@@ -53,6 +49,10 @@ class TextRequest with _$TextRequest {
     /// The model to use for translation, `nmt` or `base`,
     /// See https://cloud.google.com/translate/docs/advanced/translating-text-v3#comparing-models for more information
     String? model,
+
+    /// Source language, format in ISO-639-1 codes
+    /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
+    String? source,
   }) = _TextRequest;
   factory TextRequest.fromJson(Map<String, dynamic> json) =>
       _$TextRequestFromJson(json);
@@ -73,14 +73,14 @@ class TextResponse with _$TextResponse {
 @Freezed()
 class Translation with _$Translation {
   const factory Translation({
-    /// The model used in translation
-    String? model,
-
     /// The source of the query string
     String? source,
 
     /// The translation result
     String? text,
+
+    /// The model used in translation
+    String? model,
   }) = _Translation;
   factory Translation.fromJson(Map<String, dynamic> json) =>
       _$TranslationFromJson(json);

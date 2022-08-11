@@ -20,6 +20,9 @@ Article _$ArticleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Article {
+  /// the source url
+  String? get url => throw _privateConstructorUsedError;
+
   /// the date published
   String? get date => throw _privateConstructorUsedError;
 
@@ -32,9 +35,6 @@ mixin _$Article {
   /// title of the article
   String? get title => throw _privateConstructorUsedError;
 
-  /// the source url
-  String? get url => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ArticleCopyWith<Article> get copyWith => throw _privateConstructorUsedError;
@@ -45,11 +45,11 @@ abstract class $ArticleCopyWith<$Res> {
   factory $ArticleCopyWith(Article value, $Res Function(Article) then) =
       _$ArticleCopyWithImpl<$Res>;
   $Res call(
-      {String? date,
+      {String? url,
+      String? date,
       String? description,
       String? source,
-      String? title,
-      String? url});
+      String? title});
 }
 
 /// @nodoc
@@ -62,13 +62,17 @@ class _$ArticleCopyWithImpl<$Res> implements $ArticleCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? url = freezed,
     Object? date = freezed,
     Object? description = freezed,
     Object? source = freezed,
     Object? title = freezed,
-    Object? url = freezed,
   }) {
     return _then(_value.copyWith(
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -85,10 +89,6 @@ class _$ArticleCopyWithImpl<$Res> implements $ArticleCopyWith<$Res> {
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -100,11 +100,11 @@ abstract class _$$_ArticleCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       __$$_ArticleCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? date,
+      {String? url,
+      String? date,
       String? description,
       String? source,
-      String? title,
-      String? url});
+      String? title});
 }
 
 /// @nodoc
@@ -118,13 +118,17 @@ class __$$_ArticleCopyWithImpl<$Res> extends _$ArticleCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? url = freezed,
     Object? date = freezed,
     Object? description = freezed,
     Object? source = freezed,
     Object? title = freezed,
-    Object? url = freezed,
   }) {
     return _then(_$_Article(
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -141,10 +145,6 @@ class __$$_ArticleCopyWithImpl<$Res> extends _$ArticleCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -153,10 +153,14 @@ class __$$_ArticleCopyWithImpl<$Res> extends _$ArticleCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Article implements _Article {
   const _$_Article(
-      {this.date, this.description, this.source, this.title, this.url});
+      {this.url, this.date, this.description, this.source, this.title});
 
   factory _$_Article.fromJson(Map<String, dynamic> json) =>
       _$$_ArticleFromJson(json);
+
+  /// the source url
+  @override
+  final String? url;
 
   /// the date published
   @override
@@ -174,13 +178,9 @@ class _$_Article implements _Article {
   @override
   final String? title;
 
-  /// the source url
-  @override
-  final String? url;
-
   @override
   String toString() {
-    return 'Article(date: $date, description: $description, source: $source, title: $title, url: $url)';
+    return 'Article(url: $url, date: $date, description: $description, source: $source, title: $title)';
   }
 
   @override
@@ -188,23 +188,23 @@ class _$_Article implements _Article {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Article &&
+            const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.source, source) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.url, url));
+            const DeepCollectionEquality().equals(other.title, title));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(date),
       const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(source),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(url));
+      const DeepCollectionEquality().hash(title));
 
   @JsonKey(ignore: true)
   @override
@@ -221,14 +221,18 @@ class _$_Article implements _Article {
 
 abstract class _Article implements Article {
   const factory _Article(
-      {final String? date,
+      {final String? url,
+      final String? date,
       final String? description,
       final String? source,
-      final String? title,
-      final String? url}) = _$_Article;
+      final String? title}) = _$_Article;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$_Article.fromJson;
 
+  @override
+
+  /// the source url
+  String? get url;
   @override
 
   /// the date published
@@ -245,10 +249,6 @@ abstract class _Article implements Article {
 
   /// title of the article
   String? get title;
-  @override
-
-  /// the source url
-  String? get url;
   @override
   @JsonKey(ignore: true)
   _$$_ArticleCopyWith<_$_Article> get copyWith =>
@@ -2153,24 +2153,24 @@ QuoteResponse _$QuoteResponseFromJson(Map<String, dynamic> json) {
 mixin _$QuoteResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? timestamp, double? ask_price, double? ask_size,
-            double? bid_price, double? bid_size, String? symbol)
+    TResult Function(String? symbol, String? timestamp, double? ask_price,
+            double? ask_size, double? bid_price, double? bid_size)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? timestamp, double? ask_price, double? ask_size,
-            double? bid_price, double? bid_size, String? symbol)?
+    TResult Function(String? symbol, String? timestamp, double? ask_price,
+            double? ask_size, double? bid_price, double? bid_size)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? timestamp, double? ask_price, double? ask_size,
-            double? bid_price, double? bid_size, String? symbol)?
+    TResult Function(String? symbol, String? timestamp, double? ask_price,
+            double? ask_size, double? bid_price, double? bid_size)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -2221,12 +2221,12 @@ abstract class _$$QuoteResponseDataCopyWith<$Res> {
           _$QuoteResponseData value, $Res Function(_$QuoteResponseData) then) =
       __$$QuoteResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {String? timestamp,
+      {String? symbol,
+      String? timestamp,
       double? ask_price,
       double? ask_size,
       double? bid_price,
-      double? bid_size,
-      String? symbol});
+      double? bid_size});
 }
 
 /// @nodoc
@@ -2242,14 +2242,18 @@ class __$$QuoteResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? symbol = freezed,
     Object? timestamp = freezed,
     Object? ask_price = freezed,
     Object? ask_size = freezed,
     Object? bid_price = freezed,
     Object? bid_size = freezed,
-    Object? symbol = freezed,
   }) {
     return _then(_$QuoteResponseData(
+      symbol: symbol == freezed
+          ? _value.symbol
+          : symbol // ignore: cast_nullable_to_non_nullable
+              as String?,
       timestamp: timestamp == freezed
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
@@ -2270,10 +2274,6 @@ class __$$QuoteResponseDataCopyWithImpl<$Res>
           ? _value.bid_size
           : bid_size // ignore: cast_nullable_to_non_nullable
               as double?,
-      symbol: symbol == freezed
-          ? _value.symbol
-          : symbol // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2282,17 +2282,21 @@ class __$$QuoteResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$QuoteResponseData implements QuoteResponseData {
   const _$QuoteResponseData(
-      {this.timestamp,
+      {this.symbol,
+      this.timestamp,
       this.ask_price,
       this.ask_size,
       this.bid_price,
       this.bid_size,
-      this.symbol,
       final String? $type})
       : $type = $type ?? 'default';
 
   factory _$QuoteResponseData.fromJson(Map<String, dynamic> json) =>
       _$$QuoteResponseDataFromJson(json);
+
+  /// the crypto symbol
+  @override
+  final String? symbol;
 
   /// the UTC timestamp of the quote
   @override
@@ -2314,16 +2318,12 @@ class _$QuoteResponseData implements QuoteResponseData {
   @override
   final double? bid_size;
 
-  /// the crypto symbol
-  @override
-  final String? symbol;
-
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'QuoteResponse(timestamp: $timestamp, ask_price: $ask_price, ask_size: $ask_size, bid_price: $bid_price, bid_size: $bid_size, symbol: $symbol)';
+    return 'QuoteResponse(symbol: $symbol, timestamp: $timestamp, ask_price: $ask_price, ask_size: $ask_size, bid_price: $bid_price, bid_size: $bid_size)';
   }
 
   @override
@@ -2331,24 +2331,24 @@ class _$QuoteResponseData implements QuoteResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QuoteResponseData &&
+            const DeepCollectionEquality().equals(other.symbol, symbol) &&
             const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
             const DeepCollectionEquality().equals(other.ask_price, ask_price) &&
             const DeepCollectionEquality().equals(other.ask_size, ask_size) &&
             const DeepCollectionEquality().equals(other.bid_price, bid_price) &&
-            const DeepCollectionEquality().equals(other.bid_size, bid_size) &&
-            const DeepCollectionEquality().equals(other.symbol, symbol));
+            const DeepCollectionEquality().equals(other.bid_size, bid_size));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(symbol),
       const DeepCollectionEquality().hash(timestamp),
       const DeepCollectionEquality().hash(ask_price),
       const DeepCollectionEquality().hash(ask_size),
       const DeepCollectionEquality().hash(bid_price),
-      const DeepCollectionEquality().hash(bid_size),
-      const DeepCollectionEquality().hash(symbol));
+      const DeepCollectionEquality().hash(bid_size));
 
   @JsonKey(ignore: true)
   @override
@@ -2358,39 +2358,39 @@ class _$QuoteResponseData implements QuoteResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? timestamp, double? ask_price, double? ask_size,
-            double? bid_price, double? bid_size, String? symbol)
+    TResult Function(String? symbol, String? timestamp, double? ask_price,
+            double? ask_size, double? bid_price, double? bid_size)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return $default(
-        timestamp, ask_price, ask_size, bid_price, bid_size, symbol);
+        symbol, timestamp, ask_price, ask_size, bid_price, bid_size);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? timestamp, double? ask_price, double? ask_size,
-            double? bid_price, double? bid_size, String? symbol)?
+    TResult Function(String? symbol, String? timestamp, double? ask_price,
+            double? ask_size, double? bid_price, double? bid_size)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(
-        timestamp, ask_price, ask_size, bid_price, bid_size, symbol);
+        symbol, timestamp, ask_price, ask_size, bid_price, bid_size);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? timestamp, double? ask_price, double? ask_size,
-            double? bid_price, double? bid_size, String? symbol)?
+    TResult Function(String? symbol, String? timestamp, double? ask_price,
+            double? ask_size, double? bid_price, double? bid_size)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
       return $default(
-          timestamp, ask_price, ask_size, bid_price, bid_size, symbol);
+          symbol, timestamp, ask_price, ask_size, bid_price, bid_size);
     }
     return orElse();
   }
@@ -2436,15 +2436,18 @@ class _$QuoteResponseData implements QuoteResponseData {
 
 abstract class QuoteResponseData implements QuoteResponse {
   const factory QuoteResponseData(
-      {final String? timestamp,
+      {final String? symbol,
+      final String? timestamp,
       final double? ask_price,
       final double? ask_size,
       final double? bid_price,
-      final double? bid_size,
-      final String? symbol}) = _$QuoteResponseData;
+      final double? bid_size}) = _$QuoteResponseData;
 
   factory QuoteResponseData.fromJson(Map<String, dynamic> json) =
       _$QuoteResponseData.fromJson;
+
+  /// the crypto symbol
+  String? get symbol;
 
   /// the UTC timestamp of the quote
   String? get timestamp;
@@ -2460,9 +2463,6 @@ abstract class QuoteResponseData implements QuoteResponse {
 
   /// the bid size
   double? get bid_size;
-
-  /// the crypto symbol
-  String? get symbol;
   @JsonKey(ignore: true)
   _$$QuoteResponseDataCopyWith<_$QuoteResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2549,8 +2549,8 @@ class _$QuoteResponseMerr implements QuoteResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? timestamp, double? ask_price, double? ask_size,
-            double? bid_price, double? bid_size, String? symbol)
+    TResult Function(String? symbol, String? timestamp, double? ask_price,
+            double? ask_size, double? bid_price, double? bid_size)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -2560,8 +2560,8 @@ class _$QuoteResponseMerr implements QuoteResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? timestamp, double? ask_price, double? ask_size,
-            double? bid_price, double? bid_size, String? symbol)?
+    TResult Function(String? symbol, String? timestamp, double? ask_price,
+            double? ask_size, double? bid_price, double? bid_size)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -2571,8 +2571,8 @@ class _$QuoteResponseMerr implements QuoteResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? timestamp, double? ask_price, double? ask_size,
-            double? bid_price, double? bid_size, String? symbol)?
+    TResult Function(String? symbol, String? timestamp, double? ask_price,
+            double? ask_size, double? bid_price, double? bid_size)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
