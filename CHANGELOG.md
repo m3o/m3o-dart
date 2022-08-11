@@ -1,3 +1,9 @@
+## v1.0.159 - 2022-08-11
+
+[af027b](https://github.com/micro/services/commit/af027bfc7883a4e3fd794fc801b4735183f91498) Update README.md
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.158...v1.0.159
+
 ## v1.0.158 - 2022-08-09
 
 [3fc753](https://github.com/micro/services/commit/3fc7537c76a1842eed52fbbf854f8dd3aba109d5) remove finage usage in bitcoin price
