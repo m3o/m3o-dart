@@ -99,17 +99,17 @@ class SunnahService {
 @Freezed()
 class Book with _$Book {
   const factory Book({
-    /// arabic name of the book
-    String? arabic_name,
-
-    /// number of hadiths in the book
-    int? hadiths,
-
     /// number of the book e.g 1
     int? id,
 
     /// name of the book
     String? name,
+
+    /// arabic name of the book
+    String? arabic_name,
+
+    /// number of hadiths in the book
+    int? hadiths,
   }) = _Book;
   factory Book.fromJson(Map<String, dynamic> json) => _$BookFromJson(json);
 }
@@ -157,9 +157,6 @@ class BooksResponse with _$BooksResponse {
 @Freezed()
 class Chapter with _$Chapter {
   const factory Chapter({
-    /// arabic title
-    String? arabic_title,
-
     /// the book number
     int? book,
 
@@ -171,6 +168,9 @@ class Chapter with _$Chapter {
 
     /// title of the chapter
     String? title,
+
+    /// arabic title
+    String? arabic_title,
   }) = _Chapter;
   factory Chapter.fromJson(Map<String, dynamic> json) =>
       _$ChapterFromJson(json);
@@ -198,6 +198,12 @@ class ChaptersRequest with _$ChaptersRequest {
 @Freezed()
 class ChaptersResponse with _$ChaptersResponse {
   const factory ChaptersResponse({
+    /// The page in the pagination
+    int? page,
+
+    /// Total chapters in the book
+    int? total,
+
     /// number of the book
     int? book,
 
@@ -209,12 +215,6 @@ class ChaptersResponse with _$ChaptersResponse {
 
     /// Limit the number of chapters returned
     int? limit,
-
-    /// The page in the pagination
-    int? page,
-
-    /// Total chapters in the book
-    int? total,
   }) = ChaptersResponseData;
   const factory ChaptersResponse.Merr({Map<String, dynamic>? body}) =
       ChaptersResponseMerr;
@@ -225,9 +225,6 @@ class ChaptersResponse with _$ChaptersResponse {
 @Freezed()
 class Collection with _$Collection {
   const factory Collection({
-    /// Arabic title if available
-    String? arabic_title,
-
     /// Total hadiths in the collection
     int? hadiths,
 
@@ -239,6 +236,9 @@ class Collection with _$Collection {
 
     /// Title of the collection e.g Sahih al-Bukhari
     String? title,
+
+    /// Arabic title if available
+    String? arabic_title,
   }) = _Collection;
   factory Collection.fromJson(Map<String, dynamic> json) =>
       _$CollectionFromJson(json);
@@ -271,6 +271,15 @@ class CollectionsResponse with _$CollectionsResponse {
 @Freezed()
 class Hadith with _$Hadith {
   const factory Hadith({
+    /// the chapter title
+    String? chapter_title,
+
+    /// hadith id
+    int? id,
+
+    /// hadith text
+    String? text,
+
     /// the arabic chapter title
     String? arabic_chapter_title,
 
@@ -282,15 +291,6 @@ class Hadith with _$Hadith {
 
     /// the chapter key
     String? chapter_key,
-
-    /// the chapter title
-    String? chapter_title,
-
-    /// hadith id
-    int? id,
-
-    /// hadith text
-    String? text,
   }) = _Hadith;
   factory Hadith.fromJson(Map<String, dynamic> json) => _$HadithFromJson(json);
 }
@@ -298,6 +298,9 @@ class Hadith with _$Hadith {
 @Freezed()
 class HadithsRequest with _$HadithsRequest {
   const factory HadithsRequest({
+    /// number of the book
+    int? book,
+
     /// name of the collection
     String? collection,
 
@@ -306,9 +309,6 @@ class HadithsRequest with _$HadithsRequest {
 
     /// The page in the pagination
     int? page,
-
-    /// number of the book
-    int? book,
   }) = _HadithsRequest;
   factory HadithsRequest.fromJson(Map<String, dynamic> json) =>
       _$HadithsRequestFromJson(json);
@@ -317,6 +317,12 @@ class HadithsRequest with _$HadithsRequest {
 @Freezed()
 class HadithsResponse with _$HadithsResponse {
   const factory HadithsResponse({
+    /// number of the book
+    int? book,
+
+    /// name of the collection
+    String? collection,
+
     /// The hadiths of the book
     List<Hadith>? hadiths,
 
@@ -328,12 +334,6 @@ class HadithsResponse with _$HadithsResponse {
 
     /// Total hadiths in the  book
     int? total,
-
-    /// number of the book
-    int? book,
-
-    /// name of the collection
-    String? collection,
   }) = HadithsResponseData;
   const factory HadithsResponse.Merr({Map<String, dynamic>? body}) =
       HadithsResponseMerr;

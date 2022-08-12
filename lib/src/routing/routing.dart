@@ -76,6 +76,12 @@ class RoutingService {
 @Freezed()
 class Direction with _$Direction {
   const factory Direction({
+    /// duration to travel in seconds
+    double? duration,
+
+    /// human readable instruction
+    String? instruction,
+
     /// intersections on route
     List<Intersection>? intersections,
 
@@ -90,12 +96,6 @@ class Direction with _$Direction {
 
     /// distance to travel in meters
     double? distance,
-
-    /// duration to travel in seconds
-    double? duration,
-
-    /// human readable instruction
-    String? instruction,
   }) = _Direction;
   factory Direction.fromJson(Map<String, dynamic> json) =>
       _$DirectionFromJson(json);
@@ -138,6 +138,9 @@ class DirectionsResponse with _$DirectionsResponse {
 @Freezed()
 class EtaRequest with _$EtaRequest {
   const factory EtaRequest({
+    /// speed in kilometers
+    double? speed,
+
     /// type of transport. Only "car" is supported currently.
     String? type,
 
@@ -146,9 +149,6 @@ class EtaRequest with _$EtaRequest {
 
     /// The starting point for the eta calculation
     Point? origin,
-
-    /// speed in kilometers
-    double? speed,
   }) = _EtaRequest;
   factory EtaRequest.fromJson(Map<String, dynamic> json) =>
       _$EtaRequestFromJson(json);
@@ -204,11 +204,11 @@ class Point with _$Point {
 @Freezed()
 class RouteRequest with _$RouteRequest {
   const factory RouteRequest({
-    /// Point of destination for the trip
-    Point? destination,
-
     /// Point of origin for the trip
     Point? origin,
+
+    /// Point of destination for the trip
+    Point? destination,
   }) = _RouteRequest;
   factory RouteRequest.fromJson(Map<String, dynamic> json) =>
       _$RouteRequestFromJson(json);

@@ -116,11 +116,8 @@ class SearchResult with _$SearchResult {
     /// the channel title
     String? channel_title,
 
-    /// the result description
-    String? description,
-
-    /// id of the result
-    String? id,
+    /// published at time
+    String? published_at,
 
     /// title of the result
     String? title,
@@ -128,11 +125,14 @@ class SearchResult with _$SearchResult {
     /// the channel id
     String? channel_id,
 
+    /// the result description
+    String? description,
+
+    /// id of the result
+    String? id,
+
     /// kind of result: "video", "channel", "playlist"
     String? kind,
-
-    /// published at time
-    String? published_at,
 
     /// the associated url
     String? url,

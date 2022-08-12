@@ -4,6 +4,76 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/crypto/api](ht
 
 Endpoints:
 
+## Symbols
+
+Returns the full list of supported symbols
+
+
+[https://m3o.com/crypto/api#Symbols](https://m3o.com/crypto/api#Symbols)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/crypto/crypto.dart';
+
+void main() async {
+  final ser = CryptoService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  SymbolsRequest req = SymbolsRequest.fromJson(payload);
+
+  
+  try {
+
+	SymbolsResponse res = await ser.symbols(req);
+
+    res.map((value) => print(value),
+	  Merr: (SymbolsResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## News
+
+Get news related to a currency
+
+
+[https://m3o.com/crypto/api#News](https://m3o.com/crypto/api#News)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/crypto/crypto.dart';
+
+void main() async {
+  final ser = CryptoService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "symbol": "BTCUSD"
+,};
+
+  NewsRequest req = NewsRequest.fromJson(payload);
+
+  
+  try {
+
+	NewsResponse res = await ser.news(req);
+
+    res.map((value) => print(value),
+	  Merr: (NewsResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Price
 
 Get the last price for a given crypto ticker
@@ -104,76 +174,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Symbols
-
-Returns the full list of supported symbols
-
-
-[https://m3o.com/crypto/api#Symbols](https://m3o.com/crypto/api#Symbols)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/crypto/crypto.dart';
-
-void main() async {
-  final ser = CryptoService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{};
-
-  SymbolsRequest req = SymbolsRequest.fromJson(payload);
-
-  
-  try {
-
-	SymbolsResponse res = await ser.symbols(req);
-
-    res.map((value) => print(value),
-	  Merr: (SymbolsResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## News
-
-Get news related to a currency
-
-
-[https://m3o.com/crypto/api#News](https://m3o.com/crypto/api#News)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/crypto/crypto.dart';
-
-void main() async {
-  final ser = CryptoService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "symbol": "BTCUSD"
-,};
-
-  NewsRequest req = NewsRequest.fromJson(payload);
-
-  
-  try {
-
-	NewsResponse res = await ser.news(req);
-
-    res.map((value) => print(value),
-	  Merr: (NewsResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
