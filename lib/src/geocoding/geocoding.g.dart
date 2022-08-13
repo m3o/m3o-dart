@@ -97,20 +97,20 @@ Map<String, dynamic> _$$_ReverseRequestToJson(_$_ReverseRequest instance) =>
 _$ReverseResponseData _$$ReverseResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$ReverseResponseData(
-      address: json['address'] == null
-          ? null
-          : Address.fromJson(json['address'] as Map<String, dynamic>),
       location: json['location'] == null
           ? null
           : Location.fromJson(json['location'] as Map<String, dynamic>),
+      address: json['address'] == null
+          ? null
+          : Address.fromJson(json['address'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ReverseResponseDataToJson(
         _$ReverseResponseData instance) =>
     <String, dynamic>{
-      'address': instance.address,
       'location': instance.location,
+      'address': instance.address,
       'runtimeType': instance.$type,
     };
 

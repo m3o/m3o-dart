@@ -2020,12 +2020,6 @@ Reservation _$ReservationFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Reservation {
-  /// time of reservation
-  String? get created => throw _privateConstructorUsedError;
-
-  /// time reservation expires
-  String? get expires => throw _privateConstructorUsedError;
-
   /// name of the app
   String? get name => throw _privateConstructorUsedError;
 
@@ -2034,6 +2028,12 @@ mixin _$Reservation {
 
   /// associated token
   String? get token => throw _privateConstructorUsedError;
+
+  /// time of reservation
+  String? get created => throw _privateConstructorUsedError;
+
+  /// time reservation expires
+  String? get expires => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2047,11 +2047,11 @@ abstract class $ReservationCopyWith<$Res> {
           Reservation value, $Res Function(Reservation) then) =
       _$ReservationCopyWithImpl<$Res>;
   $Res call(
-      {String? created,
-      String? expires,
-      String? name,
+      {String? name,
       String? owner,
-      String? token});
+      String? token,
+      String? created,
+      String? expires});
 }
 
 /// @nodoc
@@ -2064,21 +2064,13 @@ class _$ReservationCopyWithImpl<$Res> implements $ReservationCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? created = freezed,
-    Object? expires = freezed,
     Object? name = freezed,
     Object? owner = freezed,
     Object? token = freezed,
+    Object? created = freezed,
+    Object? expires = freezed,
   }) {
     return _then(_value.copyWith(
-      created: created == freezed
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
-      expires: expires == freezed
-          ? _value.expires
-          : expires // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -2090,6 +2082,14 @@ class _$ReservationCopyWithImpl<$Res> implements $ReservationCopyWith<$Res> {
       token: token == freezed
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
+              as String?,
+      created: created == freezed
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
+      expires: expires == freezed
+          ? _value.expires
+          : expires // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2103,11 +2103,11 @@ abstract class _$$_ReservationCopyWith<$Res>
       __$$_ReservationCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? created,
-      String? expires,
-      String? name,
+      {String? name,
       String? owner,
-      String? token});
+      String? token,
+      String? created,
+      String? expires});
 }
 
 /// @nodoc
@@ -2122,21 +2122,13 @@ class __$$_ReservationCopyWithImpl<$Res> extends _$ReservationCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? created = freezed,
-    Object? expires = freezed,
     Object? name = freezed,
     Object? owner = freezed,
     Object? token = freezed,
+    Object? created = freezed,
+    Object? expires = freezed,
   }) {
     return _then(_$_Reservation(
-      created: created == freezed
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
-      expires: expires == freezed
-          ? _value.expires
-          : expires // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -2149,6 +2141,14 @@ class __$$_ReservationCopyWithImpl<$Res> extends _$ReservationCopyWithImpl<$Res>
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String?,
+      created: created == freezed
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
+      expires: expires == freezed
+          ? _value.expires
+          : expires // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2157,18 +2157,10 @@ class __$$_ReservationCopyWithImpl<$Res> extends _$ReservationCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Reservation implements _Reservation {
   const _$_Reservation(
-      {this.created, this.expires, this.name, this.owner, this.token});
+      {this.name, this.owner, this.token, this.created, this.expires});
 
   factory _$_Reservation.fromJson(Map<String, dynamic> json) =>
       _$$_ReservationFromJson(json);
-
-  /// time of reservation
-  @override
-  final String? created;
-
-  /// time reservation expires
-  @override
-  final String? expires;
 
   /// name of the app
   @override
@@ -2182,9 +2174,17 @@ class _$_Reservation implements _Reservation {
   @override
   final String? token;
 
+  /// time of reservation
+  @override
+  final String? created;
+
+  /// time reservation expires
+  @override
+  final String? expires;
+
   @override
   String toString() {
-    return 'Reservation(created: $created, expires: $expires, name: $name, owner: $owner, token: $token)';
+    return 'Reservation(name: $name, owner: $owner, token: $token, created: $created, expires: $expires)';
   }
 
   @override
@@ -2192,22 +2192,22 @@ class _$_Reservation implements _Reservation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Reservation &&
-            const DeepCollectionEquality().equals(other.created, created) &&
-            const DeepCollectionEquality().equals(other.expires, expires) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.owner, owner) &&
-            const DeepCollectionEquality().equals(other.token, token));
+            const DeepCollectionEquality().equals(other.token, token) &&
+            const DeepCollectionEquality().equals(other.created, created) &&
+            const DeepCollectionEquality().equals(other.expires, expires));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(created),
-      const DeepCollectionEquality().hash(expires),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(owner),
-      const DeepCollectionEquality().hash(token));
+      const DeepCollectionEquality().hash(token),
+      const DeepCollectionEquality().hash(created),
+      const DeepCollectionEquality().hash(expires));
 
   @JsonKey(ignore: true)
   @override
@@ -2224,23 +2224,15 @@ class _$_Reservation implements _Reservation {
 
 abstract class _Reservation implements Reservation {
   const factory _Reservation(
-      {final String? created,
-      final String? expires,
-      final String? name,
+      {final String? name,
       final String? owner,
-      final String? token}) = _$_Reservation;
+      final String? token,
+      final String? created,
+      final String? expires}) = _$_Reservation;
 
   factory _Reservation.fromJson(Map<String, dynamic> json) =
       _$_Reservation.fromJson;
 
-  @override
-
-  /// time of reservation
-  String? get created;
-  @override
-
-  /// time reservation expires
-  String? get expires;
   @override
 
   /// name of the app
@@ -2253,6 +2245,14 @@ abstract class _Reservation implements Reservation {
 
   /// associated token
   String? get token;
+  @override
+
+  /// time of reservation
+  String? get created;
+  @override
+
+  /// time reservation expires
+  String? get expires;
   @override
   @JsonKey(ignore: true)
   _$$_ReservationCopyWith<_$_Reservation> get copyWith =>
@@ -3337,9 +3337,6 @@ RunRequest _$RunRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RunRequest {
-  /// port to run on
-  int? get port => throw _privateConstructorUsedError;
-
   /// region to run in
   String? get region => throw _privateConstructorUsedError;
 
@@ -3355,6 +3352,9 @@ mixin _$RunRequest {
   /// name of the app
   String? get name => throw _privateConstructorUsedError;
 
+  /// port to run on
+  int? get port => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RunRequestCopyWith<RunRequest> get copyWith =>
@@ -3367,12 +3367,12 @@ abstract class $RunRequestCopyWith<$Res> {
           RunRequest value, $Res Function(RunRequest) then) =
       _$RunRequestCopyWithImpl<$Res>;
   $Res call(
-      {int? port,
-      String? region,
+      {String? region,
       String? repo,
       String? branch,
       Map<String, String>? env_vars,
-      String? name});
+      String? name,
+      int? port});
 }
 
 /// @nodoc
@@ -3385,18 +3385,14 @@ class _$RunRequestCopyWithImpl<$Res> implements $RunRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? port = freezed,
     Object? region = freezed,
     Object? repo = freezed,
     Object? branch = freezed,
     Object? env_vars = freezed,
     Object? name = freezed,
+    Object? port = freezed,
   }) {
     return _then(_value.copyWith(
-      port: port == freezed
-          ? _value.port
-          : port // ignore: cast_nullable_to_non_nullable
-              as int?,
       region: region == freezed
           ? _value.region
           : region // ignore: cast_nullable_to_non_nullable
@@ -3417,6 +3413,10 @@ class _$RunRequestCopyWithImpl<$Res> implements $RunRequestCopyWith<$Res> {
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      port: port == freezed
+          ? _value.port
+          : port // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -3429,12 +3429,12 @@ abstract class _$$_RunRequestCopyWith<$Res>
       __$$_RunRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int? port,
-      String? region,
+      {String? region,
       String? repo,
       String? branch,
       Map<String, String>? env_vars,
-      String? name});
+      String? name,
+      int? port});
 }
 
 /// @nodoc
@@ -3449,18 +3449,14 @@ class __$$_RunRequestCopyWithImpl<$Res> extends _$RunRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? port = freezed,
     Object? region = freezed,
     Object? repo = freezed,
     Object? branch = freezed,
     Object? env_vars = freezed,
     Object? name = freezed,
+    Object? port = freezed,
   }) {
     return _then(_$_RunRequest(
-      port: port == freezed
-          ? _value.port
-          : port // ignore: cast_nullable_to_non_nullable
-              as int?,
       region: region == freezed
           ? _value.region
           : region // ignore: cast_nullable_to_non_nullable
@@ -3481,6 +3477,10 @@ class __$$_RunRequestCopyWithImpl<$Res> extends _$RunRequestCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      port: port == freezed
+          ? _value.port
+          : port // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -3489,20 +3489,16 @@ class __$$_RunRequestCopyWithImpl<$Res> extends _$RunRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RunRequest implements _RunRequest {
   const _$_RunRequest(
-      {this.port,
-      this.region,
+      {this.region,
       this.repo,
       this.branch,
       final Map<String, String>? env_vars,
-      this.name})
+      this.name,
+      this.port})
       : _env_vars = env_vars;
 
   factory _$_RunRequest.fromJson(Map<String, dynamic> json) =>
       _$$_RunRequestFromJson(json);
-
-  /// port to run on
-  @override
-  final int? port;
 
   /// region to run in
   @override
@@ -3532,9 +3528,13 @@ class _$_RunRequest implements _RunRequest {
   @override
   final String? name;
 
+  /// port to run on
+  @override
+  final int? port;
+
   @override
   String toString() {
-    return 'RunRequest(port: $port, region: $region, repo: $repo, branch: $branch, env_vars: $env_vars, name: $name)';
+    return 'RunRequest(region: $region, repo: $repo, branch: $branch, env_vars: $env_vars, name: $name, port: $port)';
   }
 
   @override
@@ -3542,24 +3542,24 @@ class _$_RunRequest implements _RunRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RunRequest &&
-            const DeepCollectionEquality().equals(other.port, port) &&
             const DeepCollectionEquality().equals(other.region, region) &&
             const DeepCollectionEquality().equals(other.repo, repo) &&
             const DeepCollectionEquality().equals(other.branch, branch) &&
             const DeepCollectionEquality().equals(other._env_vars, _env_vars) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.port, port));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(port),
       const DeepCollectionEquality().hash(region),
       const DeepCollectionEquality().hash(repo),
       const DeepCollectionEquality().hash(branch),
       const DeepCollectionEquality().hash(_env_vars),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(port));
 
   @JsonKey(ignore: true)
   @override
@@ -3576,20 +3576,16 @@ class _$_RunRequest implements _RunRequest {
 
 abstract class _RunRequest implements RunRequest {
   const factory _RunRequest(
-      {final int? port,
-      final String? region,
+      {final String? region,
       final String? repo,
       final String? branch,
       final Map<String, String>? env_vars,
-      final String? name}) = _$_RunRequest;
+      final String? name,
+      final int? port}) = _$_RunRequest;
 
   factory _RunRequest.fromJson(Map<String, dynamic> json) =
       _$_RunRequest.fromJson;
 
-  @override
-
-  /// port to run on
-  int? get port;
   @override
 
   /// region to run in
@@ -3610,6 +3606,10 @@ abstract class _RunRequest implements RunRequest {
 
   /// name of the app
   String? get name;
+  @override
+
+  /// port to run on
+  int? get port;
   @override
   @JsonKey(ignore: true)
   _$$_RunRequestCopyWith<_$_RunRequest> get copyWith =>
@@ -4025,14 +4025,14 @@ mixin _$Service {
   /// last updated
   String? get updated => throw _privateConstructorUsedError;
 
-  /// branch of code
-  String? get branch => throw _privateConstructorUsedError;
-
   /// time of creation
   String? get created => throw _privateConstructorUsedError;
 
-  /// port running on
-  int? get port => throw _privateConstructorUsedError;
+  /// unique id
+  String? get id => throw _privateConstructorUsedError;
+
+  /// name of the app
+  String? get name => throw _privateConstructorUsedError;
 
   /// region running in
   String? get region => throw _privateConstructorUsedError;
@@ -4046,17 +4046,17 @@ mixin _$Service {
   /// app url
   String? get url => throw _privateConstructorUsedError;
 
+  /// branch of code
+  String? get branch => throw _privateConstructorUsedError;
+
   /// custom domains
   List<String>? get custom_domains => throw _privateConstructorUsedError;
 
   /// associated env vars
   Map<String, String>? get env_vars => throw _privateConstructorUsedError;
 
-  /// unique id
-  String? get id => throw _privateConstructorUsedError;
-
-  /// name of the app
-  String? get name => throw _privateConstructorUsedError;
+  /// port running on
+  int? get port => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -4069,17 +4069,17 @@ abstract class $ServiceCopyWith<$Res> {
       _$ServiceCopyWithImpl<$Res>;
   $Res call(
       {String? updated,
-      String? branch,
       String? created,
-      int? port,
+      String? id,
+      String? name,
       String? region,
       String? repo,
       String? status,
       String? url,
+      String? branch,
       List<String>? custom_domains,
       Map<String, String>? env_vars,
-      String? id,
-      String? name});
+      int? port});
 }
 
 /// @nodoc
@@ -4093,35 +4093,35 @@ class _$ServiceCopyWithImpl<$Res> implements $ServiceCopyWith<$Res> {
   @override
   $Res call({
     Object? updated = freezed,
-    Object? branch = freezed,
     Object? created = freezed,
-    Object? port = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
     Object? region = freezed,
     Object? repo = freezed,
     Object? status = freezed,
     Object? url = freezed,
+    Object? branch = freezed,
     Object? custom_domains = freezed,
     Object? env_vars = freezed,
-    Object? id = freezed,
-    Object? name = freezed,
+    Object? port = freezed,
   }) {
     return _then(_value.copyWith(
       updated: updated == freezed
           ? _value.updated
           : updated // ignore: cast_nullable_to_non_nullable
               as String?,
-      branch: branch == freezed
-          ? _value.branch
-          : branch // ignore: cast_nullable_to_non_nullable
-              as String?,
       created: created == freezed
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
               as String?,
-      port: port == freezed
-          ? _value.port
-          : port // ignore: cast_nullable_to_non_nullable
-              as int?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       region: region == freezed
           ? _value.region
           : region // ignore: cast_nullable_to_non_nullable
@@ -4138,6 +4138,10 @@ class _$ServiceCopyWithImpl<$Res> implements $ServiceCopyWith<$Res> {
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
+      branch: branch == freezed
+          ? _value.branch
+          : branch // ignore: cast_nullable_to_non_nullable
+              as String?,
       custom_domains: custom_domains == freezed
           ? _value.custom_domains
           : custom_domains // ignore: cast_nullable_to_non_nullable
@@ -4146,14 +4150,10 @@ class _$ServiceCopyWithImpl<$Res> implements $ServiceCopyWith<$Res> {
           ? _value.env_vars
           : env_vars // ignore: cast_nullable_to_non_nullable
               as Map<String, String>?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+      port: port == freezed
+          ? _value.port
+          : port // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -4166,17 +4166,17 @@ abstract class _$$_ServiceCopyWith<$Res> implements $ServiceCopyWith<$Res> {
   @override
   $Res call(
       {String? updated,
-      String? branch,
       String? created,
-      int? port,
+      String? id,
+      String? name,
       String? region,
       String? repo,
       String? status,
       String? url,
+      String? branch,
       List<String>? custom_domains,
       Map<String, String>? env_vars,
-      String? id,
-      String? name});
+      int? port});
 }
 
 /// @nodoc
@@ -4191,35 +4191,35 @@ class __$$_ServiceCopyWithImpl<$Res> extends _$ServiceCopyWithImpl<$Res>
   @override
   $Res call({
     Object? updated = freezed,
-    Object? branch = freezed,
     Object? created = freezed,
-    Object? port = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
     Object? region = freezed,
     Object? repo = freezed,
     Object? status = freezed,
     Object? url = freezed,
+    Object? branch = freezed,
     Object? custom_domains = freezed,
     Object? env_vars = freezed,
-    Object? id = freezed,
-    Object? name = freezed,
+    Object? port = freezed,
   }) {
     return _then(_$_Service(
       updated: updated == freezed
           ? _value.updated
           : updated // ignore: cast_nullable_to_non_nullable
               as String?,
-      branch: branch == freezed
-          ? _value.branch
-          : branch // ignore: cast_nullable_to_non_nullable
-              as String?,
       created: created == freezed
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
               as String?,
-      port: port == freezed
-          ? _value.port
-          : port // ignore: cast_nullable_to_non_nullable
-              as int?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       region: region == freezed
           ? _value.region
           : region // ignore: cast_nullable_to_non_nullable
@@ -4236,6 +4236,10 @@ class __$$_ServiceCopyWithImpl<$Res> extends _$ServiceCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
+      branch: branch == freezed
+          ? _value.branch
+          : branch // ignore: cast_nullable_to_non_nullable
+              as String?,
       custom_domains: custom_domains == freezed
           ? _value._custom_domains
           : custom_domains // ignore: cast_nullable_to_non_nullable
@@ -4244,14 +4248,10 @@ class __$$_ServiceCopyWithImpl<$Res> extends _$ServiceCopyWithImpl<$Res>
           ? _value._env_vars
           : env_vars // ignore: cast_nullable_to_non_nullable
               as Map<String, String>?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+      port: port == freezed
+          ? _value.port
+          : port // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -4261,17 +4261,17 @@ class __$$_ServiceCopyWithImpl<$Res> extends _$ServiceCopyWithImpl<$Res>
 class _$_Service implements _Service {
   const _$_Service(
       {this.updated,
-      this.branch,
       this.created,
-      this.port,
+      this.id,
+      this.name,
       this.region,
       this.repo,
       this.status,
       this.url,
+      this.branch,
       final List<String>? custom_domains,
       final Map<String, String>? env_vars,
-      this.id,
-      this.name})
+      this.port})
       : _custom_domains = custom_domains,
         _env_vars = env_vars;
 
@@ -4282,17 +4282,17 @@ class _$_Service implements _Service {
   @override
   final String? updated;
 
-  /// branch of code
-  @override
-  final String? branch;
-
   /// time of creation
   @override
   final String? created;
 
-  /// port running on
+  /// unique id
   @override
-  final int? port;
+  final String? id;
+
+  /// name of the app
+  @override
+  final String? name;
 
   /// region running in
   @override
@@ -4309,6 +4309,10 @@ class _$_Service implements _Service {
   /// app url
   @override
   final String? url;
+
+  /// branch of code
+  @override
+  final String? branch;
 
   /// custom domains
   final List<String>? _custom_domains;
@@ -4334,17 +4338,13 @@ class _$_Service implements _Service {
     return EqualUnmodifiableMapView(value);
   }
 
-  /// unique id
+  /// port running on
   @override
-  final String? id;
-
-  /// name of the app
-  @override
-  final String? name;
+  final int? port;
 
   @override
   String toString() {
-    return 'Service(updated: $updated, branch: $branch, created: $created, port: $port, region: $region, repo: $repo, status: $status, url: $url, custom_domains: $custom_domains, env_vars: $env_vars, id: $id, name: $name)';
+    return 'Service(updated: $updated, created: $created, id: $id, name: $name, region: $region, repo: $repo, status: $status, url: $url, branch: $branch, custom_domains: $custom_domains, env_vars: $env_vars, port: $port)';
   }
 
   @override
@@ -4353,18 +4353,18 @@ class _$_Service implements _Service {
         (other.runtimeType == runtimeType &&
             other is _$_Service &&
             const DeepCollectionEquality().equals(other.updated, updated) &&
-            const DeepCollectionEquality().equals(other.branch, branch) &&
             const DeepCollectionEquality().equals(other.created, created) &&
-            const DeepCollectionEquality().equals(other.port, port) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.region, region) &&
             const DeepCollectionEquality().equals(other.repo, repo) &&
             const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality().equals(other.url, url) &&
+            const DeepCollectionEquality().equals(other.branch, branch) &&
             const DeepCollectionEquality()
                 .equals(other._custom_domains, _custom_domains) &&
             const DeepCollectionEquality().equals(other._env_vars, _env_vars) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.port, port));
   }
 
   @JsonKey(ignore: true)
@@ -4372,17 +4372,17 @@ class _$_Service implements _Service {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(updated),
-      const DeepCollectionEquality().hash(branch),
       const DeepCollectionEquality().hash(created),
-      const DeepCollectionEquality().hash(port),
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(region),
       const DeepCollectionEquality().hash(repo),
       const DeepCollectionEquality().hash(status),
       const DeepCollectionEquality().hash(url),
+      const DeepCollectionEquality().hash(branch),
       const DeepCollectionEquality().hash(_custom_domains),
       const DeepCollectionEquality().hash(_env_vars),
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(port));
 
   @JsonKey(ignore: true)
   @override
@@ -4400,17 +4400,17 @@ class _$_Service implements _Service {
 abstract class _Service implements Service {
   const factory _Service(
       {final String? updated,
-      final String? branch,
       final String? created,
-      final int? port,
+      final String? id,
+      final String? name,
       final String? region,
       final String? repo,
       final String? status,
       final String? url,
+      final String? branch,
       final List<String>? custom_domains,
       final Map<String, String>? env_vars,
-      final String? id,
-      final String? name}) = _$_Service;
+      final int? port}) = _$_Service;
 
   factory _Service.fromJson(Map<String, dynamic> json) = _$_Service.fromJson;
 
@@ -4420,16 +4420,16 @@ abstract class _Service implements Service {
   String? get updated;
   @override
 
-  /// branch of code
-  String? get branch;
-  @override
-
   /// time of creation
   String? get created;
   @override
 
-  /// port running on
-  int? get port;
+  /// unique id
+  String? get id;
+  @override
+
+  /// name of the app
+  String? get name;
   @override
 
   /// region running in
@@ -4448,6 +4448,10 @@ abstract class _Service implements Service {
   String? get url;
   @override
 
+  /// branch of code
+  String? get branch;
+  @override
+
   /// custom domains
   List<String>? get custom_domains;
   @override
@@ -4456,12 +4460,8 @@ abstract class _Service implements Service {
   Map<String, String>? get env_vars;
   @override
 
-  /// unique id
-  String? get id;
-  @override
-
-  /// name of the app
-  String? get name;
+  /// port running on
+  int? get port;
   @override
   @JsonKey(ignore: true)
   _$$_ServiceCopyWith<_$_Service> get copyWith =>

@@ -77,12 +77,12 @@ void main() async {
   }
 }
 ```
-## Debit
+## Transfer
 
-Debit a wallet
+Make a transfer from one wallet to another
 
 
-[https://m3o.com/wallet/api#Debit](https://m3o.com/wallet/api#Debit)
+[https://m3o.com/wallet/api#Transfer](https://m3o.com/wallet/api#Transfer)
 
 ```dart
 import 'dart:io';
@@ -94,56 +94,21 @@ void main() async {
  
   final payload = <String, dynamic>{
   "amount": "5",
-  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6",
-  "reference": "test debit",
+  "from_id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6",
+  "reference": "transfer money",
+  "to_id": "default",
   "visible": true
 ,};
 
-  DebitRequest req = DebitRequest.fromJson(payload);
+  TransferRequest req = TransferRequest.fromJson(payload);
 
   
   try {
 
-	DebitResponse res = await ser.debit(req);
+	TransferResponse res = await ser.transfer(req);
 
     res.map((value) => print(value),
-	  Merr: (DebitResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Balance
-
-Get the balance of a wallet
-
-
-[https://m3o.com/wallet/api#Balance](https://m3o.com/wallet/api#Balance)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/wallet/wallet.dart';
-
-void main() async {
-  final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
-,};
-
-  BalanceRequest req = BalanceRequest.fromJson(payload);
-
-  
-  try {
-
-	BalanceResponse res = await ser.balance(req);
-
-    res.map((value) => print(value),
-	  Merr: (BalanceResponseMerr err) => print(err.body!['body']));	
+	  Merr: (TransferResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -263,6 +228,45 @@ void main() async {
   }
 }
 ```
+## Debit
+
+Debit a wallet
+
+
+[https://m3o.com/wallet/api#Debit](https://m3o.com/wallet/api#Debit)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/wallet/wallet.dart';
+
+void main() async {
+  final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "amount": "5",
+  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6",
+  "reference": "test debit",
+  "visible": true
+,};
+
+  DebitRequest req = DebitRequest.fromJson(payload);
+
+  
+  try {
+
+	DebitResponse res = await ser.debit(req);
+
+    res.map((value) => print(value),
+	  Merr: (DebitResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## List
 
 List your wallets
@@ -297,12 +301,12 @@ void main() async {
   }
 }
 ```
-## Transfer
+## Balance
 
-Make a transfer from one wallet to another
+Get the balance of a wallet
 
 
-[https://m3o.com/wallet/api#Transfer](https://m3o.com/wallet/api#Transfer)
+[https://m3o.com/wallet/api#Balance](https://m3o.com/wallet/api#Balance)
 
 ```dart
 import 'dart:io';
@@ -313,22 +317,18 @@ void main() async {
   final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "amount": "5",
-  "from_id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6",
-  "reference": "transfer money",
-  "to_id": "default",
-  "visible": true
+  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
 ,};
 
-  TransferRequest req = TransferRequest.fromJson(payload);
+  BalanceRequest req = BalanceRequest.fromJson(payload);
 
   
   try {
 
-	TransferResponse res = await ser.transfer(req);
+	BalanceResponse res = await ser.balance(req);
 
     res.map((value) => print(value),
-	  Merr: (TransferResponseMerr err) => print(err.body!['body']));	
+	  Merr: (BalanceResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

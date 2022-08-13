@@ -283,22 +283,6 @@ class DeployRequest with _$DeployRequest {
     /// branch to deploy. defaults to master
     String? branch,
 
-    /// entry point, ie. handler name in the source code
-    /// if not provided, defaults to the name parameter
-    String? entrypoint,
-
-    /// environment variables to pass in at runtime
-    Map<String, String>? env_vars,
-
-    /// optional subfolder path
-    String? subfolder,
-
-    /// function name
-    String? name,
-
-    /// region to deploy in. defaults to europe-west1
-    String? region,
-
     /// github url for a repo
     String? repo,
 
@@ -310,6 +294,22 @@ class DeployRequest with _$DeployRequest {
 
     /// inline source code
     String? source,
+
+    /// optional subfolder path
+    String? subfolder,
+
+    /// entry point, ie. handler name in the source code
+    /// if not provided, defaults to the name parameter
+    String? entrypoint,
+
+    /// environment variables to pass in at runtime
+    Map<String, String>? env_vars,
+
+    /// function name
+    String? name,
+
+    /// region to deploy in. defaults to europe-west1
+    String? region,
   }) = _DeployRequest;
   factory DeployRequest.fromJson(Map<String, dynamic> json) =>
       _$DeployRequestFromJson(json);
@@ -351,17 +351,23 @@ class DescribeResponse with _$DescribeResponse {
 @Freezed()
 class Func with _$Func {
   const factory Func({
-    /// branch to deploy. defaults to master
-    String? branch,
+    /// id of the function
+    String? id,
 
-    /// region to deploy in. defaults to europe-west1
-    String? region,
+    /// git repo address
+    String? repo,
+
+    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+    String? status,
+
+    /// unique url of the function
+    String? url,
 
     /// the source code
     String? source,
 
-    /// subfolder path to entrypoint
-    String? subfolder,
+    /// time of creation
+    String? created,
 
     /// name of handler in source code
     String? entrypoint,
@@ -370,20 +376,14 @@ class Func with _$Func {
     /// limitation: must be unique across projects
     String? name,
 
-    /// git repo address
-    String? repo,
+    /// region to deploy in. defaults to europe-west1
+    String? region,
 
     /// time it was updated
     String? updated,
 
-    /// unique url of the function
-    String? url,
-
-    /// id of the function
-    String? id,
-
-    /// time of creation
-    String? created,
+    /// branch to deploy. defaults to master
+    String? branch,
 
     /// associated env vars
     Map<String, String>? env_vars,
@@ -394,8 +394,8 @@ class Func with _$Func {
     /// python37, python38, python39
     String? runtime,
 
-    /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-    String? status,
+    /// subfolder path to entrypoint
+    String? subfolder,
   }) = _Func;
   factory Func.fromJson(Map<String, dynamic> json) => _$FuncFromJson(json);
 }
@@ -486,12 +486,6 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
-    /// time of reservation
-    String? created,
-
-    /// time reservation expires
-    String? expires,
-
     /// name of the app
     String? name,
 
@@ -500,6 +494,12 @@ class Reservation with _$Reservation {
 
     /// associated token
     String? token,
+
+    /// time of reservation
+    String? created,
+
+    /// time reservation expires
+    String? expires,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);
