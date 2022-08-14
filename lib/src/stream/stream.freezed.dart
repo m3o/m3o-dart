@@ -2064,11 +2064,11 @@ SendMessageRequest _$SendMessageRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SendMessageRequest {
-  /// The channel to send to
-  String? get channel => throw _privateConstructorUsedError;
-
   /// The message text to send
   String? get text => throw _privateConstructorUsedError;
+
+  /// The channel to send to
+  String? get channel => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2081,7 +2081,7 @@ abstract class $SendMessageRequestCopyWith<$Res> {
   factory $SendMessageRequestCopyWith(
           SendMessageRequest value, $Res Function(SendMessageRequest) then) =
       _$SendMessageRequestCopyWithImpl<$Res>;
-  $Res call({String? channel, String? text});
+  $Res call({String? text, String? channel});
 }
 
 /// @nodoc
@@ -2095,17 +2095,17 @@ class _$SendMessageRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? channel = freezed,
     Object? text = freezed,
+    Object? channel = freezed,
   }) {
     return _then(_value.copyWith(
-      channel: channel == freezed
-          ? _value.channel
-          : channel // ignore: cast_nullable_to_non_nullable
-              as String?,
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      channel: channel == freezed
+          ? _value.channel
+          : channel // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2118,7 +2118,7 @@ abstract class _$$_SendMessageRequestCopyWith<$Res>
           $Res Function(_$_SendMessageRequest) then) =
       __$$_SendMessageRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? channel, String? text});
+  $Res call({String? text, String? channel});
 }
 
 /// @nodoc
@@ -2134,17 +2134,17 @@ class __$$_SendMessageRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? channel = freezed,
     Object? text = freezed,
+    Object? channel = freezed,
   }) {
     return _then(_$_SendMessageRequest(
-      channel: channel == freezed
-          ? _value.channel
-          : channel // ignore: cast_nullable_to_non_nullable
-              as String?,
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      channel: channel == freezed
+          ? _value.channel
+          : channel // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2153,22 +2153,22 @@ class __$$_SendMessageRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SendMessageRequest implements _SendMessageRequest {
-  const _$_SendMessageRequest({this.channel, this.text});
+  const _$_SendMessageRequest({this.text, this.channel});
 
   factory _$_SendMessageRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SendMessageRequestFromJson(json);
-
-  /// The channel to send to
-  @override
-  final String? channel;
 
   /// The message text to send
   @override
   final String? text;
 
+  /// The channel to send to
+  @override
+  final String? channel;
+
   @override
   String toString() {
-    return 'SendMessageRequest(channel: $channel, text: $text)';
+    return 'SendMessageRequest(text: $text, channel: $channel)';
   }
 
   @override
@@ -2176,16 +2176,16 @@ class _$_SendMessageRequest implements _SendMessageRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SendMessageRequest &&
-            const DeepCollectionEquality().equals(other.channel, channel) &&
-            const DeepCollectionEquality().equals(other.text, text));
+            const DeepCollectionEquality().equals(other.text, text) &&
+            const DeepCollectionEquality().equals(other.channel, channel));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(channel),
-      const DeepCollectionEquality().hash(text));
+      const DeepCollectionEquality().hash(text),
+      const DeepCollectionEquality().hash(channel));
 
   @JsonKey(ignore: true)
   @override
@@ -2203,19 +2203,19 @@ class _$_SendMessageRequest implements _SendMessageRequest {
 
 abstract class _SendMessageRequest implements SendMessageRequest {
   const factory _SendMessageRequest(
-      {final String? channel, final String? text}) = _$_SendMessageRequest;
+      {final String? text, final String? channel}) = _$_SendMessageRequest;
 
   factory _SendMessageRequest.fromJson(Map<String, dynamic> json) =
       _$_SendMessageRequest.fromJson;
 
   @override
 
-  /// The channel to send to
-  String? get channel;
-  @override
-
   /// The message text to send
   String? get text;
+  @override
+
+  /// The channel to send to
+  String? get channel;
   @override
   @JsonKey(ignore: true)
   _$$_SendMessageRequestCopyWith<_$_SendMessageRequest> get copyWith =>

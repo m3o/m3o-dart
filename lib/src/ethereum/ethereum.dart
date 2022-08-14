@@ -32,6 +32,26 @@ class EthereumService {
     }
   }
 
+  /// Broadcast presigned transaction to ethereum network
+  Future<BroadcastResponse> broadcast(BroadcastRequest req) async {
+    Request request = Request(
+      service: 'ethereum',
+      endpoint: 'Broadcast',
+      body: req.toJson(),
+    );
+
+    try {
+      Response res = await _client.call(request);
+      if (isError(res.body)) {
+        final err = Merr(res.toJson());
+        return BroadcastResponse.Merr(body: err.b);
+      }
+      return BroadcastResponseData.fromJson(res.body);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
   /// Get transaction details by hash
   Future<TransactionResponse> transaction(TransactionRequest req) async {
     Request request = Request(
@@ -77,6 +97,28 @@ class BalanceResponse with _$BalanceResponse {
 }
 
 @Freezed()
+class BroadcastRequest with _$BroadcastRequest {
+  const factory BroadcastRequest({
+    /// raw transaction data to broadcast
+    String? hex,
+  }) = _BroadcastRequest;
+  factory BroadcastRequest.fromJson(Map<String, dynamic> json) =>
+      _$BroadcastRequestFromJson(json);
+}
+
+@Freezed()
+class BroadcastResponse with _$BroadcastResponse {
+  const factory BroadcastResponse({
+    /// the transaction hash
+    String? hash,
+  }) = BroadcastResponseData;
+  const factory BroadcastResponse.Merr({Map<String, dynamic>? body}) =
+      BroadcastResponseMerr;
+  factory BroadcastResponse.fromJson(Map<String, dynamic> json) =>
+      _$BroadcastResponseFromJson(json);
+}
+
+@Freezed()
 class TransactionRequest with _$TransactionRequest {
   const factory TransactionRequest({
     /// tx hash
@@ -92,50 +134,50 @@ class TransactionResponse with _$TransactionResponse {
     /// the block hash
     String? block_hash,
 
+    /// chain id
+    String? chain_id,
+    String? r,
+
+    /// type of transaction
+    String? type,
+    String? v,
+
+    /// input
+    String? input,
+
     /// max fee per gas
     String? max_fee_per_gas,
-
-    /// max priority fee per gas
-    String? max_priority_fee_per_gas,
     String? s,
-
-    /// to address
-    String? to_address,
 
     /// transaction index
     String? tx_index,
 
-    /// type of transaction
-    String? type,
+    /// sent from
+    String? from_address,
 
-    /// gas price
-    String? gas_price,
-    String? r,
+    /// max priority fee per gas
+    String? max_priority_fee_per_gas,
+
+    /// the nonce
+    String? nonce,
+
+    /// to address
+    String? to_address,
 
     /// the block number
     String? block_number,
 
-    /// sent from
-    String? from_address,
-
     /// gas
     String? gas,
 
-    /// the nonce
-    String? nonce,
-    String? v,
-
-    /// value of transaction
-    String? value,
-
-    /// chain id
-    String? chain_id,
+    /// gas price
+    String? gas_price,
 
     /// tx hash
     String? hash,
 
-    /// input
-    String? input,
+    /// value of transaction
+    String? value,
   }) = TransactionResponseData;
   const factory TransactionResponse.Merr({Map<String, dynamic>? body}) =
       TransactionResponseMerr;

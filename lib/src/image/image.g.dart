@@ -56,16 +56,16 @@ Map<String, dynamic> _$$ConvertResponseMerrToJson(
 
 _$_CropOptions _$$_CropOptionsFromJson(Map<String, dynamic> json) =>
     _$_CropOptions(
+      anchor: json['anchor'] as String?,
       height: json['height'] as int?,
       width: json['width'] as int?,
-      anchor: json['anchor'] as String?,
     );
 
 Map<String, dynamic> _$$_CropOptionsToJson(_$_CropOptions instance) =>
     <String, dynamic>{
+      'anchor': instance.anchor,
       'height': instance.height,
       'width': instance.width,
-      'anchor': instance.anchor,
     };
 
 _$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
@@ -103,13 +103,13 @@ Map<String, dynamic> _$$DeleteResponseMerrToJson(
     };
 
 _$_Point _$$_PointFromJson(Map<String, dynamic> json) => _$_Point(
-      y: json['y'] as int?,
       x: json['x'] as int?,
+      y: json['y'] as int?,
     );
 
 Map<String, dynamic> _$$_PointToJson(_$_Point instance) => <String, dynamic>{
-      'y': instance.y,
       'x': instance.x,
+      'y': instance.y,
     };
 
 _$_Rectangle _$$_RectangleFromJson(Map<String, dynamic> json) => _$_Rectangle(

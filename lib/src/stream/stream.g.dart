@@ -165,15 +165,15 @@ Map<String, dynamic> _$$_MessageToJson(_$_Message instance) =>
 _$_SendMessageRequest _$$_SendMessageRequestFromJson(
         Map<String, dynamic> json) =>
     _$_SendMessageRequest(
-      channel: json['channel'] as String?,
       text: json['text'] as String?,
+      channel: json['channel'] as String?,
     );
 
 Map<String, dynamic> _$$_SendMessageRequestToJson(
         _$_SendMessageRequest instance) =>
     <String, dynamic>{
-      'channel': instance.channel,
       'text': instance.text,
+      'channel': instance.channel,
     };
 
 _$SendMessageResponseData _$$SendMessageResponseDataFromJson(

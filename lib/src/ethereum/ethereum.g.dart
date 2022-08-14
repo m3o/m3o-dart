@@ -44,6 +44,44 @@ Map<String, dynamic> _$$BalanceResponseMerrToJson(
       'runtimeType': instance.$type,
     };
 
+_$_BroadcastRequest _$$_BroadcastRequestFromJson(Map<String, dynamic> json) =>
+    _$_BroadcastRequest(
+      hex: json['hex'] as String?,
+    );
+
+Map<String, dynamic> _$$_BroadcastRequestToJson(_$_BroadcastRequest instance) =>
+    <String, dynamic>{
+      'hex': instance.hex,
+    };
+
+_$BroadcastResponseData _$$BroadcastResponseDataFromJson(
+        Map<String, dynamic> json) =>
+    _$BroadcastResponseData(
+      hash: json['hash'] as String?,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$BroadcastResponseDataToJson(
+        _$BroadcastResponseData instance) =>
+    <String, dynamic>{
+      'hash': instance.hash,
+      'runtimeType': instance.$type,
+    };
+
+_$BroadcastResponseMerr _$$BroadcastResponseMerrFromJson(
+        Map<String, dynamic> json) =>
+    _$BroadcastResponseMerr(
+      body: json['body'] as Map<String, dynamic>?,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$BroadcastResponseMerrToJson(
+        _$BroadcastResponseMerr instance) =>
+    <String, dynamic>{
+      'body': instance.body,
+      'runtimeType': instance.$type,
+    };
+
 _$_TransactionRequest _$$_TransactionRequestFromJson(
         Map<String, dynamic> json) =>
     _$_TransactionRequest(
@@ -60,23 +98,23 @@ _$TransactionResponseData _$$TransactionResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$TransactionResponseData(
       block_hash: json['block_hash'] as String?,
-      max_fee_per_gas: json['max_fee_per_gas'] as String?,
-      max_priority_fee_per_gas: json['max_priority_fee_per_gas'] as String?,
-      s: json['s'] as String?,
-      to_address: json['to_address'] as String?,
-      tx_index: json['tx_index'] as String?,
-      type: json['type'] as String?,
-      gas_price: json['gas_price'] as String?,
-      r: json['r'] as String?,
-      block_number: json['block_number'] as String?,
-      from_address: json['from_address'] as String?,
-      gas: json['gas'] as String?,
-      nonce: json['nonce'] as String?,
-      v: json['v'] as String?,
-      value: json['value'] as String?,
       chain_id: json['chain_id'] as String?,
-      hash: json['hash'] as String?,
+      r: json['r'] as String?,
+      type: json['type'] as String?,
+      v: json['v'] as String?,
       input: json['input'] as String?,
+      max_fee_per_gas: json['max_fee_per_gas'] as String?,
+      s: json['s'] as String?,
+      tx_index: json['tx_index'] as String?,
+      from_address: json['from_address'] as String?,
+      max_priority_fee_per_gas: json['max_priority_fee_per_gas'] as String?,
+      nonce: json['nonce'] as String?,
+      to_address: json['to_address'] as String?,
+      block_number: json['block_number'] as String?,
+      gas: json['gas'] as String?,
+      gas_price: json['gas_price'] as String?,
+      hash: json['hash'] as String?,
+      value: json['value'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
@@ -84,23 +122,23 @@ Map<String, dynamic> _$$TransactionResponseDataToJson(
         _$TransactionResponseData instance) =>
     <String, dynamic>{
       'block_hash': instance.block_hash,
-      'max_fee_per_gas': instance.max_fee_per_gas,
-      'max_priority_fee_per_gas': instance.max_priority_fee_per_gas,
-      's': instance.s,
-      'to_address': instance.to_address,
-      'tx_index': instance.tx_index,
-      'type': instance.type,
-      'gas_price': instance.gas_price,
-      'r': instance.r,
-      'block_number': instance.block_number,
-      'from_address': instance.from_address,
-      'gas': instance.gas,
-      'nonce': instance.nonce,
-      'v': instance.v,
-      'value': instance.value,
       'chain_id': instance.chain_id,
-      'hash': instance.hash,
+      'r': instance.r,
+      'type': instance.type,
+      'v': instance.v,
       'input': instance.input,
+      'max_fee_per_gas': instance.max_fee_per_gas,
+      's': instance.s,
+      'tx_index': instance.tx_index,
+      'from_address': instance.from_address,
+      'max_priority_fee_per_gas': instance.max_priority_fee_per_gas,
+      'nonce': instance.nonce,
+      'to_address': instance.to_address,
+      'block_number': instance.block_number,
+      'gas': instance.gas,
+      'gas_price': instance.gas_price,
+      'hash': instance.hash,
+      'value': instance.value,
       'runtimeType': instance.$type,
     };
 

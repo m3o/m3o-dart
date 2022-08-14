@@ -667,17 +667,17 @@ CropOptions _$CropOptionsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CropOptions {
-  /// height to crop to
-  int? get height => throw _privateConstructorUsedError;
-
-  /// width to crop to
-  int? get width => throw _privateConstructorUsedError;
-
   /// Crop anchor point: "top", "top left", "top right",
   /// "left", "center", "right"
   /// "bottom left", "bottom", "bottom right".
   /// Optional. Defaults to center.
   String? get anchor => throw _privateConstructorUsedError;
+
+  /// height to crop to
+  int? get height => throw _privateConstructorUsedError;
+
+  /// width to crop to
+  int? get width => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -690,7 +690,7 @@ abstract class $CropOptionsCopyWith<$Res> {
   factory $CropOptionsCopyWith(
           CropOptions value, $Res Function(CropOptions) then) =
       _$CropOptionsCopyWithImpl<$Res>;
-  $Res call({int? height, int? width, String? anchor});
+  $Res call({String? anchor, int? height, int? width});
 }
 
 /// @nodoc
@@ -703,11 +703,15 @@ class _$CropOptionsCopyWithImpl<$Res> implements $CropOptionsCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? anchor = freezed,
     Object? height = freezed,
     Object? width = freezed,
-    Object? anchor = freezed,
   }) {
     return _then(_value.copyWith(
+      anchor: anchor == freezed
+          ? _value.anchor
+          : anchor // ignore: cast_nullable_to_non_nullable
+              as String?,
       height: height == freezed
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -716,10 +720,6 @@ class _$CropOptionsCopyWithImpl<$Res> implements $CropOptionsCopyWith<$Res> {
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
               as int?,
-      anchor: anchor == freezed
-          ? _value.anchor
-          : anchor // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -731,7 +731,7 @@ abstract class _$$_CropOptionsCopyWith<$Res>
           _$_CropOptions value, $Res Function(_$_CropOptions) then) =
       __$$_CropOptionsCopyWithImpl<$Res>;
   @override
-  $Res call({int? height, int? width, String? anchor});
+  $Res call({String? anchor, int? height, int? width});
 }
 
 /// @nodoc
@@ -746,11 +746,15 @@ class __$$_CropOptionsCopyWithImpl<$Res> extends _$CropOptionsCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? anchor = freezed,
     Object? height = freezed,
     Object? width = freezed,
-    Object? anchor = freezed,
   }) {
     return _then(_$_CropOptions(
+      anchor: anchor == freezed
+          ? _value.anchor
+          : anchor // ignore: cast_nullable_to_non_nullable
+              as String?,
       height: height == freezed
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -759,10 +763,6 @@ class __$$_CropOptionsCopyWithImpl<$Res> extends _$CropOptionsCopyWithImpl<$Res>
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
               as int?,
-      anchor: anchor == freezed
-          ? _value.anchor
-          : anchor // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -770,10 +770,17 @@ class __$$_CropOptionsCopyWithImpl<$Res> extends _$CropOptionsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CropOptions implements _CropOptions {
-  const _$_CropOptions({this.height, this.width, this.anchor});
+  const _$_CropOptions({this.anchor, this.height, this.width});
 
   factory _$_CropOptions.fromJson(Map<String, dynamic> json) =>
       _$$_CropOptionsFromJson(json);
+
+  /// Crop anchor point: "top", "top left", "top right",
+  /// "left", "center", "right"
+  /// "bottom left", "bottom", "bottom right".
+  /// Optional. Defaults to center.
+  @override
+  final String? anchor;
 
   /// height to crop to
   @override
@@ -783,16 +790,9 @@ class _$_CropOptions implements _CropOptions {
   @override
   final int? width;
 
-  /// Crop anchor point: "top", "top left", "top right",
-  /// "left", "center", "right"
-  /// "bottom left", "bottom", "bottom right".
-  /// Optional. Defaults to center.
-  @override
-  final String? anchor;
-
   @override
   String toString() {
-    return 'CropOptions(height: $height, width: $width, anchor: $anchor)';
+    return 'CropOptions(anchor: $anchor, height: $height, width: $width)';
   }
 
   @override
@@ -800,18 +800,18 @@ class _$_CropOptions implements _CropOptions {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CropOptions &&
+            const DeepCollectionEquality().equals(other.anchor, anchor) &&
             const DeepCollectionEquality().equals(other.height, height) &&
-            const DeepCollectionEquality().equals(other.width, width) &&
-            const DeepCollectionEquality().equals(other.anchor, anchor));
+            const DeepCollectionEquality().equals(other.width, width));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(anchor),
       const DeepCollectionEquality().hash(height),
-      const DeepCollectionEquality().hash(width),
-      const DeepCollectionEquality().hash(anchor));
+      const DeepCollectionEquality().hash(width));
 
   @JsonKey(ignore: true)
   @override
@@ -828,13 +828,20 @@ class _$_CropOptions implements _CropOptions {
 
 abstract class _CropOptions implements CropOptions {
   const factory _CropOptions(
-      {final int? height,
-      final int? width,
-      final String? anchor}) = _$_CropOptions;
+      {final String? anchor,
+      final int? height,
+      final int? width}) = _$_CropOptions;
 
   factory _CropOptions.fromJson(Map<String, dynamic> json) =
       _$_CropOptions.fromJson;
 
+  @override
+
+  /// Crop anchor point: "top", "top left", "top right",
+  /// "left", "center", "right"
+  /// "bottom left", "bottom", "bottom right".
+  /// Optional. Defaults to center.
+  String? get anchor;
   @override
 
   /// height to crop to
@@ -843,13 +850,6 @@ abstract class _CropOptions implements CropOptions {
 
   /// width to crop to
   int? get width;
-  @override
-
-  /// Crop anchor point: "top", "top left", "top right",
-  /// "left", "center", "right"
-  /// "bottom left", "bottom", "bottom right".
-  /// Optional. Defaults to center.
-  String? get anchor;
   @override
   @JsonKey(ignore: true)
   _$$_CropOptionsCopyWith<_$_CropOptions> get copyWith =>
@@ -1358,8 +1358,8 @@ Point _$PointFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Point {
-  int? get y => throw _privateConstructorUsedError;
   int? get x => throw _privateConstructorUsedError;
+  int? get y => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1370,7 +1370,7 @@ mixin _$Point {
 abstract class $PointCopyWith<$Res> {
   factory $PointCopyWith(Point value, $Res Function(Point) then) =
       _$PointCopyWithImpl<$Res>;
-  $Res call({int? y, int? x});
+  $Res call({int? x, int? y});
 }
 
 /// @nodoc
@@ -1383,17 +1383,17 @@ class _$PointCopyWithImpl<$Res> implements $PointCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? y = freezed,
     Object? x = freezed,
+    Object? y = freezed,
   }) {
     return _then(_value.copyWith(
-      y: y == freezed
-          ? _value.y
-          : y // ignore: cast_nullable_to_non_nullable
-              as int?,
       x: x == freezed
           ? _value.x
           : x // ignore: cast_nullable_to_non_nullable
+              as int?,
+      y: y == freezed
+          ? _value.y
+          : y // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
@@ -1404,7 +1404,7 @@ abstract class _$$_PointCopyWith<$Res> implements $PointCopyWith<$Res> {
   factory _$$_PointCopyWith(_$_Point value, $Res Function(_$_Point) then) =
       __$$_PointCopyWithImpl<$Res>;
   @override
-  $Res call({int? y, int? x});
+  $Res call({int? x, int? y});
 }
 
 /// @nodoc
@@ -1418,17 +1418,17 @@ class __$$_PointCopyWithImpl<$Res> extends _$PointCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? y = freezed,
     Object? x = freezed,
+    Object? y = freezed,
   }) {
     return _then(_$_Point(
-      y: y == freezed
-          ? _value.y
-          : y // ignore: cast_nullable_to_non_nullable
-              as int?,
       x: x == freezed
           ? _value.x
           : x // ignore: cast_nullable_to_non_nullable
+              as int?,
+      y: y == freezed
+          ? _value.y
+          : y // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
@@ -1437,19 +1437,19 @@ class __$$_PointCopyWithImpl<$Res> extends _$PointCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Point implements _Point {
-  const _$_Point({this.y, this.x});
+  const _$_Point({this.x, this.y});
 
   factory _$_Point.fromJson(Map<String, dynamic> json) =>
       _$$_PointFromJson(json);
 
   @override
-  final int? y;
-  @override
   final int? x;
+  @override
+  final int? y;
 
   @override
   String toString() {
-    return 'Point(y: $y, x: $x)';
+    return 'Point(x: $x, y: $y)';
   }
 
   @override
@@ -1457,16 +1457,16 @@ class _$_Point implements _Point {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Point &&
-            const DeepCollectionEquality().equals(other.y, y) &&
-            const DeepCollectionEquality().equals(other.x, x));
+            const DeepCollectionEquality().equals(other.x, x) &&
+            const DeepCollectionEquality().equals(other.y, y));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(y),
-      const DeepCollectionEquality().hash(x));
+      const DeepCollectionEquality().hash(x),
+      const DeepCollectionEquality().hash(y));
 
   @JsonKey(ignore: true)
   @override
@@ -1482,14 +1482,14 @@ class _$_Point implements _Point {
 }
 
 abstract class _Point implements Point {
-  const factory _Point({final int? y, final int? x}) = _$_Point;
+  const factory _Point({final int? x, final int? y}) = _$_Point;
 
   factory _Point.fromJson(Map<String, dynamic> json) = _$_Point.fromJson;
 
   @override
-  int? get y;
-  @override
   int? get x;
+  @override
+  int? get y;
   @override
   @JsonKey(ignore: true)
   _$$_PointCopyWith<_$_Point> get copyWith =>
