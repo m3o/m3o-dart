@@ -7,20 +7,20 @@ part of 'geocoding.dart';
 // **************************************************************************
 
 _$_Address _$$_AddressFromJson(Map<String, dynamic> json) => _$_Address(
-      postcode: json['postcode'] as String?,
-      city: json['city'] as String?,
       country: json['country'] as String?,
       line_one: json['line_one'] as String?,
       line_two: json['line_two'] as String?,
+      postcode: json['postcode'] as String?,
+      city: json['city'] as String?,
     );
 
 Map<String, dynamic> _$$_AddressToJson(_$_Address instance) =>
     <String, dynamic>{
-      'postcode': instance.postcode,
-      'city': instance.city,
       'country': instance.country,
       'line_one': instance.line_one,
       'line_two': instance.line_two,
+      'postcode': instance.postcode,
+      'city': instance.city,
     };
 
 _$_Location _$$_LocationFromJson(Map<String, dynamic> json) => _$_Location(
