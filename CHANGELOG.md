@@ -1,3 +1,9 @@
+## v1.0.166 - 2022-08-19
+
+[4ebe44](https://github.com/micro/services/commit/4ebe44f05b33f6fc28214aeb74f89cc14074b4a2) add ethereum broadcast example
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.165...v1.0.166
+
 ## v1.0.165 - 2022-08-15
 
 [4ebe44](https://github.com/micro/services/commit/4ebe44f05b33f6fc28214aeb74f89cc14074b4a2) add ethereum broadcast example
