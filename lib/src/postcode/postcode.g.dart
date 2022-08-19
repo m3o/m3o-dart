@@ -18,26 +18,26 @@ Map<String, dynamic> _$$_LookupRequestToJson(_$_LookupRequest instance) =>
 
 _$LookupResponseData _$$LookupResponseDataFromJson(Map<String, dynamic> json) =>
     _$LookupResponseData(
+      district: json['district'] as String?,
       latitude: (json['latitude'] as num?)?.toDouble(),
       longitude: (json['longitude'] as num?)?.toDouble(),
       postcode: json['postcode'] as String?,
       region: json['region'] as String?,
       ward: json['ward'] as String?,
       country: json['country'] as String?,
-      district: json['district'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$LookupResponseDataToJson(
         _$LookupResponseData instance) =>
     <String, dynamic>{
+      'district': instance.district,
       'latitude': instance.latitude,
       'longitude': instance.longitude,
       'postcode': instance.postcode,
       'region': instance.region,
       'ward': instance.ward,
       'country': instance.country,
-      'district': instance.district,
       'runtimeType': instance.$type,
     };
 
@@ -62,26 +62,26 @@ Map<String, dynamic> _$$_RandomRequestToJson(_$_RandomRequest instance) =>
 
 _$RandomResponseData _$$RandomResponseDataFromJson(Map<String, dynamic> json) =>
     _$RandomResponseData(
+      postcode: json['postcode'] as String?,
+      region: json['region'] as String?,
       ward: json['ward'] as String?,
       country: json['country'] as String?,
       district: json['district'] as String?,
       latitude: (json['latitude'] as num?)?.toDouble(),
       longitude: (json['longitude'] as num?)?.toDouble(),
-      postcode: json['postcode'] as String?,
-      region: json['region'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$RandomResponseDataToJson(
         _$RandomResponseData instance) =>
     <String, dynamic>{
+      'postcode': instance.postcode,
+      'region': instance.region,
       'ward': instance.ward,
       'country': instance.country,
       'district': instance.district,
       'latitude': instance.latitude,
       'longitude': instance.longitude,
-      'postcode': instance.postcode,
-      'region': instance.region,
       'runtimeType': instance.$type,
     };
 

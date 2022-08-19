@@ -22,15 +22,15 @@ Map<String, dynamic> _$$_ChannelToJson(_$_Channel instance) =>
 _$_CreateChannelRequest _$$_CreateChannelRequestFromJson(
         Map<String, dynamic> json) =>
     _$_CreateChannelRequest(
-      description: json['description'] as String?,
       name: json['name'] as String?,
+      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateChannelRequestToJson(
         _$_CreateChannelRequest instance) =>
     <String, dynamic>{
-      'description': instance.description,
       'name': instance.name,
+      'description': instance.description,
     };
 
 _$CreateChannelResponseData _$$CreateChannelResponseDataFromJson(
@@ -100,15 +100,15 @@ Map<String, dynamic> _$$ListChannelsResponseMerrToJson(
 _$_ListMessagesRequest _$$_ListMessagesRequestFromJson(
         Map<String, dynamic> json) =>
     _$_ListMessagesRequest(
-      limit: json['limit'] as int?,
       channel: json['channel'] as String?,
+      limit: json['limit'] as int?,
     );
 
 Map<String, dynamic> _$$_ListMessagesRequestToJson(
         _$_ListMessagesRequest instance) =>
     <String, dynamic>{
-      'limit': instance.limit,
       'channel': instance.channel,
+      'limit': instance.limit,
     };
 
 _$ListMessagesResponseData _$$ListMessagesResponseDataFromJson(
