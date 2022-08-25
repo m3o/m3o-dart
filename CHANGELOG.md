@@ -1,3 +1,9 @@
+## v1.0.167 - 2022-08-25
+
+[c7a264](https://github.com/micro/services/commit/c7a2644b5cedb2006f74497548af8073b968d848) Update publicapi.json
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.166...v1.0.167
+
 ## v1.0.166 - 2022-08-19
 
 [4ebe44](https://github.com/micro/services/commit/4ebe44f05b33f6fc28214aeb74f89cc14074b4a2) add ethereum broadcast example
