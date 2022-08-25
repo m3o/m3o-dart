@@ -7,18 +7,18 @@ part of 'wallet.dart';
 // **************************************************************************
 
 _$_Account _$$_AccountFromJson(Map<String, dynamic> json) => _$_Account(
-      name: json['name'] as String?,
       balance: int64FromString(json['balance'] as String?),
       description: json['description'] as String?,
       id: json['id'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_AccountToJson(_$_Account instance) =>
     <String, dynamic>{
-      'name': instance.name,
       'balance': int64ToString(instance.balance),
       'description': instance.description,
       'id': instance.id,
+      'name': instance.name,
     };
 
 _$_BalanceRequest _$$_BalanceRequestFromJson(Map<String, dynamic> json) =>
@@ -61,16 +61,16 @@ Map<String, dynamic> _$$BalanceResponseMerrToJson(
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
+      name: json['name'] as String?,
       description: json['description'] as String?,
       id: json['id'] as String?,
-      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
+      'name': instance.name,
       'description': instance.description,
       'id': instance.id,
-      'name': instance.name,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -103,20 +103,20 @@ Map<String, dynamic> _$$CreateResponseMerrToJson(
 
 _$_CreditRequest _$$_CreditRequestFromJson(Map<String, dynamic> json) =>
     _$_CreditRequest(
+      visible: json['visible'] as bool?,
+      amount: int64FromString(json['amount'] as String?),
       id: json['id'] as String?,
       idempotency_key: json['idempotency_key'] as String?,
       reference: json['reference'] as String?,
-      visible: json['visible'] as bool?,
-      amount: int64FromString(json['amount'] as String?),
     );
 
 Map<String, dynamic> _$$_CreditRequestToJson(_$_CreditRequest instance) =>
     <String, dynamic>{
+      'visible': instance.visible,
+      'amount': int64ToString(instance.amount),
       'id': instance.id,
       'idempotency_key': instance.idempotency_key,
       'reference': instance.reference,
-      'visible': instance.visible,
-      'amount': int64ToString(instance.amount),
     };
 
 _$CreditResponseData _$$CreditResponseDataFromJson(Map<String, dynamic> json) =>
@@ -147,20 +147,20 @@ Map<String, dynamic> _$$CreditResponseMerrToJson(
 
 _$_DebitRequest _$$_DebitRequestFromJson(Map<String, dynamic> json) =>
     _$_DebitRequest(
+      id: json['id'] as String?,
       idempotency_key: json['idempotency_key'] as String?,
       reference: json['reference'] as String?,
       visible: json['visible'] as bool?,
       amount: int64FromString(json['amount'] as String?),
-      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_DebitRequestToJson(_$_DebitRequest instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'idempotency_key': instance.idempotency_key,
       'reference': instance.reference,
       'visible': instance.visible,
       'amount': int64ToString(instance.amount),
-      'id': instance.id,
     };
 
 _$DebitResponseData _$$DebitResponseDataFromJson(Map<String, dynamic> json) =>
@@ -291,22 +291,22 @@ Map<String, dynamic> _$$ReadResponseMerrToJson(_$ReadResponseMerr instance) =>
 
 _$_Transaction _$$_TransactionFromJson(Map<String, dynamic> json) =>
     _$_Transaction(
-      amount: int64FromString(json['amount'] as String?),
-      created: json['created'] as String?,
       id: json['id'] as String?,
       metadata: (json['metadata'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
       reference: json['reference'] as String?,
+      amount: int64FromString(json['amount'] as String?),
+      created: json['created'] as String?,
     );
 
 Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) =>
     <String, dynamic>{
-      'amount': int64ToString(instance.amount),
-      'created': instance.created,
       'id': instance.id,
       'metadata': instance.metadata,
       'reference': instance.reference,
+      'amount': int64ToString(instance.amount),
+      'created': instance.created,
     };
 
 _$_TransactionsRequest _$$_TransactionsRequestFromJson(

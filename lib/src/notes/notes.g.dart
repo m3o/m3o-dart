@@ -96,18 +96,18 @@ Map<String, dynamic> _$$_EventsRequestToJson(_$_EventsRequest instance) =>
 
 _$EventsResponseData _$$EventsResponseDataFromJson(Map<String, dynamic> json) =>
     _$EventsResponseData(
-      event: json['event'] as String?,
       note: json['note'] == null
           ? null
           : Note.fromJson(json['note'] as Map<String, dynamic>),
+      event: json['event'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$EventsResponseDataToJson(
         _$EventsResponseData instance) =>
     <String, dynamic>{
-      'event': instance.event,
       'note': instance.note,
+      'event': instance.event,
       'runtimeType': instance.$type,
     };
 
