@@ -19,26 +19,26 @@ Map<String, dynamic> _$$_HistoryRequestToJson(_$_HistoryRequest instance) =>
 _$HistoryResponseData _$$HistoryResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$HistoryResponseData(
+      low: (json['low'] as num?)?.toDouble(),
+      open: (json['open'] as num?)?.toDouble(),
       symbol: json['symbol'] as String?,
       volume: (json['volume'] as num?)?.toDouble(),
       close: (json['close'] as num?)?.toDouble(),
       date: json['date'] as String?,
       high: (json['high'] as num?)?.toDouble(),
-      low: (json['low'] as num?)?.toDouble(),
-      open: (json['open'] as num?)?.toDouble(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$HistoryResponseDataToJson(
         _$HistoryResponseData instance) =>
     <String, dynamic>{
+      'low': instance.low,
+      'open': instance.open,
       'symbol': instance.symbol,
       'volume': instance.volume,
       'close': instance.close,
       'date': instance.date,
       'high': instance.high,
-      'low': instance.low,
-      'open': instance.open,
       'runtimeType': instance.$type,
     };
 
@@ -68,15 +68,15 @@ Map<String, dynamic> _$$_PriceRequestToJson(_$_PriceRequest instance) =>
 
 _$PriceResponseData _$$PriceResponseDataFromJson(Map<String, dynamic> json) =>
     _$PriceResponseData(
-      price: (json['price'] as num?)?.toDouble(),
       symbol: json['symbol'] as String?,
+      price: (json['price'] as num?)?.toDouble(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$PriceResponseDataToJson(_$PriceResponseData instance) =>
     <String, dynamic>{
-      'price': instance.price,
       'symbol': instance.symbol,
+      'price': instance.price,
       'runtimeType': instance.$type,
     };
 

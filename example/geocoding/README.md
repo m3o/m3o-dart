@@ -4,43 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/geocoding/api]
 
 Endpoints:
 
-## Reverse
-
-Reverse lookup an address from gps coordinates
-
-
-[https://m3o.com/geocoding/api#Reverse](https://m3o.com/geocoding/api#Reverse)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/geocoding/geocoding.dart';
-
-void main() async {
-  final ser = GeocodingService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "latitude": 51.5123064,
-  "longitude": -0.1216235
-,};
-
-  ReverseRequest req = ReverseRequest.fromJson(payload);
-
-  
-  try {
-
-	ReverseResponse res = await ser.reverse(req);
-
-    res.map((value) => print(value),
-	  Merr: (ReverseResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Lookup
 
 Lookup returns a geocoded address including normalized address and gps coordinates. All fields are optional, provide more to get more accurate results
@@ -72,6 +35,43 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (LookupResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Reverse
+
+Reverse lookup an address from gps coordinates
+
+
+[https://m3o.com/geocoding/api#Reverse](https://m3o.com/geocoding/api#Reverse)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/geocoding/geocoding.dart';
+
+void main() async {
+  final ser = GeocodingService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "latitude": 51.5123064,
+  "longitude": -0.1216235
+,};
+
+  ReverseRequest req = ReverseRequest.fromJson(payload);
+
+  
+  try {
+
+	ReverseResponse res = await ser.reverse(req);
+
+    res.map((value) => print(value),
+	  Merr: (ReverseResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

@@ -96,17 +96,17 @@ Map<String, dynamic> _$$_GetRequestToJson(_$_GetRequest instance) =>
 
 _$GetResponseData _$$GetResponseDataFromJson(Map<String, dynamic> json) =>
     _$GetResponseData(
-      ttl: int64FromString(json['ttl'] as String?),
       value: json['value'] as String?,
       key: json['key'] as String?,
+      ttl: int64FromString(json['ttl'] as String?),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$GetResponseDataToJson(_$GetResponseData instance) =>
     <String, dynamic>{
-      'ttl': int64ToString(instance.ttl),
       'value': instance.value,
       'key': instance.key,
+      'ttl': int64ToString(instance.ttl),
       'runtimeType': instance.$type,
     };
 
@@ -200,16 +200,16 @@ Map<String, dynamic> _$$ListKeysResponseMerrToJson(
 
 _$_SetRequest _$$_SetRequestFromJson(Map<String, dynamic> json) =>
     _$_SetRequest(
+      value: json['value'] as String?,
       key: json['key'] as String?,
       ttl: int64FromString(json['ttl'] as String?),
-      value: json['value'] as String?,
     );
 
 Map<String, dynamic> _$$_SetRequestToJson(_$_SetRequest instance) =>
     <String, dynamic>{
+      'value': instance.value,
       'key': instance.key,
       'ttl': int64ToString(instance.ttl),
-      'value': instance.value,
     };
 
 _$SetResponseData _$$SetResponseDataFromJson(Map<String, dynamic> json) =>

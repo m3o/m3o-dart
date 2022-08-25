@@ -48,14 +48,14 @@ Map<String, dynamic> _$$CreateResponseMerrToJson(
 
 _$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
     _$_DeleteRequest(
-      shortURL: json['shortURL'] as String?,
       id: json['id'] as String?,
+      shortURL: json['shortURL'] as String?,
     );
 
 Map<String, dynamic> _$$_DeleteRequestToJson(_$_DeleteRequest instance) =>
     <String, dynamic>{
-      'shortURL': instance.shortURL,
       'id': instance.id,
+      'shortURL': instance.shortURL,
     };
 
 _$DeleteResponseData _$$DeleteResponseDataFromJson(Map<String, dynamic> json) =>

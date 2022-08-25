@@ -545,14 +545,14 @@ CreateRequest _$CreateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateRequest {
+  /// Optional table name. Defaults to 'default'
+  String? get table => throw _privateConstructorUsedError;
+
   /// optional record id to use
   String? get id => throw _privateConstructorUsedError;
 
   /// JSON encoded record or records (can be array or object)
   Map<String, dynamic>? get record => throw _privateConstructorUsedError;
-
-  /// Optional table name. Defaults to 'default'
-  String? get table => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -565,7 +565,7 @@ abstract class $CreateRequestCopyWith<$Res> {
   factory $CreateRequestCopyWith(
           CreateRequest value, $Res Function(CreateRequest) then) =
       _$CreateRequestCopyWithImpl<$Res>;
-  $Res call({String? id, Map<String, dynamic>? record, String? table});
+  $Res call({String? table, String? id, Map<String, dynamic>? record});
 }
 
 /// @nodoc
@@ -579,11 +579,15 @@ class _$CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? table = freezed,
     Object? id = freezed,
     Object? record = freezed,
-    Object? table = freezed,
   }) {
     return _then(_value.copyWith(
+      table: table == freezed
+          ? _value.table
+          : table // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -592,10 +596,6 @@ class _$CreateRequestCopyWithImpl<$Res>
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      table: table == freezed
-          ? _value.table
-          : table // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -607,7 +607,7 @@ abstract class _$$_CreateRequestCopyWith<$Res>
           _$_CreateRequest value, $Res Function(_$_CreateRequest) then) =
       __$$_CreateRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? id, Map<String, dynamic>? record, String? table});
+  $Res call({String? table, String? id, Map<String, dynamic>? record});
 }
 
 /// @nodoc
@@ -623,11 +623,15 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? table = freezed,
     Object? id = freezed,
     Object? record = freezed,
-    Object? table = freezed,
   }) {
     return _then(_$_CreateRequest(
+      table: table == freezed
+          ? _value.table
+          : table // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -636,10 +640,6 @@ class __$$_CreateRequestCopyWithImpl<$Res>
           ? _value._record
           : record // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      table: table == freezed
-          ? _value.table
-          : table // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -648,11 +648,15 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_CreateRequest implements _CreateRequest {
   const _$_CreateRequest(
-      {this.id, final Map<String, dynamic>? record, this.table})
+      {this.table, this.id, final Map<String, dynamic>? record})
       : _record = record;
 
   factory _$_CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateRequestFromJson(json);
+
+  /// Optional table name. Defaults to 'default'
+  @override
+  final String? table;
 
   /// optional record id to use
   @override
@@ -670,13 +674,9 @@ class _$_CreateRequest implements _CreateRequest {
     return EqualUnmodifiableMapView(value);
   }
 
-  /// Optional table name. Defaults to 'default'
-  @override
-  final String? table;
-
   @override
   String toString() {
-    return 'CreateRequest(id: $id, record: $record, table: $table)';
+    return 'CreateRequest(table: $table, id: $id, record: $record)';
   }
 
   @override
@@ -684,18 +684,18 @@ class _$_CreateRequest implements _CreateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateRequest &&
+            const DeepCollectionEquality().equals(other.table, table) &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other._record, _record) &&
-            const DeepCollectionEquality().equals(other.table, table));
+            const DeepCollectionEquality().equals(other._record, _record));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(table),
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(_record),
-      const DeepCollectionEquality().hash(table));
+      const DeepCollectionEquality().hash(_record));
 
   @JsonKey(ignore: true)
   @override
@@ -712,13 +712,17 @@ class _$_CreateRequest implements _CreateRequest {
 
 abstract class _CreateRequest implements CreateRequest {
   const factory _CreateRequest(
-      {final String? id,
-      final Map<String, dynamic>? record,
-      final String? table}) = _$_CreateRequest;
+      {final String? table,
+      final String? id,
+      final Map<String, dynamic>? record}) = _$_CreateRequest;
 
   factory _CreateRequest.fromJson(Map<String, dynamic> json) =
       _$_CreateRequest.fromJson;
 
+  @override
+
+  /// Optional table name. Defaults to 'default'
+  String? get table;
   @override
 
   /// optional record id to use
@@ -727,10 +731,6 @@ abstract class _CreateRequest implements CreateRequest {
 
   /// JSON encoded record or records (can be array or object)
   Map<String, dynamic>? get record;
-  @override
-
-  /// Optional table name. Defaults to 'default'
-  String? get table;
   @override
   @JsonKey(ignore: true)
   _$$_CreateRequestCopyWith<_$_CreateRequest> get copyWith =>
@@ -4359,14 +4359,14 @@ UpdateRequest _$UpdateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UpdateRequest {
+  /// The id of the record. If not specified it is inferred from the 'id' field of the record
+  String? get id => throw _privateConstructorUsedError;
+
   /// record, JSON object
   Map<String, dynamic>? get record => throw _privateConstructorUsedError;
 
   /// Optional table name. Defaults to 'default'
   String? get table => throw _privateConstructorUsedError;
-
-  /// The id of the record. If not specified it is inferred from the 'id' field of the record
-  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -4379,7 +4379,7 @@ abstract class $UpdateRequestCopyWith<$Res> {
   factory $UpdateRequestCopyWith(
           UpdateRequest value, $Res Function(UpdateRequest) then) =
       _$UpdateRequestCopyWithImpl<$Res>;
-  $Res call({Map<String, dynamic>? record, String? table, String? id});
+  $Res call({String? id, Map<String, dynamic>? record, String? table});
 }
 
 /// @nodoc
@@ -4393,11 +4393,15 @@ class _$UpdateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? record = freezed,
     Object? table = freezed,
-    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       record: record == freezed
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -4405,10 +4409,6 @@ class _$UpdateRequestCopyWithImpl<$Res>
       table: table == freezed
           ? _value.table
           : table // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -4421,7 +4421,7 @@ abstract class _$$_UpdateRequestCopyWith<$Res>
           _$_UpdateRequest value, $Res Function(_$_UpdateRequest) then) =
       __$$_UpdateRequestCopyWithImpl<$Res>;
   @override
-  $Res call({Map<String, dynamic>? record, String? table, String? id});
+  $Res call({String? id, Map<String, dynamic>? record, String? table});
 }
 
 /// @nodoc
@@ -4437,11 +4437,15 @@ class __$$_UpdateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? record = freezed,
     Object? table = freezed,
-    Object? id = freezed,
   }) {
     return _then(_$_UpdateRequest(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       record: record == freezed
           ? _value._record
           : record // ignore: cast_nullable_to_non_nullable
@@ -4449,10 +4453,6 @@ class __$$_UpdateRequestCopyWithImpl<$Res>
       table: table == freezed
           ? _value.table
           : table // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -4462,11 +4462,15 @@ class __$$_UpdateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UpdateRequest implements _UpdateRequest {
   const _$_UpdateRequest(
-      {final Map<String, dynamic>? record, this.table, this.id})
+      {this.id, final Map<String, dynamic>? record, this.table})
       : _record = record;
 
   factory _$_UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateRequestFromJson(json);
+
+  /// The id of the record. If not specified it is inferred from the 'id' field of the record
+  @override
+  final String? id;
 
   /// record, JSON object
   final Map<String, dynamic>? _record;
@@ -4484,13 +4488,9 @@ class _$_UpdateRequest implements _UpdateRequest {
   @override
   final String? table;
 
-  /// The id of the record. If not specified it is inferred from the 'id' field of the record
-  @override
-  final String? id;
-
   @override
   String toString() {
-    return 'UpdateRequest(record: $record, table: $table, id: $id)';
+    return 'UpdateRequest(id: $id, record: $record, table: $table)';
   }
 
   @override
@@ -4498,18 +4498,18 @@ class _$_UpdateRequest implements _UpdateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpdateRequest &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other._record, _record) &&
-            const DeepCollectionEquality().equals(other.table, table) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.table, table));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(_record),
-      const DeepCollectionEquality().hash(table),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(table));
 
   @JsonKey(ignore: true)
   @override
@@ -4526,13 +4526,17 @@ class _$_UpdateRequest implements _UpdateRequest {
 
 abstract class _UpdateRequest implements UpdateRequest {
   const factory _UpdateRequest(
-      {final Map<String, dynamic>? record,
-      final String? table,
-      final String? id}) = _$_UpdateRequest;
+      {final String? id,
+      final Map<String, dynamic>? record,
+      final String? table}) = _$_UpdateRequest;
 
   factory _UpdateRequest.fromJson(Map<String, dynamic> json) =
       _$_UpdateRequest.fromJson;
 
+  @override
+
+  /// The id of the record. If not specified it is inferred from the 'id' field of the record
+  String? get id;
   @override
 
   /// record, JSON object
@@ -4541,10 +4545,6 @@ abstract class _UpdateRequest implements UpdateRequest {
 
   /// Optional table name. Defaults to 'default'
   String? get table;
-  @override
-
-  /// The id of the record. If not specified it is inferred from the 'id' field of the record
-  String? get id;
   @override
   @JsonKey(ignore: true)
   _$$_UpdateRequestCopyWith<_$_UpdateRequest> get copyWith =>

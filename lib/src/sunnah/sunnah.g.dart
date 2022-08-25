@@ -7,17 +7,17 @@ part of 'sunnah.dart';
 // **************************************************************************
 
 _$_Book _$$_BookFromJson(Map<String, dynamic> json) => _$_Book(
-      name: json['name'] as String?,
       arabic_name: json['arabic_name'] as String?,
       hadiths: json['hadiths'] as int?,
       id: json['id'] as int?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_BookToJson(_$_Book instance) => <String, dynamic>{
-      'name': instance.name,
       'arabic_name': instance.arabic_name,
       'hadiths': instance.hadiths,
       'id': instance.id,
+      'name': instance.name,
     };
 
 _$_BooksRequest _$$_BooksRequestFromJson(Map<String, dynamic> json) =>
@@ -69,20 +69,20 @@ Map<String, dynamic> _$$BooksResponseMerrToJson(_$BooksResponseMerr instance) =>
     };
 
 _$_Chapter _$$_ChapterFromJson(Map<String, dynamic> json) => _$_Chapter(
-      book: json['book'] as int?,
-      id: json['id'] as int?,
       key: json['key'] as String?,
       title: json['title'] as String?,
       arabic_title: json['arabic_title'] as String?,
+      book: json['book'] as int?,
+      id: json['id'] as int?,
     );
 
 Map<String, dynamic> _$$_ChapterToJson(_$_Chapter instance) =>
     <String, dynamic>{
-      'book': instance.book,
-      'id': instance.id,
       'key': instance.key,
       'title': instance.title,
       'arabic_title': instance.arabic_title,
+      'book': instance.book,
+      'id': instance.id,
     };
 
 _$_ChaptersRequest _$$_ChaptersRequestFromJson(Map<String, dynamic> json) =>
@@ -143,20 +143,20 @@ Map<String, dynamic> _$$ChaptersResponseMerrToJson(
 
 _$_Collection _$$_CollectionFromJson(Map<String, dynamic> json) =>
     _$_Collection(
-      name: json['name'] as String?,
       summary: json['summary'] as String?,
       title: json['title'] as String?,
       arabic_title: json['arabic_title'] as String?,
       hadiths: json['hadiths'] as int?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_CollectionToJson(_$_Collection instance) =>
     <String, dynamic>{
-      'name': instance.name,
       'summary': instance.summary,
       'title': instance.title,
       'arabic_title': instance.arabic_title,
       'hadiths': instance.hadiths,
+      'name': instance.name,
     };
 
 _$_CollectionsRequest _$$_CollectionsRequestFromJson(
@@ -242,6 +242,7 @@ Map<String, dynamic> _$$_HadithsRequestToJson(_$_HadithsRequest instance) =>
 _$HadithsResponseData _$$HadithsResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$HadithsResponseData(
+      total: json['total'] as int?,
       book: json['book'] as int?,
       collection: json['collection'] as String?,
       hadiths: (json['hadiths'] as List<dynamic>?)
@@ -249,19 +250,18 @@ _$HadithsResponseData _$$HadithsResponseDataFromJson(
           .toList(),
       limit: json['limit'] as int?,
       page: json['page'] as int?,
-      total: json['total'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$HadithsResponseDataToJson(
         _$HadithsResponseData instance) =>
     <String, dynamic>{
+      'total': instance.total,
       'book': instance.book,
       'collection': instance.collection,
       'hadiths': instance.hadiths,
       'limit': instance.limit,
       'page': instance.page,
-      'total': instance.total,
       'runtimeType': instance.$type,
     };
 
