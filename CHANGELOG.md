@@ -1,3 +1,9 @@
+## v1.0.170 - 2022-08-25
+
+[589dd6](https://github.com/micro/services/commit/589dd622ea69e4665d06d5e9a53a11b3ad44f58f) Update app.proto
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.169...v1.0.170
+
 ## v1.0.169 - 2022-08-25
 
 [7019f9](https://github.com/micro/services/commit/7019f9360b89e1246532ed44d71f39e7f8a5e68c) .
