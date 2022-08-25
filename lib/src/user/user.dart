@@ -344,6 +344,16 @@ class UserService {
 @Freezed()
 class Account with _$Account {
   const factory Account({
+    /// Store any custom data you want about your users in this fields.
+    Map<String, String>? profile,
+
+    /// unix timestamp
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? updated,
+
+    /// alphanumeric username
+    String? username,
+
     /// date of verification
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString)
@@ -361,16 +371,6 @@ class Account with _$Account {
 
     /// unique account id
     String? id,
-
-    /// Store any custom data you want about your users in this fields.
-    Map<String, String>? profile,
-
-    /// unix timestamp
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? updated,
-
-    /// alphanumeric username
-    String? username,
   }) = _Account;
   factory Account.fromJson(Map<String, dynamic> json) =>
       _$AccountFromJson(json);
@@ -379,12 +379,6 @@ class Account with _$Account {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// the email address
-    String? email,
-
-    /// optional account id
-    String? id,
-
     /// the user password
     String? password,
 
@@ -393,6 +387,12 @@ class CreateRequest with _$CreateRequest {
 
     /// the username
     String? username,
+
+    /// the email address
+    String? email,
+
+    /// optional account id
+    String? id,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -431,10 +431,11 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class ListRequest with _$ListRequest {
   const factory ListRequest({
+    int? offset,
+
     /// Maximum number of records to return. Default limit is 25.
     /// Maximum limit is 1000. Anything higher will return an error.
     int? limit,
-    int? offset,
   }) = _ListRequest;
   factory ListRequest.fromJson(Map<String, dynamic> json) =>
       _$ListRequestFromJson(json);
@@ -454,14 +455,14 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class LoginRequest with _$LoginRequest {
   const factory LoginRequest({
+    /// The username of the user
+    String? username,
+
     /// The email address of the user
     String? email,
 
     /// The password of the user
     String? password,
-
-    /// The username of the user
-    String? username,
   }) = _LoginRequest;
   factory LoginRequest.fromJson(Map<String, dynamic> json) =>
       _$LoginRequestFromJson(json);
@@ -569,9 +570,6 @@ class ReadSessionResponse with _$ReadSessionResponse {
 @Freezed()
 class ResetPasswordRequest with _$ResetPasswordRequest {
   const factory ResetPasswordRequest({
-    /// The code from the verification email
-    String? code,
-
     /// confirm new password
     String? confirm_password,
 
@@ -580,6 +578,9 @@ class ResetPasswordRequest with _$ResetPasswordRequest {
 
     /// the new password
     String? new_password,
+
+    /// The code from the verification email
+    String? code,
   }) = _ResetPasswordRequest;
   factory ResetPasswordRequest.fromJson(Map<String, dynamic> json) =>
       _$ResetPasswordRequestFromJson(json);
@@ -597,10 +598,6 @@ class ResetPasswordResponse with _$ResetPasswordResponse {
 @Freezed()
 class SendMagicLinkRequest with _$SendMagicLinkRequest {
   const factory SendMagicLinkRequest({
-    /// Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
-    String? from_name,
-    String? subject,
-
     /// Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
     /// HTML emails are not available currently.
     String? text_content,
@@ -615,6 +612,10 @@ class SendMagicLinkRequest with _$SendMagicLinkRequest {
     /// calling M3O VerifyToken endpoint. You can return as a result a success,
     /// failed or redirect to another page.
     String? endpoint,
+
+    /// Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
+    String? from_name,
+    String? subject,
   }) = _SendMagicLinkRequest;
   factory SendMagicLinkRequest.fromJson(Map<String, dynamic> json) =>
       _$SendMagicLinkRequestFromJson(json);
@@ -632,6 +633,13 @@ class SendMagicLinkResponse with _$SendMagicLinkResponse {
 @Freezed()
 class SendPasswordResetEmailRequest with _$SendPasswordResetEmailRequest {
   const factory SendPasswordResetEmailRequest({
+    /// Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
+    /// HTML emails are not available currently.
+    String? text_content,
+
+    /// email address to send reset for
+    String? email,
+
     /// Number of secs that the password reset email is valid for, defaults to 1800 secs (30 mins)
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? expiration,
@@ -641,13 +649,6 @@ class SendPasswordResetEmailRequest with _$SendPasswordResetEmailRequest {
 
     /// subject of the email
     String? subject,
-
-    /// Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
-    /// HTML emails are not available currently.
-    String? text_content,
-
-    /// email address to send reset for
-    String? email,
   }) = _SendPasswordResetEmailRequest;
   factory SendPasswordResetEmailRequest.fromJson(Map<String, dynamic> json) =>
       _$SendPasswordResetEmailRequestFromJson(json);
@@ -666,6 +667,9 @@ class SendPasswordResetEmailResponse with _$SendPasswordResetEmailResponse {
 @Freezed()
 class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
   const factory SendVerificationEmailRequest({
+    /// Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
+    String? text_content,
+
     /// email address to send the verification code
     String? email,
 
@@ -680,9 +684,6 @@ class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
 
     /// subject of the email
     String? subject,
-
-    /// Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
-    String? text_content,
   }) = _SendVerificationEmailRequest;
   factory SendVerificationEmailRequest.fromJson(Map<String, dynamic> json) =>
       _$SendVerificationEmailRequestFromJson(json);

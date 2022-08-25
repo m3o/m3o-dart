@@ -168,24 +168,24 @@ EmbedResponse _$EmbedResponseFromJson(Map<String, dynamic> json) {
 mixin _$EmbedResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? embed_url, String? html_script, String? long_url,
-            String? short_url)
+    TResult Function(String? long_url, String? short_url, String? embed_url,
+            String? html_script)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? embed_url, String? html_script, String? long_url,
-            String? short_url)?
+    TResult Function(String? long_url, String? short_url, String? embed_url,
+            String? html_script)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? embed_url, String? html_script, String? long_url,
-            String? short_url)?
+    TResult Function(String? long_url, String? short_url, String? embed_url,
+            String? html_script)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -236,10 +236,10 @@ abstract class _$$EmbedResponseDataCopyWith<$Res> {
           _$EmbedResponseData value, $Res Function(_$EmbedResponseData) then) =
       __$$EmbedResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {String? embed_url,
-      String? html_script,
-      String? long_url,
-      String? short_url});
+      {String? long_url,
+      String? short_url,
+      String? embed_url,
+      String? html_script});
 }
 
 /// @nodoc
@@ -255,20 +255,12 @@ class __$$EmbedResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? embed_url = freezed,
-    Object? html_script = freezed,
     Object? long_url = freezed,
     Object? short_url = freezed,
+    Object? embed_url = freezed,
+    Object? html_script = freezed,
   }) {
     return _then(_$EmbedResponseData(
-      embed_url: embed_url == freezed
-          ? _value.embed_url
-          : embed_url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      html_script: html_script == freezed
-          ? _value.html_script
-          : html_script // ignore: cast_nullable_to_non_nullable
-              as String?,
       long_url: long_url == freezed
           ? _value.long_url
           : long_url // ignore: cast_nullable_to_non_nullable
@@ -276,6 +268,14 @@ class __$$EmbedResponseDataCopyWithImpl<$Res>
       short_url: short_url == freezed
           ? _value.short_url
           : short_url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      embed_url: embed_url == freezed
+          ? _value.embed_url
+          : embed_url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      html_script: html_script == freezed
+          ? _value.html_script
+          : html_script // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -285,23 +285,15 @@ class __$$EmbedResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$EmbedResponseData implements EmbedResponseData {
   const _$EmbedResponseData(
-      {this.embed_url,
-      this.html_script,
-      this.long_url,
+      {this.long_url,
       this.short_url,
+      this.embed_url,
+      this.html_script,
       final String? $type})
       : $type = $type ?? 'default';
 
   factory _$EmbedResponseData.fromJson(Map<String, dynamic> json) =>
       _$$EmbedResponseDataFromJson(json);
-
-  /// the embeddable link
-  @override
-  final String? embed_url;
-
-  /// the script code
-  @override
-  final String? html_script;
 
   /// the full url
   @override
@@ -311,12 +303,20 @@ class _$EmbedResponseData implements EmbedResponseData {
   @override
   final String? short_url;
 
+  /// the embeddable link
+  @override
+  final String? embed_url;
+
+  /// the script code
+  @override
+  final String? html_script;
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'EmbedResponse(embed_url: $embed_url, html_script: $html_script, long_url: $long_url, short_url: $short_url)';
+    return 'EmbedResponse(long_url: $long_url, short_url: $short_url, embed_url: $embed_url, html_script: $html_script)';
   }
 
   @override
@@ -324,21 +324,21 @@ class _$EmbedResponseData implements EmbedResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmbedResponseData &&
+            const DeepCollectionEquality().equals(other.long_url, long_url) &&
+            const DeepCollectionEquality().equals(other.short_url, short_url) &&
             const DeepCollectionEquality().equals(other.embed_url, embed_url) &&
             const DeepCollectionEquality()
-                .equals(other.html_script, html_script) &&
-            const DeepCollectionEquality().equals(other.long_url, long_url) &&
-            const DeepCollectionEquality().equals(other.short_url, short_url));
+                .equals(other.html_script, html_script));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(embed_url),
-      const DeepCollectionEquality().hash(html_script),
       const DeepCollectionEquality().hash(long_url),
-      const DeepCollectionEquality().hash(short_url));
+      const DeepCollectionEquality().hash(short_url),
+      const DeepCollectionEquality().hash(embed_url),
+      const DeepCollectionEquality().hash(html_script));
 
   @JsonKey(ignore: true)
   @override
@@ -348,36 +348,36 @@ class _$EmbedResponseData implements EmbedResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? embed_url, String? html_script, String? long_url,
-            String? short_url)
+    TResult Function(String? long_url, String? short_url, String? embed_url,
+            String? html_script)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(embed_url, html_script, long_url, short_url);
+    return $default(long_url, short_url, embed_url, html_script);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? embed_url, String? html_script, String? long_url,
-            String? short_url)?
+    TResult Function(String? long_url, String? short_url, String? embed_url,
+            String? html_script)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(embed_url, html_script, long_url, short_url);
+    return $default?.call(long_url, short_url, embed_url, html_script);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? embed_url, String? html_script, String? long_url,
-            String? short_url)?
+    TResult Function(String? long_url, String? short_url, String? embed_url,
+            String? html_script)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(embed_url, html_script, long_url, short_url);
+      return $default(long_url, short_url, embed_url, html_script);
     }
     return orElse();
   }
@@ -423,25 +423,25 @@ class _$EmbedResponseData implements EmbedResponseData {
 
 abstract class EmbedResponseData implements EmbedResponse {
   const factory EmbedResponseData(
-      {final String? embed_url,
-      final String? html_script,
-      final String? long_url,
-      final String? short_url}) = _$EmbedResponseData;
+      {final String? long_url,
+      final String? short_url,
+      final String? embed_url,
+      final String? html_script}) = _$EmbedResponseData;
 
   factory EmbedResponseData.fromJson(Map<String, dynamic> json) =
       _$EmbedResponseData.fromJson;
-
-  /// the embeddable link
-  String? get embed_url;
-
-  /// the script code
-  String? get html_script;
 
   /// the full url
   String? get long_url;
 
   /// the short url
   String? get short_url;
+
+  /// the embeddable link
+  String? get embed_url;
+
+  /// the script code
+  String? get html_script;
   @JsonKey(ignore: true)
   _$$EmbedResponseDataCopyWith<_$EmbedResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -528,8 +528,8 @@ class _$EmbedResponseMerr implements EmbedResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? embed_url, String? html_script, String? long_url,
-            String? short_url)
+    TResult Function(String? long_url, String? short_url, String? embed_url,
+            String? html_script)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -539,8 +539,8 @@ class _$EmbedResponseMerr implements EmbedResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? embed_url, String? html_script, String? long_url,
-            String? short_url)?
+    TResult Function(String? long_url, String? short_url, String? embed_url,
+            String? html_script)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -550,8 +550,8 @@ class _$EmbedResponseMerr implements EmbedResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? embed_url, String? html_script, String? long_url,
-            String? short_url)?
+    TResult Function(String? long_url, String? short_url, String? embed_url,
+            String? html_script)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -1159,17 +1159,24 @@ SearchResult _$SearchResultFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SearchResult {
+  /// if live broadcast then indicates activity:
+  /// none, upcoming, live, completed
+  String? get broadcasting => throw _privateConstructorUsedError;
+
   /// the channel title
   String? get channel_title => throw _privateConstructorUsedError;
 
-  /// the result description
-  String? get description => throw _privateConstructorUsedError;
-
-  /// the associated url
-  String? get url => throw _privateConstructorUsedError;
+  /// id of the result
+  String? get id => throw _privateConstructorUsedError;
 
   /// kind of result: "video", "channel", "playlist"
   String? get kind => throw _privateConstructorUsedError;
+
+  /// the channel id
+  String? get channel_id => throw _privateConstructorUsedError;
+
+  /// the result description
+  String? get description => throw _privateConstructorUsedError;
 
   /// published at time
   String? get published_at => throw _privateConstructorUsedError;
@@ -1177,15 +1184,8 @@ mixin _$SearchResult {
   /// title of the result
   String? get title => throw _privateConstructorUsedError;
 
-  /// if live broadcast then indicates activity:
-  /// none, upcoming, live, completed
-  String? get broadcasting => throw _privateConstructorUsedError;
-
-  /// the channel id
-  String? get channel_id => throw _privateConstructorUsedError;
-
-  /// id of the result
-  String? get id => throw _privateConstructorUsedError;
+  /// the associated url
+  String? get url => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1199,15 +1199,15 @@ abstract class $SearchResultCopyWith<$Res> {
           SearchResult value, $Res Function(SearchResult) then) =
       _$SearchResultCopyWithImpl<$Res>;
   $Res call(
-      {String? channel_title,
-      String? description,
-      String? url,
+      {String? broadcasting,
+      String? channel_title,
+      String? id,
       String? kind,
+      String? channel_id,
+      String? description,
       String? published_at,
       String? title,
-      String? broadcasting,
-      String? channel_id,
-      String? id});
+      String? url});
 }
 
 /// @nodoc
@@ -1220,32 +1220,40 @@ class _$SearchResultCopyWithImpl<$Res> implements $SearchResultCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? broadcasting = freezed,
     Object? channel_title = freezed,
-    Object? description = freezed,
-    Object? url = freezed,
+    Object? id = freezed,
     Object? kind = freezed,
+    Object? channel_id = freezed,
+    Object? description = freezed,
     Object? published_at = freezed,
     Object? title = freezed,
-    Object? broadcasting = freezed,
-    Object? channel_id = freezed,
-    Object? id = freezed,
+    Object? url = freezed,
   }) {
     return _then(_value.copyWith(
+      broadcasting: broadcasting == freezed
+          ? _value.broadcasting
+          : broadcasting // ignore: cast_nullable_to_non_nullable
+              as String?,
       channel_title: channel_title == freezed
           ? _value.channel_title
           : channel_title // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String?,
       kind: kind == freezed
           ? _value.kind
           : kind // ignore: cast_nullable_to_non_nullable
+              as String?,
+      channel_id: channel_id == freezed
+          ? _value.channel_id
+          : channel_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String?,
       published_at: published_at == freezed
           ? _value.published_at
@@ -1255,17 +1263,9 @@ class _$SearchResultCopyWithImpl<$Res> implements $SearchResultCopyWith<$Res> {
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      broadcasting: broadcasting == freezed
-          ? _value.broadcasting
-          : broadcasting // ignore: cast_nullable_to_non_nullable
-              as String?,
-      channel_id: channel_id == freezed
-          ? _value.channel_id
-          : channel_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1279,15 +1279,15 @@ abstract class _$$_SearchResultCopyWith<$Res>
       __$$_SearchResultCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? channel_title,
-      String? description,
-      String? url,
+      {String? broadcasting,
+      String? channel_title,
+      String? id,
       String? kind,
+      String? channel_id,
+      String? description,
       String? published_at,
       String? title,
-      String? broadcasting,
-      String? channel_id,
-      String? id});
+      String? url});
 }
 
 /// @nodoc
@@ -1303,32 +1303,40 @@ class __$$_SearchResultCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? broadcasting = freezed,
     Object? channel_title = freezed,
-    Object? description = freezed,
-    Object? url = freezed,
+    Object? id = freezed,
     Object? kind = freezed,
+    Object? channel_id = freezed,
+    Object? description = freezed,
     Object? published_at = freezed,
     Object? title = freezed,
-    Object? broadcasting = freezed,
-    Object? channel_id = freezed,
-    Object? id = freezed,
+    Object? url = freezed,
   }) {
     return _then(_$_SearchResult(
+      broadcasting: broadcasting == freezed
+          ? _value.broadcasting
+          : broadcasting // ignore: cast_nullable_to_non_nullable
+              as String?,
       channel_title: channel_title == freezed
           ? _value.channel_title
           : channel_title // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String?,
       kind: kind == freezed
           ? _value.kind
           : kind // ignore: cast_nullable_to_non_nullable
+              as String?,
+      channel_id: channel_id == freezed
+          ? _value.channel_id
+          : channel_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String?,
       published_at: published_at == freezed
           ? _value.published_at
@@ -1338,17 +1346,9 @@ class __$$_SearchResultCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      broadcasting: broadcasting == freezed
-          ? _value.broadcasting
-          : broadcasting // ignore: cast_nullable_to_non_nullable
-              as String?,
-      channel_id: channel_id == freezed
-          ? _value.channel_id
-          : channel_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1358,34 +1358,43 @@ class __$$_SearchResultCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SearchResult implements _SearchResult {
   const _$_SearchResult(
-      {this.channel_title,
-      this.description,
-      this.url,
+      {this.broadcasting,
+      this.channel_title,
+      this.id,
       this.kind,
+      this.channel_id,
+      this.description,
       this.published_at,
       this.title,
-      this.broadcasting,
-      this.channel_id,
-      this.id});
+      this.url});
 
   factory _$_SearchResult.fromJson(Map<String, dynamic> json) =>
       _$$_SearchResultFromJson(json);
+
+  /// if live broadcast then indicates activity:
+  /// none, upcoming, live, completed
+  @override
+  final String? broadcasting;
 
   /// the channel title
   @override
   final String? channel_title;
 
-  /// the result description
+  /// id of the result
   @override
-  final String? description;
-
-  /// the associated url
-  @override
-  final String? url;
+  final String? id;
 
   /// kind of result: "video", "channel", "playlist"
   @override
   final String? kind;
+
+  /// the channel id
+  @override
+  final String? channel_id;
+
+  /// the result description
+  @override
+  final String? description;
 
   /// published at time
   @override
@@ -1395,22 +1404,13 @@ class _$_SearchResult implements _SearchResult {
   @override
   final String? title;
 
-  /// if live broadcast then indicates activity:
-  /// none, upcoming, live, completed
+  /// the associated url
   @override
-  final String? broadcasting;
-
-  /// the channel id
-  @override
-  final String? channel_id;
-
-  /// id of the result
-  @override
-  final String? id;
+  final String? url;
 
   @override
   String toString() {
-    return 'SearchResult(channel_title: $channel_title, description: $description, url: $url, kind: $kind, published_at: $published_at, title: $title, broadcasting: $broadcasting, channel_id: $channel_id, id: $id)';
+    return 'SearchResult(broadcasting: $broadcasting, channel_title: $channel_title, id: $id, kind: $kind, channel_id: $channel_id, description: $description, published_at: $published_at, title: $title, url: $url)';
   }
 
   @override
@@ -1419,34 +1419,34 @@ class _$_SearchResult implements _SearchResult {
         (other.runtimeType == runtimeType &&
             other is _$_SearchResult &&
             const DeepCollectionEquality()
+                .equals(other.broadcasting, broadcasting) &&
+            const DeepCollectionEquality()
                 .equals(other.channel_title, channel_title) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.kind, kind) &&
+            const DeepCollectionEquality()
+                .equals(other.channel_id, channel_id) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality().equals(other.kind, kind) &&
             const DeepCollectionEquality()
                 .equals(other.published_at, published_at) &&
             const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality()
-                .equals(other.broadcasting, broadcasting) &&
-            const DeepCollectionEquality()
-                .equals(other.channel_id, channel_id) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.url, url));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(broadcasting),
       const DeepCollectionEquality().hash(channel_title),
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(url),
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(kind),
+      const DeepCollectionEquality().hash(channel_id),
+      const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(published_at),
       const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(broadcasting),
-      const DeepCollectionEquality().hash(channel_id),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(url));
 
   @JsonKey(ignore: true)
   @override
@@ -1463,35 +1463,44 @@ class _$_SearchResult implements _SearchResult {
 
 abstract class _SearchResult implements SearchResult {
   const factory _SearchResult(
-      {final String? channel_title,
-      final String? description,
-      final String? url,
+      {final String? broadcasting,
+      final String? channel_title,
+      final String? id,
       final String? kind,
+      final String? channel_id,
+      final String? description,
       final String? published_at,
       final String? title,
-      final String? broadcasting,
-      final String? channel_id,
-      final String? id}) = _$_SearchResult;
+      final String? url}) = _$_SearchResult;
 
   factory _SearchResult.fromJson(Map<String, dynamic> json) =
       _$_SearchResult.fromJson;
 
   @override
 
+  /// if live broadcast then indicates activity:
+  /// none, upcoming, live, completed
+  String? get broadcasting;
+  @override
+
   /// the channel title
   String? get channel_title;
   @override
 
-  /// the result description
-  String? get description;
-  @override
-
-  /// the associated url
-  String? get url;
+  /// id of the result
+  String? get id;
   @override
 
   /// kind of result: "video", "channel", "playlist"
   String? get kind;
+  @override
+
+  /// the channel id
+  String? get channel_id;
+  @override
+
+  /// the result description
+  String? get description;
   @override
 
   /// published at time
@@ -1502,17 +1511,8 @@ abstract class _SearchResult implements SearchResult {
   String? get title;
   @override
 
-  /// if live broadcast then indicates activity:
-  /// none, upcoming, live, completed
-  String? get broadcasting;
-  @override
-
-  /// the channel id
-  String? get channel_id;
-  @override
-
-  /// id of the result
-  String? get id;
+  /// the associated url
+  String? get url;
   @override
   @JsonKey(ignore: true)
   _$$_SearchResultCopyWith<_$_SearchResult> get copyWith =>

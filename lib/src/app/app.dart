@@ -92,7 +92,7 @@ class AppService {
     }
   }
 
-  /// Reserve apps beyond the free quota. Call Run after.
+  /// Reserve app names
   Future<ReserveResponse> reserve(ReserveRequest req) async {
     Request request = Request(
       service: 'app',
@@ -276,9 +276,6 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
-    /// time reservation expires
-    String? expires,
-
     /// name of the app
     String? name,
 
@@ -290,6 +287,9 @@ class Reservation with _$Reservation {
 
     /// time of reservation
     String? created,
+
+    /// time reservation expires
+    String? expires,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);
@@ -379,23 +379,32 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
-    /// name of the app
-    String? name,
-
     /// port running on
     int? port,
 
     /// last updated
     String? updated,
 
-    /// time of creation
-    String? created,
+    /// branch of code
+    String? branch,
 
     /// custom domains
     List<String>? custom_domains,
 
     /// associated env vars
     Map<String, String>? env_vars,
+
+    /// unique id
+    String? id,
+
+    /// name of the app
+    String? name,
+
+    /// time of creation
+    String? created,
+
+    /// region running in
+    String? region,
 
     /// source repository
     String? repo,
@@ -405,15 +414,6 @@ class Service with _$Service {
 
     /// app url
     String? url,
-
-    /// branch of code
-    String? branch,
-
-    /// unique id
-    String? id,
-
-    /// region running in
-    String? region,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);
