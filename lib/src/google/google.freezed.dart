@@ -559,9 +559,6 @@ SearchResult _$SearchResultFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SearchResult {
-  /// title of the result
-  String? get title => throw _privateConstructorUsedError;
-
   /// the full url for the result
   String? get url => throw _privateConstructorUsedError;
 
@@ -577,6 +574,9 @@ mixin _$SearchResult {
   /// the result snippet
   String? get snippet => throw _privateConstructorUsedError;
 
+  /// title of the result
+  String? get title => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SearchResultCopyWith<SearchResult> get copyWith =>
@@ -589,12 +589,12 @@ abstract class $SearchResultCopyWith<$Res> {
           SearchResult value, $Res Function(SearchResult) then) =
       _$SearchResultCopyWithImpl<$Res>;
   $Res call(
-      {String? title,
-      String? url,
+      {String? url,
       String? display_url,
       String? id,
       String? kind,
-      String? snippet});
+      String? snippet,
+      String? title});
 }
 
 /// @nodoc
@@ -607,18 +607,14 @@ class _$SearchResultCopyWithImpl<$Res> implements $SearchResultCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? title = freezed,
     Object? url = freezed,
     Object? display_url = freezed,
     Object? id = freezed,
     Object? kind = freezed,
     Object? snippet = freezed,
+    Object? title = freezed,
   }) {
     return _then(_value.copyWith(
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -639,6 +635,10 @@ class _$SearchResultCopyWithImpl<$Res> implements $SearchResultCopyWith<$Res> {
           ? _value.snippet
           : snippet // ignore: cast_nullable_to_non_nullable
               as String?,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -651,12 +651,12 @@ abstract class _$$_SearchResultCopyWith<$Res>
       __$$_SearchResultCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? title,
-      String? url,
+      {String? url,
       String? display_url,
       String? id,
       String? kind,
-      String? snippet});
+      String? snippet,
+      String? title});
 }
 
 /// @nodoc
@@ -672,18 +672,14 @@ class __$$_SearchResultCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? title = freezed,
     Object? url = freezed,
     Object? display_url = freezed,
     Object? id = freezed,
     Object? kind = freezed,
     Object? snippet = freezed,
+    Object? title = freezed,
   }) {
     return _then(_$_SearchResult(
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -704,6 +700,10 @@ class __$$_SearchResultCopyWithImpl<$Res>
           ? _value.snippet
           : snippet // ignore: cast_nullable_to_non_nullable
               as String?,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -712,19 +712,15 @@ class __$$_SearchResultCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SearchResult implements _SearchResult {
   const _$_SearchResult(
-      {this.title,
-      this.url,
+      {this.url,
       this.display_url,
       this.id,
       this.kind,
-      this.snippet});
+      this.snippet,
+      this.title});
 
   factory _$_SearchResult.fromJson(Map<String, dynamic> json) =>
       _$$_SearchResultFromJson(json);
-
-  /// title of the result
-  @override
-  final String? title;
 
   /// the full url for the result
   @override
@@ -746,9 +742,13 @@ class _$_SearchResult implements _SearchResult {
   @override
   final String? snippet;
 
+  /// title of the result
+  @override
+  final String? title;
+
   @override
   String toString() {
-    return 'SearchResult(title: $title, url: $url, display_url: $display_url, id: $id, kind: $kind, snippet: $snippet)';
+    return 'SearchResult(url: $url, display_url: $display_url, id: $id, kind: $kind, snippet: $snippet, title: $title)';
   }
 
   @override
@@ -756,25 +756,25 @@ class _$_SearchResult implements _SearchResult {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SearchResult &&
-            const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality()
                 .equals(other.display_url, display_url) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.kind, kind) &&
-            const DeepCollectionEquality().equals(other.snippet, snippet));
+            const DeepCollectionEquality().equals(other.snippet, snippet) &&
+            const DeepCollectionEquality().equals(other.title, title));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(display_url),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(kind),
-      const DeepCollectionEquality().hash(snippet));
+      const DeepCollectionEquality().hash(snippet),
+      const DeepCollectionEquality().hash(title));
 
   @JsonKey(ignore: true)
   @override
@@ -791,20 +791,16 @@ class _$_SearchResult implements _SearchResult {
 
 abstract class _SearchResult implements SearchResult {
   const factory _SearchResult(
-      {final String? title,
-      final String? url,
+      {final String? url,
       final String? display_url,
       final String? id,
       final String? kind,
-      final String? snippet}) = _$_SearchResult;
+      final String? snippet,
+      final String? title}) = _$_SearchResult;
 
   factory _SearchResult.fromJson(Map<String, dynamic> json) =
       _$_SearchResult.fromJson;
 
-  @override
-
-  /// title of the result
-  String? get title;
   @override
 
   /// the full url for the result
@@ -825,6 +821,10 @@ abstract class _SearchResult implements SearchResult {
 
   /// the result snippet
   String? get snippet;
+  @override
+
+  /// title of the result
+  String? get title;
   @override
   @JsonKey(ignore: true)
   _$$_SearchResultCopyWith<_$_SearchResult> get copyWith =>

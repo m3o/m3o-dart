@@ -20,6 +20,9 @@ ConvertRequest _$ConvertRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ConvertRequest {
+  /// The image file to convert
+  String? get file => throw _privateConstructorUsedError;
+
   /// output name of the image including extension, ie. "cat.png"
   String? get name => throw _privateConstructorUsedError;
 
@@ -31,9 +34,6 @@ mixin _$ConvertRequest {
 
   /// base64 encoded image to resize,
   String? get base64 => throw _privateConstructorUsedError;
-
-  /// The image file to convert
-  String? get file => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,11 +47,11 @@ abstract class $ConvertRequestCopyWith<$Res> {
           ConvertRequest value, $Res Function(ConvertRequest) then) =
       _$ConvertRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? name,
+      {String? file,
+      String? name,
       bool? outputURL,
       String? url,
-      String? base64,
-      String? file});
+      String? base64});
 }
 
 /// @nodoc
@@ -65,13 +65,17 @@ class _$ConvertRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? file = freezed,
     Object? name = freezed,
     Object? outputURL = freezed,
     Object? url = freezed,
     Object? base64 = freezed,
-    Object? file = freezed,
   }) {
     return _then(_value.copyWith(
+      file: file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -88,10 +92,6 @@ class _$ConvertRequestCopyWithImpl<$Res>
           ? _value.base64
           : base64 // ignore: cast_nullable_to_non_nullable
               as String?,
-      file: file == freezed
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -104,11 +104,11 @@ abstract class _$$_ConvertRequestCopyWith<$Res>
       __$$_ConvertRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? name,
+      {String? file,
+      String? name,
       bool? outputURL,
       String? url,
-      String? base64,
-      String? file});
+      String? base64});
 }
 
 /// @nodoc
@@ -124,13 +124,17 @@ class __$$_ConvertRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? file = freezed,
     Object? name = freezed,
     Object? outputURL = freezed,
     Object? url = freezed,
     Object? base64 = freezed,
-    Object? file = freezed,
   }) {
     return _then(_$_ConvertRequest(
+      file: file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -147,10 +151,6 @@ class __$$_ConvertRequestCopyWithImpl<$Res>
           ? _value.base64
           : base64 // ignore: cast_nullable_to_non_nullable
               as String?,
-      file: file == freezed
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -159,10 +159,14 @@ class __$$_ConvertRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ConvertRequest implements _ConvertRequest {
   const _$_ConvertRequest(
-      {this.name, this.outputURL, this.url, this.base64, this.file});
+      {this.file, this.name, this.outputURL, this.url, this.base64});
 
   factory _$_ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ConvertRequestFromJson(json);
+
+  /// The image file to convert
+  @override
+  final String? file;
 
   /// output name of the image including extension, ie. "cat.png"
   @override
@@ -180,13 +184,9 @@ class _$_ConvertRequest implements _ConvertRequest {
   @override
   final String? base64;
 
-  /// The image file to convert
-  @override
-  final String? file;
-
   @override
   String toString() {
-    return 'ConvertRequest(name: $name, outputURL: $outputURL, url: $url, base64: $base64, file: $file)';
+    return 'ConvertRequest(file: $file, name: $name, outputURL: $outputURL, url: $url, base64: $base64)';
   }
 
   @override
@@ -194,22 +194,22 @@ class _$_ConvertRequest implements _ConvertRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ConvertRequest &&
+            const DeepCollectionEquality().equals(other.file, file) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.outputURL, outputURL) &&
             const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality().equals(other.base64, base64) &&
-            const DeepCollectionEquality().equals(other.file, file));
+            const DeepCollectionEquality().equals(other.base64, base64));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(file),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(outputURL),
       const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(base64),
-      const DeepCollectionEquality().hash(file));
+      const DeepCollectionEquality().hash(base64));
 
   @JsonKey(ignore: true)
   @override
@@ -226,15 +226,19 @@ class _$_ConvertRequest implements _ConvertRequest {
 
 abstract class _ConvertRequest implements ConvertRequest {
   const factory _ConvertRequest(
-      {final String? name,
+      {final String? file,
+      final String? name,
       final bool? outputURL,
       final String? url,
-      final String? base64,
-      final String? file}) = _$_ConvertRequest;
+      final String? base64}) = _$_ConvertRequest;
 
   factory _ConvertRequest.fromJson(Map<String, dynamic> json) =
       _$_ConvertRequest.fromJson;
 
+  @override
+
+  /// The image file to convert
+  String? get file;
   @override
 
   /// output name of the image including extension, ie. "cat.png"
@@ -251,10 +255,6 @@ abstract class _ConvertRequest implements ConvertRequest {
 
   /// base64 encoded image to resize,
   String? get base64;
-  @override
-
-  /// The image file to convert
-  String? get file;
   @override
   @JsonKey(ignore: true)
   _$$_ConvertRequestCopyWith<_$_ConvertRequest> get copyWith =>
@@ -1680,14 +1680,6 @@ ResizeRequest _$ResizeRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ResizeRequest {
-  /// The image file to resize
-  String? get file => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get height => throw _privateConstructorUsedError;
-
-  /// output name of the image including extension, ie. "cat.png"
-  String? get name => throw _privateConstructorUsedError;
-
   /// make output a URL and not a base64 response
   bool? get outputURL => throw _privateConstructorUsedError;
 
@@ -1704,6 +1696,14 @@ mixin _$ResizeRequest {
   /// will be cropped
   CropOptions? get cropOptions => throw _privateConstructorUsedError;
 
+  /// The image file to resize
+  String? get file => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get height => throw _privateConstructorUsedError;
+
+  /// output name of the image including extension, ie. "cat.png"
+  String? get name => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ResizeRequestCopyWith<ResizeRequest> get copyWith =>
@@ -1716,14 +1716,14 @@ abstract class $ResizeRequestCopyWith<$Res> {
           ResizeRequest value, $Res Function(ResizeRequest) then) =
       _$ResizeRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? file,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
-      String? name,
-      bool? outputURL,
+      {bool? outputURL,
       String? url,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
       String? base64,
-      CropOptions? cropOptions});
+      CropOptions? cropOptions,
+      String? file,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
+      String? name});
 
   $CropOptionsCopyWith<$Res>? get cropOptions;
 }
@@ -1739,28 +1739,16 @@ class _$ResizeRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? file = freezed,
-    Object? height = freezed,
-    Object? name = freezed,
     Object? outputURL = freezed,
     Object? url = freezed,
     Object? width = freezed,
     Object? base64 = freezed,
     Object? cropOptions = freezed,
+    Object? file = freezed,
+    Object? height = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      file: file == freezed
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as String?,
-      height: height == freezed
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       outputURL: outputURL == freezed
           ? _value.outputURL
           : outputURL // ignore: cast_nullable_to_non_nullable
@@ -1781,6 +1769,18 @@ class _$ResizeRequestCopyWithImpl<$Res>
           ? _value.cropOptions
           : cropOptions // ignore: cast_nullable_to_non_nullable
               as CropOptions?,
+      file: file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as String?,
+      height: height == freezed
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
@@ -1804,14 +1804,14 @@ abstract class _$$_ResizeRequestCopyWith<$Res>
       __$$_ResizeRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? file,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
-      String? name,
-      bool? outputURL,
+      {bool? outputURL,
       String? url,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
       String? base64,
-      CropOptions? cropOptions});
+      CropOptions? cropOptions,
+      String? file,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
+      String? name});
 
   @override
   $CropOptionsCopyWith<$Res>? get cropOptions;
@@ -1830,28 +1830,16 @@ class __$$_ResizeRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? file = freezed,
-    Object? height = freezed,
-    Object? name = freezed,
     Object? outputURL = freezed,
     Object? url = freezed,
     Object? width = freezed,
     Object? base64 = freezed,
     Object? cropOptions = freezed,
+    Object? file = freezed,
+    Object? height = freezed,
+    Object? name = freezed,
   }) {
     return _then(_$_ResizeRequest(
-      file: file == freezed
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as String?,
-      height: height == freezed
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       outputURL: outputURL == freezed
           ? _value.outputURL
           : outputURL // ignore: cast_nullable_to_non_nullable
@@ -1872,6 +1860,18 @@ class __$$_ResizeRequestCopyWithImpl<$Res>
           ? _value.cropOptions
           : cropOptions // ignore: cast_nullable_to_non_nullable
               as CropOptions?,
+      file: file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as String?,
+      height: height == freezed
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1880,28 +1880,17 @@ class __$$_ResizeRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ResizeRequest implements _ResizeRequest {
   const _$_ResizeRequest(
-      {this.file,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.height,
-      this.name,
-      this.outputURL,
+      {this.outputURL,
       this.url,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.width,
       this.base64,
-      this.cropOptions});
+      this.cropOptions,
+      this.file,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.height,
+      this.name});
 
   factory _$_ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ResizeRequestFromJson(json);
-
-  /// The image file to resize
-  @override
-  final String? file;
-  @override
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? height;
-
-  /// output name of the image including extension, ie. "cat.png"
-  @override
-  final String? name;
 
   /// make output a URL and not a base64 response
   @override
@@ -1924,9 +1913,20 @@ class _$_ResizeRequest implements _ResizeRequest {
   @override
   final CropOptions? cropOptions;
 
+  /// The image file to resize
+  @override
+  final String? file;
+  @override
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? height;
+
+  /// output name of the image including extension, ie. "cat.png"
+  @override
+  final String? name;
+
   @override
   String toString() {
-    return 'ResizeRequest(file: $file, height: $height, name: $name, outputURL: $outputURL, url: $url, width: $width, base64: $base64, cropOptions: $cropOptions)';
+    return 'ResizeRequest(outputURL: $outputURL, url: $url, width: $width, base64: $base64, cropOptions: $cropOptions, file: $file, height: $height, name: $name)';
   }
 
   @override
@@ -1934,29 +1934,29 @@ class _$_ResizeRequest implements _ResizeRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ResizeRequest &&
-            const DeepCollectionEquality().equals(other.file, file) &&
-            const DeepCollectionEquality().equals(other.height, height) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.outputURL, outputURL) &&
             const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality().equals(other.width, width) &&
             const DeepCollectionEquality().equals(other.base64, base64) &&
             const DeepCollectionEquality()
-                .equals(other.cropOptions, cropOptions));
+                .equals(other.cropOptions, cropOptions) &&
+            const DeepCollectionEquality().equals(other.file, file) &&
+            const DeepCollectionEquality().equals(other.height, height) &&
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(file),
-      const DeepCollectionEquality().hash(height),
-      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(outputURL),
       const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(width),
       const DeepCollectionEquality().hash(base64),
-      const DeepCollectionEquality().hash(cropOptions));
+      const DeepCollectionEquality().hash(cropOptions),
+      const DeepCollectionEquality().hash(file),
+      const DeepCollectionEquality().hash(height),
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
@@ -1973,31 +1973,20 @@ class _$_ResizeRequest implements _ResizeRequest {
 
 abstract class _ResizeRequest implements ResizeRequest {
   const factory _ResizeRequest(
-      {final String? file,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? height,
-      final String? name,
-      final bool? outputURL,
+      {final bool? outputURL,
       final String? url,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? width,
       final String? base64,
-      final CropOptions? cropOptions}) = _$_ResizeRequest;
+      final CropOptions? cropOptions,
+      final String? file,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          final int? height,
+      final String? name}) = _$_ResizeRequest;
 
   factory _ResizeRequest.fromJson(Map<String, dynamic> json) =
       _$_ResizeRequest.fromJson;
 
-  @override
-
-  /// The image file to resize
-  String? get file;
-  @override
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get height;
-  @override
-
-  /// output name of the image including extension, ie. "cat.png"
-  String? get name;
   @override
 
   /// make output a URL and not a base64 response
@@ -2019,6 +2008,17 @@ abstract class _ResizeRequest implements ResizeRequest {
   /// if provided, after resize, the image
   /// will be cropped
   CropOptions? get cropOptions;
+  @override
+
+  /// The image file to resize
+  String? get file;
+  @override
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get height;
+  @override
+
+  /// output name of the image including extension, ie. "cat.png"
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$$_ResizeRequestCopyWith<_$_ResizeRequest> get copyWith =>

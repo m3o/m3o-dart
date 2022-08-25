@@ -196,9 +196,6 @@ class WalletService {
 @Freezed()
 class Account with _$Account {
   const factory Account({
-    /// name of the wallet
-    String? name,
-
     /// current balance
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? balance,
@@ -208,6 +205,9 @@ class Account with _$Account {
 
     /// wallet id
     String? id,
+
+    /// name of the wallet
+    String? name,
   }) = _Account;
   factory Account.fromJson(Map<String, dynamic> json) =>
       _$AccountFromJson(json);
@@ -267,6 +267,12 @@ class CreateResponse with _$CreateResponse {
 @Freezed()
 class CreditRequest with _$CreditRequest {
   const factory CreditRequest({
+    /// wallet id
+    String? id,
+
+    /// idempotency key
+    String? idempotency_key,
+
     /// reference note
     String? reference,
 
@@ -276,12 +282,6 @@ class CreditRequest with _$CreditRequest {
     /// amount to credit
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
-
-    /// wallet id
-    String? id,
-
-    /// idempotency key
-    String? idempotency_key,
   }) = _CreditRequest;
   factory CreditRequest.fromJson(Map<String, dynamic> json) =>
       _$CreditRequestFromJson(json);
@@ -303,6 +303,13 @@ class CreditResponse with _$CreditResponse {
 @Freezed()
 class DebitRequest with _$DebitRequest {
   const factory DebitRequest({
+    /// amount to debit
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
+
+    /// wallet
+    String? id,
+
     /// idempotency key
     String? idempotency_key,
 
@@ -311,13 +318,6 @@ class DebitRequest with _$DebitRequest {
 
     /// if the transaction is visible
     bool? visible,
-
-    /// amount to debit
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
-
-    /// wallet
-    String? id,
   }) = _DebitRequest;
   factory DebitRequest.fromJson(Map<String, dynamic> json) =>
       _$DebitRequestFromJson(json);
@@ -396,6 +396,12 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class Transaction with _$Transaction {
   const factory Transaction({
+    /// associated metadata
+    Map<String, String>? metadata,
+
+    /// reference note
+    String? reference,
+
     /// amount in transaction
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
@@ -405,12 +411,6 @@ class Transaction with _$Transaction {
 
     /// unique id of transaction
     String? id,
-
-    /// associated metadata
-    Map<String, String>? metadata,
-
-    /// reference note
-    String? reference,
   }) = _Transaction;
   factory Transaction.fromJson(Map<String, dynamic> json) =>
       _$TransactionFromJson(json);

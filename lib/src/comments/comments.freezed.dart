@@ -20,6 +20,12 @@ Comment _$CommentFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Comment {
+  /// time at which the comment was created
+  String? get created => throw _privateConstructorUsedError;
+
+  /// unique id for the comment, generated if not specified
+  String? get id => throw _privateConstructorUsedError;
+
   /// subject of the comment
   String? get subject => throw _privateConstructorUsedError;
 
@@ -28,12 +34,6 @@ mixin _$Comment {
 
   /// time at which the comment was updated
   String? get updated => throw _privateConstructorUsedError;
-
-  /// time at which the comment was created
-  String? get created => throw _privateConstructorUsedError;
-
-  /// unique id for the comment, generated if not specified
-  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,11 +45,11 @@ abstract class $CommentCopyWith<$Res> {
   factory $CommentCopyWith(Comment value, $Res Function(Comment) then) =
       _$CommentCopyWithImpl<$Res>;
   $Res call(
-      {String? subject,
+      {String? created,
+      String? id,
+      String? subject,
       String? text,
-      String? updated,
-      String? created,
-      String? id});
+      String? updated});
 }
 
 /// @nodoc
@@ -62,13 +62,21 @@ class _$CommentCopyWithImpl<$Res> implements $CommentCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? created = freezed,
+    Object? id = freezed,
     Object? subject = freezed,
     Object? text = freezed,
     Object? updated = freezed,
-    Object? created = freezed,
-    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
+      created: created == freezed
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       subject: subject == freezed
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -81,14 +89,6 @@ class _$CommentCopyWithImpl<$Res> implements $CommentCopyWith<$Res> {
           ? _value.updated
           : updated // ignore: cast_nullable_to_non_nullable
               as String?,
-      created: created == freezed
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -100,11 +100,11 @@ abstract class _$$_CommentCopyWith<$Res> implements $CommentCopyWith<$Res> {
       __$$_CommentCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? subject,
+      {String? created,
+      String? id,
+      String? subject,
       String? text,
-      String? updated,
-      String? created,
-      String? id});
+      String? updated});
 }
 
 /// @nodoc
@@ -118,13 +118,21 @@ class __$$_CommentCopyWithImpl<$Res> extends _$CommentCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? created = freezed,
+    Object? id = freezed,
     Object? subject = freezed,
     Object? text = freezed,
     Object? updated = freezed,
-    Object? created = freezed,
-    Object? id = freezed,
   }) {
     return _then(_$_Comment(
+      created: created == freezed
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       subject: subject == freezed
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -137,14 +145,6 @@ class __$$_CommentCopyWithImpl<$Res> extends _$CommentCopyWithImpl<$Res>
           ? _value.updated
           : updated // ignore: cast_nullable_to_non_nullable
               as String?,
-      created: created == freezed
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -153,10 +153,18 @@ class __$$_CommentCopyWithImpl<$Res> extends _$CommentCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Comment implements _Comment {
   const _$_Comment(
-      {this.subject, this.text, this.updated, this.created, this.id});
+      {this.created, this.id, this.subject, this.text, this.updated});
 
   factory _$_Comment.fromJson(Map<String, dynamic> json) =>
       _$$_CommentFromJson(json);
+
+  /// time at which the comment was created
+  @override
+  final String? created;
+
+  /// unique id for the comment, generated if not specified
+  @override
+  final String? id;
 
   /// subject of the comment
   @override
@@ -170,17 +178,9 @@ class _$_Comment implements _Comment {
   @override
   final String? updated;
 
-  /// time at which the comment was created
-  @override
-  final String? created;
-
-  /// unique id for the comment, generated if not specified
-  @override
-  final String? id;
-
   @override
   String toString() {
-    return 'Comment(subject: $subject, text: $text, updated: $updated, created: $created, id: $id)';
+    return 'Comment(created: $created, id: $id, subject: $subject, text: $text, updated: $updated)';
   }
 
   @override
@@ -188,22 +188,22 @@ class _$_Comment implements _Comment {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Comment &&
+            const DeepCollectionEquality().equals(other.created, created) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.subject, subject) &&
             const DeepCollectionEquality().equals(other.text, text) &&
-            const DeepCollectionEquality().equals(other.updated, updated) &&
-            const DeepCollectionEquality().equals(other.created, created) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.updated, updated));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(created),
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(subject),
       const DeepCollectionEquality().hash(text),
-      const DeepCollectionEquality().hash(updated),
-      const DeepCollectionEquality().hash(created),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(updated));
 
   @JsonKey(ignore: true)
   @override
@@ -220,14 +220,22 @@ class _$_Comment implements _Comment {
 
 abstract class _Comment implements Comment {
   const factory _Comment(
-      {final String? subject,
+      {final String? created,
+      final String? id,
+      final String? subject,
       final String? text,
-      final String? updated,
-      final String? created,
-      final String? id}) = _$_Comment;
+      final String? updated}) = _$_Comment;
 
   factory _Comment.fromJson(Map<String, dynamic> json) = _$_Comment.fromJson;
 
+  @override
+
+  /// time at which the comment was created
+  String? get created;
+  @override
+
+  /// unique id for the comment, generated if not specified
+  String? get id;
   @override
 
   /// subject of the comment
@@ -241,14 +249,6 @@ abstract class _Comment implements Comment {
   /// time at which the comment was updated
   String? get updated;
   @override
-
-  /// time at which the comment was created
-  String? get created;
-  @override
-
-  /// unique id for the comment, generated if not specified
-  String? get id;
-  @override
   @JsonKey(ignore: true)
   _$$_CommentCopyWith<_$_Comment> get copyWith =>
       throw _privateConstructorUsedError;
@@ -260,11 +260,11 @@ CreateRequest _$CreateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateRequest {
-  /// comment items
-  String? get text => throw _privateConstructorUsedError;
-
   /// comment subject
   String? get subject => throw _privateConstructorUsedError;
+
+  /// comment items
+  String? get text => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -277,7 +277,7 @@ abstract class $CreateRequestCopyWith<$Res> {
   factory $CreateRequestCopyWith(
           CreateRequest value, $Res Function(CreateRequest) then) =
       _$CreateRequestCopyWithImpl<$Res>;
-  $Res call({String? text, String? subject});
+  $Res call({String? subject, String? text});
 }
 
 /// @nodoc
@@ -291,17 +291,17 @@ class _$CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? text = freezed,
     Object? subject = freezed,
+    Object? text = freezed,
   }) {
     return _then(_value.copyWith(
-      text: text == freezed
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
       subject: subject == freezed
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -314,7 +314,7 @@ abstract class _$$_CreateRequestCopyWith<$Res>
           _$_CreateRequest value, $Res Function(_$_CreateRequest) then) =
       __$$_CreateRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? text, String? subject});
+  $Res call({String? subject, String? text});
 }
 
 /// @nodoc
@@ -330,17 +330,17 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? text = freezed,
     Object? subject = freezed,
+    Object? text = freezed,
   }) {
     return _then(_$_CreateRequest(
-      text: text == freezed
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
       subject: subject == freezed
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -349,22 +349,22 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateRequest implements _CreateRequest {
-  const _$_CreateRequest({this.text, this.subject});
+  const _$_CreateRequest({this.subject, this.text});
 
   factory _$_CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateRequestFromJson(json);
-
-  /// comment items
-  @override
-  final String? text;
 
   /// comment subject
   @override
   final String? subject;
 
+  /// comment items
+  @override
+  final String? text;
+
   @override
   String toString() {
-    return 'CreateRequest(text: $text, subject: $subject)';
+    return 'CreateRequest(subject: $subject, text: $text)';
   }
 
   @override
@@ -372,16 +372,16 @@ class _$_CreateRequest implements _CreateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateRequest &&
-            const DeepCollectionEquality().equals(other.text, text) &&
-            const DeepCollectionEquality().equals(other.subject, subject));
+            const DeepCollectionEquality().equals(other.subject, subject) &&
+            const DeepCollectionEquality().equals(other.text, text));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(text),
-      const DeepCollectionEquality().hash(subject));
+      const DeepCollectionEquality().hash(subject),
+      const DeepCollectionEquality().hash(text));
 
   @JsonKey(ignore: true)
   @override
@@ -397,7 +397,7 @@ class _$_CreateRequest implements _CreateRequest {
 }
 
 abstract class _CreateRequest implements CreateRequest {
-  const factory _CreateRequest({final String? text, final String? subject}) =
+  const factory _CreateRequest({final String? subject, final String? text}) =
       _$_CreateRequest;
 
   factory _CreateRequest.fromJson(Map<String, dynamic> json) =
@@ -405,12 +405,12 @@ abstract class _CreateRequest implements CreateRequest {
 
   @override
 
-  /// comment items
-  String? get text;
-  @override
-
   /// comment subject
   String? get subject;
+  @override
+
+  /// comment items
+  String? get text;
   @override
   @JsonKey(ignore: true)
   _$$_CreateRequestCopyWith<_$_CreateRequest> get copyWith =>

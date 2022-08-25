@@ -555,15 +555,15 @@ Event _$EventFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Event {
-  /// time at which the event was created
-  String? get created => throw _privateConstructorUsedError;
-
   /// event name
   String? get name => throw _privateConstructorUsedError;
 
   /// the amount of times the event was triggered
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get value => throw _privateConstructorUsedError;
+
+  /// time at which the event was created
+  String? get created => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -575,9 +575,9 @@ abstract class $EventCopyWith<$Res> {
   factory $EventCopyWith(Event value, $Res Function(Event) then) =
       _$EventCopyWithImpl<$Res>;
   $Res call(
-      {String? created,
-      String? name,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value});
+      {String? name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
+      String? created});
 }
 
 /// @nodoc
@@ -590,15 +590,11 @@ class _$EventCopyWithImpl<$Res> implements $EventCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? created = freezed,
     Object? name = freezed,
     Object? value = freezed,
+    Object? created = freezed,
   }) {
     return _then(_value.copyWith(
-      created: created == freezed
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -607,6 +603,10 @@ class _$EventCopyWithImpl<$Res> implements $EventCopyWith<$Res> {
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int?,
+      created: created == freezed
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -617,9 +617,9 @@ abstract class _$$_EventCopyWith<$Res> implements $EventCopyWith<$Res> {
       __$$_EventCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? created,
-      String? name,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value});
+      {String? name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
+      String? created});
 }
 
 /// @nodoc
@@ -633,15 +633,11 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? created = freezed,
     Object? name = freezed,
     Object? value = freezed,
+    Object? created = freezed,
   }) {
     return _then(_$_Event(
-      created: created == freezed
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -650,6 +646,10 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int?,
+      created: created == freezed
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -658,16 +658,12 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Event implements _Event {
   const _$_Event(
-      {this.created,
-      this.name,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.value});
+      {this.name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.value,
+      this.created});
 
   factory _$_Event.fromJson(Map<String, dynamic> json) =>
       _$$_EventFromJson(json);
-
-  /// time at which the event was created
-  @override
-  final String? created;
 
   /// event name
   @override
@@ -678,9 +674,13 @@ class _$_Event implements _Event {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? value;
 
+  /// time at which the event was created
+  @override
+  final String? created;
+
   @override
   String toString() {
-    return 'Event(created: $created, name: $name, value: $value)';
+    return 'Event(name: $name, value: $value, created: $created)';
   }
 
   @override
@@ -688,18 +688,18 @@ class _$_Event implements _Event {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Event &&
-            const DeepCollectionEquality().equals(other.created, created) &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.value, value));
+            const DeepCollectionEquality().equals(other.value, value) &&
+            const DeepCollectionEquality().equals(other.created, created));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(created),
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(value));
+      const DeepCollectionEquality().hash(value),
+      const DeepCollectionEquality().hash(created));
 
   @JsonKey(ignore: true)
   @override
@@ -716,17 +716,13 @@ class _$_Event implements _Event {
 
 abstract class _Event implements Event {
   const factory _Event(
-      {final String? created,
-      final String? name,
+      {final String? name,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? value}) = _$_Event;
+          final int? value,
+      final String? created}) = _$_Event;
 
   factory _Event.fromJson(Map<String, dynamic> json) = _$_Event.fromJson;
 
-  @override
-
-  /// time at which the event was created
-  String? get created;
   @override
 
   /// event name
@@ -736,6 +732,10 @@ abstract class _Event implements Event {
   /// the amount of times the event was triggered
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get value;
+  @override
+
+  /// time at which the event was created
+  String? get created;
   @override
   @JsonKey(ignore: true)
   _$$_EventCopyWith<_$_Event> get copyWith =>

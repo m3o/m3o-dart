@@ -1022,11 +1022,11 @@ DeleteRequest _$DeleteRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DeleteRequest {
-  /// The index the record belongs to
-  String? get index => throw _privateConstructorUsedError;
-
   /// The ID of the record to delete
   String? get id => throw _privateConstructorUsedError;
+
+  /// The index the record belongs to
+  String? get index => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1039,7 +1039,7 @@ abstract class $DeleteRequestCopyWith<$Res> {
   factory $DeleteRequestCopyWith(
           DeleteRequest value, $Res Function(DeleteRequest) then) =
       _$DeleteRequestCopyWithImpl<$Res>;
-  $Res call({String? index, String? id});
+  $Res call({String? id, String? index});
 }
 
 /// @nodoc
@@ -1053,17 +1053,17 @@ class _$DeleteRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? index = freezed,
     Object? id = freezed,
+    Object? index = freezed,
   }) {
     return _then(_value.copyWith(
-      index: index == freezed
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      index: index == freezed
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1076,7 +1076,7 @@ abstract class _$$_DeleteRequestCopyWith<$Res>
           _$_DeleteRequest value, $Res Function(_$_DeleteRequest) then) =
       __$$_DeleteRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? index, String? id});
+  $Res call({String? id, String? index});
 }
 
 /// @nodoc
@@ -1092,17 +1092,17 @@ class __$$_DeleteRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? index = freezed,
     Object? id = freezed,
+    Object? index = freezed,
   }) {
     return _then(_$_DeleteRequest(
-      index: index == freezed
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      index: index == freezed
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1111,22 +1111,22 @@ class __$$_DeleteRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_DeleteRequest implements _DeleteRequest {
-  const _$_DeleteRequest({this.index, this.id});
+  const _$_DeleteRequest({this.id, this.index});
 
   factory _$_DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$$_DeleteRequestFromJson(json);
-
-  /// The index the record belongs to
-  @override
-  final String? index;
 
   /// The ID of the record to delete
   @override
   final String? id;
 
+  /// The index the record belongs to
+  @override
+  final String? index;
+
   @override
   String toString() {
-    return 'DeleteRequest(index: $index, id: $id)';
+    return 'DeleteRequest(id: $id, index: $index)';
   }
 
   @override
@@ -1134,16 +1134,16 @@ class _$_DeleteRequest implements _DeleteRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DeleteRequest &&
-            const DeepCollectionEquality().equals(other.index, index) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.index, index));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(index),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(index));
 
   @JsonKey(ignore: true)
   @override
@@ -1159,7 +1159,7 @@ class _$_DeleteRequest implements _DeleteRequest {
 }
 
 abstract class _DeleteRequest implements DeleteRequest {
-  const factory _DeleteRequest({final String? index, final String? id}) =
+  const factory _DeleteRequest({final String? id, final String? index}) =
       _$_DeleteRequest;
 
   factory _DeleteRequest.fromJson(Map<String, dynamic> json) =
@@ -1167,12 +1167,12 @@ abstract class _DeleteRequest implements DeleteRequest {
 
   @override
 
-  /// The index the record belongs to
-  String? get index;
-  @override
-
   /// The ID of the record to delete
   String? get id;
+  @override
+
+  /// The index the record belongs to
+  String? get index;
   @override
   @JsonKey(ignore: true)
   _$$_DeleteRequestCopyWith<_$_DeleteRequest> get copyWith =>
@@ -2294,11 +2294,11 @@ Record _$RecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Record {
-  /// The ID for this record. If blank, one will be generated
-  String? get id => throw _privateConstructorUsedError;
-
   /// The JSON contents of the record
   Map<String, dynamic>? get data => throw _privateConstructorUsedError;
+
+  /// The ID for this record. If blank, one will be generated
+  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2309,7 +2309,7 @@ mixin _$Record {
 abstract class $RecordCopyWith<$Res> {
   factory $RecordCopyWith(Record value, $Res Function(Record) then) =
       _$RecordCopyWithImpl<$Res>;
-  $Res call({String? id, Map<String, dynamic>? data});
+  $Res call({Map<String, dynamic>? data, String? id});
 }
 
 /// @nodoc
@@ -2322,18 +2322,18 @@ class _$RecordCopyWithImpl<$Res> implements $RecordCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? data = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2343,7 +2343,7 @@ abstract class _$$_RecordCopyWith<$Res> implements $RecordCopyWith<$Res> {
   factory _$$_RecordCopyWith(_$_Record value, $Res Function(_$_Record) then) =
       __$$_RecordCopyWithImpl<$Res>;
   @override
-  $Res call({String? id, Map<String, dynamic>? data});
+  $Res call({Map<String, dynamic>? data, String? id});
 }
 
 /// @nodoc
@@ -2357,18 +2357,18 @@ class __$$_RecordCopyWithImpl<$Res> extends _$RecordCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? data = freezed,
+    Object? id = freezed,
   }) {
     return _then(_$_Record(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       data: data == freezed
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2376,14 +2376,10 @@ class __$$_RecordCopyWithImpl<$Res> extends _$RecordCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Record implements _Record {
-  const _$_Record({this.id, final Map<String, dynamic>? data}) : _data = data;
+  const _$_Record({final Map<String, dynamic>? data, this.id}) : _data = data;
 
   factory _$_Record.fromJson(Map<String, dynamic> json) =>
       _$$_RecordFromJson(json);
-
-  /// The ID for this record. If blank, one will be generated
-  @override
-  final String? id;
 
   /// The JSON contents of the record
   final Map<String, dynamic>? _data;
@@ -2397,9 +2393,13 @@ class _$_Record implements _Record {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// The ID for this record. If blank, one will be generated
+  @override
+  final String? id;
+
   @override
   String toString() {
-    return 'Record(id: $id, data: $data)';
+    return 'Record(data: $data, id: $id)';
   }
 
   @override
@@ -2407,16 +2407,16 @@ class _$_Record implements _Record {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Record &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(_data));
+      const DeepCollectionEquality().hash(_data),
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -2432,19 +2432,19 @@ class _$_Record implements _Record {
 }
 
 abstract class _Record implements Record {
-  const factory _Record({final String? id, final Map<String, dynamic>? data}) =
+  const factory _Record({final Map<String, dynamic>? data, final String? id}) =
       _$_Record;
 
   factory _Record.fromJson(Map<String, dynamic> json) = _$_Record.fromJson;
 
   @override
 
-  /// The ID for this record. If blank, one will be generated
-  String? get id;
-  @override
-
   /// The JSON contents of the record
   Map<String, dynamic>? get data;
+  @override
+
+  /// The ID for this record. If blank, one will be generated
+  String? get id;
   @override
   @JsonKey(ignore: true)
   _$$_RecordCopyWith<_$_Record> get copyWith =>

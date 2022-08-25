@@ -106,6 +106,9 @@ class ImageService {
 @Freezed()
 class ConvertRequest with _$ConvertRequest {
   const factory ConvertRequest({
+    /// The image file to convert
+    String? file,
+
     /// output name of the image including extension, ie. "cat.png"
     String? name,
 
@@ -117,9 +120,6 @@ class ConvertRequest with _$ConvertRequest {
 
     /// base64 encoded image to resize,
     String? base64,
-
-    /// The image file to convert
-    String? file,
   }) = _ConvertRequest;
   factory ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$ConvertRequestFromJson(json);
@@ -197,13 +197,6 @@ class Rectangle with _$Rectangle {
 @Freezed()
 class ResizeRequest with _$ResizeRequest {
   const factory ResizeRequest({
-    /// The image file to resize
-    String? file,
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
-
-    /// output name of the image including extension, ie. "cat.png"
-    String? name,
-
     /// make output a URL and not a base64 response
     bool? outputURL,
 
@@ -218,6 +211,13 @@ class ResizeRequest with _$ResizeRequest {
     /// if provided, after resize, the image
     /// will be cropped
     CropOptions? cropOptions,
+
+    /// The image file to resize
+    String? file,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
+
+    /// output name of the image including extension, ie. "cat.png"
+    String? name,
   }) = _ResizeRequest;
   factory ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$ResizeRequestFromJson(json);
