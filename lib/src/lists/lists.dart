@@ -212,12 +212,6 @@ class EventsResponse with _$EventsResponse {
 @Freezed()
 class List with _$List {
   const factory List({
-    /// items within the list
-    List<String>? items,
-
-    /// name of the list
-    String? name,
-
     /// time at which the list was updated
     String? updated,
 
@@ -226,6 +220,12 @@ class List with _$List {
 
     /// unique id for the list, generated if not specified
     String? id,
+
+    /// items within the list
+    List<String>? items,
+
+    /// name of the list
+    String? name,
   }) = _List;
   factory List.fromJson(Map<String, dynamic> json) => _$ListFromJson(json);
 }

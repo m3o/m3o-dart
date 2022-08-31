@@ -8,20 +8,20 @@ part of 'chat.dart';
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
+      name: json['name'] as String?,
       private: json['private'] as bool?,
       user_ids: (json['user_ids'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       description: json['description'] as String?,
-      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
+      'name': instance.name,
       'private': instance.private,
       'user_ids': instance.user_ids,
       'description': instance.description,
-      'name': instance.name,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>

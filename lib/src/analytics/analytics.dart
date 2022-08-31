@@ -116,15 +116,15 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Event with _$Event {
   const factory Event({
-    /// event name
-    String? name,
-
     /// the amount of times the event was triggered
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
 
     /// time at which the event was created
     String? created,
+
+    /// event name
+    String? name,
   }) = _Event;
   factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
 }

@@ -1264,24 +1264,24 @@ mixin _$TransactionResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? input,
+            String? type,
+            String? from_address,
+            String? max_fee_per_gas,
+            String? max_priority_fee_per_gas,
+            String? v,
             String? hash,
+            String? block_number,
+            String? chain_id,
+            String? gas_price,
+            String? nonce,
+            String? r,
+            String? s,
             String? value,
             String? block_hash,
-            String? from_address,
-            String? gas_price,
             String? to_address,
-            String? v,
-            String? s,
             String? tx_index,
-            String? type,
-            String? block_number,
-            String? gas,
-            String? input,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? chain_id,
-            String? max_priority_fee_per_gas,
-            String? r)
+            String? gas)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
@@ -1289,24 +1289,24 @@ mixin _$TransactionResponse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
+            String? input,
+            String? type,
+            String? from_address,
+            String? max_fee_per_gas,
+            String? max_priority_fee_per_gas,
+            String? v,
             String? hash,
+            String? block_number,
+            String? chain_id,
+            String? gas_price,
+            String? nonce,
+            String? r,
+            String? s,
             String? value,
             String? block_hash,
-            String? from_address,
-            String? gas_price,
             String? to_address,
-            String? v,
-            String? s,
             String? tx_index,
-            String? type,
-            String? block_number,
-            String? gas,
-            String? input,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? chain_id,
-            String? max_priority_fee_per_gas,
-            String? r)?
+            String? gas)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
@@ -1314,24 +1314,24 @@ mixin _$TransactionResponse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? input,
+            String? type,
+            String? from_address,
+            String? max_fee_per_gas,
+            String? max_priority_fee_per_gas,
+            String? v,
             String? hash,
+            String? block_number,
+            String? chain_id,
+            String? gas_price,
+            String? nonce,
+            String? r,
+            String? s,
             String? value,
             String? block_hash,
-            String? from_address,
-            String? gas_price,
             String? to_address,
-            String? v,
-            String? s,
             String? tx_index,
-            String? type,
-            String? block_number,
-            String? gas,
-            String? input,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? chain_id,
-            String? max_priority_fee_per_gas,
-            String? r)?
+            String? gas)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -1382,24 +1382,24 @@ abstract class _$$TransactionResponseDataCopyWith<$Res> {
           $Res Function(_$TransactionResponseData) then) =
       __$$TransactionResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {String? hash,
+      {String? input,
+      String? type,
+      String? from_address,
+      String? max_fee_per_gas,
+      String? max_priority_fee_per_gas,
+      String? v,
+      String? hash,
+      String? block_number,
+      String? chain_id,
+      String? gas_price,
+      String? nonce,
+      String? r,
+      String? s,
       String? value,
       String? block_hash,
-      String? from_address,
-      String? gas_price,
       String? to_address,
-      String? v,
-      String? s,
       String? tx_index,
-      String? type,
-      String? block_number,
-      String? gas,
-      String? input,
-      String? max_fee_per_gas,
-      String? nonce,
-      String? chain_id,
-      String? max_priority_fee_per_gas,
-      String? r});
+      String? gas});
 }
 
 /// @nodoc
@@ -1416,29 +1416,77 @@ class __$$TransactionResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? input = freezed,
+    Object? type = freezed,
+    Object? from_address = freezed,
+    Object? max_fee_per_gas = freezed,
+    Object? max_priority_fee_per_gas = freezed,
+    Object? v = freezed,
     Object? hash = freezed,
+    Object? block_number = freezed,
+    Object? chain_id = freezed,
+    Object? gas_price = freezed,
+    Object? nonce = freezed,
+    Object? r = freezed,
+    Object? s = freezed,
     Object? value = freezed,
     Object? block_hash = freezed,
-    Object? from_address = freezed,
-    Object? gas_price = freezed,
     Object? to_address = freezed,
-    Object? v = freezed,
-    Object? s = freezed,
     Object? tx_index = freezed,
-    Object? type = freezed,
-    Object? block_number = freezed,
     Object? gas = freezed,
-    Object? input = freezed,
-    Object? max_fee_per_gas = freezed,
-    Object? nonce = freezed,
-    Object? chain_id = freezed,
-    Object? max_priority_fee_per_gas = freezed,
-    Object? r = freezed,
   }) {
     return _then(_$TransactionResponseData(
+      input: input == freezed
+          ? _value.input
+          : input // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      from_address: from_address == freezed
+          ? _value.from_address
+          : from_address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      max_fee_per_gas: max_fee_per_gas == freezed
+          ? _value.max_fee_per_gas
+          : max_fee_per_gas // ignore: cast_nullable_to_non_nullable
+              as String?,
+      max_priority_fee_per_gas: max_priority_fee_per_gas == freezed
+          ? _value.max_priority_fee_per_gas
+          : max_priority_fee_per_gas // ignore: cast_nullable_to_non_nullable
+              as String?,
+      v: v == freezed
+          ? _value.v
+          : v // ignore: cast_nullable_to_non_nullable
+              as String?,
       hash: hash == freezed
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
+              as String?,
+      block_number: block_number == freezed
+          ? _value.block_number
+          : block_number // ignore: cast_nullable_to_non_nullable
+              as String?,
+      chain_id: chain_id == freezed
+          ? _value.chain_id
+          : chain_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      gas_price: gas_price == freezed
+          ? _value.gas_price
+          : gas_price // ignore: cast_nullable_to_non_nullable
+              as String?,
+      nonce: nonce == freezed
+          ? _value.nonce
+          : nonce // ignore: cast_nullable_to_non_nullable
+              as String?,
+      r: r == freezed
+          ? _value.r
+          : r // ignore: cast_nullable_to_non_nullable
+              as String?,
+      s: s == freezed
+          ? _value.s
+          : s // ignore: cast_nullable_to_non_nullable
               as String?,
       value: value == freezed
           ? _value.value
@@ -1448,65 +1496,17 @@ class __$$TransactionResponseDataCopyWithImpl<$Res>
           ? _value.block_hash
           : block_hash // ignore: cast_nullable_to_non_nullable
               as String?,
-      from_address: from_address == freezed
-          ? _value.from_address
-          : from_address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      gas_price: gas_price == freezed
-          ? _value.gas_price
-          : gas_price // ignore: cast_nullable_to_non_nullable
-              as String?,
       to_address: to_address == freezed
           ? _value.to_address
           : to_address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      v: v == freezed
-          ? _value.v
-          : v // ignore: cast_nullable_to_non_nullable
-              as String?,
-      s: s == freezed
-          ? _value.s
-          : s // ignore: cast_nullable_to_non_nullable
               as String?,
       tx_index: tx_index == freezed
           ? _value.tx_index
           : tx_index // ignore: cast_nullable_to_non_nullable
               as String?,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
-      block_number: block_number == freezed
-          ? _value.block_number
-          : block_number // ignore: cast_nullable_to_non_nullable
-              as String?,
       gas: gas == freezed
           ? _value.gas
           : gas // ignore: cast_nullable_to_non_nullable
-              as String?,
-      input: input == freezed
-          ? _value.input
-          : input // ignore: cast_nullable_to_non_nullable
-              as String?,
-      max_fee_per_gas: max_fee_per_gas == freezed
-          ? _value.max_fee_per_gas
-          : max_fee_per_gas // ignore: cast_nullable_to_non_nullable
-              as String?,
-      nonce: nonce == freezed
-          ? _value.nonce
-          : nonce // ignore: cast_nullable_to_non_nullable
-              as String?,
-      chain_id: chain_id == freezed
-          ? _value.chain_id
-          : chain_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      max_priority_fee_per_gas: max_priority_fee_per_gas == freezed
-          ? _value.max_priority_fee_per_gas
-          : max_priority_fee_per_gas // ignore: cast_nullable_to_non_nullable
-              as String?,
-      r: r == freezed
-          ? _value.r
-          : r // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1516,33 +1516,75 @@ class __$$TransactionResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$TransactionResponseData implements TransactionResponseData {
   const _$TransactionResponseData(
-      {this.hash,
+      {this.input,
+      this.type,
+      this.from_address,
+      this.max_fee_per_gas,
+      this.max_priority_fee_per_gas,
+      this.v,
+      this.hash,
+      this.block_number,
+      this.chain_id,
+      this.gas_price,
+      this.nonce,
+      this.r,
+      this.s,
       this.value,
       this.block_hash,
-      this.from_address,
-      this.gas_price,
       this.to_address,
-      this.v,
-      this.s,
       this.tx_index,
-      this.type,
-      this.block_number,
       this.gas,
-      this.input,
-      this.max_fee_per_gas,
-      this.nonce,
-      this.chain_id,
-      this.max_priority_fee_per_gas,
-      this.r,
       final String? $type})
       : $type = $type ?? 'default';
 
   factory _$TransactionResponseData.fromJson(Map<String, dynamic> json) =>
       _$$TransactionResponseDataFromJson(json);
 
+  /// input
+  @override
+  final String? input;
+
+  /// type of transaction
+  @override
+  final String? type;
+
+  /// sent from
+  @override
+  final String? from_address;
+
+  /// max fee per gas
+  @override
+  final String? max_fee_per_gas;
+
+  /// max priority fee per gas
+  @override
+  final String? max_priority_fee_per_gas;
+  @override
+  final String? v;
+
   /// tx hash
   @override
   final String? hash;
+
+  /// the block number
+  @override
+  final String? block_number;
+
+  /// chain id
+  @override
+  final String? chain_id;
+
+  /// gas price
+  @override
+  final String? gas_price;
+
+  /// the nonce
+  @override
+  final String? nonce;
+  @override
+  final String? r;
+  @override
+  final String? s;
 
   /// value of transaction
   @override
@@ -1552,66 +1594,24 @@ class _$TransactionResponseData implements TransactionResponseData {
   @override
   final String? block_hash;
 
-  /// sent from
-  @override
-  final String? from_address;
-
-  /// gas price
-  @override
-  final String? gas_price;
-
   /// to address
   @override
   final String? to_address;
-  @override
-  final String? v;
-  @override
-  final String? s;
 
   /// transaction index
   @override
   final String? tx_index;
 
-  /// type of transaction
-  @override
-  final String? type;
-
-  /// the block number
-  @override
-  final String? block_number;
-
   /// gas
   @override
   final String? gas;
-
-  /// input
-  @override
-  final String? input;
-
-  /// max fee per gas
-  @override
-  final String? max_fee_per_gas;
-
-  /// the nonce
-  @override
-  final String? nonce;
-
-  /// chain id
-  @override
-  final String? chain_id;
-
-  /// max priority fee per gas
-  @override
-  final String? max_priority_fee_per_gas;
-  @override
-  final String? r;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'TransactionResponse(hash: $hash, value: $value, block_hash: $block_hash, from_address: $from_address, gas_price: $gas_price, to_address: $to_address, v: $v, s: $s, tx_index: $tx_index, type: $type, block_number: $block_number, gas: $gas, input: $input, max_fee_per_gas: $max_fee_per_gas, nonce: $nonce, chain_id: $chain_id, max_priority_fee_per_gas: $max_priority_fee_per_gas, r: $r)';
+    return 'TransactionResponse(input: $input, type: $type, from_address: $from_address, max_fee_per_gas: $max_fee_per_gas, max_priority_fee_per_gas: $max_priority_fee_per_gas, v: $v, hash: $hash, block_number: $block_number, chain_id: $chain_id, gas_price: $gas_price, nonce: $nonce, r: $r, s: $s, value: $value, block_hash: $block_hash, to_address: $to_address, tx_index: $tx_index, gas: $gas)';
   }
 
   @override
@@ -1619,54 +1619,54 @@ class _$TransactionResponseData implements TransactionResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TransactionResponseData &&
+            const DeepCollectionEquality().equals(other.input, input) &&
+            const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality()
+                .equals(other.from_address, from_address) &&
+            const DeepCollectionEquality()
+                .equals(other.max_fee_per_gas, max_fee_per_gas) &&
+            const DeepCollectionEquality().equals(
+                other.max_priority_fee_per_gas, max_priority_fee_per_gas) &&
+            const DeepCollectionEquality().equals(other.v, v) &&
             const DeepCollectionEquality().equals(other.hash, hash) &&
+            const DeepCollectionEquality()
+                .equals(other.block_number, block_number) &&
+            const DeepCollectionEquality().equals(other.chain_id, chain_id) &&
+            const DeepCollectionEquality().equals(other.gas_price, gas_price) &&
+            const DeepCollectionEquality().equals(other.nonce, nonce) &&
+            const DeepCollectionEquality().equals(other.r, r) &&
+            const DeepCollectionEquality().equals(other.s, s) &&
             const DeepCollectionEquality().equals(other.value, value) &&
             const DeepCollectionEquality()
                 .equals(other.block_hash, block_hash) &&
             const DeepCollectionEquality()
-                .equals(other.from_address, from_address) &&
-            const DeepCollectionEquality().equals(other.gas_price, gas_price) &&
-            const DeepCollectionEquality()
                 .equals(other.to_address, to_address) &&
-            const DeepCollectionEquality().equals(other.v, v) &&
-            const DeepCollectionEquality().equals(other.s, s) &&
             const DeepCollectionEquality().equals(other.tx_index, tx_index) &&
-            const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality()
-                .equals(other.block_number, block_number) &&
-            const DeepCollectionEquality().equals(other.gas, gas) &&
-            const DeepCollectionEquality().equals(other.input, input) &&
-            const DeepCollectionEquality()
-                .equals(other.max_fee_per_gas, max_fee_per_gas) &&
-            const DeepCollectionEquality().equals(other.nonce, nonce) &&
-            const DeepCollectionEquality().equals(other.chain_id, chain_id) &&
-            const DeepCollectionEquality().equals(
-                other.max_priority_fee_per_gas, max_priority_fee_per_gas) &&
-            const DeepCollectionEquality().equals(other.r, r));
+            const DeepCollectionEquality().equals(other.gas, gas));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(input),
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(from_address),
+      const DeepCollectionEquality().hash(max_fee_per_gas),
+      const DeepCollectionEquality().hash(max_priority_fee_per_gas),
+      const DeepCollectionEquality().hash(v),
       const DeepCollectionEquality().hash(hash),
+      const DeepCollectionEquality().hash(block_number),
+      const DeepCollectionEquality().hash(chain_id),
+      const DeepCollectionEquality().hash(gas_price),
+      const DeepCollectionEquality().hash(nonce),
+      const DeepCollectionEquality().hash(r),
+      const DeepCollectionEquality().hash(s),
       const DeepCollectionEquality().hash(value),
       const DeepCollectionEquality().hash(block_hash),
-      const DeepCollectionEquality().hash(from_address),
-      const DeepCollectionEquality().hash(gas_price),
       const DeepCollectionEquality().hash(to_address),
-      const DeepCollectionEquality().hash(v),
-      const DeepCollectionEquality().hash(s),
       const DeepCollectionEquality().hash(tx_index),
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(block_number),
-      const DeepCollectionEquality().hash(gas),
-      const DeepCollectionEquality().hash(input),
-      const DeepCollectionEquality().hash(max_fee_per_gas),
-      const DeepCollectionEquality().hash(nonce),
-      const DeepCollectionEquality().hash(chain_id),
-      const DeepCollectionEquality().hash(max_priority_fee_per_gas),
-      const DeepCollectionEquality().hash(r));
+      const DeepCollectionEquality().hash(gas));
 
   @JsonKey(ignore: true)
   @override
@@ -1678,140 +1678,140 @@ class _$TransactionResponseData implements TransactionResponseData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? input,
+            String? type,
+            String? from_address,
+            String? max_fee_per_gas,
+            String? max_priority_fee_per_gas,
+            String? v,
             String? hash,
+            String? block_number,
+            String? chain_id,
+            String? gas_price,
+            String? nonce,
+            String? r,
+            String? s,
             String? value,
             String? block_hash,
-            String? from_address,
-            String? gas_price,
             String? to_address,
-            String? v,
-            String? s,
             String? tx_index,
-            String? type,
-            String? block_number,
-            String? gas,
-            String? input,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? chain_id,
-            String? max_priority_fee_per_gas,
-            String? r)
+            String? gas)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return $default(
+        input,
+        type,
+        from_address,
+        max_fee_per_gas,
+        max_priority_fee_per_gas,
+        v,
         hash,
+        block_number,
+        chain_id,
+        gas_price,
+        nonce,
+        r,
+        s,
         value,
         block_hash,
-        from_address,
-        gas_price,
         to_address,
-        v,
-        s,
         tx_index,
-        type,
-        block_number,
-        gas,
-        input,
-        max_fee_per_gas,
-        nonce,
-        chain_id,
-        max_priority_fee_per_gas,
-        r);
+        gas);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
+            String? input,
+            String? type,
+            String? from_address,
+            String? max_fee_per_gas,
+            String? max_priority_fee_per_gas,
+            String? v,
             String? hash,
+            String? block_number,
+            String? chain_id,
+            String? gas_price,
+            String? nonce,
+            String? r,
+            String? s,
             String? value,
             String? block_hash,
-            String? from_address,
-            String? gas_price,
             String? to_address,
-            String? v,
-            String? s,
             String? tx_index,
-            String? type,
-            String? block_number,
-            String? gas,
-            String? input,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? chain_id,
-            String? max_priority_fee_per_gas,
-            String? r)?
+            String? gas)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(
+        input,
+        type,
+        from_address,
+        max_fee_per_gas,
+        max_priority_fee_per_gas,
+        v,
         hash,
+        block_number,
+        chain_id,
+        gas_price,
+        nonce,
+        r,
+        s,
         value,
         block_hash,
-        from_address,
-        gas_price,
         to_address,
-        v,
-        s,
         tx_index,
-        type,
-        block_number,
-        gas,
-        input,
-        max_fee_per_gas,
-        nonce,
-        chain_id,
-        max_priority_fee_per_gas,
-        r);
+        gas);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? input,
+            String? type,
+            String? from_address,
+            String? max_fee_per_gas,
+            String? max_priority_fee_per_gas,
+            String? v,
             String? hash,
+            String? block_number,
+            String? chain_id,
+            String? gas_price,
+            String? nonce,
+            String? r,
+            String? s,
             String? value,
             String? block_hash,
-            String? from_address,
-            String? gas_price,
             String? to_address,
-            String? v,
-            String? s,
             String? tx_index,
-            String? type,
-            String? block_number,
-            String? gas,
-            String? input,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? chain_id,
-            String? max_priority_fee_per_gas,
-            String? r)?
+            String? gas)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
       return $default(
+          input,
+          type,
+          from_address,
+          max_fee_per_gas,
+          max_priority_fee_per_gas,
+          v,
           hash,
+          block_number,
+          chain_id,
+          gas_price,
+          nonce,
+          r,
+          s,
           value,
           block_hash,
-          from_address,
-          gas_price,
           to_address,
-          v,
-          s,
           tx_index,
-          type,
-          block_number,
-          gas,
-          input,
-          max_fee_per_gas,
-          nonce,
-          chain_id,
-          max_priority_fee_per_gas,
-          r);
+          gas);
     }
     return orElse();
   }
@@ -1857,30 +1857,60 @@ class _$TransactionResponseData implements TransactionResponseData {
 
 abstract class TransactionResponseData implements TransactionResponse {
   const factory TransactionResponseData(
-      {final String? hash,
+      {final String? input,
+      final String? type,
+      final String? from_address,
+      final String? max_fee_per_gas,
+      final String? max_priority_fee_per_gas,
+      final String? v,
+      final String? hash,
+      final String? block_number,
+      final String? chain_id,
+      final String? gas_price,
+      final String? nonce,
+      final String? r,
+      final String? s,
       final String? value,
       final String? block_hash,
-      final String? from_address,
-      final String? gas_price,
       final String? to_address,
-      final String? v,
-      final String? s,
       final String? tx_index,
-      final String? type,
-      final String? block_number,
-      final String? gas,
-      final String? input,
-      final String? max_fee_per_gas,
-      final String? nonce,
-      final String? chain_id,
-      final String? max_priority_fee_per_gas,
-      final String? r}) = _$TransactionResponseData;
+      final String? gas}) = _$TransactionResponseData;
 
   factory TransactionResponseData.fromJson(Map<String, dynamic> json) =
       _$TransactionResponseData.fromJson;
 
+  /// input
+  String? get input;
+
+  /// type of transaction
+  String? get type;
+
+  /// sent from
+  String? get from_address;
+
+  /// max fee per gas
+  String? get max_fee_per_gas;
+
+  /// max priority fee per gas
+  String? get max_priority_fee_per_gas;
+  String? get v;
+
   /// tx hash
   String? get hash;
+
+  /// the block number
+  String? get block_number;
+
+  /// chain id
+  String? get chain_id;
+
+  /// gas price
+  String? get gas_price;
+
+  /// the nonce
+  String? get nonce;
+  String? get r;
+  String? get s;
 
   /// value of transaction
   String? get value;
@@ -1888,44 +1918,14 @@ abstract class TransactionResponseData implements TransactionResponse {
   /// the block hash
   String? get block_hash;
 
-  /// sent from
-  String? get from_address;
-
-  /// gas price
-  String? get gas_price;
-
   /// to address
   String? get to_address;
-  String? get v;
-  String? get s;
 
   /// transaction index
   String? get tx_index;
 
-  /// type of transaction
-  String? get type;
-
-  /// the block number
-  String? get block_number;
-
   /// gas
   String? get gas;
-
-  /// input
-  String? get input;
-
-  /// max fee per gas
-  String? get max_fee_per_gas;
-
-  /// the nonce
-  String? get nonce;
-
-  /// chain id
-  String? get chain_id;
-
-  /// max priority fee per gas
-  String? get max_priority_fee_per_gas;
-  String? get r;
   @JsonKey(ignore: true)
   _$$TransactionResponseDataCopyWith<_$TransactionResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2015,24 +2015,24 @@ class _$TransactionResponseMerr implements TransactionResponseMerr {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? input,
+            String? type,
+            String? from_address,
+            String? max_fee_per_gas,
+            String? max_priority_fee_per_gas,
+            String? v,
             String? hash,
+            String? block_number,
+            String? chain_id,
+            String? gas_price,
+            String? nonce,
+            String? r,
+            String? s,
             String? value,
             String? block_hash,
-            String? from_address,
-            String? gas_price,
             String? to_address,
-            String? v,
-            String? s,
             String? tx_index,
-            String? type,
-            String? block_number,
-            String? gas,
-            String? input,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? chain_id,
-            String? max_priority_fee_per_gas,
-            String? r)
+            String? gas)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -2043,24 +2043,24 @@ class _$TransactionResponseMerr implements TransactionResponseMerr {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
+            String? input,
+            String? type,
+            String? from_address,
+            String? max_fee_per_gas,
+            String? max_priority_fee_per_gas,
+            String? v,
             String? hash,
+            String? block_number,
+            String? chain_id,
+            String? gas_price,
+            String? nonce,
+            String? r,
+            String? s,
             String? value,
             String? block_hash,
-            String? from_address,
-            String? gas_price,
             String? to_address,
-            String? v,
-            String? s,
             String? tx_index,
-            String? type,
-            String? block_number,
-            String? gas,
-            String? input,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? chain_id,
-            String? max_priority_fee_per_gas,
-            String? r)?
+            String? gas)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -2071,24 +2071,24 @@ class _$TransactionResponseMerr implements TransactionResponseMerr {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? input,
+            String? type,
+            String? from_address,
+            String? max_fee_per_gas,
+            String? max_priority_fee_per_gas,
+            String? v,
             String? hash,
+            String? block_number,
+            String? chain_id,
+            String? gas_price,
+            String? nonce,
+            String? r,
+            String? s,
             String? value,
             String? block_hash,
-            String? from_address,
-            String? gas_price,
             String? to_address,
-            String? v,
-            String? s,
             String? tx_index,
-            String? type,
-            String? block_number,
-            String? gas,
-            String? input,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? chain_id,
-            String? max_priority_fee_per_gas,
-            String? r)?
+            String? gas)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

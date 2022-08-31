@@ -276,6 +276,12 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
+    /// time of reservation
+    String? created,
+
+    /// time reservation expires
+    String? expires,
+
     /// name of the app
     String? name,
 
@@ -284,12 +290,6 @@ class Reservation with _$Reservation {
 
     /// associated token
     String? token,
-
-    /// time of reservation
-    String? created,
-
-    /// time reservation expires
-    String? expires,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);
@@ -382,6 +382,9 @@ class Service with _$Service {
     /// port running on
     int? port,
 
+    /// region running in
+    String? region,
+
     /// last updated
     String? updated,
 
@@ -402,9 +405,6 @@ class Service with _$Service {
 
     /// time of creation
     String? created,
-
-    /// region running in
-    String? region,
 
     /// source repository
     String? repo,

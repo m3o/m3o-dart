@@ -202,6 +202,9 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// name of the group
+    String? name,
+
     /// whether its a private group
     bool? private,
 
@@ -210,9 +213,6 @@ class CreateRequest with _$CreateRequest {
 
     /// chat description
     String? description,
-
-    /// name of the group
-    String? name,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
