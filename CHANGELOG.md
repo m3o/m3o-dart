@@ -1,3 +1,9 @@
+## v1.0.173 - 2022-08-31
+
+[360404](https://github.com/micro/services/commit/36040444ae817d66a024deb98df361485c9f4d7f) Merge branch 'master' of ssh://github.com/micro/services
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.172...v1.0.173
+
 ## v1.0.172 - 2022-08-31
 
 [c69bc1](https://github.com/micro/services/commit/c69bc109551678d30212d79f7af8646fbc2a8789) Update README.md
