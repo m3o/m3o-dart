@@ -545,14 +545,14 @@ CreateRequest _$CreateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateRequest {
+  /// JSON encoded record or records (can be array or object)
+  Map<String, dynamic>? get record => throw _privateConstructorUsedError;
+
   /// Optional table name. Defaults to 'default'
   String? get table => throw _privateConstructorUsedError;
 
   /// optional record id to use
   String? get id => throw _privateConstructorUsedError;
-
-  /// JSON encoded record or records (can be array or object)
-  Map<String, dynamic>? get record => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -565,7 +565,7 @@ abstract class $CreateRequestCopyWith<$Res> {
   factory $CreateRequestCopyWith(
           CreateRequest value, $Res Function(CreateRequest) then) =
       _$CreateRequestCopyWithImpl<$Res>;
-  $Res call({String? table, String? id, Map<String, dynamic>? record});
+  $Res call({Map<String, dynamic>? record, String? table, String? id});
 }
 
 /// @nodoc
@@ -579,11 +579,15 @@ class _$CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? record = freezed,
     Object? table = freezed,
     Object? id = freezed,
-    Object? record = freezed,
   }) {
     return _then(_value.copyWith(
+      record: record == freezed
+          ? _value.record
+          : record // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
       table: table == freezed
           ? _value.table
           : table // ignore: cast_nullable_to_non_nullable
@@ -592,10 +596,6 @@ class _$CreateRequestCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      record: record == freezed
-          ? _value.record
-          : record // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
     ));
   }
 }
@@ -607,7 +607,7 @@ abstract class _$$_CreateRequestCopyWith<$Res>
           _$_CreateRequest value, $Res Function(_$_CreateRequest) then) =
       __$$_CreateRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? table, String? id, Map<String, dynamic>? record});
+  $Res call({Map<String, dynamic>? record, String? table, String? id});
 }
 
 /// @nodoc
@@ -623,11 +623,15 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? record = freezed,
     Object? table = freezed,
     Object? id = freezed,
-    Object? record = freezed,
   }) {
     return _then(_$_CreateRequest(
+      record: record == freezed
+          ? _value._record
+          : record // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
       table: table == freezed
           ? _value.table
           : table // ignore: cast_nullable_to_non_nullable
@@ -636,10 +640,6 @@ class __$$_CreateRequestCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      record: record == freezed
-          ? _value._record
-          : record // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
     ));
   }
 }
@@ -648,19 +648,11 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_CreateRequest implements _CreateRequest {
   const _$_CreateRequest(
-      {this.table, this.id, final Map<String, dynamic>? record})
+      {final Map<String, dynamic>? record, this.table, this.id})
       : _record = record;
 
   factory _$_CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateRequestFromJson(json);
-
-  /// Optional table name. Defaults to 'default'
-  @override
-  final String? table;
-
-  /// optional record id to use
-  @override
-  final String? id;
 
   /// JSON encoded record or records (can be array or object)
   final Map<String, dynamic>? _record;
@@ -674,9 +666,17 @@ class _$_CreateRequest implements _CreateRequest {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// Optional table name. Defaults to 'default'
+  @override
+  final String? table;
+
+  /// optional record id to use
+  @override
+  final String? id;
+
   @override
   String toString() {
-    return 'CreateRequest(table: $table, id: $id, record: $record)';
+    return 'CreateRequest(record: $record, table: $table, id: $id)';
   }
 
   @override
@@ -684,18 +684,18 @@ class _$_CreateRequest implements _CreateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateRequest &&
+            const DeepCollectionEquality().equals(other._record, _record) &&
             const DeepCollectionEquality().equals(other.table, table) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other._record, _record));
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(_record),
       const DeepCollectionEquality().hash(table),
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(_record));
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -712,13 +712,17 @@ class _$_CreateRequest implements _CreateRequest {
 
 abstract class _CreateRequest implements CreateRequest {
   const factory _CreateRequest(
-      {final String? table,
-      final String? id,
-      final Map<String, dynamic>? record}) = _$_CreateRequest;
+      {final Map<String, dynamic>? record,
+      final String? table,
+      final String? id}) = _$_CreateRequest;
 
   factory _CreateRequest.fromJson(Map<String, dynamic> json) =
       _$_CreateRequest.fromJson;
 
+  @override
+
+  /// JSON encoded record or records (can be array or object)
+  Map<String, dynamic>? get record;
   @override
 
   /// Optional table name. Defaults to 'default'
@@ -727,10 +731,6 @@ abstract class _CreateRequest implements CreateRequest {
 
   /// optional record id to use
   String? get id;
-  @override
-
-  /// JSON encoded record or records (can be array or object)
-  Map<String, dynamic>? get record;
   @override
   @JsonKey(ignore: true)
   _$$_CreateRequestCopyWith<_$_CreateRequest> get copyWith =>
@@ -2632,6 +2632,13 @@ ReadRequest _$ReadRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReadRequest {
+  /// Examples: 'age >= 18', 'age >= 18 and verified == true'
+  /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
+  /// Logical operator: 'and'
+  /// Dot access is supported, eg: 'user.age == 11'
+  /// Accessing list elements is not supported yet.
+  String? get query => throw _privateConstructorUsedError;
+
   /// Optional table name. Defaults to 'default'
   String? get table => throw _privateConstructorUsedError;
 
@@ -2649,13 +2656,6 @@ mixin _$ReadRequest {
   /// field name to order by
   String? get orderBy => throw _privateConstructorUsedError;
 
-  /// Examples: 'age >= 18', 'age >= 18 and verified == true'
-  /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
-  /// Logical operator: 'and'
-  /// Dot access is supported, eg: 'user.age == 11'
-  /// Accessing list elements is not supported yet.
-  String? get query => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ReadRequestCopyWith<ReadRequest> get copyWith =>
@@ -2668,13 +2668,13 @@ abstract class $ReadRequestCopyWith<$Res> {
           ReadRequest value, $Res Function(ReadRequest) then) =
       _$ReadRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? table,
+      {String? query,
+      String? table,
       String? id,
       int? limit,
       int? offset,
       String? order,
-      String? orderBy,
-      String? query});
+      String? orderBy});
 }
 
 /// @nodoc
@@ -2687,15 +2687,19 @@ class _$ReadRequestCopyWithImpl<$Res> implements $ReadRequestCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? query = freezed,
     Object? table = freezed,
     Object? id = freezed,
     Object? limit = freezed,
     Object? offset = freezed,
     Object? order = freezed,
     Object? orderBy = freezed,
-    Object? query = freezed,
   }) {
     return _then(_value.copyWith(
+      query: query == freezed
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String?,
       table: table == freezed
           ? _value.table
           : table // ignore: cast_nullable_to_non_nullable
@@ -2720,10 +2724,6 @@ class _$ReadRequestCopyWithImpl<$Res> implements $ReadRequestCopyWith<$Res> {
           ? _value.orderBy
           : orderBy // ignore: cast_nullable_to_non_nullable
               as String?,
-      query: query == freezed
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2736,13 +2736,13 @@ abstract class _$$_ReadRequestCopyWith<$Res>
       __$$_ReadRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? table,
+      {String? query,
+      String? table,
       String? id,
       int? limit,
       int? offset,
       String? order,
-      String? orderBy,
-      String? query});
+      String? orderBy});
 }
 
 /// @nodoc
@@ -2757,15 +2757,19 @@ class __$$_ReadRequestCopyWithImpl<$Res> extends _$ReadRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? query = freezed,
     Object? table = freezed,
     Object? id = freezed,
     Object? limit = freezed,
     Object? offset = freezed,
     Object? order = freezed,
     Object? orderBy = freezed,
-    Object? query = freezed,
   }) {
     return _then(_$_ReadRequest(
+      query: query == freezed
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String?,
       table: table == freezed
           ? _value.table
           : table // ignore: cast_nullable_to_non_nullable
@@ -2790,10 +2794,6 @@ class __$$_ReadRequestCopyWithImpl<$Res> extends _$ReadRequestCopyWithImpl<$Res>
           ? _value.orderBy
           : orderBy // ignore: cast_nullable_to_non_nullable
               as String?,
-      query: query == freezed
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2802,16 +2802,24 @@ class __$$_ReadRequestCopyWithImpl<$Res> extends _$ReadRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ReadRequest implements _ReadRequest {
   const _$_ReadRequest(
-      {this.table,
+      {this.query,
+      this.table,
       this.id,
       this.limit,
       this.offset,
       this.order,
-      this.orderBy,
-      this.query});
+      this.orderBy});
 
   factory _$_ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ReadRequestFromJson(json);
+
+  /// Examples: 'age >= 18', 'age >= 18 and verified == true'
+  /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
+  /// Logical operator: 'and'
+  /// Dot access is supported, eg: 'user.age == 11'
+  /// Accessing list elements is not supported yet.
+  @override
+  final String? query;
 
   /// Optional table name. Defaults to 'default'
   @override
@@ -2836,17 +2844,9 @@ class _$_ReadRequest implements _ReadRequest {
   @override
   final String? orderBy;
 
-  /// Examples: 'age >= 18', 'age >= 18 and verified == true'
-  /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
-  /// Logical operator: 'and'
-  /// Dot access is supported, eg: 'user.age == 11'
-  /// Accessing list elements is not supported yet.
-  @override
-  final String? query;
-
   @override
   String toString() {
-    return 'ReadRequest(table: $table, id: $id, limit: $limit, offset: $offset, order: $order, orderBy: $orderBy, query: $query)';
+    return 'ReadRequest(query: $query, table: $table, id: $id, limit: $limit, offset: $offset, order: $order, orderBy: $orderBy)';
   }
 
   @override
@@ -2854,26 +2854,26 @@ class _$_ReadRequest implements _ReadRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ReadRequest &&
+            const DeepCollectionEquality().equals(other.query, query) &&
             const DeepCollectionEquality().equals(other.table, table) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.limit, limit) &&
             const DeepCollectionEquality().equals(other.offset, offset) &&
             const DeepCollectionEquality().equals(other.order, order) &&
-            const DeepCollectionEquality().equals(other.orderBy, orderBy) &&
-            const DeepCollectionEquality().equals(other.query, query));
+            const DeepCollectionEquality().equals(other.orderBy, orderBy));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(query),
       const DeepCollectionEquality().hash(table),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(limit),
       const DeepCollectionEquality().hash(offset),
       const DeepCollectionEquality().hash(order),
-      const DeepCollectionEquality().hash(orderBy),
-      const DeepCollectionEquality().hash(query));
+      const DeepCollectionEquality().hash(orderBy));
 
   @JsonKey(ignore: true)
   @override
@@ -2890,17 +2890,25 @@ class _$_ReadRequest implements _ReadRequest {
 
 abstract class _ReadRequest implements ReadRequest {
   const factory _ReadRequest(
-      {final String? table,
+      {final String? query,
+      final String? table,
       final String? id,
       final int? limit,
       final int? offset,
       final String? order,
-      final String? orderBy,
-      final String? query}) = _$_ReadRequest;
+      final String? orderBy}) = _$_ReadRequest;
 
   factory _ReadRequest.fromJson(Map<String, dynamic> json) =
       _$_ReadRequest.fromJson;
 
+  @override
+
+  /// Examples: 'age >= 18', 'age >= 18 and verified == true'
+  /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
+  /// Logical operator: 'and'
+  /// Dot access is supported, eg: 'user.age == 11'
+  /// Accessing list elements is not supported yet.
+  String? get query;
   @override
 
   /// Optional table name. Defaults to 'default'
@@ -2924,14 +2932,6 @@ abstract class _ReadRequest implements ReadRequest {
 
   /// field name to order by
   String? get orderBy;
-  @override
-
-  /// Examples: 'age >= 18', 'age >= 18 and verified == true'
-  /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
-  /// Logical operator: 'and'
-  /// Dot access is supported, eg: 'user.age == 11'
-  /// Accessing list elements is not supported yet.
-  String? get query;
   @override
   @JsonKey(ignore: true)
   _$$_ReadRequestCopyWith<_$_ReadRequest> get copyWith =>
@@ -3342,11 +3342,11 @@ RenameTableRequest _$RenameTableRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RenameTableRequest {
-  /// new table name
-  String? get to => throw _privateConstructorUsedError;
-
   /// current table name
   String? get from => throw _privateConstructorUsedError;
+
+  /// new table name
+  String? get to => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -3359,7 +3359,7 @@ abstract class $RenameTableRequestCopyWith<$Res> {
   factory $RenameTableRequestCopyWith(
           RenameTableRequest value, $Res Function(RenameTableRequest) then) =
       _$RenameTableRequestCopyWithImpl<$Res>;
-  $Res call({String? to, String? from});
+  $Res call({String? from, String? to});
 }
 
 /// @nodoc
@@ -3373,17 +3373,17 @@ class _$RenameTableRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? to = freezed,
     Object? from = freezed,
+    Object? to = freezed,
   }) {
     return _then(_value.copyWith(
-      to: to == freezed
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as String?,
       from: from == freezed
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
+              as String?,
+      to: to == freezed
+          ? _value.to
+          : to // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -3396,7 +3396,7 @@ abstract class _$$_RenameTableRequestCopyWith<$Res>
           $Res Function(_$_RenameTableRequest) then) =
       __$$_RenameTableRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? to, String? from});
+  $Res call({String? from, String? to});
 }
 
 /// @nodoc
@@ -3412,17 +3412,17 @@ class __$$_RenameTableRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? to = freezed,
     Object? from = freezed,
+    Object? to = freezed,
   }) {
     return _then(_$_RenameTableRequest(
-      to: to == freezed
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as String?,
       from: from == freezed
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
+              as String?,
+      to: to == freezed
+          ? _value.to
+          : to // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -3431,22 +3431,22 @@ class __$$_RenameTableRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RenameTableRequest implements _RenameTableRequest {
-  const _$_RenameTableRequest({this.to, this.from});
+  const _$_RenameTableRequest({this.from, this.to});
 
   factory _$_RenameTableRequest.fromJson(Map<String, dynamic> json) =>
       _$$_RenameTableRequestFromJson(json);
-
-  /// new table name
-  @override
-  final String? to;
 
   /// current table name
   @override
   final String? from;
 
+  /// new table name
+  @override
+  final String? to;
+
   @override
   String toString() {
-    return 'RenameTableRequest(to: $to, from: $from)';
+    return 'RenameTableRequest(from: $from, to: $to)';
   }
 
   @override
@@ -3454,16 +3454,16 @@ class _$_RenameTableRequest implements _RenameTableRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RenameTableRequest &&
-            const DeepCollectionEquality().equals(other.to, to) &&
-            const DeepCollectionEquality().equals(other.from, from));
+            const DeepCollectionEquality().equals(other.from, from) &&
+            const DeepCollectionEquality().equals(other.to, to));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(to),
-      const DeepCollectionEquality().hash(from));
+      const DeepCollectionEquality().hash(from),
+      const DeepCollectionEquality().hash(to));
 
   @JsonKey(ignore: true)
   @override
@@ -3480,7 +3480,7 @@ class _$_RenameTableRequest implements _RenameTableRequest {
 }
 
 abstract class _RenameTableRequest implements RenameTableRequest {
-  const factory _RenameTableRequest({final String? to, final String? from}) =
+  const factory _RenameTableRequest({final String? from, final String? to}) =
       _$_RenameTableRequest;
 
   factory _RenameTableRequest.fromJson(Map<String, dynamic> json) =
@@ -3488,12 +3488,12 @@ abstract class _RenameTableRequest implements RenameTableRequest {
 
   @override
 
-  /// new table name
-  String? get to;
-  @override
-
   /// current table name
   String? get from;
+  @override
+
+  /// new table name
+  String? get to;
   @override
   @JsonKey(ignore: true)
   _$$_RenameTableRequestCopyWith<_$_RenameTableRequest> get copyWith =>

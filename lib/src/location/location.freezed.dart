@@ -200,10 +200,10 @@ Point _$PointFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Point {
-  double? get latitude => throw _privateConstructorUsedError;
   double? get longitude => throw _privateConstructorUsedError;
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get timestamp => throw _privateConstructorUsedError;
+  double? get latitude => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -215,10 +215,9 @@ abstract class $PointCopyWith<$Res> {
   factory $PointCopyWith(Point value, $Res Function(Point) then) =
       _$PointCopyWithImpl<$Res>;
   $Res call(
-      {double? latitude,
-      double? longitude,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? timestamp});
+      {double? longitude,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? timestamp,
+      double? latitude});
 }
 
 /// @nodoc
@@ -231,15 +230,11 @@ class _$PointCopyWithImpl<$Res> implements $PointCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? latitude = freezed,
     Object? longitude = freezed,
     Object? timestamp = freezed,
+    Object? latitude = freezed,
   }) {
     return _then(_value.copyWith(
-      latitude: latitude == freezed
-          ? _value.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as double?,
       longitude: longitude == freezed
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
@@ -248,6 +243,10 @@ class _$PointCopyWithImpl<$Res> implements $PointCopyWith<$Res> {
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as int?,
+      latitude: latitude == freezed
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -258,10 +257,9 @@ abstract class _$$_PointCopyWith<$Res> implements $PointCopyWith<$Res> {
       __$$_PointCopyWithImpl<$Res>;
   @override
   $Res call(
-      {double? latitude,
-      double? longitude,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? timestamp});
+      {double? longitude,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? timestamp,
+      double? latitude});
 }
 
 /// @nodoc
@@ -275,15 +273,11 @@ class __$$_PointCopyWithImpl<$Res> extends _$PointCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? latitude = freezed,
     Object? longitude = freezed,
     Object? timestamp = freezed,
+    Object? latitude = freezed,
   }) {
     return _then(_$_Point(
-      latitude: latitude == freezed
-          ? _value.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as double?,
       longitude: longitude == freezed
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
@@ -292,6 +286,10 @@ class __$$_PointCopyWithImpl<$Res> extends _$PointCopyWithImpl<$Res>
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as int?,
+      latitude: latitude == freezed
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -300,25 +298,24 @@ class __$$_PointCopyWithImpl<$Res> extends _$PointCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Point implements _Point {
   const _$_Point(
-      {this.latitude,
-      this.longitude,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.timestamp});
+      {this.longitude,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.timestamp,
+      this.latitude});
 
   factory _$_Point.fromJson(Map<String, dynamic> json) =>
       _$$_PointFromJson(json);
 
   @override
-  final double? latitude;
-  @override
   final double? longitude;
   @override
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? timestamp;
+  @override
+  final double? latitude;
 
   @override
   String toString() {
-    return 'Point(latitude: $latitude, longitude: $longitude, timestamp: $timestamp)';
+    return 'Point(longitude: $longitude, timestamp: $timestamp, latitude: $latitude)';
   }
 
   @override
@@ -326,18 +323,18 @@ class _$_Point implements _Point {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Point &&
-            const DeepCollectionEquality().equals(other.latitude, latitude) &&
             const DeepCollectionEquality().equals(other.longitude, longitude) &&
-            const DeepCollectionEquality().equals(other.timestamp, timestamp));
+            const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
+            const DeepCollectionEquality().equals(other.latitude, latitude));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(latitude),
       const DeepCollectionEquality().hash(longitude),
-      const DeepCollectionEquality().hash(timestamp));
+      const DeepCollectionEquality().hash(timestamp),
+      const DeepCollectionEquality().hash(latitude));
 
   @JsonKey(ignore: true)
   @override
@@ -354,20 +351,20 @@ class _$_Point implements _Point {
 
 abstract class _Point implements Point {
   const factory _Point(
-      {final double? latitude,
-      final double? longitude,
+      {final double? longitude,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? timestamp}) = _$_Point;
+          final int? timestamp,
+      final double? latitude}) = _$_Point;
 
   factory _Point.fromJson(Map<String, dynamic> json) = _$_Point.fromJson;
 
-  @override
-  double? get latitude;
   @override
   double? get longitude;
   @override
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get timestamp;
+  @override
+  double? get latitude;
   @override
   @JsonKey(ignore: true)
   _$$_PointCopyWith<_$_Point> get copyWith =>

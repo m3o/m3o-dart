@@ -18,19 +18,19 @@ Map<String, dynamic> _$$_EmbedRequestToJson(_$_EmbedRequest instance) =>
 
 _$EmbedResponseData _$$EmbedResponseDataFromJson(Map<String, dynamic> json) =>
     _$EmbedResponseData(
-      long_url: json['long_url'] as String?,
-      short_url: json['short_url'] as String?,
       embed_url: json['embed_url'] as String?,
       html_script: json['html_script'] as String?,
+      long_url: json['long_url'] as String?,
+      short_url: json['short_url'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$EmbedResponseDataToJson(_$EmbedResponseData instance) =>
     <String, dynamic>{
-      'long_url': instance.long_url,
-      'short_url': instance.short_url,
       'embed_url': instance.embed_url,
       'html_script': instance.html_script,
+      'long_url': instance.long_url,
+      'short_url': instance.short_url,
       'runtimeType': instance.$type,
     };
 
@@ -86,26 +86,26 @@ Map<String, dynamic> _$$SearchResponseMerrToJson(
 
 _$_SearchResult _$$_SearchResultFromJson(Map<String, dynamic> json) =>
     _$_SearchResult(
+      id: json['id'] as String?,
       title: json['title'] as String?,
       url: json['url'] as String?,
-      broadcasting: json['broadcasting'] as String?,
-      description: json['description'] as String?,
       kind: json['kind'] as String?,
       published_at: json['published_at'] as String?,
+      broadcasting: json['broadcasting'] as String?,
       channel_id: json['channel_id'] as String?,
       channel_title: json['channel_title'] as String?,
-      id: json['id'] as String?,
+      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$$_SearchResultToJson(_$_SearchResult instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'title': instance.title,
       'url': instance.url,
-      'broadcasting': instance.broadcasting,
-      'description': instance.description,
       'kind': instance.kind,
       'published_at': instance.published_at,
+      'broadcasting': instance.broadcasting,
       'channel_id': instance.channel_id,
       'channel_title': instance.channel_title,
-      'id': instance.id,
+      'description': instance.description,
     };
