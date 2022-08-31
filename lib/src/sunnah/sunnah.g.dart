@@ -204,44 +204,45 @@ Map<String, dynamic> _$$CollectionsResponseMerrToJson(
     };
 
 _$_Hadith _$$_HadithFromJson(Map<String, dynamic> json) => _$_Hadith(
-      arabic_chapter_title: json['arabic_chapter_title'] as String?,
-      arabic_text: json['arabic_text'] as String?,
       chapter: json['chapter'] as int?,
       chapter_key: json['chapter_key'] as String?,
       chapter_title: json['chapter_title'] as String?,
       id: json['id'] as int?,
       text: json['text'] as String?,
+      arabic_chapter_title: json['arabic_chapter_title'] as String?,
+      arabic_text: json['arabic_text'] as String?,
     );
 
 Map<String, dynamic> _$$_HadithToJson(_$_Hadith instance) => <String, dynamic>{
-      'arabic_chapter_title': instance.arabic_chapter_title,
-      'arabic_text': instance.arabic_text,
       'chapter': instance.chapter,
       'chapter_key': instance.chapter_key,
       'chapter_title': instance.chapter_title,
       'id': instance.id,
       'text': instance.text,
+      'arabic_chapter_title': instance.arabic_chapter_title,
+      'arabic_text': instance.arabic_text,
     };
 
 _$_HadithsRequest _$$_HadithsRequestFromJson(Map<String, dynamic> json) =>
     _$_HadithsRequest(
+      book: json['book'] as int?,
       collection: json['collection'] as String?,
       limit: json['limit'] as int?,
       page: json['page'] as int?,
-      book: json['book'] as int?,
     );
 
 Map<String, dynamic> _$$_HadithsRequestToJson(_$_HadithsRequest instance) =>
     <String, dynamic>{
+      'book': instance.book,
       'collection': instance.collection,
       'limit': instance.limit,
       'page': instance.page,
-      'book': instance.book,
     };
 
 _$HadithsResponseData _$$HadithsResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$HadithsResponseData(
+      collection: json['collection'] as String?,
       hadiths: (json['hadiths'] as List<dynamic>?)
           ?.map((e) => Hadith.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -249,19 +250,18 @@ _$HadithsResponseData _$$HadithsResponseDataFromJson(
       page: json['page'] as int?,
       total: json['total'] as int?,
       book: json['book'] as int?,
-      collection: json['collection'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$HadithsResponseDataToJson(
         _$HadithsResponseData instance) =>
     <String, dynamic>{
+      'collection': instance.collection,
       'hadiths': instance.hadiths,
       'limit': instance.limit,
       'page': instance.page,
       'total': instance.total,
       'book': instance.book,
-      'collection': instance.collection,
       'runtimeType': instance.$type,
     };
 

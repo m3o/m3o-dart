@@ -4,87 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/contact/api](h
 
 Endpoints:
 
-## Update
-
-Update a contact
-
-
-[https://m3o.com/contact/api#Update](https://m3o.com/contact/api#Update)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/contact/contact.dart';
-
-void main() async {
-  final ser = ContactService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "addresses": [
-    {
-      "label": "company address",
-      "location": "123 street address"
-    ,}
-  ],
-  "birthday": "1995-01-01",
-  "emails": [
-    {
-      "address": "home@example.com",
-      "label": "home"
-    },
-    {
-      "address": "work@example.com",
-      "label": "work"
-    }
-  ],
-  "id": "42e48a3c-6221-11ec-96d2-acde48001122",
-  "links": [
-    {
-      "label": "blog",
-      "url": "https://blog.joe.me"
-    }
-  ],
-  "name": "joe",
-  "note": "this person is very important",
-  "phones": [
-    {
-      "label": "home",
-      "number": "010-12345678"
-    },
-    {
-      "label": "work",
-      "number": "010-87654321"
-    }
-  ],
-  "social_medias": [
-    {
-      "label": "twitter",
-      "username": "joe-twitter"
-    },
-    {
-      "label": "facebook",
-      "username": "joe-facebook"
-    }
-  ]
-};
-
-  UpdateRequest req = UpdateRequest.fromJson(payload);
-
-  
-  try {
-
-	UpdateResponse res = await ser.update(req);
-
-    res.map((value) => print(value),
-	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Read
 
 Read contact details
@@ -300,6 +219,87 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (CreateResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Update
+
+Update a contact
+
+
+[https://m3o.com/contact/api#Update](https://m3o.com/contact/api#Update)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/contact/contact.dart';
+
+void main() async {
+  final ser = ContactService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "addresses": [
+    {
+      "label": "company address",
+      "location": "123 street address"
+    ,}
+  ],
+  "birthday": "1995-01-01",
+  "emails": [
+    {
+      "address": "home@example.com",
+      "label": "home"
+    },
+    {
+      "address": "work@example.com",
+      "label": "work"
+    }
+  ],
+  "id": "42e48a3c-6221-11ec-96d2-acde48001122",
+  "links": [
+    {
+      "label": "blog",
+      "url": "https://blog.joe.me"
+    }
+  ],
+  "name": "joe",
+  "note": "this person is very important",
+  "phones": [
+    {
+      "label": "home",
+      "number": "010-12345678"
+    },
+    {
+      "label": "work",
+      "number": "010-87654321"
+    }
+  ],
+  "social_medias": [
+    {
+      "label": "twitter",
+      "username": "joe-twitter"
+    },
+    {
+      "label": "facebook",
+      "username": "joe-facebook"
+    }
+  ]
+};
+
+  UpdateRequest req = UpdateRequest.fromJson(payload);
+
+  
+  try {
+
+	UpdateResponse res = await ser.update(req);
+
+    res.map((value) => print(value),
+	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
