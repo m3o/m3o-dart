@@ -20,12 +20,6 @@ GenerateRequest _$GenerateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GenerateRequest {
-  /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
-  String? get format => throw _privateConstructorUsedError;
-
-  /// avatar's gender: `male` or `female`; default is `male`
-  String? get gender => throw _privateConstructorUsedError;
-
   /// set to true to upload to the M3O CDN and receive the url
   bool? get upload => throw _privateConstructorUsedError;
 
@@ -33,6 +27,12 @@ mixin _$GenerateRequest {
   /// if empty, every request generates a random avatar;
   /// if upload == true, username will be the CDN filename rather than a random uuid string
   String? get username => throw _privateConstructorUsedError;
+
+  /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
+  String? get format => throw _privateConstructorUsedError;
+
+  /// avatar's gender: `male` or `female`; default is `male`
+  String? get gender => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +45,7 @@ abstract class $GenerateRequestCopyWith<$Res> {
   factory $GenerateRequestCopyWith(
           GenerateRequest value, $Res Function(GenerateRequest) then) =
       _$GenerateRequestCopyWithImpl<$Res>;
-  $Res call({String? format, String? gender, bool? upload, String? username});
+  $Res call({bool? upload, String? username, String? format, String? gender});
 }
 
 /// @nodoc
@@ -59,20 +59,12 @@ class _$GenerateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? format = freezed,
-    Object? gender = freezed,
     Object? upload = freezed,
     Object? username = freezed,
+    Object? format = freezed,
+    Object? gender = freezed,
   }) {
     return _then(_value.copyWith(
-      format: format == freezed
-          ? _value.format
-          : format // ignore: cast_nullable_to_non_nullable
-              as String?,
-      gender: gender == freezed
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as String?,
       upload: upload == freezed
           ? _value.upload
           : upload // ignore: cast_nullable_to_non_nullable
@@ -80,6 +72,14 @@ class _$GenerateRequestCopyWithImpl<$Res>
       username: username == freezed
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
+              as String?,
+      format: format == freezed
+          ? _value.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as String?,
+      gender: gender == freezed
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -92,7 +92,7 @@ abstract class _$$_GenerateRequestCopyWith<$Res>
           _$_GenerateRequest value, $Res Function(_$_GenerateRequest) then) =
       __$$_GenerateRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? format, String? gender, bool? upload, String? username});
+  $Res call({bool? upload, String? username, String? format, String? gender});
 }
 
 /// @nodoc
@@ -108,20 +108,12 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? format = freezed,
-    Object? gender = freezed,
     Object? upload = freezed,
     Object? username = freezed,
+    Object? format = freezed,
+    Object? gender = freezed,
   }) {
     return _then(_$_GenerateRequest(
-      format: format == freezed
-          ? _value.format
-          : format // ignore: cast_nullable_to_non_nullable
-              as String?,
-      gender: gender == freezed
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as String?,
       upload: upload == freezed
           ? _value.upload
           : upload // ignore: cast_nullable_to_non_nullable
@@ -129,6 +121,14 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
       username: username == freezed
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
+              as String?,
+      format: format == freezed
+          ? _value.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as String?,
+      gender: gender == freezed
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -138,18 +138,10 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GenerateRequest implements _GenerateRequest {
   const _$_GenerateRequest(
-      {this.format, this.gender, this.upload, this.username});
+      {this.upload, this.username, this.format, this.gender});
 
   factory _$_GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_GenerateRequestFromJson(json);
-
-  /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
-  @override
-  final String? format;
-
-  /// avatar's gender: `male` or `female`; default is `male`
-  @override
-  final String? gender;
 
   /// set to true to upload to the M3O CDN and receive the url
   @override
@@ -161,9 +153,17 @@ class _$_GenerateRequest implements _GenerateRequest {
   @override
   final String? username;
 
+  /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
+  @override
+  final String? format;
+
+  /// avatar's gender: `male` or `female`; default is `male`
+  @override
+  final String? gender;
+
   @override
   String toString() {
-    return 'GenerateRequest(format: $format, gender: $gender, upload: $upload, username: $username)';
+    return 'GenerateRequest(upload: $upload, username: $username, format: $format, gender: $gender)';
   }
 
   @override
@@ -171,20 +171,20 @@ class _$_GenerateRequest implements _GenerateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GenerateRequest &&
-            const DeepCollectionEquality().equals(other.format, format) &&
-            const DeepCollectionEquality().equals(other.gender, gender) &&
             const DeepCollectionEquality().equals(other.upload, upload) &&
-            const DeepCollectionEquality().equals(other.username, username));
+            const DeepCollectionEquality().equals(other.username, username) &&
+            const DeepCollectionEquality().equals(other.format, format) &&
+            const DeepCollectionEquality().equals(other.gender, gender));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(format),
-      const DeepCollectionEquality().hash(gender),
       const DeepCollectionEquality().hash(upload),
-      const DeepCollectionEquality().hash(username));
+      const DeepCollectionEquality().hash(username),
+      const DeepCollectionEquality().hash(format),
+      const DeepCollectionEquality().hash(gender));
 
   @JsonKey(ignore: true)
   @override
@@ -201,22 +201,14 @@ class _$_GenerateRequest implements _GenerateRequest {
 
 abstract class _GenerateRequest implements GenerateRequest {
   const factory _GenerateRequest(
-      {final String? format,
-      final String? gender,
-      final bool? upload,
-      final String? username}) = _$_GenerateRequest;
+      {final bool? upload,
+      final String? username,
+      final String? format,
+      final String? gender}) = _$_GenerateRequest;
 
   factory _GenerateRequest.fromJson(Map<String, dynamic> json) =
       _$_GenerateRequest.fromJson;
 
-  @override
-
-  /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
-  String? get format;
-  @override
-
-  /// avatar's gender: `male` or `female`; default is `male`
-  String? get gender;
   @override
 
   /// set to true to upload to the M3O CDN and receive the url
@@ -227,6 +219,14 @@ abstract class _GenerateRequest implements GenerateRequest {
   /// if empty, every request generates a random avatar;
   /// if upload == true, username will be the CDN filename rather than a random uuid string
   String? get username;
+  @override
+
+  /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
+  String? get format;
+  @override
+
+  /// avatar's gender: `male` or `female`; default is `male`
+  String? get gender;
   @override
   @JsonKey(ignore: true)
   _$$_GenerateRequestCopyWith<_$_GenerateRequest> get copyWith =>

@@ -616,11 +616,11 @@ ValidateRequest _$ValidateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ValidateRequest {
-  /// one time pass code to validate
-  String? get code => throw _privateConstructorUsedError;
-
   /// unique id, email or user for which the code was generated
   String? get id => throw _privateConstructorUsedError;
+
+  /// one time pass code to validate
+  String? get code => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -633,7 +633,7 @@ abstract class $ValidateRequestCopyWith<$Res> {
   factory $ValidateRequestCopyWith(
           ValidateRequest value, $Res Function(ValidateRequest) then) =
       _$ValidateRequestCopyWithImpl<$Res>;
-  $Res call({String? code, String? id});
+  $Res call({String? id, String? code});
 }
 
 /// @nodoc
@@ -647,17 +647,17 @@ class _$ValidateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? code = freezed,
     Object? id = freezed,
+    Object? code = freezed,
   }) {
     return _then(_value.copyWith(
-      code: code == freezed
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -670,7 +670,7 @@ abstract class _$$_ValidateRequestCopyWith<$Res>
           _$_ValidateRequest value, $Res Function(_$_ValidateRequest) then) =
       __$$_ValidateRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? code, String? id});
+  $Res call({String? id, String? code});
 }
 
 /// @nodoc
@@ -686,17 +686,17 @@ class __$$_ValidateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? code = freezed,
     Object? id = freezed,
+    Object? code = freezed,
   }) {
     return _then(_$_ValidateRequest(
-      code: code == freezed
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -705,22 +705,22 @@ class __$$_ValidateRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ValidateRequest implements _ValidateRequest {
-  const _$_ValidateRequest({this.code, this.id});
+  const _$_ValidateRequest({this.id, this.code});
 
   factory _$_ValidateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ValidateRequestFromJson(json);
-
-  /// one time pass code to validate
-  @override
-  final String? code;
 
   /// unique id, email or user for which the code was generated
   @override
   final String? id;
 
+  /// one time pass code to validate
+  @override
+  final String? code;
+
   @override
   String toString() {
-    return 'ValidateRequest(code: $code, id: $id)';
+    return 'ValidateRequest(id: $id, code: $code)';
   }
 
   @override
@@ -728,16 +728,16 @@ class _$_ValidateRequest implements _ValidateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ValidateRequest &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.code, code));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(code));
 
   @JsonKey(ignore: true)
   @override
@@ -753,7 +753,7 @@ class _$_ValidateRequest implements _ValidateRequest {
 }
 
 abstract class _ValidateRequest implements ValidateRequest {
-  const factory _ValidateRequest({final String? code, final String? id}) =
+  const factory _ValidateRequest({final String? id, final String? code}) =
       _$_ValidateRequest;
 
   factory _ValidateRequest.fromJson(Map<String, dynamic> json) =
@@ -761,12 +761,12 @@ abstract class _ValidateRequest implements ValidateRequest {
 
   @override
 
-  /// one time pass code to validate
-  String? get code;
-  @override
-
   /// unique id, email or user for which the code was generated
   String? get id;
+  @override
+
+  /// one time pass code to validate
+  String? get code;
   @override
   @JsonKey(ignore: true)
   _$$_ValidateRequestCopyWith<_$_ValidateRequest> get copyWith =>
