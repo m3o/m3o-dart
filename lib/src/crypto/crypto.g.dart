@@ -85,17 +85,17 @@ Map<String, dynamic> _$$_NewsRequestToJson(_$_NewsRequest instance) =>
 
 _$NewsResponseData _$$NewsResponseDataFromJson(Map<String, dynamic> json) =>
     _$NewsResponseData(
-      symbol: json['symbol'] as String?,
       articles: (json['articles'] as List<dynamic>?)
           ?.map((e) => Article.fromJson(e as Map<String, dynamic>))
           .toList(),
+      symbol: json['symbol'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$NewsResponseDataToJson(_$NewsResponseData instance) =>
     <String, dynamic>{
-      'symbol': instance.symbol,
       'articles': instance.articles,
+      'symbol': instance.symbol,
       'runtimeType': instance.$type,
     };
 

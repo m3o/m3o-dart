@@ -25,14 +25,14 @@ Map<String, dynamic> _$$_CommentToJson(_$_Comment instance) =>
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      text: json['text'] as String?,
       subject: json['subject'] as String?,
+      text: json['text'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
-      'text': instance.text,
       'subject': instance.subject,
+      'text': instance.text,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -113,18 +113,18 @@ Map<String, dynamic> _$$_EventsRequestToJson(_$_EventsRequest instance) =>
 
 _$EventsResponseData _$$EventsResponseDataFromJson(Map<String, dynamic> json) =>
     _$EventsResponseData(
-      event: json['event'] as String?,
       comment: json['comment'] == null
           ? null
           : Comment.fromJson(json['comment'] as Map<String, dynamic>),
+      event: json['event'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$EventsResponseDataToJson(
         _$EventsResponseData instance) =>
     <String, dynamic>{
-      'event': instance.event,
       'comment': instance.comment,
+      'event': instance.event,
       'runtimeType': instance.$type,
     };
 

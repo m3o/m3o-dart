@@ -305,13 +305,6 @@ class ListTablesResponse with _$ListTablesResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
-    /// Examples: 'age >= 18', 'age >= 18 and verified == true'
-    /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
-    /// Logical operator: 'and'
-    /// Dot access is supported, eg: 'user.age == 11'
-    /// Accessing list elements is not supported yet.
-    String? query,
-
     /// Optional table name. Defaults to 'default'
     String? table,
 
@@ -328,6 +321,13 @@ class ReadRequest with _$ReadRequest {
 
     /// field name to order by
     String? orderBy,
+
+    /// Examples: 'age >= 18', 'age >= 18 and verified == true'
+    /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
+    /// Logical operator: 'and'
+    /// Dot access is supported, eg: 'user.age == 11'
+    /// Accessing list elements is not supported yet.
+    String? query,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);
@@ -388,14 +388,14 @@ class TruncateResponse with _$TruncateResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
+    /// The id of the record. If not specified it is inferred from the 'id' field of the record
+    String? id,
+
     /// record, JSON object
     Map<String, dynamic>? record,
 
     /// Optional table name. Defaults to 'default'
     String? table,
-
-    /// The id of the record. If not specified it is inferred from the 'id' field of the record
-    String? id,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

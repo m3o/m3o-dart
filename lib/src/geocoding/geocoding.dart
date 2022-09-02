@@ -56,11 +56,11 @@ class GeocodingService {
 @Freezed()
 class Address with _$Address {
   const factory Address({
+    String? line_two,
     String? postcode,
     String? city,
     String? country,
     String? line_one,
-    String? line_two,
   }) = _Address;
   factory Address.fromJson(Map<String, dynamic> json) =>
       _$AddressFromJson(json);
@@ -91,8 +91,8 @@ class LookupRequest with _$LookupRequest {
 @Freezed()
 class LookupResponse with _$LookupResponse {
   const factory LookupResponse({
-    Location? location,
     Address? address,
+    Location? location,
   }) = LookupResponseData;
   const factory LookupResponse.Merr({Map<String, dynamic>? body}) =
       LookupResponseMerr;

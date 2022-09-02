@@ -37,15 +37,15 @@ _$QueryResponseData _$$QueryResponseDataFromJson(Map<String, dynamic> json) =>
       AD: json['AD'] as bool?,
       RA: json['RA'] as bool?,
       RD: json['RD'] as bool?,
-      TC: json['TC'] as bool?,
-      question: (json['question'] as List<dynamic>?)
-          ?.map((e) => Question.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      CD: json['CD'] as bool?,
       answer: (json['answer'] as List<dynamic>?)
           ?.map((e) => Answer.fromJson(e as Map<String, dynamic>))
           .toList(),
       provider: json['provider'] as String?,
+      question: (json['question'] as List<dynamic>?)
+          ?.map((e) => Question.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      CD: json['CD'] as bool?,
+      TC: json['TC'] as bool?,
       status: json['status'] as int?,
       $type: json['runtimeType'] as String?,
     );
@@ -55,11 +55,11 @@ Map<String, dynamic> _$$QueryResponseDataToJson(_$QueryResponseData instance) =>
       'AD': instance.AD,
       'RA': instance.RA,
       'RD': instance.RD,
-      'TC': instance.TC,
-      'question': instance.question,
-      'CD': instance.CD,
       'answer': instance.answer,
       'provider': instance.provider,
+      'question': instance.question,
+      'CD': instance.CD,
+      'TC': instance.TC,
       'status': instance.status,
       'runtimeType': instance.$type,
     };
@@ -77,12 +77,12 @@ Map<String, dynamic> _$$QueryResponseMerrToJson(_$QueryResponseMerr instance) =>
     };
 
 _$_Question _$$_QuestionFromJson(Map<String, dynamic> json) => _$_Question(
-      type: json['type'] as int?,
       name: json['name'] as String?,
+      type: json['type'] as int?,
     );
 
 Map<String, dynamic> _$$_QuestionToJson(_$_Question instance) =>
     <String, dynamic>{
-      'type': instance.type,
       'name': instance.name,
+      'type': instance.type,
     };
