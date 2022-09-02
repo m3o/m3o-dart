@@ -96,11 +96,11 @@ class FileService {
 @Freezed()
 class DeleteRequest with _$DeleteRequest {
   const factory DeleteRequest({
-    /// Path to the file
-    String? path,
-
     /// The project name
     String? project,
+
+    /// Path to the file
+    String? path,
   }) = _DeleteRequest;
   factory DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$DeleteRequestFromJson(json);
@@ -118,14 +118,14 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class ListRequest with _$ListRequest {
   const factory ListRequest({
+    /// Project, required for listing.
+    String? project,
+
     /// Defaults to '/', ie. lists all files in a project.
     /// Supply path to a folder if you want to list
     /// files inside that folder
     /// eg. '/docs'
     String? path,
-
-    /// Project, required for listing.
-    String? project,
   }) = _ListRequest;
   factory ListRequest.fromJson(Map<String, dynamic> json) =>
       _$ListRequestFromJson(json);
@@ -145,11 +145,11 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
-    /// Project name
-    String? project,
-
     /// Path to the file
     String? path,
+
+    /// Project name
+    String? project,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);
@@ -170,6 +170,10 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class Record with _$Record {
   const factory Record({
+    /// A custom project to group files
+    /// eg. file-of-mywebsite.com
+    String? project,
+
     /// Time the file was updated e.g 2021-05-20T13:37:21Z
     String? updated,
 
@@ -184,10 +188,6 @@ class Record with _$Record {
 
     /// Path to file or folder eg. '/documents/text-files/file.txt'.
     String? path,
-
-    /// A custom project to group files
-    /// eg. file-of-mywebsite.com
-    String? project,
   }) = _Record;
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }

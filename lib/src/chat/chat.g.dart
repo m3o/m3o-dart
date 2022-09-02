@@ -8,20 +8,20 @@ part of 'chat.dart';
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      description: json['description'] as String?,
-      name: json['name'] as String?,
-      private: json['private'] as bool?,
       user_ids: (json['user_ids'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
+      description: json['description'] as String?,
+      name: json['name'] as String?,
+      private: json['private'] as bool?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
+      'user_ids': instance.user_ids,
       'description': instance.description,
       'name': instance.name,
       'private': instance.private,
-      'user_ids': instance.user_ids,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -152,14 +152,14 @@ Map<String, dynamic> _$$HistoryResponseMerrToJson(
 
 _$_InviteRequest _$$_InviteRequestFromJson(Map<String, dynamic> json) =>
     _$_InviteRequest(
-      group_id: json['group_id'] as String?,
       user_id: json['user_id'] as String?,
+      group_id: json['group_id'] as String?,
     );
 
 Map<String, dynamic> _$$_InviteRequestToJson(_$_InviteRequest instance) =>
     <String, dynamic>{
-      'group_id': instance.group_id,
       'user_id': instance.user_id,
+      'group_id': instance.group_id,
     };
 
 _$InviteResponseData _$$InviteResponseDataFromJson(Map<String, dynamic> json) =>
@@ -192,14 +192,14 @@ Map<String, dynamic> _$$InviteResponseMerrToJson(
 
 _$_JoinRequest _$$_JoinRequestFromJson(Map<String, dynamic> json) =>
     _$_JoinRequest(
-      user_id: json['user_id'] as String?,
       group_id: json['group_id'] as String?,
+      user_id: json['user_id'] as String?,
     );
 
 Map<String, dynamic> _$$_JoinRequestToJson(_$_JoinRequest instance) =>
     <String, dynamic>{
-      'user_id': instance.user_id,
       'group_id': instance.group_id,
+      'user_id': instance.user_id,
     };
 
 _$JoinResponseData _$$JoinResponseDataFromJson(Map<String, dynamic> json) =>

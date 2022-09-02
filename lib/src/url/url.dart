@@ -203,6 +203,9 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class ResolveRequest with _$ResolveRequest {
   const factory ResolveRequest({
+    /// resolve by id
+    String? id,
+
     /// short url to resolve
     String? shortURL,
   }) = _ResolveRequest;
@@ -246,6 +249,12 @@ class ShortenResponse with _$ShortenResponse {
 @Freezed()
 class URLPair with _$URLPair {
   const factory URLPair({
+    /// shortened url
+    String? shortURL,
+
+    /// time of creation
+    String? created,
+
     /// destination url
     String? destinationURL,
 
@@ -255,12 +264,6 @@ class URLPair with _$URLPair {
 
     /// url id
     String? id,
-
-    /// shortened url
-    String? shortURL,
-
-    /// time of creation
-    String? created,
   }) = _URLPair;
   factory URLPair.fromJson(Map<String, dynamic> json) =>
       _$URLPairFromJson(json);

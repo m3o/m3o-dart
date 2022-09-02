@@ -20,6 +20,9 @@ CreateRequest _$CreateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateRequest {
+  /// optional list of user ids
+  List<String>? get user_ids => throw _privateConstructorUsedError;
+
   /// chat description
   String? get description => throw _privateConstructorUsedError;
 
@@ -28,9 +31,6 @@ mixin _$CreateRequest {
 
   /// whether its a private group
   bool? get private => throw _privateConstructorUsedError;
-
-  /// optional list of user ids
-  List<String>? get user_ids => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,10 +44,10 @@ abstract class $CreateRequestCopyWith<$Res> {
           CreateRequest value, $Res Function(CreateRequest) then) =
       _$CreateRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? description,
+      {List<String>? user_ids,
+      String? description,
       String? name,
-      bool? private,
-      List<String>? user_ids});
+      bool? private});
 }
 
 /// @nodoc
@@ -61,12 +61,16 @@ class _$CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? user_ids = freezed,
     Object? description = freezed,
     Object? name = freezed,
     Object? private = freezed,
-    Object? user_ids = freezed,
   }) {
     return _then(_value.copyWith(
+      user_ids: user_ids == freezed
+          ? _value.user_ids
+          : user_ids // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -79,10 +83,6 @@ class _$CreateRequestCopyWithImpl<$Res>
           ? _value.private
           : private // ignore: cast_nullable_to_non_nullable
               as bool?,
-      user_ids: user_ids == freezed
-          ? _value.user_ids
-          : user_ids // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
     ));
   }
 }
@@ -95,10 +95,10 @@ abstract class _$$_CreateRequestCopyWith<$Res>
       __$$_CreateRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? description,
+      {List<String>? user_ids,
+      String? description,
       String? name,
-      bool? private,
-      List<String>? user_ids});
+      bool? private});
 }
 
 /// @nodoc
@@ -114,12 +114,16 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? user_ids = freezed,
     Object? description = freezed,
     Object? name = freezed,
     Object? private = freezed,
-    Object? user_ids = freezed,
   }) {
     return _then(_$_CreateRequest(
+      user_ids: user_ids == freezed
+          ? _value._user_ids
+          : user_ids // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -132,10 +136,6 @@ class __$$_CreateRequestCopyWithImpl<$Res>
           ? _value.private
           : private // ignore: cast_nullable_to_non_nullable
               as bool?,
-      user_ids: user_ids == freezed
-          ? _value._user_ids
-          : user_ids // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
     ));
   }
 }
@@ -144,23 +144,11 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_CreateRequest implements _CreateRequest {
   const _$_CreateRequest(
-      {this.description, this.name, this.private, final List<String>? user_ids})
+      {final List<String>? user_ids, this.description, this.name, this.private})
       : _user_ids = user_ids;
 
   factory _$_CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateRequestFromJson(json);
-
-  /// chat description
-  @override
-  final String? description;
-
-  /// name of the group
-  @override
-  final String? name;
-
-  /// whether its a private group
-  @override
-  final bool? private;
 
   /// optional list of user ids
   final List<String>? _user_ids;
@@ -174,9 +162,21 @@ class _$_CreateRequest implements _CreateRequest {
     return EqualUnmodifiableListView(value);
   }
 
+  /// chat description
+  @override
+  final String? description;
+
+  /// name of the group
+  @override
+  final String? name;
+
+  /// whether its a private group
+  @override
+  final bool? private;
+
   @override
   String toString() {
-    return 'CreateRequest(description: $description, name: $name, private: $private, user_ids: $user_ids)';
+    return 'CreateRequest(user_ids: $user_ids, description: $description, name: $name, private: $private)';
   }
 
   @override
@@ -184,21 +184,21 @@ class _$_CreateRequest implements _CreateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateRequest &&
+            const DeepCollectionEquality().equals(other._user_ids, _user_ids) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.private, private) &&
-            const DeepCollectionEquality().equals(other._user_ids, _user_ids));
+            const DeepCollectionEquality().equals(other.private, private));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(_user_ids),
       const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(private),
-      const DeepCollectionEquality().hash(_user_ids));
+      const DeepCollectionEquality().hash(private));
 
   @JsonKey(ignore: true)
   @override
@@ -215,14 +215,18 @@ class _$_CreateRequest implements _CreateRequest {
 
 abstract class _CreateRequest implements CreateRequest {
   const factory _CreateRequest(
-      {final String? description,
+      {final List<String>? user_ids,
+      final String? description,
       final String? name,
-      final bool? private,
-      final List<String>? user_ids}) = _$_CreateRequest;
+      final bool? private}) = _$_CreateRequest;
 
   factory _CreateRequest.fromJson(Map<String, dynamic> json) =
       _$_CreateRequest.fromJson;
 
+  @override
+
+  /// optional list of user ids
+  List<String>? get user_ids;
   @override
 
   /// chat description
@@ -235,10 +239,6 @@ abstract class _CreateRequest implements CreateRequest {
 
   /// whether its a private group
   bool? get private;
-  @override
-
-  /// optional list of user ids
-  List<String>? get user_ids;
   @override
   @JsonKey(ignore: true)
   _$$_CreateRequestCopyWith<_$_CreateRequest> get copyWith =>
@@ -2013,11 +2013,11 @@ InviteRequest _$InviteRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$InviteRequest {
-  /// the group id
-  String? get group_id => throw _privateConstructorUsedError;
-
   /// the user id
   String? get user_id => throw _privateConstructorUsedError;
+
+  /// the group id
+  String? get group_id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2030,7 +2030,7 @@ abstract class $InviteRequestCopyWith<$Res> {
   factory $InviteRequestCopyWith(
           InviteRequest value, $Res Function(InviteRequest) then) =
       _$InviteRequestCopyWithImpl<$Res>;
-  $Res call({String? group_id, String? user_id});
+  $Res call({String? user_id, String? group_id});
 }
 
 /// @nodoc
@@ -2044,17 +2044,17 @@ class _$InviteRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? group_id = freezed,
     Object? user_id = freezed,
+    Object? group_id = freezed,
   }) {
     return _then(_value.copyWith(
-      group_id: group_id == freezed
-          ? _value.group_id
-          : group_id // ignore: cast_nullable_to_non_nullable
-              as String?,
       user_id: user_id == freezed
           ? _value.user_id
           : user_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      group_id: group_id == freezed
+          ? _value.group_id
+          : group_id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2067,7 +2067,7 @@ abstract class _$$_InviteRequestCopyWith<$Res>
           _$_InviteRequest value, $Res Function(_$_InviteRequest) then) =
       __$$_InviteRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? group_id, String? user_id});
+  $Res call({String? user_id, String? group_id});
 }
 
 /// @nodoc
@@ -2083,17 +2083,17 @@ class __$$_InviteRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? group_id = freezed,
     Object? user_id = freezed,
+    Object? group_id = freezed,
   }) {
     return _then(_$_InviteRequest(
-      group_id: group_id == freezed
-          ? _value.group_id
-          : group_id // ignore: cast_nullable_to_non_nullable
-              as String?,
       user_id: user_id == freezed
           ? _value.user_id
           : user_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      group_id: group_id == freezed
+          ? _value.group_id
+          : group_id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2102,22 +2102,22 @@ class __$$_InviteRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_InviteRequest implements _InviteRequest {
-  const _$_InviteRequest({this.group_id, this.user_id});
+  const _$_InviteRequest({this.user_id, this.group_id});
 
   factory _$_InviteRequest.fromJson(Map<String, dynamic> json) =>
       _$$_InviteRequestFromJson(json);
-
-  /// the group id
-  @override
-  final String? group_id;
 
   /// the user id
   @override
   final String? user_id;
 
+  /// the group id
+  @override
+  final String? group_id;
+
   @override
   String toString() {
-    return 'InviteRequest(group_id: $group_id, user_id: $user_id)';
+    return 'InviteRequest(user_id: $user_id, group_id: $group_id)';
   }
 
   @override
@@ -2125,16 +2125,16 @@ class _$_InviteRequest implements _InviteRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_InviteRequest &&
-            const DeepCollectionEquality().equals(other.group_id, group_id) &&
-            const DeepCollectionEquality().equals(other.user_id, user_id));
+            const DeepCollectionEquality().equals(other.user_id, user_id) &&
+            const DeepCollectionEquality().equals(other.group_id, group_id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(group_id),
-      const DeepCollectionEquality().hash(user_id));
+      const DeepCollectionEquality().hash(user_id),
+      const DeepCollectionEquality().hash(group_id));
 
   @JsonKey(ignore: true)
   @override
@@ -2151,19 +2151,19 @@ class _$_InviteRequest implements _InviteRequest {
 
 abstract class _InviteRequest implements InviteRequest {
   const factory _InviteRequest(
-      {final String? group_id, final String? user_id}) = _$_InviteRequest;
+      {final String? user_id, final String? group_id}) = _$_InviteRequest;
 
   factory _InviteRequest.fromJson(Map<String, dynamic> json) =
       _$_InviteRequest.fromJson;
 
   @override
 
-  /// the group id
-  String? get group_id;
-  @override
-
   /// the user id
   String? get user_id;
+  @override
+
+  /// the group id
+  String? get group_id;
   @override
   @JsonKey(ignore: true)
   _$$_InviteRequestCopyWith<_$_InviteRequest> get copyWith =>
@@ -2577,11 +2577,11 @@ JoinRequest _$JoinRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$JoinRequest {
-  /// user id joining
-  String? get user_id => throw _privateConstructorUsedError;
-
   /// group to join
   String? get group_id => throw _privateConstructorUsedError;
+
+  /// user id joining
+  String? get user_id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2594,7 +2594,7 @@ abstract class $JoinRequestCopyWith<$Res> {
   factory $JoinRequestCopyWith(
           JoinRequest value, $Res Function(JoinRequest) then) =
       _$JoinRequestCopyWithImpl<$Res>;
-  $Res call({String? user_id, String? group_id});
+  $Res call({String? group_id, String? user_id});
 }
 
 /// @nodoc
@@ -2607,17 +2607,17 @@ class _$JoinRequestCopyWithImpl<$Res> implements $JoinRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? user_id = freezed,
     Object? group_id = freezed,
+    Object? user_id = freezed,
   }) {
     return _then(_value.copyWith(
-      user_id: user_id == freezed
-          ? _value.user_id
-          : user_id // ignore: cast_nullable_to_non_nullable
-              as String?,
       group_id: group_id == freezed
           ? _value.group_id
           : group_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      user_id: user_id == freezed
+          ? _value.user_id
+          : user_id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2630,7 +2630,7 @@ abstract class _$$_JoinRequestCopyWith<$Res>
           _$_JoinRequest value, $Res Function(_$_JoinRequest) then) =
       __$$_JoinRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? user_id, String? group_id});
+  $Res call({String? group_id, String? user_id});
 }
 
 /// @nodoc
@@ -2645,17 +2645,17 @@ class __$$_JoinRequestCopyWithImpl<$Res> extends _$JoinRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? user_id = freezed,
     Object? group_id = freezed,
+    Object? user_id = freezed,
   }) {
     return _then(_$_JoinRequest(
-      user_id: user_id == freezed
-          ? _value.user_id
-          : user_id // ignore: cast_nullable_to_non_nullable
-              as String?,
       group_id: group_id == freezed
           ? _value.group_id
           : group_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      user_id: user_id == freezed
+          ? _value.user_id
+          : user_id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2664,22 +2664,22 @@ class __$$_JoinRequestCopyWithImpl<$Res> extends _$JoinRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_JoinRequest implements _JoinRequest {
-  const _$_JoinRequest({this.user_id, this.group_id});
+  const _$_JoinRequest({this.group_id, this.user_id});
 
   factory _$_JoinRequest.fromJson(Map<String, dynamic> json) =>
       _$$_JoinRequestFromJson(json);
-
-  /// user id joining
-  @override
-  final String? user_id;
 
   /// group to join
   @override
   final String? group_id;
 
+  /// user id joining
+  @override
+  final String? user_id;
+
   @override
   String toString() {
-    return 'JoinRequest(user_id: $user_id, group_id: $group_id)';
+    return 'JoinRequest(group_id: $group_id, user_id: $user_id)';
   }
 
   @override
@@ -2687,16 +2687,16 @@ class _$_JoinRequest implements _JoinRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_JoinRequest &&
-            const DeepCollectionEquality().equals(other.user_id, user_id) &&
-            const DeepCollectionEquality().equals(other.group_id, group_id));
+            const DeepCollectionEquality().equals(other.group_id, group_id) &&
+            const DeepCollectionEquality().equals(other.user_id, user_id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(user_id),
-      const DeepCollectionEquality().hash(group_id));
+      const DeepCollectionEquality().hash(group_id),
+      const DeepCollectionEquality().hash(user_id));
 
   @JsonKey(ignore: true)
   @override
@@ -2712,7 +2712,7 @@ class _$_JoinRequest implements _JoinRequest {
 }
 
 abstract class _JoinRequest implements JoinRequest {
-  const factory _JoinRequest({final String? user_id, final String? group_id}) =
+  const factory _JoinRequest({final String? group_id, final String? user_id}) =
       _$_JoinRequest;
 
   factory _JoinRequest.fromJson(Map<String, dynamic> json) =
@@ -2720,12 +2720,12 @@ abstract class _JoinRequest implements JoinRequest {
 
   @override
 
-  /// user id joining
-  String? get user_id;
-  @override
-
   /// group to join
   String? get group_id;
+  @override
+
+  /// user id joining
+  String? get user_id;
   @override
   @JsonKey(ignore: true)
   _$$_JoinRequestCopyWith<_$_JoinRequest> get copyWith =>

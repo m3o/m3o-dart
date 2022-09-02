@@ -120,11 +120,13 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
 
 _$_ResolveRequest _$$_ResolveRequestFromJson(Map<String, dynamic> json) =>
     _$_ResolveRequest(
+      id: json['id'] as String?,
       shortURL: json['shortURL'] as String?,
     );
 
 Map<String, dynamic> _$$_ResolveRequestToJson(_$_ResolveRequest instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'shortURL': instance.shortURL,
     };
 
@@ -195,20 +197,20 @@ Map<String, dynamic> _$$ShortenResponseMerrToJson(
     };
 
 _$_URLPair _$$_URLPairFromJson(Map<String, dynamic> json) => _$_URLPair(
+      shortURL: json['shortURL'] as String?,
+      created: json['created'] as String?,
       destinationURL: json['destinationURL'] as String?,
       hitCount: int64FromString(json['hitCount'] as String?),
       id: json['id'] as String?,
-      shortURL: json['shortURL'] as String?,
-      created: json['created'] as String?,
     );
 
 Map<String, dynamic> _$$_URLPairToJson(_$_URLPair instance) =>
     <String, dynamic>{
+      'shortURL': instance.shortURL,
+      'created': instance.created,
       'destinationURL': instance.destinationURL,
       'hitCount': int64ToString(instance.hitCount),
       'id': instance.id,
-      'shortURL': instance.shortURL,
-      'created': instance.created,
     };
 
 _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>
