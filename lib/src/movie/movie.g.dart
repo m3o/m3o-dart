@@ -7,79 +7,79 @@ part of 'movie.dart';
 // **************************************************************************
 
 _$_MovieInfo _$$_MovieInfoFromJson(Map<String, dynamic> json) => _$_MovieInfo(
-      vote_count: json['vote_count'] as int?,
-      adult: json['adult'] as bool?,
-      video: json['video'] as bool?,
-      original_language: json['original_language'] as String?,
-      overview: json['overview'] as String?,
-      poster_path: json['poster_path'] as String?,
-      title: json['title'] as String?,
-      vote_average: (json['vote_average'] as num?)?.toDouble(),
-      backdrop_path: json['backdrop_path'] as String?,
-      genre_ids:
-          (json['genre_ids'] as List<dynamic>?)?.map((e) => e as int).toList(),
-      id: json['id'] as int?,
       original_title: json['original_title'] as String?,
       popularity: (json['popularity'] as num?)?.toDouble(),
+      video: json['video'] as bool?,
+      genre_ids:
+          (json['genre_ids'] as List<dynamic>?)?.map((e) => e as int).toList(),
+      poster_path: json['poster_path'] as String?,
+      backdrop_path: json['backdrop_path'] as String?,
+      original_language: json['original_language'] as String?,
       release_date: json['release_date'] as String?,
+      adult: json['adult'] as bool?,
+      id: json['id'] as int?,
+      overview: json['overview'] as String?,
+      title: json['title'] as String?,
+      vote_average: (json['vote_average'] as num?)?.toDouble(),
+      vote_count: json['vote_count'] as int?,
     );
 
 Map<String, dynamic> _$$_MovieInfoToJson(_$_MovieInfo instance) =>
     <String, dynamic>{
-      'vote_count': instance.vote_count,
-      'adult': instance.adult,
-      'video': instance.video,
-      'original_language': instance.original_language,
-      'overview': instance.overview,
-      'poster_path': instance.poster_path,
-      'title': instance.title,
-      'vote_average': instance.vote_average,
-      'backdrop_path': instance.backdrop_path,
-      'genre_ids': instance.genre_ids,
-      'id': instance.id,
       'original_title': instance.original_title,
       'popularity': instance.popularity,
+      'video': instance.video,
+      'genre_ids': instance.genre_ids,
+      'poster_path': instance.poster_path,
+      'backdrop_path': instance.backdrop_path,
+      'original_language': instance.original_language,
       'release_date': instance.release_date,
+      'adult': instance.adult,
+      'id': instance.id,
+      'overview': instance.overview,
+      'title': instance.title,
+      'vote_average': instance.vote_average,
+      'vote_count': instance.vote_count,
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
     _$_SearchRequest(
-      region: json['region'] as String?,
       year: json['year'] as int?,
       language: json['language'] as String?,
       page: json['page'] as int?,
       primary_release_year: json['primary_release_year'] as int?,
       query: json['query'] as String?,
+      region: json['region'] as String?,
     );
 
 Map<String, dynamic> _$$_SearchRequestToJson(_$_SearchRequest instance) =>
     <String, dynamic>{
-      'region': instance.region,
       'year': instance.year,
       'language': instance.language,
       'page': instance.page,
       'primary_release_year': instance.primary_release_year,
       'query': instance.query,
+      'region': instance.region,
     };
 
 _$SearchResponseData _$$SearchResponseDataFromJson(Map<String, dynamic> json) =>
     _$SearchResponseData(
+      total_results: json['total_results'] as int?,
       page: json['page'] as int?,
       results: (json['results'] as List<dynamic>?)
           ?.map((e) => MovieInfo.fromJson(e as Map<String, dynamic>))
           .toList(),
       total_pages: json['total_pages'] as int?,
-      total_results: json['total_results'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$SearchResponseDataToJson(
         _$SearchResponseData instance) =>
     <String, dynamic>{
+      'total_results': instance.total_results,
       'page': instance.page,
       'results': instance.results,
       'total_pages': instance.total_pages,
-      'total_results': instance.total_results,
       'runtimeType': instance.$type,
     };
 

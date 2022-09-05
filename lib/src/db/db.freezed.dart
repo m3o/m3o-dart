@@ -545,14 +545,14 @@ CreateRequest _$CreateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateRequest {
-  /// Optional table name. Defaults to 'default'
-  String? get table => throw _privateConstructorUsedError;
-
   /// optional record id to use
   String? get id => throw _privateConstructorUsedError;
 
   /// JSON encoded record or records (can be array or object)
   Map<String, dynamic>? get record => throw _privateConstructorUsedError;
+
+  /// Optional table name. Defaults to 'default'
+  String? get table => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -565,7 +565,7 @@ abstract class $CreateRequestCopyWith<$Res> {
   factory $CreateRequestCopyWith(
           CreateRequest value, $Res Function(CreateRequest) then) =
       _$CreateRequestCopyWithImpl<$Res>;
-  $Res call({String? table, String? id, Map<String, dynamic>? record});
+  $Res call({String? id, Map<String, dynamic>? record, String? table});
 }
 
 /// @nodoc
@@ -579,15 +579,11 @@ class _$CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? table = freezed,
     Object? id = freezed,
     Object? record = freezed,
+    Object? table = freezed,
   }) {
     return _then(_value.copyWith(
-      table: table == freezed
-          ? _value.table
-          : table // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -596,6 +592,10 @@ class _$CreateRequestCopyWithImpl<$Res>
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      table: table == freezed
+          ? _value.table
+          : table // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -607,7 +607,7 @@ abstract class _$$_CreateRequestCopyWith<$Res>
           _$_CreateRequest value, $Res Function(_$_CreateRequest) then) =
       __$$_CreateRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? table, String? id, Map<String, dynamic>? record});
+  $Res call({String? id, Map<String, dynamic>? record, String? table});
 }
 
 /// @nodoc
@@ -623,15 +623,11 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? table = freezed,
     Object? id = freezed,
     Object? record = freezed,
+    Object? table = freezed,
   }) {
     return _then(_$_CreateRequest(
-      table: table == freezed
-          ? _value.table
-          : table // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -640,6 +636,10 @@ class __$$_CreateRequestCopyWithImpl<$Res>
           ? _value._record
           : record // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      table: table == freezed
+          ? _value.table
+          : table // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -648,15 +648,11 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_CreateRequest implements _CreateRequest {
   const _$_CreateRequest(
-      {this.table, this.id, final Map<String, dynamic>? record})
+      {this.id, final Map<String, dynamic>? record, this.table})
       : _record = record;
 
   factory _$_CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateRequestFromJson(json);
-
-  /// Optional table name. Defaults to 'default'
-  @override
-  final String? table;
 
   /// optional record id to use
   @override
@@ -674,9 +670,13 @@ class _$_CreateRequest implements _CreateRequest {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// Optional table name. Defaults to 'default'
+  @override
+  final String? table;
+
   @override
   String toString() {
-    return 'CreateRequest(table: $table, id: $id, record: $record)';
+    return 'CreateRequest(id: $id, record: $record, table: $table)';
   }
 
   @override
@@ -684,18 +684,18 @@ class _$_CreateRequest implements _CreateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateRequest &&
-            const DeepCollectionEquality().equals(other.table, table) &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other._record, _record));
+            const DeepCollectionEquality().equals(other._record, _record) &&
+            const DeepCollectionEquality().equals(other.table, table));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(table),
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(_record));
+      const DeepCollectionEquality().hash(_record),
+      const DeepCollectionEquality().hash(table));
 
   @JsonKey(ignore: true)
   @override
@@ -712,17 +712,13 @@ class _$_CreateRequest implements _CreateRequest {
 
 abstract class _CreateRequest implements CreateRequest {
   const factory _CreateRequest(
-      {final String? table,
-      final String? id,
-      final Map<String, dynamic>? record}) = _$_CreateRequest;
+      {final String? id,
+      final Map<String, dynamic>? record,
+      final String? table}) = _$_CreateRequest;
 
   factory _CreateRequest.fromJson(Map<String, dynamic> json) =
       _$_CreateRequest.fromJson;
 
-  @override
-
-  /// Optional table name. Defaults to 'default'
-  String? get table;
   @override
 
   /// optional record id to use
@@ -731,6 +727,10 @@ abstract class _CreateRequest implements CreateRequest {
 
   /// JSON encoded record or records (can be array or object)
   Map<String, dynamic>? get record;
+  @override
+
+  /// Optional table name. Defaults to 'default'
+  String? get table;
   @override
   @JsonKey(ignore: true)
   _$$_CreateRequestCopyWith<_$_CreateRequest> get copyWith =>
@@ -2632,11 +2632,6 @@ ReadRequest _$ReadRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReadRequest {
-  int? get offset => throw _privateConstructorUsedError;
-
-  /// 'asc' (default), 'desc'
-  String? get order => throw _privateConstructorUsedError;
-
   /// field name to order by
   String? get orderBy => throw _privateConstructorUsedError;
 
@@ -2656,6 +2651,10 @@ mixin _$ReadRequest {
   /// Maximum number of records to return. Default limit is 25.
   /// Maximum limit is 1000. Anything higher will return an error.
   int? get limit => throw _privateConstructorUsedError;
+  int? get offset => throw _privateConstructorUsedError;
+
+  /// 'asc' (default), 'desc'
+  String? get order => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2669,13 +2668,13 @@ abstract class $ReadRequestCopyWith<$Res> {
           ReadRequest value, $Res Function(ReadRequest) then) =
       _$ReadRequestCopyWithImpl<$Res>;
   $Res call(
-      {int? offset,
-      String? order,
-      String? orderBy,
+      {String? orderBy,
       String? query,
       String? table,
       String? id,
-      int? limit});
+      int? limit,
+      int? offset,
+      String? order});
 }
 
 /// @nodoc
@@ -2688,23 +2687,15 @@ class _$ReadRequestCopyWithImpl<$Res> implements $ReadRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? offset = freezed,
-    Object? order = freezed,
     Object? orderBy = freezed,
     Object? query = freezed,
     Object? table = freezed,
     Object? id = freezed,
     Object? limit = freezed,
+    Object? offset = freezed,
+    Object? order = freezed,
   }) {
     return _then(_value.copyWith(
-      offset: offset == freezed
-          ? _value.offset
-          : offset // ignore: cast_nullable_to_non_nullable
-              as int?,
-      order: order == freezed
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as String?,
       orderBy: orderBy == freezed
           ? _value.orderBy
           : orderBy // ignore: cast_nullable_to_non_nullable
@@ -2725,6 +2716,14 @@ class _$ReadRequestCopyWithImpl<$Res> implements $ReadRequestCopyWith<$Res> {
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int?,
+      offset: offset == freezed
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int?,
+      order: order == freezed
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2737,13 +2736,13 @@ abstract class _$$_ReadRequestCopyWith<$Res>
       __$$_ReadRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int? offset,
-      String? order,
-      String? orderBy,
+      {String? orderBy,
       String? query,
       String? table,
       String? id,
-      int? limit});
+      int? limit,
+      int? offset,
+      String? order});
 }
 
 /// @nodoc
@@ -2758,23 +2757,15 @@ class __$$_ReadRequestCopyWithImpl<$Res> extends _$ReadRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? offset = freezed,
-    Object? order = freezed,
     Object? orderBy = freezed,
     Object? query = freezed,
     Object? table = freezed,
     Object? id = freezed,
     Object? limit = freezed,
+    Object? offset = freezed,
+    Object? order = freezed,
   }) {
     return _then(_$_ReadRequest(
-      offset: offset == freezed
-          ? _value.offset
-          : offset // ignore: cast_nullable_to_non_nullable
-              as int?,
-      order: order == freezed
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as String?,
       orderBy: orderBy == freezed
           ? _value.orderBy
           : orderBy // ignore: cast_nullable_to_non_nullable
@@ -2795,6 +2786,14 @@ class __$$_ReadRequestCopyWithImpl<$Res> extends _$ReadRequestCopyWithImpl<$Res>
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int?,
+      offset: offset == freezed
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int?,
+      order: order == freezed
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2803,23 +2802,16 @@ class __$$_ReadRequestCopyWithImpl<$Res> extends _$ReadRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ReadRequest implements _ReadRequest {
   const _$_ReadRequest(
-      {this.offset,
-      this.order,
-      this.orderBy,
+      {this.orderBy,
       this.query,
       this.table,
       this.id,
-      this.limit});
+      this.limit,
+      this.offset,
+      this.order});
 
   factory _$_ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ReadRequestFromJson(json);
-
-  @override
-  final int? offset;
-
-  /// 'asc' (default), 'desc'
-  @override
-  final String? order;
 
   /// field name to order by
   @override
@@ -2845,10 +2837,16 @@ class _$_ReadRequest implements _ReadRequest {
   /// Maximum limit is 1000. Anything higher will return an error.
   @override
   final int? limit;
+  @override
+  final int? offset;
+
+  /// 'asc' (default), 'desc'
+  @override
+  final String? order;
 
   @override
   String toString() {
-    return 'ReadRequest(offset: $offset, order: $order, orderBy: $orderBy, query: $query, table: $table, id: $id, limit: $limit)';
+    return 'ReadRequest(orderBy: $orderBy, query: $query, table: $table, id: $id, limit: $limit, offset: $offset, order: $order)';
   }
 
   @override
@@ -2856,26 +2854,26 @@ class _$_ReadRequest implements _ReadRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ReadRequest &&
-            const DeepCollectionEquality().equals(other.offset, offset) &&
-            const DeepCollectionEquality().equals(other.order, order) &&
             const DeepCollectionEquality().equals(other.orderBy, orderBy) &&
             const DeepCollectionEquality().equals(other.query, query) &&
             const DeepCollectionEquality().equals(other.table, table) &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.limit, limit));
+            const DeepCollectionEquality().equals(other.limit, limit) &&
+            const DeepCollectionEquality().equals(other.offset, offset) &&
+            const DeepCollectionEquality().equals(other.order, order));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(offset),
-      const DeepCollectionEquality().hash(order),
       const DeepCollectionEquality().hash(orderBy),
       const DeepCollectionEquality().hash(query),
       const DeepCollectionEquality().hash(table),
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(limit));
+      const DeepCollectionEquality().hash(limit),
+      const DeepCollectionEquality().hash(offset),
+      const DeepCollectionEquality().hash(order));
 
   @JsonKey(ignore: true)
   @override
@@ -2892,23 +2890,17 @@ class _$_ReadRequest implements _ReadRequest {
 
 abstract class _ReadRequest implements ReadRequest {
   const factory _ReadRequest(
-      {final int? offset,
-      final String? order,
-      final String? orderBy,
+      {final String? orderBy,
       final String? query,
       final String? table,
       final String? id,
-      final int? limit}) = _$_ReadRequest;
+      final int? limit,
+      final int? offset,
+      final String? order}) = _$_ReadRequest;
 
   factory _ReadRequest.fromJson(Map<String, dynamic> json) =
       _$_ReadRequest.fromJson;
 
-  @override
-  int? get offset;
-  @override
-
-  /// 'asc' (default), 'desc'
-  String? get order;
   @override
 
   /// field name to order by
@@ -2934,6 +2926,12 @@ abstract class _ReadRequest implements ReadRequest {
   /// Maximum number of records to return. Default limit is 25.
   /// Maximum limit is 1000. Anything higher will return an error.
   int? get limit;
+  @override
+  int? get offset;
+  @override
+
+  /// 'asc' (default), 'desc'
+  String? get order;
   @override
   @JsonKey(ignore: true)
   _$$_ReadRequestCopyWith<_$_ReadRequest> get copyWith =>

@@ -18,15 +18,15 @@ Map<String, dynamic> _$$_ParseRequestToJson(_$_ParseRequest instance) =>
 
 _$ParseResponseData _$$ParseResponseDataFromJson(Map<String, dynamic> json) =>
     _$ParseResponseData(
-      address: json['address'] as String?,
       name: json['name'] as String?,
+      address: json['address'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ParseResponseDataToJson(_$ParseResponseData instance) =>
     <String, dynamic>{
-      'address': instance.address,
       'name': instance.name,
+      'address': instance.address,
       'runtimeType': instance.$type,
     };
 
@@ -44,22 +44,22 @@ Map<String, dynamic> _$$ParseResponseMerrToJson(_$ParseResponseMerr instance) =>
 
 _$_SendRequest _$$_SendRequestFromJson(Map<String, dynamic> json) =>
     _$_SendRequest(
-      reply_to: json['reply_to'] as String?,
       subject: json['subject'] as String?,
       text_body: json['text_body'] as String?,
       to: json['to'] as String?,
       from: json['from'] as String?,
       html_body: json['html_body'] as String?,
+      reply_to: json['reply_to'] as String?,
     );
 
 Map<String, dynamic> _$$_SendRequestToJson(_$_SendRequest instance) =>
     <String, dynamic>{
-      'reply_to': instance.reply_to,
       'subject': instance.subject,
       'text_body': instance.text_body,
       'to': instance.to,
       'from': instance.from,
       'html_body': instance.html_body,
+      'reply_to': instance.reply_to,
     };
 
 _$SendResponseData _$$SendResponseDataFromJson(Map<String, dynamic> json) =>
