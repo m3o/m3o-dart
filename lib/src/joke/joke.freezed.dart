@@ -20,11 +20,11 @@ JokeInfo _$JokeInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$JokeInfo {
-  String? get source => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
   String? get body => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
+  String? get source => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,11 +37,11 @@ abstract class $JokeInfoCopyWith<$Res> {
   factory $JokeInfoCopyWith(JokeInfo value, $Res Function(JokeInfo) then) =
       _$JokeInfoCopyWithImpl<$Res>;
   $Res call(
-      {String? source,
-      String? title,
-      String? body,
+      {String? body,
       String? category,
-      String? id});
+      String? id,
+      String? source,
+      String? title});
 }
 
 /// @nodoc
@@ -54,21 +54,13 @@ class _$JokeInfoCopyWithImpl<$Res> implements $JokeInfoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? source = freezed,
-    Object? title = freezed,
     Object? body = freezed,
     Object? category = freezed,
     Object? id = freezed,
+    Object? source = freezed,
+    Object? title = freezed,
   }) {
     return _then(_value.copyWith(
-      source: source == freezed
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -81,6 +73,14 @@ class _$JokeInfoCopyWithImpl<$Res> implements $JokeInfoCopyWith<$Res> {
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      source: source == freezed
+          ? _value.source
+          : source // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -92,11 +92,11 @@ abstract class _$$_JokeInfoCopyWith<$Res> implements $JokeInfoCopyWith<$Res> {
       __$$_JokeInfoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? source,
-      String? title,
-      String? body,
+      {String? body,
       String? category,
-      String? id});
+      String? id,
+      String? source,
+      String? title});
 }
 
 /// @nodoc
@@ -111,21 +111,13 @@ class __$$_JokeInfoCopyWithImpl<$Res> extends _$JokeInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? source = freezed,
-    Object? title = freezed,
     Object? body = freezed,
     Object? category = freezed,
     Object? id = freezed,
+    Object? source = freezed,
+    Object? title = freezed,
   }) {
     return _then(_$_JokeInfo(
-      source: source == freezed
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -138,6 +130,14 @@ class __$$_JokeInfoCopyWithImpl<$Res> extends _$JokeInfoCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      source: source == freezed
+          ? _value.source
+          : source // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -146,25 +146,25 @@ class __$$_JokeInfoCopyWithImpl<$Res> extends _$JokeInfoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_JokeInfo implements _JokeInfo {
   const _$_JokeInfo(
-      {this.source, this.title, this.body, this.category, this.id});
+      {this.body, this.category, this.id, this.source, this.title});
 
   factory _$_JokeInfo.fromJson(Map<String, dynamic> json) =>
       _$$_JokeInfoFromJson(json);
 
-  @override
-  final String? source;
-  @override
-  final String? title;
   @override
   final String? body;
   @override
   final String? category;
   @override
   final String? id;
+  @override
+  final String? source;
+  @override
+  final String? title;
 
   @override
   String toString() {
-    return 'JokeInfo(source: $source, title: $title, body: $body, category: $category, id: $id)';
+    return 'JokeInfo(body: $body, category: $category, id: $id, source: $source, title: $title)';
   }
 
   @override
@@ -172,22 +172,22 @@ class _$_JokeInfo implements _JokeInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_JokeInfo &&
-            const DeepCollectionEquality().equals(other.source, source) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.body, body) &&
             const DeepCollectionEquality().equals(other.category, category) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.source, source) &&
+            const DeepCollectionEquality().equals(other.title, title));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(source),
-      const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(body),
       const DeepCollectionEquality().hash(category),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(source),
+      const DeepCollectionEquality().hash(title));
 
   @JsonKey(ignore: true)
   @override
@@ -204,24 +204,24 @@ class _$_JokeInfo implements _JokeInfo {
 
 abstract class _JokeInfo implements JokeInfo {
   const factory _JokeInfo(
-      {final String? source,
-      final String? title,
-      final String? body,
+      {final String? body,
       final String? category,
-      final String? id}) = _$_JokeInfo;
+      final String? id,
+      final String? source,
+      final String? title}) = _$_JokeInfo;
 
   factory _JokeInfo.fromJson(Map<String, dynamic> json) = _$_JokeInfo.fromJson;
 
-  @override
-  String? get source;
-  @override
-  String? get title;
   @override
   String? get body;
   @override
   String? get category;
   @override
   String? get id;
+  @override
+  String? get source;
+  @override
+  String? get title;
   @override
   @JsonKey(ignore: true)
   _$$_JokeInfoCopyWith<_$_JokeInfo> get copyWith =>

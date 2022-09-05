@@ -1398,9 +1398,6 @@ CreditRequest _$CreditRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreditRequest {
-  /// if the transaction is visible
-  bool? get visible => throw _privateConstructorUsedError;
-
   /// amount to credit
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get amount => throw _privateConstructorUsedError;
@@ -1414,6 +1411,9 @@ mixin _$CreditRequest {
   /// reference note
   String? get reference => throw _privateConstructorUsedError;
 
+  /// if the transaction is visible
+  bool? get visible => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CreditRequestCopyWith<CreditRequest> get copyWith =>
@@ -1426,11 +1426,11 @@ abstract class $CreditRequestCopyWith<$Res> {
           CreditRequest value, $Res Function(CreditRequest) then) =
       _$CreditRequestCopyWithImpl<$Res>;
   $Res call(
-      {bool? visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
       String? id,
       String? idempotency_key,
-      String? reference});
+      String? reference,
+      bool? visible});
 }
 
 /// @nodoc
@@ -1444,17 +1444,13 @@ class _$CreditRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? visible = freezed,
     Object? amount = freezed,
     Object? id = freezed,
     Object? idempotency_key = freezed,
     Object? reference = freezed,
+    Object? visible = freezed,
   }) {
     return _then(_value.copyWith(
-      visible: visible == freezed
-          ? _value.visible
-          : visible // ignore: cast_nullable_to_non_nullable
-              as bool?,
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -1471,6 +1467,10 @@ class _$CreditRequestCopyWithImpl<$Res>
           ? _value.reference
           : reference // ignore: cast_nullable_to_non_nullable
               as String?,
+      visible: visible == freezed
+          ? _value.visible
+          : visible // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -1483,11 +1483,11 @@ abstract class _$$_CreditRequestCopyWith<$Res>
       __$$_CreditRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool? visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
       String? id,
       String? idempotency_key,
-      String? reference});
+      String? reference,
+      bool? visible});
 }
 
 /// @nodoc
@@ -1503,17 +1503,13 @@ class __$$_CreditRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? visible = freezed,
     Object? amount = freezed,
     Object? id = freezed,
     Object? idempotency_key = freezed,
     Object? reference = freezed,
+    Object? visible = freezed,
   }) {
     return _then(_$_CreditRequest(
-      visible: visible == freezed
-          ? _value.visible
-          : visible // ignore: cast_nullable_to_non_nullable
-              as bool?,
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -1530,6 +1526,10 @@ class __$$_CreditRequestCopyWithImpl<$Res>
           ? _value.reference
           : reference // ignore: cast_nullable_to_non_nullable
               as String?,
+      visible: visible == freezed
+          ? _value.visible
+          : visible // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -1538,18 +1538,14 @@ class __$$_CreditRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_CreditRequest implements _CreditRequest {
   const _$_CreditRequest(
-      {this.visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.amount,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.amount,
       this.id,
       this.idempotency_key,
-      this.reference});
+      this.reference,
+      this.visible});
 
   factory _$_CreditRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreditRequestFromJson(json);
-
-  /// if the transaction is visible
-  @override
-  final bool? visible;
 
   /// amount to credit
   @override
@@ -1568,9 +1564,13 @@ class _$_CreditRequest implements _CreditRequest {
   @override
   final String? reference;
 
+  /// if the transaction is visible
+  @override
+  final bool? visible;
+
   @override
   String toString() {
-    return 'CreditRequest(visible: $visible, amount: $amount, id: $id, idempotency_key: $idempotency_key, reference: $reference)';
+    return 'CreditRequest(amount: $amount, id: $id, idempotency_key: $idempotency_key, reference: $reference, visible: $visible)';
   }
 
   @override
@@ -1578,23 +1578,23 @@ class _$_CreditRequest implements _CreditRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreditRequest &&
-            const DeepCollectionEquality().equals(other.visible, visible) &&
             const DeepCollectionEquality().equals(other.amount, amount) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.idempotency_key, idempotency_key) &&
-            const DeepCollectionEquality().equals(other.reference, reference));
+            const DeepCollectionEquality().equals(other.reference, reference) &&
+            const DeepCollectionEquality().equals(other.visible, visible));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(visible),
       const DeepCollectionEquality().hash(amount),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(idempotency_key),
-      const DeepCollectionEquality().hash(reference));
+      const DeepCollectionEquality().hash(reference),
+      const DeepCollectionEquality().hash(visible));
 
   @JsonKey(ignore: true)
   @override
@@ -1611,20 +1611,16 @@ class _$_CreditRequest implements _CreditRequest {
 
 abstract class _CreditRequest implements CreditRequest {
   const factory _CreditRequest(
-      {final bool? visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? amount,
       final String? id,
       final String? idempotency_key,
-      final String? reference}) = _$_CreditRequest;
+      final String? reference,
+      final bool? visible}) = _$_CreditRequest;
 
   factory _CreditRequest.fromJson(Map<String, dynamic> json) =
       _$_CreditRequest.fromJson;
 
-  @override
-
-  /// if the transaction is visible
-  bool? get visible;
   @override
 
   /// amount to credit
@@ -1642,6 +1638,10 @@ abstract class _CreditRequest implements CreditRequest {
 
   /// reference note
   String? get reference;
+  @override
+
+  /// if the transaction is visible
+  bool? get visible;
   @override
   @JsonKey(ignore: true)
   _$$_CreditRequestCopyWith<_$_CreditRequest> get copyWith =>

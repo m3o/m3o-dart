@@ -4,12 +4,12 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/function/api](
 
 Endpoints:
 
-## Update
+## Describe
 
-Update a function. Downloads the source, builds and redeploys
+Get the info for a deployed function
 
 
-[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
+[https://m3o.com/function/api#Describe](https://m3o.com/function/api#Describe)
 
 ```dart
 import 'dart:io';
@@ -23,15 +23,128 @@ void main() async {
   "name": "helloworld"
 ,};
 
-  UpdateRequest req = UpdateRequest.fromJson(payload);
+  DescribeRequest req = DescribeRequest.fromJson(payload);
 
   
   try {
 
-	UpdateResponse res = await ser.update(req);
+	DescribeResponse res = await ser.describe(req);
 
     res.map((value) => print(value),
-	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
+	  Merr: (DescribeResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Runtimes
+
+Return a list of supported runtimes
+
+
+[https://m3o.com/function/api#Runtimes](https://m3o.com/function/api#Runtimes)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/function/function.dart';
+
+void main() async {
+  final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  RuntimesRequest req = RuntimesRequest.fromJson(payload);
+
+  
+  try {
+
+	RuntimesResponse res = await ser.runtimes(req);
+
+    res.map((value) => print(value),
+	  Merr: (RuntimesResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Logs
+
+Get the logs for a function
+
+
+[https://m3o.com/function/api#Logs](https://m3o.com/function/api#Logs)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/function/function.dart';
+
+void main() async {
+  final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "logs_type": "build",
+  "name": "helloworld"
+,};
+
+  LogsRequest req = LogsRequest.fromJson(payload);
+
+  
+  try {
+
+	LogsResponse res = await ser.logs(req);
+
+    res.map((value) => print(value),
+	  Merr: (LogsResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Deploy
+
+Deploy a group of functions
+
+
+[https://m3o.com/function/api#Deploy](https://m3o.com/function/api#Deploy)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/function/function.dart';
+
+void main() async {
+  final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "branch": "main",
+  "entrypoint": "Helloworld",
+  "name": "helloworld",
+  "region": "europe-west1",
+  "repo": "https://github.com/m3o/m3o",
+  "runtime": "go116",
+  "subfolder": "examples/go-function"
+,};
+
+  DeployRequest req = DeployRequest.fromJson(payload);
+
+  
+  try {
+
+	DeployResponse res = await ser.deploy(req);
+
+    res.map((value) => print(value),
+	  Merr: (DeployResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -115,120 +228,6 @@ void main() async {
   }
 }
 ```
-## Reserve
-
-Reserve function names and resources beyond free quota
-
-
-[https://m3o.com/function/api#Reserve](https://m3o.com/function/api#Reserve)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/function/function.dart';
-
-void main() async {
-  final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "name": "helloworld"
-,};
-
-  ReserveRequest req = ReserveRequest.fromJson(payload);
-
-  
-  try {
-
-	ReserveResponse res = await ser.reserve(req);
-
-    res.map((value) => print(value),
-	  Merr: (ReserveResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Deploy
-
-Deploy a group of functions
-
-
-[https://m3o.com/function/api#Deploy](https://m3o.com/function/api#Deploy)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/function/function.dart';
-
-void main() async {
-  final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "branch": "main",
-  "entrypoint": "Helloworld",
-  "name": "helloworld",
-  "region": "europe-west1",
-  "repo": "https://github.com/m3o/m3o",
-  "runtime": "go116",
-  "subfolder": "examples/go-function"
-,};
-
-  DeployRequest req = DeployRequest.fromJson(payload);
-
-  
-  try {
-
-	DeployResponse res = await ser.deploy(req);
-
-    res.map((value) => print(value),
-	  Merr: (DeployResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Describe
-
-Get the info for a deployed function
-
-
-[https://m3o.com/function/api#Describe](https://m3o.com/function/api#Describe)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/function/function.dart';
-
-void main() async {
-  final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "name": "helloworld"
-,};
-
-  DescribeRequest req = DescribeRequest.fromJson(payload);
-
-  
-  try {
-
-	DescribeResponse res = await ser.describe(req);
-
-    res.map((value) => print(value),
-	  Merr: (DescribeResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Regions
 
 Return a list of supported regions
@@ -263,12 +262,12 @@ void main() async {
   }
 }
 ```
-## Runtimes
+## Reserve
 
-Return a list of supported runtimes
+Reserve function names and resources beyond free quota
 
 
-[https://m3o.com/function/api#Runtimes](https://m3o.com/function/api#Runtimes)
+[https://m3o.com/function/api#Reserve](https://m3o.com/function/api#Reserve)
 
 ```dart
 import 'dart:io';
@@ -278,17 +277,19 @@ import 'package:m3o/src/function/function.dart';
 void main() async {
   final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
  
-  final payload = <String, dynamic>{};
+  final payload = <String, dynamic>{
+  "name": "helloworld"
+,};
 
-  RuntimesRequest req = RuntimesRequest.fromJson(payload);
+  ReserveRequest req = ReserveRequest.fromJson(payload);
 
   
   try {
 
-	RuntimesResponse res = await ser.runtimes(req);
+	ReserveResponse res = await ser.reserve(req);
 
     res.map((value) => print(value),
-	  Merr: (RuntimesResponseMerr err) => print(err.body!['body']));	
+	  Merr: (ReserveResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -333,12 +334,12 @@ void main() async {
   }
 }
 ```
-## Logs
+## Update
 
-Get the logs for a function
+Update a function. Downloads the source, builds and redeploys
 
 
-[https://m3o.com/function/api#Logs](https://m3o.com/function/api#Logs)
+[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
 
 ```dart
 import 'dart:io';
@@ -349,19 +350,18 @@ void main() async {
   final ser = FunctionService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "logs_type": "build",
   "name": "helloworld"
 ,};
 
-  LogsRequest req = LogsRequest.fromJson(payload);
+  UpdateRequest req = UpdateRequest.fromJson(payload);
 
   
   try {
 
-	LogsResponse res = await ser.logs(req);
+	UpdateResponse res = await ser.update(req);
 
     res.map((value) => print(value),
-	  Merr: (LogsResponseMerr err) => print(err.body!['body']));	
+	  Merr: (UpdateResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

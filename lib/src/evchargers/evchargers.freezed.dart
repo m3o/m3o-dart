@@ -20,19 +20,19 @@ Address _$AddressFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Address {
-  String? get town => throw _privateConstructorUsedError;
-  String? get address_line_1 => throw _privateConstructorUsedError;
   String? get address_line_2 => throw _privateConstructorUsedError;
-  String? get state_or_province => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
+  Country? get country => throw _privateConstructorUsedError;
+  String? get country_id => throw _privateConstructorUsedError;
+  String? get lat_lng => throw _privateConstructorUsedError;
   Coordinates? get location => throw _privateConstructorUsedError;
   String? get postcode => throw _privateConstructorUsedError;
 
   /// Any comments about how to access the charger
   String? get access_comments => throw _privateConstructorUsedError;
-  Country? get country => throw _privateConstructorUsedError;
-  String? get country_id => throw _privateConstructorUsedError;
-  String? get lat_lng => throw _privateConstructorUsedError;
+  String? get address_line_1 => throw _privateConstructorUsedError;
+  String? get state_or_province => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get town => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,20 +44,20 @@ abstract class $AddressCopyWith<$Res> {
   factory $AddressCopyWith(Address value, $Res Function(Address) then) =
       _$AddressCopyWithImpl<$Res>;
   $Res call(
-      {String? town,
-      String? address_line_1,
-      String? address_line_2,
-      String? state_or_province,
-      String? title,
+      {String? address_line_2,
+      Country? country,
+      String? country_id,
+      String? lat_lng,
       Coordinates? location,
       String? postcode,
       String? access_comments,
-      Country? country,
-      String? country_id,
-      String? lat_lng});
+      String? address_line_1,
+      String? state_or_province,
+      String? title,
+      String? town});
 
-  $CoordinatesCopyWith<$Res>? get location;
   $CountryCopyWith<$Res>? get country;
+  $CoordinatesCopyWith<$Res>? get location;
 }
 
 /// @nodoc
@@ -70,50 +70,22 @@ class _$AddressCopyWithImpl<$Res> implements $AddressCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? town = freezed,
-    Object? address_line_1 = freezed,
     Object? address_line_2 = freezed,
-    Object? state_or_province = freezed,
-    Object? title = freezed,
-    Object? location = freezed,
-    Object? postcode = freezed,
-    Object? access_comments = freezed,
     Object? country = freezed,
     Object? country_id = freezed,
     Object? lat_lng = freezed,
+    Object? location = freezed,
+    Object? postcode = freezed,
+    Object? access_comments = freezed,
+    Object? address_line_1 = freezed,
+    Object? state_or_province = freezed,
+    Object? title = freezed,
+    Object? town = freezed,
   }) {
     return _then(_value.copyWith(
-      town: town == freezed
-          ? _value.town
-          : town // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address_line_1: address_line_1 == freezed
-          ? _value.address_line_1
-          : address_line_1 // ignore: cast_nullable_to_non_nullable
-              as String?,
       address_line_2: address_line_2 == freezed
           ? _value.address_line_2
           : address_line_2 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      state_or_province: state_or_province == freezed
-          ? _value.state_or_province
-          : state_or_province // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as Coordinates?,
-      postcode: postcode == freezed
-          ? _value.postcode
-          : postcode // ignore: cast_nullable_to_non_nullable
-              as String?,
-      access_comments: access_comments == freezed
-          ? _value.access_comments
-          : access_comments // ignore: cast_nullable_to_non_nullable
               as String?,
       country: country == freezed
           ? _value.country
@@ -127,18 +99,35 @@ class _$AddressCopyWithImpl<$Res> implements $AddressCopyWith<$Res> {
           ? _value.lat_lng
           : lat_lng // ignore: cast_nullable_to_non_nullable
               as String?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as Coordinates?,
+      postcode: postcode == freezed
+          ? _value.postcode
+          : postcode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      access_comments: access_comments == freezed
+          ? _value.access_comments
+          : access_comments // ignore: cast_nullable_to_non_nullable
+              as String?,
+      address_line_1: address_line_1 == freezed
+          ? _value.address_line_1
+          : address_line_1 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      state_or_province: state_or_province == freezed
+          ? _value.state_or_province
+          : state_or_province // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      town: town == freezed
+          ? _value.town
+          : town // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
-  }
-
-  @override
-  $CoordinatesCopyWith<$Res>? get location {
-    if (_value.location == null) {
-      return null;
-    }
-
-    return $CoordinatesCopyWith<$Res>(_value.location!, (value) {
-      return _then(_value.copyWith(location: value));
-    });
   }
 
   @override
@@ -151,6 +140,17 @@ class _$AddressCopyWithImpl<$Res> implements $AddressCopyWith<$Res> {
       return _then(_value.copyWith(country: value));
     });
   }
+
+  @override
+  $CoordinatesCopyWith<$Res>? get location {
+    if (_value.location == null) {
+      return null;
+    }
+
+    return $CoordinatesCopyWith<$Res>(_value.location!, (value) {
+      return _then(_value.copyWith(location: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -160,22 +160,22 @@ abstract class _$$_AddressCopyWith<$Res> implements $AddressCopyWith<$Res> {
       __$$_AddressCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? town,
-      String? address_line_1,
-      String? address_line_2,
-      String? state_or_province,
-      String? title,
+      {String? address_line_2,
+      Country? country,
+      String? country_id,
+      String? lat_lng,
       Coordinates? location,
       String? postcode,
       String? access_comments,
-      Country? country,
-      String? country_id,
-      String? lat_lng});
+      String? address_line_1,
+      String? state_or_province,
+      String? title,
+      String? town});
 
   @override
-  $CoordinatesCopyWith<$Res>? get location;
-  @override
   $CountryCopyWith<$Res>? get country;
+  @override
+  $CoordinatesCopyWith<$Res>? get location;
 }
 
 /// @nodoc
@@ -189,50 +189,22 @@ class __$$_AddressCopyWithImpl<$Res> extends _$AddressCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? town = freezed,
-    Object? address_line_1 = freezed,
     Object? address_line_2 = freezed,
-    Object? state_or_province = freezed,
-    Object? title = freezed,
-    Object? location = freezed,
-    Object? postcode = freezed,
-    Object? access_comments = freezed,
     Object? country = freezed,
     Object? country_id = freezed,
     Object? lat_lng = freezed,
+    Object? location = freezed,
+    Object? postcode = freezed,
+    Object? access_comments = freezed,
+    Object? address_line_1 = freezed,
+    Object? state_or_province = freezed,
+    Object? title = freezed,
+    Object? town = freezed,
   }) {
     return _then(_$_Address(
-      town: town == freezed
-          ? _value.town
-          : town // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address_line_1: address_line_1 == freezed
-          ? _value.address_line_1
-          : address_line_1 // ignore: cast_nullable_to_non_nullable
-              as String?,
       address_line_2: address_line_2 == freezed
           ? _value.address_line_2
           : address_line_2 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      state_or_province: state_or_province == freezed
-          ? _value.state_or_province
-          : state_or_province // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as Coordinates?,
-      postcode: postcode == freezed
-          ? _value.postcode
-          : postcode // ignore: cast_nullable_to_non_nullable
-              as String?,
-      access_comments: access_comments == freezed
-          ? _value.access_comments
-          : access_comments // ignore: cast_nullable_to_non_nullable
               as String?,
       country: country == freezed
           ? _value.country
@@ -246,6 +218,34 @@ class __$$_AddressCopyWithImpl<$Res> extends _$AddressCopyWithImpl<$Res>
           ? _value.lat_lng
           : lat_lng // ignore: cast_nullable_to_non_nullable
               as String?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as Coordinates?,
+      postcode: postcode == freezed
+          ? _value.postcode
+          : postcode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      access_comments: access_comments == freezed
+          ? _value.access_comments
+          : access_comments // ignore: cast_nullable_to_non_nullable
+              as String?,
+      address_line_1: address_line_1 == freezed
+          ? _value.address_line_1
+          : address_line_1 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      state_or_province: state_or_province == freezed
+          ? _value.state_or_province
+          : state_or_province // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      town: town == freezed
+          ? _value.town
+          : town // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -254,31 +254,29 @@ class __$$_AddressCopyWithImpl<$Res> extends _$AddressCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Address implements _Address {
   const _$_Address(
-      {this.town,
-      this.address_line_1,
-      this.address_line_2,
-      this.state_or_province,
-      this.title,
+      {this.address_line_2,
+      this.country,
+      this.country_id,
+      this.lat_lng,
       this.location,
       this.postcode,
       this.access_comments,
-      this.country,
-      this.country_id,
-      this.lat_lng});
+      this.address_line_1,
+      this.state_or_province,
+      this.title,
+      this.town});
 
   factory _$_Address.fromJson(Map<String, dynamic> json) =>
       _$$_AddressFromJson(json);
 
   @override
-  final String? town;
-  @override
-  final String? address_line_1;
-  @override
   final String? address_line_2;
   @override
-  final String? state_or_province;
+  final Country? country;
   @override
-  final String? title;
+  final String? country_id;
+  @override
+  final String? lat_lng;
   @override
   final Coordinates? location;
   @override
@@ -288,15 +286,17 @@ class _$_Address implements _Address {
   @override
   final String? access_comments;
   @override
-  final Country? country;
+  final String? address_line_1;
   @override
-  final String? country_id;
+  final String? state_or_province;
   @override
-  final String? lat_lng;
+  final String? title;
+  @override
+  final String? town;
 
   @override
   String toString() {
-    return 'Address(town: $town, address_line_1: $address_line_1, address_line_2: $address_line_2, state_or_province: $state_or_province, title: $title, location: $location, postcode: $postcode, access_comments: $access_comments, country: $country, country_id: $country_id, lat_lng: $lat_lng)';
+    return 'Address(address_line_2: $address_line_2, country: $country, country_id: $country_id, lat_lng: $lat_lng, location: $location, postcode: $postcode, access_comments: $access_comments, address_line_1: $address_line_1, state_or_province: $state_or_province, title: $title, town: $town)';
   }
 
   @override
@@ -304,39 +304,39 @@ class _$_Address implements _Address {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Address &&
-            const DeepCollectionEquality().equals(other.town, town) &&
-            const DeepCollectionEquality()
-                .equals(other.address_line_1, address_line_1) &&
             const DeepCollectionEquality()
                 .equals(other.address_line_2, address_line_2) &&
+            const DeepCollectionEquality().equals(other.country, country) &&
             const DeepCollectionEquality()
-                .equals(other.state_or_province, state_or_province) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
+                .equals(other.country_id, country_id) &&
+            const DeepCollectionEquality().equals(other.lat_lng, lat_lng) &&
             const DeepCollectionEquality().equals(other.location, location) &&
             const DeepCollectionEquality().equals(other.postcode, postcode) &&
             const DeepCollectionEquality()
                 .equals(other.access_comments, access_comments) &&
-            const DeepCollectionEquality().equals(other.country, country) &&
             const DeepCollectionEquality()
-                .equals(other.country_id, country_id) &&
-            const DeepCollectionEquality().equals(other.lat_lng, lat_lng));
+                .equals(other.address_line_1, address_line_1) &&
+            const DeepCollectionEquality()
+                .equals(other.state_or_province, state_or_province) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.town, town));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(town),
-      const DeepCollectionEquality().hash(address_line_1),
       const DeepCollectionEquality().hash(address_line_2),
-      const DeepCollectionEquality().hash(state_or_province),
-      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(country),
+      const DeepCollectionEquality().hash(country_id),
+      const DeepCollectionEquality().hash(lat_lng),
       const DeepCollectionEquality().hash(location),
       const DeepCollectionEquality().hash(postcode),
       const DeepCollectionEquality().hash(access_comments),
-      const DeepCollectionEquality().hash(country),
-      const DeepCollectionEquality().hash(country_id),
-      const DeepCollectionEquality().hash(lat_lng));
+      const DeepCollectionEquality().hash(address_line_1),
+      const DeepCollectionEquality().hash(state_or_province),
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(town));
 
   @JsonKey(ignore: true)
   @override
@@ -353,30 +353,28 @@ class _$_Address implements _Address {
 
 abstract class _Address implements Address {
   const factory _Address(
-      {final String? town,
-      final String? address_line_1,
-      final String? address_line_2,
-      final String? state_or_province,
-      final String? title,
+      {final String? address_line_2,
+      final Country? country,
+      final String? country_id,
+      final String? lat_lng,
       final Coordinates? location,
       final String? postcode,
       final String? access_comments,
-      final Country? country,
-      final String? country_id,
-      final String? lat_lng}) = _$_Address;
+      final String? address_line_1,
+      final String? state_or_province,
+      final String? title,
+      final String? town}) = _$_Address;
 
   factory _Address.fromJson(Map<String, dynamic> json) = _$_Address.fromJson;
 
   @override
-  String? get town;
-  @override
-  String? get address_line_1;
-  @override
   String? get address_line_2;
   @override
-  String? get state_or_province;
+  Country? get country;
   @override
-  String? get title;
+  String? get country_id;
+  @override
+  String? get lat_lng;
   @override
   Coordinates? get location;
   @override
@@ -386,11 +384,13 @@ abstract class _Address implements Address {
   /// Any comments about how to access the charger
   String? get access_comments;
   @override
-  Country? get country;
+  String? get address_line_1;
   @override
-  String? get country_id;
+  String? get state_or_province;
   @override
-  String? get lat_lng;
+  String? get title;
+  @override
+  String? get town;
   @override
   @JsonKey(ignore: true)
   _$$_AddressCopyWith<_$_Address> get copyWith =>
@@ -984,27 +984,26 @@ Connection _$ConnectionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Connection {
+  /// The amps offered
+  double? get amps => throw _privateConstructorUsedError;
+  String? get reference => throw _privateConstructorUsedError;
+
+  /// The voltage offered
+  double? get voltage => throw _privateConstructorUsedError;
   ConnectionType? get connection_type => throw _privateConstructorUsedError;
 
   /// The ID of the connection type
   String? get connection_type_id => throw _privateConstructorUsedError;
 
-  /// The level of charging power available
-  String? get level_id => throw _privateConstructorUsedError;
-
-  /// The amps offered
-  double? get amps => throw _privateConstructorUsedError;
-
   /// The current
   String? get current => throw _privateConstructorUsedError;
   ChargerType? get level => throw _privateConstructorUsedError;
 
+  /// The level of charging power available
+  String? get level_id => throw _privateConstructorUsedError;
+
   /// The power in KW
   double? get power => throw _privateConstructorUsedError;
-  String? get reference => throw _privateConstructorUsedError;
-
-  /// The voltage offered
-  double? get voltage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1018,15 +1017,15 @@ abstract class $ConnectionCopyWith<$Res> {
           Connection value, $Res Function(Connection) then) =
       _$ConnectionCopyWithImpl<$Res>;
   $Res call(
-      {ConnectionType? connection_type,
+      {double? amps,
+      String? reference,
+      double? voltage,
+      ConnectionType? connection_type,
       String? connection_type_id,
-      String? level_id,
-      double? amps,
       String? current,
       ChargerType? level,
-      double? power,
-      String? reference,
-      double? voltage});
+      String? level_id,
+      double? power});
 
   $ConnectionTypeCopyWith<$Res>? get connection_type;
   $ChargerTypeCopyWith<$Res>? get level;
@@ -1042,44 +1041,20 @@ class _$ConnectionCopyWithImpl<$Res> implements $ConnectionCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? connection_type = freezed,
-    Object? connection_type_id = freezed,
-    Object? level_id = freezed,
     Object? amps = freezed,
-    Object? current = freezed,
-    Object? level = freezed,
-    Object? power = freezed,
     Object? reference = freezed,
     Object? voltage = freezed,
+    Object? connection_type = freezed,
+    Object? connection_type_id = freezed,
+    Object? current = freezed,
+    Object? level = freezed,
+    Object? level_id = freezed,
+    Object? power = freezed,
   }) {
     return _then(_value.copyWith(
-      connection_type: connection_type == freezed
-          ? _value.connection_type
-          : connection_type // ignore: cast_nullable_to_non_nullable
-              as ConnectionType?,
-      connection_type_id: connection_type_id == freezed
-          ? _value.connection_type_id
-          : connection_type_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      level_id: level_id == freezed
-          ? _value.level_id
-          : level_id // ignore: cast_nullable_to_non_nullable
-              as String?,
       amps: amps == freezed
           ? _value.amps
           : amps // ignore: cast_nullable_to_non_nullable
-              as double?,
-      current: current == freezed
-          ? _value.current
-          : current // ignore: cast_nullable_to_non_nullable
-              as String?,
-      level: level == freezed
-          ? _value.level
-          : level // ignore: cast_nullable_to_non_nullable
-              as ChargerType?,
-      power: power == freezed
-          ? _value.power
-          : power // ignore: cast_nullable_to_non_nullable
               as double?,
       reference: reference == freezed
           ? _value.reference
@@ -1088,6 +1063,30 @@ class _$ConnectionCopyWithImpl<$Res> implements $ConnectionCopyWith<$Res> {
       voltage: voltage == freezed
           ? _value.voltage
           : voltage // ignore: cast_nullable_to_non_nullable
+              as double?,
+      connection_type: connection_type == freezed
+          ? _value.connection_type
+          : connection_type // ignore: cast_nullable_to_non_nullable
+              as ConnectionType?,
+      connection_type_id: connection_type_id == freezed
+          ? _value.connection_type_id
+          : connection_type_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      current: current == freezed
+          ? _value.current
+          : current // ignore: cast_nullable_to_non_nullable
+              as String?,
+      level: level == freezed
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as ChargerType?,
+      level_id: level_id == freezed
+          ? _value.level_id
+          : level_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      power: power == freezed
+          ? _value.power
+          : power // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
   }
@@ -1123,15 +1122,15 @@ abstract class _$$_ConnectionCopyWith<$Res>
       __$$_ConnectionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {ConnectionType? connection_type,
+      {double? amps,
+      String? reference,
+      double? voltage,
+      ConnectionType? connection_type,
       String? connection_type_id,
-      String? level_id,
-      double? amps,
       String? current,
       ChargerType? level,
-      double? power,
-      String? reference,
-      double? voltage});
+      String? level_id,
+      double? power});
 
   @override
   $ConnectionTypeCopyWith<$Res>? get connection_type;
@@ -1151,44 +1150,20 @@ class __$$_ConnectionCopyWithImpl<$Res> extends _$ConnectionCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? connection_type = freezed,
-    Object? connection_type_id = freezed,
-    Object? level_id = freezed,
     Object? amps = freezed,
-    Object? current = freezed,
-    Object? level = freezed,
-    Object? power = freezed,
     Object? reference = freezed,
     Object? voltage = freezed,
+    Object? connection_type = freezed,
+    Object? connection_type_id = freezed,
+    Object? current = freezed,
+    Object? level = freezed,
+    Object? level_id = freezed,
+    Object? power = freezed,
   }) {
     return _then(_$_Connection(
-      connection_type: connection_type == freezed
-          ? _value.connection_type
-          : connection_type // ignore: cast_nullable_to_non_nullable
-              as ConnectionType?,
-      connection_type_id: connection_type_id == freezed
-          ? _value.connection_type_id
-          : connection_type_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      level_id: level_id == freezed
-          ? _value.level_id
-          : level_id // ignore: cast_nullable_to_non_nullable
-              as String?,
       amps: amps == freezed
           ? _value.amps
           : amps // ignore: cast_nullable_to_non_nullable
-              as double?,
-      current: current == freezed
-          ? _value.current
-          : current // ignore: cast_nullable_to_non_nullable
-              as String?,
-      level: level == freezed
-          ? _value.level
-          : level // ignore: cast_nullable_to_non_nullable
-              as ChargerType?,
-      power: power == freezed
-          ? _value.power
-          : power // ignore: cast_nullable_to_non_nullable
               as double?,
       reference: reference == freezed
           ? _value.reference
@@ -1198,6 +1173,30 @@ class __$$_ConnectionCopyWithImpl<$Res> extends _$ConnectionCopyWithImpl<$Res>
           ? _value.voltage
           : voltage // ignore: cast_nullable_to_non_nullable
               as double?,
+      connection_type: connection_type == freezed
+          ? _value.connection_type
+          : connection_type // ignore: cast_nullable_to_non_nullable
+              as ConnectionType?,
+      connection_type_id: connection_type_id == freezed
+          ? _value.connection_type_id
+          : connection_type_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      current: current == freezed
+          ? _value.current
+          : current // ignore: cast_nullable_to_non_nullable
+              as String?,
+      level: level == freezed
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as ChargerType?,
+      level_id: level_id == freezed
+          ? _value.level_id
+          : level_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      power: power == freezed
+          ? _value.power
+          : power // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -1206,19 +1205,28 @@ class __$$_ConnectionCopyWithImpl<$Res> extends _$ConnectionCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Connection implements _Connection {
   const _$_Connection(
-      {this.connection_type,
+      {this.amps,
+      this.reference,
+      this.voltage,
+      this.connection_type,
       this.connection_type_id,
-      this.level_id,
-      this.amps,
       this.current,
       this.level,
-      this.power,
-      this.reference,
-      this.voltage});
+      this.level_id,
+      this.power});
 
   factory _$_Connection.fromJson(Map<String, dynamic> json) =>
       _$$_ConnectionFromJson(json);
 
+  /// The amps offered
+  @override
+  final double? amps;
+  @override
+  final String? reference;
+
+  /// The voltage offered
+  @override
+  final double? voltage;
   @override
   final ConnectionType? connection_type;
 
@@ -1226,33 +1234,23 @@ class _$_Connection implements _Connection {
   @override
   final String? connection_type_id;
 
-  /// The level of charging power available
-  @override
-  final String? level_id;
-
-  /// The amps offered
-  @override
-  final double? amps;
-
   /// The current
   @override
   final String? current;
   @override
   final ChargerType? level;
 
+  /// The level of charging power available
+  @override
+  final String? level_id;
+
   /// The power in KW
   @override
   final double? power;
-  @override
-  final String? reference;
-
-  /// The voltage offered
-  @override
-  final double? voltage;
 
   @override
   String toString() {
-    return 'Connection(connection_type: $connection_type, connection_type_id: $connection_type_id, level_id: $level_id, amps: $amps, current: $current, level: $level, power: $power, reference: $reference, voltage: $voltage)';
+    return 'Connection(amps: $amps, reference: $reference, voltage: $voltage, connection_type: $connection_type, connection_type_id: $connection_type_id, current: $current, level: $level, level_id: $level_id, power: $power)';
   }
 
   @override
@@ -1260,32 +1258,32 @@ class _$_Connection implements _Connection {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Connection &&
+            const DeepCollectionEquality().equals(other.amps, amps) &&
+            const DeepCollectionEquality().equals(other.reference, reference) &&
+            const DeepCollectionEquality().equals(other.voltage, voltage) &&
             const DeepCollectionEquality()
                 .equals(other.connection_type, connection_type) &&
             const DeepCollectionEquality()
                 .equals(other.connection_type_id, connection_type_id) &&
-            const DeepCollectionEquality().equals(other.level_id, level_id) &&
-            const DeepCollectionEquality().equals(other.amps, amps) &&
             const DeepCollectionEquality().equals(other.current, current) &&
             const DeepCollectionEquality().equals(other.level, level) &&
-            const DeepCollectionEquality().equals(other.power, power) &&
-            const DeepCollectionEquality().equals(other.reference, reference) &&
-            const DeepCollectionEquality().equals(other.voltage, voltage));
+            const DeepCollectionEquality().equals(other.level_id, level_id) &&
+            const DeepCollectionEquality().equals(other.power, power));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(amps),
+      const DeepCollectionEquality().hash(reference),
+      const DeepCollectionEquality().hash(voltage),
       const DeepCollectionEquality().hash(connection_type),
       const DeepCollectionEquality().hash(connection_type_id),
-      const DeepCollectionEquality().hash(level_id),
-      const DeepCollectionEquality().hash(amps),
       const DeepCollectionEquality().hash(current),
       const DeepCollectionEquality().hash(level),
-      const DeepCollectionEquality().hash(power),
-      const DeepCollectionEquality().hash(reference),
-      const DeepCollectionEquality().hash(voltage));
+      const DeepCollectionEquality().hash(level_id),
+      const DeepCollectionEquality().hash(power));
 
   @JsonKey(ignore: true)
   @override
@@ -1302,19 +1300,29 @@ class _$_Connection implements _Connection {
 
 abstract class _Connection implements Connection {
   const factory _Connection(
-      {final ConnectionType? connection_type,
+      {final double? amps,
+      final String? reference,
+      final double? voltage,
+      final ConnectionType? connection_type,
       final String? connection_type_id,
-      final String? level_id,
-      final double? amps,
       final String? current,
       final ChargerType? level,
-      final double? power,
-      final String? reference,
-      final double? voltage}) = _$_Connection;
+      final String? level_id,
+      final double? power}) = _$_Connection;
 
   factory _Connection.fromJson(Map<String, dynamic> json) =
       _$_Connection.fromJson;
 
+  @override
+
+  /// The amps offered
+  double? get amps;
+  @override
+  String? get reference;
+  @override
+
+  /// The voltage offered
+  double? get voltage;
   @override
   ConnectionType? get connection_type;
   @override
@@ -1323,28 +1331,18 @@ abstract class _Connection implements Connection {
   String? get connection_type_id;
   @override
 
-  /// The level of charging power available
-  String? get level_id;
-  @override
-
-  /// The amps offered
-  double? get amps;
-  @override
-
   /// The current
   String? get current;
   @override
   ChargerType? get level;
   @override
 
-  /// The power in KW
-  double? get power;
-  @override
-  String? get reference;
+  /// The level of charging power available
+  String? get level_id;
   @override
 
-  /// The voltage offered
-  double? get voltage;
+  /// The power in KW
+  double? get power;
   @override
   @JsonKey(ignore: true)
   _$$_ConnectionCopyWith<_$_Connection> get copyWith =>
@@ -2091,15 +2089,15 @@ DataProvider _$DataProviderFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DataProvider {
+  String? get title => throw _privateConstructorUsedError;
+  String? get website => throw _privateConstructorUsedError;
+  String? get comments => throw _privateConstructorUsedError;
   DataProviderStatusType? get data_provider_status_type =>
       throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
 
   /// How is this data licensed
   String? get license => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
-  String? get website => throw _privateConstructorUsedError;
-  String? get comments => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2113,12 +2111,12 @@ abstract class $DataProviderCopyWith<$Res> {
           DataProvider value, $Res Function(DataProvider) then) =
       _$DataProviderCopyWithImpl<$Res>;
   $Res call(
-      {DataProviderStatusType? data_provider_status_type,
-      String? id,
-      String? license,
-      String? title,
+      {String? title,
       String? website,
-      String? comments});
+      String? comments,
+      DataProviderStatusType? data_provider_status_type,
+      String? id,
+      String? license});
 
   $DataProviderStatusTypeCopyWith<$Res>? get data_provider_status_type;
 }
@@ -2133,26 +2131,14 @@ class _$DataProviderCopyWithImpl<$Res> implements $DataProviderCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? data_provider_status_type = freezed,
-    Object? id = freezed,
-    Object? license = freezed,
     Object? title = freezed,
     Object? website = freezed,
     Object? comments = freezed,
+    Object? data_provider_status_type = freezed,
+    Object? id = freezed,
+    Object? license = freezed,
   }) {
     return _then(_value.copyWith(
-      data_provider_status_type: data_provider_status_type == freezed
-          ? _value.data_provider_status_type
-          : data_provider_status_type // ignore: cast_nullable_to_non_nullable
-              as DataProviderStatusType?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      license: license == freezed
-          ? _value.license
-          : license // ignore: cast_nullable_to_non_nullable
-              as String?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -2164,6 +2150,18 @@ class _$DataProviderCopyWithImpl<$Res> implements $DataProviderCopyWith<$Res> {
       comments: comments == freezed
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
+              as String?,
+      data_provider_status_type: data_provider_status_type == freezed
+          ? _value.data_provider_status_type
+          : data_provider_status_type // ignore: cast_nullable_to_non_nullable
+              as DataProviderStatusType?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      license: license == freezed
+          ? _value.license
+          : license // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2189,12 +2187,12 @@ abstract class _$$_DataProviderCopyWith<$Res>
       __$$_DataProviderCopyWithImpl<$Res>;
   @override
   $Res call(
-      {DataProviderStatusType? data_provider_status_type,
-      String? id,
-      String? license,
-      String? title,
+      {String? title,
       String? website,
-      String? comments});
+      String? comments,
+      DataProviderStatusType? data_provider_status_type,
+      String? id,
+      String? license});
 
   @override
   $DataProviderStatusTypeCopyWith<$Res>? get data_provider_status_type;
@@ -2213,26 +2211,14 @@ class __$$_DataProviderCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? data_provider_status_type = freezed,
-    Object? id = freezed,
-    Object? license = freezed,
     Object? title = freezed,
     Object? website = freezed,
     Object? comments = freezed,
+    Object? data_provider_status_type = freezed,
+    Object? id = freezed,
+    Object? license = freezed,
   }) {
     return _then(_$_DataProvider(
-      data_provider_status_type: data_provider_status_type == freezed
-          ? _value.data_provider_status_type
-          : data_provider_status_type // ignore: cast_nullable_to_non_nullable
-              as DataProviderStatusType?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      license: license == freezed
-          ? _value.license
-          : license // ignore: cast_nullable_to_non_nullable
-              as String?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -2245,6 +2231,18 @@ class __$$_DataProviderCopyWithImpl<$Res>
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
               as String?,
+      data_provider_status_type: data_provider_status_type == freezed
+          ? _value.data_provider_status_type
+          : data_provider_status_type // ignore: cast_nullable_to_non_nullable
+              as DataProviderStatusType?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      license: license == freezed
+          ? _value.license
+          : license // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2253,16 +2251,22 @@ class __$$_DataProviderCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_DataProvider implements _DataProvider {
   const _$_DataProvider(
-      {this.data_provider_status_type,
-      this.id,
-      this.license,
-      this.title,
+      {this.title,
       this.website,
-      this.comments});
+      this.comments,
+      this.data_provider_status_type,
+      this.id,
+      this.license});
 
   factory _$_DataProvider.fromJson(Map<String, dynamic> json) =>
       _$$_DataProviderFromJson(json);
 
+  @override
+  final String? title;
+  @override
+  final String? website;
+  @override
+  final String? comments;
   @override
   final DataProviderStatusType? data_provider_status_type;
   @override
@@ -2271,16 +2275,10 @@ class _$_DataProvider implements _DataProvider {
   /// How is this data licensed
   @override
   final String? license;
-  @override
-  final String? title;
-  @override
-  final String? website;
-  @override
-  final String? comments;
 
   @override
   String toString() {
-    return 'DataProvider(data_provider_status_type: $data_provider_status_type, id: $id, license: $license, title: $title, website: $website, comments: $comments)';
+    return 'DataProvider(title: $title, website: $website, comments: $comments, data_provider_status_type: $data_provider_status_type, id: $id, license: $license)';
   }
 
   @override
@@ -2288,25 +2286,25 @@ class _$_DataProvider implements _DataProvider {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DataProvider &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.website, website) &&
+            const DeepCollectionEquality().equals(other.comments, comments) &&
             const DeepCollectionEquality().equals(
                 other.data_provider_status_type, data_provider_status_type) &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.license, license) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.website, website) &&
-            const DeepCollectionEquality().equals(other.comments, comments));
+            const DeepCollectionEquality().equals(other.license, license));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(data_provider_status_type),
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(license),
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(website),
-      const DeepCollectionEquality().hash(comments));
+      const DeepCollectionEquality().hash(comments),
+      const DeepCollectionEquality().hash(data_provider_status_type),
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(license));
 
   @JsonKey(ignore: true)
   @override
@@ -2323,16 +2321,22 @@ class _$_DataProvider implements _DataProvider {
 
 abstract class _DataProvider implements DataProvider {
   const factory _DataProvider(
-      {final DataProviderStatusType? data_provider_status_type,
-      final String? id,
-      final String? license,
-      final String? title,
+      {final String? title,
       final String? website,
-      final String? comments}) = _$_DataProvider;
+      final String? comments,
+      final DataProviderStatusType? data_provider_status_type,
+      final String? id,
+      final String? license}) = _$_DataProvider;
 
   factory _DataProvider.fromJson(Map<String, dynamic> json) =
       _$_DataProvider.fromJson;
 
+  @override
+  String? get title;
+  @override
+  String? get website;
+  @override
+  String? get comments;
   @override
   DataProviderStatusType? get data_provider_status_type;
   @override
@@ -2341,12 +2345,6 @@ abstract class _DataProvider implements DataProvider {
 
   /// How is this data licensed
   String? get license;
-  @override
-  String? get title;
-  @override
-  String? get website;
-  @override
-  String? get comments;
   @override
   @JsonKey(ignore: true)
   _$$_DataProviderCopyWith<_$_DataProvider> get copyWith =>
@@ -2536,17 +2534,17 @@ Operator _$OperatorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Operator {
+  String? get comments => throw _privateConstructorUsedError;
+  String? get fault_report_email => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
+  String? get phone_primary => throw _privateConstructorUsedError;
+  String? get contact_email => throw _privateConstructorUsedError;
 
   /// Is this operator a private individual vs a company
   bool? get is_private_individual => throw _privateConstructorUsedError;
-  String? get phone_primary => throw _privateConstructorUsedError;
   String? get phone_secondary => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get website => throw _privateConstructorUsedError;
-  String? get comments => throw _privateConstructorUsedError;
-  String? get contact_email => throw _privateConstructorUsedError;
-  String? get fault_report_email => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2559,15 +2557,15 @@ abstract class $OperatorCopyWith<$Res> {
   factory $OperatorCopyWith(Operator value, $Res Function(Operator) then) =
       _$OperatorCopyWithImpl<$Res>;
   $Res call(
-      {String? id,
-      bool? is_private_individual,
+      {String? comments,
+      String? fault_report_email,
+      String? id,
       String? phone_primary,
+      String? contact_email,
+      bool? is_private_individual,
       String? phone_secondary,
       String? title,
-      String? website,
-      String? comments,
-      String? contact_email,
-      String? fault_report_email});
+      String? website});
 }
 
 /// @nodoc
@@ -2580,29 +2578,41 @@ class _$OperatorCopyWithImpl<$Res> implements $OperatorCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? comments = freezed,
+    Object? fault_report_email = freezed,
     Object? id = freezed,
-    Object? is_private_individual = freezed,
     Object? phone_primary = freezed,
+    Object? contact_email = freezed,
+    Object? is_private_individual = freezed,
     Object? phone_secondary = freezed,
     Object? title = freezed,
     Object? website = freezed,
-    Object? comments = freezed,
-    Object? contact_email = freezed,
-    Object? fault_report_email = freezed,
   }) {
     return _then(_value.copyWith(
+      comments: comments == freezed
+          ? _value.comments
+          : comments // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fault_report_email: fault_report_email == freezed
+          ? _value.fault_report_email
+          : fault_report_email // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phone_primary: phone_primary == freezed
+          ? _value.phone_primary
+          : phone_primary // ignore: cast_nullable_to_non_nullable
+              as String?,
+      contact_email: contact_email == freezed
+          ? _value.contact_email
+          : contact_email // ignore: cast_nullable_to_non_nullable
               as String?,
       is_private_individual: is_private_individual == freezed
           ? _value.is_private_individual
           : is_private_individual // ignore: cast_nullable_to_non_nullable
               as bool?,
-      phone_primary: phone_primary == freezed
-          ? _value.phone_primary
-          : phone_primary // ignore: cast_nullable_to_non_nullable
-              as String?,
       phone_secondary: phone_secondary == freezed
           ? _value.phone_secondary
           : phone_secondary // ignore: cast_nullable_to_non_nullable
@@ -2615,18 +2625,6 @@ class _$OperatorCopyWithImpl<$Res> implements $OperatorCopyWith<$Res> {
           ? _value.website
           : website // ignore: cast_nullable_to_non_nullable
               as String?,
-      comments: comments == freezed
-          ? _value.comments
-          : comments // ignore: cast_nullable_to_non_nullable
-              as String?,
-      contact_email: contact_email == freezed
-          ? _value.contact_email
-          : contact_email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      fault_report_email: fault_report_email == freezed
-          ? _value.fault_report_email
-          : fault_report_email // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2638,15 +2636,15 @@ abstract class _$$_OperatorCopyWith<$Res> implements $OperatorCopyWith<$Res> {
       __$$_OperatorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? id,
-      bool? is_private_individual,
+      {String? comments,
+      String? fault_report_email,
+      String? id,
       String? phone_primary,
+      String? contact_email,
+      bool? is_private_individual,
       String? phone_secondary,
       String? title,
-      String? website,
-      String? comments,
-      String? contact_email,
-      String? fault_report_email});
+      String? website});
 }
 
 /// @nodoc
@@ -2661,29 +2659,41 @@ class __$$_OperatorCopyWithImpl<$Res> extends _$OperatorCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? comments = freezed,
+    Object? fault_report_email = freezed,
     Object? id = freezed,
-    Object? is_private_individual = freezed,
     Object? phone_primary = freezed,
+    Object? contact_email = freezed,
+    Object? is_private_individual = freezed,
     Object? phone_secondary = freezed,
     Object? title = freezed,
     Object? website = freezed,
-    Object? comments = freezed,
-    Object? contact_email = freezed,
-    Object? fault_report_email = freezed,
   }) {
     return _then(_$_Operator(
+      comments: comments == freezed
+          ? _value.comments
+          : comments // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fault_report_email: fault_report_email == freezed
+          ? _value.fault_report_email
+          : fault_report_email // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phone_primary: phone_primary == freezed
+          ? _value.phone_primary
+          : phone_primary // ignore: cast_nullable_to_non_nullable
+              as String?,
+      contact_email: contact_email == freezed
+          ? _value.contact_email
+          : contact_email // ignore: cast_nullable_to_non_nullable
               as String?,
       is_private_individual: is_private_individual == freezed
           ? _value.is_private_individual
           : is_private_individual // ignore: cast_nullable_to_non_nullable
               as bool?,
-      phone_primary: phone_primary == freezed
-          ? _value.phone_primary
-          : phone_primary // ignore: cast_nullable_to_non_nullable
-              as String?,
       phone_secondary: phone_secondary == freezed
           ? _value.phone_secondary
           : phone_secondary // ignore: cast_nullable_to_non_nullable
@@ -2696,18 +2706,6 @@ class __$$_OperatorCopyWithImpl<$Res> extends _$OperatorCopyWithImpl<$Res>
           ? _value.website
           : website // ignore: cast_nullable_to_non_nullable
               as String?,
-      comments: comments == freezed
-          ? _value.comments
-          : comments // ignore: cast_nullable_to_non_nullable
-              as String?,
-      contact_email: contact_email == freezed
-          ? _value.contact_email
-          : contact_email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      fault_report_email: fault_report_email == freezed
-          ? _value.fault_report_email
-          : fault_report_email // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2716,43 +2714,43 @@ class __$$_OperatorCopyWithImpl<$Res> extends _$OperatorCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Operator implements _Operator {
   const _$_Operator(
-      {this.id,
-      this.is_private_individual,
+      {this.comments,
+      this.fault_report_email,
+      this.id,
       this.phone_primary,
+      this.contact_email,
+      this.is_private_individual,
       this.phone_secondary,
       this.title,
-      this.website,
-      this.comments,
-      this.contact_email,
-      this.fault_report_email});
+      this.website});
 
   factory _$_Operator.fromJson(Map<String, dynamic> json) =>
       _$$_OperatorFromJson(json);
 
   @override
+  final String? comments;
+  @override
+  final String? fault_report_email;
+  @override
   final String? id;
+  @override
+  final String? phone_primary;
+  @override
+  final String? contact_email;
 
   /// Is this operator a private individual vs a company
   @override
   final bool? is_private_individual;
-  @override
-  final String? phone_primary;
   @override
   final String? phone_secondary;
   @override
   final String? title;
   @override
   final String? website;
-  @override
-  final String? comments;
-  @override
-  final String? contact_email;
-  @override
-  final String? fault_report_email;
 
   @override
   String toString() {
-    return 'Operator(id: $id, is_private_individual: $is_private_individual, phone_primary: $phone_primary, phone_secondary: $phone_secondary, title: $title, website: $website, comments: $comments, contact_email: $contact_email, fault_report_email: $fault_report_email)';
+    return 'Operator(comments: $comments, fault_report_email: $fault_report_email, id: $id, phone_primary: $phone_primary, contact_email: $contact_email, is_private_individual: $is_private_individual, phone_secondary: $phone_secondary, title: $title, website: $website)';
   }
 
   @override
@@ -2760,35 +2758,35 @@ class _$_Operator implements _Operator {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Operator &&
-            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.comments, comments) &&
             const DeepCollectionEquality()
-                .equals(other.is_private_individual, is_private_individual) &&
+                .equals(other.fault_report_email, fault_report_email) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.phone_primary, phone_primary) &&
             const DeepCollectionEquality()
-                .equals(other.phone_secondary, phone_secondary) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.website, website) &&
-            const DeepCollectionEquality().equals(other.comments, comments) &&
-            const DeepCollectionEquality()
                 .equals(other.contact_email, contact_email) &&
             const DeepCollectionEquality()
-                .equals(other.fault_report_email, fault_report_email));
+                .equals(other.is_private_individual, is_private_individual) &&
+            const DeepCollectionEquality()
+                .equals(other.phone_secondary, phone_secondary) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.website, website));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(comments),
+      const DeepCollectionEquality().hash(fault_report_email),
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(is_private_individual),
       const DeepCollectionEquality().hash(phone_primary),
+      const DeepCollectionEquality().hash(contact_email),
+      const DeepCollectionEquality().hash(is_private_individual),
       const DeepCollectionEquality().hash(phone_secondary),
       const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(website),
-      const DeepCollectionEquality().hash(comments),
-      const DeepCollectionEquality().hash(contact_email),
-      const DeepCollectionEquality().hash(fault_report_email));
+      const DeepCollectionEquality().hash(website));
 
   @JsonKey(ignore: true)
   @override
@@ -2805,38 +2803,38 @@ class _$_Operator implements _Operator {
 
 abstract class _Operator implements Operator {
   const factory _Operator(
-      {final String? id,
-      final bool? is_private_individual,
+      {final String? comments,
+      final String? fault_report_email,
+      final String? id,
       final String? phone_primary,
+      final String? contact_email,
+      final bool? is_private_individual,
       final String? phone_secondary,
       final String? title,
-      final String? website,
-      final String? comments,
-      final String? contact_email,
-      final String? fault_report_email}) = _$_Operator;
+      final String? website}) = _$_Operator;
 
   factory _Operator.fromJson(Map<String, dynamic> json) = _$_Operator.fromJson;
 
   @override
+  String? get comments;
+  @override
+  String? get fault_report_email;
+  @override
   String? get id;
+  @override
+  String? get phone_primary;
+  @override
+  String? get contact_email;
   @override
 
   /// Is this operator a private individual vs a company
   bool? get is_private_individual;
-  @override
-  String? get phone_primary;
   @override
   String? get phone_secondary;
   @override
   String? get title;
   @override
   String? get website;
-  @override
-  String? get comments;
-  @override
-  String? get contact_email;
-  @override
-  String? get fault_report_email;
   @override
   @JsonKey(ignore: true)
   _$$_OperatorCopyWith<_$_Operator> get copyWith =>
@@ -2849,21 +2847,6 @@ Poi _$PoiFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Poi {
-  /// The connections available at this charge point
-  List<Connection>? get connections => throw _privateConstructorUsedError;
-
-  /// The cost of charging
-  String? get cost => throw _privateConstructorUsedError;
-
-  /// The operator
-  Operator? get operator => throw _privateConstructorUsedError;
-
-  /// The ID of the operator of the charger
-  String? get operator_id => throw _privateConstructorUsedError;
-
-  /// The address
-  Address? get address => throw _privateConstructorUsedError;
-
   /// The ID of the charger
   String? get id => throw _privateConstructorUsedError;
 
@@ -2871,14 +2854,29 @@ mixin _$Poi {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get num_points => throw _privateConstructorUsedError;
 
-  /// The type of usage
-  UsageType? get usage_type => throw _privateConstructorUsedError;
+  /// The ID of the operator of the charger
+  String? get operator_id => throw _privateConstructorUsedError;
+
+  /// The address
+  Address? get address => throw _privateConstructorUsedError;
+
+  /// The connections available at this charge point
+  List<Connection>? get connections => throw _privateConstructorUsedError;
+
+  /// The ID of the data provider
+  String? get data_provider_id => throw _privateConstructorUsedError;
 
   /// The type of usage for this charger point (is it public, membership required, etc)
   String? get usage_type_id => throw _privateConstructorUsedError;
 
-  /// The ID of the data provider
-  String? get data_provider_id => throw _privateConstructorUsedError;
+  /// The cost of charging
+  String? get cost => throw _privateConstructorUsedError;
+
+  /// The operator
+  Operator? get operator => throw _privateConstructorUsedError;
+
+  /// The type of usage
+  UsageType? get usage_type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2890,20 +2888,20 @@ abstract class $PoiCopyWith<$Res> {
   factory $PoiCopyWith(Poi value, $Res Function(Poi) then) =
       _$PoiCopyWithImpl<$Res>;
   $Res call(
-      {List<Connection>? connections,
-      String? cost,
-      Operator? operator,
-      String? operator_id,
-      Address? address,
-      String? id,
+      {String? id,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? num_points,
-      UsageType? usage_type,
+      String? operator_id,
+      Address? address,
+      List<Connection>? connections,
+      String? data_provider_id,
       String? usage_type_id,
-      String? data_provider_id});
+      String? cost,
+      Operator? operator,
+      UsageType? usage_type});
 
-  $OperatorCopyWith<$Res>? get operator;
   $AddressCopyWith<$Res>? get address;
+  $OperatorCopyWith<$Res>? get operator;
   $UsageTypeCopyWith<$Res>? get usage_type;
 }
 
@@ -2917,38 +2915,18 @@ class _$PoiCopyWithImpl<$Res> implements $PoiCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? connections = freezed,
-    Object? cost = freezed,
-    Object? operator = freezed,
-    Object? operator_id = freezed,
-    Object? address = freezed,
     Object? id = freezed,
     Object? num_points = freezed,
-    Object? usage_type = freezed,
-    Object? usage_type_id = freezed,
+    Object? operator_id = freezed,
+    Object? address = freezed,
+    Object? connections = freezed,
     Object? data_provider_id = freezed,
+    Object? usage_type_id = freezed,
+    Object? cost = freezed,
+    Object? operator = freezed,
+    Object? usage_type = freezed,
   }) {
     return _then(_value.copyWith(
-      connections: connections == freezed
-          ? _value.connections
-          : connections // ignore: cast_nullable_to_non_nullable
-              as List<Connection>?,
-      cost: cost == freezed
-          ? _value.cost
-          : cost // ignore: cast_nullable_to_non_nullable
-              as String?,
-      operator: operator == freezed
-          ? _value.operator
-          : operator // ignore: cast_nullable_to_non_nullable
-              as Operator?,
-      operator_id: operator_id == freezed
-          ? _value.operator_id
-          : operator_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as Address?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -2957,30 +2935,39 @@ class _$PoiCopyWithImpl<$Res> implements $PoiCopyWith<$Res> {
           ? _value.num_points
           : num_points // ignore: cast_nullable_to_non_nullable
               as int?,
-      usage_type: usage_type == freezed
-          ? _value.usage_type
-          : usage_type // ignore: cast_nullable_to_non_nullable
-              as UsageType?,
-      usage_type_id: usage_type_id == freezed
-          ? _value.usage_type_id
-          : usage_type_id // ignore: cast_nullable_to_non_nullable
+      operator_id: operator_id == freezed
+          ? _value.operator_id
+          : operator_id // ignore: cast_nullable_to_non_nullable
               as String?,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as Address?,
+      connections: connections == freezed
+          ? _value.connections
+          : connections // ignore: cast_nullable_to_non_nullable
+              as List<Connection>?,
       data_provider_id: data_provider_id == freezed
           ? _value.data_provider_id
           : data_provider_id // ignore: cast_nullable_to_non_nullable
               as String?,
+      usage_type_id: usage_type_id == freezed
+          ? _value.usage_type_id
+          : usage_type_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cost: cost == freezed
+          ? _value.cost
+          : cost // ignore: cast_nullable_to_non_nullable
+              as String?,
+      operator: operator == freezed
+          ? _value.operator
+          : operator // ignore: cast_nullable_to_non_nullable
+              as Operator?,
+      usage_type: usage_type == freezed
+          ? _value.usage_type
+          : usage_type // ignore: cast_nullable_to_non_nullable
+              as UsageType?,
     ));
-  }
-
-  @override
-  $OperatorCopyWith<$Res>? get operator {
-    if (_value.operator == null) {
-      return null;
-    }
-
-    return $OperatorCopyWith<$Res>(_value.operator!, (value) {
-      return _then(_value.copyWith(operator: value));
-    });
   }
 
   @override
@@ -2991,6 +2978,17 @@ class _$PoiCopyWithImpl<$Res> implements $PoiCopyWith<$Res> {
 
     return $AddressCopyWith<$Res>(_value.address!, (value) {
       return _then(_value.copyWith(address: value));
+    });
+  }
+
+  @override
+  $OperatorCopyWith<$Res>? get operator {
+    if (_value.operator == null) {
+      return null;
+    }
+
+    return $OperatorCopyWith<$Res>(_value.operator!, (value) {
+      return _then(_value.copyWith(operator: value));
     });
   }
 
@@ -3012,22 +3010,22 @@ abstract class _$$_PoiCopyWith<$Res> implements $PoiCopyWith<$Res> {
       __$$_PoiCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<Connection>? connections,
-      String? cost,
-      Operator? operator,
-      String? operator_id,
-      Address? address,
-      String? id,
+      {String? id,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? num_points,
-      UsageType? usage_type,
+      String? operator_id,
+      Address? address,
+      List<Connection>? connections,
+      String? data_provider_id,
       String? usage_type_id,
-      String? data_provider_id});
+      String? cost,
+      Operator? operator,
+      UsageType? usage_type});
 
   @override
-  $OperatorCopyWith<$Res>? get operator;
-  @override
   $AddressCopyWith<$Res>? get address;
+  @override
+  $OperatorCopyWith<$Res>? get operator;
   @override
   $UsageTypeCopyWith<$Res>? get usage_type;
 }
@@ -3043,38 +3041,18 @@ class __$$_PoiCopyWithImpl<$Res> extends _$PoiCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? connections = freezed,
-    Object? cost = freezed,
-    Object? operator = freezed,
-    Object? operator_id = freezed,
-    Object? address = freezed,
     Object? id = freezed,
     Object? num_points = freezed,
-    Object? usage_type = freezed,
-    Object? usage_type_id = freezed,
+    Object? operator_id = freezed,
+    Object? address = freezed,
+    Object? connections = freezed,
     Object? data_provider_id = freezed,
+    Object? usage_type_id = freezed,
+    Object? cost = freezed,
+    Object? operator = freezed,
+    Object? usage_type = freezed,
   }) {
     return _then(_$_Poi(
-      connections: connections == freezed
-          ? _value._connections
-          : connections // ignore: cast_nullable_to_non_nullable
-              as List<Connection>?,
-      cost: cost == freezed
-          ? _value.cost
-          : cost // ignore: cast_nullable_to_non_nullable
-              as String?,
-      operator: operator == freezed
-          ? _value.operator
-          : operator // ignore: cast_nullable_to_non_nullable
-              as Operator?,
-      operator_id: operator_id == freezed
-          ? _value.operator_id
-          : operator_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as Address?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -3083,18 +3061,38 @@ class __$$_PoiCopyWithImpl<$Res> extends _$PoiCopyWithImpl<$Res>
           ? _value.num_points
           : num_points // ignore: cast_nullable_to_non_nullable
               as int?,
-      usage_type: usage_type == freezed
-          ? _value.usage_type
-          : usage_type // ignore: cast_nullable_to_non_nullable
-              as UsageType?,
-      usage_type_id: usage_type_id == freezed
-          ? _value.usage_type_id
-          : usage_type_id // ignore: cast_nullable_to_non_nullable
+      operator_id: operator_id == freezed
+          ? _value.operator_id
+          : operator_id // ignore: cast_nullable_to_non_nullable
               as String?,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as Address?,
+      connections: connections == freezed
+          ? _value._connections
+          : connections // ignore: cast_nullable_to_non_nullable
+              as List<Connection>?,
       data_provider_id: data_provider_id == freezed
           ? _value.data_provider_id
           : data_provider_id // ignore: cast_nullable_to_non_nullable
               as String?,
+      usage_type_id: usage_type_id == freezed
+          ? _value.usage_type_id
+          : usage_type_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cost: cost == freezed
+          ? _value.cost
+          : cost // ignore: cast_nullable_to_non_nullable
+              as String?,
+      operator: operator == freezed
+          ? _value.operator
+          : operator // ignore: cast_nullable_to_non_nullable
+              as Operator?,
+      usage_type: usage_type == freezed
+          ? _value.usage_type
+          : usage_type // ignore: cast_nullable_to_non_nullable
+              as UsageType?,
     ));
   }
 }
@@ -3103,20 +3101,37 @@ class __$$_PoiCopyWithImpl<$Res> extends _$PoiCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Poi implements _Poi {
   const _$_Poi(
-      {final List<Connection>? connections,
-      this.cost,
-      this.operator,
-      this.operator_id,
-      this.address,
-      this.id,
+      {this.id,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           this.num_points,
-      this.usage_type,
+      this.operator_id,
+      this.address,
+      final List<Connection>? connections,
+      this.data_provider_id,
       this.usage_type_id,
-      this.data_provider_id})
+      this.cost,
+      this.operator,
+      this.usage_type})
       : _connections = connections;
 
   factory _$_Poi.fromJson(Map<String, dynamic> json) => _$$_PoiFromJson(json);
+
+  /// The ID of the charger
+  @override
+  final String? id;
+
+  /// The number of charging points
+  @override
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? num_points;
+
+  /// The ID of the operator of the charger
+  @override
+  final String? operator_id;
+
+  /// The address
+  @override
+  final Address? address;
 
   /// The connections available at this charge point
   final List<Connection>? _connections;
@@ -3130,6 +3145,14 @@ class _$_Poi implements _Poi {
     return EqualUnmodifiableListView(value);
   }
 
+  /// The ID of the data provider
+  @override
+  final String? data_provider_id;
+
+  /// The type of usage for this charger point (is it public, membership required, etc)
+  @override
+  final String? usage_type_id;
+
   /// The cost of charging
   @override
   final String? cost;
@@ -3138,38 +3161,13 @@ class _$_Poi implements _Poi {
   @override
   final Operator? operator;
 
-  /// The ID of the operator of the charger
-  @override
-  final String? operator_id;
-
-  /// The address
-  @override
-  final Address? address;
-
-  /// The ID of the charger
-  @override
-  final String? id;
-
-  /// The number of charging points
-  @override
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? num_points;
-
   /// The type of usage
   @override
   final UsageType? usage_type;
 
-  /// The type of usage for this charger point (is it public, membership required, etc)
-  @override
-  final String? usage_type_id;
-
-  /// The ID of the data provider
-  @override
-  final String? data_provider_id;
-
   @override
   String toString() {
-    return 'Poi(connections: $connections, cost: $cost, operator: $operator, operator_id: $operator_id, address: $address, id: $id, num_points: $num_points, usage_type: $usage_type, usage_type_id: $usage_type_id, data_provider_id: $data_provider_id)';
+    return 'Poi(id: $id, num_points: $num_points, operator_id: $operator_id, address: $address, connections: $connections, data_provider_id: $data_provider_id, usage_type_id: $usage_type_id, cost: $cost, operator: $operator, usage_type: $usage_type)';
   }
 
   @override
@@ -3177,38 +3175,38 @@ class _$_Poi implements _Poi {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Poi &&
-            const DeepCollectionEquality()
-                .equals(other._connections, _connections) &&
-            const DeepCollectionEquality().equals(other.cost, cost) &&
-            const DeepCollectionEquality().equals(other.operator, operator) &&
-            const DeepCollectionEquality()
-                .equals(other.operator_id, operator_id) &&
-            const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.num_points, num_points) &&
             const DeepCollectionEquality()
-                .equals(other.usage_type, usage_type) &&
+                .equals(other.operator_id, operator_id) &&
+            const DeepCollectionEquality().equals(other.address, address) &&
+            const DeepCollectionEquality()
+                .equals(other._connections, _connections) &&
+            const DeepCollectionEquality()
+                .equals(other.data_provider_id, data_provider_id) &&
             const DeepCollectionEquality()
                 .equals(other.usage_type_id, usage_type_id) &&
+            const DeepCollectionEquality().equals(other.cost, cost) &&
+            const DeepCollectionEquality().equals(other.operator, operator) &&
             const DeepCollectionEquality()
-                .equals(other.data_provider_id, data_provider_id));
+                .equals(other.usage_type, usage_type));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_connections),
-      const DeepCollectionEquality().hash(cost),
-      const DeepCollectionEquality().hash(operator),
-      const DeepCollectionEquality().hash(operator_id),
-      const DeepCollectionEquality().hash(address),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(num_points),
-      const DeepCollectionEquality().hash(usage_type),
+      const DeepCollectionEquality().hash(operator_id),
+      const DeepCollectionEquality().hash(address),
+      const DeepCollectionEquality().hash(_connections),
+      const DeepCollectionEquality().hash(data_provider_id),
       const DeepCollectionEquality().hash(usage_type_id),
-      const DeepCollectionEquality().hash(data_provider_id));
+      const DeepCollectionEquality().hash(cost),
+      const DeepCollectionEquality().hash(operator),
+      const DeepCollectionEquality().hash(usage_type));
 
   @JsonKey(ignore: true)
   @override
@@ -3225,40 +3223,20 @@ class _$_Poi implements _Poi {
 
 abstract class _Poi implements Poi {
   const factory _Poi(
-      {final List<Connection>? connections,
-      final String? cost,
-      final Operator? operator,
-      final String? operator_id,
-      final Address? address,
-      final String? id,
+      {final String? id,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? num_points,
-      final UsageType? usage_type,
+      final String? operator_id,
+      final Address? address,
+      final List<Connection>? connections,
+      final String? data_provider_id,
       final String? usage_type_id,
-      final String? data_provider_id}) = _$_Poi;
+      final String? cost,
+      final Operator? operator,
+      final UsageType? usage_type}) = _$_Poi;
 
   factory _Poi.fromJson(Map<String, dynamic> json) = _$_Poi.fromJson;
 
-  @override
-
-  /// The connections available at this charge point
-  List<Connection>? get connections;
-  @override
-
-  /// The cost of charging
-  String? get cost;
-  @override
-
-  /// The operator
-  Operator? get operator;
-  @override
-
-  /// The ID of the operator of the charger
-  String? get operator_id;
-  @override
-
-  /// The address
-  Address? get address;
   @override
 
   /// The ID of the charger
@@ -3270,16 +3248,36 @@ abstract class _Poi implements Poi {
   int? get num_points;
   @override
 
-  /// The type of usage
-  UsageType? get usage_type;
+  /// The ID of the operator of the charger
+  String? get operator_id;
+  @override
+
+  /// The address
+  Address? get address;
+  @override
+
+  /// The connections available at this charge point
+  List<Connection>? get connections;
+  @override
+
+  /// The ID of the data provider
+  String? get data_provider_id;
   @override
 
   /// The type of usage for this charger point (is it public, membership required, etc)
   String? get usage_type_id;
   @override
 
-  /// The ID of the data provider
-  String? get data_provider_id;
+  /// The cost of charging
+  String? get cost;
+  @override
+
+  /// The operator
+  Operator? get operator;
+  @override
+
+  /// The type of usage
+  UsageType? get usage_type;
   @override
   @JsonKey(ignore: true)
   _$$_PoiCopyWith<_$_Poi> get copyWith => throw _privateConstructorUsedError;
@@ -3390,17 +3388,17 @@ mixin _$ReferenceDataResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            List<Country>? countries,
-            List<CurrentType>? current_types,
-            List<Operator>? operators,
-            List<UserCommentType>? user_comment_types,
+            List<StatusType>? status_types,
+            List<SubmissionStatusType>? submission_status_types,
+            List<UsageType>? usage_types,
             List<ChargerType>? charger_types,
             List<CheckinStatusType>? checkin_status_types,
+            List<Country>? countries,
+            List<Operator>? operators,
             List<ConnectionType>? connection_types,
-            List<UsageType>? usage_types,
+            List<CurrentType>? current_types,
             List<DataProvider>? data_providers,
-            List<StatusType>? status_types,
-            List<SubmissionStatusType>? submission_status_types)
+            List<UserCommentType>? user_comment_types)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
@@ -3408,17 +3406,17 @@ mixin _$ReferenceDataResponse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
-            List<Country>? countries,
-            List<CurrentType>? current_types,
-            List<Operator>? operators,
-            List<UserCommentType>? user_comment_types,
+            List<StatusType>? status_types,
+            List<SubmissionStatusType>? submission_status_types,
+            List<UsageType>? usage_types,
             List<ChargerType>? charger_types,
             List<CheckinStatusType>? checkin_status_types,
+            List<Country>? countries,
+            List<Operator>? operators,
             List<ConnectionType>? connection_types,
-            List<UsageType>? usage_types,
+            List<CurrentType>? current_types,
             List<DataProvider>? data_providers,
-            List<StatusType>? status_types,
-            List<SubmissionStatusType>? submission_status_types)?
+            List<UserCommentType>? user_comment_types)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
@@ -3426,17 +3424,17 @@ mixin _$ReferenceDataResponse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            List<Country>? countries,
-            List<CurrentType>? current_types,
-            List<Operator>? operators,
-            List<UserCommentType>? user_comment_types,
+            List<StatusType>? status_types,
+            List<SubmissionStatusType>? submission_status_types,
+            List<UsageType>? usage_types,
             List<ChargerType>? charger_types,
             List<CheckinStatusType>? checkin_status_types,
+            List<Country>? countries,
+            List<Operator>? operators,
             List<ConnectionType>? connection_types,
-            List<UsageType>? usage_types,
+            List<CurrentType>? current_types,
             List<DataProvider>? data_providers,
-            List<StatusType>? status_types,
-            List<SubmissionStatusType>? submission_status_types)?
+            List<UserCommentType>? user_comment_types)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -3488,17 +3486,17 @@ abstract class _$$ReferenceDataResponseDataCopyWith<$Res> {
           $Res Function(_$ReferenceDataResponseData) then) =
       __$$ReferenceDataResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {List<Country>? countries,
-      List<CurrentType>? current_types,
-      List<Operator>? operators,
-      List<UserCommentType>? user_comment_types,
+      {List<StatusType>? status_types,
+      List<SubmissionStatusType>? submission_status_types,
+      List<UsageType>? usage_types,
       List<ChargerType>? charger_types,
       List<CheckinStatusType>? checkin_status_types,
+      List<Country>? countries,
+      List<Operator>? operators,
       List<ConnectionType>? connection_types,
-      List<UsageType>? usage_types,
+      List<CurrentType>? current_types,
       List<DataProvider>? data_providers,
-      List<StatusType>? status_types,
-      List<SubmissionStatusType>? submission_status_types});
+      List<UserCommentType>? user_comment_types});
 }
 
 /// @nodoc
@@ -3515,55 +3513,19 @@ class __$$ReferenceDataResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? countries = freezed,
-    Object? current_types = freezed,
-    Object? operators = freezed,
-    Object? user_comment_types = freezed,
-    Object? charger_types = freezed,
-    Object? checkin_status_types = freezed,
-    Object? connection_types = freezed,
-    Object? usage_types = freezed,
-    Object? data_providers = freezed,
     Object? status_types = freezed,
     Object? submission_status_types = freezed,
+    Object? usage_types = freezed,
+    Object? charger_types = freezed,
+    Object? checkin_status_types = freezed,
+    Object? countries = freezed,
+    Object? operators = freezed,
+    Object? connection_types = freezed,
+    Object? current_types = freezed,
+    Object? data_providers = freezed,
+    Object? user_comment_types = freezed,
   }) {
     return _then(_$ReferenceDataResponseData(
-      countries: countries == freezed
-          ? _value._countries
-          : countries // ignore: cast_nullable_to_non_nullable
-              as List<Country>?,
-      current_types: current_types == freezed
-          ? _value._current_types
-          : current_types // ignore: cast_nullable_to_non_nullable
-              as List<CurrentType>?,
-      operators: operators == freezed
-          ? _value._operators
-          : operators // ignore: cast_nullable_to_non_nullable
-              as List<Operator>?,
-      user_comment_types: user_comment_types == freezed
-          ? _value._user_comment_types
-          : user_comment_types // ignore: cast_nullable_to_non_nullable
-              as List<UserCommentType>?,
-      charger_types: charger_types == freezed
-          ? _value._charger_types
-          : charger_types // ignore: cast_nullable_to_non_nullable
-              as List<ChargerType>?,
-      checkin_status_types: checkin_status_types == freezed
-          ? _value._checkin_status_types
-          : checkin_status_types // ignore: cast_nullable_to_non_nullable
-              as List<CheckinStatusType>?,
-      connection_types: connection_types == freezed
-          ? _value._connection_types
-          : connection_types // ignore: cast_nullable_to_non_nullable
-              as List<ConnectionType>?,
-      usage_types: usage_types == freezed
-          ? _value._usage_types
-          : usage_types // ignore: cast_nullable_to_non_nullable
-              as List<UsageType>?,
-      data_providers: data_providers == freezed
-          ? _value._data_providers
-          : data_providers // ignore: cast_nullable_to_non_nullable
-              as List<DataProvider>?,
       status_types: status_types == freezed
           ? _value._status_types
           : status_types // ignore: cast_nullable_to_non_nullable
@@ -3572,6 +3534,42 @@ class __$$ReferenceDataResponseDataCopyWithImpl<$Res>
           ? _value._submission_status_types
           : submission_status_types // ignore: cast_nullable_to_non_nullable
               as List<SubmissionStatusType>?,
+      usage_types: usage_types == freezed
+          ? _value._usage_types
+          : usage_types // ignore: cast_nullable_to_non_nullable
+              as List<UsageType>?,
+      charger_types: charger_types == freezed
+          ? _value._charger_types
+          : charger_types // ignore: cast_nullable_to_non_nullable
+              as List<ChargerType>?,
+      checkin_status_types: checkin_status_types == freezed
+          ? _value._checkin_status_types
+          : checkin_status_types // ignore: cast_nullable_to_non_nullable
+              as List<CheckinStatusType>?,
+      countries: countries == freezed
+          ? _value._countries
+          : countries // ignore: cast_nullable_to_non_nullable
+              as List<Country>?,
+      operators: operators == freezed
+          ? _value._operators
+          : operators // ignore: cast_nullable_to_non_nullable
+              as List<Operator>?,
+      connection_types: connection_types == freezed
+          ? _value._connection_types
+          : connection_types // ignore: cast_nullable_to_non_nullable
+              as List<ConnectionType>?,
+      current_types: current_types == freezed
+          ? _value._current_types
+          : current_types // ignore: cast_nullable_to_non_nullable
+              as List<CurrentType>?,
+      data_providers: data_providers == freezed
+          ? _value._data_providers
+          : data_providers // ignore: cast_nullable_to_non_nullable
+              as List<DataProvider>?,
+      user_comment_types: user_comment_types == freezed
+          ? _value._user_comment_types
+          : user_comment_types // ignore: cast_nullable_to_non_nullable
+              as List<UserCommentType>?,
     ));
   }
 }
@@ -3580,77 +3578,65 @@ class __$$ReferenceDataResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ReferenceDataResponseData implements ReferenceDataResponseData {
   const _$ReferenceDataResponseData(
-      {final List<Country>? countries,
-      final List<CurrentType>? current_types,
-      final List<Operator>? operators,
-      final List<UserCommentType>? user_comment_types,
+      {final List<StatusType>? status_types,
+      final List<SubmissionStatusType>? submission_status_types,
+      final List<UsageType>? usage_types,
       final List<ChargerType>? charger_types,
       final List<CheckinStatusType>? checkin_status_types,
+      final List<Country>? countries,
+      final List<Operator>? operators,
       final List<ConnectionType>? connection_types,
-      final List<UsageType>? usage_types,
+      final List<CurrentType>? current_types,
       final List<DataProvider>? data_providers,
-      final List<StatusType>? status_types,
-      final List<SubmissionStatusType>? submission_status_types,
+      final List<UserCommentType>? user_comment_types,
       final String? $type})
-      : _countries = countries,
-        _current_types = current_types,
-        _operators = operators,
-        _user_comment_types = user_comment_types,
+      : _status_types = status_types,
+        _submission_status_types = submission_status_types,
+        _usage_types = usage_types,
         _charger_types = charger_types,
         _checkin_status_types = checkin_status_types,
+        _countries = countries,
+        _operators = operators,
         _connection_types = connection_types,
-        _usage_types = usage_types,
+        _current_types = current_types,
         _data_providers = data_providers,
-        _status_types = status_types,
-        _submission_status_types = submission_status_types,
+        _user_comment_types = user_comment_types,
         $type = $type ?? 'default';
 
   factory _$ReferenceDataResponseData.fromJson(Map<String, dynamic> json) =>
       _$$ReferenceDataResponseDataFromJson(json);
 
-  /// The countries
-  final List<Country>? _countries;
+  /// The status of the charger
+  final List<StatusType>? _status_types;
 
-  /// The countries
+  /// The status of the charger
   @override
-  List<Country>? get countries {
-    final value = _countries;
+  List<StatusType>? get status_types {
+    final value = _status_types;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  /// The types of current
-  final List<CurrentType>? _current_types;
+  /// The status of a submission
+  final List<SubmissionStatusType>? _submission_status_types;
 
-  /// The types of current
+  /// The status of a submission
   @override
-  List<CurrentType>? get current_types {
-    final value = _current_types;
+  List<SubmissionStatusType>? get submission_status_types {
+    final value = _submission_status_types;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  /// The companies operating the chargers
-  final List<Operator>? _operators;
+  /// The different types of usage
+  final List<UsageType>? _usage_types;
 
-  /// The companies operating the chargers
+  /// The different types of usage
   @override
-  List<Operator>? get operators {
-    final value = _operators;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  /// The types of user comment
-  final List<UserCommentType>? _user_comment_types;
-
-  /// The types of user comment
-  @override
-  List<UserCommentType>? get user_comment_types {
-    final value = _user_comment_types;
+  List<UsageType>? get usage_types {
+    final value = _usage_types;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
@@ -3680,6 +3666,30 @@ class _$ReferenceDataResponseData implements ReferenceDataResponseData {
     return EqualUnmodifiableListView(value);
   }
 
+  /// The countries
+  final List<Country>? _countries;
+
+  /// The countries
+  @override
+  List<Country>? get countries {
+    final value = _countries;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  /// The companies operating the chargers
+  final List<Operator>? _operators;
+
+  /// The companies operating the chargers
+  @override
+  List<Operator>? get operators {
+    final value = _operators;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   /// The types of connection
   final List<ConnectionType>? _connection_types;
 
@@ -3692,13 +3702,13 @@ class _$ReferenceDataResponseData implements ReferenceDataResponseData {
     return EqualUnmodifiableListView(value);
   }
 
-  /// The different types of usage
-  final List<UsageType>? _usage_types;
+  /// The types of current
+  final List<CurrentType>? _current_types;
 
-  /// The different types of usage
+  /// The types of current
   @override
-  List<UsageType>? get usage_types {
-    final value = _usage_types;
+  List<CurrentType>? get current_types {
+    final value = _current_types;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
@@ -3716,25 +3726,13 @@ class _$ReferenceDataResponseData implements ReferenceDataResponseData {
     return EqualUnmodifiableListView(value);
   }
 
-  /// The status of the charger
-  final List<StatusType>? _status_types;
+  /// The types of user comment
+  final List<UserCommentType>? _user_comment_types;
 
-  /// The status of the charger
+  /// The types of user comment
   @override
-  List<StatusType>? get status_types {
-    final value = _status_types;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  /// The status of a submission
-  final List<SubmissionStatusType>? _submission_status_types;
-
-  /// The status of a submission
-  @override
-  List<SubmissionStatusType>? get submission_status_types {
-    final value = _submission_status_types;
+  List<UserCommentType>? get user_comment_types {
+    final value = _user_comment_types;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
@@ -3745,7 +3743,7 @@ class _$ReferenceDataResponseData implements ReferenceDataResponseData {
 
   @override
   String toString() {
-    return 'ReferenceDataResponse(countries: $countries, current_types: $current_types, operators: $operators, user_comment_types: $user_comment_types, charger_types: $charger_types, checkin_status_types: $checkin_status_types, connection_types: $connection_types, usage_types: $usage_types, data_providers: $data_providers, status_types: $status_types, submission_status_types: $submission_status_types)';
+    return 'ReferenceDataResponse(status_types: $status_types, submission_status_types: $submission_status_types, usage_types: $usage_types, charger_types: $charger_types, checkin_status_types: $checkin_status_types, countries: $countries, operators: $operators, connection_types: $connection_types, current_types: $current_types, data_providers: $data_providers, user_comment_types: $user_comment_types)';
   }
 
   @override
@@ -3754,44 +3752,44 @@ class _$ReferenceDataResponseData implements ReferenceDataResponseData {
         (other.runtimeType == runtimeType &&
             other is _$ReferenceDataResponseData &&
             const DeepCollectionEquality()
-                .equals(other._countries, _countries) &&
+                .equals(other._status_types, _status_types) &&
+            const DeepCollectionEquality().equals(
+                other._submission_status_types, _submission_status_types) &&
             const DeepCollectionEquality()
-                .equals(other._current_types, _current_types) &&
-            const DeepCollectionEquality()
-                .equals(other._operators, _operators) &&
-            const DeepCollectionEquality()
-                .equals(other._user_comment_types, _user_comment_types) &&
+                .equals(other._usage_types, _usage_types) &&
             const DeepCollectionEquality()
                 .equals(other._charger_types, _charger_types) &&
             const DeepCollectionEquality()
                 .equals(other._checkin_status_types, _checkin_status_types) &&
             const DeepCollectionEquality()
+                .equals(other._countries, _countries) &&
+            const DeepCollectionEquality()
+                .equals(other._operators, _operators) &&
+            const DeepCollectionEquality()
                 .equals(other._connection_types, _connection_types) &&
             const DeepCollectionEquality()
-                .equals(other._usage_types, _usage_types) &&
+                .equals(other._current_types, _current_types) &&
             const DeepCollectionEquality()
                 .equals(other._data_providers, _data_providers) &&
             const DeepCollectionEquality()
-                .equals(other._status_types, _status_types) &&
-            const DeepCollectionEquality().equals(
-                other._submission_status_types, _submission_status_types));
+                .equals(other._user_comment_types, _user_comment_types));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_countries),
-      const DeepCollectionEquality().hash(_current_types),
-      const DeepCollectionEquality().hash(_operators),
-      const DeepCollectionEquality().hash(_user_comment_types),
+      const DeepCollectionEquality().hash(_status_types),
+      const DeepCollectionEquality().hash(_submission_status_types),
+      const DeepCollectionEquality().hash(_usage_types),
       const DeepCollectionEquality().hash(_charger_types),
       const DeepCollectionEquality().hash(_checkin_status_types),
+      const DeepCollectionEquality().hash(_countries),
+      const DeepCollectionEquality().hash(_operators),
       const DeepCollectionEquality().hash(_connection_types),
-      const DeepCollectionEquality().hash(_usage_types),
+      const DeepCollectionEquality().hash(_current_types),
       const DeepCollectionEquality().hash(_data_providers),
-      const DeepCollectionEquality().hash(_status_types),
-      const DeepCollectionEquality().hash(_submission_status_types));
+      const DeepCollectionEquality().hash(_user_comment_types));
 
   @JsonKey(ignore: true)
   @override
@@ -3803,98 +3801,98 @@ class _$ReferenceDataResponseData implements ReferenceDataResponseData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            List<Country>? countries,
-            List<CurrentType>? current_types,
-            List<Operator>? operators,
-            List<UserCommentType>? user_comment_types,
+            List<StatusType>? status_types,
+            List<SubmissionStatusType>? submission_status_types,
+            List<UsageType>? usage_types,
             List<ChargerType>? charger_types,
             List<CheckinStatusType>? checkin_status_types,
+            List<Country>? countries,
+            List<Operator>? operators,
             List<ConnectionType>? connection_types,
-            List<UsageType>? usage_types,
+            List<CurrentType>? current_types,
             List<DataProvider>? data_providers,
-            List<StatusType>? status_types,
-            List<SubmissionStatusType>? submission_status_types)
+            List<UserCommentType>? user_comment_types)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return $default(
-        countries,
-        current_types,
-        operators,
-        user_comment_types,
+        status_types,
+        submission_status_types,
+        usage_types,
         charger_types,
         checkin_status_types,
+        countries,
+        operators,
         connection_types,
-        usage_types,
+        current_types,
         data_providers,
-        status_types,
-        submission_status_types);
+        user_comment_types);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
-            List<Country>? countries,
-            List<CurrentType>? current_types,
-            List<Operator>? operators,
-            List<UserCommentType>? user_comment_types,
+            List<StatusType>? status_types,
+            List<SubmissionStatusType>? submission_status_types,
+            List<UsageType>? usage_types,
             List<ChargerType>? charger_types,
             List<CheckinStatusType>? checkin_status_types,
+            List<Country>? countries,
+            List<Operator>? operators,
             List<ConnectionType>? connection_types,
-            List<UsageType>? usage_types,
+            List<CurrentType>? current_types,
             List<DataProvider>? data_providers,
-            List<StatusType>? status_types,
-            List<SubmissionStatusType>? submission_status_types)?
+            List<UserCommentType>? user_comment_types)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(
-        countries,
-        current_types,
-        operators,
-        user_comment_types,
+        status_types,
+        submission_status_types,
+        usage_types,
         charger_types,
         checkin_status_types,
+        countries,
+        operators,
         connection_types,
-        usage_types,
+        current_types,
         data_providers,
-        status_types,
-        submission_status_types);
+        user_comment_types);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            List<Country>? countries,
-            List<CurrentType>? current_types,
-            List<Operator>? operators,
-            List<UserCommentType>? user_comment_types,
+            List<StatusType>? status_types,
+            List<SubmissionStatusType>? submission_status_types,
+            List<UsageType>? usage_types,
             List<ChargerType>? charger_types,
             List<CheckinStatusType>? checkin_status_types,
+            List<Country>? countries,
+            List<Operator>? operators,
             List<ConnectionType>? connection_types,
-            List<UsageType>? usage_types,
+            List<CurrentType>? current_types,
             List<DataProvider>? data_providers,
-            List<StatusType>? status_types,
-            List<SubmissionStatusType>? submission_status_types)?
+            List<UserCommentType>? user_comment_types)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
       return $default(
-          countries,
-          current_types,
-          operators,
-          user_comment_types,
+          status_types,
+          submission_status_types,
+          usage_types,
           charger_types,
           checkin_status_types,
+          countries,
+          operators,
           connection_types,
-          usage_types,
+          current_types,
           data_providers,
-          status_types,
-          submission_status_types);
+          user_comment_types);
     }
     return orElse();
   }
@@ -3940,33 +3938,30 @@ class _$ReferenceDataResponseData implements ReferenceDataResponseData {
 
 abstract class ReferenceDataResponseData implements ReferenceDataResponse {
   const factory ReferenceDataResponseData(
-          {final List<Country>? countries,
-          final List<CurrentType>? current_types,
-          final List<Operator>? operators,
-          final List<UserCommentType>? user_comment_types,
+          {final List<StatusType>? status_types,
+          final List<SubmissionStatusType>? submission_status_types,
+          final List<UsageType>? usage_types,
           final List<ChargerType>? charger_types,
           final List<CheckinStatusType>? checkin_status_types,
+          final List<Country>? countries,
+          final List<Operator>? operators,
           final List<ConnectionType>? connection_types,
-          final List<UsageType>? usage_types,
+          final List<CurrentType>? current_types,
           final List<DataProvider>? data_providers,
-          final List<StatusType>? status_types,
-          final List<SubmissionStatusType>? submission_status_types}) =
+          final List<UserCommentType>? user_comment_types}) =
       _$ReferenceDataResponseData;
 
   factory ReferenceDataResponseData.fromJson(Map<String, dynamic> json) =
       _$ReferenceDataResponseData.fromJson;
 
-  /// The countries
-  List<Country>? get countries;
+  /// The status of the charger
+  List<StatusType>? get status_types;
 
-  /// The types of current
-  List<CurrentType>? get current_types;
+  /// The status of a submission
+  List<SubmissionStatusType>? get submission_status_types;
 
-  /// The companies operating the chargers
-  List<Operator>? get operators;
-
-  /// The types of user comment
-  List<UserCommentType>? get user_comment_types;
+  /// The different types of usage
+  List<UsageType>? get usage_types;
 
   /// The types of charger
   List<ChargerType>? get charger_types;
@@ -3974,20 +3969,23 @@ abstract class ReferenceDataResponseData implements ReferenceDataResponse {
   /// The types of checkin status
   List<CheckinStatusType>? get checkin_status_types;
 
+  /// The countries
+  List<Country>? get countries;
+
+  /// The companies operating the chargers
+  List<Operator>? get operators;
+
   /// The types of connection
   List<ConnectionType>? get connection_types;
 
-  /// The different types of usage
-  List<UsageType>? get usage_types;
+  /// The types of current
+  List<CurrentType>? get current_types;
 
   /// The providers of the charger data
   List<DataProvider>? get data_providers;
 
-  /// The status of the charger
-  List<StatusType>? get status_types;
-
-  /// The status of a submission
-  List<SubmissionStatusType>? get submission_status_types;
+  /// The types of user comment
+  List<UserCommentType>? get user_comment_types;
   @JsonKey(ignore: true)
   _$$ReferenceDataResponseDataCopyWith<_$ReferenceDataResponseData>
       get copyWith => throw _privateConstructorUsedError;
@@ -4078,17 +4076,17 @@ class _$ReferenceDataResponseMerr implements ReferenceDataResponseMerr {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            List<Country>? countries,
-            List<CurrentType>? current_types,
-            List<Operator>? operators,
-            List<UserCommentType>? user_comment_types,
+            List<StatusType>? status_types,
+            List<SubmissionStatusType>? submission_status_types,
+            List<UsageType>? usage_types,
             List<ChargerType>? charger_types,
             List<CheckinStatusType>? checkin_status_types,
+            List<Country>? countries,
+            List<Operator>? operators,
             List<ConnectionType>? connection_types,
-            List<UsageType>? usage_types,
+            List<CurrentType>? current_types,
             List<DataProvider>? data_providers,
-            List<StatusType>? status_types,
-            List<SubmissionStatusType>? submission_status_types)
+            List<UserCommentType>? user_comment_types)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -4099,17 +4097,17 @@ class _$ReferenceDataResponseMerr implements ReferenceDataResponseMerr {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
-            List<Country>? countries,
-            List<CurrentType>? current_types,
-            List<Operator>? operators,
-            List<UserCommentType>? user_comment_types,
+            List<StatusType>? status_types,
+            List<SubmissionStatusType>? submission_status_types,
+            List<UsageType>? usage_types,
             List<ChargerType>? charger_types,
             List<CheckinStatusType>? checkin_status_types,
+            List<Country>? countries,
+            List<Operator>? operators,
             List<ConnectionType>? connection_types,
-            List<UsageType>? usage_types,
+            List<CurrentType>? current_types,
             List<DataProvider>? data_providers,
-            List<StatusType>? status_types,
-            List<SubmissionStatusType>? submission_status_types)?
+            List<UserCommentType>? user_comment_types)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -4120,17 +4118,17 @@ class _$ReferenceDataResponseMerr implements ReferenceDataResponseMerr {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            List<Country>? countries,
-            List<CurrentType>? current_types,
-            List<Operator>? operators,
-            List<UserCommentType>? user_comment_types,
+            List<StatusType>? status_types,
+            List<SubmissionStatusType>? submission_status_types,
+            List<UsageType>? usage_types,
             List<ChargerType>? charger_types,
             List<CheckinStatusType>? checkin_status_types,
+            List<Country>? countries,
+            List<Operator>? operators,
             List<ConnectionType>? connection_types,
-            List<UsageType>? usage_types,
+            List<CurrentType>? current_types,
             List<DataProvider>? data_providers,
-            List<StatusType>? status_types,
-            List<SubmissionStatusType>? submission_status_types)?
+            List<UserCommentType>? user_comment_types)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -4199,8 +4197,18 @@ SearchRequest _$SearchRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SearchRequest {
-  /// Bounding box to search within (top left and bottom right coordinates)
-  BoundingBox? get box => throw _privateConstructorUsedError;
+  /// Usage of the charge point (is it public, membership required, etc)
+  List<String>? get usage_types => throw _privateConstructorUsedError;
+
+  /// IDs of the connection type
+  List<String>? get connection_types => throw _privateConstructorUsedError;
+
+  /// Supported charging levels
+  List<String>? get levels => throw _privateConstructorUsedError;
+
+  /// Maximum number of results to return, defaults to 100
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get max_results => throw _privateConstructorUsedError;
 
   /// Coordinates from which to begin search
   Coordinates? get location => throw _privateConstructorUsedError;
@@ -4212,11 +4220,8 @@ mixin _$SearchRequest {
   /// IDs of the the EV charger operator
   List<String>? get operators => throw _privateConstructorUsedError;
 
-  /// Usage of the charge point (is it public, membership required, etc)
-  List<String>? get usage_types => throw _privateConstructorUsedError;
-
-  /// IDs of the connection type
-  List<String>? get connection_types => throw _privateConstructorUsedError;
+  /// Bounding box to search within (top left and bottom right coordinates)
+  BoundingBox? get box => throw _privateConstructorUsedError;
 
   /// Country ID
   String? get country_id => throw _privateConstructorUsedError;
@@ -4224,13 +4229,6 @@ mixin _$SearchRequest {
   /// Search distance from point in metres, defaults to 5000m
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get distance => throw _privateConstructorUsedError;
-
-  /// Supported charging levels
-  List<String>? get levels => throw _privateConstructorUsedError;
-
-  /// Maximum number of results to return, defaults to 100
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get max_results => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -4244,22 +4242,22 @@ abstract class $SearchRequestCopyWith<$Res> {
           SearchRequest value, $Res Function(SearchRequest) then) =
       _$SearchRequestCopyWithImpl<$Res>;
   $Res call(
-      {BoundingBox? box,
+      {List<String>? usage_types,
+      List<String>? connection_types,
+      List<String>? levels,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? max_results,
       Coordinates? location,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? min_power,
       List<String>? operators,
-      List<String>? usage_types,
-      List<String>? connection_types,
+      BoundingBox? box,
       String? country_id,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? distance,
-      List<String>? levels,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? max_results});
+          int? distance});
 
-  $BoundingBoxCopyWith<$Res>? get box;
   $CoordinatesCopyWith<$Res>? get location;
+  $BoundingBoxCopyWith<$Res>? get box;
 }
 
 /// @nodoc
@@ -4273,22 +4271,34 @@ class _$SearchRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? box = freezed,
+    Object? usage_types = freezed,
+    Object? connection_types = freezed,
+    Object? levels = freezed,
+    Object? max_results = freezed,
     Object? location = freezed,
     Object? min_power = freezed,
     Object? operators = freezed,
-    Object? usage_types = freezed,
-    Object? connection_types = freezed,
+    Object? box = freezed,
     Object? country_id = freezed,
     Object? distance = freezed,
-    Object? levels = freezed,
-    Object? max_results = freezed,
   }) {
     return _then(_value.copyWith(
-      box: box == freezed
-          ? _value.box
-          : box // ignore: cast_nullable_to_non_nullable
-              as BoundingBox?,
+      usage_types: usage_types == freezed
+          ? _value.usage_types
+          : usage_types // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      connection_types: connection_types == freezed
+          ? _value.connection_types
+          : connection_types // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      levels: levels == freezed
+          ? _value.levels
+          : levels // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      max_results: max_results == freezed
+          ? _value.max_results
+          : max_results // ignore: cast_nullable_to_non_nullable
+              as int?,
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -4301,14 +4311,10 @@ class _$SearchRequestCopyWithImpl<$Res>
           ? _value.operators
           : operators // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      usage_types: usage_types == freezed
-          ? _value.usage_types
-          : usage_types // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      connection_types: connection_types == freezed
-          ? _value.connection_types
-          : connection_types // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+      box: box == freezed
+          ? _value.box
+          : box // ignore: cast_nullable_to_non_nullable
+              as BoundingBox?,
       country_id: country_id == freezed
           ? _value.country_id
           : country_id // ignore: cast_nullable_to_non_nullable
@@ -4317,26 +4323,7 @@ class _$SearchRequestCopyWithImpl<$Res>
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
               as int?,
-      levels: levels == freezed
-          ? _value.levels
-          : levels // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      max_results: max_results == freezed
-          ? _value.max_results
-          : max_results // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
-  }
-
-  @override
-  $BoundingBoxCopyWith<$Res>? get box {
-    if (_value.box == null) {
-      return null;
-    }
-
-    return $BoundingBoxCopyWith<$Res>(_value.box!, (value) {
-      return _then(_value.copyWith(box: value));
-    });
   }
 
   @override
@@ -4349,6 +4336,17 @@ class _$SearchRequestCopyWithImpl<$Res>
       return _then(_value.copyWith(location: value));
     });
   }
+
+  @override
+  $BoundingBoxCopyWith<$Res>? get box {
+    if (_value.box == null) {
+      return null;
+    }
+
+    return $BoundingBoxCopyWith<$Res>(_value.box!, (value) {
+      return _then(_value.copyWith(box: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -4359,24 +4357,24 @@ abstract class _$$_SearchRequestCopyWith<$Res>
       __$$_SearchRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {BoundingBox? box,
+      {List<String>? usage_types,
+      List<String>? connection_types,
+      List<String>? levels,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? max_results,
       Coordinates? location,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? min_power,
       List<String>? operators,
-      List<String>? usage_types,
-      List<String>? connection_types,
+      BoundingBox? box,
       String? country_id,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? distance,
-      List<String>? levels,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? max_results});
+          int? distance});
 
   @override
-  $BoundingBoxCopyWith<$Res>? get box;
-  @override
   $CoordinatesCopyWith<$Res>? get location;
+  @override
+  $BoundingBoxCopyWith<$Res>? get box;
 }
 
 /// @nodoc
@@ -4392,22 +4390,34 @@ class __$$_SearchRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? box = freezed,
+    Object? usage_types = freezed,
+    Object? connection_types = freezed,
+    Object? levels = freezed,
+    Object? max_results = freezed,
     Object? location = freezed,
     Object? min_power = freezed,
     Object? operators = freezed,
-    Object? usage_types = freezed,
-    Object? connection_types = freezed,
+    Object? box = freezed,
     Object? country_id = freezed,
     Object? distance = freezed,
-    Object? levels = freezed,
-    Object? max_results = freezed,
   }) {
     return _then(_$_SearchRequest(
-      box: box == freezed
-          ? _value.box
-          : box // ignore: cast_nullable_to_non_nullable
-              as BoundingBox?,
+      usage_types: usage_types == freezed
+          ? _value._usage_types
+          : usage_types // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      connection_types: connection_types == freezed
+          ? _value._connection_types
+          : connection_types // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      levels: levels == freezed
+          ? _value._levels
+          : levels // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      max_results: max_results == freezed
+          ? _value.max_results
+          : max_results // ignore: cast_nullable_to_non_nullable
+              as int?,
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -4420,14 +4430,10 @@ class __$$_SearchRequestCopyWithImpl<$Res>
           ? _value._operators
           : operators // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      usage_types: usage_types == freezed
-          ? _value._usage_types
-          : usage_types // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      connection_types: connection_types == freezed
-          ? _value._connection_types
-          : connection_types // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+      box: box == freezed
+          ? _value.box
+          : box // ignore: cast_nullable_to_non_nullable
+              as BoundingBox?,
       country_id: country_id == freezed
           ? _value.country_id
           : country_id // ignore: cast_nullable_to_non_nullable
@@ -4435,14 +4441,6 @@ class __$$_SearchRequestCopyWithImpl<$Res>
       distance: distance == freezed
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
-              as int?,
-      levels: levels == freezed
-          ? _value._levels
-          : levels // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      max_results: max_results == freezed
-          ? _value.max_results
-          : max_results // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
@@ -4452,51 +4450,26 @@ class __$$_SearchRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SearchRequest implements _SearchRequest {
   const _$_SearchRequest(
-      {this.box,
+      {final List<String>? usage_types,
+      final List<String>? connection_types,
+      final List<String>? levels,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          this.max_results,
       this.location,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           this.min_power,
       final List<String>? operators,
-      final List<String>? usage_types,
-      final List<String>? connection_types,
+      this.box,
       this.country_id,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.distance,
-      final List<String>? levels,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.max_results})
-      : _operators = operators,
-        _usage_types = usage_types,
+          this.distance})
+      : _usage_types = usage_types,
         _connection_types = connection_types,
-        _levels = levels;
+        _levels = levels,
+        _operators = operators;
 
   factory _$_SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SearchRequestFromJson(json);
-
-  /// Bounding box to search within (top left and bottom right coordinates)
-  @override
-  final BoundingBox? box;
-
-  /// Coordinates from which to begin search
-  @override
-  final Coordinates? location;
-
-  /// Minimum power in KW. Note: data not available for many chargers
-  @override
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? min_power;
-
-  /// IDs of the the EV charger operator
-  final List<String>? _operators;
-
-  /// IDs of the the EV charger operator
-  @override
-  List<String>? get operators {
-    final value = _operators;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
 
   /// Usage of the charge point (is it public, membership required, etc)
   final List<String>? _usage_types;
@@ -4522,15 +4495,6 @@ class _$_SearchRequest implements _SearchRequest {
     return EqualUnmodifiableListView(value);
   }
 
-  /// Country ID
-  @override
-  final String? country_id;
-
-  /// Search distance from point in metres, defaults to 5000m
-  @override
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? distance;
-
   /// Supported charging levels
   final List<String>? _levels;
 
@@ -4548,9 +4512,43 @@ class _$_SearchRequest implements _SearchRequest {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? max_results;
 
+  /// Coordinates from which to begin search
+  @override
+  final Coordinates? location;
+
+  /// Minimum power in KW. Note: data not available for many chargers
+  @override
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? min_power;
+
+  /// IDs of the the EV charger operator
+  final List<String>? _operators;
+
+  /// IDs of the the EV charger operator
+  @override
+  List<String>? get operators {
+    final value = _operators;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  /// Bounding box to search within (top left and bottom right coordinates)
+  @override
+  final BoundingBox? box;
+
+  /// Country ID
+  @override
+  final String? country_id;
+
+  /// Search distance from point in metres, defaults to 5000m
+  @override
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? distance;
+
   @override
   String toString() {
-    return 'SearchRequest(box: $box, location: $location, min_power: $min_power, operators: $operators, usage_types: $usage_types, connection_types: $connection_types, country_id: $country_id, distance: $distance, levels: $levels, max_results: $max_results)';
+    return 'SearchRequest(usage_types: $usage_types, connection_types: $connection_types, levels: $levels, max_results: $max_results, location: $location, min_power: $min_power, operators: $operators, box: $box, country_id: $country_id, distance: $distance)';
   }
 
   @override
@@ -4558,37 +4556,37 @@ class _$_SearchRequest implements _SearchRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SearchRequest &&
-            const DeepCollectionEquality().equals(other.box, box) &&
-            const DeepCollectionEquality().equals(other.location, location) &&
-            const DeepCollectionEquality().equals(other.min_power, min_power) &&
-            const DeepCollectionEquality()
-                .equals(other._operators, _operators) &&
             const DeepCollectionEquality()
                 .equals(other._usage_types, _usage_types) &&
             const DeepCollectionEquality()
                 .equals(other._connection_types, _connection_types) &&
-            const DeepCollectionEquality()
-                .equals(other.country_id, country_id) &&
-            const DeepCollectionEquality().equals(other.distance, distance) &&
             const DeepCollectionEquality().equals(other._levels, _levels) &&
             const DeepCollectionEquality()
-                .equals(other.max_results, max_results));
+                .equals(other.max_results, max_results) &&
+            const DeepCollectionEquality().equals(other.location, location) &&
+            const DeepCollectionEquality().equals(other.min_power, min_power) &&
+            const DeepCollectionEquality()
+                .equals(other._operators, _operators) &&
+            const DeepCollectionEquality().equals(other.box, box) &&
+            const DeepCollectionEquality()
+                .equals(other.country_id, country_id) &&
+            const DeepCollectionEquality().equals(other.distance, distance));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(box),
+      const DeepCollectionEquality().hash(_usage_types),
+      const DeepCollectionEquality().hash(_connection_types),
+      const DeepCollectionEquality().hash(_levels),
+      const DeepCollectionEquality().hash(max_results),
       const DeepCollectionEquality().hash(location),
       const DeepCollectionEquality().hash(min_power),
       const DeepCollectionEquality().hash(_operators),
-      const DeepCollectionEquality().hash(_usage_types),
-      const DeepCollectionEquality().hash(_connection_types),
+      const DeepCollectionEquality().hash(box),
       const DeepCollectionEquality().hash(country_id),
-      const DeepCollectionEquality().hash(distance),
-      const DeepCollectionEquality().hash(_levels),
-      const DeepCollectionEquality().hash(max_results));
+      const DeepCollectionEquality().hash(distance));
 
   @JsonKey(ignore: true)
   @override
@@ -4605,27 +4603,40 @@ class _$_SearchRequest implements _SearchRequest {
 
 abstract class _SearchRequest implements SearchRequest {
   const factory _SearchRequest(
-      {final BoundingBox? box,
+      {final List<String>? usage_types,
+      final List<String>? connection_types,
+      final List<String>? levels,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          final int? max_results,
       final Coordinates? location,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? min_power,
       final List<String>? operators,
-      final List<String>? usage_types,
-      final List<String>? connection_types,
+      final BoundingBox? box,
       final String? country_id,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? distance,
-      final List<String>? levels,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? max_results}) = _$_SearchRequest;
+          final int? distance}) = _$_SearchRequest;
 
   factory _SearchRequest.fromJson(Map<String, dynamic> json) =
       _$_SearchRequest.fromJson;
 
   @override
 
-  /// Bounding box to search within (top left and bottom right coordinates)
-  BoundingBox? get box;
+  /// Usage of the charge point (is it public, membership required, etc)
+  List<String>? get usage_types;
+  @override
+
+  /// IDs of the connection type
+  List<String>? get connection_types;
+  @override
+
+  /// Supported charging levels
+  List<String>? get levels;
+  @override
+
+  /// Maximum number of results to return, defaults to 100
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get max_results;
   @override
 
   /// Coordinates from which to begin search
@@ -4641,12 +4652,8 @@ abstract class _SearchRequest implements SearchRequest {
   List<String>? get operators;
   @override
 
-  /// Usage of the charge point (is it public, membership required, etc)
-  List<String>? get usage_types;
-  @override
-
-  /// IDs of the connection type
-  List<String>? get connection_types;
+  /// Bounding box to search within (top left and bottom right coordinates)
+  BoundingBox? get box;
   @override
 
   /// Country ID
@@ -4656,15 +4663,6 @@ abstract class _SearchRequest implements SearchRequest {
   /// Search distance from point in metres, defaults to 5000m
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get distance;
-  @override
-
-  /// Supported charging levels
-  List<String>? get levels;
-  @override
-
-  /// Maximum number of results to return, defaults to 100
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get max_results;
   @override
   @JsonKey(ignore: true)
   _$$_SearchRequestCopyWith<_$_SearchRequest> get copyWith =>
@@ -5073,9 +5071,9 @@ StatusType _$StatusTypeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StatusType {
-  String? get id => throw _privateConstructorUsedError;
   bool? get is_operational => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -5088,7 +5086,7 @@ abstract class $StatusTypeCopyWith<$Res> {
   factory $StatusTypeCopyWith(
           StatusType value, $Res Function(StatusType) then) =
       _$StatusTypeCopyWithImpl<$Res>;
-  $Res call({String? id, bool? is_operational, String? title});
+  $Res call({bool? is_operational, String? title, String? id});
 }
 
 /// @nodoc
@@ -5101,15 +5099,11 @@ class _$StatusTypeCopyWithImpl<$Res> implements $StatusTypeCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? is_operational = freezed,
     Object? title = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       is_operational: is_operational == freezed
           ? _value.is_operational
           : is_operational // ignore: cast_nullable_to_non_nullable
@@ -5117,6 +5111,10 @@ class _$StatusTypeCopyWithImpl<$Res> implements $StatusTypeCopyWith<$Res> {
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -5129,7 +5127,7 @@ abstract class _$$_StatusTypeCopyWith<$Res>
           _$_StatusType value, $Res Function(_$_StatusType) then) =
       __$$_StatusTypeCopyWithImpl<$Res>;
   @override
-  $Res call({String? id, bool? is_operational, String? title});
+  $Res call({bool? is_operational, String? title, String? id});
 }
 
 /// @nodoc
@@ -5144,15 +5142,11 @@ class __$$_StatusTypeCopyWithImpl<$Res> extends _$StatusTypeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? is_operational = freezed,
     Object? title = freezed,
+    Object? id = freezed,
   }) {
     return _then(_$_StatusType(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       is_operational: is_operational == freezed
           ? _value.is_operational
           : is_operational // ignore: cast_nullable_to_non_nullable
@@ -5161,6 +5155,10 @@ class __$$_StatusTypeCopyWithImpl<$Res> extends _$StatusTypeCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -5168,21 +5166,21 @@ class __$$_StatusTypeCopyWithImpl<$Res> extends _$StatusTypeCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_StatusType implements _StatusType {
-  const _$_StatusType({this.id, this.is_operational, this.title});
+  const _$_StatusType({this.is_operational, this.title, this.id});
 
   factory _$_StatusType.fromJson(Map<String, dynamic> json) =>
       _$$_StatusTypeFromJson(json);
 
   @override
-  final String? id;
-  @override
   final bool? is_operational;
   @override
   final String? title;
+  @override
+  final String? id;
 
   @override
   String toString() {
-    return 'StatusType(id: $id, is_operational: $is_operational, title: $title)';
+    return 'StatusType(is_operational: $is_operational, title: $title, id: $id)';
   }
 
   @override
@@ -5190,19 +5188,19 @@ class _$_StatusType implements _StatusType {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_StatusType &&
-            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.is_operational, is_operational) &&
-            const DeepCollectionEquality().equals(other.title, title));
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(is_operational),
-      const DeepCollectionEquality().hash(title));
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -5219,19 +5217,19 @@ class _$_StatusType implements _StatusType {
 
 abstract class _StatusType implements StatusType {
   const factory _StatusType(
-      {final String? id,
-      final bool? is_operational,
-      final String? title}) = _$_StatusType;
+      {final bool? is_operational,
+      final String? title,
+      final String? id}) = _$_StatusType;
 
   factory _StatusType.fromJson(Map<String, dynamic> json) =
       _$_StatusType.fromJson;
 
   @override
-  String? get id;
-  @override
   bool? get is_operational;
   @override
   String? get title;
+  @override
+  String? get id;
   @override
   @JsonKey(ignore: true)
   _$$_StatusTypeCopyWith<_$_StatusType> get copyWith =>
@@ -5417,11 +5415,11 @@ UsageType _$UsageTypeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UsageType {
-  String? get id => throw _privateConstructorUsedError;
   bool? get is_access_key_required => throw _privateConstructorUsedError;
   bool? get is_membership_required => throw _privateConstructorUsedError;
   bool? get is_pay_at_location => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -5434,11 +5432,11 @@ abstract class $UsageTypeCopyWith<$Res> {
   factory $UsageTypeCopyWith(UsageType value, $Res Function(UsageType) then) =
       _$UsageTypeCopyWithImpl<$Res>;
   $Res call(
-      {String? id,
-      bool? is_access_key_required,
+      {bool? is_access_key_required,
       bool? is_membership_required,
       bool? is_pay_at_location,
-      String? title});
+      String? title,
+      String? id});
 }
 
 /// @nodoc
@@ -5451,17 +5449,13 @@ class _$UsageTypeCopyWithImpl<$Res> implements $UsageTypeCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? is_access_key_required = freezed,
     Object? is_membership_required = freezed,
     Object? is_pay_at_location = freezed,
     Object? title = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       is_access_key_required: is_access_key_required == freezed
           ? _value.is_access_key_required
           : is_access_key_required // ignore: cast_nullable_to_non_nullable
@@ -5478,6 +5472,10 @@ class _$UsageTypeCopyWithImpl<$Res> implements $UsageTypeCopyWith<$Res> {
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -5489,11 +5487,11 @@ abstract class _$$_UsageTypeCopyWith<$Res> implements $UsageTypeCopyWith<$Res> {
       __$$_UsageTypeCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? id,
-      bool? is_access_key_required,
+      {bool? is_access_key_required,
       bool? is_membership_required,
       bool? is_pay_at_location,
-      String? title});
+      String? title,
+      String? id});
 }
 
 /// @nodoc
@@ -5508,17 +5506,13 @@ class __$$_UsageTypeCopyWithImpl<$Res> extends _$UsageTypeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? is_access_key_required = freezed,
     Object? is_membership_required = freezed,
     Object? is_pay_at_location = freezed,
     Object? title = freezed,
+    Object? id = freezed,
   }) {
     return _then(_$_UsageType(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       is_access_key_required: is_access_key_required == freezed
           ? _value.is_access_key_required
           : is_access_key_required // ignore: cast_nullable_to_non_nullable
@@ -5535,6 +5529,10 @@ class __$$_UsageTypeCopyWithImpl<$Res> extends _$UsageTypeCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -5543,17 +5541,15 @@ class __$$_UsageTypeCopyWithImpl<$Res> extends _$UsageTypeCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UsageType implements _UsageType {
   const _$_UsageType(
-      {this.id,
-      this.is_access_key_required,
+      {this.is_access_key_required,
       this.is_membership_required,
       this.is_pay_at_location,
-      this.title});
+      this.title,
+      this.id});
 
   factory _$_UsageType.fromJson(Map<String, dynamic> json) =>
       _$$_UsageTypeFromJson(json);
 
-  @override
-  final String? id;
   @override
   final bool? is_access_key_required;
   @override
@@ -5562,10 +5558,12 @@ class _$_UsageType implements _UsageType {
   final bool? is_pay_at_location;
   @override
   final String? title;
+  @override
+  final String? id;
 
   @override
   String toString() {
-    return 'UsageType(id: $id, is_access_key_required: $is_access_key_required, is_membership_required: $is_membership_required, is_pay_at_location: $is_pay_at_location, title: $title)';
+    return 'UsageType(is_access_key_required: $is_access_key_required, is_membership_required: $is_membership_required, is_pay_at_location: $is_pay_at_location, title: $title, id: $id)';
   }
 
   @override
@@ -5573,25 +5571,25 @@ class _$_UsageType implements _UsageType {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UsageType &&
-            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.is_access_key_required, is_access_key_required) &&
             const DeepCollectionEquality()
                 .equals(other.is_membership_required, is_membership_required) &&
             const DeepCollectionEquality()
                 .equals(other.is_pay_at_location, is_pay_at_location) &&
-            const DeepCollectionEquality().equals(other.title, title));
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(is_access_key_required),
       const DeepCollectionEquality().hash(is_membership_required),
       const DeepCollectionEquality().hash(is_pay_at_location),
-      const DeepCollectionEquality().hash(title));
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -5608,17 +5606,15 @@ class _$_UsageType implements _UsageType {
 
 abstract class _UsageType implements UsageType {
   const factory _UsageType(
-      {final String? id,
-      final bool? is_access_key_required,
+      {final bool? is_access_key_required,
       final bool? is_membership_required,
       final bool? is_pay_at_location,
-      final String? title}) = _$_UsageType;
+      final String? title,
+      final String? id}) = _$_UsageType;
 
   factory _UsageType.fromJson(Map<String, dynamic> json) =
       _$_UsageType.fromJson;
 
-  @override
-  String? get id;
   @override
   bool? get is_access_key_required;
   @override
@@ -5627,6 +5623,8 @@ abstract class _UsageType implements UsageType {
   bool? get is_pay_at_location;
   @override
   String? get title;
+  @override
+  String? get id;
   @override
   @JsonKey(ignore: true)
   _$$_UsageTypeCopyWith<_$_UsageType> get copyWith =>
@@ -5639,8 +5637,8 @@ UserCommentType _$UserCommentTypeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserCommentType {
-  String? get title => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -5653,7 +5651,7 @@ abstract class $UserCommentTypeCopyWith<$Res> {
   factory $UserCommentTypeCopyWith(
           UserCommentType value, $Res Function(UserCommentType) then) =
       _$UserCommentTypeCopyWithImpl<$Res>;
-  $Res call({String? title, String? id});
+  $Res call({String? id, String? title});
 }
 
 /// @nodoc
@@ -5667,17 +5665,17 @@ class _$UserCommentTypeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? title = freezed,
     Object? id = freezed,
+    Object? title = freezed,
   }) {
     return _then(_value.copyWith(
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -5690,7 +5688,7 @@ abstract class _$$_UserCommentTypeCopyWith<$Res>
           _$_UserCommentType value, $Res Function(_$_UserCommentType) then) =
       __$$_UserCommentTypeCopyWithImpl<$Res>;
   @override
-  $Res call({String? title, String? id});
+  $Res call({String? id, String? title});
 }
 
 /// @nodoc
@@ -5706,17 +5704,17 @@ class __$$_UserCommentTypeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? title = freezed,
     Object? id = freezed,
+    Object? title = freezed,
   }) {
     return _then(_$_UserCommentType(
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -5725,19 +5723,19 @@ class __$$_UserCommentTypeCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UserCommentType implements _UserCommentType {
-  const _$_UserCommentType({this.title, this.id});
+  const _$_UserCommentType({this.id, this.title});
 
   factory _$_UserCommentType.fromJson(Map<String, dynamic> json) =>
       _$$_UserCommentTypeFromJson(json);
 
   @override
-  final String? title;
-  @override
   final String? id;
+  @override
+  final String? title;
 
   @override
   String toString() {
-    return 'UserCommentType(title: $title, id: $id)';
+    return 'UserCommentType(id: $id, title: $title)';
   }
 
   @override
@@ -5745,16 +5743,16 @@ class _$_UserCommentType implements _UserCommentType {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UserCommentType &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.title, title));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(title));
 
   @JsonKey(ignore: true)
   @override
@@ -5770,16 +5768,16 @@ class _$_UserCommentType implements _UserCommentType {
 }
 
 abstract class _UserCommentType implements UserCommentType {
-  const factory _UserCommentType({final String? title, final String? id}) =
+  const factory _UserCommentType({final String? id, final String? title}) =
       _$_UserCommentType;
 
   factory _UserCommentType.fromJson(Map<String, dynamic> json) =
       _$_UserCommentType.fromJson;
 
   @override
-  String? get title;
-  @override
   String? get id;
+  @override
+  String? get title;
   @override
   @JsonKey(ignore: true)
   _$$_UserCommentTypeCopyWith<_$_UserCommentType> get copyWith =>

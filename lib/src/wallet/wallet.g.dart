@@ -103,20 +103,20 @@ Map<String, dynamic> _$$CreateResponseMerrToJson(
 
 _$_CreditRequest _$$_CreditRequestFromJson(Map<String, dynamic> json) =>
     _$_CreditRequest(
-      visible: json['visible'] as bool?,
       amount: int64FromString(json['amount'] as String?),
       id: json['id'] as String?,
       idempotency_key: json['idempotency_key'] as String?,
       reference: json['reference'] as String?,
+      visible: json['visible'] as bool?,
     );
 
 Map<String, dynamic> _$$_CreditRequestToJson(_$_CreditRequest instance) =>
     <String, dynamic>{
-      'visible': instance.visible,
       'amount': int64ToString(instance.amount),
       'id': instance.id,
       'idempotency_key': instance.idempotency_key,
       'reference': instance.reference,
+      'visible': instance.visible,
     };
 
 _$CreditResponseData _$$CreditResponseDataFromJson(Map<String, dynamic> json) =>

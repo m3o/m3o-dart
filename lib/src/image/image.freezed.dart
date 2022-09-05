@@ -20,6 +20,9 @@ ConvertRequest _$ConvertRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ConvertRequest {
+  /// output name of the image including extension, ie. "cat.png"
+  String? get name => throw _privateConstructorUsedError;
+
   /// make output a URL and not a base64 response
   bool? get outputURL => throw _privateConstructorUsedError;
 
@@ -31,9 +34,6 @@ mixin _$ConvertRequest {
 
   /// The image file to convert
   String? get file => throw _privateConstructorUsedError;
-
-  /// output name of the image including extension, ie. "cat.png"
-  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,11 +47,11 @@ abstract class $ConvertRequestCopyWith<$Res> {
           ConvertRequest value, $Res Function(ConvertRequest) then) =
       _$ConvertRequestCopyWithImpl<$Res>;
   $Res call(
-      {bool? outputURL,
+      {String? name,
+      bool? outputURL,
       String? url,
       String? base64,
-      String? file,
-      String? name});
+      String? file});
 }
 
 /// @nodoc
@@ -65,13 +65,17 @@ class _$ConvertRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? name = freezed,
     Object? outputURL = freezed,
     Object? url = freezed,
     Object? base64 = freezed,
     Object? file = freezed,
-    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       outputURL: outputURL == freezed
           ? _value.outputURL
           : outputURL // ignore: cast_nullable_to_non_nullable
@@ -88,10 +92,6 @@ class _$ConvertRequestCopyWithImpl<$Res>
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -104,11 +104,11 @@ abstract class _$$_ConvertRequestCopyWith<$Res>
       __$$_ConvertRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool? outputURL,
+      {String? name,
+      bool? outputURL,
       String? url,
       String? base64,
-      String? file,
-      String? name});
+      String? file});
 }
 
 /// @nodoc
@@ -124,13 +124,17 @@ class __$$_ConvertRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? name = freezed,
     Object? outputURL = freezed,
     Object? url = freezed,
     Object? base64 = freezed,
     Object? file = freezed,
-    Object? name = freezed,
   }) {
     return _then(_$_ConvertRequest(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       outputURL: outputURL == freezed
           ? _value.outputURL
           : outputURL // ignore: cast_nullable_to_non_nullable
@@ -147,10 +151,6 @@ class __$$_ConvertRequestCopyWithImpl<$Res>
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -159,10 +159,14 @@ class __$$_ConvertRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ConvertRequest implements _ConvertRequest {
   const _$_ConvertRequest(
-      {this.outputURL, this.url, this.base64, this.file, this.name});
+      {this.name, this.outputURL, this.url, this.base64, this.file});
 
   factory _$_ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ConvertRequestFromJson(json);
+
+  /// output name of the image including extension, ie. "cat.png"
+  @override
+  final String? name;
 
   /// make output a URL and not a base64 response
   @override
@@ -180,13 +184,9 @@ class _$_ConvertRequest implements _ConvertRequest {
   @override
   final String? file;
 
-  /// output name of the image including extension, ie. "cat.png"
-  @override
-  final String? name;
-
   @override
   String toString() {
-    return 'ConvertRequest(outputURL: $outputURL, url: $url, base64: $base64, file: $file, name: $name)';
+    return 'ConvertRequest(name: $name, outputURL: $outputURL, url: $url, base64: $base64, file: $file)';
   }
 
   @override
@@ -194,22 +194,22 @@ class _$_ConvertRequest implements _ConvertRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ConvertRequest &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.outputURL, outputURL) &&
             const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality().equals(other.base64, base64) &&
-            const DeepCollectionEquality().equals(other.file, file) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.file, file));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(outputURL),
       const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(base64),
-      const DeepCollectionEquality().hash(file),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(file));
 
   @JsonKey(ignore: true)
   @override
@@ -226,15 +226,19 @@ class _$_ConvertRequest implements _ConvertRequest {
 
 abstract class _ConvertRequest implements ConvertRequest {
   const factory _ConvertRequest(
-      {final bool? outputURL,
+      {final String? name,
+      final bool? outputURL,
       final String? url,
       final String? base64,
-      final String? file,
-      final String? name}) = _$_ConvertRequest;
+      final String? file}) = _$_ConvertRequest;
 
   factory _ConvertRequest.fromJson(Map<String, dynamic> json) =
       _$_ConvertRequest.fromJson;
 
+  @override
+
+  /// output name of the image including extension, ie. "cat.png"
+  String? get name;
   @override
 
   /// make output a URL and not a base64 response
@@ -251,10 +255,6 @@ abstract class _ConvertRequest implements ConvertRequest {
 
   /// The image file to convert
   String? get file;
-  @override
-
-  /// output name of the image including extension, ie. "cat.png"
-  String? get name;
   @override
   @JsonKey(ignore: true)
   _$$_ConvertRequestCopyWith<_$_ConvertRequest> get copyWith =>
