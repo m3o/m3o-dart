@@ -1,3 +1,9 @@
+## v1.0.177 - 2022-09-05
+
+[e0953a](https://github.com/micro/services/commit/e0953a9ac991081ef9ca76efa020af78e2120c30) update publicapi
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.176...v1.0.177
+
 ## v1.0.176 - 2022-09-02
 
 [63be79](https://github.com/micro/services/commit/63be79948723210ea7a32d4bed633e2a7071c776) resolve url by id
