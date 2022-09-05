@@ -76,11 +76,11 @@ class StockService {
 @Freezed()
 class HistoryRequest with _$HistoryRequest {
   const factory HistoryRequest({
-    /// date to retrieve as YYYY-MM-DD
-    String? date,
-
     /// the stock symbol e.g AAPL
     String? stock,
+
+    /// date to retrieve as YYYY-MM-DD
+    String? date,
   }) = _HistoryRequest;
   factory HistoryRequest.fromJson(Map<String, dynamic> json) =>
       _$HistoryRequestFromJson(json);
@@ -89,15 +89,6 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
-    /// the stock symbol
-    String? symbol,
-
-    /// the volume
-    int? volume,
-
-    /// the close price
-    double? close,
-
     /// the date
     String? date,
 
@@ -109,6 +100,15 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the open price
     double? open,
+
+    /// the stock symbol
+    String? symbol,
+
+    /// the volume
+    int? volume,
+
+    /// the close price
+    double? close,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -154,6 +154,9 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
+    /// the asking price
+    double? ask_price,
+
     /// the ask size
     int? ask_size,
 
@@ -168,9 +171,6 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the UTC timestamp of the quote
     String? timestamp,
-
-    /// the asking price
-    double? ask_price,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;
