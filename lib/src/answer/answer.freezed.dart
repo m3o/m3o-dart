@@ -169,19 +169,19 @@ QuestionResponse _$QuestionResponseFromJson(Map<String, dynamic> json) {
 mixin _$QuestionResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? answer, String? image, String? url) $default, {
+    TResult Function(String? image, String? url, String? answer) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? answer, String? image, String? url)? $default, {
+    TResult Function(String? image, String? url, String? answer)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? answer, String? image, String? url)? $default, {
+    TResult Function(String? image, String? url, String? answer)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -230,7 +230,7 @@ abstract class _$$QuestionResponseDataCopyWith<$Res> {
   factory _$$QuestionResponseDataCopyWith(_$QuestionResponseData value,
           $Res Function(_$QuestionResponseData) then) =
       __$$QuestionResponseDataCopyWithImpl<$Res>;
-  $Res call({String? answer, String? image, String? url});
+  $Res call({String? image, String? url, String? answer});
 }
 
 /// @nodoc
@@ -246,15 +246,11 @@ class __$$QuestionResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? answer = freezed,
     Object? image = freezed,
     Object? url = freezed,
+    Object? answer = freezed,
   }) {
     return _then(_$QuestionResponseData(
-      answer: answer == freezed
-          ? _value.answer
-          : answer // ignore: cast_nullable_to_non_nullable
-              as String?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -262,6 +258,10 @@ class __$$QuestionResponseDataCopyWithImpl<$Res>
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      answer: answer == freezed
+          ? _value.answer
+          : answer // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -271,15 +271,11 @@ class __$$QuestionResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$QuestionResponseData implements QuestionResponseData {
   const _$QuestionResponseData(
-      {this.answer, this.image, this.url, final String? $type})
+      {this.image, this.url, this.answer, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$QuestionResponseData.fromJson(Map<String, dynamic> json) =>
       _$$QuestionResponseDataFromJson(json);
-
-  /// the answer to your question
-  @override
-  final String? answer;
 
   /// any related image
   @override
@@ -289,12 +285,16 @@ class _$QuestionResponseData implements QuestionResponseData {
   @override
   final String? url;
 
+  /// the answer to your question
+  @override
+  final String? answer;
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'QuestionResponse(answer: $answer, image: $image, url: $url)';
+    return 'QuestionResponse(image: $image, url: $url, answer: $answer)';
   }
 
   @override
@@ -302,18 +302,18 @@ class _$QuestionResponseData implements QuestionResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QuestionResponseData &&
-            const DeepCollectionEquality().equals(other.answer, answer) &&
             const DeepCollectionEquality().equals(other.image, image) &&
-            const DeepCollectionEquality().equals(other.url, url));
+            const DeepCollectionEquality().equals(other.url, url) &&
+            const DeepCollectionEquality().equals(other.answer, answer));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(answer),
       const DeepCollectionEquality().hash(image),
-      const DeepCollectionEquality().hash(url));
+      const DeepCollectionEquality().hash(url),
+      const DeepCollectionEquality().hash(answer));
 
   @JsonKey(ignore: true)
   @override
@@ -324,30 +324,30 @@ class _$QuestionResponseData implements QuestionResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? answer, String? image, String? url) $default, {
+    TResult Function(String? image, String? url, String? answer) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(answer, image, url);
+    return $default(image, url, answer);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? answer, String? image, String? url)? $default, {
+    TResult Function(String? image, String? url, String? answer)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(answer, image, url);
+    return $default?.call(image, url, answer);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? answer, String? image, String? url)? $default, {
+    TResult Function(String? image, String? url, String? answer)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(answer, image, url);
+      return $default(image, url, answer);
     }
     return orElse();
   }
@@ -393,21 +393,21 @@ class _$QuestionResponseData implements QuestionResponseData {
 
 abstract class QuestionResponseData implements QuestionResponse {
   const factory QuestionResponseData(
-      {final String? answer,
-      final String? image,
-      final String? url}) = _$QuestionResponseData;
+      {final String? image,
+      final String? url,
+      final String? answer}) = _$QuestionResponseData;
 
   factory QuestionResponseData.fromJson(Map<String, dynamic> json) =
       _$QuestionResponseData.fromJson;
-
-  /// the answer to your question
-  String? get answer;
 
   /// any related image
   String? get image;
 
   /// a related url
   String? get url;
+
+  /// the answer to your question
+  String? get answer;
   @JsonKey(ignore: true)
   _$$QuestionResponseDataCopyWith<_$QuestionResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -495,7 +495,7 @@ class _$QuestionResponseMerr implements QuestionResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? answer, String? image, String? url) $default, {
+    TResult Function(String? image, String? url, String? answer) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -504,7 +504,7 @@ class _$QuestionResponseMerr implements QuestionResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? answer, String? image, String? url)? $default, {
+    TResult Function(String? image, String? url, String? answer)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -513,7 +513,7 @@ class _$QuestionResponseMerr implements QuestionResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? answer, String? image, String? url)? $default, {
+    TResult Function(String? image, String? url, String? answer)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {

@@ -291,22 +291,22 @@ Map<String, dynamic> _$$ReadResponseMerrToJson(_$ReadResponseMerr instance) =>
 
 _$_Transaction _$$_TransactionFromJson(Map<String, dynamic> json) =>
     _$_Transaction(
+      amount: int64FromString(json['amount'] as String?),
       created: json['created'] as String?,
       id: json['id'] as String?,
       metadata: (json['metadata'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
       reference: json['reference'] as String?,
-      amount: int64FromString(json['amount'] as String?),
     );
 
 Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) =>
     <String, dynamic>{
+      'amount': int64ToString(instance.amount),
       'created': instance.created,
       'id': instance.id,
       'metadata': instance.metadata,
       'reference': instance.reference,
-      'amount': int64ToString(instance.amount),
     };
 
 _$_TransactionsRequest _$$_TransactionsRequestFromJson(
@@ -353,20 +353,20 @@ Map<String, dynamic> _$$TransactionsResponseMerrToJson(
 
 _$_TransferRequest _$$_TransferRequestFromJson(Map<String, dynamic> json) =>
     _$_TransferRequest(
-      to_id: json['to_id'] as String?,
-      visible: json['visible'] as bool?,
       amount: int64FromString(json['amount'] as String?),
       from_id: json['from_id'] as String?,
       reference: json['reference'] as String?,
+      to_id: json['to_id'] as String?,
+      visible: json['visible'] as bool?,
     );
 
 Map<String, dynamic> _$$_TransferRequestToJson(_$_TransferRequest instance) =>
     <String, dynamic>{
-      'to_id': instance.to_id,
-      'visible': instance.visible,
       'amount': int64ToString(instance.amount),
       'from_id': instance.from_id,
       'reference': instance.reference,
+      'to_id': instance.to_id,
+      'visible': instance.visible,
     };
 
 _$TransferResponseData _$$TransferResponseDataFromJson(

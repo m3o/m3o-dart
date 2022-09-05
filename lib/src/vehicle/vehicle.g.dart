@@ -18,45 +18,45 @@ Map<String, dynamic> _$$_LookupRequestToJson(_$_LookupRequest instance) =>
 
 _$LookupResponseData _$$LookupResponseDataFromJson(Map<String, dynamic> json) =>
     _$LookupResponseData(
-      engine_capacity: json['engine_capacity'] as int?,
-      fuel_type: json['fuel_type'] as String?,
-      make: json['make'] as String?,
-      mot_status: json['mot_status'] as String?,
-      year_of_manufacture: json['year_of_manufacture'] as int?,
-      last_v5_issued: json['last_v5_issued'] as String?,
-      registration: json['registration'] as String?,
-      tax_due_date: json['tax_due_date'] as String?,
-      wheelplan: json['wheelplan'] as String?,
       co2_emissions: (json['co2_emissions'] as num?)?.toDouble(),
-      month_of_first_registration:
-          json['month_of_first_registration'] as String?,
+      wheelplan: json['wheelplan'] as String?,
+      year_of_manufacture: json['year_of_manufacture'] as int?,
+      fuel_type: json['fuel_type'] as String?,
       mot_expiry: json['mot_expiry'] as String?,
+      mot_status: json['mot_status'] as String?,
+      registration: json['registration'] as String?,
+      colour: json['colour'] as String?,
+      engine_capacity: json['engine_capacity'] as int?,
+      tax_due_date: json['tax_due_date'] as String?,
       tax_status: json['tax_status'] as String?,
       type_approval: json['type_approval'] as String?,
-      colour: json['colour'] as String?,
+      last_v5_issued: json['last_v5_issued'] as String?,
       logo_url: json['logo_url'] as String?,
+      make: json['make'] as String?,
+      month_of_first_registration:
+          json['month_of_first_registration'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$LookupResponseDataToJson(
         _$LookupResponseData instance) =>
     <String, dynamic>{
-      'engine_capacity': instance.engine_capacity,
-      'fuel_type': instance.fuel_type,
-      'make': instance.make,
-      'mot_status': instance.mot_status,
-      'year_of_manufacture': instance.year_of_manufacture,
-      'last_v5_issued': instance.last_v5_issued,
-      'registration': instance.registration,
-      'tax_due_date': instance.tax_due_date,
-      'wheelplan': instance.wheelplan,
       'co2_emissions': instance.co2_emissions,
-      'month_of_first_registration': instance.month_of_first_registration,
+      'wheelplan': instance.wheelplan,
+      'year_of_manufacture': instance.year_of_manufacture,
+      'fuel_type': instance.fuel_type,
       'mot_expiry': instance.mot_expiry,
+      'mot_status': instance.mot_status,
+      'registration': instance.registration,
+      'colour': instance.colour,
+      'engine_capacity': instance.engine_capacity,
+      'tax_due_date': instance.tax_due_date,
       'tax_status': instance.tax_status,
       'type_approval': instance.type_approval,
-      'colour': instance.colour,
+      'last_v5_issued': instance.last_v5_issued,
       'logo_url': instance.logo_url,
+      'make': instance.make,
+      'month_of_first_registration': instance.month_of_first_registration,
       'runtimeType': instance.$type,
     };
 

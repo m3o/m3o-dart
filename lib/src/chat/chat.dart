@@ -202,6 +202,9 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// whether its a private group
+    bool? private,
+
     /// optional list of user ids
     List<String>? user_ids,
 
@@ -210,9 +213,6 @@ class CreateRequest with _$CreateRequest {
 
     /// name of the group
     String? name,
-
-    /// whether its a private group
-    bool? private,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -324,11 +324,11 @@ class InviteResponse with _$InviteResponse {
 @Freezed()
 class JoinRequest with _$JoinRequest {
   const factory JoinRequest({
-    /// group to join
-    String? group_id,
-
     /// user id joining
     String? user_id,
+
+    /// group to join
+    String? group_id,
   }) = _JoinRequest;
   factory JoinRequest.fromJson(Map<String, dynamic> json) =>
       _$JoinRequestFromJson(json);
@@ -348,11 +348,11 @@ class JoinResponse with _$JoinResponse {
 @Freezed()
 class KickRequest with _$KickRequest {
   const factory KickRequest({
-    /// the group id
-    String? group_id,
-
     /// the user id
     String? user_id,
+
+    /// the group id
+    String? group_id,
   }) = _KickRequest;
   factory KickRequest.fromJson(Map<String, dynamic> json) =>
       _$KickRequestFromJson(json);
@@ -417,15 +417,6 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
-    /// subject of the message
-    String? subject,
-
-    /// text of the message
-    String? text,
-
-    /// id of the user who sent the message
-    String? user_id,
-
     /// a client side id, should be validated by the server to make the request retry safe
     String? client,
 
@@ -437,6 +428,15 @@ class Message with _$Message {
 
     /// time the message was sent in RFC3339 format
     String? sent_at,
+
+    /// subject of the message
+    String? subject,
+
+    /// text of the message
+    String? text,
+
+    /// id of the user who sent the message
+    String? user_id,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);

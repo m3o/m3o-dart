@@ -116,6 +116,12 @@ class PriceService {
 @Freezed()
 class AddRequest with _$AddRequest {
   const factory AddRequest({
+    /// author of the price
+    String? author,
+
+    /// currency e.g USD
+    String? currency,
+
     /// name of the thing e.g bitcoin
     String? name,
 
@@ -127,12 +133,6 @@ class AddRequest with _$AddRequest {
 
     /// symbol of value
     String? symbol,
-
-    /// author of the price
-    String? author,
-
-    /// currency e.g USD
-    String? currency,
   }) = _AddRequest;
   factory AddRequest.fromJson(Map<String, dynamic> json) =>
       _$AddRequestFromJson(json);
@@ -212,14 +212,14 @@ class IndexResponse with _$IndexResponse {
 @Freezed()
 class ListRequest with _$ListRequest {
   const factory ListRequest({
+    /// currency to get
+    String? currency,
+
     /// limit number of values
     int? limit,
 
     /// offset to read from
     int? offset,
-
-    /// currency to get
-    String? currency,
   }) = _ListRequest;
   factory ListRequest.fromJson(Map<String, dynamic> json) =>
       _$ListRequestFromJson(json);
@@ -250,14 +250,14 @@ class Report with _$Report {
 @Freezed()
 class ReportRequest with _$ReportRequest {
   const factory ReportRequest({
-    /// additional comment
-    String? comment,
-
     /// name of value
     String? name,
 
     /// symbol of value
     String? symbol,
+
+    /// additional comment
+    String? comment,
   }) = _ReportRequest;
   factory ReportRequest.fromJson(Map<String, dynamic> json) =>
       _$ReportRequestFromJson(json);
@@ -275,6 +275,12 @@ class ReportResponse with _$ReportResponse {
 @Freezed()
 class Value with _$Value {
   const factory Value({
+    /// symbol of value
+    String? symbol,
+
+    /// time it was added
+    String? timestamp,
+
     /// who added it
     String? author,
 
@@ -289,12 +295,6 @@ class Value with _$Value {
 
     /// where it came from
     String? source,
-
-    /// symbol of value
-    String? symbol,
-
-    /// time it was added
-    String? timestamp,
   }) = _Value;
   factory Value.fromJson(Map<String, dynamic> json) => _$ValueFromJson(json);
 }

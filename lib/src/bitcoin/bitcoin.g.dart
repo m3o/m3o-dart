@@ -57,21 +57,21 @@ Map<String, dynamic> _$$_InputToJson(_$_Input instance) => <String, dynamic>{
     };
 
 _$_Output _$$_OutputFromJson(Map<String, dynamic> json) => _$_Output(
+      address: json['address'] as String?,
       hash: json['hash'] as String?,
       script: json['script'] as String?,
       spent: json['spent'] as bool?,
       tx_index: int64FromString(json['tx_index'] as String?),
       value: int64FromString(json['value'] as String?),
-      address: json['address'] as String?,
     );
 
 Map<String, dynamic> _$$_OutputToJson(_$_Output instance) => <String, dynamic>{
+      'address': instance.address,
       'hash': instance.hash,
       'script': instance.script,
       'spent': instance.spent,
       'tx_index': int64ToString(instance.tx_index),
       'value': int64ToString(instance.value),
-      'address': instance.address,
     };
 
 _$_Prev _$$_PrevFromJson(Map<String, dynamic> json) => _$_Prev(
@@ -143,24 +143,24 @@ Map<String, dynamic> _$$_TransactionRequestToJson(
 _$TransactionResponseData _$$TransactionResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$TransactionResponseData(
-      vin_sz: int64FromString(json['vin_sz'] as String?),
-      version: int64FromString(json['version'] as String?),
-      vout_sz: int64FromString(json['vout_sz'] as String?),
       block_height: int64FromString(json['block_height'] as String?),
       block_index: int64FromString(json['block_index'] as String?),
-      fee: int64FromString(json['fee'] as String?),
-      inputs: (json['inputs'] as List<dynamic>?)
-          ?.map((e) => Input.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      lock_time: int64FromString(json['lock_time'] as String?),
       outputs: (json['outputs'] as List<dynamic>?)
           ?.map((e) => Output.fromJson(e as Map<String, dynamic>))
           .toList(),
-      relay: json['relay'] as String?,
-      weight: int64FromString(json['weight'] as String?),
-      double_spend: json['double_spend'] as bool?,
-      hash: json['hash'] as String?,
-      lock_time: int64FromString(json['lock_time'] as String?),
       size: int64FromString(json['size'] as String?),
+      version: int64FromString(json['version'] as String?),
+      vin_sz: int64FromString(json['vin_sz'] as String?),
+      weight: int64FromString(json['weight'] as String?),
+      inputs: (json['inputs'] as List<dynamic>?)
+          ?.map((e) => Input.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      vout_sz: int64FromString(json['vout_sz'] as String?),
+      double_spend: json['double_spend'] as bool?,
+      fee: int64FromString(json['fee'] as String?),
+      hash: json['hash'] as String?,
+      relay: json['relay'] as String?,
       tx_index: int64FromString(json['tx_index'] as String?),
       $type: json['runtimeType'] as String?,
     );
@@ -168,20 +168,20 @@ _$TransactionResponseData _$$TransactionResponseDataFromJson(
 Map<String, dynamic> _$$TransactionResponseDataToJson(
         _$TransactionResponseData instance) =>
     <String, dynamic>{
-      'vin_sz': int64ToString(instance.vin_sz),
-      'version': int64ToString(instance.version),
-      'vout_sz': int64ToString(instance.vout_sz),
       'block_height': int64ToString(instance.block_height),
       'block_index': int64ToString(instance.block_index),
-      'fee': int64ToString(instance.fee),
-      'inputs': instance.inputs,
-      'outputs': instance.outputs,
-      'relay': instance.relay,
-      'weight': int64ToString(instance.weight),
-      'double_spend': instance.double_spend,
-      'hash': instance.hash,
       'lock_time': int64ToString(instance.lock_time),
+      'outputs': instance.outputs,
       'size': int64ToString(instance.size),
+      'version': int64ToString(instance.version),
+      'vin_sz': int64ToString(instance.vin_sz),
+      'weight': int64ToString(instance.weight),
+      'inputs': instance.inputs,
+      'vout_sz': int64ToString(instance.vout_sz),
+      'double_spend': instance.double_spend,
+      'fee': int64ToString(instance.fee),
+      'hash': instance.hash,
+      'relay': instance.relay,
       'tx_index': int64ToString(instance.tx_index),
       'runtimeType': instance.$type,
     };

@@ -106,12 +106,6 @@ class ImageService {
 @Freezed()
 class ConvertRequest with _$ConvertRequest {
   const factory ConvertRequest({
-    /// The image file to convert
-    String? file,
-
-    /// output name of the image including extension, ie. "cat.png"
-    String? name,
-
     /// make output a URL and not a base64 response
     bool? outputURL,
 
@@ -120,6 +114,12 @@ class ConvertRequest with _$ConvertRequest {
 
     /// base64 encoded image to resize,
     String? base64,
+
+    /// The image file to convert
+    String? file,
+
+    /// output name of the image including extension, ie. "cat.png"
+    String? name,
   }) = _ConvertRequest;
   factory ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$ConvertRequestFromJson(json);
@@ -140,17 +140,17 @@ class ConvertResponse with _$ConvertResponse {
 @Freezed()
 class CropOptions with _$CropOptions {
   const factory CropOptions({
-    /// height to crop to
-    int? height,
-
-    /// width to crop to
-    int? width,
-
     /// Crop anchor point: "top", "top left", "top right",
     /// "left", "center", "right"
     /// "bottom left", "bottom", "bottom right".
     /// Optional. Defaults to center.
     String? anchor,
+
+    /// height to crop to
+    int? height,
+
+    /// width to crop to
+    int? width,
   }) = _CropOptions;
   factory CropOptions.fromJson(Map<String, dynamic> json) =>
       _$CropOptionsFromJson(json);
@@ -197,6 +197,13 @@ class Rectangle with _$Rectangle {
 @Freezed()
 class ResizeRequest with _$ResizeRequest {
   const factory ResizeRequest({
+    /// make output a URL and not a base64 response
+    bool? outputURL,
+
+    /// url of the image to resize
+    String? url,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
+
     /// base64 encoded image to resize,
     String? base64,
 
@@ -211,13 +218,6 @@ class ResizeRequest with _$ResizeRequest {
 
     /// output name of the image including extension, ie. "cat.png"
     String? name,
-
-    /// make output a URL and not a base64 response
-    bool? outputURL,
-
-    /// url of the image to resize
-    String? url,
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
   }) = _ResizeRequest;
   factory ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$ResizeRequestFromJson(json);
