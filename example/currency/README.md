@@ -4,81 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/currency/api](
 
 Endpoints:
 
-## Convert
-
-Convert returns the currency conversion rate between two pairs e.g USD/GBP
-
-
-[https://m3o.com/currency/api#Convert](https://m3o.com/currency/api#Convert)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/currency/currency.dart';
-
-void main() async {
-  final ser = CurrencyService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "from": "USD",
-  "to": "GBP"
-,};
-
-  ConvertRequest req = ConvertRequest.fromJson(payload);
-
-  
-  try {
-
-	ConvertResponse res = await ser.convert(req);
-
-    res.map((value) => print(value),
-	  Merr: (ConvertResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Convert
-
-Convert returns the currency conversion rate between two pairs e.g USD/GBP
-
-
-[https://m3o.com/currency/api#Convert](https://m3o.com/currency/api#Convert)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/currency/currency.dart';
-
-void main() async {
-  final ser = CurrencyService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "amount": 10,
-  "from": "USD",
-  "to": "GBP"
-,};
-
-  ConvertRequest req = ConvertRequest.fromJson(payload);
-
-  
-  try {
-
-	ConvertResponse res = await ser.convert(req);
-
-    res.map((value) => print(value),
-	  Merr: (ConvertResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## History
 
 Returns the historic rates for a currency on a given date
@@ -178,6 +103,81 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (RatesResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Convert
+
+Convert returns the currency conversion rate between two pairs e.g USD/GBP
+
+
+[https://m3o.com/currency/api#Convert](https://m3o.com/currency/api#Convert)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/currency/currency.dart';
+
+void main() async {
+  final ser = CurrencyService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "from": "USD",
+  "to": "GBP"
+,};
+
+  ConvertRequest req = ConvertRequest.fromJson(payload);
+
+  
+  try {
+
+	ConvertResponse res = await ser.convert(req);
+
+    res.map((value) => print(value),
+	  Merr: (ConvertResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Convert
+
+Convert returns the currency conversion rate between two pairs e.g USD/GBP
+
+
+[https://m3o.com/currency/api#Convert](https://m3o.com/currency/api#Convert)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/currency/currency.dart';
+
+void main() async {
+  final ser = CurrencyService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "amount": 10,
+  "from": "USD",
+  "to": "GBP"
+,};
+
+  ConvertRequest req = ConvertRequest.fromJson(payload);
+
+  
+  try {
+
+	ConvertResponse res = await ser.convert(req);
+
+    res.map((value) => print(value),
+	  Merr: (ConvertResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

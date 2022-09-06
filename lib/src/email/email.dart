@@ -86,11 +86,11 @@ class ParseRequest with _$ParseRequest {
 @Freezed()
 class ParseResponse with _$ParseResponse {
   const factory ParseResponse({
-    /// associated name e.g Joe Blogs
-    String? name,
-
     /// the email address
     String? address,
+
+    /// associated name e.g Joe Blogs
+    String? name,
   }) = ParseResponseData;
   const factory ParseResponse.Merr({Map<String, dynamic>? body}) =
       ParseResponseMerr;
@@ -101,12 +101,6 @@ class ParseResponse with _$ParseResponse {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
-    /// the email subject
-    String? subject,
-
-    /// the text body
-    String? text_body,
-
     /// the email address of the recipient
     String? to,
 
@@ -118,6 +112,12 @@ class SendRequest with _$SendRequest {
 
     /// an optional reply to email address
     String? reply_to,
+
+    /// the email subject
+    String? subject,
+
+    /// the text body
+    String? text_body,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);

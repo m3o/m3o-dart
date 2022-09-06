@@ -4,6 +4,42 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/email/api](htt
 
 Endpoints:
 
+## Validate
+
+Validate an email address format
+
+
+[https://m3o.com/email/api#Validate](https://m3o.com/email/api#Validate)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/email/email.dart';
+
+void main() async {
+  final ser = EmailService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "address": "joe@example.com"
+,};
+
+  ValidateRequest req = ValidateRequest.fromJson(payload);
+
+  
+  try {
+
+	ValidateResponse res = await ser.validate(req);
+
+    res.map((value) => print(value),
+	  Merr: (ValidateResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Send
 
 Send an email by passing in from, to, subject, and a text or html body
@@ -70,42 +106,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (ParseResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Validate
-
-Validate an email address format
-
-
-[https://m3o.com/email/api#Validate](https://m3o.com/email/api#Validate)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/email/email.dart';
-
-void main() async {
-  final ser = EmailService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "address": "joe@example.com"
-,};
-
-  ValidateRequest req = ValidateRequest.fromJson(payload);
-
-  
-  try {
-
-	ValidateResponse res = await ser.validate(req);
-
-    res.map((value) => print(value),
-	  Merr: (ValidateResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

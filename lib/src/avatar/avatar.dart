@@ -36,6 +36,9 @@ class AvatarService {
 @Freezed()
 class GenerateRequest with _$GenerateRequest {
   const factory GenerateRequest({
+    /// avatar's gender: `male` or `female`; default is `male`
+    String? gender,
+
     /// set to true to upload to the M3O CDN and receive the url
     bool? upload,
 
@@ -46,9 +49,6 @@ class GenerateRequest with _$GenerateRequest {
 
     /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
     String? format,
-
-    /// avatar's gender: `male` or `female`; default is `male`
-    String? gender,
   }) = _GenerateRequest;
   factory GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$GenerateRequestFromJson(json);
