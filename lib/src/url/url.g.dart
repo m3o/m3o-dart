@@ -120,14 +120,14 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
 
 _$_ResolveRequest _$$_ResolveRequestFromJson(Map<String, dynamic> json) =>
     _$_ResolveRequest(
-      shortURL: json['shortURL'] as String?,
       id: json['id'] as String?,
+      shortURL: json['shortURL'] as String?,
     );
 
 Map<String, dynamic> _$$_ResolveRequestToJson(_$_ResolveRequest instance) =>
     <String, dynamic>{
-      'shortURL': instance.shortURL,
       'id': instance.id,
+      'shortURL': instance.shortURL,
     };
 
 _$ResolveResponseData _$$ResolveResponseDataFromJson(

@@ -4,6 +4,44 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/rss/api](https
 
 Endpoints:
 
+## Add
+
+Add a new RSS feed with a name, url, and category
+
+
+[https://m3o.com/rss/api#Add](https://m3o.com/rss/api#Add)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/rss/rss.dart';
+
+void main() async {
+  final ser = RssService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "category": "news",
+  "name": "bbc",
+  "url": "http://feeds.bbci.co.uk/news/rss.xml"
+,};
+
+  AddRequest req = AddRequest.fromJson(payload);
+
+  
+  try {
+
+	AddResponse res = await ser.add(req);
+
+    res.map((value) => print(value),
+	  Merr: (AddResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Feed
 
 Get an RSS feed by name. If no name is given, all feeds are returned. Default limit is 25 entries.
@@ -102,44 +140,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (RemoveResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Add
-
-Add a new RSS feed with a name, url, and category
-
-
-[https://m3o.com/rss/api#Add](https://m3o.com/rss/api#Add)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/rss/rss.dart';
-
-void main() async {
-  final ser = RssService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "category": "news",
-  "name": "bbc",
-  "url": "http://feeds.bbci.co.uk/news/rss.xml"
-,};
-
-  AddRequest req = AddRequest.fromJson(payload);
-
-  
-  try {
-
-	AddResponse res = await ser.add(req);
-
-    res.map((value) => print(value),
-	  Merr: (AddResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

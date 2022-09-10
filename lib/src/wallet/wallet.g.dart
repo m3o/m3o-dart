@@ -61,16 +61,16 @@ Map<String, dynamic> _$$BalanceResponseMerrToJson(
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
+      name: json['name'] as String?,
       description: json['description'] as String?,
       id: json['id'] as String?,
-      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
+      'name': instance.name,
       'description': instance.description,
       'id': instance.id,
-      'name': instance.name,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>

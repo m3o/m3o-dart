@@ -239,14 +239,14 @@ class BalanceResponse with _$BalanceResponse {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// name of the wallet
+    String? name,
+
     /// description for wallet
     String? description,
 
     /// optional id
     String? id,
-
-    /// name of the wallet
-    String? name,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);

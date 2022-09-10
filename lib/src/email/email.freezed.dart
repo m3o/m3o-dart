@@ -561,6 +561,12 @@ SendRequest _$SendRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SendRequest {
+  /// the email subject
+  String? get subject => throw _privateConstructorUsedError;
+
+  /// the text body
+  String? get text_body => throw _privateConstructorUsedError;
+
   /// the email address of the recipient
   String? get to => throw _privateConstructorUsedError;
 
@@ -572,12 +578,6 @@ mixin _$SendRequest {
 
   /// an optional reply to email address
   String? get reply_to => throw _privateConstructorUsedError;
-
-  /// the email subject
-  String? get subject => throw _privateConstructorUsedError;
-
-  /// the text body
-  String? get text_body => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -591,12 +591,12 @@ abstract class $SendRequestCopyWith<$Res> {
           SendRequest value, $Res Function(SendRequest) then) =
       _$SendRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? to,
+      {String? subject,
+      String? text_body,
+      String? to,
       String? from,
       String? html_body,
-      String? reply_to,
-      String? subject,
-      String? text_body});
+      String? reply_to});
 }
 
 /// @nodoc
@@ -609,14 +609,22 @@ class _$SendRequestCopyWithImpl<$Res> implements $SendRequestCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? subject = freezed,
+    Object? text_body = freezed,
     Object? to = freezed,
     Object? from = freezed,
     Object? html_body = freezed,
     Object? reply_to = freezed,
-    Object? subject = freezed,
-    Object? text_body = freezed,
   }) {
     return _then(_value.copyWith(
+      subject: subject == freezed
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text_body: text_body == freezed
+          ? _value.text_body
+          : text_body // ignore: cast_nullable_to_non_nullable
+              as String?,
       to: to == freezed
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
@@ -633,14 +641,6 @@ class _$SendRequestCopyWithImpl<$Res> implements $SendRequestCopyWith<$Res> {
           ? _value.reply_to
           : reply_to // ignore: cast_nullable_to_non_nullable
               as String?,
-      subject: subject == freezed
-          ? _value.subject
-          : subject // ignore: cast_nullable_to_non_nullable
-              as String?,
-      text_body: text_body == freezed
-          ? _value.text_body
-          : text_body // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -653,12 +653,12 @@ abstract class _$$_SendRequestCopyWith<$Res>
       __$$_SendRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? to,
+      {String? subject,
+      String? text_body,
+      String? to,
       String? from,
       String? html_body,
-      String? reply_to,
-      String? subject,
-      String? text_body});
+      String? reply_to});
 }
 
 /// @nodoc
@@ -673,14 +673,22 @@ class __$$_SendRequestCopyWithImpl<$Res> extends _$SendRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? subject = freezed,
+    Object? text_body = freezed,
     Object? to = freezed,
     Object? from = freezed,
     Object? html_body = freezed,
     Object? reply_to = freezed,
-    Object? subject = freezed,
-    Object? text_body = freezed,
   }) {
     return _then(_$_SendRequest(
+      subject: subject == freezed
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text_body: text_body == freezed
+          ? _value.text_body
+          : text_body // ignore: cast_nullable_to_non_nullable
+              as String?,
       to: to == freezed
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
@@ -697,14 +705,6 @@ class __$$_SendRequestCopyWithImpl<$Res> extends _$SendRequestCopyWithImpl<$Res>
           ? _value.reply_to
           : reply_to // ignore: cast_nullable_to_non_nullable
               as String?,
-      subject: subject == freezed
-          ? _value.subject
-          : subject // ignore: cast_nullable_to_non_nullable
-              as String?,
-      text_body: text_body == freezed
-          ? _value.text_body
-          : text_body // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -713,15 +713,23 @@ class __$$_SendRequestCopyWithImpl<$Res> extends _$SendRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SendRequest implements _SendRequest {
   const _$_SendRequest(
-      {this.to,
+      {this.subject,
+      this.text_body,
+      this.to,
       this.from,
       this.html_body,
-      this.reply_to,
-      this.subject,
-      this.text_body});
+      this.reply_to});
 
   factory _$_SendRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SendRequestFromJson(json);
+
+  /// the email subject
+  @override
+  final String? subject;
+
+  /// the text body
+  @override
+  final String? text_body;
 
   /// the email address of the recipient
   @override
@@ -739,17 +747,9 @@ class _$_SendRequest implements _SendRequest {
   @override
   final String? reply_to;
 
-  /// the email subject
-  @override
-  final String? subject;
-
-  /// the text body
-  @override
-  final String? text_body;
-
   @override
   String toString() {
-    return 'SendRequest(to: $to, from: $from, html_body: $html_body, reply_to: $reply_to, subject: $subject, text_body: $text_body)';
+    return 'SendRequest(subject: $subject, text_body: $text_body, to: $to, from: $from, html_body: $html_body, reply_to: $reply_to)';
   }
 
   @override
@@ -757,24 +757,24 @@ class _$_SendRequest implements _SendRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SendRequest &&
+            const DeepCollectionEquality().equals(other.subject, subject) &&
+            const DeepCollectionEquality().equals(other.text_body, text_body) &&
             const DeepCollectionEquality().equals(other.to, to) &&
             const DeepCollectionEquality().equals(other.from, from) &&
             const DeepCollectionEquality().equals(other.html_body, html_body) &&
-            const DeepCollectionEquality().equals(other.reply_to, reply_to) &&
-            const DeepCollectionEquality().equals(other.subject, subject) &&
-            const DeepCollectionEquality().equals(other.text_body, text_body));
+            const DeepCollectionEquality().equals(other.reply_to, reply_to));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(subject),
+      const DeepCollectionEquality().hash(text_body),
       const DeepCollectionEquality().hash(to),
       const DeepCollectionEquality().hash(from),
       const DeepCollectionEquality().hash(html_body),
-      const DeepCollectionEquality().hash(reply_to),
-      const DeepCollectionEquality().hash(subject),
-      const DeepCollectionEquality().hash(text_body));
+      const DeepCollectionEquality().hash(reply_to));
 
   @JsonKey(ignore: true)
   @override
@@ -791,16 +791,24 @@ class _$_SendRequest implements _SendRequest {
 
 abstract class _SendRequest implements SendRequest {
   const factory _SendRequest(
-      {final String? to,
+      {final String? subject,
+      final String? text_body,
+      final String? to,
       final String? from,
       final String? html_body,
-      final String? reply_to,
-      final String? subject,
-      final String? text_body}) = _$_SendRequest;
+      final String? reply_to}) = _$_SendRequest;
 
   factory _SendRequest.fromJson(Map<String, dynamic> json) =
       _$_SendRequest.fromJson;
 
+  @override
+
+  /// the email subject
+  String? get subject;
+  @override
+
+  /// the text body
+  String? get text_body;
   @override
 
   /// the email address of the recipient
@@ -817,14 +825,6 @@ abstract class _SendRequest implements SendRequest {
 
   /// an optional reply to email address
   String? get reply_to;
-  @override
-
-  /// the email subject
-  String? get subject;
-  @override
-
-  /// the text body
-  String? get text_body;
   @override
   @JsonKey(ignore: true)
   _$$_SendRequestCopyWith<_$_SendRequest> get copyWith =>

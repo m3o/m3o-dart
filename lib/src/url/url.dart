@@ -203,11 +203,11 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class ResolveRequest with _$ResolveRequest {
   const factory ResolveRequest({
-    /// short url to resolve
-    String? shortURL,
-
     /// resolve by id
     String? id,
+
+    /// short url to resolve
+    String? shortURL,
   }) = _ResolveRequest;
   factory ResolveRequest.fromJson(Map<String, dynamic> json) =>
       _$ResolveRequestFromJson(json);

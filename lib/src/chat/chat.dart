@@ -254,6 +254,9 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Group with _$Group {
   const factory Group({
+    /// whether its a private group
+    bool? private,
+
     /// list of users
     List<String>? user_ids,
 
@@ -268,9 +271,6 @@ class Group with _$Group {
 
     /// name of the chat
     String? name,
-
-    /// whether its a private group
-    bool? private,
   }) = _Group;
   factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
 }
@@ -300,11 +300,11 @@ class HistoryResponse with _$HistoryResponse {
 @Freezed()
 class InviteRequest with _$InviteRequest {
   const factory InviteRequest({
-    /// the user id
-    String? user_id,
-
     /// the group id
     String? group_id,
+
+    /// the user id
+    String? user_id,
   }) = _InviteRequest;
   factory InviteRequest.fromJson(Map<String, dynamic> json) =>
       _$InviteRequestFromJson(json);

@@ -91,6 +91,7 @@ Map<String, dynamic> _$$DeleteResponseMerrToJson(
     };
 
 _$_Group _$$_GroupFromJson(Map<String, dynamic> json) => _$_Group(
+      private: json['private'] as bool?,
       user_ids: (json['user_ids'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
@@ -98,16 +99,15 @@ _$_Group _$$_GroupFromJson(Map<String, dynamic> json) => _$_Group(
       description: json['description'] as String?,
       id: json['id'] as String?,
       name: json['name'] as String?,
-      private: json['private'] as bool?,
     );
 
 Map<String, dynamic> _$$_GroupToJson(_$_Group instance) => <String, dynamic>{
+      'private': instance.private,
       'user_ids': instance.user_ids,
       'created_at': instance.created_at,
       'description': instance.description,
       'id': instance.id,
       'name': instance.name,
-      'private': instance.private,
     };
 
 _$_HistoryRequest _$$_HistoryRequestFromJson(Map<String, dynamic> json) =>
@@ -152,14 +152,14 @@ Map<String, dynamic> _$$HistoryResponseMerrToJson(
 
 _$_InviteRequest _$$_InviteRequestFromJson(Map<String, dynamic> json) =>
     _$_InviteRequest(
-      user_id: json['user_id'] as String?,
       group_id: json['group_id'] as String?,
+      user_id: json['user_id'] as String?,
     );
 
 Map<String, dynamic> _$$_InviteRequestToJson(_$_InviteRequest instance) =>
     <String, dynamic>{
-      'user_id': instance.user_id,
       'group_id': instance.group_id,
+      'user_id': instance.user_id,
     };
 
 _$InviteResponseData _$$InviteResponseDataFromJson(Map<String, dynamic> json) =>

@@ -805,14 +805,14 @@ CreateRequest _$CreateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateRequest {
+  /// name of the wallet
+  String? get name => throw _privateConstructorUsedError;
+
   /// description for wallet
   String? get description => throw _privateConstructorUsedError;
 
   /// optional id
   String? get id => throw _privateConstructorUsedError;
-
-  /// name of the wallet
-  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -825,7 +825,7 @@ abstract class $CreateRequestCopyWith<$Res> {
   factory $CreateRequestCopyWith(
           CreateRequest value, $Res Function(CreateRequest) then) =
       _$CreateRequestCopyWithImpl<$Res>;
-  $Res call({String? description, String? id, String? name});
+  $Res call({String? name, String? description, String? id});
 }
 
 /// @nodoc
@@ -839,11 +839,15 @@ class _$CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? name = freezed,
     Object? description = freezed,
     Object? id = freezed,
-    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -851,10 +855,6 @@ class _$CreateRequestCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -867,7 +867,7 @@ abstract class _$$_CreateRequestCopyWith<$Res>
           _$_CreateRequest value, $Res Function(_$_CreateRequest) then) =
       __$$_CreateRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? description, String? id, String? name});
+  $Res call({String? name, String? description, String? id});
 }
 
 /// @nodoc
@@ -883,11 +883,15 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? name = freezed,
     Object? description = freezed,
     Object? id = freezed,
-    Object? name = freezed,
   }) {
     return _then(_$_CreateRequest(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -896,10 +900,6 @@ class __$$_CreateRequestCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -907,10 +907,14 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateRequest implements _CreateRequest {
-  const _$_CreateRequest({this.description, this.id, this.name});
+  const _$_CreateRequest({this.name, this.description, this.id});
 
   factory _$_CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateRequestFromJson(json);
+
+  /// name of the wallet
+  @override
+  final String? name;
 
   /// description for wallet
   @override
@@ -920,13 +924,9 @@ class _$_CreateRequest implements _CreateRequest {
   @override
   final String? id;
 
-  /// name of the wallet
-  @override
-  final String? name;
-
   @override
   String toString() {
-    return 'CreateRequest(description: $description, id: $id, name: $name)';
+    return 'CreateRequest(name: $name, description: $description, id: $id)';
   }
 
   @override
@@ -934,19 +934,19 @@ class _$_CreateRequest implements _CreateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateRequest &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -963,13 +963,17 @@ class _$_CreateRequest implements _CreateRequest {
 
 abstract class _CreateRequest implements CreateRequest {
   const factory _CreateRequest(
-      {final String? description,
-      final String? id,
-      final String? name}) = _$_CreateRequest;
+      {final String? name,
+      final String? description,
+      final String? id}) = _$_CreateRequest;
 
   factory _CreateRequest.fromJson(Map<String, dynamic> json) =
       _$_CreateRequest.fromJson;
 
+  @override
+
+  /// name of the wallet
+  String? get name;
   @override
 
   /// description for wallet
@@ -978,10 +982,6 @@ abstract class _CreateRequest implements CreateRequest {
 
   /// optional id
   String? get id;
-  @override
-
-  /// name of the wallet
-  String? get name;
   @override
   @JsonKey(ignore: true)
   _$$_CreateRequestCopyWith<_$_CreateRequest> get copyWith =>
