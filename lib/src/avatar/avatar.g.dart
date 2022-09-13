@@ -8,18 +8,18 @@ part of 'avatar.dart';
 
 _$_GenerateRequest _$$_GenerateRequestFromJson(Map<String, dynamic> json) =>
     _$_GenerateRequest(
-      format: json['format'] as String?,
       gender: json['gender'] as String?,
       upload: json['upload'] as bool?,
       username: json['username'] as String?,
+      format: json['format'] as String?,
     );
 
 Map<String, dynamic> _$$_GenerateRequestToJson(_$_GenerateRequest instance) =>
     <String, dynamic>{
-      'format': instance.format,
       'gender': instance.gender,
       'upload': instance.upload,
       'username': instance.username,
+      'format': instance.format,
     };
 
 _$GenerateResponseData _$$GenerateResponseDataFromJson(

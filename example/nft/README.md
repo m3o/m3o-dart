@@ -4,43 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/nft/api](https
 
 Endpoints:
 
-## Assets
-
-Return a list of assets
-
-
-[https://m3o.com/nft/api#Assets](https://m3o.com/nft/api#Assets)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/nft/nft.dart';
-
-void main() async {
-  final ser = NftService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "limit": 1,
-  "order_by": "sale_date"
-,};
-
-  AssetsRequest req = AssetsRequest.fromJson(payload);
-
-  
-  try {
-
-	AssetsResponse res = await ser.assets(req);
-
-    res.map((value) => print(value),
-	  Merr: (AssetsResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Create
 
 Create your own NFT (coming soon)
@@ -179,6 +142,43 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (CollectionResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Assets
+
+Return a list of assets
+
+
+[https://m3o.com/nft/api#Assets](https://m3o.com/nft/api#Assets)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/nft/nft.dart';
+
+void main() async {
+  final ser = NftService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "limit": 1,
+  "order_by": "sale_date"
+,};
+
+  AssetsRequest req = AssetsRequest.fromJson(payload);
+
+  
+  try {
+
+	AssetsResponse res = await ser.assets(req);
+
+    res.map((value) => print(value),
+	  Merr: (AssetsResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

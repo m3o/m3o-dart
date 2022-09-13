@@ -20,9 +20,6 @@ Box _$BoxFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Box {
-  /// colour hex code
-  String? get color => throw _privateConstructorUsedError;
-
   /// height in pixels
   int? get height => throw _privateConstructorUsedError;
 
@@ -41,6 +38,9 @@ mixin _$Box {
   /// y axis position
   int? get y => throw _privateConstructorUsedError;
 
+  /// colour hex code
+  String? get color => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $BoxCopyWith<Box> get copyWith => throw _privateConstructorUsedError;
@@ -51,13 +51,13 @@ abstract class $BoxCopyWith<$Res> {
   factory $BoxCopyWith(Box value, $Res Function(Box) then) =
       _$BoxCopyWithImpl<$Res>;
   $Res call(
-      {String? color,
-      int? height,
+      {int? height,
       String? outline,
       String? text,
       int? width,
       int? x,
-      int? y});
+      int? y,
+      String? color});
 }
 
 /// @nodoc
@@ -70,19 +70,15 @@ class _$BoxCopyWithImpl<$Res> implements $BoxCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? color = freezed,
     Object? height = freezed,
     Object? outline = freezed,
     Object? text = freezed,
     Object? width = freezed,
     Object? x = freezed,
     Object? y = freezed,
+    Object? color = freezed,
   }) {
     return _then(_value.copyWith(
-      color: color == freezed
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as String?,
       height: height == freezed
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -107,6 +103,10 @@ class _$BoxCopyWithImpl<$Res> implements $BoxCopyWith<$Res> {
           ? _value.y
           : y // ignore: cast_nullable_to_non_nullable
               as int?,
+      color: color == freezed
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -117,13 +117,13 @@ abstract class _$$_BoxCopyWith<$Res> implements $BoxCopyWith<$Res> {
       __$$_BoxCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? color,
-      int? height,
+      {int? height,
       String? outline,
       String? text,
       int? width,
       int? x,
-      int? y});
+      int? y,
+      String? color});
 }
 
 /// @nodoc
@@ -137,19 +137,15 @@ class __$$_BoxCopyWithImpl<$Res> extends _$BoxCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? color = freezed,
     Object? height = freezed,
     Object? outline = freezed,
     Object? text = freezed,
     Object? width = freezed,
     Object? x = freezed,
     Object? y = freezed,
+    Object? color = freezed,
   }) {
     return _then(_$_Box(
-      color: color == freezed
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as String?,
       height: height == freezed
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -174,6 +170,10 @@ class __$$_BoxCopyWithImpl<$Res> extends _$BoxCopyWithImpl<$Res>
           ? _value.y
           : y // ignore: cast_nullable_to_non_nullable
               as int?,
+      color: color == freezed
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -182,19 +182,15 @@ class __$$_BoxCopyWithImpl<$Res> extends _$BoxCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Box implements _Box {
   const _$_Box(
-      {this.color,
-      this.height,
+      {this.height,
       this.outline,
       this.text,
       this.width,
       this.x,
-      this.y});
+      this.y,
+      this.color});
 
   factory _$_Box.fromJson(Map<String, dynamic> json) => _$$_BoxFromJson(json);
-
-  /// colour hex code
-  @override
-  final String? color;
 
   /// height in pixels
   @override
@@ -220,9 +216,13 @@ class _$_Box implements _Box {
   @override
   final int? y;
 
+  /// colour hex code
+  @override
+  final String? color;
+
   @override
   String toString() {
-    return 'Box(color: $color, height: $height, outline: $outline, text: $text, width: $width, x: $x, y: $y)';
+    return 'Box(height: $height, outline: $outline, text: $text, width: $width, x: $x, y: $y, color: $color)';
   }
 
   @override
@@ -230,26 +230,26 @@ class _$_Box implements _Box {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Box &&
-            const DeepCollectionEquality().equals(other.color, color) &&
             const DeepCollectionEquality().equals(other.height, height) &&
             const DeepCollectionEquality().equals(other.outline, outline) &&
             const DeepCollectionEquality().equals(other.text, text) &&
             const DeepCollectionEquality().equals(other.width, width) &&
             const DeepCollectionEquality().equals(other.x, x) &&
-            const DeepCollectionEquality().equals(other.y, y));
+            const DeepCollectionEquality().equals(other.y, y) &&
+            const DeepCollectionEquality().equals(other.color, color));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(color),
       const DeepCollectionEquality().hash(height),
       const DeepCollectionEquality().hash(outline),
       const DeepCollectionEquality().hash(text),
       const DeepCollectionEquality().hash(width),
       const DeepCollectionEquality().hash(x),
-      const DeepCollectionEquality().hash(y));
+      const DeepCollectionEquality().hash(y),
+      const DeepCollectionEquality().hash(color));
 
   @JsonKey(ignore: true)
   @override
@@ -266,20 +266,16 @@ class _$_Box implements _Box {
 
 abstract class _Box implements Box {
   const factory _Box(
-      {final String? color,
-      final int? height,
+      {final int? height,
       final String? outline,
       final String? text,
       final int? width,
       final int? x,
-      final int? y}) = _$_Box;
+      final int? y,
+      final String? color}) = _$_Box;
 
   factory _Box.fromJson(Map<String, dynamic> json) = _$_Box.fromJson;
 
-  @override
-
-  /// colour hex code
-  String? get color;
   @override
 
   /// height in pixels
@@ -305,6 +301,10 @@ abstract class _Box implements Box {
   /// y axis position
   int? get y;
   @override
+
+  /// colour hex code
+  String? get color;
+  @override
   @JsonKey(ignore: true)
   _$$_BoxCopyWith<_$_Box> get copyWith => throw _privateConstructorUsedError;
 }
@@ -315,9 +315,6 @@ GenerateRequest _$GenerateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GenerateRequest {
-  /// font size; defaults to 50px
-  String? get max_font_size => throw _privateConstructorUsedError;
-
   /// top text
   String? get top_text => throw _privateConstructorUsedError;
 
@@ -329,6 +326,9 @@ mixin _$GenerateRequest {
 
   /// the template id to use
   String? get id => throw _privateConstructorUsedError;
+
+  /// font size; defaults to 50px
+  String? get max_font_size => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -342,11 +342,11 @@ abstract class $GenerateRequestCopyWith<$Res> {
           GenerateRequest value, $Res Function(GenerateRequest) then) =
       _$GenerateRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? max_font_size,
-      String? top_text,
+      {String? top_text,
       String? bottom_text,
       String? font,
-      String? id});
+      String? id,
+      String? max_font_size});
 }
 
 /// @nodoc
@@ -360,17 +360,13 @@ class _$GenerateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? max_font_size = freezed,
     Object? top_text = freezed,
     Object? bottom_text = freezed,
     Object? font = freezed,
     Object? id = freezed,
+    Object? max_font_size = freezed,
   }) {
     return _then(_value.copyWith(
-      max_font_size: max_font_size == freezed
-          ? _value.max_font_size
-          : max_font_size // ignore: cast_nullable_to_non_nullable
-              as String?,
       top_text: top_text == freezed
           ? _value.top_text
           : top_text // ignore: cast_nullable_to_non_nullable
@@ -387,6 +383,10 @@ class _$GenerateRequestCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      max_font_size: max_font_size == freezed
+          ? _value.max_font_size
+          : max_font_size // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -399,11 +399,11 @@ abstract class _$$_GenerateRequestCopyWith<$Res>
       __$$_GenerateRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? max_font_size,
-      String? top_text,
+      {String? top_text,
       String? bottom_text,
       String? font,
-      String? id});
+      String? id,
+      String? max_font_size});
 }
 
 /// @nodoc
@@ -419,17 +419,13 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? max_font_size = freezed,
     Object? top_text = freezed,
     Object? bottom_text = freezed,
     Object? font = freezed,
     Object? id = freezed,
+    Object? max_font_size = freezed,
   }) {
     return _then(_$_GenerateRequest(
-      max_font_size: max_font_size == freezed
-          ? _value.max_font_size
-          : max_font_size // ignore: cast_nullable_to_non_nullable
-              as String?,
       top_text: top_text == freezed
           ? _value.top_text
           : top_text // ignore: cast_nullable_to_non_nullable
@@ -446,6 +442,10 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      max_font_size: max_font_size == freezed
+          ? _value.max_font_size
+          : max_font_size // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -454,18 +454,14 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GenerateRequest implements _GenerateRequest {
   const _$_GenerateRequest(
-      {this.max_font_size,
-      this.top_text,
+      {this.top_text,
       this.bottom_text,
       this.font,
-      this.id});
+      this.id,
+      this.max_font_size});
 
   factory _$_GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_GenerateRequestFromJson(json);
-
-  /// font size; defaults to 50px
-  @override
-  final String? max_font_size;
 
   /// top text
   @override
@@ -483,9 +479,13 @@ class _$_GenerateRequest implements _GenerateRequest {
   @override
   final String? id;
 
+  /// font size; defaults to 50px
+  @override
+  final String? max_font_size;
+
   @override
   String toString() {
-    return 'GenerateRequest(max_font_size: $max_font_size, top_text: $top_text, bottom_text: $bottom_text, font: $font, id: $id)';
+    return 'GenerateRequest(top_text: $top_text, bottom_text: $bottom_text, font: $font, id: $id, max_font_size: $max_font_size)';
   }
 
   @override
@@ -493,24 +493,24 @@ class _$_GenerateRequest implements _GenerateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GenerateRequest &&
-            const DeepCollectionEquality()
-                .equals(other.max_font_size, max_font_size) &&
             const DeepCollectionEquality().equals(other.top_text, top_text) &&
             const DeepCollectionEquality()
                 .equals(other.bottom_text, bottom_text) &&
             const DeepCollectionEquality().equals(other.font, font) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality()
+                .equals(other.max_font_size, max_font_size));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(max_font_size),
       const DeepCollectionEquality().hash(top_text),
       const DeepCollectionEquality().hash(bottom_text),
       const DeepCollectionEquality().hash(font),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(max_font_size));
 
   @JsonKey(ignore: true)
   @override
@@ -527,19 +527,15 @@ class _$_GenerateRequest implements _GenerateRequest {
 
 abstract class _GenerateRequest implements GenerateRequest {
   const factory _GenerateRequest(
-      {final String? max_font_size,
-      final String? top_text,
+      {final String? top_text,
       final String? bottom_text,
       final String? font,
-      final String? id}) = _$_GenerateRequest;
+      final String? id,
+      final String? max_font_size}) = _$_GenerateRequest;
 
   factory _GenerateRequest.fromJson(Map<String, dynamic> json) =
       _$_GenerateRequest.fromJson;
 
-  @override
-
-  /// font size; defaults to 50px
-  String? get max_font_size;
   @override
 
   /// top text
@@ -556,6 +552,10 @@ abstract class _GenerateRequest implements GenerateRequest {
 
   /// the template id to use
   String? get id;
+  @override
+
+  /// font size; defaults to 50px
+  String? get max_font_size;
   @override
   @JsonKey(ignore: true)
   _$$_GenerateRequestCopyWith<_$_GenerateRequest> get copyWith =>
@@ -959,15 +959,6 @@ Template _$TemplateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Template {
-  /// name of the memegen
-  String? get name => throw _privateConstructorUsedError;
-
-  /// url of the memegen
-  String? get url => throw _privateConstructorUsedError;
-
-  /// width in pixels
-  int? get width => throw _privateConstructorUsedError;
-
   /// number of boxes used
   int? get box_count => throw _privateConstructorUsedError;
 
@@ -976,6 +967,15 @@ mixin _$Template {
 
   /// id of the memegen
   String? get id => throw _privateConstructorUsedError;
+
+  /// name of the memegen
+  String? get name => throw _privateConstructorUsedError;
+
+  /// url of the memegen
+  String? get url => throw _privateConstructorUsedError;
+
+  /// width in pixels
+  int? get width => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -988,12 +988,12 @@ abstract class $TemplateCopyWith<$Res> {
   factory $TemplateCopyWith(Template value, $Res Function(Template) then) =
       _$TemplateCopyWithImpl<$Res>;
   $Res call(
-      {String? name,
-      String? url,
-      int? width,
-      int? box_count,
+      {int? box_count,
       int? height,
-      String? id});
+      String? id,
+      String? name,
+      String? url,
+      int? width});
 }
 
 /// @nodoc
@@ -1006,26 +1006,14 @@ class _$TemplateCopyWithImpl<$Res> implements $TemplateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? name = freezed,
-    Object? url = freezed,
-    Object? width = freezed,
     Object? box_count = freezed,
     Object? height = freezed,
     Object? id = freezed,
+    Object? name = freezed,
+    Object? url = freezed,
+    Object? width = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      width: width == freezed
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
       box_count: box_count == freezed
           ? _value.box_count
           : box_count // ignore: cast_nullable_to_non_nullable
@@ -1038,6 +1026,18 @@ class _$TemplateCopyWithImpl<$Res> implements $TemplateCopyWith<$Res> {
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      width: width == freezed
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -1049,12 +1049,12 @@ abstract class _$$_TemplateCopyWith<$Res> implements $TemplateCopyWith<$Res> {
       __$$_TemplateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? name,
-      String? url,
-      int? width,
-      int? box_count,
+      {int? box_count,
       int? height,
-      String? id});
+      String? id,
+      String? name,
+      String? url,
+      int? width});
 }
 
 /// @nodoc
@@ -1069,26 +1069,14 @@ class __$$_TemplateCopyWithImpl<$Res> extends _$TemplateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
-    Object? url = freezed,
-    Object? width = freezed,
     Object? box_count = freezed,
     Object? height = freezed,
     Object? id = freezed,
+    Object? name = freezed,
+    Object? url = freezed,
+    Object? width = freezed,
   }) {
     return _then(_$_Template(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      width: width == freezed
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
       box_count: box_count == freezed
           ? _value.box_count
           : box_count // ignore: cast_nullable_to_non_nullable
@@ -1101,6 +1089,18 @@ class __$$_TemplateCopyWithImpl<$Res> extends _$TemplateCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      width: width == freezed
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -1109,22 +1109,10 @@ class __$$_TemplateCopyWithImpl<$Res> extends _$TemplateCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Template implements _Template {
   const _$_Template(
-      {this.name, this.url, this.width, this.box_count, this.height, this.id});
+      {this.box_count, this.height, this.id, this.name, this.url, this.width});
 
   factory _$_Template.fromJson(Map<String, dynamic> json) =>
       _$$_TemplateFromJson(json);
-
-  /// name of the memegen
-  @override
-  final String? name;
-
-  /// url of the memegen
-  @override
-  final String? url;
-
-  /// width in pixels
-  @override
-  final int? width;
 
   /// number of boxes used
   @override
@@ -1138,9 +1126,21 @@ class _$_Template implements _Template {
   @override
   final String? id;
 
+  /// name of the memegen
+  @override
+  final String? name;
+
+  /// url of the memegen
+  @override
+  final String? url;
+
+  /// width in pixels
+  @override
+  final int? width;
+
   @override
   String toString() {
-    return 'Template(name: $name, url: $url, width: $width, box_count: $box_count, height: $height, id: $id)';
+    return 'Template(box_count: $box_count, height: $height, id: $id, name: $name, url: $url, width: $width)';
   }
 
   @override
@@ -1148,24 +1148,24 @@ class _$_Template implements _Template {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Template &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality().equals(other.width, width) &&
             const DeepCollectionEquality().equals(other.box_count, box_count) &&
             const DeepCollectionEquality().equals(other.height, height) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.url, url) &&
+            const DeepCollectionEquality().equals(other.width, width));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(width),
       const DeepCollectionEquality().hash(box_count),
       const DeepCollectionEquality().hash(height),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(url),
+      const DeepCollectionEquality().hash(width));
 
   @JsonKey(ignore: true)
   @override
@@ -1182,27 +1182,15 @@ class _$_Template implements _Template {
 
 abstract class _Template implements Template {
   const factory _Template(
-      {final String? name,
-      final String? url,
-      final int? width,
-      final int? box_count,
+      {final int? box_count,
       final int? height,
-      final String? id}) = _$_Template;
+      final String? id,
+      final String? name,
+      final String? url,
+      final int? width}) = _$_Template;
 
   factory _Template.fromJson(Map<String, dynamic> json) = _$_Template.fromJson;
 
-  @override
-
-  /// name of the memegen
-  String? get name;
-  @override
-
-  /// url of the memegen
-  String? get url;
-  @override
-
-  /// width in pixels
-  int? get width;
   @override
 
   /// number of boxes used
@@ -1215,6 +1203,18 @@ abstract class _Template implements Template {
 
   /// id of the memegen
   String? get id;
+  @override
+
+  /// name of the memegen
+  String? get name;
+  @override
+
+  /// url of the memegen
+  String? get url;
+  @override
+
+  /// width in pixels
+  int? get width;
   @override
   @JsonKey(ignore: true)
   _$$_TemplateCopyWith<_$_Template> get copyWith =>

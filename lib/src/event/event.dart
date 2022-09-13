@@ -118,14 +118,14 @@ class ConsumeResponse with _$ConsumeResponse {
 @Freezed()
 class Ev with _$Ev {
   const factory Ev({
-    /// event id
-    String? id,
-
     /// event message
     Map<String, dynamic>? message,
 
     /// event timestamp
     String? timestamp,
+
+    /// event id
+    String? id,
   }) = _Ev;
   factory Ev.fromJson(Map<String, dynamic> json) => _$EvFromJson(json);
 }

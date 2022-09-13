@@ -20,50 +20,50 @@ Forecast _$ForecastFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Forecast {
-  /// max wind speed kph
-  double? get max_wind_kph => throw _privateConstructorUsedError;
-
-  /// max wind speed mph
-  double? get max_wind_mph => throw _privateConstructorUsedError;
-
-  /// minimum temp in fahrenheit
-  double? get min_temp_f => throw _privateConstructorUsedError;
-
-  /// time of sunrise
-  String? get sunrise => throw _privateConstructorUsedError;
-
-  /// will it rain
-  bool? get will_it_rain => throw _privateConstructorUsedError;
-
   /// the average temp in fahrenheit
   double? get avg_temp_f => throw _privateConstructorUsedError;
-
-  /// chance of rain (percentage)
-  int? get chance_of_rain => throw _privateConstructorUsedError;
-
-  /// max temp in fahrenheit
-  double? get max_temp_f => throw _privateConstructorUsedError;
-
-  /// the URL of forecast condition icon. Simply prefix with either http or https to use it
-  String? get icon_url => throw _privateConstructorUsedError;
 
   /// max temp in celsius
   double? get max_temp_c => throw _privateConstructorUsedError;
 
-  /// forecast condition
-  String? get condition => throw _privateConstructorUsedError;
+  /// will it rain
+  bool? get will_it_rain => throw _privateConstructorUsedError;
 
-  /// date of the forecast
-  String? get date => throw _privateConstructorUsedError;
+  /// max temp in fahrenheit
+  double? get max_temp_f => throw _privateConstructorUsedError;
 
-  /// minimum temp in celsius
-  double? get min_temp_c => throw _privateConstructorUsedError;
+  /// max wind speed mph
+  double? get max_wind_mph => throw _privateConstructorUsedError;
+
+  /// time of sunset
+  String? get sunset => throw _privateConstructorUsedError;
 
   /// the average temp in celsius
   double? get avg_temp_c => throw _privateConstructorUsedError;
 
-  /// time of sunset
-  String? get sunset => throw _privateConstructorUsedError;
+  /// chance of rain (percentage)
+  int? get chance_of_rain => throw _privateConstructorUsedError;
+
+  /// date of the forecast
+  String? get date => throw _privateConstructorUsedError;
+
+  /// the URL of forecast condition icon. Simply prefix with either http or https to use it
+  String? get icon_url => throw _privateConstructorUsedError;
+
+  /// minimum temp in celsius
+  double? get min_temp_c => throw _privateConstructorUsedError;
+
+  /// minimum temp in fahrenheit
+  double? get min_temp_f => throw _privateConstructorUsedError;
+
+  /// forecast condition
+  String? get condition => throw _privateConstructorUsedError;
+
+  /// max wind speed kph
+  double? get max_wind_kph => throw _privateConstructorUsedError;
+
+  /// time of sunrise
+  String? get sunrise => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -76,21 +76,21 @@ abstract class $ForecastCopyWith<$Res> {
   factory $ForecastCopyWith(Forecast value, $Res Function(Forecast) then) =
       _$ForecastCopyWithImpl<$Res>;
   $Res call(
-      {double? max_wind_kph,
-      double? max_wind_mph,
-      double? min_temp_f,
-      String? sunrise,
-      bool? will_it_rain,
-      double? avg_temp_f,
-      int? chance_of_rain,
-      double? max_temp_f,
-      String? icon_url,
+      {double? avg_temp_f,
       double? max_temp_c,
-      String? condition,
-      String? date,
-      double? min_temp_c,
+      bool? will_it_rain,
+      double? max_temp_f,
+      double? max_wind_mph,
+      String? sunset,
       double? avg_temp_c,
-      String? sunset});
+      int? chance_of_rain,
+      String? date,
+      String? icon_url,
+      double? min_temp_c,
+      double? min_temp_f,
+      String? condition,
+      double? max_wind_kph,
+      String? sunrise});
 }
 
 /// @nodoc
@@ -103,82 +103,82 @@ class _$ForecastCopyWithImpl<$Res> implements $ForecastCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? max_wind_kph = freezed,
-    Object? max_wind_mph = freezed,
-    Object? min_temp_f = freezed,
-    Object? sunrise = freezed,
-    Object? will_it_rain = freezed,
     Object? avg_temp_f = freezed,
-    Object? chance_of_rain = freezed,
-    Object? max_temp_f = freezed,
-    Object? icon_url = freezed,
     Object? max_temp_c = freezed,
-    Object? condition = freezed,
-    Object? date = freezed,
-    Object? min_temp_c = freezed,
-    Object? avg_temp_c = freezed,
+    Object? will_it_rain = freezed,
+    Object? max_temp_f = freezed,
+    Object? max_wind_mph = freezed,
     Object? sunset = freezed,
+    Object? avg_temp_c = freezed,
+    Object? chance_of_rain = freezed,
+    Object? date = freezed,
+    Object? icon_url = freezed,
+    Object? min_temp_c = freezed,
+    Object? min_temp_f = freezed,
+    Object? condition = freezed,
+    Object? max_wind_kph = freezed,
+    Object? sunrise = freezed,
   }) {
     return _then(_value.copyWith(
-      max_wind_kph: max_wind_kph == freezed
-          ? _value.max_wind_kph
-          : max_wind_kph // ignore: cast_nullable_to_non_nullable
+      avg_temp_f: avg_temp_f == freezed
+          ? _value.avg_temp_f
+          : avg_temp_f // ignore: cast_nullable_to_non_nullable
+              as double?,
+      max_temp_c: max_temp_c == freezed
+          ? _value.max_temp_c
+          : max_temp_c // ignore: cast_nullable_to_non_nullable
+              as double?,
+      will_it_rain: will_it_rain == freezed
+          ? _value.will_it_rain
+          : will_it_rain // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      max_temp_f: max_temp_f == freezed
+          ? _value.max_temp_f
+          : max_temp_f // ignore: cast_nullable_to_non_nullable
               as double?,
       max_wind_mph: max_wind_mph == freezed
           ? _value.max_wind_mph
           : max_wind_mph // ignore: cast_nullable_to_non_nullable
               as double?,
-      min_temp_f: min_temp_f == freezed
-          ? _value.min_temp_f
-          : min_temp_f // ignore: cast_nullable_to_non_nullable
-              as double?,
-      sunrise: sunrise == freezed
-          ? _value.sunrise
-          : sunrise // ignore: cast_nullable_to_non_nullable
+      sunset: sunset == freezed
+          ? _value.sunset
+          : sunset // ignore: cast_nullable_to_non_nullable
               as String?,
-      will_it_rain: will_it_rain == freezed
-          ? _value.will_it_rain
-          : will_it_rain // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      avg_temp_f: avg_temp_f == freezed
-          ? _value.avg_temp_f
-          : avg_temp_f // ignore: cast_nullable_to_non_nullable
+      avg_temp_c: avg_temp_c == freezed
+          ? _value.avg_temp_c
+          : avg_temp_c // ignore: cast_nullable_to_non_nullable
               as double?,
       chance_of_rain: chance_of_rain == freezed
           ? _value.chance_of_rain
           : chance_of_rain // ignore: cast_nullable_to_non_nullable
               as int?,
-      max_temp_f: max_temp_f == freezed
-          ? _value.max_temp_f
-          : max_temp_f // ignore: cast_nullable_to_non_nullable
-              as double?,
-      icon_url: icon_url == freezed
-          ? _value.icon_url
-          : icon_url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      max_temp_c: max_temp_c == freezed
-          ? _value.max_temp_c
-          : max_temp_c // ignore: cast_nullable_to_non_nullable
-              as double?,
-      condition: condition == freezed
-          ? _value.condition
-          : condition // ignore: cast_nullable_to_non_nullable
-              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
+              as String?,
+      icon_url: icon_url == freezed
+          ? _value.icon_url
+          : icon_url // ignore: cast_nullable_to_non_nullable
               as String?,
       min_temp_c: min_temp_c == freezed
           ? _value.min_temp_c
           : min_temp_c // ignore: cast_nullable_to_non_nullable
               as double?,
-      avg_temp_c: avg_temp_c == freezed
-          ? _value.avg_temp_c
-          : avg_temp_c // ignore: cast_nullable_to_non_nullable
+      min_temp_f: min_temp_f == freezed
+          ? _value.min_temp_f
+          : min_temp_f // ignore: cast_nullable_to_non_nullable
               as double?,
-      sunset: sunset == freezed
-          ? _value.sunset
-          : sunset // ignore: cast_nullable_to_non_nullable
+      condition: condition == freezed
+          ? _value.condition
+          : condition // ignore: cast_nullable_to_non_nullable
+              as String?,
+      max_wind_kph: max_wind_kph == freezed
+          ? _value.max_wind_kph
+          : max_wind_kph // ignore: cast_nullable_to_non_nullable
+              as double?,
+      sunrise: sunrise == freezed
+          ? _value.sunrise
+          : sunrise // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -191,21 +191,21 @@ abstract class _$$_ForecastCopyWith<$Res> implements $ForecastCopyWith<$Res> {
       __$$_ForecastCopyWithImpl<$Res>;
   @override
   $Res call(
-      {double? max_wind_kph,
-      double? max_wind_mph,
-      double? min_temp_f,
-      String? sunrise,
-      bool? will_it_rain,
-      double? avg_temp_f,
-      int? chance_of_rain,
-      double? max_temp_f,
-      String? icon_url,
+      {double? avg_temp_f,
       double? max_temp_c,
-      String? condition,
-      String? date,
-      double? min_temp_c,
+      bool? will_it_rain,
+      double? max_temp_f,
+      double? max_wind_mph,
+      String? sunset,
       double? avg_temp_c,
-      String? sunset});
+      int? chance_of_rain,
+      String? date,
+      String? icon_url,
+      double? min_temp_c,
+      double? min_temp_f,
+      String? condition,
+      double? max_wind_kph,
+      String? sunrise});
 }
 
 /// @nodoc
@@ -220,82 +220,82 @@ class __$$_ForecastCopyWithImpl<$Res> extends _$ForecastCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? max_wind_kph = freezed,
-    Object? max_wind_mph = freezed,
-    Object? min_temp_f = freezed,
-    Object? sunrise = freezed,
-    Object? will_it_rain = freezed,
     Object? avg_temp_f = freezed,
-    Object? chance_of_rain = freezed,
-    Object? max_temp_f = freezed,
-    Object? icon_url = freezed,
     Object? max_temp_c = freezed,
-    Object? condition = freezed,
-    Object? date = freezed,
-    Object? min_temp_c = freezed,
-    Object? avg_temp_c = freezed,
+    Object? will_it_rain = freezed,
+    Object? max_temp_f = freezed,
+    Object? max_wind_mph = freezed,
     Object? sunset = freezed,
+    Object? avg_temp_c = freezed,
+    Object? chance_of_rain = freezed,
+    Object? date = freezed,
+    Object? icon_url = freezed,
+    Object? min_temp_c = freezed,
+    Object? min_temp_f = freezed,
+    Object? condition = freezed,
+    Object? max_wind_kph = freezed,
+    Object? sunrise = freezed,
   }) {
     return _then(_$_Forecast(
-      max_wind_kph: max_wind_kph == freezed
-          ? _value.max_wind_kph
-          : max_wind_kph // ignore: cast_nullable_to_non_nullable
+      avg_temp_f: avg_temp_f == freezed
+          ? _value.avg_temp_f
+          : avg_temp_f // ignore: cast_nullable_to_non_nullable
+              as double?,
+      max_temp_c: max_temp_c == freezed
+          ? _value.max_temp_c
+          : max_temp_c // ignore: cast_nullable_to_non_nullable
+              as double?,
+      will_it_rain: will_it_rain == freezed
+          ? _value.will_it_rain
+          : will_it_rain // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      max_temp_f: max_temp_f == freezed
+          ? _value.max_temp_f
+          : max_temp_f // ignore: cast_nullable_to_non_nullable
               as double?,
       max_wind_mph: max_wind_mph == freezed
           ? _value.max_wind_mph
           : max_wind_mph // ignore: cast_nullable_to_non_nullable
               as double?,
-      min_temp_f: min_temp_f == freezed
-          ? _value.min_temp_f
-          : min_temp_f // ignore: cast_nullable_to_non_nullable
-              as double?,
-      sunrise: sunrise == freezed
-          ? _value.sunrise
-          : sunrise // ignore: cast_nullable_to_non_nullable
+      sunset: sunset == freezed
+          ? _value.sunset
+          : sunset // ignore: cast_nullable_to_non_nullable
               as String?,
-      will_it_rain: will_it_rain == freezed
-          ? _value.will_it_rain
-          : will_it_rain // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      avg_temp_f: avg_temp_f == freezed
-          ? _value.avg_temp_f
-          : avg_temp_f // ignore: cast_nullable_to_non_nullable
+      avg_temp_c: avg_temp_c == freezed
+          ? _value.avg_temp_c
+          : avg_temp_c // ignore: cast_nullable_to_non_nullable
               as double?,
       chance_of_rain: chance_of_rain == freezed
           ? _value.chance_of_rain
           : chance_of_rain // ignore: cast_nullable_to_non_nullable
               as int?,
-      max_temp_f: max_temp_f == freezed
-          ? _value.max_temp_f
-          : max_temp_f // ignore: cast_nullable_to_non_nullable
-              as double?,
-      icon_url: icon_url == freezed
-          ? _value.icon_url
-          : icon_url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      max_temp_c: max_temp_c == freezed
-          ? _value.max_temp_c
-          : max_temp_c // ignore: cast_nullable_to_non_nullable
-              as double?,
-      condition: condition == freezed
-          ? _value.condition
-          : condition // ignore: cast_nullable_to_non_nullable
-              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
+              as String?,
+      icon_url: icon_url == freezed
+          ? _value.icon_url
+          : icon_url // ignore: cast_nullable_to_non_nullable
               as String?,
       min_temp_c: min_temp_c == freezed
           ? _value.min_temp_c
           : min_temp_c // ignore: cast_nullable_to_non_nullable
               as double?,
-      avg_temp_c: avg_temp_c == freezed
-          ? _value.avg_temp_c
-          : avg_temp_c // ignore: cast_nullable_to_non_nullable
+      min_temp_f: min_temp_f == freezed
+          ? _value.min_temp_f
+          : min_temp_f // ignore: cast_nullable_to_non_nullable
               as double?,
-      sunset: sunset == freezed
-          ? _value.sunset
-          : sunset // ignore: cast_nullable_to_non_nullable
+      condition: condition == freezed
+          ? _value.condition
+          : condition // ignore: cast_nullable_to_non_nullable
+              as String?,
+      max_wind_kph: max_wind_kph == freezed
+          ? _value.max_wind_kph
+          : max_wind_kph // ignore: cast_nullable_to_non_nullable
+              as double?,
+      sunrise: sunrise == freezed
+          ? _value.sunrise
+          : sunrise // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -305,88 +305,88 @@ class __$$_ForecastCopyWithImpl<$Res> extends _$ForecastCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Forecast implements _Forecast {
   const _$_Forecast(
-      {this.max_wind_kph,
-      this.max_wind_mph,
-      this.min_temp_f,
-      this.sunrise,
-      this.will_it_rain,
-      this.avg_temp_f,
-      this.chance_of_rain,
-      this.max_temp_f,
-      this.icon_url,
+      {this.avg_temp_f,
       this.max_temp_c,
-      this.condition,
-      this.date,
-      this.min_temp_c,
+      this.will_it_rain,
+      this.max_temp_f,
+      this.max_wind_mph,
+      this.sunset,
       this.avg_temp_c,
-      this.sunset});
+      this.chance_of_rain,
+      this.date,
+      this.icon_url,
+      this.min_temp_c,
+      this.min_temp_f,
+      this.condition,
+      this.max_wind_kph,
+      this.sunrise});
 
   factory _$_Forecast.fromJson(Map<String, dynamic> json) =>
       _$$_ForecastFromJson(json);
-
-  /// max wind speed kph
-  @override
-  final double? max_wind_kph;
-
-  /// max wind speed mph
-  @override
-  final double? max_wind_mph;
-
-  /// minimum temp in fahrenheit
-  @override
-  final double? min_temp_f;
-
-  /// time of sunrise
-  @override
-  final String? sunrise;
-
-  /// will it rain
-  @override
-  final bool? will_it_rain;
 
   /// the average temp in fahrenheit
   @override
   final double? avg_temp_f;
 
-  /// chance of rain (percentage)
+  /// max temp in celsius
   @override
-  final int? chance_of_rain;
+  final double? max_temp_c;
+
+  /// will it rain
+  @override
+  final bool? will_it_rain;
 
   /// max temp in fahrenheit
   @override
   final double? max_temp_f;
 
-  /// the URL of forecast condition icon. Simply prefix with either http or https to use it
+  /// max wind speed mph
   @override
-  final String? icon_url;
-
-  /// max temp in celsius
-  @override
-  final double? max_temp_c;
-
-  /// forecast condition
-  @override
-  final String? condition;
-
-  /// date of the forecast
-  @override
-  final String? date;
-
-  /// minimum temp in celsius
-  @override
-  final double? min_temp_c;
-
-  /// the average temp in celsius
-  @override
-  final double? avg_temp_c;
+  final double? max_wind_mph;
 
   /// time of sunset
   @override
   final String? sunset;
 
+  /// the average temp in celsius
+  @override
+  final double? avg_temp_c;
+
+  /// chance of rain (percentage)
+  @override
+  final int? chance_of_rain;
+
+  /// date of the forecast
+  @override
+  final String? date;
+
+  /// the URL of forecast condition icon. Simply prefix with either http or https to use it
+  @override
+  final String? icon_url;
+
+  /// minimum temp in celsius
+  @override
+  final double? min_temp_c;
+
+  /// minimum temp in fahrenheit
+  @override
+  final double? min_temp_f;
+
+  /// forecast condition
+  @override
+  final String? condition;
+
+  /// max wind speed kph
+  @override
+  final double? max_wind_kph;
+
+  /// time of sunrise
+  @override
+  final String? sunrise;
+
   @override
   String toString() {
-    return 'Forecast(max_wind_kph: $max_wind_kph, max_wind_mph: $max_wind_mph, min_temp_f: $min_temp_f, sunrise: $sunrise, will_it_rain: $will_it_rain, avg_temp_f: $avg_temp_f, chance_of_rain: $chance_of_rain, max_temp_f: $max_temp_f, icon_url: $icon_url, max_temp_c: $max_temp_c, condition: $condition, date: $date, min_temp_c: $min_temp_c, avg_temp_c: $avg_temp_c, sunset: $sunset)';
+    return 'Forecast(avg_temp_f: $avg_temp_f, max_temp_c: $max_temp_c, will_it_rain: $will_it_rain, max_temp_f: $max_temp_f, max_wind_mph: $max_wind_mph, sunset: $sunset, avg_temp_c: $avg_temp_c, chance_of_rain: $chance_of_rain, date: $date, icon_url: $icon_url, min_temp_c: $min_temp_c, min_temp_f: $min_temp_f, condition: $condition, max_wind_kph: $max_wind_kph, sunrise: $sunrise)';
   }
 
   @override
@@ -395,51 +395,51 @@ class _$_Forecast implements _Forecast {
         (other.runtimeType == runtimeType &&
             other is _$_Forecast &&
             const DeepCollectionEquality()
-                .equals(other.max_wind_kph, max_wind_kph) &&
+                .equals(other.avg_temp_f, avg_temp_f) &&
             const DeepCollectionEquality()
-                .equals(other.max_wind_mph, max_wind_mph) &&
-            const DeepCollectionEquality()
-                .equals(other.min_temp_f, min_temp_f) &&
-            const DeepCollectionEquality().equals(other.sunrise, sunrise) &&
+                .equals(other.max_temp_c, max_temp_c) &&
             const DeepCollectionEquality()
                 .equals(other.will_it_rain, will_it_rain) &&
             const DeepCollectionEquality()
-                .equals(other.avg_temp_f, avg_temp_f) &&
+                .equals(other.max_temp_f, max_temp_f) &&
+            const DeepCollectionEquality()
+                .equals(other.max_wind_mph, max_wind_mph) &&
+            const DeepCollectionEquality().equals(other.sunset, sunset) &&
+            const DeepCollectionEquality()
+                .equals(other.avg_temp_c, avg_temp_c) &&
             const DeepCollectionEquality()
                 .equals(other.chance_of_rain, chance_of_rain) &&
-            const DeepCollectionEquality()
-                .equals(other.max_temp_f, max_temp_f) &&
-            const DeepCollectionEquality().equals(other.icon_url, icon_url) &&
-            const DeepCollectionEquality()
-                .equals(other.max_temp_c, max_temp_c) &&
-            const DeepCollectionEquality().equals(other.condition, condition) &&
             const DeepCollectionEquality().equals(other.date, date) &&
+            const DeepCollectionEquality().equals(other.icon_url, icon_url) &&
             const DeepCollectionEquality()
                 .equals(other.min_temp_c, min_temp_c) &&
             const DeepCollectionEquality()
-                .equals(other.avg_temp_c, avg_temp_c) &&
-            const DeepCollectionEquality().equals(other.sunset, sunset));
+                .equals(other.min_temp_f, min_temp_f) &&
+            const DeepCollectionEquality().equals(other.condition, condition) &&
+            const DeepCollectionEquality()
+                .equals(other.max_wind_kph, max_wind_kph) &&
+            const DeepCollectionEquality().equals(other.sunrise, sunrise));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(max_wind_kph),
-      const DeepCollectionEquality().hash(max_wind_mph),
-      const DeepCollectionEquality().hash(min_temp_f),
-      const DeepCollectionEquality().hash(sunrise),
-      const DeepCollectionEquality().hash(will_it_rain),
       const DeepCollectionEquality().hash(avg_temp_f),
-      const DeepCollectionEquality().hash(chance_of_rain),
-      const DeepCollectionEquality().hash(max_temp_f),
-      const DeepCollectionEquality().hash(icon_url),
       const DeepCollectionEquality().hash(max_temp_c),
-      const DeepCollectionEquality().hash(condition),
-      const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(min_temp_c),
+      const DeepCollectionEquality().hash(will_it_rain),
+      const DeepCollectionEquality().hash(max_temp_f),
+      const DeepCollectionEquality().hash(max_wind_mph),
+      const DeepCollectionEquality().hash(sunset),
       const DeepCollectionEquality().hash(avg_temp_c),
-      const DeepCollectionEquality().hash(sunset));
+      const DeepCollectionEquality().hash(chance_of_rain),
+      const DeepCollectionEquality().hash(date),
+      const DeepCollectionEquality().hash(icon_url),
+      const DeepCollectionEquality().hash(min_temp_c),
+      const DeepCollectionEquality().hash(min_temp_f),
+      const DeepCollectionEquality().hash(condition),
+      const DeepCollectionEquality().hash(max_wind_kph),
+      const DeepCollectionEquality().hash(sunrise));
 
   @JsonKey(ignore: true)
   @override
@@ -456,84 +456,84 @@ class _$_Forecast implements _Forecast {
 
 abstract class _Forecast implements Forecast {
   const factory _Forecast(
-      {final double? max_wind_kph,
-      final double? max_wind_mph,
-      final double? min_temp_f,
-      final String? sunrise,
-      final bool? will_it_rain,
-      final double? avg_temp_f,
-      final int? chance_of_rain,
-      final double? max_temp_f,
-      final String? icon_url,
+      {final double? avg_temp_f,
       final double? max_temp_c,
-      final String? condition,
-      final String? date,
-      final double? min_temp_c,
+      final bool? will_it_rain,
+      final double? max_temp_f,
+      final double? max_wind_mph,
+      final String? sunset,
       final double? avg_temp_c,
-      final String? sunset}) = _$_Forecast;
+      final int? chance_of_rain,
+      final String? date,
+      final String? icon_url,
+      final double? min_temp_c,
+      final double? min_temp_f,
+      final String? condition,
+      final double? max_wind_kph,
+      final String? sunrise}) = _$_Forecast;
 
   factory _Forecast.fromJson(Map<String, dynamic> json) = _$_Forecast.fromJson;
 
-  @override
-
-  /// max wind speed kph
-  double? get max_wind_kph;
-  @override
-
-  /// max wind speed mph
-  double? get max_wind_mph;
-  @override
-
-  /// minimum temp in fahrenheit
-  double? get min_temp_f;
-  @override
-
-  /// time of sunrise
-  String? get sunrise;
-  @override
-
-  /// will it rain
-  bool? get will_it_rain;
   @override
 
   /// the average temp in fahrenheit
   double? get avg_temp_f;
   @override
 
-  /// chance of rain (percentage)
-  int? get chance_of_rain;
+  /// max temp in celsius
+  double? get max_temp_c;
+  @override
+
+  /// will it rain
+  bool? get will_it_rain;
   @override
 
   /// max temp in fahrenheit
   double? get max_temp_f;
   @override
 
-  /// the URL of forecast condition icon. Simply prefix with either http or https to use it
-  String? get icon_url;
+  /// max wind speed mph
+  double? get max_wind_mph;
   @override
 
-  /// max temp in celsius
-  double? get max_temp_c;
-  @override
-
-  /// forecast condition
-  String? get condition;
-  @override
-
-  /// date of the forecast
-  String? get date;
-  @override
-
-  /// minimum temp in celsius
-  double? get min_temp_c;
+  /// time of sunset
+  String? get sunset;
   @override
 
   /// the average temp in celsius
   double? get avg_temp_c;
   @override
 
-  /// time of sunset
-  String? get sunset;
+  /// chance of rain (percentage)
+  int? get chance_of_rain;
+  @override
+
+  /// date of the forecast
+  String? get date;
+  @override
+
+  /// the URL of forecast condition icon. Simply prefix with either http or https to use it
+  String? get icon_url;
+  @override
+
+  /// minimum temp in celsius
+  double? get min_temp_c;
+  @override
+
+  /// minimum temp in fahrenheit
+  double? get min_temp_f;
+  @override
+
+  /// forecast condition
+  String? get condition;
+  @override
+
+  /// max wind speed kph
+  double? get max_wind_kph;
+  @override
+
+  /// time of sunrise
+  String? get sunrise;
   @override
   @JsonKey(ignore: true)
   _$$_ForecastCopyWith<_$_Forecast> get copyWith =>
@@ -721,14 +721,14 @@ mixin _$ForecastResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? local_time,
+            String? location,
+            double? longitude,
             String? region,
             String? timezone,
             String? country,
             List<Forecast>? forecast,
-            double? latitude,
-            String? local_time,
-            String? location,
-            double? longitude)
+            double? latitude)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
@@ -736,14 +736,14 @@ mixin _$ForecastResponse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
+            String? local_time,
+            String? location,
+            double? longitude,
             String? region,
             String? timezone,
             String? country,
             List<Forecast>? forecast,
-            double? latitude,
-            String? local_time,
-            String? location,
-            double? longitude)?
+            double? latitude)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
@@ -751,14 +751,14 @@ mixin _$ForecastResponse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? local_time,
+            String? location,
+            double? longitude,
             String? region,
             String? timezone,
             String? country,
             List<Forecast>? forecast,
-            double? latitude,
-            String? local_time,
-            String? location,
-            double? longitude)?
+            double? latitude)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -809,14 +809,14 @@ abstract class _$$ForecastResponseDataCopyWith<$Res> {
           $Res Function(_$ForecastResponseData) then) =
       __$$ForecastResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {String? region,
+      {String? local_time,
+      String? location,
+      double? longitude,
+      String? region,
       String? timezone,
       String? country,
       List<Forecast>? forecast,
-      double? latitude,
-      String? local_time,
-      String? location,
-      double? longitude});
+      double? latitude});
 }
 
 /// @nodoc
@@ -832,16 +832,28 @@ class __$$ForecastResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? local_time = freezed,
+    Object? location = freezed,
+    Object? longitude = freezed,
     Object? region = freezed,
     Object? timezone = freezed,
     Object? country = freezed,
     Object? forecast = freezed,
     Object? latitude = freezed,
-    Object? local_time = freezed,
-    Object? location = freezed,
-    Object? longitude = freezed,
   }) {
     return _then(_$ForecastResponseData(
+      local_time: local_time == freezed
+          ? _value.local_time
+          : local_time // ignore: cast_nullable_to_non_nullable
+              as String?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
+      longitude: longitude == freezed
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double?,
       region: region == freezed
           ? _value.region
           : region // ignore: cast_nullable_to_non_nullable
@@ -862,18 +874,6 @@ class __$$ForecastResponseDataCopyWithImpl<$Res>
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
               as double?,
-      local_time: local_time == freezed
-          ? _value.local_time
-          : local_time // ignore: cast_nullable_to_non_nullable
-              as String?,
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String?,
-      longitude: longitude == freezed
-          ? _value.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as double?,
     ));
   }
 }
@@ -882,20 +882,32 @@ class __$$ForecastResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ForecastResponseData implements ForecastResponseData {
   const _$ForecastResponseData(
-      {this.region,
+      {this.local_time,
+      this.location,
+      this.longitude,
+      this.region,
       this.timezone,
       this.country,
       final List<Forecast>? forecast,
       this.latitude,
-      this.local_time,
-      this.location,
-      this.longitude,
       final String? $type})
       : _forecast = forecast,
         $type = $type ?? 'default';
 
   factory _$ForecastResponseData.fromJson(Map<String, dynamic> json) =>
       _$$ForecastResponseDataFromJson(json);
+
+  /// the local time
+  @override
+  final String? local_time;
+
+  /// location of the request
+  @override
+  final String? location;
+
+  /// e.g -77.46
+  @override
+  final double? longitude;
 
   /// region related to the location
   @override
@@ -925,24 +937,12 @@ class _$ForecastResponseData implements ForecastResponseData {
   @override
   final double? latitude;
 
-  /// the local time
-  @override
-  final String? local_time;
-
-  /// location of the request
-  @override
-  final String? location;
-
-  /// e.g -77.46
-  @override
-  final double? longitude;
-
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'ForecastResponse(region: $region, timezone: $timezone, country: $country, forecast: $forecast, latitude: $latitude, local_time: $local_time, location: $location, longitude: $longitude)';
+    return 'ForecastResponse(local_time: $local_time, location: $location, longitude: $longitude, region: $region, timezone: $timezone, country: $country, forecast: $forecast, latitude: $latitude)';
   }
 
   @override
@@ -950,29 +950,29 @@ class _$ForecastResponseData implements ForecastResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ForecastResponseData &&
+            const DeepCollectionEquality()
+                .equals(other.local_time, local_time) &&
+            const DeepCollectionEquality().equals(other.location, location) &&
+            const DeepCollectionEquality().equals(other.longitude, longitude) &&
             const DeepCollectionEquality().equals(other.region, region) &&
             const DeepCollectionEquality().equals(other.timezone, timezone) &&
             const DeepCollectionEquality().equals(other.country, country) &&
             const DeepCollectionEquality().equals(other._forecast, _forecast) &&
-            const DeepCollectionEquality().equals(other.latitude, latitude) &&
-            const DeepCollectionEquality()
-                .equals(other.local_time, local_time) &&
-            const DeepCollectionEquality().equals(other.location, location) &&
-            const DeepCollectionEquality().equals(other.longitude, longitude));
+            const DeepCollectionEquality().equals(other.latitude, latitude));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(local_time),
+      const DeepCollectionEquality().hash(location),
+      const DeepCollectionEquality().hash(longitude),
       const DeepCollectionEquality().hash(region),
       const DeepCollectionEquality().hash(timezone),
       const DeepCollectionEquality().hash(country),
       const DeepCollectionEquality().hash(_forecast),
-      const DeepCollectionEquality().hash(latitude),
-      const DeepCollectionEquality().hash(local_time),
-      const DeepCollectionEquality().hash(location),
-      const DeepCollectionEquality().hash(longitude));
+      const DeepCollectionEquality().hash(latitude));
 
   @JsonKey(ignore: true)
   @override
@@ -984,59 +984,59 @@ class _$ForecastResponseData implements ForecastResponseData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? local_time,
+            String? location,
+            double? longitude,
             String? region,
             String? timezone,
             String? country,
             List<Forecast>? forecast,
-            double? latitude,
-            String? local_time,
-            String? location,
-            double? longitude)
+            double? latitude)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(region, timezone, country, forecast, latitude, local_time,
-        location, longitude);
+    return $default(local_time, location, longitude, region, timezone, country,
+        forecast, latitude);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
+            String? local_time,
+            String? location,
+            double? longitude,
             String? region,
             String? timezone,
             String? country,
             List<Forecast>? forecast,
-            double? latitude,
-            String? local_time,
-            String? location,
-            double? longitude)?
+            double? latitude)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(region, timezone, country, forecast, latitude,
-        local_time, location, longitude);
+    return $default?.call(local_time, location, longitude, region, timezone,
+        country, forecast, latitude);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? local_time,
+            String? location,
+            double? longitude,
             String? region,
             String? timezone,
             String? country,
             List<Forecast>? forecast,
-            double? latitude,
-            String? local_time,
-            String? location,
-            double? longitude)?
+            double? latitude)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(region, timezone, country, forecast, latitude, local_time,
-          location, longitude);
+      return $default(local_time, location, longitude, region, timezone,
+          country, forecast, latitude);
     }
     return orElse();
   }
@@ -1082,17 +1082,26 @@ class _$ForecastResponseData implements ForecastResponseData {
 
 abstract class ForecastResponseData implements ForecastResponse {
   const factory ForecastResponseData(
-      {final String? region,
+      {final String? local_time,
+      final String? location,
+      final double? longitude,
+      final String? region,
       final String? timezone,
       final String? country,
       final List<Forecast>? forecast,
-      final double? latitude,
-      final String? local_time,
-      final String? location,
-      final double? longitude}) = _$ForecastResponseData;
+      final double? latitude}) = _$ForecastResponseData;
 
   factory ForecastResponseData.fromJson(Map<String, dynamic> json) =
       _$ForecastResponseData.fromJson;
+
+  /// the local time
+  String? get local_time;
+
+  /// location of the request
+  String? get location;
+
+  /// e.g -77.46
+  double? get longitude;
 
   /// region related to the location
   String? get region;
@@ -1108,15 +1117,6 @@ abstract class ForecastResponseData implements ForecastResponse {
 
   /// e.g 37.55
   double? get latitude;
-
-  /// the local time
-  String? get local_time;
-
-  /// location of the request
-  String? get location;
-
-  /// e.g -77.46
-  double? get longitude;
   @JsonKey(ignore: true)
   _$$ForecastResponseDataCopyWith<_$ForecastResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1205,14 +1205,14 @@ class _$ForecastResponseMerr implements ForecastResponseMerr {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? local_time,
+            String? location,
+            double? longitude,
             String? region,
             String? timezone,
             String? country,
             List<Forecast>? forecast,
-            double? latitude,
-            String? local_time,
-            String? location,
-            double? longitude)
+            double? latitude)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -1223,14 +1223,14 @@ class _$ForecastResponseMerr implements ForecastResponseMerr {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
+            String? local_time,
+            String? location,
+            double? longitude,
             String? region,
             String? timezone,
             String? country,
             List<Forecast>? forecast,
-            double? latitude,
-            String? local_time,
-            String? location,
-            double? longitude)?
+            double? latitude)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -1241,14 +1241,14 @@ class _$ForecastResponseMerr implements ForecastResponseMerr {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? local_time,
+            String? location,
+            double? longitude,
             String? region,
             String? timezone,
             String? country,
             List<Forecast>? forecast,
-            double? latitude,
-            String? local_time,
-            String? location,
-            double? longitude)?
+            double? latitude)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -1465,26 +1465,26 @@ mixin _$NowResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            String? timezone,
-            String? icon_url,
-            String? local_time,
-            String? location,
-            String? wind_direction,
-            String? condition,
+            int? cloud,
             String? country,
-            double? feels_like_c,
             double? feels_like_f,
+            String? local_time,
             double? temp_f,
             double? wind_mph,
-            int? cloud,
-            bool? daytime,
+            String? condition,
+            int? humidity,
+            String? location,
             double? longitude,
-            String? region,
             double? temp_c,
             int? wind_degree,
-            double? wind_kph,
-            int? humidity,
-            double? latitude)
+            bool? daytime,
+            double? feels_like_c,
+            String? icon_url,
+            double? latitude,
+            String? region,
+            String? timezone,
+            String? wind_direction,
+            double? wind_kph)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
@@ -1492,26 +1492,26 @@ mixin _$NowResponse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
-            String? timezone,
-            String? icon_url,
-            String? local_time,
-            String? location,
-            String? wind_direction,
-            String? condition,
+            int? cloud,
             String? country,
-            double? feels_like_c,
             double? feels_like_f,
+            String? local_time,
             double? temp_f,
             double? wind_mph,
-            int? cloud,
-            bool? daytime,
+            String? condition,
+            int? humidity,
+            String? location,
             double? longitude,
-            String? region,
             double? temp_c,
             int? wind_degree,
-            double? wind_kph,
-            int? humidity,
-            double? latitude)?
+            bool? daytime,
+            double? feels_like_c,
+            String? icon_url,
+            double? latitude,
+            String? region,
+            String? timezone,
+            String? wind_direction,
+            double? wind_kph)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
@@ -1519,26 +1519,26 @@ mixin _$NowResponse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            String? timezone,
-            String? icon_url,
-            String? local_time,
-            String? location,
-            String? wind_direction,
-            String? condition,
+            int? cloud,
             String? country,
-            double? feels_like_c,
             double? feels_like_f,
+            String? local_time,
             double? temp_f,
             double? wind_mph,
-            int? cloud,
-            bool? daytime,
+            String? condition,
+            int? humidity,
+            String? location,
             double? longitude,
-            String? region,
             double? temp_c,
             int? wind_degree,
-            double? wind_kph,
-            int? humidity,
-            double? latitude)?
+            bool? daytime,
+            double? feels_like_c,
+            String? icon_url,
+            double? latitude,
+            String? region,
+            String? timezone,
+            String? wind_direction,
+            double? wind_kph)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -1588,26 +1588,26 @@ abstract class _$$NowResponseDataCopyWith<$Res> {
           _$NowResponseData value, $Res Function(_$NowResponseData) then) =
       __$$NowResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {String? timezone,
-      String? icon_url,
-      String? local_time,
-      String? location,
-      String? wind_direction,
-      String? condition,
+      {int? cloud,
       String? country,
-      double? feels_like_c,
       double? feels_like_f,
+      String? local_time,
       double? temp_f,
       double? wind_mph,
-      int? cloud,
-      bool? daytime,
+      String? condition,
+      int? humidity,
+      String? location,
       double? longitude,
-      String? region,
       double? temp_c,
       int? wind_degree,
-      double? wind_kph,
-      int? humidity,
-      double? latitude});
+      bool? daytime,
+      double? feels_like_c,
+      String? icon_url,
+      double? latitude,
+      String? region,
+      String? timezone,
+      String? wind_direction,
+      double? wind_kph});
 }
 
 /// @nodoc
@@ -1623,64 +1623,44 @@ class __$$NowResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? timezone = freezed,
-    Object? icon_url = freezed,
-    Object? local_time = freezed,
-    Object? location = freezed,
-    Object? wind_direction = freezed,
-    Object? condition = freezed,
+    Object? cloud = freezed,
     Object? country = freezed,
-    Object? feels_like_c = freezed,
     Object? feels_like_f = freezed,
+    Object? local_time = freezed,
     Object? temp_f = freezed,
     Object? wind_mph = freezed,
-    Object? cloud = freezed,
-    Object? daytime = freezed,
+    Object? condition = freezed,
+    Object? humidity = freezed,
+    Object? location = freezed,
     Object? longitude = freezed,
-    Object? region = freezed,
     Object? temp_c = freezed,
     Object? wind_degree = freezed,
-    Object? wind_kph = freezed,
-    Object? humidity = freezed,
+    Object? daytime = freezed,
+    Object? feels_like_c = freezed,
+    Object? icon_url = freezed,
     Object? latitude = freezed,
+    Object? region = freezed,
+    Object? timezone = freezed,
+    Object? wind_direction = freezed,
+    Object? wind_kph = freezed,
   }) {
     return _then(_$NowResponseData(
-      timezone: timezone == freezed
-          ? _value.timezone
-          : timezone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      icon_url: icon_url == freezed
-          ? _value.icon_url
-          : icon_url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      local_time: local_time == freezed
-          ? _value.local_time
-          : local_time // ignore: cast_nullable_to_non_nullable
-              as String?,
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String?,
-      wind_direction: wind_direction == freezed
-          ? _value.wind_direction
-          : wind_direction // ignore: cast_nullable_to_non_nullable
-              as String?,
-      condition: condition == freezed
-          ? _value.condition
-          : condition // ignore: cast_nullable_to_non_nullable
-              as String?,
+      cloud: cloud == freezed
+          ? _value.cloud
+          : cloud // ignore: cast_nullable_to_non_nullable
+              as int?,
       country: country == freezed
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String?,
-      feels_like_c: feels_like_c == freezed
-          ? _value.feels_like_c
-          : feels_like_c // ignore: cast_nullable_to_non_nullable
-              as double?,
       feels_like_f: feels_like_f == freezed
           ? _value.feels_like_f
           : feels_like_f // ignore: cast_nullable_to_non_nullable
               as double?,
+      local_time: local_time == freezed
+          ? _value.local_time
+          : local_time // ignore: cast_nullable_to_non_nullable
+              as String?,
       temp_f: temp_f == freezed
           ? _value.temp_f
           : temp_f // ignore: cast_nullable_to_non_nullable
@@ -1689,22 +1669,22 @@ class __$$NowResponseDataCopyWithImpl<$Res>
           ? _value.wind_mph
           : wind_mph // ignore: cast_nullable_to_non_nullable
               as double?,
-      cloud: cloud == freezed
-          ? _value.cloud
-          : cloud // ignore: cast_nullable_to_non_nullable
+      condition: condition == freezed
+          ? _value.condition
+          : condition // ignore: cast_nullable_to_non_nullable
+              as String?,
+      humidity: humidity == freezed
+          ? _value.humidity
+          : humidity // ignore: cast_nullable_to_non_nullable
               as int?,
-      daytime: daytime == freezed
-          ? _value.daytime
-          : daytime // ignore: cast_nullable_to_non_nullable
-              as bool?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
       longitude: longitude == freezed
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as double?,
-      region: region == freezed
-          ? _value.region
-          : region // ignore: cast_nullable_to_non_nullable
-              as String?,
       temp_c: temp_c == freezed
           ? _value.temp_c
           : temp_c // ignore: cast_nullable_to_non_nullable
@@ -1713,17 +1693,37 @@ class __$$NowResponseDataCopyWithImpl<$Res>
           ? _value.wind_degree
           : wind_degree // ignore: cast_nullable_to_non_nullable
               as int?,
-      wind_kph: wind_kph == freezed
-          ? _value.wind_kph
-          : wind_kph // ignore: cast_nullable_to_non_nullable
+      daytime: daytime == freezed
+          ? _value.daytime
+          : daytime // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      feels_like_c: feels_like_c == freezed
+          ? _value.feels_like_c
+          : feels_like_c // ignore: cast_nullable_to_non_nullable
               as double?,
-      humidity: humidity == freezed
-          ? _value.humidity
-          : humidity // ignore: cast_nullable_to_non_nullable
-              as int?,
+      icon_url: icon_url == freezed
+          ? _value.icon_url
+          : icon_url // ignore: cast_nullable_to_non_nullable
+              as String?,
       latitude: latitude == freezed
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
+              as double?,
+      region: region == freezed
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
+              as String?,
+      timezone: timezone == freezed
+          ? _value.timezone
+          : timezone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      wind_direction: wind_direction == freezed
+          ? _value.wind_direction
+          : wind_direction // ignore: cast_nullable_to_non_nullable
+              as String?,
+      wind_kph: wind_kph == freezed
+          ? _value.wind_kph
+          : wind_kph // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
   }
@@ -1733,67 +1733,47 @@ class __$$NowResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$NowResponseData implements NowResponseData {
   const _$NowResponseData(
-      {this.timezone,
-      this.icon_url,
-      this.local_time,
-      this.location,
-      this.wind_direction,
-      this.condition,
+      {this.cloud,
       this.country,
-      this.feels_like_c,
       this.feels_like_f,
+      this.local_time,
       this.temp_f,
       this.wind_mph,
-      this.cloud,
-      this.daytime,
+      this.condition,
+      this.humidity,
+      this.location,
       this.longitude,
-      this.region,
       this.temp_c,
       this.wind_degree,
-      this.wind_kph,
-      this.humidity,
+      this.daytime,
+      this.feels_like_c,
+      this.icon_url,
       this.latitude,
+      this.region,
+      this.timezone,
+      this.wind_direction,
+      this.wind_kph,
       final String? $type})
       : $type = $type ?? 'default';
 
   factory _$NowResponseData.fromJson(Map<String, dynamic> json) =>
       _$$NowResponseDataFromJson(json);
 
-  /// timezone of the location
+  /// cloud cover percentage
   @override
-  final String? timezone;
-
-  /// the URL of the related icon. Simply prefix with either http or https to use it
-  @override
-  final String? icon_url;
-
-  /// the local time
-  @override
-  final String? local_time;
-
-  /// location of the request
-  @override
-  final String? location;
-
-  /// wind direction
-  @override
-  final String? wind_direction;
-
-  /// the weather condition
-  @override
-  final String? condition;
+  final int? cloud;
 
   /// country of the request
   @override
   final String? country;
 
-  /// feels like in celsius
-  @override
-  final double? feels_like_c;
-
   /// feels like in fahrenheit
   @override
   final double? feels_like_f;
+
+  /// the local time
+  @override
+  final String? local_time;
 
   /// temperature in fahrenheit
   @override
@@ -1803,21 +1783,21 @@ class _$NowResponseData implements NowResponseData {
   @override
   final double? wind_mph;
 
-  /// cloud cover percentage
+  /// the weather condition
   @override
-  final int? cloud;
+  final String? condition;
 
-  /// whether its daytime
+  /// the humidity percentage
   @override
-  final bool? daytime;
+  final int? humidity;
+
+  /// location of the request
+  @override
+  final String? location;
 
   /// e.g -77.46
   @override
   final double? longitude;
-
-  /// region related to the location
-  @override
-  final String? region;
 
   /// temperature in celsius
   @override
@@ -1827,24 +1807,44 @@ class _$NowResponseData implements NowResponseData {
   @override
   final int? wind_degree;
 
-  /// wind in kph
+  /// whether its daytime
   @override
-  final double? wind_kph;
+  final bool? daytime;
 
-  /// the humidity percentage
+  /// feels like in celsius
   @override
-  final int? humidity;
+  final double? feels_like_c;
+
+  /// the URL of the related icon. Simply prefix with either http or https to use it
+  @override
+  final String? icon_url;
 
   /// e.g 37.55
   @override
   final double? latitude;
+
+  /// region related to the location
+  @override
+  final String? region;
+
+  /// timezone of the location
+  @override
+  final String? timezone;
+
+  /// wind direction
+  @override
+  final String? wind_direction;
+
+  /// wind in kph
+  @override
+  final double? wind_kph;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'NowResponse(timezone: $timezone, icon_url: $icon_url, local_time: $local_time, location: $location, wind_direction: $wind_direction, condition: $condition, country: $country, feels_like_c: $feels_like_c, feels_like_f: $feels_like_f, temp_f: $temp_f, wind_mph: $wind_mph, cloud: $cloud, daytime: $daytime, longitude: $longitude, region: $region, temp_c: $temp_c, wind_degree: $wind_degree, wind_kph: $wind_kph, humidity: $humidity, latitude: $latitude)';
+    return 'NowResponse(cloud: $cloud, country: $country, feels_like_f: $feels_like_f, local_time: $local_time, temp_f: $temp_f, wind_mph: $wind_mph, condition: $condition, humidity: $humidity, location: $location, longitude: $longitude, temp_c: $temp_c, wind_degree: $wind_degree, daytime: $daytime, feels_like_c: $feels_like_c, icon_url: $icon_url, latitude: $latitude, region: $region, timezone: $timezone, wind_direction: $wind_direction, wind_kph: $wind_kph)';
   }
 
   @override
@@ -1852,57 +1852,57 @@ class _$NowResponseData implements NowResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NowResponseData &&
-            const DeepCollectionEquality().equals(other.timezone, timezone) &&
-            const DeepCollectionEquality().equals(other.icon_url, icon_url) &&
-            const DeepCollectionEquality()
-                .equals(other.local_time, local_time) &&
-            const DeepCollectionEquality().equals(other.location, location) &&
-            const DeepCollectionEquality()
-                .equals(other.wind_direction, wind_direction) &&
-            const DeepCollectionEquality().equals(other.condition, condition) &&
+            const DeepCollectionEquality().equals(other.cloud, cloud) &&
             const DeepCollectionEquality().equals(other.country, country) &&
             const DeepCollectionEquality()
-                .equals(other.feels_like_c, feels_like_c) &&
-            const DeepCollectionEquality()
                 .equals(other.feels_like_f, feels_like_f) &&
+            const DeepCollectionEquality()
+                .equals(other.local_time, local_time) &&
             const DeepCollectionEquality().equals(other.temp_f, temp_f) &&
             const DeepCollectionEquality().equals(other.wind_mph, wind_mph) &&
-            const DeepCollectionEquality().equals(other.cloud, cloud) &&
-            const DeepCollectionEquality().equals(other.daytime, daytime) &&
+            const DeepCollectionEquality().equals(other.condition, condition) &&
+            const DeepCollectionEquality().equals(other.humidity, humidity) &&
+            const DeepCollectionEquality().equals(other.location, location) &&
             const DeepCollectionEquality().equals(other.longitude, longitude) &&
-            const DeepCollectionEquality().equals(other.region, region) &&
             const DeepCollectionEquality().equals(other.temp_c, temp_c) &&
             const DeepCollectionEquality()
                 .equals(other.wind_degree, wind_degree) &&
-            const DeepCollectionEquality().equals(other.wind_kph, wind_kph) &&
-            const DeepCollectionEquality().equals(other.humidity, humidity) &&
-            const DeepCollectionEquality().equals(other.latitude, latitude));
+            const DeepCollectionEquality().equals(other.daytime, daytime) &&
+            const DeepCollectionEquality()
+                .equals(other.feels_like_c, feels_like_c) &&
+            const DeepCollectionEquality().equals(other.icon_url, icon_url) &&
+            const DeepCollectionEquality().equals(other.latitude, latitude) &&
+            const DeepCollectionEquality().equals(other.region, region) &&
+            const DeepCollectionEquality().equals(other.timezone, timezone) &&
+            const DeepCollectionEquality()
+                .equals(other.wind_direction, wind_direction) &&
+            const DeepCollectionEquality().equals(other.wind_kph, wind_kph));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        const DeepCollectionEquality().hash(timezone),
-        const DeepCollectionEquality().hash(icon_url),
-        const DeepCollectionEquality().hash(local_time),
-        const DeepCollectionEquality().hash(location),
-        const DeepCollectionEquality().hash(wind_direction),
-        const DeepCollectionEquality().hash(condition),
+        const DeepCollectionEquality().hash(cloud),
         const DeepCollectionEquality().hash(country),
-        const DeepCollectionEquality().hash(feels_like_c),
         const DeepCollectionEquality().hash(feels_like_f),
+        const DeepCollectionEquality().hash(local_time),
         const DeepCollectionEquality().hash(temp_f),
         const DeepCollectionEquality().hash(wind_mph),
-        const DeepCollectionEquality().hash(cloud),
-        const DeepCollectionEquality().hash(daytime),
+        const DeepCollectionEquality().hash(condition),
+        const DeepCollectionEquality().hash(humidity),
+        const DeepCollectionEquality().hash(location),
         const DeepCollectionEquality().hash(longitude),
-        const DeepCollectionEquality().hash(region),
         const DeepCollectionEquality().hash(temp_c),
         const DeepCollectionEquality().hash(wind_degree),
-        const DeepCollectionEquality().hash(wind_kph),
-        const DeepCollectionEquality().hash(humidity),
-        const DeepCollectionEquality().hash(latitude)
+        const DeepCollectionEquality().hash(daytime),
+        const DeepCollectionEquality().hash(feels_like_c),
+        const DeepCollectionEquality().hash(icon_url),
+        const DeepCollectionEquality().hash(latitude),
+        const DeepCollectionEquality().hash(region),
+        const DeepCollectionEquality().hash(timezone),
+        const DeepCollectionEquality().hash(wind_direction),
+        const DeepCollectionEquality().hash(wind_kph)
       ]);
 
   @JsonKey(ignore: true)
@@ -1914,152 +1914,152 @@ class _$NowResponseData implements NowResponseData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            String? timezone,
-            String? icon_url,
-            String? local_time,
-            String? location,
-            String? wind_direction,
-            String? condition,
+            int? cloud,
             String? country,
-            double? feels_like_c,
             double? feels_like_f,
+            String? local_time,
             double? temp_f,
             double? wind_mph,
-            int? cloud,
-            bool? daytime,
+            String? condition,
+            int? humidity,
+            String? location,
             double? longitude,
-            String? region,
             double? temp_c,
             int? wind_degree,
-            double? wind_kph,
-            int? humidity,
-            double? latitude)
+            bool? daytime,
+            double? feels_like_c,
+            String? icon_url,
+            double? latitude,
+            String? region,
+            String? timezone,
+            String? wind_direction,
+            double? wind_kph)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return $default(
-        timezone,
-        icon_url,
-        local_time,
-        location,
-        wind_direction,
-        condition,
+        cloud,
         country,
-        feels_like_c,
         feels_like_f,
+        local_time,
         temp_f,
         wind_mph,
-        cloud,
-        daytime,
+        condition,
+        humidity,
+        location,
         longitude,
-        region,
         temp_c,
         wind_degree,
-        wind_kph,
-        humidity,
-        latitude);
+        daytime,
+        feels_like_c,
+        icon_url,
+        latitude,
+        region,
+        timezone,
+        wind_direction,
+        wind_kph);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
-            String? timezone,
-            String? icon_url,
-            String? local_time,
-            String? location,
-            String? wind_direction,
-            String? condition,
+            int? cloud,
             String? country,
-            double? feels_like_c,
             double? feels_like_f,
+            String? local_time,
             double? temp_f,
             double? wind_mph,
-            int? cloud,
-            bool? daytime,
+            String? condition,
+            int? humidity,
+            String? location,
             double? longitude,
-            String? region,
             double? temp_c,
             int? wind_degree,
-            double? wind_kph,
-            int? humidity,
-            double? latitude)?
+            bool? daytime,
+            double? feels_like_c,
+            String? icon_url,
+            double? latitude,
+            String? region,
+            String? timezone,
+            String? wind_direction,
+            double? wind_kph)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(
-        timezone,
-        icon_url,
-        local_time,
-        location,
-        wind_direction,
-        condition,
+        cloud,
         country,
-        feels_like_c,
         feels_like_f,
+        local_time,
         temp_f,
         wind_mph,
-        cloud,
-        daytime,
+        condition,
+        humidity,
+        location,
         longitude,
-        region,
         temp_c,
         wind_degree,
-        wind_kph,
-        humidity,
-        latitude);
+        daytime,
+        feels_like_c,
+        icon_url,
+        latitude,
+        region,
+        timezone,
+        wind_direction,
+        wind_kph);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            String? timezone,
-            String? icon_url,
-            String? local_time,
-            String? location,
-            String? wind_direction,
-            String? condition,
+            int? cloud,
             String? country,
-            double? feels_like_c,
             double? feels_like_f,
+            String? local_time,
             double? temp_f,
             double? wind_mph,
-            int? cloud,
-            bool? daytime,
+            String? condition,
+            int? humidity,
+            String? location,
             double? longitude,
-            String? region,
             double? temp_c,
             int? wind_degree,
-            double? wind_kph,
-            int? humidity,
-            double? latitude)?
+            bool? daytime,
+            double? feels_like_c,
+            String? icon_url,
+            double? latitude,
+            String? region,
+            String? timezone,
+            String? wind_direction,
+            double? wind_kph)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
       return $default(
-          timezone,
-          icon_url,
-          local_time,
-          location,
-          wind_direction,
-          condition,
+          cloud,
           country,
-          feels_like_c,
           feels_like_f,
+          local_time,
           temp_f,
           wind_mph,
-          cloud,
-          daytime,
+          condition,
+          humidity,
+          location,
           longitude,
-          region,
           temp_c,
           wind_degree,
-          wind_kph,
-          humidity,
-          latitude);
+          daytime,
+          feels_like_c,
+          icon_url,
+          latitude,
+          region,
+          timezone,
+          wind_direction,
+          wind_kph);
     }
     return orElse();
   }
@@ -2105,56 +2105,41 @@ class _$NowResponseData implements NowResponseData {
 
 abstract class NowResponseData implements NowResponse {
   const factory NowResponseData(
-      {final String? timezone,
-      final String? icon_url,
-      final String? local_time,
-      final String? location,
-      final String? wind_direction,
-      final String? condition,
+      {final int? cloud,
       final String? country,
-      final double? feels_like_c,
       final double? feels_like_f,
+      final String? local_time,
       final double? temp_f,
       final double? wind_mph,
-      final int? cloud,
-      final bool? daytime,
+      final String? condition,
+      final int? humidity,
+      final String? location,
       final double? longitude,
-      final String? region,
       final double? temp_c,
       final int? wind_degree,
-      final double? wind_kph,
-      final int? humidity,
-      final double? latitude}) = _$NowResponseData;
+      final bool? daytime,
+      final double? feels_like_c,
+      final String? icon_url,
+      final double? latitude,
+      final String? region,
+      final String? timezone,
+      final String? wind_direction,
+      final double? wind_kph}) = _$NowResponseData;
 
   factory NowResponseData.fromJson(Map<String, dynamic> json) =
       _$NowResponseData.fromJson;
 
-  /// timezone of the location
-  String? get timezone;
-
-  /// the URL of the related icon. Simply prefix with either http or https to use it
-  String? get icon_url;
-
-  /// the local time
-  String? get local_time;
-
-  /// location of the request
-  String? get location;
-
-  /// wind direction
-  String? get wind_direction;
-
-  /// the weather condition
-  String? get condition;
+  /// cloud cover percentage
+  int? get cloud;
 
   /// country of the request
   String? get country;
 
-  /// feels like in celsius
-  double? get feels_like_c;
-
   /// feels like in fahrenheit
   double? get feels_like_f;
+
+  /// the local time
+  String? get local_time;
 
   /// temperature in fahrenheit
   double? get temp_f;
@@ -2162,17 +2147,17 @@ abstract class NowResponseData implements NowResponse {
   /// wind in mph
   double? get wind_mph;
 
-  /// cloud cover percentage
-  int? get cloud;
+  /// the weather condition
+  String? get condition;
 
-  /// whether its daytime
-  bool? get daytime;
+  /// the humidity percentage
+  int? get humidity;
+
+  /// location of the request
+  String? get location;
 
   /// e.g -77.46
   double? get longitude;
-
-  /// region related to the location
-  String? get region;
 
   /// temperature in celsius
   double? get temp_c;
@@ -2180,14 +2165,29 @@ abstract class NowResponseData implements NowResponse {
   /// wind degree
   int? get wind_degree;
 
-  /// wind in kph
-  double? get wind_kph;
+  /// whether its daytime
+  bool? get daytime;
 
-  /// the humidity percentage
-  int? get humidity;
+  /// feels like in celsius
+  double? get feels_like_c;
+
+  /// the URL of the related icon. Simply prefix with either http or https to use it
+  String? get icon_url;
 
   /// e.g 37.55
   double? get latitude;
+
+  /// region related to the location
+  String? get region;
+
+  /// timezone of the location
+  String? get timezone;
+
+  /// wind direction
+  String? get wind_direction;
+
+  /// wind in kph
+  double? get wind_kph;
   @JsonKey(ignore: true)
   _$$NowResponseDataCopyWith<_$NowResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2275,26 +2275,26 @@ class _$NowResponseMerr implements NowResponseMerr {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            String? timezone,
-            String? icon_url,
-            String? local_time,
-            String? location,
-            String? wind_direction,
-            String? condition,
+            int? cloud,
             String? country,
-            double? feels_like_c,
             double? feels_like_f,
+            String? local_time,
             double? temp_f,
             double? wind_mph,
-            int? cloud,
-            bool? daytime,
+            String? condition,
+            int? humidity,
+            String? location,
             double? longitude,
-            String? region,
             double? temp_c,
             int? wind_degree,
-            double? wind_kph,
-            int? humidity,
-            double? latitude)
+            bool? daytime,
+            double? feels_like_c,
+            String? icon_url,
+            double? latitude,
+            String? region,
+            String? timezone,
+            String? wind_direction,
+            double? wind_kph)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -2305,26 +2305,26 @@ class _$NowResponseMerr implements NowResponseMerr {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(
-            String? timezone,
-            String? icon_url,
-            String? local_time,
-            String? location,
-            String? wind_direction,
-            String? condition,
+            int? cloud,
             String? country,
-            double? feels_like_c,
             double? feels_like_f,
+            String? local_time,
             double? temp_f,
             double? wind_mph,
-            int? cloud,
-            bool? daytime,
+            String? condition,
+            int? humidity,
+            String? location,
             double? longitude,
-            String? region,
             double? temp_c,
             int? wind_degree,
-            double? wind_kph,
-            int? humidity,
-            double? latitude)?
+            bool? daytime,
+            double? feels_like_c,
+            String? icon_url,
+            double? latitude,
+            String? region,
+            String? timezone,
+            String? wind_direction,
+            double? wind_kph)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -2335,26 +2335,26 @@ class _$NowResponseMerr implements NowResponseMerr {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            String? timezone,
-            String? icon_url,
-            String? local_time,
-            String? location,
-            String? wind_direction,
-            String? condition,
+            int? cloud,
             String? country,
-            double? feels_like_c,
             double? feels_like_f,
+            String? local_time,
             double? temp_f,
             double? wind_mph,
-            int? cloud,
-            bool? daytime,
+            String? condition,
+            int? humidity,
+            String? location,
             double? longitude,
-            String? region,
             double? temp_c,
             int? wind_degree,
-            double? wind_kph,
-            int? humidity,
-            double? latitude)?
+            bool? daytime,
+            double? feels_like_c,
+            String? icon_url,
+            double? latitude,
+            String? region,
+            String? timezone,
+            String? wind_direction,
+            double? wind_kph)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
