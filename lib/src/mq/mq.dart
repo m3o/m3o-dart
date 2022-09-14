@@ -93,11 +93,11 @@ class SubscribeRequest with _$SubscribeRequest {
 @Freezed()
 class SubscribeResponse with _$SubscribeResponse {
   const factory SubscribeResponse({
-    /// The topic subscribed to
-    String? topic,
-
     /// The next json message on the topic
     Map<String, dynamic>? message,
+
+    /// The topic subscribed to
+    String? topic,
   }) = SubscribeResponseData;
   const factory SubscribeResponse.Merr({Map<String, dynamic>? body}) =
       SubscribeResponseMerr;

@@ -4,12 +4,12 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/wallet/api](ht
 
 Endpoints:
 
-## Read
+## List
 
-Get wallet by id
+List your wallets
 
 
-[https://m3o.com/wallet/api#Read](https://m3o.com/wallet/api#Read)
+[https://m3o.com/wallet/api#List](https://m3o.com/wallet/api#List)
 
 ```dart
 import 'dart:io';
@@ -19,19 +19,17 @@ import 'package:m3o/src/wallet/wallet.dart';
 void main() async {
   final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
  
-  final payload = <String, dynamic>{
-  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
-,};
+  final payload = <String, dynamic>{};
 
-  ReadRequest req = ReadRequest.fromJson(payload);
+  ListRequest req = ListRequest.fromJson(payload);
 
   
   try {
 
-	ReadResponse res = await ser.read(req);
+	ListResponse res = await ser.list(req);
 
     res.map((value) => print(value),
-	  Merr: (ReadResponseMerr err) => print(err.body!['body']));	
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -231,40 +229,6 @@ void main() async {
   }
 }
 ```
-## List
-
-List your wallets
-
-
-[https://m3o.com/wallet/api#List](https://m3o.com/wallet/api#List)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/wallet/wallet.dart';
-
-void main() async {
-  final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{};
-
-  ListRequest req = ListRequest.fromJson(payload);
-
-  
-  try {
-
-	ListResponse res = await ser.list(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Balance
 
 Get the balance of a wallet
@@ -329,6 +293,42 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (TransactionsResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Read
+
+Get wallet by id
+
+
+[https://m3o.com/wallet/api#Read](https://m3o.com/wallet/api#Read)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/wallet/wallet.dart';
+
+void main() async {
+  final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
+,};
+
+  ReadRequest req = ReadRequest.fromJson(payload);
+
+  
+  try {
+
+	ReadResponse res = await ser.read(req);
+
+    res.map((value) => print(value),
+	  Merr: (ReadResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

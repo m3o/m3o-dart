@@ -254,15 +254,6 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Group with _$Group {
   const factory Group({
-    /// list of users
-    List<String>? user_ids,
-
-    /// time of creation
-    String? created_at,
-
-    /// description of the that
-    String? description,
-
     /// unique group id
     String? id,
 
@@ -271,6 +262,15 @@ class Group with _$Group {
 
     /// whether its a private group
     bool? private,
+
+    /// list of users
+    List<String>? user_ids,
+
+    /// time of creation
+    String? created_at,
+
+    /// description of the that
+    String? description,
   }) = _Group;
   factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
 }

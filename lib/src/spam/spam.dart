@@ -36,6 +36,9 @@ class SpamService {
 @Freezed()
 class ClassifyRequest with _$ClassifyRequest {
   const factory ClassifyRequest({
+    /// the plain text version of the email body
+    String? text_body,
+
     /// The email address it is being sent to
     String? to,
 
@@ -50,9 +53,6 @@ class ClassifyRequest with _$ClassifyRequest {
 
     /// The subject of the email
     String? subject,
-
-    /// the plain text version of the email body
-    String? text_body,
   }) = _ClassifyRequest;
   factory ClassifyRequest.fromJson(Map<String, dynamic> json) =>
       _$ClassifyRequestFromJson(json);
@@ -61,14 +61,14 @@ class ClassifyRequest with _$ClassifyRequest {
 @Freezed()
 class ClassifyResponse with _$ClassifyResponse {
   const factory ClassifyResponse({
+    /// The score evaluated for this email. A higher number means it is more likely to be spam
+    double? score,
+
     /// The rules that have contributed to this score
     List<String>? details,
 
     /// Is it spam? Returns true if its score is > 5
     bool? is_spam,
-
-    /// The score evaluated for this email. A higher number means it is more likely to be spam
-    double? score,
   }) = ClassifyResponseData;
   const factory ClassifyResponse.Merr({Map<String, dynamic>? body}) =
       ClassifyResponseMerr;

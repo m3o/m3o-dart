@@ -100,11 +100,11 @@ class IpResponse with _$IpResponse {
 @Freezed()
 class TcpRequest with _$TcpRequest {
   const factory TcpRequest({
-    /// optional data to send
-    String? data,
-
     /// address to dial
     String? address,
+
+    /// optional data to send
+    String? data,
   }) = _TcpRequest;
   factory TcpRequest.fromJson(Map<String, dynamic> json) =>
       _$TcpRequestFromJson(json);
@@ -141,11 +141,11 @@ class UrlRequest with _$UrlRequest {
 @Freezed()
 class UrlResponse with _$UrlResponse {
   const factory UrlResponse({
-    /// the response code
-    int? code,
-
     /// the response status
     String? status,
+
+    /// the response code
+    int? code,
   }) = UrlResponseData;
   const factory UrlResponse.Merr({Map<String, dynamic>? body}) =
       UrlResponseMerr;
