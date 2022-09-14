@@ -119,13 +119,13 @@ Map<String, dynamic> _$$DeleteResponseMerrToJson(
     };
 
 _$_Field _$$_FieldFromJson(Map<String, dynamic> json) => _$_Field(
-      type: json['type'] as String?,
       name: json['name'] as String?,
+      type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$$_FieldToJson(_$_Field instance) => <String, dynamic>{
-      'type': instance.type,
       'name': instance.name,
+      'type': instance.type,
     };
 
 _$_IndexRequest _$$_IndexRequestFromJson(Map<String, dynamic> json) =>
@@ -169,25 +169,25 @@ Map<String, dynamic> _$$IndexResponseMerrToJson(_$IndexResponseMerr instance) =>
     };
 
 _$_Record _$$_RecordFromJson(Map<String, dynamic> json) => _$_Record(
-      data: json['data'] as Map<String, dynamic>?,
       id: json['id'] as String?,
+      data: json['data'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$$_RecordToJson(_$_Record instance) => <String, dynamic>{
-      'data': instance.data,
       'id': instance.id,
+      'data': instance.data,
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
     _$_SearchRequest(
-      query: json['query'] as String?,
       index: json['index'] as String?,
+      query: json['query'] as String?,
     );
 
 Map<String, dynamic> _$$_SearchRequestToJson(_$_SearchRequest instance) =>
     <String, dynamic>{
-      'query': instance.query,
       'index': instance.index,
+      'query': instance.query,
     };
 
 _$SearchResponseData _$$SearchResponseDataFromJson(Map<String, dynamic> json) =>

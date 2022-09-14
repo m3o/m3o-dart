@@ -36,15 +36,6 @@ class SpamService {
 @Freezed()
 class ClassifyRequest with _$ClassifyRequest {
   const factory ClassifyRequest({
-    /// the HTML version of the email body
-    String? html_body,
-
-    /// The subject of the email
-    String? subject,
-
-    /// the plain text version of the email body
-    String? text_body,
-
     /// The email address it is being sent to
     String? to,
 
@@ -53,6 +44,15 @@ class ClassifyRequest with _$ClassifyRequest {
 
     /// The email address it has been sent from
     String? from,
+
+    /// the HTML version of the email body
+    String? html_body,
+
+    /// The subject of the email
+    String? subject,
+
+    /// the plain text version of the email body
+    String? text_body,
   }) = _ClassifyRequest;
   factory ClassifyRequest.fromJson(Map<String, dynamic> json) =>
       _$ClassifyRequestFromJson(json);

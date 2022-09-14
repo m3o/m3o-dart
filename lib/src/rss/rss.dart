@@ -123,15 +123,6 @@ class AddResponse with _$AddResponse {
 @Freezed()
 class Entry with _$Entry {
   const factory Entry({
-    /// rss feed url of the entry
-    String? link,
-
-    /// article summary
-    String? summary,
-
-    /// title of the entry
-    String? title,
-
     /// article content
     String? content,
 
@@ -143,6 +134,15 @@ class Entry with _$Entry {
 
     /// unique id of the entry
     String? id,
+
+    /// rss feed url of the entry
+    String? link,
+
+    /// article summary
+    String? summary,
+
+    /// title of the entry
+    String? title,
   }) = _Entry;
   factory Entry.fromJson(Map<String, dynamic> json) => _$EntryFromJson(json);
 }
