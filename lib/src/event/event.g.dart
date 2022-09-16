@@ -23,20 +23,20 @@ Map<String, dynamic> _$$_ConsumeRequestToJson(_$_ConsumeRequest instance) =>
 _$ConsumeResponseData _$$ConsumeResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$ConsumeResponseData(
-      timestamp: json['timestamp'] as String?,
-      topic: json['topic'] as String?,
       id: json['id'] as String?,
       message: json['message'] as Map<String, dynamic>?,
+      timestamp: json['timestamp'] as String?,
+      topic: json['topic'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ConsumeResponseDataToJson(
         _$ConsumeResponseData instance) =>
     <String, dynamic>{
-      'timestamp': instance.timestamp,
-      'topic': instance.topic,
       'id': instance.id,
       'message': instance.message,
+      'timestamp': instance.timestamp,
+      'topic': instance.topic,
       'runtimeType': instance.$type,
     };
 
@@ -55,27 +55,27 @@ Map<String, dynamic> _$$ConsumeResponseMerrToJson(
     };
 
 _$_Ev _$$_EvFromJson(Map<String, dynamic> json) => _$_Ev(
+      timestamp: json['timestamp'] as String?,
       id: json['id'] as String?,
       message: json['message'] as Map<String, dynamic>?,
-      timestamp: json['timestamp'] as String?,
     );
 
 Map<String, dynamic> _$$_EvToJson(_$_Ev instance) => <String, dynamic>{
+      'timestamp': instance.timestamp,
       'id': instance.id,
       'message': instance.message,
-      'timestamp': instance.timestamp,
     };
 
 _$_PublishRequest _$$_PublishRequestFromJson(Map<String, dynamic> json) =>
     _$_PublishRequest(
-      topic: json['topic'] as String?,
       message: json['message'] as Map<String, dynamic>?,
+      topic: json['topic'] as String?,
     );
 
 Map<String, dynamic> _$$_PublishRequestToJson(_$_PublishRequest instance) =>
     <String, dynamic>{
-      'topic': instance.topic,
       'message': instance.message,
+      'topic': instance.topic,
     };
 
 _$PublishResponseData _$$PublishResponseDataFromJson(

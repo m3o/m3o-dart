@@ -305,12 +305,6 @@ class ListTablesResponse with _$ListTablesResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
-    /// 'asc' (default), 'desc'
-    String? order,
-
-    /// field name to order by
-    String? orderBy,
-
     /// Examples: 'age >= 18', 'age >= 18 and verified == true'
     /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
     /// Logical operator: 'and'
@@ -328,6 +322,12 @@ class ReadRequest with _$ReadRequest {
     /// Maximum limit is 1000. Anything higher will return an error.
     int? limit,
     int? offset,
+
+    /// 'asc' (default), 'desc'
+    String? order,
+
+    /// field name to order by
+    String? orderBy,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);
@@ -388,14 +388,14 @@ class TruncateResponse with _$TruncateResponse {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
-    /// Optional table name. Defaults to 'default'
-    String? table,
-
     /// The id of the record. If not specified it is inferred from the 'id' field of the record
     String? id,
 
     /// record, JSON object
     Map<String, dynamic>? record,
+
+    /// Optional table name. Defaults to 'default'
+    String? table,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

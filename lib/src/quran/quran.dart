@@ -98,11 +98,11 @@ class QuranService {
 @Freezed()
 class Chapter with _$Chapter {
   const factory Chapter({
+    /// The arabic name of the chapter
+    String? arabic_name,
+
     /// The complex name of the chapter
     String? complex_name,
-
-    /// The id of the chapter as a number e.g 1
-    int? id,
 
     /// Should the chapter start with bismillah
     bool? prefix_bismillah,
@@ -110,8 +110,8 @@ class Chapter with _$Chapter {
     /// The number of verses in the chapter
     int? verses,
 
-    /// The arabic name of the chapter
-    String? arabic_name,
+    /// The id of the chapter as a number e.g 1
+    int? id,
 
     /// The simple name of the chapter
     String? name,
@@ -156,14 +156,14 @@ class ChaptersResponse with _$ChaptersResponse {
 @Freezed()
 class Interpretation with _$Interpretation {
   const factory Interpretation({
+    /// The translated text
+    String? text,
+
     /// The unique id of the interpretation
     int? id,
 
     /// The source of the interpretation
     String? source,
-
-    /// The translated text
-    String? text,
   }) = _Interpretation;
   factory Interpretation.fromJson(Map<String, dynamic> json) =>
       _$InterpretationFromJson(json);
@@ -267,14 +267,14 @@ class SummaryResponse with _$SummaryResponse {
 @Freezed()
 class Translation with _$Translation {
   const factory Translation({
-    /// The translated text
-    String? text,
-
     /// The unique id of the translation
     int? id,
 
     /// The source of the translation
     String? source,
+
+    /// The translated text
+    String? text,
   }) = _Translation;
   factory Translation.fromJson(Map<String, dynamic> json) =>
       _$TranslationFromJson(json);
@@ -283,8 +283,8 @@ class Translation with _$Translation {
 @Freezed()
 class Verse with _$Verse {
   const factory Verse({
-    /// The interpretations of the verse
-    List<Interpretation>? interpretations,
+    /// The key of this verse (chapter:verse) e.g 1:1
+    String? key,
 
     /// The alternative translations for the verse
     List<Translation>? translations,
@@ -298,8 +298,8 @@ class Verse with _$Verse {
     /// The unique id of the verse in the whole book
     int? id,
 
-    /// The key of this verse (chapter:verse) e.g 1:1
-    String? key,
+    /// The interpretations of the verse
+    List<Interpretation>? interpretations,
 
     /// The verse number in this chapter
     int? number,
@@ -319,15 +319,6 @@ class Verse with _$Verse {
 @Freezed()
 class VersesRequest with _$VersesRequest {
   const factory VersesRequest({
-    /// Return the individual words with the verses
-    bool? words,
-
-    /// The chapter id to retrieve
-    int? chapter,
-
-    /// Return the interpretation (tafsir)
-    bool? interpret,
-
     /// The language of translation
     String? language,
 
@@ -339,6 +330,15 @@ class VersesRequest with _$VersesRequest {
 
     /// Return alternate translations
     bool? translate,
+
+    /// Return the individual words with the verses
+    bool? words,
+
+    /// The chapter id to retrieve
+    int? chapter,
+
+    /// Return the interpretation (tafsir)
+    bool? interpret,
   }) = _VersesRequest;
   factory VersesRequest.fromJson(Map<String, dynamic> json) =>
       _$VersesRequestFromJson(json);
@@ -368,11 +368,14 @@ class VersesResponse with _$VersesResponse {
 @Freezed()
 class Word with _$Word {
   const factory Word({
-    /// The QCF v2 font code
-    String? code,
+    /// The line number
+    int? line,
 
-    /// The position of the word
-    int? position,
+    /// The page number
+    int? page,
+
+    /// The arabic text for this word
+    String? text,
 
     /// The transliteration text
     String? transliteration,
@@ -383,17 +386,14 @@ class Word with _$Word {
     /// The id of the word within the verse
     int? id,
 
-    /// The line number
-    int? line,
-
-    /// The page number
-    int? page,
-
-    /// The arabic text for this word
-    String? text,
+    /// The position of the word
+    int? position,
 
     /// The translated text
     String? translation,
+
+    /// The QCF v2 font code
+    String? code,
   }) = _Word;
   factory Word.fromJson(Map<String, dynamic> json) => _$WordFromJson(json);
 }

@@ -4,6 +4,43 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/price/api](htt
 
 Endpoints:
 
+## Get
+
+Get the price of anything
+
+
+[https://m3o.com/price/api#Get](https://m3o.com/price/api#Get)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/price/price.dart';
+
+void main() async {
+  final ser = PriceService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "currency": "USD",
+  "name": "bitcoin"
+,};
+
+  GetRequest req = GetRequest.fromJson(payload);
+
+  
+  try {
+
+	GetResponse res = await ser.get(req);
+
+    res.map((value) => print(value),
+	  Merr: (GetResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## List
 
 List prices for a given currency
@@ -142,43 +179,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (AddResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Get
-
-Get the price of anything
-
-
-[https://m3o.com/price/api#Get](https://m3o.com/price/api#Get)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/price/price.dart';
-
-void main() async {
-  final ser = PriceService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "currency": "USD",
-  "name": "bitcoin"
-,};
-
-  GetRequest req = GetRequest.fromJson(payload);
-
-  
-  try {
-
-	GetResponse res = await ser.get(req);
-
-    res.map((value) => print(value),
-	  Merr: (GetResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

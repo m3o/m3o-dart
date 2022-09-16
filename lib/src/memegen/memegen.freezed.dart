@@ -315,9 +315,6 @@ GenerateRequest _$GenerateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GenerateRequest {
-  /// bottom text
-  String? get bottom_text => throw _privateConstructorUsedError;
-
   /// font: arial or impact
   String? get font => throw _privateConstructorUsedError;
 
@@ -329,6 +326,9 @@ mixin _$GenerateRequest {
 
   /// top text
   String? get top_text => throw _privateConstructorUsedError;
+
+  /// bottom text
+  String? get bottom_text => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -342,11 +342,11 @@ abstract class $GenerateRequestCopyWith<$Res> {
           GenerateRequest value, $Res Function(GenerateRequest) then) =
       _$GenerateRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? bottom_text,
-      String? font,
+      {String? font,
       String? id,
       String? max_font_size,
-      String? top_text});
+      String? top_text,
+      String? bottom_text});
 }
 
 /// @nodoc
@@ -360,17 +360,13 @@ class _$GenerateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? bottom_text = freezed,
     Object? font = freezed,
     Object? id = freezed,
     Object? max_font_size = freezed,
     Object? top_text = freezed,
+    Object? bottom_text = freezed,
   }) {
     return _then(_value.copyWith(
-      bottom_text: bottom_text == freezed
-          ? _value.bottom_text
-          : bottom_text // ignore: cast_nullable_to_non_nullable
-              as String?,
       font: font == freezed
           ? _value.font
           : font // ignore: cast_nullable_to_non_nullable
@@ -387,6 +383,10 @@ class _$GenerateRequestCopyWithImpl<$Res>
           ? _value.top_text
           : top_text // ignore: cast_nullable_to_non_nullable
               as String?,
+      bottom_text: bottom_text == freezed
+          ? _value.bottom_text
+          : bottom_text // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -399,11 +399,11 @@ abstract class _$$_GenerateRequestCopyWith<$Res>
       __$$_GenerateRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? bottom_text,
-      String? font,
+      {String? font,
       String? id,
       String? max_font_size,
-      String? top_text});
+      String? top_text,
+      String? bottom_text});
 }
 
 /// @nodoc
@@ -419,17 +419,13 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? bottom_text = freezed,
     Object? font = freezed,
     Object? id = freezed,
     Object? max_font_size = freezed,
     Object? top_text = freezed,
+    Object? bottom_text = freezed,
   }) {
     return _then(_$_GenerateRequest(
-      bottom_text: bottom_text == freezed
-          ? _value.bottom_text
-          : bottom_text // ignore: cast_nullable_to_non_nullable
-              as String?,
       font: font == freezed
           ? _value.font
           : font // ignore: cast_nullable_to_non_nullable
@@ -446,6 +442,10 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
           ? _value.top_text
           : top_text // ignore: cast_nullable_to_non_nullable
               as String?,
+      bottom_text: bottom_text == freezed
+          ? _value.bottom_text
+          : bottom_text // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -454,18 +454,14 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GenerateRequest implements _GenerateRequest {
   const _$_GenerateRequest(
-      {this.bottom_text,
-      this.font,
+      {this.font,
       this.id,
       this.max_font_size,
-      this.top_text});
+      this.top_text,
+      this.bottom_text});
 
   factory _$_GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_GenerateRequestFromJson(json);
-
-  /// bottom text
-  @override
-  final String? bottom_text;
 
   /// font: arial or impact
   @override
@@ -483,9 +479,13 @@ class _$_GenerateRequest implements _GenerateRequest {
   @override
   final String? top_text;
 
+  /// bottom text
+  @override
+  final String? bottom_text;
+
   @override
   String toString() {
-    return 'GenerateRequest(bottom_text: $bottom_text, font: $font, id: $id, max_font_size: $max_font_size, top_text: $top_text)';
+    return 'GenerateRequest(font: $font, id: $id, max_font_size: $max_font_size, top_text: $top_text, bottom_text: $bottom_text)';
   }
 
   @override
@@ -493,24 +493,24 @@ class _$_GenerateRequest implements _GenerateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GenerateRequest &&
-            const DeepCollectionEquality()
-                .equals(other.bottom_text, bottom_text) &&
             const DeepCollectionEquality().equals(other.font, font) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.max_font_size, max_font_size) &&
-            const DeepCollectionEquality().equals(other.top_text, top_text));
+            const DeepCollectionEquality().equals(other.top_text, top_text) &&
+            const DeepCollectionEquality()
+                .equals(other.bottom_text, bottom_text));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(bottom_text),
       const DeepCollectionEquality().hash(font),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(max_font_size),
-      const DeepCollectionEquality().hash(top_text));
+      const DeepCollectionEquality().hash(top_text),
+      const DeepCollectionEquality().hash(bottom_text));
 
   @JsonKey(ignore: true)
   @override
@@ -527,19 +527,15 @@ class _$_GenerateRequest implements _GenerateRequest {
 
 abstract class _GenerateRequest implements GenerateRequest {
   const factory _GenerateRequest(
-      {final String? bottom_text,
-      final String? font,
+      {final String? font,
       final String? id,
       final String? max_font_size,
-      final String? top_text}) = _$_GenerateRequest;
+      final String? top_text,
+      final String? bottom_text}) = _$_GenerateRequest;
 
   factory _GenerateRequest.fromJson(Map<String, dynamic> json) =
       _$_GenerateRequest.fromJson;
 
-  @override
-
-  /// bottom text
-  String? get bottom_text;
   @override
 
   /// font: arial or impact
@@ -556,6 +552,10 @@ abstract class _GenerateRequest implements GenerateRequest {
 
   /// top text
   String? get top_text;
+  @override
+
+  /// bottom text
+  String? get bottom_text;
   @override
   @JsonKey(ignore: true)
   _$$_GenerateRequestCopyWith<_$_GenerateRequest> get copyWith =>

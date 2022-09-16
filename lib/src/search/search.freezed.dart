@@ -2294,11 +2294,11 @@ Record _$RecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Record {
-  /// The ID for this record. If blank, one will be generated
-  String? get id => throw _privateConstructorUsedError;
-
   /// The JSON contents of the record
   Map<String, dynamic>? get data => throw _privateConstructorUsedError;
+
+  /// The ID for this record. If blank, one will be generated
+  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2309,7 +2309,7 @@ mixin _$Record {
 abstract class $RecordCopyWith<$Res> {
   factory $RecordCopyWith(Record value, $Res Function(Record) then) =
       _$RecordCopyWithImpl<$Res>;
-  $Res call({String? id, Map<String, dynamic>? data});
+  $Res call({Map<String, dynamic>? data, String? id});
 }
 
 /// @nodoc
@@ -2322,18 +2322,18 @@ class _$RecordCopyWithImpl<$Res> implements $RecordCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? data = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2343,7 +2343,7 @@ abstract class _$$_RecordCopyWith<$Res> implements $RecordCopyWith<$Res> {
   factory _$$_RecordCopyWith(_$_Record value, $Res Function(_$_Record) then) =
       __$$_RecordCopyWithImpl<$Res>;
   @override
-  $Res call({String? id, Map<String, dynamic>? data});
+  $Res call({Map<String, dynamic>? data, String? id});
 }
 
 /// @nodoc
@@ -2357,18 +2357,18 @@ class __$$_RecordCopyWithImpl<$Res> extends _$RecordCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? data = freezed,
+    Object? id = freezed,
   }) {
     return _then(_$_Record(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       data: data == freezed
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2376,14 +2376,10 @@ class __$$_RecordCopyWithImpl<$Res> extends _$RecordCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Record implements _Record {
-  const _$_Record({this.id, final Map<String, dynamic>? data}) : _data = data;
+  const _$_Record({final Map<String, dynamic>? data, this.id}) : _data = data;
 
   factory _$_Record.fromJson(Map<String, dynamic> json) =>
       _$$_RecordFromJson(json);
-
-  /// The ID for this record. If blank, one will be generated
-  @override
-  final String? id;
 
   /// The JSON contents of the record
   final Map<String, dynamic>? _data;
@@ -2397,9 +2393,13 @@ class _$_Record implements _Record {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// The ID for this record. If blank, one will be generated
+  @override
+  final String? id;
+
   @override
   String toString() {
-    return 'Record(id: $id, data: $data)';
+    return 'Record(data: $data, id: $id)';
   }
 
   @override
@@ -2407,16 +2407,16 @@ class _$_Record implements _Record {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Record &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(_data));
+      const DeepCollectionEquality().hash(_data),
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -2432,19 +2432,19 @@ class _$_Record implements _Record {
 }
 
 abstract class _Record implements Record {
-  const factory _Record({final String? id, final Map<String, dynamic>? data}) =
+  const factory _Record({final Map<String, dynamic>? data, final String? id}) =
       _$_Record;
 
   factory _Record.fromJson(Map<String, dynamic> json) = _$_Record.fromJson;
 
   @override
 
-  /// The ID for this record. If blank, one will be generated
-  String? get id;
-  @override
-
   /// The JSON contents of the record
   Map<String, dynamic>? get data;
+  @override
+
+  /// The ID for this record. If blank, one will be generated
+  String? get id;
   @override
   @JsonKey(ignore: true)
   _$$_RecordCopyWith<_$_Record> get copyWith =>
