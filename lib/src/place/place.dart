@@ -108,21 +108,6 @@ class NearbyResponse with _$NearbyResponse {
 @Freezed()
 class Result with _$Result {
   const factory Result({
-    /// lat/lng of place
-    String? location,
-
-    /// opening hours
-    List<String>? opening_hours,
-
-    /// rating from 1.0 to 5.0
-    double? rating,
-
-    /// feature types
-    List<String>? types,
-
-    /// type of location
-    String? type,
-
     /// simplified address
     String? vicinity,
 
@@ -135,8 +120,23 @@ class Result with _$Result {
     /// name of the place
     String? name,
 
+    /// type of location
+    String? type,
+
+    /// feature types
+    List<String>? types,
+
+    /// lat/lng of place
+    String? location,
+
     /// open now
     bool? open_now,
+
+    /// opening hours
+    List<String>? opening_hours,
+
+    /// rating from 1.0 to 5.0
+    double? rating,
   }) = _Result;
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
 }

@@ -4,6 +4,43 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/search/api](ht
 
 Endpoints:
 
+## Delete
+
+Delete a record given its ID
+
+
+[https://m3o.com/search/api#Delete](https://m3o.com/search/api#Delete)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/search/search.dart';
+
+void main() async {
+  final ser = SearchService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "id": "1234",
+  "index": "customers"
+,};
+
+  DeleteRequest req = DeleteRequest.fromJson(payload);
+
+  
+  try {
+
+	DeleteResponse res = await ser.delete(req);
+
+    res.map((value) => print(value),
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## CreateIndex
 
 Create an index by name
@@ -220,43 +257,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (SearchResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Delete
-
-Delete a record given its ID
-
-
-[https://m3o.com/search/api#Delete](https://m3o.com/search/api#Delete)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/search/search.dart';
-
-void main() async {
-  final ser = SearchService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "id": "1234",
-  "index": "customers"
-,};
-
-  DeleteRequest req = DeleteRequest.fromJson(payload);
-
-  
-  try {
-
-	DeleteResponse res = await ser.delete(req);
-
-    res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

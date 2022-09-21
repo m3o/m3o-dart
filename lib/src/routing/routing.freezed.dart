@@ -20,9 +20,6 @@ Direction _$DirectionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Direction {
-  /// human readable instruction
-  String? get instruction => throw _privateConstructorUsedError;
-
   /// intersections on route
   List<Intersection>? get intersections => throw _privateConstructorUsedError;
 
@@ -41,6 +38,9 @@ mixin _$Direction {
   /// duration to travel in seconds
   double? get duration => throw _privateConstructorUsedError;
 
+  /// human readable instruction
+  String? get instruction => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $DirectionCopyWith<Direction> get copyWith =>
@@ -52,13 +52,13 @@ abstract class $DirectionCopyWith<$Res> {
   factory $DirectionCopyWith(Direction value, $Res Function(Direction) then) =
       _$DirectionCopyWithImpl<$Res>;
   $Res call(
-      {String? instruction,
-      List<Intersection>? intersections,
+      {List<Intersection>? intersections,
       Maneuver? maneuver,
       String? name,
       String? reference,
       double? distance,
-      double? duration});
+      double? duration,
+      String? instruction});
 
   $ManeuverCopyWith<$Res>? get maneuver;
 }
@@ -73,19 +73,15 @@ class _$DirectionCopyWithImpl<$Res> implements $DirectionCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? instruction = freezed,
     Object? intersections = freezed,
     Object? maneuver = freezed,
     Object? name = freezed,
     Object? reference = freezed,
     Object? distance = freezed,
     Object? duration = freezed,
+    Object? instruction = freezed,
   }) {
     return _then(_value.copyWith(
-      instruction: instruction == freezed
-          ? _value.instruction
-          : instruction // ignore: cast_nullable_to_non_nullable
-              as String?,
       intersections: intersections == freezed
           ? _value.intersections
           : intersections // ignore: cast_nullable_to_non_nullable
@@ -110,6 +106,10 @@ class _$DirectionCopyWithImpl<$Res> implements $DirectionCopyWith<$Res> {
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as double?,
+      instruction: instruction == freezed
+          ? _value.instruction
+          : instruction // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
@@ -132,13 +132,13 @@ abstract class _$$_DirectionCopyWith<$Res> implements $DirectionCopyWith<$Res> {
       __$$_DirectionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? instruction,
-      List<Intersection>? intersections,
+      {List<Intersection>? intersections,
       Maneuver? maneuver,
       String? name,
       String? reference,
       double? distance,
-      double? duration});
+      double? duration,
+      String? instruction});
 
   @override
   $ManeuverCopyWith<$Res>? get maneuver;
@@ -156,19 +156,15 @@ class __$$_DirectionCopyWithImpl<$Res> extends _$DirectionCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? instruction = freezed,
     Object? intersections = freezed,
     Object? maneuver = freezed,
     Object? name = freezed,
     Object? reference = freezed,
     Object? distance = freezed,
     Object? duration = freezed,
+    Object? instruction = freezed,
   }) {
     return _then(_$_Direction(
-      instruction: instruction == freezed
-          ? _value.instruction
-          : instruction // ignore: cast_nullable_to_non_nullable
-              as String?,
       intersections: intersections == freezed
           ? _value._intersections
           : intersections // ignore: cast_nullable_to_non_nullable
@@ -193,6 +189,10 @@ class __$$_DirectionCopyWithImpl<$Res> extends _$DirectionCopyWithImpl<$Res>
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as double?,
+      instruction: instruction == freezed
+          ? _value.instruction
+          : instruction // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -201,21 +201,17 @@ class __$$_DirectionCopyWithImpl<$Res> extends _$DirectionCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Direction implements _Direction {
   const _$_Direction(
-      {this.instruction,
-      final List<Intersection>? intersections,
+      {final List<Intersection>? intersections,
       this.maneuver,
       this.name,
       this.reference,
       this.distance,
-      this.duration})
+      this.duration,
+      this.instruction})
       : _intersections = intersections;
 
   factory _$_Direction.fromJson(Map<String, dynamic> json) =>
       _$$_DirectionFromJson(json);
-
-  /// human readable instruction
-  @override
-  final String? instruction;
 
   /// intersections on route
   final List<Intersection>? _intersections;
@@ -249,9 +245,13 @@ class _$_Direction implements _Direction {
   @override
   final double? duration;
 
+  /// human readable instruction
+  @override
+  final String? instruction;
+
   @override
   String toString() {
-    return 'Direction(instruction: $instruction, intersections: $intersections, maneuver: $maneuver, name: $name, reference: $reference, distance: $distance, duration: $duration)';
+    return 'Direction(intersections: $intersections, maneuver: $maneuver, name: $name, reference: $reference, distance: $distance, duration: $duration, instruction: $instruction)';
   }
 
   @override
@@ -260,27 +260,27 @@ class _$_Direction implements _Direction {
         (other.runtimeType == runtimeType &&
             other is _$_Direction &&
             const DeepCollectionEquality()
-                .equals(other.instruction, instruction) &&
-            const DeepCollectionEquality()
                 .equals(other._intersections, _intersections) &&
             const DeepCollectionEquality().equals(other.maneuver, maneuver) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.reference, reference) &&
             const DeepCollectionEquality().equals(other.distance, distance) &&
-            const DeepCollectionEquality().equals(other.duration, duration));
+            const DeepCollectionEquality().equals(other.duration, duration) &&
+            const DeepCollectionEquality()
+                .equals(other.instruction, instruction));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(instruction),
       const DeepCollectionEquality().hash(_intersections),
       const DeepCollectionEquality().hash(maneuver),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(reference),
       const DeepCollectionEquality().hash(distance),
-      const DeepCollectionEquality().hash(duration));
+      const DeepCollectionEquality().hash(duration),
+      const DeepCollectionEquality().hash(instruction));
 
   @JsonKey(ignore: true)
   @override
@@ -297,21 +297,17 @@ class _$_Direction implements _Direction {
 
 abstract class _Direction implements Direction {
   const factory _Direction(
-      {final String? instruction,
-      final List<Intersection>? intersections,
+      {final List<Intersection>? intersections,
       final Maneuver? maneuver,
       final String? name,
       final String? reference,
       final double? distance,
-      final double? duration}) = _$_Direction;
+      final double? duration,
+      final String? instruction}) = _$_Direction;
 
   factory _Direction.fromJson(Map<String, dynamic> json) =
       _$_Direction.fromJson;
 
-  @override
-
-  /// human readable instruction
-  String? get instruction;
   @override
 
   /// intersections on route
@@ -336,6 +332,10 @@ abstract class _Direction implements Direction {
 
   /// duration to travel in seconds
   double? get duration;
+  @override
+
+  /// human readable instruction
+  String? get instruction;
   @override
   @JsonKey(ignore: true)
   _$$_DirectionCopyWith<_$_Direction> get copyWith =>
@@ -554,24 +554,24 @@ DirectionsResponse _$DirectionsResponseFromJson(Map<String, dynamic> json) {
 mixin _$DirectionsResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(List<Direction>? directions, double? distance,
-            double? duration, List<Waypoint>? waypoints)
+    TResult Function(double? duration, List<Waypoint>? waypoints,
+            List<Direction>? directions, double? distance)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Direction>? directions, double? distance,
-            double? duration, List<Waypoint>? waypoints)?
+    TResult Function(double? duration, List<Waypoint>? waypoints,
+            List<Direction>? directions, double? distance)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<Direction>? directions, double? distance,
-            double? duration, List<Waypoint>? waypoints)?
+    TResult Function(double? duration, List<Waypoint>? waypoints,
+            List<Direction>? directions, double? distance)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -622,10 +622,10 @@ abstract class _$$DirectionsResponseDataCopyWith<$Res> {
           $Res Function(_$DirectionsResponseData) then) =
       __$$DirectionsResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {List<Direction>? directions,
-      double? distance,
-      double? duration,
-      List<Waypoint>? waypoints});
+      {double? duration,
+      List<Waypoint>? waypoints,
+      List<Direction>? directions,
+      double? distance});
 }
 
 /// @nodoc
@@ -642,20 +642,12 @@ class __$$DirectionsResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? directions = freezed,
-    Object? distance = freezed,
     Object? duration = freezed,
     Object? waypoints = freezed,
+    Object? directions = freezed,
+    Object? distance = freezed,
   }) {
     return _then(_$DirectionsResponseData(
-      directions: directions == freezed
-          ? _value._directions
-          : directions // ignore: cast_nullable_to_non_nullable
-              as List<Direction>?,
-      distance: distance == freezed
-          ? _value.distance
-          : distance // ignore: cast_nullable_to_non_nullable
-              as double?,
       duration: duration == freezed
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
@@ -664,6 +656,14 @@ class __$$DirectionsResponseDataCopyWithImpl<$Res>
           ? _value._waypoints
           : waypoints // ignore: cast_nullable_to_non_nullable
               as List<Waypoint>?,
+      directions: directions == freezed
+          ? _value._directions
+          : directions // ignore: cast_nullable_to_non_nullable
+              as List<Direction>?,
+      distance: distance == freezed
+          ? _value.distance
+          : distance // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -672,33 +672,17 @@ class __$$DirectionsResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DirectionsResponseData implements DirectionsResponseData {
   const _$DirectionsResponseData(
-      {final List<Direction>? directions,
-      this.distance,
-      this.duration,
+      {this.duration,
       final List<Waypoint>? waypoints,
+      final List<Direction>? directions,
+      this.distance,
       final String? $type})
-      : _directions = directions,
-        _waypoints = waypoints,
+      : _waypoints = waypoints,
+        _directions = directions,
         $type = $type ?? 'default';
 
   factory _$DirectionsResponseData.fromJson(Map<String, dynamic> json) =>
       _$$DirectionsResponseDataFromJson(json);
-
-  /// Turn by turn directions
-  final List<Direction>? _directions;
-
-  /// Turn by turn directions
-  @override
-  List<Direction>? get directions {
-    final value = _directions;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  /// Estimated distance of the route in meters
-  @override
-  final double? distance;
 
   /// Estimated duration of the route in seconds
   @override
@@ -716,12 +700,28 @@ class _$DirectionsResponseData implements DirectionsResponseData {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Turn by turn directions
+  final List<Direction>? _directions;
+
+  /// Turn by turn directions
+  @override
+  List<Direction>? get directions {
+    final value = _directions;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  /// Estimated distance of the route in meters
+  @override
+  final double? distance;
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'DirectionsResponse(directions: $directions, distance: $distance, duration: $duration, waypoints: $waypoints)';
+    return 'DirectionsResponse(duration: $duration, waypoints: $waypoints, directions: $directions, distance: $distance)';
   }
 
   @override
@@ -729,22 +729,22 @@ class _$DirectionsResponseData implements DirectionsResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DirectionsResponseData &&
-            const DeepCollectionEquality()
-                .equals(other._directions, _directions) &&
-            const DeepCollectionEquality().equals(other.distance, distance) &&
             const DeepCollectionEquality().equals(other.duration, duration) &&
             const DeepCollectionEquality()
-                .equals(other._waypoints, _waypoints));
+                .equals(other._waypoints, _waypoints) &&
+            const DeepCollectionEquality()
+                .equals(other._directions, _directions) &&
+            const DeepCollectionEquality().equals(other.distance, distance));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_directions),
-      const DeepCollectionEquality().hash(distance),
       const DeepCollectionEquality().hash(duration),
-      const DeepCollectionEquality().hash(_waypoints));
+      const DeepCollectionEquality().hash(_waypoints),
+      const DeepCollectionEquality().hash(_directions),
+      const DeepCollectionEquality().hash(distance));
 
   @JsonKey(ignore: true)
   @override
@@ -755,36 +755,36 @@ class _$DirectionsResponseData implements DirectionsResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(List<Direction>? directions, double? distance,
-            double? duration, List<Waypoint>? waypoints)
+    TResult Function(double? duration, List<Waypoint>? waypoints,
+            List<Direction>? directions, double? distance)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(directions, distance, duration, waypoints);
+    return $default(duration, waypoints, directions, distance);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Direction>? directions, double? distance,
-            double? duration, List<Waypoint>? waypoints)?
+    TResult Function(double? duration, List<Waypoint>? waypoints,
+            List<Direction>? directions, double? distance)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(directions, distance, duration, waypoints);
+    return $default?.call(duration, waypoints, directions, distance);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<Direction>? directions, double? distance,
-            double? duration, List<Waypoint>? waypoints)?
+    TResult Function(double? duration, List<Waypoint>? waypoints,
+            List<Direction>? directions, double? distance)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(directions, distance, duration, waypoints);
+      return $default(duration, waypoints, directions, distance);
     }
     return orElse();
   }
@@ -830,25 +830,25 @@ class _$DirectionsResponseData implements DirectionsResponseData {
 
 abstract class DirectionsResponseData implements DirectionsResponse {
   const factory DirectionsResponseData(
-      {final List<Direction>? directions,
-      final double? distance,
-      final double? duration,
-      final List<Waypoint>? waypoints}) = _$DirectionsResponseData;
+      {final double? duration,
+      final List<Waypoint>? waypoints,
+      final List<Direction>? directions,
+      final double? distance}) = _$DirectionsResponseData;
 
   factory DirectionsResponseData.fromJson(Map<String, dynamic> json) =
       _$DirectionsResponseData.fromJson;
-
-  /// Turn by turn directions
-  List<Direction>? get directions;
-
-  /// Estimated distance of the route in meters
-  double? get distance;
 
   /// Estimated duration of the route in seconds
   double? get duration;
 
   /// The waypoints on the route
   List<Waypoint>? get waypoints;
+
+  /// Turn by turn directions
+  List<Direction>? get directions;
+
+  /// Estimated distance of the route in meters
+  double? get distance;
   @JsonKey(ignore: true)
   _$$DirectionsResponseDataCopyWith<_$DirectionsResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -937,8 +937,8 @@ class _$DirectionsResponseMerr implements DirectionsResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(List<Direction>? directions, double? distance,
-            double? duration, List<Waypoint>? waypoints)
+    TResult Function(double? duration, List<Waypoint>? waypoints,
+            List<Direction>? directions, double? distance)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -948,8 +948,8 @@ class _$DirectionsResponseMerr implements DirectionsResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Direction>? directions, double? distance,
-            double? duration, List<Waypoint>? waypoints)?
+    TResult Function(double? duration, List<Waypoint>? waypoints,
+            List<Direction>? directions, double? distance)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -959,8 +959,8 @@ class _$DirectionsResponseMerr implements DirectionsResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<Direction>? directions, double? distance,
-            double? duration, List<Waypoint>? waypoints)?
+    TResult Function(double? duration, List<Waypoint>? waypoints,
+            List<Direction>? directions, double? distance)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -1029,9 +1029,6 @@ EtaRequest _$EtaRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EtaRequest {
-  /// speed in kilometers
-  double? get speed => throw _privateConstructorUsedError;
-
   /// type of transport. Only "car" is supported currently.
   String? get type => throw _privateConstructorUsedError;
 
@@ -1040,6 +1037,9 @@ mixin _$EtaRequest {
 
   /// The starting point for the eta calculation
   Point? get origin => throw _privateConstructorUsedError;
+
+  /// speed in kilometers
+  double? get speed => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1052,7 +1052,7 @@ abstract class $EtaRequestCopyWith<$Res> {
   factory $EtaRequestCopyWith(
           EtaRequest value, $Res Function(EtaRequest) then) =
       _$EtaRequestCopyWithImpl<$Res>;
-  $Res call({double? speed, String? type, Point? destination, Point? origin});
+  $Res call({String? type, Point? destination, Point? origin, double? speed});
 
   $PointCopyWith<$Res>? get destination;
   $PointCopyWith<$Res>? get origin;
@@ -1068,16 +1068,12 @@ class _$EtaRequestCopyWithImpl<$Res> implements $EtaRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? speed = freezed,
     Object? type = freezed,
     Object? destination = freezed,
     Object? origin = freezed,
+    Object? speed = freezed,
   }) {
     return _then(_value.copyWith(
-      speed: speed == freezed
-          ? _value.speed
-          : speed // ignore: cast_nullable_to_non_nullable
-              as double?,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -1090,6 +1086,10 @@ class _$EtaRequestCopyWithImpl<$Res> implements $EtaRequestCopyWith<$Res> {
           ? _value.origin
           : origin // ignore: cast_nullable_to_non_nullable
               as Point?,
+      speed: speed == freezed
+          ? _value.speed
+          : speed // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 
@@ -1123,7 +1123,7 @@ abstract class _$$_EtaRequestCopyWith<$Res>
           _$_EtaRequest value, $Res Function(_$_EtaRequest) then) =
       __$$_EtaRequestCopyWithImpl<$Res>;
   @override
-  $Res call({double? speed, String? type, Point? destination, Point? origin});
+  $Res call({String? type, Point? destination, Point? origin, double? speed});
 
   @override
   $PointCopyWith<$Res>? get destination;
@@ -1143,16 +1143,12 @@ class __$$_EtaRequestCopyWithImpl<$Res> extends _$EtaRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? speed = freezed,
     Object? type = freezed,
     Object? destination = freezed,
     Object? origin = freezed,
+    Object? speed = freezed,
   }) {
     return _then(_$_EtaRequest(
-      speed: speed == freezed
-          ? _value.speed
-          : speed // ignore: cast_nullable_to_non_nullable
-              as double?,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -1165,6 +1161,10 @@ class __$$_EtaRequestCopyWithImpl<$Res> extends _$EtaRequestCopyWithImpl<$Res>
           ? _value.origin
           : origin // ignore: cast_nullable_to_non_nullable
               as Point?,
+      speed: speed == freezed
+          ? _value.speed
+          : speed // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -1172,14 +1172,10 @@ class __$$_EtaRequestCopyWithImpl<$Res> extends _$EtaRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_EtaRequest implements _EtaRequest {
-  const _$_EtaRequest({this.speed, this.type, this.destination, this.origin});
+  const _$_EtaRequest({this.type, this.destination, this.origin, this.speed});
 
   factory _$_EtaRequest.fromJson(Map<String, dynamic> json) =>
       _$$_EtaRequestFromJson(json);
-
-  /// speed in kilometers
-  @override
-  final double? speed;
 
   /// type of transport. Only "car" is supported currently.
   @override
@@ -1193,9 +1189,13 @@ class _$_EtaRequest implements _EtaRequest {
   @override
   final Point? origin;
 
+  /// speed in kilometers
+  @override
+  final double? speed;
+
   @override
   String toString() {
-    return 'EtaRequest(speed: $speed, type: $type, destination: $destination, origin: $origin)';
+    return 'EtaRequest(type: $type, destination: $destination, origin: $origin, speed: $speed)';
   }
 
   @override
@@ -1203,21 +1203,21 @@ class _$_EtaRequest implements _EtaRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EtaRequest &&
-            const DeepCollectionEquality().equals(other.speed, speed) &&
             const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality()
                 .equals(other.destination, destination) &&
-            const DeepCollectionEquality().equals(other.origin, origin));
+            const DeepCollectionEquality().equals(other.origin, origin) &&
+            const DeepCollectionEquality().equals(other.speed, speed));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(speed),
       const DeepCollectionEquality().hash(type),
       const DeepCollectionEquality().hash(destination),
-      const DeepCollectionEquality().hash(origin));
+      const DeepCollectionEquality().hash(origin),
+      const DeepCollectionEquality().hash(speed));
 
   @JsonKey(ignore: true)
   @override
@@ -1234,18 +1234,14 @@ class _$_EtaRequest implements _EtaRequest {
 
 abstract class _EtaRequest implements EtaRequest {
   const factory _EtaRequest(
-      {final double? speed,
-      final String? type,
+      {final String? type,
       final Point? destination,
-      final Point? origin}) = _$_EtaRequest;
+      final Point? origin,
+      final double? speed}) = _$_EtaRequest;
 
   factory _EtaRequest.fromJson(Map<String, dynamic> json) =
       _$_EtaRequest.fromJson;
 
-  @override
-
-  /// speed in kilometers
-  double? get speed;
   @override
 
   /// type of transport. Only "car" is supported currently.
@@ -1258,6 +1254,10 @@ abstract class _EtaRequest implements EtaRequest {
 
   /// The starting point for the eta calculation
   Point? get origin;
+  @override
+
+  /// speed in kilometers
+  double? get speed;
   @override
   @JsonKey(ignore: true)
   _$$_EtaRequestCopyWith<_$_EtaRequest> get copyWith =>
@@ -1833,11 +1833,11 @@ Maneuver _$ManeuverFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Maneuver {
-  String? get direction => throw _privateConstructorUsedError;
-  Point? get location => throw _privateConstructorUsedError;
   String? get action => throw _privateConstructorUsedError;
   double? get bearing_after => throw _privateConstructorUsedError;
   double? get bearing_before => throw _privateConstructorUsedError;
+  String? get direction => throw _privateConstructorUsedError;
+  Point? get location => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1850,11 +1850,11 @@ abstract class $ManeuverCopyWith<$Res> {
   factory $ManeuverCopyWith(Maneuver value, $Res Function(Maneuver) then) =
       _$ManeuverCopyWithImpl<$Res>;
   $Res call(
-      {String? direction,
-      Point? location,
-      String? action,
+      {String? action,
       double? bearing_after,
-      double? bearing_before});
+      double? bearing_before,
+      String? direction,
+      Point? location});
 
   $PointCopyWith<$Res>? get location;
 }
@@ -1869,21 +1869,13 @@ class _$ManeuverCopyWithImpl<$Res> implements $ManeuverCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? direction = freezed,
-    Object? location = freezed,
     Object? action = freezed,
     Object? bearing_after = freezed,
     Object? bearing_before = freezed,
+    Object? direction = freezed,
+    Object? location = freezed,
   }) {
     return _then(_value.copyWith(
-      direction: direction == freezed
-          ? _value.direction
-          : direction // ignore: cast_nullable_to_non_nullable
-              as String?,
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as Point?,
       action: action == freezed
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -1896,6 +1888,14 @@ class _$ManeuverCopyWithImpl<$Res> implements $ManeuverCopyWith<$Res> {
           ? _value.bearing_before
           : bearing_before // ignore: cast_nullable_to_non_nullable
               as double?,
+      direction: direction == freezed
+          ? _value.direction
+          : direction // ignore: cast_nullable_to_non_nullable
+              as String?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as Point?,
     ));
   }
 
@@ -1918,11 +1918,11 @@ abstract class _$$_ManeuverCopyWith<$Res> implements $ManeuverCopyWith<$Res> {
       __$$_ManeuverCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? direction,
-      Point? location,
-      String? action,
+      {String? action,
       double? bearing_after,
-      double? bearing_before});
+      double? bearing_before,
+      String? direction,
+      Point? location});
 
   @override
   $PointCopyWith<$Res>? get location;
@@ -1940,21 +1940,13 @@ class __$$_ManeuverCopyWithImpl<$Res> extends _$ManeuverCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? direction = freezed,
-    Object? location = freezed,
     Object? action = freezed,
     Object? bearing_after = freezed,
     Object? bearing_before = freezed,
+    Object? direction = freezed,
+    Object? location = freezed,
   }) {
     return _then(_$_Maneuver(
-      direction: direction == freezed
-          ? _value.direction
-          : direction // ignore: cast_nullable_to_non_nullable
-              as String?,
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as Point?,
       action: action == freezed
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -1967,6 +1959,14 @@ class __$$_ManeuverCopyWithImpl<$Res> extends _$ManeuverCopyWithImpl<$Res>
           ? _value.bearing_before
           : bearing_before // ignore: cast_nullable_to_non_nullable
               as double?,
+      direction: direction == freezed
+          ? _value.direction
+          : direction // ignore: cast_nullable_to_non_nullable
+              as String?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as Point?,
     ));
   }
 }
@@ -1975,29 +1975,29 @@ class __$$_ManeuverCopyWithImpl<$Res> extends _$ManeuverCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Maneuver implements _Maneuver {
   const _$_Maneuver(
-      {this.direction,
-      this.location,
-      this.action,
+      {this.action,
       this.bearing_after,
-      this.bearing_before});
+      this.bearing_before,
+      this.direction,
+      this.location});
 
   factory _$_Maneuver.fromJson(Map<String, dynamic> json) =>
       _$$_ManeuverFromJson(json);
 
-  @override
-  final String? direction;
-  @override
-  final Point? location;
   @override
   final String? action;
   @override
   final double? bearing_after;
   @override
   final double? bearing_before;
+  @override
+  final String? direction;
+  @override
+  final Point? location;
 
   @override
   String toString() {
-    return 'Maneuver(direction: $direction, location: $location, action: $action, bearing_after: $bearing_after, bearing_before: $bearing_before)';
+    return 'Maneuver(action: $action, bearing_after: $bearing_after, bearing_before: $bearing_before, direction: $direction, location: $location)';
   }
 
   @override
@@ -2005,24 +2005,24 @@ class _$_Maneuver implements _Maneuver {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Maneuver &&
-            const DeepCollectionEquality().equals(other.direction, direction) &&
-            const DeepCollectionEquality().equals(other.location, location) &&
             const DeepCollectionEquality().equals(other.action, action) &&
             const DeepCollectionEquality()
                 .equals(other.bearing_after, bearing_after) &&
             const DeepCollectionEquality()
-                .equals(other.bearing_before, bearing_before));
+                .equals(other.bearing_before, bearing_before) &&
+            const DeepCollectionEquality().equals(other.direction, direction) &&
+            const DeepCollectionEquality().equals(other.location, location));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(direction),
-      const DeepCollectionEquality().hash(location),
       const DeepCollectionEquality().hash(action),
       const DeepCollectionEquality().hash(bearing_after),
-      const DeepCollectionEquality().hash(bearing_before));
+      const DeepCollectionEquality().hash(bearing_before),
+      const DeepCollectionEquality().hash(direction),
+      const DeepCollectionEquality().hash(location));
 
   @JsonKey(ignore: true)
   @override
@@ -2039,24 +2039,24 @@ class _$_Maneuver implements _Maneuver {
 
 abstract class _Maneuver implements Maneuver {
   const factory _Maneuver(
-      {final String? direction,
-      final Point? location,
-      final String? action,
+      {final String? action,
       final double? bearing_after,
-      final double? bearing_before}) = _$_Maneuver;
+      final double? bearing_before,
+      final String? direction,
+      final Point? location}) = _$_Maneuver;
 
   factory _Maneuver.fromJson(Map<String, dynamic> json) = _$_Maneuver.fromJson;
 
-  @override
-  String? get direction;
-  @override
-  Point? get location;
   @override
   String? get action;
   @override
   double? get bearing_after;
   @override
   double? get bearing_before;
+  @override
+  String? get direction;
+  @override
+  Point? get location;
   @override
   @JsonKey(ignore: true)
   _$$_ManeuverCopyWith<_$_Maneuver> get copyWith =>
@@ -2069,11 +2069,11 @@ Point _$PointFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Point {
-  /// Lat e.g 52.523219
-  double? get latitude => throw _privateConstructorUsedError;
-
   /// Long e.g 13.428555
   double? get longitude => throw _privateConstructorUsedError;
+
+  /// Lat e.g 52.523219
+  double? get latitude => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2084,7 +2084,7 @@ mixin _$Point {
 abstract class $PointCopyWith<$Res> {
   factory $PointCopyWith(Point value, $Res Function(Point) then) =
       _$PointCopyWithImpl<$Res>;
-  $Res call({double? latitude, double? longitude});
+  $Res call({double? longitude, double? latitude});
 }
 
 /// @nodoc
@@ -2097,17 +2097,17 @@ class _$PointCopyWithImpl<$Res> implements $PointCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? latitude = freezed,
     Object? longitude = freezed,
+    Object? latitude = freezed,
   }) {
     return _then(_value.copyWith(
-      latitude: latitude == freezed
-          ? _value.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as double?,
       longitude: longitude == freezed
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
+              as double?,
+      latitude: latitude == freezed
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
   }
@@ -2118,7 +2118,7 @@ abstract class _$$_PointCopyWith<$Res> implements $PointCopyWith<$Res> {
   factory _$$_PointCopyWith(_$_Point value, $Res Function(_$_Point) then) =
       __$$_PointCopyWithImpl<$Res>;
   @override
-  $Res call({double? latitude, double? longitude});
+  $Res call({double? longitude, double? latitude});
 }
 
 /// @nodoc
@@ -2132,17 +2132,17 @@ class __$$_PointCopyWithImpl<$Res> extends _$PointCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? latitude = freezed,
     Object? longitude = freezed,
+    Object? latitude = freezed,
   }) {
     return _then(_$_Point(
-      latitude: latitude == freezed
-          ? _value.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as double?,
       longitude: longitude == freezed
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
+              as double?,
+      latitude: latitude == freezed
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
   }
@@ -2151,22 +2151,22 @@ class __$$_PointCopyWithImpl<$Res> extends _$PointCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Point implements _Point {
-  const _$_Point({this.latitude, this.longitude});
+  const _$_Point({this.longitude, this.latitude});
 
   factory _$_Point.fromJson(Map<String, dynamic> json) =>
       _$$_PointFromJson(json);
-
-  /// Lat e.g 52.523219
-  @override
-  final double? latitude;
 
   /// Long e.g 13.428555
   @override
   final double? longitude;
 
+  /// Lat e.g 52.523219
+  @override
+  final double? latitude;
+
   @override
   String toString() {
-    return 'Point(latitude: $latitude, longitude: $longitude)';
+    return 'Point(longitude: $longitude, latitude: $latitude)';
   }
 
   @override
@@ -2174,16 +2174,16 @@ class _$_Point implements _Point {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Point &&
-            const DeepCollectionEquality().equals(other.latitude, latitude) &&
-            const DeepCollectionEquality().equals(other.longitude, longitude));
+            const DeepCollectionEquality().equals(other.longitude, longitude) &&
+            const DeepCollectionEquality().equals(other.latitude, latitude));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(latitude),
-      const DeepCollectionEquality().hash(longitude));
+      const DeepCollectionEquality().hash(longitude),
+      const DeepCollectionEquality().hash(latitude));
 
   @JsonKey(ignore: true)
   @override
@@ -2199,19 +2199,19 @@ class _$_Point implements _Point {
 }
 
 abstract class _Point implements Point {
-  const factory _Point({final double? latitude, final double? longitude}) =
+  const factory _Point({final double? longitude, final double? latitude}) =
       _$_Point;
 
   factory _Point.fromJson(Map<String, dynamic> json) = _$_Point.fromJson;
 
   @override
 
-  /// Lat e.g 52.523219
-  double? get latitude;
-  @override
-
   /// Long e.g 13.428555
   double? get longitude;
+  @override
+
+  /// Lat e.g 52.523219
+  double? get latitude;
   @override
   @JsonKey(ignore: true)
   _$$_PointCopyWith<_$_Point> get copyWith =>

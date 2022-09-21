@@ -4,6 +4,42 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/event/api](htt
 
 Endpoints:
 
+## Read
+
+Read stored events
+
+
+[https://m3o.com/event/api#Read](https://m3o.com/event/api#Read)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/event/event.dart';
+
+void main() async {
+  final ser = EventService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "topic": "user"
+,};
+
+  ReadRequest req = ReadRequest.fromJson(payload);
+
+  
+  try {
+
+	ReadResponse res = await ser.read(req);
+
+    res.map((value) => print(value),
+	  Merr: (ReadResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Publish
 
 Publish a event to the event stream.
@@ -76,42 +112,6 @@ void main() async {
 	  sr.map((value) => print(value),
 		Merr: (ConsumeResponseMerr err) => print(err.body));
 	  }
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Read
-
-Read stored events
-
-
-[https://m3o.com/event/api#Read](https://m3o.com/event/api#Read)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/event/event.dart';
-
-void main() async {
-  final ser = EventService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "topic": "user"
-,};
-
-  ReadRequest req = ReadRequest.fromJson(payload);
-
-  
-  try {
-
-	ReadResponse res = await ser.read(req);
-
-    res.map((value) => print(value),
-	  Merr: (ReadResponseMerr err) => print(err.body!['body']));	
-  
   } catch (e) {
     print(e);
   } finally {

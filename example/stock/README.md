@@ -4,6 +4,42 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/stock/api](htt
 
 Endpoints:
 
+## Quote
+
+Get the last quote for the stock
+
+
+[https://m3o.com/stock/api#Quote](https://m3o.com/stock/api#Quote)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/stock/stock.dart';
+
+void main() async {
+  final ser = StockService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "symbol": "AAPL"
+,};
+
+  QuoteRequest req = QuoteRequest.fromJson(payload);
+
+  
+  try {
+
+	QuoteResponse res = await ser.quote(req);
+
+    res.map((value) => print(value),
+	  Merr: (QuoteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## History
 
 Get the historic open-close for a given day
@@ -69,42 +105,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (PriceResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Quote
-
-Get the last quote for the stock
-
-
-[https://m3o.com/stock/api#Quote](https://m3o.com/stock/api#Quote)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/stock/stock.dart';
-
-void main() async {
-  final ser = StockService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "symbol": "AAPL"
-,};
-
-  QuoteRequest req = QuoteRequest.fromJson(payload);
-
-  
-  try {
-
-	QuoteResponse res = await ser.quote(req);
-
-    res.map((value) => print(value),
-	  Merr: (QuoteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
