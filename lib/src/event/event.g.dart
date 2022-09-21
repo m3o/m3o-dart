@@ -8,35 +8,35 @@ part of 'event.dart';
 
 _$_ConsumeRequest _$$_ConsumeRequestFromJson(Map<String, dynamic> json) =>
     _$_ConsumeRequest(
-      topic: json['topic'] as String?,
       group: json['group'] as String?,
       offset: json['offset'] as String?,
+      topic: json['topic'] as String?,
     );
 
 Map<String, dynamic> _$$_ConsumeRequestToJson(_$_ConsumeRequest instance) =>
     <String, dynamic>{
-      'topic': instance.topic,
       'group': instance.group,
       'offset': instance.offset,
+      'topic': instance.topic,
     };
 
 _$ConsumeResponseData _$$ConsumeResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$ConsumeResponseData(
-      topic: json['topic'] as String?,
       id: json['id'] as String?,
       message: json['message'] as Map<String, dynamic>?,
       timestamp: json['timestamp'] as String?,
+      topic: json['topic'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ConsumeResponseDataToJson(
         _$ConsumeResponseData instance) =>
     <String, dynamic>{
-      'topic': instance.topic,
       'id': instance.id,
       'message': instance.message,
       'timestamp': instance.timestamp,
+      'topic': instance.topic,
       'runtimeType': instance.$type,
     };
 
@@ -55,15 +55,15 @@ Map<String, dynamic> _$$ConsumeResponseMerrToJson(
     };
 
 _$_Ev _$$_EvFromJson(Map<String, dynamic> json) => _$_Ev(
+      id: json['id'] as String?,
       message: json['message'] as Map<String, dynamic>?,
       timestamp: json['timestamp'] as String?,
-      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_EvToJson(_$_Ev instance) => <String, dynamic>{
+      'id': instance.id,
       'message': instance.message,
       'timestamp': instance.timestamp,
-      'id': instance.id,
     };
 
 _$_PublishRequest _$$_PublishRequestFromJson(Map<String, dynamic> json) =>
@@ -106,16 +106,16 @@ Map<String, dynamic> _$$PublishResponseMerrToJson(
 
 _$_ReadRequest _$$_ReadRequestFromJson(Map<String, dynamic> json) =>
     _$_ReadRequest(
-      offset: json['offset'] as int?,
       topic: json['topic'] as String?,
       limit: json['limit'] as int?,
+      offset: json['offset'] as int?,
     );
 
 Map<String, dynamic> _$$_ReadRequestToJson(_$_ReadRequest instance) =>
     <String, dynamic>{
-      'offset': instance.offset,
       'topic': instance.topic,
       'limit': instance.limit,
+      'offset': instance.offset,
     };
 
 _$ReadResponseData _$$ReadResponseDataFromJson(Map<String, dynamic> json) =>

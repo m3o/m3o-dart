@@ -4,44 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/quran/api](htt
 
 Endpoints:
 
-## Verses
-
-Lookup the verses (ayahs) for a chapter including
-translation, interpretation and breakdown by individual
-words.
-
-
-[https://m3o.com/quran/api#Verses](https://m3o.com/quran/api#Verses)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/quran/quran.dart';
-
-void main() async {
-  final ser = QuranService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "chapter": 1
-,};
-
-  VersesRequest req = VersesRequest.fromJson(payload);
-
-  
-  try {
-
-	VersesResponse res = await ser.verses(req);
-
-    res.map((value) => print(value),
-	  Merr: (VersesResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Search
 
 Search the Quran for any form of query or questions
@@ -142,6 +104,44 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (SummaryResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Verses
+
+Lookup the verses (ayahs) for a chapter including
+translation, interpretation and breakdown by individual
+words.
+
+
+[https://m3o.com/quran/api#Verses](https://m3o.com/quran/api#Verses)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/quran/quran.dart';
+
+void main() async {
+  final ser = QuranService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "chapter": 1
+,};
+
+  VersesRequest req = VersesRequest.fromJson(payload);
+
+  
+  try {
+
+	VersesResponse res = await ser.verses(req);
+
+    res.map((value) => print(value),
+	  Merr: (VersesResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

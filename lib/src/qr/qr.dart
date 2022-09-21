@@ -56,8 +56,6 @@ class QrService {
 @Freezed()
 class Code with _$Code {
   const factory Code({
-    /// file name
-    String? file,
     String? id,
 
     /// text of the QR code
@@ -65,6 +63,9 @@ class Code with _$Code {
 
     /// time of creation
     String? created,
+
+    /// file name
+    String? file,
   }) = _Code;
   factory Code.fromJson(Map<String, dynamic> json) => _$CodeFromJson(json);
 }
