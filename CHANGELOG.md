@@ -1,3 +1,9 @@
+## v1.0.188 - 2022-09-21
+
+[7385e6](https://github.com/micro/services/commit/7385e6ae065a0e9a5cec7861b27aa3e0419587bb) Update publicapi.json
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.187...v1.0.188
+
 ## v1.0.187 - 2022-09-21
 
 [c24f04](https://github.com/micro/services/commit/c24f04c87820a5d8428f23278ba79599859b777e) Merge branch 'master' of ssh://github.com/micro/services
