@@ -20,11 +20,11 @@ DeleteRequest _$DeleteRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DeleteRequest {
-  /// Path to the file
-  String? get path => throw _privateConstructorUsedError;
-
   /// The project name
   String? get project => throw _privateConstructorUsedError;
+
+  /// Path to the file
+  String? get path => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,7 @@ abstract class $DeleteRequestCopyWith<$Res> {
   factory $DeleteRequestCopyWith(
           DeleteRequest value, $Res Function(DeleteRequest) then) =
       _$DeleteRequestCopyWithImpl<$Res>;
-  $Res call({String? path, String? project});
+  $Res call({String? project, String? path});
 }
 
 /// @nodoc
@@ -51,17 +51,17 @@ class _$DeleteRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? path = freezed,
     Object? project = freezed,
+    Object? path = freezed,
   }) {
     return _then(_value.copyWith(
-      path: path == freezed
-          ? _value.path
-          : path // ignore: cast_nullable_to_non_nullable
-              as String?,
       project: project == freezed
           ? _value.project
           : project // ignore: cast_nullable_to_non_nullable
+              as String?,
+      path: path == freezed
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -74,7 +74,7 @@ abstract class _$$_DeleteRequestCopyWith<$Res>
           _$_DeleteRequest value, $Res Function(_$_DeleteRequest) then) =
       __$$_DeleteRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? path, String? project});
+  $Res call({String? project, String? path});
 }
 
 /// @nodoc
@@ -90,17 +90,17 @@ class __$$_DeleteRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? path = freezed,
     Object? project = freezed,
+    Object? path = freezed,
   }) {
     return _then(_$_DeleteRequest(
-      path: path == freezed
-          ? _value.path
-          : path // ignore: cast_nullable_to_non_nullable
-              as String?,
       project: project == freezed
           ? _value.project
           : project // ignore: cast_nullable_to_non_nullable
+              as String?,
+      path: path == freezed
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -109,22 +109,22 @@ class __$$_DeleteRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_DeleteRequest implements _DeleteRequest {
-  const _$_DeleteRequest({this.path, this.project});
+  const _$_DeleteRequest({this.project, this.path});
 
   factory _$_DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$$_DeleteRequestFromJson(json);
-
-  /// Path to the file
-  @override
-  final String? path;
 
   /// The project name
   @override
   final String? project;
 
+  /// Path to the file
+  @override
+  final String? path;
+
   @override
   String toString() {
-    return 'DeleteRequest(path: $path, project: $project)';
+    return 'DeleteRequest(project: $project, path: $path)';
   }
 
   @override
@@ -132,16 +132,16 @@ class _$_DeleteRequest implements _DeleteRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DeleteRequest &&
-            const DeepCollectionEquality().equals(other.path, path) &&
-            const DeepCollectionEquality().equals(other.project, project));
+            const DeepCollectionEquality().equals(other.project, project) &&
+            const DeepCollectionEquality().equals(other.path, path));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(path),
-      const DeepCollectionEquality().hash(project));
+      const DeepCollectionEquality().hash(project),
+      const DeepCollectionEquality().hash(path));
 
   @JsonKey(ignore: true)
   @override
@@ -157,7 +157,7 @@ class _$_DeleteRequest implements _DeleteRequest {
 }
 
 abstract class _DeleteRequest implements DeleteRequest {
-  const factory _DeleteRequest({final String? path, final String? project}) =
+  const factory _DeleteRequest({final String? project, final String? path}) =
       _$_DeleteRequest;
 
   factory _DeleteRequest.fromJson(Map<String, dynamic> json) =
@@ -165,12 +165,12 @@ abstract class _DeleteRequest implements DeleteRequest {
 
   @override
 
-  /// Path to the file
-  String? get path;
-  @override
-
   /// The project name
   String? get project;
+  @override
+
+  /// Path to the file
+  String? get path;
   @override
   @JsonKey(ignore: true)
   _$$_DeleteRequestCopyWith<_$_DeleteRequest> get copyWith =>

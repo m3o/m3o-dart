@@ -20,6 +20,8 @@ Code _$CodeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Code {
+  /// file name
+  String? get file => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
 
   /// text of the QR code
@@ -27,9 +29,6 @@ mixin _$Code {
 
   /// time of creation
   String? get created => throw _privateConstructorUsedError;
-
-  /// file name
-  String? get file => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,7 +39,7 @@ mixin _$Code {
 abstract class $CodeCopyWith<$Res> {
   factory $CodeCopyWith(Code value, $Res Function(Code) then) =
       _$CodeCopyWithImpl<$Res>;
-  $Res call({String? id, String? text, String? created, String? file});
+  $Res call({String? file, String? id, String? text, String? created});
 }
 
 /// @nodoc
@@ -53,12 +52,16 @@ class _$CodeCopyWithImpl<$Res> implements $CodeCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? file = freezed,
     Object? id = freezed,
     Object? text = freezed,
     Object? created = freezed,
-    Object? file = freezed,
   }) {
     return _then(_value.copyWith(
+      file: file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -71,10 +74,6 @@ class _$CodeCopyWithImpl<$Res> implements $CodeCopyWith<$Res> {
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
               as String?,
-      file: file == freezed
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -84,7 +83,7 @@ abstract class _$$_CodeCopyWith<$Res> implements $CodeCopyWith<$Res> {
   factory _$$_CodeCopyWith(_$_Code value, $Res Function(_$_Code) then) =
       __$$_CodeCopyWithImpl<$Res>;
   @override
-  $Res call({String? id, String? text, String? created, String? file});
+  $Res call({String? file, String? id, String? text, String? created});
 }
 
 /// @nodoc
@@ -98,12 +97,16 @@ class __$$_CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? file = freezed,
     Object? id = freezed,
     Object? text = freezed,
     Object? created = freezed,
-    Object? file = freezed,
   }) {
     return _then(_$_Code(
+      file: file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -116,10 +119,6 @@ class __$$_CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res>
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
               as String?,
-      file: file == freezed
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -127,10 +126,13 @@ class __$$_CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Code implements _Code {
-  const _$_Code({this.id, this.text, this.created, this.file});
+  const _$_Code({this.file, this.id, this.text, this.created});
 
   factory _$_Code.fromJson(Map<String, dynamic> json) => _$$_CodeFromJson(json);
 
+  /// file name
+  @override
+  final String? file;
   @override
   final String? id;
 
@@ -142,13 +144,9 @@ class _$_Code implements _Code {
   @override
   final String? created;
 
-  /// file name
-  @override
-  final String? file;
-
   @override
   String toString() {
-    return 'Code(id: $id, text: $text, created: $created, file: $file)';
+    return 'Code(file: $file, id: $id, text: $text, created: $created)';
   }
 
   @override
@@ -156,20 +154,20 @@ class _$_Code implements _Code {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Code &&
+            const DeepCollectionEquality().equals(other.file, file) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.text, text) &&
-            const DeepCollectionEquality().equals(other.created, created) &&
-            const DeepCollectionEquality().equals(other.file, file));
+            const DeepCollectionEquality().equals(other.created, created));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(file),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(text),
-      const DeepCollectionEquality().hash(created),
-      const DeepCollectionEquality().hash(file));
+      const DeepCollectionEquality().hash(created));
 
   @JsonKey(ignore: true)
   @override
@@ -186,13 +184,17 @@ class _$_Code implements _Code {
 
 abstract class _Code implements Code {
   const factory _Code(
-      {final String? id,
+      {final String? file,
+      final String? id,
       final String? text,
-      final String? created,
-      final String? file}) = _$_Code;
+      final String? created}) = _$_Code;
 
   factory _Code.fromJson(Map<String, dynamic> json) = _$_Code.fromJson;
 
+  @override
+
+  /// file name
+  String? get file;
   @override
   String? get id;
   @override
@@ -203,10 +205,6 @@ abstract class _Code implements Code {
 
   /// time of creation
   String? get created;
-  @override
-
-  /// file name
-  String? get file;
   @override
   @JsonKey(ignore: true)
   _$$_CodeCopyWith<_$_Code> get copyWith => throw _privateConstructorUsedError;

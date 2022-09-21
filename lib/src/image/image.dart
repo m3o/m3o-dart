@@ -187,8 +187,8 @@ class Point with _$Point {
 @Freezed()
 class Rectangle with _$Rectangle {
   const factory Rectangle({
-    Point? max,
     Point? min,
+    Point? max,
   }) = _Rectangle;
   factory Rectangle.fromJson(Map<String, dynamic> json) =>
       _$RectangleFromJson(json);
@@ -227,8 +227,8 @@ class ResizeRequest with _$ResizeRequest {
 @Freezed()
 class ResizeResponse with _$ResizeResponse {
   const factory ResizeResponse({
-    String? url,
     String? base64,
+    String? url,
   }) = ResizeResponseData;
   const factory ResizeResponse.Merr({Map<String, dynamic>? body}) =
       ResizeResponseMerr;
@@ -239,6 +239,9 @@ class ResizeResponse with _$ResizeResponse {
 @Freezed()
 class UploadRequest with _$UploadRequest {
   const factory UploadRequest({
+    /// Base64 encoded image to upload,
+    String? base64,
+
     /// The image file to upload
     String? file,
 
@@ -247,9 +250,6 @@ class UploadRequest with _$UploadRequest {
 
     /// URL of the image to upload
     String? url,
-
-    /// Base64 encoded image to upload,
-    String? base64,
   }) = _UploadRequest;
   factory UploadRequest.fromJson(Map<String, dynamic> json) =>
       _$UploadRequestFromJson(json);

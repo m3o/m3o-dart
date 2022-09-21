@@ -20,12 +20,13 @@ ScreenshotRequest _$ScreenshotRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ScreenshotRequest {
-  /// height of the browser window, optional
-  int? get height => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
 
   /// width of the browser window. optional
   int? get width => throw _privateConstructorUsedError;
+
+  /// height of the browser window, optional
+  int? get height => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +39,7 @@ abstract class $ScreenshotRequestCopyWith<$Res> {
   factory $ScreenshotRequestCopyWith(
           ScreenshotRequest value, $Res Function(ScreenshotRequest) then) =
       _$ScreenshotRequestCopyWithImpl<$Res>;
-  $Res call({int? height, String? url, int? width});
+  $Res call({String? url, int? width, int? height});
 }
 
 /// @nodoc
@@ -52,15 +53,11 @@ class _$ScreenshotRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? height = freezed,
     Object? url = freezed,
     Object? width = freezed,
+    Object? height = freezed,
   }) {
     return _then(_value.copyWith(
-      height: height == freezed
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as int?,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -68,6 +65,10 @@ class _$ScreenshotRequestCopyWithImpl<$Res>
       width: width == freezed
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
+              as int?,
+      height: height == freezed
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
@@ -80,7 +81,7 @@ abstract class _$$_ScreenshotRequestCopyWith<$Res>
           $Res Function(_$_ScreenshotRequest) then) =
       __$$_ScreenshotRequestCopyWithImpl<$Res>;
   @override
-  $Res call({int? height, String? url, int? width});
+  $Res call({String? url, int? width, int? height});
 }
 
 /// @nodoc
@@ -96,15 +97,11 @@ class __$$_ScreenshotRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? height = freezed,
     Object? url = freezed,
     Object? width = freezed,
+    Object? height = freezed,
   }) {
     return _then(_$_ScreenshotRequest(
-      height: height == freezed
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as int?,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -113,6 +110,10 @@ class __$$_ScreenshotRequestCopyWithImpl<$Res>
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
               as int?,
+      height: height == freezed
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -120,14 +121,11 @@ class __$$_ScreenshotRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ScreenshotRequest implements _ScreenshotRequest {
-  const _$_ScreenshotRequest({this.height, this.url, this.width});
+  const _$_ScreenshotRequest({this.url, this.width, this.height});
 
   factory _$_ScreenshotRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ScreenshotRequestFromJson(json);
 
-  /// height of the browser window, optional
-  @override
-  final int? height;
   @override
   final String? url;
 
@@ -135,9 +133,13 @@ class _$_ScreenshotRequest implements _ScreenshotRequest {
   @override
   final int? width;
 
+  /// height of the browser window, optional
+  @override
+  final int? height;
+
   @override
   String toString() {
-    return 'ScreenshotRequest(height: $height, url: $url, width: $width)';
+    return 'ScreenshotRequest(url: $url, width: $width, height: $height)';
   }
 
   @override
@@ -145,18 +147,18 @@ class _$_ScreenshotRequest implements _ScreenshotRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ScreenshotRequest &&
-            const DeepCollectionEquality().equals(other.height, height) &&
             const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality().equals(other.width, width));
+            const DeepCollectionEquality().equals(other.width, width) &&
+            const DeepCollectionEquality().equals(other.height, height));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(height),
       const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(width));
+      const DeepCollectionEquality().hash(width),
+      const DeepCollectionEquality().hash(height));
 
   @JsonKey(ignore: true)
   @override
@@ -174,23 +176,23 @@ class _$_ScreenshotRequest implements _ScreenshotRequest {
 
 abstract class _ScreenshotRequest implements ScreenshotRequest {
   const factory _ScreenshotRequest(
-      {final int? height,
-      final String? url,
-      final int? width}) = _$_ScreenshotRequest;
+      {final String? url,
+      final int? width,
+      final int? height}) = _$_ScreenshotRequest;
 
   factory _ScreenshotRequest.fromJson(Map<String, dynamic> json) =
       _$_ScreenshotRequest.fromJson;
 
-  @override
-
-  /// height of the browser window, optional
-  int? get height;
   @override
   String? get url;
   @override
 
   /// width of the browser window. optional
   int? get width;
+  @override
+
+  /// height of the browser window, optional
+  int? get height;
   @override
   @JsonKey(ignore: true)
   _$$_ScreenshotRequestCopyWith<_$_ScreenshotRequest> get copyWith =>

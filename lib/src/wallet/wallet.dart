@@ -303,6 +303,13 @@ class CreditResponse with _$CreditResponse {
 @Freezed()
 class DebitRequest with _$DebitRequest {
   const factory DebitRequest({
+    /// amount to debit
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
+
+    /// wallet
+    String? id,
+
     /// idempotency key
     String? idempotency_key,
 
@@ -311,13 +318,6 @@ class DebitRequest with _$DebitRequest {
 
     /// if the transaction is visible
     bool? visible,
-
-    /// amount to debit
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
-
-    /// wallet
-    String? id,
   }) = _DebitRequest;
   factory DebitRequest.fromJson(Map<String, dynamic> json) =>
       _$DebitRequestFromJson(json);
@@ -441,6 +441,9 @@ class TransactionsResponse with _$TransactionsResponse {
 @Freezed()
 class TransferRequest with _$TransferRequest {
   const factory TransferRequest({
+    /// reference
+    String? reference,
+
     /// to wallet id
     String? to_id,
 
@@ -453,9 +456,6 @@ class TransferRequest with _$TransferRequest {
 
     /// from wallet id
     String? from_id,
-
-    /// reference
-    String? reference,
   }) = _TransferRequest;
   factory TransferRequest.fromJson(Map<String, dynamic> json) =>
       _$TransferRequestFromJson(json);

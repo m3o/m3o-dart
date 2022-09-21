@@ -234,11 +234,11 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class LogsRequest with _$LogsRequest {
   const factory LogsRequest({
-    /// name of the app
-    String? name,
-
     /// type of logs to retrieve, currently supported options - "build"
     String? logs_type,
+
+    /// name of the app
+    String? name,
   }) = _LogsRequest;
   factory LogsRequest.fromJson(Map<String, dynamic> json) =>
       _$LogsRequestFromJson(json);
@@ -276,6 +276,9 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
+    /// time of reservation
+    String? created,
+
     /// time reservation expires
     String? expires,
 
@@ -287,9 +290,6 @@ class Reservation with _$Reservation {
 
     /// associated token
     String? token,
-
-    /// time of reservation
-    String? created,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);
@@ -379,6 +379,12 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
+    /// name of the app
+    String? name,
+
+    /// port running on
+    int? port,
+
     /// region running in
     String? region,
 
@@ -388,11 +394,11 @@ class Service with _$Service {
     /// last updated
     String? updated,
 
-    /// branch of code
-    String? branch,
+    /// time of creation
+    String? created,
 
-    /// port running on
-    int? port,
+    /// custom domains
+    List<String>? custom_domains,
 
     /// associated env vars
     Map<String, String>? env_vars,
@@ -400,20 +406,14 @@ class Service with _$Service {
     /// unique id
     String? id,
 
-    /// name of the app
-    String? name,
-
     /// source repository
     String? repo,
 
     /// app url
     String? url,
 
-    /// time of creation
-    String? created,
-
-    /// custom domains
-    List<String>? custom_domains,
+    /// branch of code
+    String? branch,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);

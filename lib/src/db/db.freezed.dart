@@ -2632,13 +2632,6 @@ ReadRequest _$ReadRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReadRequest {
-  /// Examples: 'age >= 18', 'age >= 18 and verified == true'
-  /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
-  /// Logical operator: 'and'
-  /// Dot access is supported, eg: 'user.age == 11'
-  /// Accessing list elements is not supported yet.
-  String? get query => throw _privateConstructorUsedError;
-
   /// Optional table name. Defaults to 'default'
   String? get table => throw _privateConstructorUsedError;
 
@@ -2656,6 +2649,13 @@ mixin _$ReadRequest {
   /// field name to order by
   String? get orderBy => throw _privateConstructorUsedError;
 
+  /// Examples: 'age >= 18', 'age >= 18 and verified == true'
+  /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
+  /// Logical operator: 'and'
+  /// Dot access is supported, eg: 'user.age == 11'
+  /// Accessing list elements is not supported yet.
+  String? get query => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ReadRequestCopyWith<ReadRequest> get copyWith =>
@@ -2668,13 +2668,13 @@ abstract class $ReadRequestCopyWith<$Res> {
           ReadRequest value, $Res Function(ReadRequest) then) =
       _$ReadRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? query,
-      String? table,
+      {String? table,
       String? id,
       int? limit,
       int? offset,
       String? order,
-      String? orderBy});
+      String? orderBy,
+      String? query});
 }
 
 /// @nodoc
@@ -2687,19 +2687,15 @@ class _$ReadRequestCopyWithImpl<$Res> implements $ReadRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? query = freezed,
     Object? table = freezed,
     Object? id = freezed,
     Object? limit = freezed,
     Object? offset = freezed,
     Object? order = freezed,
     Object? orderBy = freezed,
+    Object? query = freezed,
   }) {
     return _then(_value.copyWith(
-      query: query == freezed
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as String?,
       table: table == freezed
           ? _value.table
           : table // ignore: cast_nullable_to_non_nullable
@@ -2724,6 +2720,10 @@ class _$ReadRequestCopyWithImpl<$Res> implements $ReadRequestCopyWith<$Res> {
           ? _value.orderBy
           : orderBy // ignore: cast_nullable_to_non_nullable
               as String?,
+      query: query == freezed
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2736,13 +2736,13 @@ abstract class _$$_ReadRequestCopyWith<$Res>
       __$$_ReadRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? query,
-      String? table,
+      {String? table,
       String? id,
       int? limit,
       int? offset,
       String? order,
-      String? orderBy});
+      String? orderBy,
+      String? query});
 }
 
 /// @nodoc
@@ -2757,19 +2757,15 @@ class __$$_ReadRequestCopyWithImpl<$Res> extends _$ReadRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? query = freezed,
     Object? table = freezed,
     Object? id = freezed,
     Object? limit = freezed,
     Object? offset = freezed,
     Object? order = freezed,
     Object? orderBy = freezed,
+    Object? query = freezed,
   }) {
     return _then(_$_ReadRequest(
-      query: query == freezed
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as String?,
       table: table == freezed
           ? _value.table
           : table // ignore: cast_nullable_to_non_nullable
@@ -2794,6 +2790,10 @@ class __$$_ReadRequestCopyWithImpl<$Res> extends _$ReadRequestCopyWithImpl<$Res>
           ? _value.orderBy
           : orderBy // ignore: cast_nullable_to_non_nullable
               as String?,
+      query: query == freezed
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2802,24 +2802,16 @@ class __$$_ReadRequestCopyWithImpl<$Res> extends _$ReadRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ReadRequest implements _ReadRequest {
   const _$_ReadRequest(
-      {this.query,
-      this.table,
+      {this.table,
       this.id,
       this.limit,
       this.offset,
       this.order,
-      this.orderBy});
+      this.orderBy,
+      this.query});
 
   factory _$_ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ReadRequestFromJson(json);
-
-  /// Examples: 'age >= 18', 'age >= 18 and verified == true'
-  /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
-  /// Logical operator: 'and'
-  /// Dot access is supported, eg: 'user.age == 11'
-  /// Accessing list elements is not supported yet.
-  @override
-  final String? query;
 
   /// Optional table name. Defaults to 'default'
   @override
@@ -2844,9 +2836,17 @@ class _$_ReadRequest implements _ReadRequest {
   @override
   final String? orderBy;
 
+  /// Examples: 'age >= 18', 'age >= 18 and verified == true'
+  /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
+  /// Logical operator: 'and'
+  /// Dot access is supported, eg: 'user.age == 11'
+  /// Accessing list elements is not supported yet.
+  @override
+  final String? query;
+
   @override
   String toString() {
-    return 'ReadRequest(query: $query, table: $table, id: $id, limit: $limit, offset: $offset, order: $order, orderBy: $orderBy)';
+    return 'ReadRequest(table: $table, id: $id, limit: $limit, offset: $offset, order: $order, orderBy: $orderBy, query: $query)';
   }
 
   @override
@@ -2854,26 +2854,26 @@ class _$_ReadRequest implements _ReadRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ReadRequest &&
-            const DeepCollectionEquality().equals(other.query, query) &&
             const DeepCollectionEquality().equals(other.table, table) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.limit, limit) &&
             const DeepCollectionEquality().equals(other.offset, offset) &&
             const DeepCollectionEquality().equals(other.order, order) &&
-            const DeepCollectionEquality().equals(other.orderBy, orderBy));
+            const DeepCollectionEquality().equals(other.orderBy, orderBy) &&
+            const DeepCollectionEquality().equals(other.query, query));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(query),
       const DeepCollectionEquality().hash(table),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(limit),
       const DeepCollectionEquality().hash(offset),
       const DeepCollectionEquality().hash(order),
-      const DeepCollectionEquality().hash(orderBy));
+      const DeepCollectionEquality().hash(orderBy),
+      const DeepCollectionEquality().hash(query));
 
   @JsonKey(ignore: true)
   @override
@@ -2890,25 +2890,17 @@ class _$_ReadRequest implements _ReadRequest {
 
 abstract class _ReadRequest implements ReadRequest {
   const factory _ReadRequest(
-      {final String? query,
-      final String? table,
+      {final String? table,
       final String? id,
       final int? limit,
       final int? offset,
       final String? order,
-      final String? orderBy}) = _$_ReadRequest;
+      final String? orderBy,
+      final String? query}) = _$_ReadRequest;
 
   factory _ReadRequest.fromJson(Map<String, dynamic> json) =
       _$_ReadRequest.fromJson;
 
-  @override
-
-  /// Examples: 'age >= 18', 'age >= 18 and verified == true'
-  /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
-  /// Logical operator: 'and'
-  /// Dot access is supported, eg: 'user.age == 11'
-  /// Accessing list elements is not supported yet.
-  String? get query;
   @override
 
   /// Optional table name. Defaults to 'default'
@@ -2932,6 +2924,14 @@ abstract class _ReadRequest implements ReadRequest {
 
   /// field name to order by
   String? get orderBy;
+  @override
+
+  /// Examples: 'age >= 18', 'age >= 18 and verified == true'
+  /// Comparison operators: '==', '!=', '<', '>', '<=', '>='
+  /// Logical operator: 'and'
+  /// Dot access is supported, eg: 'user.age == 11'
+  /// Accessing list elements is not supported yet.
+  String? get query;
   @override
   @JsonKey(ignore: true)
   _$$_ReadRequestCopyWith<_$_ReadRequest> get copyWith =>

@@ -136,11 +136,11 @@ class UrlService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// destination url
-    String? destinationURL,
-
     /// a unique id e.g uuid or my-url
     String? id,
+
+    /// destination url
+    String? destinationURL,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -249,12 +249,6 @@ class ShortenResponse with _$ShortenResponse {
 @Freezed()
 class URLPair with _$URLPair {
   const factory URLPair({
-    /// url id
-    String? id,
-
-    /// shortened url
-    String? shortURL,
-
     /// time of creation
     String? created,
 
@@ -264,6 +258,12 @@ class URLPair with _$URLPair {
     /// The number of times the short URL has been resolved
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
+
+    /// url id
+    String? id,
+
+    /// shortened url
+    String? shortURL,
   }) = _URLPair;
   factory URLPair.fromJson(Map<String, dynamic> json) =>
       _$URLPairFromJson(json);

@@ -116,6 +116,9 @@ class PriceService {
 @Freezed()
 class AddRequest with _$AddRequest {
   const factory AddRequest({
+    /// author of the price
+    String? author,
+
     /// currency e.g USD
     String? currency,
 
@@ -130,9 +133,6 @@ class AddRequest with _$AddRequest {
 
     /// symbol of value
     String? symbol,
-
-    /// author of the price
-    String? author,
   }) = _AddRequest;
   factory AddRequest.fromJson(Map<String, dynamic> json) =>
       _$AddRequestFromJson(json);
@@ -152,14 +152,14 @@ class AddResponse with _$AddResponse {
 @Freezed()
 class GetRequest with _$GetRequest {
   const factory GetRequest({
+    /// symbol of value
+    String? symbol,
+
     /// currency to get
     String? currency,
 
     /// name of the value
     String? name,
-
-    /// symbol of value
-    String? symbol,
   }) = _GetRequest;
   factory GetRequest.fromJson(Map<String, dynamic> json) =>
       _$GetRequestFromJson(json);
@@ -179,14 +179,14 @@ class GetResponse with _$GetResponse {
 @Freezed()
 class Index with _$Index {
   const factory Index({
-    /// symbol of item
-    String? symbol,
-
     /// currency of value
     String? currency,
 
     /// name of item
     String? name,
+
+    /// symbol of item
+    String? symbol,
   }) = _Index;
   factory Index.fromJson(Map<String, dynamic> json) => _$IndexFromJson(json);
 }
@@ -239,10 +239,10 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Report with _$Report {
   const factory Report({
-    String? name,
-    String? symbol,
     String? author,
     String? comment,
+    String? name,
+    String? symbol,
   }) = _Report;
   factory Report.fromJson(Map<String, dynamic> json) => _$ReportFromJson(json);
 }
@@ -275,6 +275,15 @@ class ReportResponse with _$ReportResponse {
 @Freezed()
 class Value with _$Value {
   const factory Value({
+    /// where it came from
+    String? source,
+
+    /// symbol of value
+    String? symbol,
+
+    /// time it was added
+    String? timestamp,
+
     /// who added it
     String? author,
 
@@ -286,15 +295,6 @@ class Value with _$Value {
 
     /// price of thing
     double? price,
-
-    /// where it came from
-    String? source,
-
-    /// symbol of value
-    String? symbol,
-
-    /// time it was added
-    String? timestamp,
   }) = _Value;
   factory Value.fromJson(Map<String, dynamic> json) => _$ValueFromJson(json);
 }

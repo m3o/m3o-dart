@@ -7,63 +7,63 @@ part of 'nft.dart';
 // **************************************************************************
 
 _$_Asset _$$_AssetFromJson(Map<String, dynamic> json) => _$_Asset(
-      image_url: json['image_url'] as String?,
-      listing_date: json['listing_date'] as String?,
-      name: json['name'] as String?,
-      owner: json['owner'] == null
-          ? null
-          : User.fromJson(json['owner'] as Map<String, dynamic>),
-      presale: json['presale'] as bool?,
-      token_id: json['token_id'] as String?,
-      contract: json['contract'] == null
-          ? null
-          : Contract.fromJson(json['contract'] as Map<String, dynamic>),
-      permalink: json['permalink'] as String?,
       creator: json['creator'] == null
           ? null
           : User.fromJson(json['creator'] as Map<String, dynamic>),
-      description: json['description'] as String?,
-      id: json['id'] as int?,
-      last_sale: json['last_sale'] == null
+      owner: json['owner'] == null
           ? null
-          : Sale.fromJson(json['last_sale'] as Map<String, dynamic>),
+          : User.fromJson(json['owner'] as Map<String, dynamic>),
       sales: json['sales'] as int?,
-      traits: (json['traits'] as List<dynamic>?)
-          ?.map((e) => e as Map<String, dynamic>)
-          .toList(),
+      token_id: json['token_id'] as String?,
       collection: json['collection'] == null
           ? null
           : Collection.fromJson(json['collection'] as Map<String, dynamic>),
+      image_url: json['image_url'] as String?,
+      last_sale: json['last_sale'] == null
+          ? null
+          : Sale.fromJson(json['last_sale'] as Map<String, dynamic>),
+      name: json['name'] as String?,
+      description: json['description'] as String?,
+      id: json['id'] as int?,
+      listing_date: json['listing_date'] as String?,
+      permalink: json['permalink'] as String?,
+      presale: json['presale'] as bool?,
+      traits: (json['traits'] as List<dynamic>?)
+          ?.map((e) => e as Map<String, dynamic>)
+          .toList(),
+      contract: json['contract'] == null
+          ? null
+          : Contract.fromJson(json['contract'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_AssetToJson(_$_Asset instance) => <String, dynamic>{
-      'image_url': instance.image_url,
-      'listing_date': instance.listing_date,
-      'name': instance.name,
-      'owner': instance.owner,
-      'presale': instance.presale,
-      'token_id': instance.token_id,
-      'contract': instance.contract,
-      'permalink': instance.permalink,
       'creator': instance.creator,
+      'owner': instance.owner,
+      'sales': instance.sales,
+      'token_id': instance.token_id,
+      'collection': instance.collection,
+      'image_url': instance.image_url,
+      'last_sale': instance.last_sale,
+      'name': instance.name,
       'description': instance.description,
       'id': instance.id,
-      'last_sale': instance.last_sale,
-      'sales': instance.sales,
+      'listing_date': instance.listing_date,
+      'permalink': instance.permalink,
+      'presale': instance.presale,
       'traits': instance.traits,
-      'collection': instance.collection,
+      'contract': instance.contract,
     };
 
 _$_AssetRequest _$$_AssetRequestFromJson(Map<String, dynamic> json) =>
     _$_AssetRequest(
-      token_id: json['token_id'] as String?,
       contract_address: json['contract_address'] as String?,
+      token_id: json['token_id'] as String?,
     );
 
 Map<String, dynamic> _$$_AssetRequestToJson(_$_AssetRequest instance) =>
     <String, dynamic>{
-      'token_id': instance.token_id,
       'contract_address': instance.contract_address,
+      'token_id': instance.token_id,
     };
 
 _$AssetResponseData _$$AssetResponseDataFromJson(Map<String, dynamic> json) =>
@@ -94,24 +94,24 @@ Map<String, dynamic> _$$AssetResponseMerrToJson(_$AssetResponseMerr instance) =>
 
 _$_AssetsRequest _$$_AssetsRequestFromJson(Map<String, dynamic> json) =>
     _$_AssetsRequest(
+      order_by: json['order_by'] as String?,
+      owner: json['owner'] as String?,
       collection: json['collection'] as String?,
       cursor: json['cursor'] as String?,
       limit: json['limit'] as int?,
       offset: json['offset'] as int?,
       order: json['order'] as String?,
-      order_by: json['order_by'] as String?,
-      owner: json['owner'] as String?,
     );
 
 Map<String, dynamic> _$$_AssetsRequestToJson(_$_AssetsRequest instance) =>
     <String, dynamic>{
+      'order_by': instance.order_by,
+      'owner': instance.owner,
       'collection': instance.collection,
       'cursor': instance.cursor,
       'limit': instance.limit,
       'offset': instance.offset,
       'order': instance.order,
-      'order_by': instance.order_by,
-      'owner': instance.owner,
     };
 
 _$AssetsResponseData _$$AssetsResponseDataFromJson(Map<String, dynamic> json) =>
@@ -148,46 +148,46 @@ Map<String, dynamic> _$$AssetsResponseMerrToJson(
 
 _$_Collection _$$_CollectionFromJson(Map<String, dynamic> json) =>
     _$_Collection(
-      created_at: json['created_at'] as String?,
-      editors:
-          (json['editors'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      external_link: json['external_link'] as String?,
-      name: json['name'] as String?,
-      stats: json['stats'] as Map<String, dynamic>?,
       traits: json['traits'] as Map<String, dynamic>?,
       banner_image_url: json['banner_image_url'] as String?,
+      image_url: json['image_url'] as String?,
+      name: json['name'] as String?,
       payment_tokens: (json['payment_tokens'] as List<dynamic>?)
           ?.map((e) => Token.fromJson(e as Map<String, dynamic>))
           .toList(),
-      seller_fees: json['seller_fees'] as String?,
-      slug: json['slug'] as String?,
       safelist_request_status: json['safelist_request_status'] as String?,
+      stats: json['stats'] as Map<String, dynamic>?,
       description: json['description'] as String?,
-      image_url: json['image_url'] as String?,
+      external_link: json['external_link'] as String?,
+      created_at: json['created_at'] as String?,
+      editors:
+          (json['editors'] as List<dynamic>?)?.map((e) => e as String).toList(),
       payout_address: json['payout_address'] as String?,
       primary_asset_contracts:
           (json['primary_asset_contracts'] as List<dynamic>?)
               ?.map((e) => Contract.fromJson(e as Map<String, dynamic>))
               .toList(),
+      seller_fees: json['seller_fees'] as String?,
+      slug: json['slug'] as String?,
     );
 
 Map<String, dynamic> _$$_CollectionToJson(_$_Collection instance) =>
     <String, dynamic>{
-      'created_at': instance.created_at,
-      'editors': instance.editors,
-      'external_link': instance.external_link,
-      'name': instance.name,
-      'stats': instance.stats,
       'traits': instance.traits,
       'banner_image_url': instance.banner_image_url,
-      'payment_tokens': instance.payment_tokens,
-      'seller_fees': instance.seller_fees,
-      'slug': instance.slug,
-      'safelist_request_status': instance.safelist_request_status,
-      'description': instance.description,
       'image_url': instance.image_url,
+      'name': instance.name,
+      'payment_tokens': instance.payment_tokens,
+      'safelist_request_status': instance.safelist_request_status,
+      'stats': instance.stats,
+      'description': instance.description,
+      'external_link': instance.external_link,
+      'created_at': instance.created_at,
+      'editors': instance.editors,
       'payout_address': instance.payout_address,
       'primary_asset_contracts': instance.primary_asset_contracts,
+      'seller_fees': instance.seller_fees,
+      'slug': instance.slug,
     };
 
 _$_CollectionRequest _$$_CollectionRequestFromJson(Map<String, dynamic> json) =>
@@ -234,17 +234,17 @@ Map<String, dynamic> _$$CollectionResponseMerrToJson(
 _$_CollectionsRequest _$$_CollectionsRequestFromJson(
         Map<String, dynamic> json) =>
     _$_CollectionsRequest(
-      offset: json['offset'] as int?,
       owner: json['owner'] as String?,
       limit: json['limit'] as int?,
+      offset: json['offset'] as int?,
     );
 
 Map<String, dynamic> _$$_CollectionsRequestToJson(
         _$_CollectionsRequest instance) =>
     <String, dynamic>{
-      'offset': instance.offset,
       'owner': instance.owner,
       'limit': instance.limit,
+      'offset': instance.offset,
     };
 
 _$CollectionsResponseData _$$CollectionsResponseDataFromJson(
@@ -278,30 +278,30 @@ Map<String, dynamic> _$$CollectionsResponseMerrToJson(
     };
 
 _$_Contract _$$_ContractFromJson(Map<String, dynamic> json) => _$_Contract(
+      created_at: json['created_at'] as String?,
       payout_address: json['payout_address'] as String?,
+      type: json['type'] as String?,
+      seller_fees: json['seller_fees'] as String?,
+      symbol: json['symbol'] as String?,
       address: json['address'] as String?,
+      description: json['description'] as String?,
       name: json['name'] as String?,
       owner: json['owner'] as int?,
       schema: json['schema'] as String?,
-      seller_fees: json['seller_fees'] as String?,
-      symbol: json['symbol'] as String?,
-      type: json['type'] as String?,
-      created_at: json['created_at'] as String?,
-      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$$_ContractToJson(_$_Contract instance) =>
     <String, dynamic>{
+      'created_at': instance.created_at,
       'payout_address': instance.payout_address,
+      'type': instance.type,
+      'seller_fees': instance.seller_fees,
+      'symbol': instance.symbol,
       'address': instance.address,
+      'description': instance.description,
       'name': instance.name,
       'owner': instance.owner,
       'schema': instance.schema,
-      'seller_fees': instance.seller_fees,
-      'symbol': instance.symbol,
-      'type': instance.type,
-      'created_at': instance.created_at,
-      'description': instance.description,
     };
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
@@ -351,8 +351,9 @@ Map<String, dynamic> _$$CreateResponseMerrToJson(
 _$_Sale _$$_SaleFromJson(Map<String, dynamic> json) => _$_Sale(
       total_price: json['total_price'] as String?,
       asset_decimals: json['asset_decimals'] as int?,
-      created_at: json['created_at'] as String?,
       quantity: json['quantity'] as String?,
+      event_timestamp: json['event_timestamp'] as String?,
+      event_type: json['event_type'] as String?,
       payment_token: json['payment_token'] == null
           ? null
           : Token.fromJson(json['payment_token'] as Map<String, dynamic>),
@@ -360,24 +361,22 @@ _$_Sale _$$_SaleFromJson(Map<String, dynamic> json) => _$_Sale(
           ? null
           : Transaction.fromJson(json['transaction'] as Map<String, dynamic>),
       asset_token_id: json['asset_token_id'] as String?,
-      event_timestamp: json['event_timestamp'] as String?,
-      event_type: json['event_type'] as String?,
+      created_at: json['created_at'] as String?,
     );
 
 Map<String, dynamic> _$$_SaleToJson(_$_Sale instance) => <String, dynamic>{
       'total_price': instance.total_price,
       'asset_decimals': instance.asset_decimals,
-      'created_at': instance.created_at,
       'quantity': instance.quantity,
+      'event_timestamp': instance.event_timestamp,
+      'event_type': instance.event_type,
       'payment_token': instance.payment_token,
       'transaction': instance.transaction,
       'asset_token_id': instance.asset_token_id,
-      'event_timestamp': instance.event_timestamp,
-      'event_type': instance.event_type,
+      'created_at': instance.created_at,
     };
 
 _$_Token _$$_TokenFromJson(Map<String, dynamic> json) => _$_Token(
-      image_url: json['image_url'] as String?,
       name: json['name'] as String?,
       symbol: json['symbol'] as String?,
       usd_price: json['usd_price'] as String?,
@@ -385,10 +384,10 @@ _$_Token _$$_TokenFromJson(Map<String, dynamic> json) => _$_Token(
       decimals: json['decimals'] as int?,
       eth_price: json['eth_price'] as String?,
       id: json['id'] as int?,
+      image_url: json['image_url'] as String?,
     );
 
 Map<String, dynamic> _$$_TokenToJson(_$_Token instance) => <String, dynamic>{
-      'image_url': instance.image_url,
       'name': instance.name,
       'symbol': instance.symbol,
       'usd_price': instance.usd_price,
@@ -396,34 +395,35 @@ Map<String, dynamic> _$$_TokenToJson(_$_Token instance) => <String, dynamic>{
       'decimals': instance.decimals,
       'eth_price': instance.eth_price,
       'id': instance.id,
+      'image_url': instance.image_url,
     };
 
 _$_Transaction _$$_TransactionFromJson(Map<String, dynamic> json) =>
     _$_Transaction(
-      timestamp: json['timestamp'] as String?,
-      to_account: json['to_account'] == null
-          ? null
-          : User.fromJson(json['to_account'] as Map<String, dynamic>),
-      transaction_hash: json['transaction_hash'] as String?,
-      transaction_index: json['transaction_index'] as String?,
       block_hash: json['block_hash'] as String?,
       block_number: json['block_number'] as String?,
       from_account: json['from_account'] == null
           ? null
           : User.fromJson(json['from_account'] as Map<String, dynamic>),
       id: json['id'] as int?,
+      timestamp: json['timestamp'] as String?,
+      to_account: json['to_account'] == null
+          ? null
+          : User.fromJson(json['to_account'] as Map<String, dynamic>),
+      transaction_hash: json['transaction_hash'] as String?,
+      transaction_index: json['transaction_index'] as String?,
     );
 
 Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) =>
     <String, dynamic>{
-      'timestamp': instance.timestamp,
-      'to_account': instance.to_account,
-      'transaction_hash': instance.transaction_hash,
-      'transaction_index': instance.transaction_index,
       'block_hash': instance.block_hash,
       'block_number': instance.block_number,
       'from_account': instance.from_account,
       'id': instance.id,
+      'timestamp': instance.timestamp,
+      'to_account': instance.to_account,
+      'transaction_hash': instance.transaction_hash,
+      'transaction_index': instance.transaction_index,
     };
 
 _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
