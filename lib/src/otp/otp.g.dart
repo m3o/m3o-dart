@@ -8,16 +8,16 @@ part of 'otp.dart';
 
 _$_GenerateRequest _$$_GenerateRequestFromJson(Map<String, dynamic> json) =>
     _$_GenerateRequest(
-      size: int64FromString(json['size'] as String?),
       expiry: int64FromString(json['expiry'] as String?),
       id: json['id'] as String?,
+      size: int64FromString(json['size'] as String?),
     );
 
 Map<String, dynamic> _$$_GenerateRequestToJson(_$_GenerateRequest instance) =>
     <String, dynamic>{
-      'size': int64ToString(instance.size),
       'expiry': int64ToString(instance.expiry),
       'id': instance.id,
+      'size': int64ToString(instance.size),
     };
 
 _$GenerateResponseData _$$GenerateResponseDataFromJson(
@@ -50,14 +50,14 @@ Map<String, dynamic> _$$GenerateResponseMerrToJson(
 
 _$_ValidateRequest _$$_ValidateRequestFromJson(Map<String, dynamic> json) =>
     _$_ValidateRequest(
-      code: json['code'] as String?,
       id: json['id'] as String?,
+      code: json['code'] as String?,
     );
 
 Map<String, dynamic> _$$_ValidateRequestToJson(_$_ValidateRequest instance) =>
     <String, dynamic>{
-      'code': instance.code,
       'id': instance.id,
+      'code': instance.code,
     };
 
 _$ValidateResponseData _$$ValidateResponseDataFromJson(

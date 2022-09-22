@@ -46,12 +46,6 @@ class LookupRequest with _$LookupRequest {
 @Freezed()
 class LookupResponse with _$LookupResponse {
   const factory LookupResponse({
-    /// Name of the city
-    String? city,
-
-    /// Name of the continent
-    String? continent,
-
     /// Name of the country
     String? country,
 
@@ -69,6 +63,12 @@ class LookupResponse with _$LookupResponse {
 
     /// Autonomous system number
     int? asn,
+
+    /// Name of the city
+    String? city,
+
+    /// Name of the continent
+    String? continent,
   }) = LookupResponseData;
   const factory LookupResponse.Merr({Map<String, dynamic>? body}) =
       LookupResponseMerr;

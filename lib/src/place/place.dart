@@ -111,23 +111,14 @@ class Result with _$Result {
     /// simplified address
     String? vicinity,
 
-    /// address of place
-    String? address,
-
     /// url of an icon
     String? icon_url,
 
-    /// name of the place
-    String? name,
-
-    /// type of location
-    String? type,
-
-    /// feature types
-    List<String>? types,
-
     /// lat/lng of place
     String? location,
+
+    /// name of the place
+    String? name,
 
     /// open now
     bool? open_now,
@@ -137,6 +128,15 @@ class Result with _$Result {
 
     /// rating from 1.0 to 5.0
     double? rating,
+
+    /// address of place
+    String? address,
+
+    /// type of location
+    String? type,
+
+    /// feature types
+    List<String>? types,
   }) = _Result;
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
 }

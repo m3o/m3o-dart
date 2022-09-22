@@ -176,11 +176,11 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Field with _$Field {
   const factory Field({
-    /// The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
-    String? name,
-
     /// The type of the field - string, number
     String? type,
+
+    /// The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
+    String? name,
   }) = _Field;
   factory Field.fromJson(Map<String, dynamic> json) => _$FieldFromJson(json);
 }
@@ -228,11 +228,11 @@ class Record with _$Record {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// The index the record belongs to
-    String? index,
-
     /// The query. See docs for query language examples
     String? query,
+
+    /// The index the record belongs to
+    String? index,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);
