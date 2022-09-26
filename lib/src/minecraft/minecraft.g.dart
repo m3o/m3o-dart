@@ -58,12 +58,12 @@ Map<String, dynamic> _$$PingResponseMerrToJson(_$PingResponseMerr instance) =>
 
 _$_PlayerSample _$$_PlayerSampleFromJson(Map<String, dynamic> json) =>
     _$_PlayerSample(
-      uuid: json['uuid'] as String?,
       name: json['name'] as String?,
+      uuid: json['uuid'] as String?,
     );
 
 Map<String, dynamic> _$$_PlayerSampleToJson(_$_PlayerSample instance) =>
     <String, dynamic>{
-      'uuid': instance.uuid,
       'name': instance.name,
+      'uuid': instance.uuid,
     };
