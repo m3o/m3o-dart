@@ -1,3 +1,9 @@
+## v1.0.194 - 2022-09-26
+
+[345096](https://github.com/micro/services/commit/3450963b816b43bb91a38239d29422754114ea12) .
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.193...v1.0.194
+
 ## v1.0.193 - 2022-09-26
 
 [9607ca](https://github.com/micro/services/commit/9607cad371105ca1c123b9ff4d0f6bd5f1564479) fix example
