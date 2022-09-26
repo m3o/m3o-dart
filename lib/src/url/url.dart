@@ -136,11 +136,11 @@ class UrlService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// a unique id e.g uuid or my-url
-    String? id,
-
     /// destination url
     String? destinationURL,
+
+    /// a unique id e.g uuid or my-url
+    String? id,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -203,11 +203,11 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class ResolveRequest with _$ResolveRequest {
   const factory ResolveRequest({
-    /// resolve by id
-    String? id,
-
     /// short url to resolve
     String? shortURL,
+
+    /// resolve by id
+    String? id,
   }) = _ResolveRequest;
   factory ResolveRequest.fromJson(Map<String, dynamic> json) =>
       _$ResolveRequestFromJson(json);
@@ -249,6 +249,9 @@ class ShortenResponse with _$ShortenResponse {
 @Freezed()
 class URLPair with _$URLPair {
   const factory URLPair({
+    /// time of creation
+    String? created,
+
     /// destination url
     String? destinationURL,
 
@@ -261,9 +264,6 @@ class URLPair with _$URLPair {
 
     /// shortened url
     String? shortURL,
-
-    /// time of creation
-    String? created,
   }) = _URLPair;
   factory URLPair.fromJson(Map<String, dynamic> json) =>
       _$URLPairFromJson(json);
@@ -272,14 +272,14 @@ class URLPair with _$URLPair {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
+    /// the destination to update to
+    String? destinationURL,
+
     /// update by id
     String? id,
 
     /// update by short url
     String? shortURL,
-
-    /// the destination to update to
-    String? destinationURL,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

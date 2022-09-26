@@ -32,7 +32,7 @@ class PingService {
     }
   }
 
-  /// Ping a TCP port is open
+  /// Ping a TCP port to check if it's open
   Future<TcpResponse> tcp(TcpRequest req) async {
     Request request = Request(
       service: 'ping',

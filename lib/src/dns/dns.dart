@@ -67,15 +67,15 @@ class QueryRequest with _$QueryRequest {
 @Freezed()
 class QueryResponse with _$QueryResponse {
   const factory QueryResponse({
-    bool? RA,
-    List<Answer>? answer,
+    int? status,
+    bool? RD,
     String? provider,
+    bool? RA,
+    bool? TC,
+    List<Answer>? answer,
     List<Question>? question,
     bool? AD,
     bool? CD,
-    int? status,
-    bool? RD,
-    bool? TC,
   }) = QueryResponseData;
   const factory QueryResponse.Merr({Map<String, dynamic>? body}) =
       QueryResponseMerr;
@@ -86,11 +86,11 @@ class QueryResponse with _$QueryResponse {
 @Freezed()
 class Question with _$Question {
   const factory Question({
-    /// name to query
-    String? name,
-
     /// type of record
     int? type,
+
+    /// name to query
+    String? name,
   }) = _Question;
   factory Question.fromJson(Map<String, dynamic> json) =>
       _$QuestionFromJson(json);

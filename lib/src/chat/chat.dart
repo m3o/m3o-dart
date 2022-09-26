@@ -202,6 +202,9 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// optional list of user ids
+    List<String>? user_ids,
+
     /// chat description
     String? description,
 
@@ -210,9 +213,6 @@ class CreateRequest with _$CreateRequest {
 
     /// whether its a private group
     bool? private,
-
-    /// optional list of user ids
-    List<String>? user_ids,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -254,15 +254,6 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Group with _$Group {
   const factory Group({
-    /// time of creation
-    String? created_at,
-
-    /// description of the that
-    String? description,
-
-    /// unique group id
-    String? id,
-
     /// name of the chat
     String? name,
 
@@ -271,6 +262,15 @@ class Group with _$Group {
 
     /// list of users
     List<String>? user_ids,
+
+    /// time of creation
+    String? created_at,
+
+    /// description of the that
+    String? description,
+
+    /// unique group id
+    String? id,
   }) = _Group;
   factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
 }
@@ -324,11 +324,11 @@ class InviteResponse with _$InviteResponse {
 @Freezed()
 class JoinRequest with _$JoinRequest {
   const factory JoinRequest({
-    /// user id joining
-    String? user_id,
-
     /// group to join
     String? group_id,
+
+    /// user id joining
+    String? user_id,
   }) = _JoinRequest;
   factory JoinRequest.fromJson(Map<String, dynamic> json) =>
       _$JoinRequestFromJson(json);
@@ -417,6 +417,12 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
+    /// time the message was sent in RFC3339 format
+    String? sent_at,
+
+    /// subject of the message
+    String? subject,
+
     /// text of the message
     String? text,
 
@@ -431,12 +437,6 @@ class Message with _$Message {
 
     /// id of the message, allocated by the server
     String? id,
-
-    /// time the message was sent in RFC3339 format
-    String? sent_at,
-
-    /// subject of the message
-    String? subject,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);

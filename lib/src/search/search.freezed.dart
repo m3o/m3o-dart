@@ -1022,11 +1022,11 @@ DeleteRequest _$DeleteRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DeleteRequest {
-  /// The index the record belongs to
-  String? get index => throw _privateConstructorUsedError;
-
   /// The ID of the record to delete
   String? get id => throw _privateConstructorUsedError;
+
+  /// The index the record belongs to
+  String? get index => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1039,7 +1039,7 @@ abstract class $DeleteRequestCopyWith<$Res> {
   factory $DeleteRequestCopyWith(
           DeleteRequest value, $Res Function(DeleteRequest) then) =
       _$DeleteRequestCopyWithImpl<$Res>;
-  $Res call({String? index, String? id});
+  $Res call({String? id, String? index});
 }
 
 /// @nodoc
@@ -1053,17 +1053,17 @@ class _$DeleteRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? index = freezed,
     Object? id = freezed,
+    Object? index = freezed,
   }) {
     return _then(_value.copyWith(
-      index: index == freezed
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      index: index == freezed
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1076,7 +1076,7 @@ abstract class _$$_DeleteRequestCopyWith<$Res>
           _$_DeleteRequest value, $Res Function(_$_DeleteRequest) then) =
       __$$_DeleteRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? index, String? id});
+  $Res call({String? id, String? index});
 }
 
 /// @nodoc
@@ -1092,17 +1092,17 @@ class __$$_DeleteRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? index = freezed,
     Object? id = freezed,
+    Object? index = freezed,
   }) {
     return _then(_$_DeleteRequest(
-      index: index == freezed
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      index: index == freezed
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1111,22 +1111,22 @@ class __$$_DeleteRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_DeleteRequest implements _DeleteRequest {
-  const _$_DeleteRequest({this.index, this.id});
+  const _$_DeleteRequest({this.id, this.index});
 
   factory _$_DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$$_DeleteRequestFromJson(json);
-
-  /// The index the record belongs to
-  @override
-  final String? index;
 
   /// The ID of the record to delete
   @override
   final String? id;
 
+  /// The index the record belongs to
+  @override
+  final String? index;
+
   @override
   String toString() {
-    return 'DeleteRequest(index: $index, id: $id)';
+    return 'DeleteRequest(id: $id, index: $index)';
   }
 
   @override
@@ -1134,16 +1134,16 @@ class _$_DeleteRequest implements _DeleteRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DeleteRequest &&
-            const DeepCollectionEquality().equals(other.index, index) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.index, index));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(index),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(index));
 
   @JsonKey(ignore: true)
   @override
@@ -1159,7 +1159,7 @@ class _$_DeleteRequest implements _DeleteRequest {
 }
 
 abstract class _DeleteRequest implements DeleteRequest {
-  const factory _DeleteRequest({final String? index, final String? id}) =
+  const factory _DeleteRequest({final String? id, final String? index}) =
       _$_DeleteRequest;
 
   factory _DeleteRequest.fromJson(Map<String, dynamic> json) =
@@ -1167,12 +1167,12 @@ abstract class _DeleteRequest implements DeleteRequest {
 
   @override
 
-  /// The index the record belongs to
-  String? get index;
-  @override
-
   /// The ID of the record to delete
   String? get id;
+  @override
+
+  /// The index the record belongs to
+  String? get index;
   @override
   @JsonKey(ignore: true)
   _$$_DeleteRequestCopyWith<_$_DeleteRequest> get copyWith =>
@@ -1543,11 +1543,11 @@ Field _$FieldFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Field {
-  /// The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
-  String? get name => throw _privateConstructorUsedError;
-
   /// The type of the field - string, number
   String? get type => throw _privateConstructorUsedError;
+
+  /// The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
+  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1558,7 +1558,7 @@ mixin _$Field {
 abstract class $FieldCopyWith<$Res> {
   factory $FieldCopyWith(Field value, $Res Function(Field) then) =
       _$FieldCopyWithImpl<$Res>;
-  $Res call({String? name, String? type});
+  $Res call({String? type, String? name});
 }
 
 /// @nodoc
@@ -1571,17 +1571,17 @@ class _$FieldCopyWithImpl<$Res> implements $FieldCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? type = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1592,7 +1592,7 @@ abstract class _$$_FieldCopyWith<$Res> implements $FieldCopyWith<$Res> {
   factory _$$_FieldCopyWith(_$_Field value, $Res Function(_$_Field) then) =
       __$$_FieldCopyWithImpl<$Res>;
   @override
-  $Res call({String? name, String? type});
+  $Res call({String? type, String? name});
 }
 
 /// @nodoc
@@ -1606,17 +1606,17 @@ class __$$_FieldCopyWithImpl<$Res> extends _$FieldCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? type = freezed,
+    Object? name = freezed,
   }) {
     return _then(_$_Field(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1625,22 +1625,22 @@ class __$$_FieldCopyWithImpl<$Res> extends _$FieldCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Field implements _Field {
-  const _$_Field({this.name, this.type});
+  const _$_Field({this.type, this.name});
 
   factory _$_Field.fromJson(Map<String, dynamic> json) =>
       _$$_FieldFromJson(json);
-
-  /// The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
-  @override
-  final String? name;
 
   /// The type of the field - string, number
   @override
   final String? type;
 
+  /// The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
+  @override
+  final String? name;
+
   @override
   String toString() {
-    return 'Field(name: $name, type: $type)';
+    return 'Field(type: $type, name: $name)';
   }
 
   @override
@@ -1648,16 +1648,16 @@ class _$_Field implements _Field {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Field &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.type, type));
+            const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(type));
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
@@ -1673,18 +1673,18 @@ class _$_Field implements _Field {
 }
 
 abstract class _Field implements Field {
-  const factory _Field({final String? name, final String? type}) = _$_Field;
+  const factory _Field({final String? type, final String? name}) = _$_Field;
 
   factory _Field.fromJson(Map<String, dynamic> json) = _$_Field.fromJson;
 
   @override
 
-  /// The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
-  String? get name;
-  @override
-
   /// The type of the field - string, number
   String? get type;
+  @override
+
+  /// The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$$_FieldCopyWith<_$_Field> get copyWith =>
@@ -1697,14 +1697,14 @@ IndexRequest _$IndexRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$IndexRequest {
-  /// Optional ID for the record
-  String? get id => throw _privateConstructorUsedError;
-
   /// The index this record belongs to
   String? get index => throw _privateConstructorUsedError;
 
   /// The data to index
   Map<String, dynamic>? get data => throw _privateConstructorUsedError;
+
+  /// Optional ID for the record
+  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1717,7 +1717,7 @@ abstract class $IndexRequestCopyWith<$Res> {
   factory $IndexRequestCopyWith(
           IndexRequest value, $Res Function(IndexRequest) then) =
       _$IndexRequestCopyWithImpl<$Res>;
-  $Res call({String? id, String? index, Map<String, dynamic>? data});
+  $Res call({String? index, Map<String, dynamic>? data, String? id});
 }
 
 /// @nodoc
@@ -1730,15 +1730,11 @@ class _$IndexRequestCopyWithImpl<$Res> implements $IndexRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? index = freezed,
     Object? data = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       index: index == freezed
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -1747,6 +1743,10 @@ class _$IndexRequestCopyWithImpl<$Res> implements $IndexRequestCopyWith<$Res> {
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1758,7 +1758,7 @@ abstract class _$$_IndexRequestCopyWith<$Res>
           _$_IndexRequest value, $Res Function(_$_IndexRequest) then) =
       __$$_IndexRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? id, String? index, Map<String, dynamic>? data});
+  $Res call({String? index, Map<String, dynamic>? data, String? id});
 }
 
 /// @nodoc
@@ -1774,15 +1774,11 @@ class __$$_IndexRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? index = freezed,
     Object? data = freezed,
+    Object? id = freezed,
   }) {
     return _then(_$_IndexRequest(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       index: index == freezed
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -1791,6 +1787,10 @@ class __$$_IndexRequestCopyWithImpl<$Res>
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1798,15 +1798,11 @@ class __$$_IndexRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_IndexRequest implements _IndexRequest {
-  const _$_IndexRequest({this.id, this.index, final Map<String, dynamic>? data})
+  const _$_IndexRequest({this.index, final Map<String, dynamic>? data, this.id})
       : _data = data;
 
   factory _$_IndexRequest.fromJson(Map<String, dynamic> json) =>
       _$$_IndexRequestFromJson(json);
-
-  /// Optional ID for the record
-  @override
-  final String? id;
 
   /// The index this record belongs to
   @override
@@ -1824,9 +1820,13 @@ class _$_IndexRequest implements _IndexRequest {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// Optional ID for the record
+  @override
+  final String? id;
+
   @override
   String toString() {
-    return 'IndexRequest(id: $id, index: $index, data: $data)';
+    return 'IndexRequest(index: $index, data: $data, id: $id)';
   }
 
   @override
@@ -1834,18 +1834,18 @@ class _$_IndexRequest implements _IndexRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_IndexRequest &&
-            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.index, index) &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(index),
-      const DeepCollectionEquality().hash(_data));
+      const DeepCollectionEquality().hash(_data),
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -1862,17 +1862,13 @@ class _$_IndexRequest implements _IndexRequest {
 
 abstract class _IndexRequest implements IndexRequest {
   const factory _IndexRequest(
-      {final String? id,
-      final String? index,
-      final Map<String, dynamic>? data}) = _$_IndexRequest;
+      {final String? index,
+      final Map<String, dynamic>? data,
+      final String? id}) = _$_IndexRequest;
 
   factory _IndexRequest.fromJson(Map<String, dynamic> json) =
       _$_IndexRequest.fromJson;
 
-  @override
-
-  /// Optional ID for the record
-  String? get id;
   @override
 
   /// The index this record belongs to
@@ -1881,6 +1877,10 @@ abstract class _IndexRequest implements IndexRequest {
 
   /// The data to index
   Map<String, dynamic>? get data;
+  @override
+
+  /// Optional ID for the record
+  String? get id;
   @override
   @JsonKey(ignore: true)
   _$$_IndexRequestCopyWith<_$_IndexRequest> get copyWith =>
