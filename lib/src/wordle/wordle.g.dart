@@ -7,17 +7,17 @@ part of 'wordle.dart';
 // **************************************************************************
 
 _$_Char _$$_CharFromJson(Map<String, dynamic> json) => _$_Char(
-      letter: json['letter'] as String?,
-      position: json['position'] as int?,
       correct: json['correct'] as bool?,
       in_word: json['in_word'] as bool?,
+      letter: json['letter'] as String?,
+      position: json['position'] as int?,
     );
 
 Map<String, dynamic> _$$_CharToJson(_$_Char instance) => <String, dynamic>{
-      'letter': instance.letter,
-      'position': instance.position,
       'correct': instance.correct,
       'in_word': instance.in_word,
+      'letter': instance.letter,
+      'position': instance.position,
     };
 
 _$_Guess _$$_GuessFromJson(Map<String, dynamic> json) => _$_Guess(
@@ -36,14 +36,14 @@ Map<String, dynamic> _$$_GuessToJson(_$_Guess instance) => <String, dynamic>{
 
 _$_GuessRequest _$$_GuessRequestFromJson(Map<String, dynamic> json) =>
     _$_GuessRequest(
-      player: json['player'] as String?,
       word: json['word'] as String?,
+      player: json['player'] as String?,
     );
 
 Map<String, dynamic> _$$_GuessRequestToJson(_$_GuessRequest instance) =>
     <String, dynamic>{
-      'player': instance.player,
       'word': instance.word,
+      'player': instance.player,
     };
 
 _$GuessResponseData _$$GuessResponseDataFromJson(Map<String, dynamic> json) =>

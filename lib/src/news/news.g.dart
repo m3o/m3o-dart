@@ -7,36 +7,36 @@ part of 'news.dart';
 // **************************************************************************
 
 _$_Article _$$_ArticleFromJson(Map<String, dynamic> json) => _$_Article(
-      snippet: json['snippet'] as String?,
       source: json['source'] as String?,
-      description: json['description'] as String?,
       id: json['id'] as String?,
-      image_url: json['image_url'] as String?,
       keywords: json['keywords'] as String?,
       language: json['language'] as String?,
-      locale: json['locale'] as String?,
+      snippet: json['snippet'] as String?,
       published_at: json['published_at'] as String?,
       title: json['title'] as String?,
+      url: json['url'] as String?,
       categories: (json['categories'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      url: json['url'] as String?,
+      description: json['description'] as String?,
+      image_url: json['image_url'] as String?,
+      locale: json['locale'] as String?,
     );
 
 Map<String, dynamic> _$$_ArticleToJson(_$_Article instance) =>
     <String, dynamic>{
-      'snippet': instance.snippet,
       'source': instance.source,
-      'description': instance.description,
       'id': instance.id,
-      'image_url': instance.image_url,
       'keywords': instance.keywords,
       'language': instance.language,
-      'locale': instance.locale,
+      'snippet': instance.snippet,
       'published_at': instance.published_at,
       'title': instance.title,
-      'categories': instance.categories,
       'url': instance.url,
+      'categories': instance.categories,
+      'description': instance.description,
+      'image_url': instance.image_url,
+      'locale': instance.locale,
     };
 
 _$_HeadlinesRequest _$$_HeadlinesRequestFromJson(Map<String, dynamic> json) =>

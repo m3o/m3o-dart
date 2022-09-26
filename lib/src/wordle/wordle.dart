@@ -56,17 +56,17 @@ class WordleService {
 @Freezed()
 class Char with _$Char {
   const factory Char({
-    /// the character itself
-    String? letter,
-
-    /// position in the string
-    int? position,
-
     /// whether it was correct
     bool? correct,
 
     /// whether it's in the word
     bool? in_word,
+
+    /// the character itself
+    String? letter,
+
+    /// position in the string
+    int? position,
   }) = _Char;
   factory Char.fromJson(Map<String, dynamic> json) => _$CharFromJson(json);
 }
@@ -90,11 +90,11 @@ class Guess with _$Guess {
 @Freezed()
 class GuessRequest with _$GuessRequest {
   const factory GuessRequest({
-    /// player
-    String? player,
-
     /// guess word
     String? word,
+
+    /// player
+    String? player,
   }) = _GuessRequest;
   factory GuessRequest.fromJson(Map<String, dynamic> json) =>
       _$GuessRequestFromJson(json);

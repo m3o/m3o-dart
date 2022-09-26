@@ -131,22 +131,38 @@ class TransactionRequest with _$TransactionRequest {
 @Freezed()
 class TransactionResponse with _$TransactionResponse {
   const factory TransactionResponse({
+    /// max fee per gas
+    String? max_fee_per_gas,
+
     /// the nonce
     String? nonce,
+    String? r,
 
-    /// type of transaction
-    String? type,
+    /// gas
+    String? gas,
 
     /// input
     String? input,
 
-    /// to address
-    String? to_address,
-    String? v,
+    /// tx hash
+    String? hash,
 
     /// max priority fee per gas
     String? max_priority_fee_per_gas,
-    String? r,
+
+    /// to address
+    String? to_address,
+
+    /// chain id
+    String? chain_id,
+
+    /// gas price
+    String? gas_price,
+    String? s,
+
+    /// type of transaction
+    String? type,
+    String? v,
 
     /// the block hash
     String? block_hash,
@@ -154,27 +170,11 @@ class TransactionResponse with _$TransactionResponse {
     /// the block number
     String? block_number,
 
-    /// sent from
-    String? from_address,
-
-    /// gas
-    String? gas,
-
-    /// max fee per gas
-    String? max_fee_per_gas,
-
     /// value of transaction
     String? value,
 
-    /// chain id
-    String? chain_id,
-
-    /// gas price
-    String? gas_price,
-
-    /// tx hash
-    String? hash,
-    String? s,
+    /// sent from
+    String? from_address,
 
     /// transaction index
     String? tx_index,

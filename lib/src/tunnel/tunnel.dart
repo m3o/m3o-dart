@@ -64,17 +64,17 @@ class SendRequest with _$SendRequest {
 @Freezed()
 class SendResponse with _$SendResponse {
   const factory SendResponse({
-    /// the status code
-    int? status_code,
-
-    /// body of the response
-    String? body,
-
     /// headers included
     Map<String, String>? headers,
 
     /// the status
     String? status,
+
+    /// the status code
+    int? status_code,
+
+    /// body of the response
+    String? body,
   }) = SendResponseData;
   const factory SendResponse.Merr({Map<String, dynamic>? body}) =
       SendResponseMerr;

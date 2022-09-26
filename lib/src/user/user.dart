@@ -344,9 +344,6 @@ class UserService {
 @Freezed()
 class Account with _$Account {
   const factory Account({
-    /// an email address
-    String? email,
-
     /// unique account id
     String? id,
 
@@ -371,6 +368,9 @@ class Account with _$Account {
     /// unix timestamp
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? created,
+
+    /// an email address
+    String? email,
   }) = _Account;
   factory Account.fromJson(Map<String, dynamic> json) =>
       _$AccountFromJson(json);
@@ -379,12 +379,6 @@ class Account with _$Account {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// the email address
-    String? email,
-
-    /// optional account id
-    String? id,
-
     /// the user password
     String? password,
 
@@ -393,6 +387,12 @@ class CreateRequest with _$CreateRequest {
 
     /// the username
     String? username,
+
+    /// the email address
+    String? email,
+
+    /// optional account id
+    String? id,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -521,14 +521,14 @@ class LogoutResponse with _$LogoutResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
+    /// the account id
+    String? id,
+
     /// the account username
     String? username,
 
     /// the account email
     String? email,
-
-    /// the account id
-    String? id,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);
@@ -598,6 +598,15 @@ class ResetPasswordResponse with _$ResetPasswordResponse {
 @Freezed()
 class SendMagicLinkRequest with _$SendMagicLinkRequest {
   const factory SendMagicLinkRequest({
+    String? subject,
+
+    /// Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
+    /// HTML emails are not available currently.
+    String? text_content,
+
+    /// Your web site address, example www.example.com or user.example.com
+    String? address,
+
     /// the email address of the user
     String? email,
 
@@ -608,14 +617,6 @@ class SendMagicLinkRequest with _$SendMagicLinkRequest {
 
     /// Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
     String? from_name,
-    String? subject,
-
-    /// Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
-    /// HTML emails are not available currently.
-    String? text_content,
-
-    /// Your web site address, example www.example.com or user.example.com
-    String? address,
   }) = _SendMagicLinkRequest;
   factory SendMagicLinkRequest.fromJson(Map<String, dynamic> json) =>
       _$SendMagicLinkRequestFromJson(json);
@@ -667,9 +668,6 @@ class SendPasswordResetEmailResponse with _$SendPasswordResetEmailResponse {
 @Freezed()
 class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
   const factory SendVerificationEmailRequest({
-    /// Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
-    String? text_content,
-
     /// email address to send the verification code
     String? email,
 
@@ -684,6 +682,9 @@ class SendVerificationEmailRequest with _$SendVerificationEmailRequest {
 
     /// subject of the email
     String? subject,
+
+    /// Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
+    String? text_content,
   }) = _SendVerificationEmailRequest;
   factory SendVerificationEmailRequest.fromJson(Map<String, dynamic> json) =>
       _$SendVerificationEmailRequestFromJson(json);
@@ -723,9 +724,6 @@ class Session with _$Session {
 @Freezed()
 class UpdatePasswordRequest with _$UpdatePasswordRequest {
   const factory UpdatePasswordRequest({
-    /// the account id
-    String? userId,
-
     /// confirm new password
     String? confirm_password,
 
@@ -734,6 +732,9 @@ class UpdatePasswordRequest with _$UpdatePasswordRequest {
 
     /// the old password
     String? old_password,
+
+    /// the account id
+    String? userId,
   }) = _UpdatePasswordRequest;
   factory UpdatePasswordRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdatePasswordRequestFromJson(json);

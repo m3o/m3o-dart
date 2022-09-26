@@ -176,14 +176,14 @@ class SpaceService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
-    String? object,
-
     /// Who can see this object? "public" or "private", defaults to "private"
     String? visibility,
 
     /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
     String? name,
+
+    /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
+    String? object,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -245,9 +245,6 @@ class DownloadResponse with _$DownloadResponse {
 @Freezed()
 class HeadObject with _$HeadObject {
   const factory HeadObject({
-    /// is this public or private
-    String? visibility,
-
     /// when was this created
     String? created,
 
@@ -257,6 +254,9 @@ class HeadObject with _$HeadObject {
 
     /// URL to access the object if it is public
     String? url,
+
+    /// is this public or private
+    String? visibility,
   }) = _HeadObject;
   factory HeadObject.fromJson(Map<String, dynamic> json) =>
       _$HeadObjectFromJson(json);
@@ -286,13 +286,13 @@ class HeadResponse with _$HeadResponse {
 @Freezed()
 class ListObject with _$ListObject {
   const factory ListObject({
-    String? url,
-    String? visibility,
     String? created,
 
     /// when was this last modified
     String? modified,
     String? name,
+    String? url,
+    String? visibility,
   }) = _ListObject;
   factory ListObject.fromJson(Map<String, dynamic> json) =>
       _$ListObjectFromJson(json);
@@ -344,12 +344,6 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class SpaceObject with _$SpaceObject {
   const factory SpaceObject({
-    /// URL to access the object if it is public
-    String? url,
-
-    /// is this public or private
-    String? visibility,
-
     /// when was this created
     String? created,
 
@@ -361,6 +355,12 @@ class SpaceObject with _$SpaceObject {
 
     /// name of object
     String? name,
+
+    /// URL to access the object if it is public
+    String? url,
+
+    /// is this public or private
+    String? visibility,
   }) = _SpaceObject;
   factory SpaceObject.fromJson(Map<String, dynamic> json) =>
       _$SpaceObjectFromJson(json);
@@ -397,9 +397,10 @@ class UpdateResponse with _$UpdateResponse {
 @Freezed()
 class UploadRequest with _$UploadRequest {
   const factory UploadRequest({
+    String? name,
+
     /// is this object public or private
     String? visibility,
-    String? name,
   }) = _UploadRequest;
   factory UploadRequest.fromJson(Map<String, dynamic> json) =>
       _$UploadRequestFromJson(json);

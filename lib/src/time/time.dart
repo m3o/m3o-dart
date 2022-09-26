@@ -101,20 +101,26 @@ class ZoneRequest with _$ZoneRequest {
 @Freezed()
 class ZoneResponse with _$ZoneResponse {
   const factory ZoneResponse({
+    /// the abbreviated code e.g BST
+    String? abbreviation,
+
+    /// is daylight savings
+    bool? dst,
+
     /// location requested
     String? location,
 
-    /// the abbreviated code e.g BST
-    String? abbreviation,
+    /// e.g -0.37
+    double? longitude,
+
+    /// country of the timezone
+    String? country,
 
     /// e.g 51.42
     double? latitude,
 
     /// the local time
     String? localtime,
-
-    /// e.g -0.37
-    double? longitude,
 
     /// UTC offset in hours
     int? offset,
@@ -124,12 +130,6 @@ class ZoneResponse with _$ZoneResponse {
 
     /// the timezone e.g Europe/London
     String? timezone,
-
-    /// country of the timezone
-    String? country,
-
-    /// is daylight savings
-    bool? dst,
   }) = ZoneResponseData;
   const factory ZoneResponse.Merr({Map<String, dynamic>? body}) =
       ZoneResponseMerr;

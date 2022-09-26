@@ -22,15 +22,15 @@ Map<String, dynamic> _$$_ChannelToJson(_$_Channel instance) =>
 _$_CreateChannelRequest _$$_CreateChannelRequestFromJson(
         Map<String, dynamic> json) =>
     _$_CreateChannelRequest(
-      name: json['name'] as String?,
       description: json['description'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateChannelRequestToJson(
         _$_CreateChannelRequest instance) =>
     <String, dynamic>{
-      'name': instance.name,
       'description': instance.description,
+      'name': instance.name,
     };
 
 _$CreateChannelResponseData _$$CreateChannelResponseDataFromJson(
@@ -114,18 +114,18 @@ Map<String, dynamic> _$$_ListMessagesRequestToJson(
 _$ListMessagesResponseData _$$ListMessagesResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$ListMessagesResponseData(
+      channel: json['channel'] as String?,
       messages: (json['messages'] as List<dynamic>?)
           ?.map((e) => Message.fromJson(e as Map<String, dynamic>))
           .toList(),
-      channel: json['channel'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ListMessagesResponseDataToJson(
         _$ListMessagesResponseData instance) =>
     <String, dynamic>{
-      'messages': instance.messages,
       'channel': instance.channel,
+      'messages': instance.messages,
       'runtimeType': instance.$type,
     };
 

@@ -69,8 +69,8 @@ class Address with _$Address {
 @Freezed()
 class Location with _$Location {
   const factory Location({
-    double? longitude,
     double? latitude,
+    double? longitude,
   }) = _Location;
   factory Location.fromJson(Map<String, dynamic> json) =>
       _$LocationFromJson(json);
@@ -113,8 +113,8 @@ class ReverseRequest with _$ReverseRequest {
 @Freezed()
 class ReverseResponse with _$ReverseResponse {
   const factory ReverseResponse({
-    Location? location,
     Address? address,
+    Location? location,
   }) = ReverseResponseData;
   const factory ReverseResponse.Merr({Map<String, dynamic>? body}) =
       ReverseResponseMerr;
