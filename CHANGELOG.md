@@ -1,3 +1,9 @@
+## v1.0.191 - 2022-09-26
+
+[4ba2df](https://github.com/micro/services/commit/4ba2dfdf518ab80aa1d0b9c4e38cb9635bcb26f2) .
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.190...v1.0.191
+
 ## v1.0.190 - 2022-09-22
 
 [b80502](https://github.com/micro/services/commit/b80502419badf14467b26083ec00e9f49502f9cf) Merge branch 'master' of ssh://github.com/micro/services
