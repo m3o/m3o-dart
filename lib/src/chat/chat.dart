@@ -254,6 +254,9 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Group with _$Group {
   const factory Group({
+    /// time of creation
+    String? created_at,
+
     /// description of the that
     String? description,
 
@@ -268,9 +271,6 @@ class Group with _$Group {
 
     /// list of users
     List<String>? user_ids,
-
-    /// time of creation
-    String? created_at,
   }) = _Group;
   factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
 }
@@ -324,11 +324,11 @@ class InviteResponse with _$InviteResponse {
 @Freezed()
 class JoinRequest with _$JoinRequest {
   const factory JoinRequest({
-    /// user id joining
-    String? user_id,
-
     /// group to join
     String? group_id,
+
+    /// user id joining
+    String? user_id,
   }) = _JoinRequest;
   factory JoinRequest.fromJson(Map<String, dynamic> json) =>
       _$JoinRequestFromJson(json);
@@ -372,11 +372,11 @@ class KickResponse with _$KickResponse {
 @Freezed()
 class LeaveRequest with _$LeaveRequest {
   const factory LeaveRequest({
-    /// the user id
-    String? user_id,
-
     /// the group id
     String? group_id,
+
+    /// the user id
+    String? user_id,
   }) = _LeaveRequest;
   factory LeaveRequest.fromJson(Map<String, dynamic> json) =>
       _$LeaveRequestFromJson(json);
@@ -417,6 +417,15 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
+    /// a client side id, should be validated by the server to make the request retry safe
+    String? client,
+
+    /// id of the chat the message is being sent to / from
+    String? group_id,
+
+    /// id of the message, allocated by the server
+    String? id,
+
     /// time the message was sent in RFC3339 format
     String? sent_at,
 
@@ -428,15 +437,6 @@ class Message with _$Message {
 
     /// id of the user who sent the message
     String? user_id,
-
-    /// a client side id, should be validated by the server to make the request retry safe
-    String? client,
-
-    /// id of the chat the message is being sent to / from
-    String? group_id,
-
-    /// id of the message, allocated by the server
-    String? id,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);

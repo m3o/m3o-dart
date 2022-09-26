@@ -74,11 +74,11 @@ class CountriesResponse with _$CountriesResponse {
 @Freezed()
 class Country with _$Country {
   const factory Country({
-    /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
-    String? code,
-
     /// The English name of the country
     String? name,
+
+    /// The 2 letter country code (as defined in ISO 3166-1 alpha-2)
+    String? code,
   }) = _Country;
   factory Country.fromJson(Map<String, dynamic> json) =>
       _$CountryFromJson(json);

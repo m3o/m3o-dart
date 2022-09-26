@@ -4,40 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/memegen/api](h
 
 Endpoints:
 
-## Templates
-
-List the available templates
-
-
-[https://m3o.com/memegen/api#Templates](https://m3o.com/memegen/api#Templates)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/memegen/memegen.dart';
-
-void main() async {
-  final ser = MemegenService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{};
-
-  TemplatesRequest req = TemplatesRequest.fromJson(payload);
-
-  
-  try {
-
-	TemplatesResponse res = await ser.templates(req);
-
-    res.map((value) => print(value),
-	  Merr: (TemplatesResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Generate
 
 Generate a meme using a template
@@ -68,6 +34,40 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (GenerateResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Templates
+
+List the available templates
+
+
+[https://m3o.com/memegen/api#Templates](https://m3o.com/memegen/api#Templates)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/memegen/memegen.dart';
+
+void main() async {
+  final ser = MemegenService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  TemplatesRequest req = TemplatesRequest.fromJson(payload);
+
+  
+  try {
+
+	TemplatesResponse res = await ser.templates(req);
+
+    res.map((value) => print(value),
+	  Merr: (TemplatesResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
