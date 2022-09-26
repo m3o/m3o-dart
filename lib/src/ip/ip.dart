@@ -46,9 +46,6 @@ class LookupRequest with _$LookupRequest {
 @Freezed()
 class LookupResponse with _$LookupResponse {
   const factory LookupResponse({
-    /// IP of the query
-    String? ip,
-
     /// Latitude e.g 52.523219
     double? latitude,
 
@@ -69,6 +66,9 @@ class LookupResponse with _$LookupResponse {
 
     /// Name of the country
     String? country,
+
+    /// IP of the query
+    String? ip,
   }) = LookupResponseData;
   const factory LookupResponse.Merr({Map<String, dynamic>? body}) =
       LookupResponseMerr;

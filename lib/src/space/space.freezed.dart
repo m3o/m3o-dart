@@ -2399,13 +2399,13 @@ ListObject _$ListObjectFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListObject {
-  String? get name => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
   String? get visibility => throw _privateConstructorUsedError;
   String? get created => throw _privateConstructorUsedError;
 
   /// when was this last modified
   String? get modified => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2419,11 +2419,11 @@ abstract class $ListObjectCopyWith<$Res> {
           ListObject value, $Res Function(ListObject) then) =
       _$ListObjectCopyWithImpl<$Res>;
   $Res call(
-      {String? name,
-      String? url,
+      {String? url,
       String? visibility,
       String? created,
-      String? modified});
+      String? modified,
+      String? name});
 }
 
 /// @nodoc
@@ -2436,17 +2436,13 @@ class _$ListObjectCopyWithImpl<$Res> implements $ListObjectCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? url = freezed,
     Object? visibility = freezed,
     Object? created = freezed,
     Object? modified = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -2463,6 +2459,10 @@ class _$ListObjectCopyWithImpl<$Res> implements $ListObjectCopyWith<$Res> {
           ? _value.modified
           : modified // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2475,11 +2475,11 @@ abstract class _$$_ListObjectCopyWith<$Res>
       __$$_ListObjectCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? name,
-      String? url,
+      {String? url,
       String? visibility,
       String? created,
-      String? modified});
+      String? modified,
+      String? name});
 }
 
 /// @nodoc
@@ -2494,17 +2494,13 @@ class __$$_ListObjectCopyWithImpl<$Res> extends _$ListObjectCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? url = freezed,
     Object? visibility = freezed,
     Object? created = freezed,
     Object? modified = freezed,
+    Object? name = freezed,
   }) {
     return _then(_$_ListObject(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -2521,6 +2517,10 @@ class __$$_ListObjectCopyWithImpl<$Res> extends _$ListObjectCopyWithImpl<$Res>
           ? _value.modified
           : modified // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2529,13 +2529,11 @@ class __$$_ListObjectCopyWithImpl<$Res> extends _$ListObjectCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ListObject implements _ListObject {
   const _$_ListObject(
-      {this.name, this.url, this.visibility, this.created, this.modified});
+      {this.url, this.visibility, this.created, this.modified, this.name});
 
   factory _$_ListObject.fromJson(Map<String, dynamic> json) =>
       _$$_ListObjectFromJson(json);
 
-  @override
-  final String? name;
   @override
   final String? url;
   @override
@@ -2546,10 +2544,12 @@ class _$_ListObject implements _ListObject {
   /// when was this last modified
   @override
   final String? modified;
+  @override
+  final String? name;
 
   @override
   String toString() {
-    return 'ListObject(name: $name, url: $url, visibility: $visibility, created: $created, modified: $modified)';
+    return 'ListObject(url: $url, visibility: $visibility, created: $created, modified: $modified, name: $name)';
   }
 
   @override
@@ -2557,23 +2557,23 @@ class _$_ListObject implements _ListObject {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ListObject &&
-            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality()
                 .equals(other.visibility, visibility) &&
             const DeepCollectionEquality().equals(other.created, created) &&
-            const DeepCollectionEquality().equals(other.modified, modified));
+            const DeepCollectionEquality().equals(other.modified, modified) &&
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(visibility),
       const DeepCollectionEquality().hash(created),
-      const DeepCollectionEquality().hash(modified));
+      const DeepCollectionEquality().hash(modified),
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
@@ -2590,17 +2590,15 @@ class _$_ListObject implements _ListObject {
 
 abstract class _ListObject implements ListObject {
   const factory _ListObject(
-      {final String? name,
-      final String? url,
+      {final String? url,
       final String? visibility,
       final String? created,
-      final String? modified}) = _$_ListObject;
+      final String? modified,
+      final String? name}) = _$_ListObject;
 
   factory _ListObject.fromJson(Map<String, dynamic> json) =
       _$_ListObject.fromJson;
 
-  @override
-  String? get name;
   @override
   String? get url;
   @override
@@ -2611,6 +2609,8 @@ abstract class _ListObject implements ListObject {
 
   /// when was this last modified
   String? get modified;
+  @override
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$$_ListObjectCopyWith<_$_ListObject> get copyWith =>
@@ -3690,9 +3690,6 @@ SpaceObject _$SpaceObjectFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SpaceObject {
-  /// is this public or private
-  String? get visibility => throw _privateConstructorUsedError;
-
   /// when was this created
   String? get created => throw _privateConstructorUsedError;
 
@@ -3708,6 +3705,9 @@ mixin _$SpaceObject {
   /// URL to access the object if it is public
   String? get url => throw _privateConstructorUsedError;
 
+  /// is this public or private
+  String? get visibility => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SpaceObjectCopyWith<SpaceObject> get copyWith =>
@@ -3720,12 +3720,12 @@ abstract class $SpaceObjectCopyWith<$Res> {
           SpaceObject value, $Res Function(SpaceObject) then) =
       _$SpaceObjectCopyWithImpl<$Res>;
   $Res call(
-      {String? visibility,
-      String? created,
+      {String? created,
       String? data,
       String? modified,
       String? name,
-      String? url});
+      String? url,
+      String? visibility});
 }
 
 /// @nodoc
@@ -3738,18 +3738,14 @@ class _$SpaceObjectCopyWithImpl<$Res> implements $SpaceObjectCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? visibility = freezed,
     Object? created = freezed,
     Object? data = freezed,
     Object? modified = freezed,
     Object? name = freezed,
     Object? url = freezed,
+    Object? visibility = freezed,
   }) {
     return _then(_value.copyWith(
-      visibility: visibility == freezed
-          ? _value.visibility
-          : visibility // ignore: cast_nullable_to_non_nullable
-              as String?,
       created: created == freezed
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
@@ -3770,6 +3766,10 @@ class _$SpaceObjectCopyWithImpl<$Res> implements $SpaceObjectCopyWith<$Res> {
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
+      visibility: visibility == freezed
+          ? _value.visibility
+          : visibility // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -3782,12 +3782,12 @@ abstract class _$$_SpaceObjectCopyWith<$Res>
       __$$_SpaceObjectCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? visibility,
-      String? created,
+      {String? created,
       String? data,
       String? modified,
       String? name,
-      String? url});
+      String? url,
+      String? visibility});
 }
 
 /// @nodoc
@@ -3802,18 +3802,14 @@ class __$$_SpaceObjectCopyWithImpl<$Res> extends _$SpaceObjectCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? visibility = freezed,
     Object? created = freezed,
     Object? data = freezed,
     Object? modified = freezed,
     Object? name = freezed,
     Object? url = freezed,
+    Object? visibility = freezed,
   }) {
     return _then(_$_SpaceObject(
-      visibility: visibility == freezed
-          ? _value.visibility
-          : visibility // ignore: cast_nullable_to_non_nullable
-              as String?,
       created: created == freezed
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
@@ -3834,6 +3830,10 @@ class __$$_SpaceObjectCopyWithImpl<$Res> extends _$SpaceObjectCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
+      visibility: visibility == freezed
+          ? _value.visibility
+          : visibility // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -3842,19 +3842,15 @@ class __$$_SpaceObjectCopyWithImpl<$Res> extends _$SpaceObjectCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SpaceObject implements _SpaceObject {
   const _$_SpaceObject(
-      {this.visibility,
-      this.created,
+      {this.created,
       this.data,
       this.modified,
       this.name,
-      this.url});
+      this.url,
+      this.visibility});
 
   factory _$_SpaceObject.fromJson(Map<String, dynamic> json) =>
       _$$_SpaceObjectFromJson(json);
-
-  /// is this public or private
-  @override
-  final String? visibility;
 
   /// when was this created
   @override
@@ -3876,9 +3872,13 @@ class _$_SpaceObject implements _SpaceObject {
   @override
   final String? url;
 
+  /// is this public or private
+  @override
+  final String? visibility;
+
   @override
   String toString() {
-    return 'SpaceObject(visibility: $visibility, created: $created, data: $data, modified: $modified, name: $name, url: $url)';
+    return 'SpaceObject(created: $created, data: $data, modified: $modified, name: $name, url: $url, visibility: $visibility)';
   }
 
   @override
@@ -3886,25 +3886,25 @@ class _$_SpaceObject implements _SpaceObject {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SpaceObject &&
-            const DeepCollectionEquality()
-                .equals(other.visibility, visibility) &&
             const DeepCollectionEquality().equals(other.created, created) &&
             const DeepCollectionEquality().equals(other.data, data) &&
             const DeepCollectionEquality().equals(other.modified, modified) &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.url, url));
+            const DeepCollectionEquality().equals(other.url, url) &&
+            const DeepCollectionEquality()
+                .equals(other.visibility, visibility));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(visibility),
       const DeepCollectionEquality().hash(created),
       const DeepCollectionEquality().hash(data),
       const DeepCollectionEquality().hash(modified),
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(url));
+      const DeepCollectionEquality().hash(url),
+      const DeepCollectionEquality().hash(visibility));
 
   @JsonKey(ignore: true)
   @override
@@ -3921,20 +3921,16 @@ class _$_SpaceObject implements _SpaceObject {
 
 abstract class _SpaceObject implements SpaceObject {
   const factory _SpaceObject(
-      {final String? visibility,
-      final String? created,
+      {final String? created,
       final String? data,
       final String? modified,
       final String? name,
-      final String? url}) = _$_SpaceObject;
+      final String? url,
+      final String? visibility}) = _$_SpaceObject;
 
   factory _SpaceObject.fromJson(Map<String, dynamic> json) =
       _$_SpaceObject.fromJson;
 
-  @override
-
-  /// is this public or private
-  String? get visibility;
   @override
 
   /// when was this created
@@ -3955,6 +3951,10 @@ abstract class _SpaceObject implements SpaceObject {
 
   /// URL to access the object if it is public
   String? get url;
+  @override
+
+  /// is this public or private
+  String? get visibility;
   @override
   @JsonKey(ignore: true)
   _$$_SpaceObjectCopyWith<_$_SpaceObject> get copyWith =>
@@ -4546,10 +4546,9 @@ UploadRequest _$UploadRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UploadRequest {
-  String? get name => throw _privateConstructorUsedError;
-
   /// is this object public or private
   String? get visibility => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -4562,7 +4561,7 @@ abstract class $UploadRequestCopyWith<$Res> {
   factory $UploadRequestCopyWith(
           UploadRequest value, $Res Function(UploadRequest) then) =
       _$UploadRequestCopyWithImpl<$Res>;
-  $Res call({String? name, String? visibility});
+  $Res call({String? visibility, String? name});
 }
 
 /// @nodoc
@@ -4576,17 +4575,17 @@ class _$UploadRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? visibility = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       visibility: visibility == freezed
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -4599,7 +4598,7 @@ abstract class _$$_UploadRequestCopyWith<$Res>
           _$_UploadRequest value, $Res Function(_$_UploadRequest) then) =
       __$$_UploadRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? name, String? visibility});
+  $Res call({String? visibility, String? name});
 }
 
 /// @nodoc
@@ -4615,17 +4614,17 @@ class __$$_UploadRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? visibility = freezed,
+    Object? name = freezed,
   }) {
     return _then(_$_UploadRequest(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       visibility: visibility == freezed
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -4634,21 +4633,20 @@ class __$$_UploadRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UploadRequest implements _UploadRequest {
-  const _$_UploadRequest({this.name, this.visibility});
+  const _$_UploadRequest({this.visibility, this.name});
 
   factory _$_UploadRequest.fromJson(Map<String, dynamic> json) =>
       _$$_UploadRequestFromJson(json);
 
-  @override
-  final String? name;
-
   /// is this object public or private
   @override
   final String? visibility;
+  @override
+  final String? name;
 
   @override
   String toString() {
-    return 'UploadRequest(name: $name, visibility: $visibility)';
+    return 'UploadRequest(visibility: $visibility, name: $name)';
   }
 
   @override
@@ -4656,17 +4654,17 @@ class _$_UploadRequest implements _UploadRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UploadRequest &&
-            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
-                .equals(other.visibility, visibility));
+                .equals(other.visibility, visibility) &&
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(visibility));
+      const DeepCollectionEquality().hash(visibility),
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
@@ -4682,18 +4680,18 @@ class _$_UploadRequest implements _UploadRequest {
 }
 
 abstract class _UploadRequest implements UploadRequest {
-  const factory _UploadRequest({final String? name, final String? visibility}) =
+  const factory _UploadRequest({final String? visibility, final String? name}) =
       _$_UploadRequest;
 
   factory _UploadRequest.fromJson(Map<String, dynamic> json) =
       _$_UploadRequest.fromJson;
 
   @override
-  String? get name;
-  @override
 
   /// is this object public or private
   String? get visibility;
+  @override
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$$_UploadRequestCopyWith<_$_UploadRequest> get copyWith =>

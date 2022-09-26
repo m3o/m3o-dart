@@ -20,11 +20,11 @@ Code _$CodeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Code {
-  /// e.g United States Dollar
-  String? get currency => throw _privateConstructorUsedError;
-
   /// e.g USD
   String? get name => throw _privateConstructorUsedError;
+
+  /// e.g United States Dollar
+  String? get currency => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ mixin _$Code {
 abstract class $CodeCopyWith<$Res> {
   factory $CodeCopyWith(Code value, $Res Function(Code) then) =
       _$CodeCopyWithImpl<$Res>;
-  $Res call({String? currency, String? name});
+  $Res call({String? name, String? currency});
 }
 
 /// @nodoc
@@ -48,17 +48,17 @@ class _$CodeCopyWithImpl<$Res> implements $CodeCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? currency = freezed,
     Object? name = freezed,
+    Object? currency = freezed,
   }) {
     return _then(_value.copyWith(
-      currency: currency == freezed
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      currency: currency == freezed
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -69,7 +69,7 @@ abstract class _$$_CodeCopyWith<$Res> implements $CodeCopyWith<$Res> {
   factory _$$_CodeCopyWith(_$_Code value, $Res Function(_$_Code) then) =
       __$$_CodeCopyWithImpl<$Res>;
   @override
-  $Res call({String? currency, String? name});
+  $Res call({String? name, String? currency});
 }
 
 /// @nodoc
@@ -83,17 +83,17 @@ class __$$_CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? currency = freezed,
     Object? name = freezed,
+    Object? currency = freezed,
   }) {
     return _then(_$_Code(
-      currency: currency == freezed
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      currency: currency == freezed
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -102,21 +102,21 @@ class __$$_CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Code implements _Code {
-  const _$_Code({this.currency, this.name});
+  const _$_Code({this.name, this.currency});
 
   factory _$_Code.fromJson(Map<String, dynamic> json) => _$$_CodeFromJson(json);
-
-  /// e.g United States Dollar
-  @override
-  final String? currency;
 
   /// e.g USD
   @override
   final String? name;
 
+  /// e.g United States Dollar
+  @override
+  final String? currency;
+
   @override
   String toString() {
-    return 'Code(currency: $currency, name: $name)';
+    return 'Code(name: $name, currency: $currency)';
   }
 
   @override
@@ -124,16 +124,16 @@ class _$_Code implements _Code {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Code &&
-            const DeepCollectionEquality().equals(other.currency, currency) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.currency, currency));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(currency),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(currency));
 
   @JsonKey(ignore: true)
   @override
@@ -149,18 +149,18 @@ class _$_Code implements _Code {
 }
 
 abstract class _Code implements Code {
-  const factory _Code({final String? currency, final String? name}) = _$_Code;
+  const factory _Code({final String? name, final String? currency}) = _$_Code;
 
   factory _Code.fromJson(Map<String, dynamic> json) = _$_Code.fromJson;
 
   @override
 
-  /// e.g United States Dollar
-  String? get currency;
-  @override
-
   /// e.g USD
   String? get name;
+  @override
+
+  /// e.g United States Dollar
+  String? get currency;
   @override
   @JsonKey(ignore: true)
   _$$_CodeCopyWith<_$_Code> get copyWith => throw _privateConstructorUsedError;
@@ -2038,19 +2038,19 @@ RatesResponse _$RatesResponseFromJson(Map<String, dynamic> json) {
 mixin _$RatesResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates) $default, {
+    TResult Function(Map<String, double>? rates, String? code) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates)? $default, {
+    TResult Function(Map<String, double>? rates, String? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates)? $default, {
+    TResult Function(Map<String, double>? rates, String? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -2099,7 +2099,7 @@ abstract class _$$RatesResponseDataCopyWith<$Res> {
   factory _$$RatesResponseDataCopyWith(
           _$RatesResponseData value, $Res Function(_$RatesResponseData) then) =
       __$$RatesResponseDataCopyWithImpl<$Res>;
-  $Res call({String? code, Map<String, double>? rates});
+  $Res call({Map<String, double>? rates, String? code});
 }
 
 /// @nodoc
@@ -2115,18 +2115,18 @@ class __$$RatesResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? code = freezed,
     Object? rates = freezed,
+    Object? code = freezed,
   }) {
     return _then(_$RatesResponseData(
-      code: code == freezed
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
       rates: rates == freezed
           ? _value._rates
           : rates // ignore: cast_nullable_to_non_nullable
               as Map<String, double>?,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2135,16 +2135,12 @@ class __$$RatesResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RatesResponseData implements RatesResponseData {
   const _$RatesResponseData(
-      {this.code, final Map<String, double>? rates, final String? $type})
+      {final Map<String, double>? rates, this.code, final String? $type})
       : _rates = rates,
         $type = $type ?? 'default';
 
   factory _$RatesResponseData.fromJson(Map<String, dynamic> json) =>
       _$$RatesResponseDataFromJson(json);
-
-  /// The code requested e.g USD
-  @override
-  final String? code;
 
   /// The rates for the given code as key-value pairs code:rate
   final Map<String, double>? _rates;
@@ -2158,12 +2154,16 @@ class _$RatesResponseData implements RatesResponseData {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// The code requested e.g USD
+  @override
+  final String? code;
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'RatesResponse(code: $code, rates: $rates)';
+    return 'RatesResponse(rates: $rates, code: $code)';
   }
 
   @override
@@ -2171,16 +2171,16 @@ class _$RatesResponseData implements RatesResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RatesResponseData &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality().equals(other._rates, _rates));
+            const DeepCollectionEquality().equals(other._rates, _rates) &&
+            const DeepCollectionEquality().equals(other.code, code));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(_rates));
+      const DeepCollectionEquality().hash(_rates),
+      const DeepCollectionEquality().hash(code));
 
   @JsonKey(ignore: true)
   @override
@@ -2190,30 +2190,30 @@ class _$RatesResponseData implements RatesResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates) $default, {
+    TResult Function(Map<String, double>? rates, String? code) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(code, rates);
+    return $default(rates, code);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates)? $default, {
+    TResult Function(Map<String, double>? rates, String? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(code, rates);
+    return $default?.call(rates, code);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates)? $default, {
+    TResult Function(Map<String, double>? rates, String? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(code, rates);
+      return $default(rates, code);
     }
     return orElse();
   }
@@ -2259,17 +2259,17 @@ class _$RatesResponseData implements RatesResponseData {
 
 abstract class RatesResponseData implements RatesResponse {
   const factory RatesResponseData(
-      {final String? code,
-      final Map<String, double>? rates}) = _$RatesResponseData;
+      {final Map<String, double>? rates,
+      final String? code}) = _$RatesResponseData;
 
   factory RatesResponseData.fromJson(Map<String, dynamic> json) =
       _$RatesResponseData.fromJson;
 
-  /// The code requested e.g USD
-  String? get code;
-
   /// The rates for the given code as key-value pairs code:rate
   Map<String, double>? get rates;
+
+  /// The code requested e.g USD
+  String? get code;
   @JsonKey(ignore: true)
   _$$RatesResponseDataCopyWith<_$RatesResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2356,7 +2356,7 @@ class _$RatesResponseMerr implements RatesResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates) $default, {
+    TResult Function(Map<String, double>? rates, String? code) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -2365,7 +2365,7 @@ class _$RatesResponseMerr implements RatesResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates)? $default, {
+    TResult Function(Map<String, double>? rates, String? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -2374,7 +2374,7 @@ class _$RatesResponseMerr implements RatesResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? code, Map<String, double>? rates)? $default, {
+    TResult Function(Map<String, double>? rates, String? code)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {

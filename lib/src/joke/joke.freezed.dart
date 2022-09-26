@@ -20,11 +20,11 @@ JokeInfo _$JokeInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$JokeInfo {
+  String? get category => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
   String? get source => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get body => throw _privateConstructorUsedError;
-  String? get category => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,11 +37,11 @@ abstract class $JokeInfoCopyWith<$Res> {
   factory $JokeInfoCopyWith(JokeInfo value, $Res Function(JokeInfo) then) =
       _$JokeInfoCopyWithImpl<$Res>;
   $Res call(
-      {String? id,
+      {String? category,
+      String? id,
       String? source,
       String? title,
-      String? body,
-      String? category});
+      String? body});
 }
 
 /// @nodoc
@@ -54,13 +54,17 @@ class _$JokeInfoCopyWithImpl<$Res> implements $JokeInfoCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? category = freezed,
     Object? id = freezed,
     Object? source = freezed,
     Object? title = freezed,
     Object? body = freezed,
-    Object? category = freezed,
   }) {
     return _then(_value.copyWith(
+      category: category == freezed
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -77,10 +81,6 @@ class _$JokeInfoCopyWithImpl<$Res> implements $JokeInfoCopyWith<$Res> {
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
-      category: category == freezed
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -92,11 +92,11 @@ abstract class _$$_JokeInfoCopyWith<$Res> implements $JokeInfoCopyWith<$Res> {
       __$$_JokeInfoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? id,
+      {String? category,
+      String? id,
       String? source,
       String? title,
-      String? body,
-      String? category});
+      String? body});
 }
 
 /// @nodoc
@@ -111,13 +111,17 @@ class __$$_JokeInfoCopyWithImpl<$Res> extends _$JokeInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? category = freezed,
     Object? id = freezed,
     Object? source = freezed,
     Object? title = freezed,
     Object? body = freezed,
-    Object? category = freezed,
   }) {
     return _then(_$_JokeInfo(
+      category: category == freezed
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -134,10 +138,6 @@ class __$$_JokeInfoCopyWithImpl<$Res> extends _$JokeInfoCopyWithImpl<$Res>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
-      category: category == freezed
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -146,11 +146,13 @@ class __$$_JokeInfoCopyWithImpl<$Res> extends _$JokeInfoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_JokeInfo implements _JokeInfo {
   const _$_JokeInfo(
-      {this.id, this.source, this.title, this.body, this.category});
+      {this.category, this.id, this.source, this.title, this.body});
 
   factory _$_JokeInfo.fromJson(Map<String, dynamic> json) =>
       _$$_JokeInfoFromJson(json);
 
+  @override
+  final String? category;
   @override
   final String? id;
   @override
@@ -159,12 +161,10 @@ class _$_JokeInfo implements _JokeInfo {
   final String? title;
   @override
   final String? body;
-  @override
-  final String? category;
 
   @override
   String toString() {
-    return 'JokeInfo(id: $id, source: $source, title: $title, body: $body, category: $category)';
+    return 'JokeInfo(category: $category, id: $id, source: $source, title: $title, body: $body)';
   }
 
   @override
@@ -172,22 +172,22 @@ class _$_JokeInfo implements _JokeInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_JokeInfo &&
+            const DeepCollectionEquality().equals(other.category, category) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.source, source) &&
             const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.body, body) &&
-            const DeepCollectionEquality().equals(other.category, category));
+            const DeepCollectionEquality().equals(other.body, body));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(category),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(source),
       const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(body),
-      const DeepCollectionEquality().hash(category));
+      const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
@@ -204,14 +204,16 @@ class _$_JokeInfo implements _JokeInfo {
 
 abstract class _JokeInfo implements JokeInfo {
   const factory _JokeInfo(
-      {final String? id,
+      {final String? category,
+      final String? id,
       final String? source,
       final String? title,
-      final String? body,
-      final String? category}) = _$_JokeInfo;
+      final String? body}) = _$_JokeInfo;
 
   factory _JokeInfo.fromJson(Map<String, dynamic> json) = _$_JokeInfo.fromJson;
 
+  @override
+  String? get category;
   @override
   String? get id;
   @override
@@ -220,8 +222,6 @@ abstract class _JokeInfo implements JokeInfo {
   String? get title;
   @override
   String? get body;
-  @override
-  String? get category;
   @override
   @JsonKey(ignore: true)
   _$$_JokeInfoCopyWith<_$_JokeInfo> get copyWith =>

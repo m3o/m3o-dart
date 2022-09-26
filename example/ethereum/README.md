@@ -4,6 +4,42 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/ethereum/api](
 
 Endpoints:
 
+## Broadcast
+
+Broadcast presigned transaction to ethereum network
+
+
+[https://m3o.com/ethereum/api#Broadcast](https://m3o.com/ethereum/api#Broadcast)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/ethereum/ethereum.dart';
+
+void main() async {
+  final ser = EthereumService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "hex": "0xf904808000831cfde080"
+,};
+
+  BroadcastRequest req = BroadcastRequest.fromJson(payload);
+
+  
+  try {
+
+	BroadcastResponse res = await ser.broadcast(req);
+
+    res.map((value) => print(value),
+	  Merr: (BroadcastResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Transaction
 
 Get transaction details by hash
@@ -68,42 +104,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (BalanceResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Broadcast
-
-Broadcast presigned transaction to ethereum network
-
-
-[https://m3o.com/ethereum/api#Broadcast](https://m3o.com/ethereum/api#Broadcast)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/ethereum/ethereum.dart';
-
-void main() async {
-  final ser = EthereumService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "hex": "0xf904808000831cfde080"
-,};
-
-  BroadcastRequest req = BroadcastRequest.fromJson(payload);
-
-  
-  try {
-
-	BroadcastResponse res = await ser.broadcast(req);
-
-    res.map((value) => print(value),
-	  Merr: (BroadcastResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

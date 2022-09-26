@@ -20,6 +20,12 @@ ConvertRequest _$ConvertRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ConvertRequest {
+  /// base64 encoded image to resize,
+  String? get base64 => throw _privateConstructorUsedError;
+
+  /// The image file to convert
+  String? get file => throw _privateConstructorUsedError;
+
   /// output name of the image including extension, ie. "cat.png"
   String? get name => throw _privateConstructorUsedError;
 
@@ -28,12 +34,6 @@ mixin _$ConvertRequest {
 
   /// url of the image to resize
   String? get url => throw _privateConstructorUsedError;
-
-  /// base64 encoded image to resize,
-  String? get base64 => throw _privateConstructorUsedError;
-
-  /// The image file to convert
-  String? get file => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,11 +47,11 @@ abstract class $ConvertRequestCopyWith<$Res> {
           ConvertRequest value, $Res Function(ConvertRequest) then) =
       _$ConvertRequestCopyWithImpl<$Res>;
   $Res call(
-      {String? name,
+      {String? base64,
+      String? file,
+      String? name,
       bool? outputURL,
-      String? url,
-      String? base64,
-      String? file});
+      String? url});
 }
 
 /// @nodoc
@@ -65,13 +65,21 @@ class _$ConvertRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? base64 = freezed,
+    Object? file = freezed,
     Object? name = freezed,
     Object? outputURL = freezed,
     Object? url = freezed,
-    Object? base64 = freezed,
-    Object? file = freezed,
   }) {
     return _then(_value.copyWith(
+      base64: base64 == freezed
+          ? _value.base64
+          : base64 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      file: file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -83,14 +91,6 @@ class _$ConvertRequestCopyWithImpl<$Res>
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      base64: base64 == freezed
-          ? _value.base64
-          : base64 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      file: file == freezed
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -104,11 +104,11 @@ abstract class _$$_ConvertRequestCopyWith<$Res>
       __$$_ConvertRequestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? name,
+      {String? base64,
+      String? file,
+      String? name,
       bool? outputURL,
-      String? url,
-      String? base64,
-      String? file});
+      String? url});
 }
 
 /// @nodoc
@@ -124,13 +124,21 @@ class __$$_ConvertRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? base64 = freezed,
+    Object? file = freezed,
     Object? name = freezed,
     Object? outputURL = freezed,
     Object? url = freezed,
-    Object? base64 = freezed,
-    Object? file = freezed,
   }) {
     return _then(_$_ConvertRequest(
+      base64: base64 == freezed
+          ? _value.base64
+          : base64 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      file: file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -143,14 +151,6 @@ class __$$_ConvertRequestCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
-      base64: base64 == freezed
-          ? _value.base64
-          : base64 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      file: file == freezed
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -159,10 +159,18 @@ class __$$_ConvertRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ConvertRequest implements _ConvertRequest {
   const _$_ConvertRequest(
-      {this.name, this.outputURL, this.url, this.base64, this.file});
+      {this.base64, this.file, this.name, this.outputURL, this.url});
 
   factory _$_ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ConvertRequestFromJson(json);
+
+  /// base64 encoded image to resize,
+  @override
+  final String? base64;
+
+  /// The image file to convert
+  @override
+  final String? file;
 
   /// output name of the image including extension, ie. "cat.png"
   @override
@@ -176,17 +184,9 @@ class _$_ConvertRequest implements _ConvertRequest {
   @override
   final String? url;
 
-  /// base64 encoded image to resize,
-  @override
-  final String? base64;
-
-  /// The image file to convert
-  @override
-  final String? file;
-
   @override
   String toString() {
-    return 'ConvertRequest(name: $name, outputURL: $outputURL, url: $url, base64: $base64, file: $file)';
+    return 'ConvertRequest(base64: $base64, file: $file, name: $name, outputURL: $outputURL, url: $url)';
   }
 
   @override
@@ -194,22 +194,22 @@ class _$_ConvertRequest implements _ConvertRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ConvertRequest &&
+            const DeepCollectionEquality().equals(other.base64, base64) &&
+            const DeepCollectionEquality().equals(other.file, file) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.outputURL, outputURL) &&
-            const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality().equals(other.base64, base64) &&
-            const DeepCollectionEquality().equals(other.file, file));
+            const DeepCollectionEquality().equals(other.url, url));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(base64),
+      const DeepCollectionEquality().hash(file),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(outputURL),
-      const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(base64),
-      const DeepCollectionEquality().hash(file));
+      const DeepCollectionEquality().hash(url));
 
   @JsonKey(ignore: true)
   @override
@@ -226,15 +226,23 @@ class _$_ConvertRequest implements _ConvertRequest {
 
 abstract class _ConvertRequest implements ConvertRequest {
   const factory _ConvertRequest(
-      {final String? name,
+      {final String? base64,
+      final String? file,
+      final String? name,
       final bool? outputURL,
-      final String? url,
-      final String? base64,
-      final String? file}) = _$_ConvertRequest;
+      final String? url}) = _$_ConvertRequest;
 
   factory _ConvertRequest.fromJson(Map<String, dynamic> json) =
       _$_ConvertRequest.fromJson;
 
+  @override
+
+  /// base64 encoded image to resize,
+  String? get base64;
+  @override
+
+  /// The image file to convert
+  String? get file;
   @override
 
   /// output name of the image including extension, ie. "cat.png"
@@ -247,14 +255,6 @@ abstract class _ConvertRequest implements ConvertRequest {
 
   /// url of the image to resize
   String? get url;
-  @override
-
-  /// base64 encoded image to resize,
-  String? get base64;
-  @override
-
-  /// The image file to convert
-  String? get file;
   @override
   @JsonKey(ignore: true)
   _$$_ConvertRequestCopyWith<_$_ConvertRequest> get copyWith =>
@@ -2431,6 +2431,9 @@ UploadRequest _$UploadRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UploadRequest {
+  /// Output name of the image including extension, ie. "cat.png"
+  String? get name => throw _privateConstructorUsedError;
+
   /// URL of the image to upload
   String? get url => throw _privateConstructorUsedError;
 
@@ -2439,9 +2442,6 @@ mixin _$UploadRequest {
 
   /// The image file to upload
   String? get file => throw _privateConstructorUsedError;
-
-  /// Output name of the image including extension, ie. "cat.png"
-  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2454,7 +2454,7 @@ abstract class $UploadRequestCopyWith<$Res> {
   factory $UploadRequestCopyWith(
           UploadRequest value, $Res Function(UploadRequest) then) =
       _$UploadRequestCopyWithImpl<$Res>;
-  $Res call({String? url, String? base64, String? file, String? name});
+  $Res call({String? name, String? url, String? base64, String? file});
 }
 
 /// @nodoc
@@ -2468,12 +2468,16 @@ class _$UploadRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? name = freezed,
     Object? url = freezed,
     Object? base64 = freezed,
     Object? file = freezed,
-    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -2486,10 +2490,6 @@ class _$UploadRequestCopyWithImpl<$Res>
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2501,7 +2501,7 @@ abstract class _$$_UploadRequestCopyWith<$Res>
           _$_UploadRequest value, $Res Function(_$_UploadRequest) then) =
       __$$_UploadRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? url, String? base64, String? file, String? name});
+  $Res call({String? name, String? url, String? base64, String? file});
 }
 
 /// @nodoc
@@ -2517,12 +2517,16 @@ class __$$_UploadRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? name = freezed,
     Object? url = freezed,
     Object? base64 = freezed,
     Object? file = freezed,
-    Object? name = freezed,
   }) {
     return _then(_$_UploadRequest(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -2535,10 +2539,6 @@ class __$$_UploadRequestCopyWithImpl<$Res>
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2546,10 +2546,14 @@ class __$$_UploadRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UploadRequest implements _UploadRequest {
-  const _$_UploadRequest({this.url, this.base64, this.file, this.name});
+  const _$_UploadRequest({this.name, this.url, this.base64, this.file});
 
   factory _$_UploadRequest.fromJson(Map<String, dynamic> json) =>
       _$$_UploadRequestFromJson(json);
+
+  /// Output name of the image including extension, ie. "cat.png"
+  @override
+  final String? name;
 
   /// URL of the image to upload
   @override
@@ -2563,13 +2567,9 @@ class _$_UploadRequest implements _UploadRequest {
   @override
   final String? file;
 
-  /// Output name of the image including extension, ie. "cat.png"
-  @override
-  final String? name;
-
   @override
   String toString() {
-    return 'UploadRequest(url: $url, base64: $base64, file: $file, name: $name)';
+    return 'UploadRequest(name: $name, url: $url, base64: $base64, file: $file)';
   }
 
   @override
@@ -2577,20 +2577,20 @@ class _$_UploadRequest implements _UploadRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UploadRequest &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality().equals(other.base64, base64) &&
-            const DeepCollectionEquality().equals(other.file, file) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.file, file));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(base64),
-      const DeepCollectionEquality().hash(file),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(file));
 
   @JsonKey(ignore: true)
   @override
@@ -2607,14 +2607,18 @@ class _$_UploadRequest implements _UploadRequest {
 
 abstract class _UploadRequest implements UploadRequest {
   const factory _UploadRequest(
-      {final String? url,
+      {final String? name,
+      final String? url,
       final String? base64,
-      final String? file,
-      final String? name}) = _$_UploadRequest;
+      final String? file}) = _$_UploadRequest;
 
   factory _UploadRequest.fromJson(Map<String, dynamic> json) =
       _$_UploadRequest.fromJson;
 
+  @override
+
+  /// Output name of the image including extension, ie. "cat.png"
+  String? get name;
   @override
 
   /// URL of the image to upload
@@ -2627,10 +2631,6 @@ abstract class _UploadRequest implements UploadRequest {
 
   /// The image file to upload
   String? get file;
-  @override
-
-  /// Output name of the image including extension, ie. "cat.png"
-  String? get name;
   @override
   @JsonKey(ignore: true)
   _$$_UploadRequestCopyWith<_$_UploadRequest> get copyWith =>

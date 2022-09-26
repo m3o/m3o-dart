@@ -7,13 +7,13 @@ part of 'currency.dart';
 // **************************************************************************
 
 _$_Code _$$_CodeFromJson(Map<String, dynamic> json) => _$_Code(
-      currency: json['currency'] as String?,
       name: json['name'] as String?,
+      currency: json['currency'] as String?,
     );
 
 Map<String, dynamic> _$$_CodeToJson(_$_Code instance) => <String, dynamic>{
-      'currency': instance.currency,
       'name': instance.name,
+      'currency': instance.currency,
     };
 
 _$_CodesRequest _$$_CodesRequestFromJson(Map<String, dynamic> json) =>
@@ -154,17 +154,17 @@ Map<String, dynamic> _$$_RatesRequestToJson(_$_RatesRequest instance) =>
 
 _$RatesResponseData _$$RatesResponseDataFromJson(Map<String, dynamic> json) =>
     _$RatesResponseData(
-      code: json['code'] as String?,
       rates: (json['rates'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, (e as num).toDouble()),
       ),
+      code: json['code'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$RatesResponseDataToJson(_$RatesResponseData instance) =>
     <String, dynamic>{
-      'code': instance.code,
       'rates': instance.rates,
+      'code': instance.code,
       'runtimeType': instance.$type,
     };
 

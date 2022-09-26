@@ -96,11 +96,11 @@ class CurrencyService {
 @Freezed()
 class Code with _$Code {
   const factory Code({
-    /// e.g United States Dollar
-    String? currency,
-
     /// e.g USD
     String? name,
+
+    /// e.g United States Dollar
+    String? currency,
   }) = _Code;
   factory Code.fromJson(Map<String, dynamic> json) => _$CodeFromJson(json);
 }
@@ -204,11 +204,11 @@ class RatesRequest with _$RatesRequest {
 @Freezed()
 class RatesResponse with _$RatesResponse {
   const factory RatesResponse({
-    /// The code requested e.g USD
-    String? code,
-
     /// The rates for the given code as key-value pairs code:rate
     Map<String, double>? rates,
+
+    /// The code requested e.g USD
+    String? code,
   }) = RatesResponseData;
   const factory RatesResponse.Merr({Map<String, dynamic>? body}) =
       RatesResponseMerr;
