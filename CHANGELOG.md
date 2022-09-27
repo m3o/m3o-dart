@@ -1,3 +1,9 @@
+## v1.0.197 - 2022-09-27
+
+[6d2f45](https://github.com/micro/services/commit/6d2f45505c5d94b8f1888d1e355a48862c57653e) strip location proto comments
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.196...v1.0.197
+
 ## v1.0.196 - 2022-09-27
 
 [aa928a](https://github.com/micro/services/commit/aa928ac804f6b54d0317c2b8db9dec2a513ba5f5) add cron comments
