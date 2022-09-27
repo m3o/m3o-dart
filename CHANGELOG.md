@@ -1,3 +1,9 @@
+## v1.0.196 - 2022-09-27
+
+[aa928a](https://github.com/micro/services/commit/aa928ac804f6b54d0317c2b8db9dec2a513ba5f5) add cron comments
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.195...v1.0.196
+
 ## v1.0.195 - 2022-09-26
 
 [1ebd9a](https://github.com/micro/services/commit/1ebd9ac195401ea2eb6771d21e1aeeb71c079bbe) .
