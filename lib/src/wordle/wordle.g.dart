@@ -36,35 +36,35 @@ Map<String, dynamic> _$$_GuessToJson(_$_Guess instance) => <String, dynamic>{
 
 _$_GuessRequest _$$_GuessRequestFromJson(Map<String, dynamic> json) =>
     _$_GuessRequest(
-      word: json['word'] as String?,
       player: json['player'] as String?,
+      word: json['word'] as String?,
     );
 
 Map<String, dynamic> _$$_GuessRequestToJson(_$_GuessRequest instance) =>
     <String, dynamic>{
-      'word': instance.word,
       'player': instance.player,
+      'word': instance.word,
     };
 
 _$GuessResponseData _$$GuessResponseDataFromJson(Map<String, dynamic> json) =>
     _$GuessResponseData(
-      answer: json['answer'] as String?,
-      correct: json['correct'] as bool?,
       guesses: (json['guesses'] as List<dynamic>?)
           ?.map((e) => Guess.fromJson(e as Map<String, dynamic>))
           .toList(),
       status: json['status'] as String?,
       tries_left: json['tries_left'] as int?,
+      answer: json['answer'] as String?,
+      correct: json['correct'] as bool?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$GuessResponseDataToJson(_$GuessResponseData instance) =>
     <String, dynamic>{
-      'answer': instance.answer,
-      'correct': instance.correct,
       'guesses': instance.guesses,
       'status': instance.status,
       'tries_left': instance.tries_left,
+      'answer': instance.answer,
+      'correct': instance.correct,
       'runtimeType': instance.$type,
     };
 
@@ -88,15 +88,15 @@ Map<String, dynamic> _$$_NextRequestToJson(_$_NextRequest instance) =>
 
 _$NextResponseData _$$NextResponseDataFromJson(Map<String, dynamic> json) =>
     _$NextResponseData(
-      duration: json['duration'] as String?,
       seconds: json['seconds'] as int?,
+      duration: json['duration'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$NextResponseDataToJson(_$NextResponseData instance) =>
     <String, dynamic>{
-      'duration': instance.duration,
       'seconds': instance.seconds,
+      'duration': instance.duration,
       'runtimeType': instance.$type,
     };
 

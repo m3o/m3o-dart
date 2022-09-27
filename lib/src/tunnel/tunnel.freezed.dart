@@ -352,24 +352,24 @@ SendResponse _$SendResponseFromJson(Map<String, dynamic> json) {
 mixin _$SendResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)
+    TResult Function(String? status, int? status_code, String? body,
+            Map<String, String>? headers)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)?
+    TResult Function(String? status, int? status_code, String? body,
+            Map<String, String>? headers)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)?
+    TResult Function(String? status, int? status_code, String? body,
+            Map<String, String>? headers)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -419,10 +419,10 @@ abstract class _$$SendResponseDataCopyWith<$Res> {
           _$SendResponseData value, $Res Function(_$SendResponseData) then) =
       __$$SendResponseDataCopyWithImpl<$Res>;
   $Res call(
-      {Map<String, String>? headers,
-      String? status,
+      {String? status,
       int? status_code,
-      String? body});
+      String? body,
+      Map<String, String>? headers});
 }
 
 /// @nodoc
@@ -438,16 +438,12 @@ class __$$SendResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? headers = freezed,
     Object? status = freezed,
     Object? status_code = freezed,
     Object? body = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$SendResponseData(
-      headers: headers == freezed
-          ? _value._headers
-          : headers // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>?,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -460,6 +456,10 @@ class __$$SendResponseDataCopyWithImpl<$Res>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
+      headers: headers == freezed
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 }
@@ -468,28 +468,16 @@ class __$$SendResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SendResponseData implements SendResponseData {
   const _$SendResponseData(
-      {final Map<String, String>? headers,
-      this.status,
+      {this.status,
       this.status_code,
       this.body,
+      final Map<String, String>? headers,
       final String? $type})
       : _headers = headers,
         $type = $type ?? 'default';
 
   factory _$SendResponseData.fromJson(Map<String, dynamic> json) =>
       _$$SendResponseDataFromJson(json);
-
-  /// headers included
-  final Map<String, String>? _headers;
-
-  /// headers included
-  @override
-  Map<String, String>? get headers {
-    final value = _headers;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
 
   /// the status
   @override
@@ -503,12 +491,24 @@ class _$SendResponseData implements SendResponseData {
   @override
   final String? body;
 
+  /// headers included
+  final Map<String, String>? _headers;
+
+  /// headers included
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'SendResponse(headers: $headers, status: $status, status_code: $status_code, body: $body)';
+    return 'SendResponse(status: $status, status_code: $status_code, body: $body, headers: $headers)';
   }
 
   @override
@@ -516,21 +516,21 @@ class _$SendResponseData implements SendResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SendResponseData &&
-            const DeepCollectionEquality().equals(other._headers, _headers) &&
             const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality()
                 .equals(other.status_code, status_code) &&
-            const DeepCollectionEquality().equals(other.body, body));
+            const DeepCollectionEquality().equals(other.body, body) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_headers),
       const DeepCollectionEquality().hash(status),
       const DeepCollectionEquality().hash(status_code),
-      const DeepCollectionEquality().hash(body));
+      const DeepCollectionEquality().hash(body),
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -540,36 +540,36 @@ class _$SendResponseData implements SendResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)
+    TResult Function(String? status, int? status_code, String? body,
+            Map<String, String>? headers)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(headers, status, status_code, body);
+    return $default(status, status_code, body, headers);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)?
+    TResult Function(String? status, int? status_code, String? body,
+            Map<String, String>? headers)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(headers, status, status_code, body);
+    return $default?.call(status, status_code, body, headers);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)?
+    TResult Function(String? status, int? status_code, String? body,
+            Map<String, String>? headers)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(headers, status, status_code, body);
+      return $default(status, status_code, body, headers);
     }
     return orElse();
   }
@@ -615,16 +615,13 @@ class _$SendResponseData implements SendResponseData {
 
 abstract class SendResponseData implements SendResponse {
   const factory SendResponseData(
-      {final Map<String, String>? headers,
-      final String? status,
+      {final String? status,
       final int? status_code,
-      final String? body}) = _$SendResponseData;
+      final String? body,
+      final Map<String, String>? headers}) = _$SendResponseData;
 
   factory SendResponseData.fromJson(Map<String, dynamic> json) =
       _$SendResponseData.fromJson;
-
-  /// headers included
-  Map<String, String>? get headers;
 
   /// the status
   String? get status;
@@ -634,6 +631,9 @@ abstract class SendResponseData implements SendResponse {
 
   /// body of the response
   String? get body;
+
+  /// headers included
+  Map<String, String>? get headers;
   @JsonKey(ignore: true)
   _$$SendResponseDataCopyWith<_$SendResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -720,8 +720,8 @@ class _$SendResponseMerr implements SendResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)
+    TResult Function(String? status, int? status_code, String? body,
+            Map<String, String>? headers)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -731,8 +731,8 @@ class _$SendResponseMerr implements SendResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)?
+    TResult Function(String? status, int? status_code, String? body,
+            Map<String, String>? headers)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -742,8 +742,8 @@ class _$SendResponseMerr implements SendResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)?
+    TResult Function(String? status, int? status_code, String? body,
+            Map<String, String>? headers)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

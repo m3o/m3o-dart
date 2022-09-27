@@ -95,7 +95,10 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Job with _$Job {
   const factory Job({
-    /// callback url
+    /// name
+    String? name,
+
+    /// callback url e.g https://google.com
     String? callback,
 
     /// description
@@ -106,9 +109,6 @@ class Job with _$Job {
 
     /// scheduled interval
     String? interval,
-
-    /// name
-    String? name,
   }) = _Job;
   factory Job.fromJson(Map<String, dynamic> json) => _$JobFromJson(json);
 }
@@ -123,6 +123,7 @@ class JobsRequest with _$JobsRequest {
 @Freezed()
 class JobsResponse with _$JobsResponse {
   const factory JobsResponse({
+    /// the list of scheduled jobs
     List<Job>? jobs,
   }) = JobsResponseData;
   const factory JobsResponse.Merr({Map<String, dynamic>? body}) =
@@ -134,20 +135,20 @@ class JobsResponse with _$JobsResponse {
 @Freezed()
 class ScheduleRequest with _$ScheduleRequest {
   const factory ScheduleRequest({
-    /// unique id of job
-    String? id,
-
-    /// interval e.g * * * *
+    /// interval e.g * * * * *
     String? interval,
 
     /// name of cron
     String? name,
 
-    /// callback url
+    /// callback url e.g https://google.com
     String? callback,
 
     /// description
     String? description,
+
+    /// unique id of job (optional)
+    String? id,
   }) = _ScheduleRequest;
   factory ScheduleRequest.fromJson(Map<String, dynamic> json) =>
       _$ScheduleRequestFromJson(json);
@@ -156,6 +157,7 @@ class ScheduleRequest with _$ScheduleRequest {
 @Freezed()
 class ScheduleResponse with _$ScheduleResponse {
   const factory ScheduleResponse({
+    /// the scheduled job
     Job? job,
   }) = ScheduleResponseData;
   const factory ScheduleResponse.Merr({Map<String, dynamic>? body}) =

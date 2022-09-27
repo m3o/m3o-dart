@@ -65,20 +65,20 @@ Map<String, dynamic> _$$_ConvertRequestToJson(_$_ConvertRequest instance) =>
 _$ConvertResponseData _$$ConvertResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$ConvertResponseData(
-      from: json['from'] as String?,
-      rate: (json['rate'] as num?)?.toDouble(),
       to: json['to'] as String?,
       amount: (json['amount'] as num?)?.toDouble(),
+      from: json['from'] as String?,
+      rate: (json['rate'] as num?)?.toDouble(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ConvertResponseDataToJson(
         _$ConvertResponseData instance) =>
     <String, dynamic>{
-      'from': instance.from,
-      'rate': instance.rate,
       'to': instance.to,
       'amount': instance.amount,
+      'from': instance.from,
+      'rate': instance.rate,
       'runtimeType': instance.$type,
     };
 

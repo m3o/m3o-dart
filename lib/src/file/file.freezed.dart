@@ -1104,11 +1104,11 @@ ReadRequest _$ReadRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReadRequest {
-  /// Path to the file
-  String? get path => throw _privateConstructorUsedError;
-
   /// Project name
   String? get project => throw _privateConstructorUsedError;
+
+  /// Path to the file
+  String? get path => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1121,7 +1121,7 @@ abstract class $ReadRequestCopyWith<$Res> {
   factory $ReadRequestCopyWith(
           ReadRequest value, $Res Function(ReadRequest) then) =
       _$ReadRequestCopyWithImpl<$Res>;
-  $Res call({String? path, String? project});
+  $Res call({String? project, String? path});
 }
 
 /// @nodoc
@@ -1134,17 +1134,17 @@ class _$ReadRequestCopyWithImpl<$Res> implements $ReadRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? path = freezed,
     Object? project = freezed,
+    Object? path = freezed,
   }) {
     return _then(_value.copyWith(
-      path: path == freezed
-          ? _value.path
-          : path // ignore: cast_nullable_to_non_nullable
-              as String?,
       project: project == freezed
           ? _value.project
           : project // ignore: cast_nullable_to_non_nullable
+              as String?,
+      path: path == freezed
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1157,7 +1157,7 @@ abstract class _$$_ReadRequestCopyWith<$Res>
           _$_ReadRequest value, $Res Function(_$_ReadRequest) then) =
       __$$_ReadRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? path, String? project});
+  $Res call({String? project, String? path});
 }
 
 /// @nodoc
@@ -1172,17 +1172,17 @@ class __$$_ReadRequestCopyWithImpl<$Res> extends _$ReadRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? path = freezed,
     Object? project = freezed,
+    Object? path = freezed,
   }) {
     return _then(_$_ReadRequest(
-      path: path == freezed
-          ? _value.path
-          : path // ignore: cast_nullable_to_non_nullable
-              as String?,
       project: project == freezed
           ? _value.project
           : project // ignore: cast_nullable_to_non_nullable
+              as String?,
+      path: path == freezed
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1191,22 +1191,22 @@ class __$$_ReadRequestCopyWithImpl<$Res> extends _$ReadRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ReadRequest implements _ReadRequest {
-  const _$_ReadRequest({this.path, this.project});
+  const _$_ReadRequest({this.project, this.path});
 
   factory _$_ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ReadRequestFromJson(json);
-
-  /// Path to the file
-  @override
-  final String? path;
 
   /// Project name
   @override
   final String? project;
 
+  /// Path to the file
+  @override
+  final String? path;
+
   @override
   String toString() {
-    return 'ReadRequest(path: $path, project: $project)';
+    return 'ReadRequest(project: $project, path: $path)';
   }
 
   @override
@@ -1214,16 +1214,16 @@ class _$_ReadRequest implements _ReadRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ReadRequest &&
-            const DeepCollectionEquality().equals(other.path, path) &&
-            const DeepCollectionEquality().equals(other.project, project));
+            const DeepCollectionEquality().equals(other.project, project) &&
+            const DeepCollectionEquality().equals(other.path, path));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(path),
-      const DeepCollectionEquality().hash(project));
+      const DeepCollectionEquality().hash(project),
+      const DeepCollectionEquality().hash(path));
 
   @JsonKey(ignore: true)
   @override
@@ -1239,7 +1239,7 @@ class _$_ReadRequest implements _ReadRequest {
 }
 
 abstract class _ReadRequest implements ReadRequest {
-  const factory _ReadRequest({final String? path, final String? project}) =
+  const factory _ReadRequest({final String? project, final String? path}) =
       _$_ReadRequest;
 
   factory _ReadRequest.fromJson(Map<String, dynamic> json) =
@@ -1247,12 +1247,12 @@ abstract class _ReadRequest implements ReadRequest {
 
   @override
 
-  /// Path to the file
-  String? get path;
-  @override
-
   /// Project name
   String? get project;
+  @override
+
+  /// Path to the file
+  String? get path;
   @override
   @JsonKey(ignore: true)
   _$$_ReadRequestCopyWith<_$_ReadRequest> get copyWith =>
