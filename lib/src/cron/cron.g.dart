@@ -41,19 +41,19 @@ Map<String, dynamic> _$$DeleteResponseMerrToJson(
     };
 
 _$_Job _$$_JobFromJson(Map<String, dynamic> json) => _$_Job(
-      name: json['name'] as String?,
-      callback: json['callback'] as String?,
       description: json['description'] as String?,
       id: json['id'] as String?,
       interval: json['interval'] as String?,
+      name: json['name'] as String?,
+      callback: json['callback'] as String?,
     );
 
 Map<String, dynamic> _$$_JobToJson(_$_Job instance) => <String, dynamic>{
-      'name': instance.name,
-      'callback': instance.callback,
       'description': instance.description,
       'id': instance.id,
       'interval': instance.interval,
+      'name': instance.name,
+      'callback': instance.callback,
     };
 
 _$_JobsRequest _$$_JobsRequestFromJson(Map<String, dynamic> json) =>

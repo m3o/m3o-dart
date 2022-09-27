@@ -236,11 +236,11 @@ class FunctionService {
 @Freezed()
 class CallRequest with _$CallRequest {
   const factory CallRequest({
-    /// Request body that will be passed to the function
-    Map<String, dynamic>? request,
-
     /// Name of the function
     String? name,
+
+    /// Request body that will be passed to the function
+    Map<String, dynamic>? request,
   }) = _CallRequest;
   factory CallRequest.fromJson(Map<String, dynamic> json) =>
       _$CallRequestFromJson(json);
@@ -280,8 +280,12 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class DeployRequest with _$DeployRequest {
   const factory DeployRequest({
-    /// region to deploy in. defaults to europe-west1
-    String? region,
+    /// entry point, ie. handler name in the source code
+    /// if not provided, defaults to the name parameter
+    String? entrypoint,
+
+    /// github url for a repo
+    String? repo,
 
     /// runtime/lanaguage of the function e.g php74,
     /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
@@ -289,15 +293,14 @@ class DeployRequest with _$DeployRequest {
     /// python37, python38, python39
     String? runtime,
 
+    /// inline source code
+    String? source,
+
     /// optional subfolder path
     String? subfolder,
 
     /// branch to deploy. defaults to master
     String? branch,
-
-    /// entry point, ie. handler name in the source code
-    /// if not provided, defaults to the name parameter
-    String? entrypoint,
 
     /// environment variables to pass in at runtime
     Map<String, String>? env_vars,
@@ -305,11 +308,8 @@ class DeployRequest with _$DeployRequest {
     /// function name
     String? name,
 
-    /// github url for a repo
-    String? repo,
-
-    /// inline source code
-    String? source,
+    /// region to deploy in. defaults to europe-west1
+    String? region,
   }) = _DeployRequest;
   factory DeployRequest.fromJson(Map<String, dynamic> json) =>
       _$DeployRequestFromJson(json);
@@ -351,8 +351,8 @@ class DescribeResponse with _$DescribeResponse {
 @Freezed()
 class Func with _$Func {
   const factory Func({
-    /// git repo address
-    String? repo,
+    /// branch to deploy. defaults to master
+    String? branch,
 
     /// name of handler in source code
     String? entrypoint,
@@ -360,11 +360,14 @@ class Func with _$Func {
     /// associated env vars
     Map<String, String>? env_vars,
 
-    /// unique url of the function
-    String? url,
+    /// id of the function
+    String? id,
 
-    /// time of creation
-    String? created,
+    /// git repo address
+    String? repo,
+
+    /// time it was updated
+    String? updated,
 
     /// function name
     /// limitation: must be unique across projects
@@ -373,14 +376,14 @@ class Func with _$Func {
     /// region to deploy in. defaults to europe-west1
     String? region,
 
-    /// the source code
-    String? source,
+    /// time of creation
+    String? created,
 
     /// subfolder path to entrypoint
     String? subfolder,
 
-    /// branch to deploy. defaults to master
-    String? branch,
+    /// unique url of the function
+    String? url,
 
     /// runtime/language of the function e.g php74,
     /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
@@ -388,14 +391,11 @@ class Func with _$Func {
     /// python37, python38, python39
     String? runtime,
 
+    /// the source code
+    String? source,
+
     /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
     String? status,
-
-    /// time it was updated
-    String? updated,
-
-    /// id of the function
-    String? id,
   }) = _Func;
   factory Func.fromJson(Map<String, dynamic> json) => _$FuncFromJson(json);
 }
@@ -422,11 +422,11 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class LogsRequest with _$LogsRequest {
   const factory LogsRequest({
-    /// the name of the function
-    String? name,
-
     /// type of logs to retrieve, currently supported options - "build"
     String? logs_type,
+
+    /// the name of the function
+    String? name,
   }) = _LogsRequest;
   factory LogsRequest.fromJson(Map<String, dynamic> json) =>
       _$LogsRequestFromJson(json);
@@ -486,9 +486,6 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
-    /// associated token
-    String? token,
-
     /// time of reservation
     String? created,
 
@@ -500,6 +497,9 @@ class Reservation with _$Reservation {
 
     /// owner id
     String? owner,
+
+    /// associated token
+    String? token,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);
