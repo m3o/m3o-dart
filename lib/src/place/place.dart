@@ -72,12 +72,6 @@ class AutocompleteResponse with _$AutocompleteResponse {
 @Freezed()
 class NearbyRequest with _$NearbyRequest {
   const factory NearbyRequest({
-    /// specify the location by lat,lng e.g -33.8670522,-151.1957362
-    String? location,
-
-    /// Name of the place to search for
-    String? name,
-
     /// Whether the place is open now
     bool? open_now,
 
@@ -89,6 +83,12 @@ class NearbyRequest with _$NearbyRequest {
 
     /// Keyword to include in the search
     String? keyword,
+
+    /// specify the location by lat,lng e.g -33.8670522,-151.1957362
+    String? location,
+
+    /// Name of the place to search for
+    String? name,
   }) = _NearbyRequest;
   factory NearbyRequest.fromJson(Map<String, dynamic> json) =>
       _$NearbyRequestFromJson(json);
@@ -108,15 +108,6 @@ class NearbyResponse with _$NearbyResponse {
 @Freezed()
 class Result with _$Result {
   const factory Result({
-    /// url of an icon
-    String? icon_url,
-
-    /// lat/lng of place
-    String? location,
-
-    /// name of the place
-    String? name,
-
     /// open now
     bool? open_now,
 
@@ -129,11 +120,20 @@ class Result with _$Result {
     /// feature types
     List<String>? types,
 
+    /// simplified address
+    String? vicinity,
+
     /// address of place
     String? address,
 
-    /// simplified address
-    String? vicinity,
+    /// url of an icon
+    String? icon_url,
+
+    /// lat/lng of place
+    String? location,
+
+    /// name of the place
+    String? name,
 
     /// type of location
     String? type,
@@ -144,12 +144,6 @@ class Result with _$Result {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// the location by lat,lng e.g -33.8670522,-151.1957362
-    String? location,
-
-    /// Whether the place is open now
-    bool? open_now,
-
     /// the text string on which to search, for example: "restaurant"
     String? query,
 
@@ -158,6 +152,12 @@ class SearchRequest with _$SearchRequest {
 
     /// Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
     String? type,
+
+    /// the location by lat,lng e.g -33.8670522,-151.1957362
+    String? location,
+
+    /// Whether the place is open now
+    bool? open_now,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);

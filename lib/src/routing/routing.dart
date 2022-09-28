@@ -76,6 +76,9 @@ class RoutingService {
 @Freezed()
 class Direction with _$Direction {
   const factory Direction({
+    /// distance to travel in meters
+    double? distance,
+
     /// duration to travel in seconds
     double? duration,
 
@@ -93,9 +96,6 @@ class Direction with _$Direction {
 
     /// alternative reference
     String? reference,
-
-    /// distance to travel in meters
-    double? distance,
   }) = _Direction;
   factory Direction.fromJson(Map<String, dynamic> json) =>
       _$DirectionFromJson(json);
@@ -117,6 +117,9 @@ class DirectionsRequest with _$DirectionsRequest {
 @Freezed()
 class DirectionsResponse with _$DirectionsResponse {
   const factory DirectionsResponse({
+    /// Estimated duration of the route in seconds
+    double? duration,
+
     /// The waypoints on the route
     List<Waypoint>? waypoints,
 
@@ -125,9 +128,6 @@ class DirectionsResponse with _$DirectionsResponse {
 
     /// Estimated distance of the route in meters
     double? distance,
-
-    /// Estimated duration of the route in seconds
-    double? duration,
   }) = DirectionsResponseData;
   const factory DirectionsResponse.Merr({Map<String, dynamic>? body}) =
       DirectionsResponseMerr;
@@ -217,14 +217,14 @@ class RouteRequest with _$RouteRequest {
 @Freezed()
 class RouteResponse with _$RouteResponse {
   const factory RouteResponse({
-    /// estimated distance in meters
-    double? distance,
-
     /// estimated duration in seconds
     double? duration,
 
     /// waypoints on the route
     List<Waypoint>? waypoints,
+
+    /// estimated distance in meters
+    double? distance,
   }) = RouteResponseData;
   const factory RouteResponse.Merr({Map<String, dynamic>? body}) =
       RouteResponseMerr;
@@ -235,11 +235,11 @@ class RouteResponse with _$RouteResponse {
 @Freezed()
 class Waypoint with _$Waypoint {
   const factory Waypoint({
-    /// street name or related reference
-    String? name,
-
     /// gps point coordinates
     Point? location,
+
+    /// street name or related reference
+    String? name,
   }) = _Waypoint;
   factory Waypoint.fromJson(Map<String, dynamic> json) =>
       _$WaypointFromJson(json);

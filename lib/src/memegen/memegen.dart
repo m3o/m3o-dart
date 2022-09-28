@@ -56,15 +56,6 @@ class MemegenService {
 @Freezed()
 class Box with _$Box {
   const factory Box({
-    /// outline color hex code
-    String? outline,
-
-    /// text to display
-    String? text,
-
-    /// width in pixels
-    int? width,
-
     /// x axis position
     int? x,
 
@@ -76,6 +67,15 @@ class Box with _$Box {
 
     /// height in pixels
     int? height,
+
+    /// outline color hex code
+    String? outline,
+
+    /// text to display
+    String? text,
+
+    /// width in pixels
+    int? width,
   }) = _Box;
   factory Box.fromJson(Map<String, dynamic> json) => _$BoxFromJson(json);
 }
@@ -83,6 +83,9 @@ class Box with _$Box {
 @Freezed()
 class GenerateRequest with _$GenerateRequest {
   const factory GenerateRequest({
+    /// top text
+    String? top_text,
+
     /// bottom text
     String? bottom_text,
 
@@ -94,9 +97,6 @@ class GenerateRequest with _$GenerateRequest {
 
     /// font size; defaults to 50px
     String? max_font_size,
-
-    /// top text
-    String? top_text,
   }) = _GenerateRequest;
   factory GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$GenerateRequestFromJson(json);
@@ -117,9 +117,6 @@ class GenerateResponse with _$GenerateResponse {
 @Freezed()
 class Template with _$Template {
   const factory Template({
-    /// height in pixels
-    int? height,
-
     /// id of the memegen
     String? id,
 
@@ -134,6 +131,9 @@ class Template with _$Template {
 
     /// number of boxes used
     int? box_count,
+
+    /// height in pixels
+    int? height,
   }) = _Template;
   factory Template.fromJson(Map<String, dynamic> json) =>
       _$TemplateFromJson(json);

@@ -200,10 +200,10 @@ Point _$PointFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Point {
-  double? get latitude => throw _privateConstructorUsedError;
-  double? get longitude => throw _privateConstructorUsedError;
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get timestamp => throw _privateConstructorUsedError;
+  double? get latitude => throw _privateConstructorUsedError;
+  double? get longitude => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -215,10 +215,10 @@ abstract class $PointCopyWith<$Res> {
   factory $PointCopyWith(Point value, $Res Function(Point) then) =
       _$PointCopyWithImpl<$Res>;
   $Res call(
-      {double? latitude,
-      double? longitude,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? timestamp});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? timestamp,
+      double? latitude,
+      double? longitude});
 }
 
 /// @nodoc
@@ -231,11 +231,15 @@ class _$PointCopyWithImpl<$Res> implements $PointCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? timestamp = freezed,
     Object? latitude = freezed,
     Object? longitude = freezed,
-    Object? timestamp = freezed,
   }) {
     return _then(_value.copyWith(
+      timestamp: timestamp == freezed
+          ? _value.timestamp
+          : timestamp // ignore: cast_nullable_to_non_nullable
+              as int?,
       latitude: latitude == freezed
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
@@ -244,10 +248,6 @@ class _$PointCopyWithImpl<$Res> implements $PointCopyWith<$Res> {
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as double?,
-      timestamp: timestamp == freezed
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -258,10 +258,10 @@ abstract class _$$_PointCopyWith<$Res> implements $PointCopyWith<$Res> {
       __$$_PointCopyWithImpl<$Res>;
   @override
   $Res call(
-      {double? latitude,
-      double? longitude,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? timestamp});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? timestamp,
+      double? latitude,
+      double? longitude});
 }
 
 /// @nodoc
@@ -275,11 +275,15 @@ class __$$_PointCopyWithImpl<$Res> extends _$PointCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? timestamp = freezed,
     Object? latitude = freezed,
     Object? longitude = freezed,
-    Object? timestamp = freezed,
   }) {
     return _then(_$_Point(
+      timestamp: timestamp == freezed
+          ? _value.timestamp
+          : timestamp // ignore: cast_nullable_to_non_nullable
+              as int?,
       latitude: latitude == freezed
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
@@ -288,10 +292,6 @@ class __$$_PointCopyWithImpl<$Res> extends _$PointCopyWithImpl<$Res>
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as double?,
-      timestamp: timestamp == freezed
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -300,25 +300,25 @@ class __$$_PointCopyWithImpl<$Res> extends _$PointCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Point implements _Point {
   const _$_Point(
-      {this.latitude,
-      this.longitude,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.timestamp});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          this.timestamp,
+      this.latitude,
+      this.longitude});
 
   factory _$_Point.fromJson(Map<String, dynamic> json) =>
       _$$_PointFromJson(json);
 
   @override
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? timestamp;
+  @override
   final double? latitude;
   @override
   final double? longitude;
-  @override
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? timestamp;
 
   @override
   String toString() {
-    return 'Point(latitude: $latitude, longitude: $longitude, timestamp: $timestamp)';
+    return 'Point(timestamp: $timestamp, latitude: $latitude, longitude: $longitude)';
   }
 
   @override
@@ -326,18 +326,18 @@ class _$_Point implements _Point {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Point &&
+            const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
             const DeepCollectionEquality().equals(other.latitude, latitude) &&
-            const DeepCollectionEquality().equals(other.longitude, longitude) &&
-            const DeepCollectionEquality().equals(other.timestamp, timestamp));
+            const DeepCollectionEquality().equals(other.longitude, longitude));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(timestamp),
       const DeepCollectionEquality().hash(latitude),
-      const DeepCollectionEquality().hash(longitude),
-      const DeepCollectionEquality().hash(timestamp));
+      const DeepCollectionEquality().hash(longitude));
 
   @JsonKey(ignore: true)
   @override
@@ -354,20 +354,20 @@ class _$_Point implements _Point {
 
 abstract class _Point implements Point {
   const factory _Point(
-      {final double? latitude,
-      final double? longitude,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? timestamp}) = _$_Point;
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          final int? timestamp,
+      final double? latitude,
+      final double? longitude}) = _$_Point;
 
   factory _Point.fromJson(Map<String, dynamic> json) = _$_Point.fromJson;
 
   @override
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get timestamp;
+  @override
   double? get latitude;
   @override
   double? get longitude;
-  @override
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get timestamp;
   @override
   @JsonKey(ignore: true)
   _$$_PointCopyWith<_$_Point> get copyWith =>

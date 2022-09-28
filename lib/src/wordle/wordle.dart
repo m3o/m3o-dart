@@ -56,17 +56,17 @@ class WordleService {
 @Freezed()
 class Char with _$Char {
   const factory Char({
-    /// whether it was correct
-    bool? correct,
-
-    /// whether it's in the word
-    bool? in_word,
-
     /// the character itself
     String? letter,
 
     /// position in the string
     int? position,
+
+    /// whether it was correct
+    bool? correct,
+
+    /// whether it's in the word
+    bool? in_word,
   }) = _Char;
   factory Char.fromJson(Map<String, dynamic> json) => _$CharFromJson(json);
 }

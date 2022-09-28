@@ -48,14 +48,14 @@ Map<String, dynamic> _$$CreateResponseMerrToJson(
 
 _$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
     _$_DeleteRequest(
-      id: json['id'] as String?,
       shortURL: json['shortURL'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_DeleteRequestToJson(_$_DeleteRequest instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'shortURL': instance.shortURL,
+      'id': instance.id,
     };
 
 _$DeleteResponseData _$$DeleteResponseDataFromJson(Map<String, dynamic> json) =>
@@ -197,20 +197,20 @@ Map<String, dynamic> _$$ShortenResponseMerrToJson(
     };
 
 _$_URLPair _$$_URLPairFromJson(Map<String, dynamic> json) => _$_URLPair(
+      created: json['created'] as String?,
+      destinationURL: json['destinationURL'] as String?,
       hitCount: int64FromString(json['hitCount'] as String?),
       id: json['id'] as String?,
       shortURL: json['shortURL'] as String?,
-      created: json['created'] as String?,
-      destinationURL: json['destinationURL'] as String?,
     );
 
 Map<String, dynamic> _$$_URLPairToJson(_$_URLPair instance) =>
     <String, dynamic>{
+      'created': instance.created,
+      'destinationURL': instance.destinationURL,
       'hitCount': int64ToString(instance.hitCount),
       'id': instance.id,
       'shortURL': instance.shortURL,
-      'created': instance.created,
-      'destinationURL': instance.destinationURL,
     };
 
 _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>

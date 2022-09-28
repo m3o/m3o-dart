@@ -67,13 +67,13 @@ class QueryRequest with _$QueryRequest {
 @Freezed()
 class QueryResponse with _$QueryResponse {
   const factory QueryResponse({
-    bool? TC,
+    bool? CD,
     List<Answer>? answer,
     List<Question>? question,
     bool? AD,
-    bool? CD,
     bool? RA,
     bool? RD,
+    bool? TC,
     String? provider,
     int? status,
   }) = QueryResponseData;
