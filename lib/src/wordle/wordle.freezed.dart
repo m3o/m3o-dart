@@ -20,17 +20,17 @@ Char _$CharFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Char {
-  /// the character itself
-  String? get letter => throw _privateConstructorUsedError;
-
-  /// position in the string
-  int? get position => throw _privateConstructorUsedError;
-
   /// whether it was correct
   bool? get correct => throw _privateConstructorUsedError;
 
   /// whether it's in the word
   bool? get in_word => throw _privateConstructorUsedError;
+
+  /// the character itself
+  String? get letter => throw _privateConstructorUsedError;
+
+  /// position in the string
+  int? get position => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ mixin _$Char {
 abstract class $CharCopyWith<$Res> {
   factory $CharCopyWith(Char value, $Res Function(Char) then) =
       _$CharCopyWithImpl<$Res>;
-  $Res call({String? letter, int? position, bool? correct, bool? in_word});
+  $Res call({bool? correct, bool? in_word, String? letter, int? position});
 }
 
 /// @nodoc
@@ -54,20 +54,12 @@ class _$CharCopyWithImpl<$Res> implements $CharCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? letter = freezed,
-    Object? position = freezed,
     Object? correct = freezed,
     Object? in_word = freezed,
+    Object? letter = freezed,
+    Object? position = freezed,
   }) {
     return _then(_value.copyWith(
-      letter: letter == freezed
-          ? _value.letter
-          : letter // ignore: cast_nullable_to_non_nullable
-              as String?,
-      position: position == freezed
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as int?,
       correct: correct == freezed
           ? _value.correct
           : correct // ignore: cast_nullable_to_non_nullable
@@ -76,6 +68,14 @@ class _$CharCopyWithImpl<$Res> implements $CharCopyWith<$Res> {
           ? _value.in_word
           : in_word // ignore: cast_nullable_to_non_nullable
               as bool?,
+      letter: letter == freezed
+          ? _value.letter
+          : letter // ignore: cast_nullable_to_non_nullable
+              as String?,
+      position: position == freezed
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -85,7 +85,7 @@ abstract class _$$_CharCopyWith<$Res> implements $CharCopyWith<$Res> {
   factory _$$_CharCopyWith(_$_Char value, $Res Function(_$_Char) then) =
       __$$_CharCopyWithImpl<$Res>;
   @override
-  $Res call({String? letter, int? position, bool? correct, bool? in_word});
+  $Res call({bool? correct, bool? in_word, String? letter, int? position});
 }
 
 /// @nodoc
@@ -99,20 +99,12 @@ class __$$_CharCopyWithImpl<$Res> extends _$CharCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? letter = freezed,
-    Object? position = freezed,
     Object? correct = freezed,
     Object? in_word = freezed,
+    Object? letter = freezed,
+    Object? position = freezed,
   }) {
     return _then(_$_Char(
-      letter: letter == freezed
-          ? _value.letter
-          : letter // ignore: cast_nullable_to_non_nullable
-              as String?,
-      position: position == freezed
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as int?,
       correct: correct == freezed
           ? _value.correct
           : correct // ignore: cast_nullable_to_non_nullable
@@ -121,6 +113,14 @@ class __$$_CharCopyWithImpl<$Res> extends _$CharCopyWithImpl<$Res>
           ? _value.in_word
           : in_word // ignore: cast_nullable_to_non_nullable
               as bool?,
+      letter: letter == freezed
+          ? _value.letter
+          : letter // ignore: cast_nullable_to_non_nullable
+              as String?,
+      position: position == freezed
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -128,17 +128,9 @@ class __$$_CharCopyWithImpl<$Res> extends _$CharCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Char implements _Char {
-  const _$_Char({this.letter, this.position, this.correct, this.in_word});
+  const _$_Char({this.correct, this.in_word, this.letter, this.position});
 
   factory _$_Char.fromJson(Map<String, dynamic> json) => _$$_CharFromJson(json);
-
-  /// the character itself
-  @override
-  final String? letter;
-
-  /// position in the string
-  @override
-  final int? position;
 
   /// whether it was correct
   @override
@@ -148,9 +140,17 @@ class _$_Char implements _Char {
   @override
   final bool? in_word;
 
+  /// the character itself
+  @override
+  final String? letter;
+
+  /// position in the string
+  @override
+  final int? position;
+
   @override
   String toString() {
-    return 'Char(letter: $letter, position: $position, correct: $correct, in_word: $in_word)';
+    return 'Char(correct: $correct, in_word: $in_word, letter: $letter, position: $position)';
   }
 
   @override
@@ -158,20 +158,20 @@ class _$_Char implements _Char {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Char &&
-            const DeepCollectionEquality().equals(other.letter, letter) &&
-            const DeepCollectionEquality().equals(other.position, position) &&
             const DeepCollectionEquality().equals(other.correct, correct) &&
-            const DeepCollectionEquality().equals(other.in_word, in_word));
+            const DeepCollectionEquality().equals(other.in_word, in_word) &&
+            const DeepCollectionEquality().equals(other.letter, letter) &&
+            const DeepCollectionEquality().equals(other.position, position));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(letter),
-      const DeepCollectionEquality().hash(position),
       const DeepCollectionEquality().hash(correct),
-      const DeepCollectionEquality().hash(in_word));
+      const DeepCollectionEquality().hash(in_word),
+      const DeepCollectionEquality().hash(letter),
+      const DeepCollectionEquality().hash(position));
 
   @JsonKey(ignore: true)
   @override
@@ -188,21 +188,13 @@ class _$_Char implements _Char {
 
 abstract class _Char implements Char {
   const factory _Char(
-      {final String? letter,
-      final int? position,
-      final bool? correct,
-      final bool? in_word}) = _$_Char;
+      {final bool? correct,
+      final bool? in_word,
+      final String? letter,
+      final int? position}) = _$_Char;
 
   factory _Char.fromJson(Map<String, dynamic> json) = _$_Char.fromJson;
 
-  @override
-
-  /// the character itself
-  String? get letter;
-  @override
-
-  /// position in the string
-  int? get position;
   @override
 
   /// whether it was correct
@@ -211,6 +203,14 @@ abstract class _Char implements Char {
 
   /// whether it's in the word
   bool? get in_word;
+  @override
+
+  /// the character itself
+  String? get letter;
+  @override
+
+  /// position in the string
+  int? get position;
   @override
   @JsonKey(ignore: true)
   _$$_CharCopyWith<_$_Char> get copyWith => throw _privateConstructorUsedError;

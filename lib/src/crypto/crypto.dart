@@ -238,6 +238,9 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
+    /// the bidding price
+    double? bid_price,
+
     /// the bid size
     double? bid_size,
 
@@ -252,9 +255,6 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the ask size
     double? ask_size,
-
-    /// the bidding price
-    double? bid_price,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;
@@ -265,8 +265,8 @@ class QuoteResponse with _$QuoteResponse {
 @Freezed()
 class Symbol with _$Symbol {
   const factory Symbol({
-    String? name,
     String? symbol,
+    String? name,
   }) = _Symbol;
   factory Symbol.fromJson(Map<String, dynamic> json) => _$SymbolFromJson(json);
 }

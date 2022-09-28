@@ -126,14 +126,14 @@ class CodesResponse with _$CodesResponse {
 @Freezed()
 class ConvertRequest with _$ConvertRequest {
   const factory ConvertRequest({
-    /// optional amount to convert e.g 10.0
-    double? amount,
-
     /// base code to convert from e.g USD
     String? from,
 
     /// target code to convert to e.g GBP
     String? to,
+
+    /// optional amount to convert e.g 10.0
+    double? amount,
   }) = _ConvertRequest;
   factory ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$ConvertRequestFromJson(json);

@@ -155,14 +155,14 @@ class PublishResponse with _$PublishResponse {
 @Freezed()
 class ReadRequest with _$ReadRequest {
   const factory ReadRequest({
-    /// topic to read from
-    String? topic,
-
     /// number of events to read; default 25
     int? limit,
 
     /// offset for the events; default 0
     int? offset,
+
+    /// topic to read from
+    String? topic,
   }) = _ReadRequest;
   factory ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$ReadRequestFromJson(json);
