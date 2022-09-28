@@ -1,3 +1,9 @@
+## v1.0.198 - 2022-09-28
+
+[9c2dea](https://github.com/micro/services/commit/9c2deafdf25ff35948210e2d37aabe86692e20ea) Update README.md
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.197...v1.0.198
+
 ## v1.0.197 - 2022-09-27
 
 [6d2f45](https://github.com/micro/services/commit/6d2f45505c5d94b8f1888d1e355a48862c57653e) strip location proto comments
