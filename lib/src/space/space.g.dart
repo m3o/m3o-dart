@@ -264,22 +264,22 @@ Map<String, dynamic> _$$ReadResponseMerrToJson(_$ReadResponseMerr instance) =>
 
 _$_SpaceObject _$$_SpaceObjectFromJson(Map<String, dynamic> json) =>
     _$_SpaceObject(
-      visibility: json['visibility'] as String?,
       created: json['created'] as String?,
       data: json['data'] as String?,
       modified: json['modified'] as String?,
       name: json['name'] as String?,
       url: json['url'] as String?,
+      visibility: json['visibility'] as String?,
     );
 
 Map<String, dynamic> _$$_SpaceObjectToJson(_$_SpaceObject instance) =>
     <String, dynamic>{
-      'visibility': instance.visibility,
       'created': instance.created,
       'data': instance.data,
       'modified': instance.modified,
       'name': instance.name,
       'url': instance.url,
+      'visibility': instance.visibility,
     };
 
 _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>

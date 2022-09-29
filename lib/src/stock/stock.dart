@@ -89,15 +89,6 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
-    /// the open price
-    double? open,
-
-    /// the stock symbol
-    String? symbol,
-
-    /// the volume
-    int? volume,
-
     /// the close price
     double? close,
 
@@ -109,6 +100,15 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the low price
     double? low,
+
+    /// the open price
+    double? open,
+
+    /// the stock symbol
+    String? symbol,
+
+    /// the volume
+    int? volume,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -154,12 +154,6 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
-    /// the stock symbol
-    String? symbol,
-
-    /// the UTC timestamp of the quote
-    String? timestamp,
-
     /// the asking price
     double? ask_price,
 
@@ -171,6 +165,12 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the bid size
     int? bid_size,
+
+    /// the stock symbol
+    String? symbol,
+
+    /// the UTC timestamp of the quote
+    String? timestamp,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;

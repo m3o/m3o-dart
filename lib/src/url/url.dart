@@ -160,11 +160,11 @@ class CreateResponse with _$CreateResponse {
 @Freezed()
 class DeleteRequest with _$DeleteRequest {
   const factory DeleteRequest({
-    /// delete by shortURL
-    String? shortURL,
-
     /// delete by id
     String? id,
+
+    /// delete by shortURL
+    String? shortURL,
   }) = _DeleteRequest;
   factory DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$DeleteRequestFromJson(json);
@@ -249,12 +249,6 @@ class ShortenResponse with _$ShortenResponse {
 @Freezed()
 class URLPair with _$URLPair {
   const factory URLPair({
-    /// url id
-    String? id,
-
-    /// shortened url
-    String? shortURL,
-
     /// time of creation
     String? created,
 
@@ -264,6 +258,12 @@ class URLPair with _$URLPair {
     /// The number of times the short URL has been resolved
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? hitCount,
+
+    /// url id
+    String? id,
+
+    /// shortened url
+    String? shortURL,
   }) = _URLPair;
   factory URLPair.fromJson(Map<String, dynamic> json) =>
       _$URLPairFromJson(json);

@@ -169,19 +169,19 @@ GenerateResponse _$GenerateResponseFromJson(Map<String, dynamic> json) {
 mixin _$GenerateResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? type, String? id) $default, {
+    TResult Function(String? id, String? type) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? type, String? id)? $default, {
+    TResult Function(String? id, String? type)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? type, String? id)? $default, {
+    TResult Function(String? id, String? type)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -230,7 +230,7 @@ abstract class _$$GenerateResponseDataCopyWith<$Res> {
   factory _$$GenerateResponseDataCopyWith(_$GenerateResponseData value,
           $Res Function(_$GenerateResponseData) then) =
       __$$GenerateResponseDataCopyWithImpl<$Res>;
-  $Res call({String? type, String? id});
+  $Res call({String? id, String? type});
 }
 
 /// @nodoc
@@ -246,17 +246,17 @@ class __$$GenerateResponseDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? type = freezed,
     Object? id = freezed,
+    Object? type = freezed,
   }) {
     return _then(_$GenerateResponseData(
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -265,26 +265,26 @@ class __$$GenerateResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$GenerateResponseData implements GenerateResponseData {
-  const _$GenerateResponseData({this.type, this.id, final String? $type})
+  const _$GenerateResponseData({this.id, this.type, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$GenerateResponseData.fromJson(Map<String, dynamic> json) =>
       _$$GenerateResponseDataFromJson(json);
 
-  /// the type of id generated
-  @override
-  final String? type;
-
   /// the unique id generated
   @override
   final String? id;
+
+  /// the type of id generated
+  @override
+  final String? type;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'GenerateResponse(type: $type, id: $id)';
+    return 'GenerateResponse(id: $id, type: $type)';
   }
 
   @override
@@ -292,16 +292,16 @@ class _$GenerateResponseData implements GenerateResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateResponseData &&
-            const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.type, type));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(type));
 
   @JsonKey(ignore: true)
   @override
@@ -312,30 +312,30 @@ class _$GenerateResponseData implements GenerateResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? type, String? id) $default, {
+    TResult Function(String? id, String? type) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(type, id);
+    return $default(id, type);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? type, String? id)? $default, {
+    TResult Function(String? id, String? type)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(type, id);
+    return $default?.call(id, type);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? type, String? id)? $default, {
+    TResult Function(String? id, String? type)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(type, id);
+      return $default(id, type);
     }
     return orElse();
   }
@@ -380,17 +380,17 @@ class _$GenerateResponseData implements GenerateResponseData {
 }
 
 abstract class GenerateResponseData implements GenerateResponse {
-  const factory GenerateResponseData({final String? type, final String? id}) =
+  const factory GenerateResponseData({final String? id, final String? type}) =
       _$GenerateResponseData;
 
   factory GenerateResponseData.fromJson(Map<String, dynamic> json) =
       _$GenerateResponseData.fromJson;
 
-  /// the type of id generated
-  String? get type;
-
   /// the unique id generated
   String? get id;
+
+  /// the type of id generated
+  String? get type;
   @JsonKey(ignore: true)
   _$$GenerateResponseDataCopyWith<_$GenerateResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -478,7 +478,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? type, String? id) $default, {
+    TResult Function(String? id, String? type) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -487,7 +487,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? type, String? id)? $default, {
+    TResult Function(String? id, String? type)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -496,7 +496,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? type, String? id)? $default, {
+    TResult Function(String? id, String? type)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {

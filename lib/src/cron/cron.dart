@@ -135,9 +135,6 @@ class JobsResponse with _$JobsResponse {
 @Freezed()
 class ScheduleRequest with _$ScheduleRequest {
   const factory ScheduleRequest({
-    /// description
-    String? description,
-
     /// unique id of job (optional)
     String? id,
 
@@ -149,6 +146,9 @@ class ScheduleRequest with _$ScheduleRequest {
 
     /// callback url e.g https://google.com
     String? callback,
+
+    /// description
+    String? description,
   }) = _ScheduleRequest;
   factory ScheduleRequest.fromJson(Map<String, dynamic> json) =>
       _$ScheduleRequestFromJson(json);

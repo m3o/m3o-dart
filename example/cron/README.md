@@ -4,40 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/cron/api](http
 
 Endpoints:
 
-## Jobs
-
-List all cron jobs
-
-
-[https://m3o.com/cron/api#Jobs](https://m3o.com/cron/api#Jobs)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/cron/cron.dart';
-
-void main() async {
-  final ser = CronService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{};
-
-  JobsRequest req = JobsRequest.fromJson(payload);
-
-  
-  try {
-
-	JobsResponse res = await ser.jobs(req);
-
-    res.map((value) => print(value),
-	  Merr: (JobsResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Schedule
 
 Schedule a cron job
@@ -105,6 +71,40 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Jobs
+
+List all cron jobs
+
+
+[https://m3o.com/cron/api#Jobs](https://m3o.com/cron/api#Jobs)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/cron/cron.dart';
+
+void main() async {
+  final ser = CronService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  JobsRequest req = JobsRequest.fromJson(payload);
+
+  
+  try {
+
+	JobsResponse res = await ser.jobs(req);
+
+    res.map((value) => print(value),
+	  Merr: (JobsResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

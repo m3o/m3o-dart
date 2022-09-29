@@ -96,8 +96,12 @@ class TwitterService {
 @Freezed()
 class Profile with _$Profile {
   const factory Profile({
-    /// if the account is private
-    bool? private,
+    /// the user id
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
+
+    /// display name of the user
+    String? name,
 
     /// the username
     String? username,
@@ -106,27 +110,23 @@ class Profile with _$Profile {
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
 
+    /// the user description
+    String? description,
+
     /// The user's profile picture
     String? image_url,
 
     /// the user's location
     String? location,
 
-    /// display name of the user
-    String? name,
-
-    /// the account creation date
-    String? created_at,
-
-    /// the user description
-    String? description,
-
-    /// the user id
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
+    /// if the account is private
+    bool? private,
 
     /// if the account is verified
     bool? verified,
+
+    /// the account creation date
+    String? created_at,
   }) = _Profile;
   factory Profile.fromJson(Map<String, dynamic> json) =>
       _$ProfileFromJson(json);
@@ -185,9 +185,6 @@ class TimelineResponse with _$TimelineResponse {
 @Freezed()
 class Trend with _$Trend {
   const factory Trend({
-    /// name of the trend
-    String? name,
-
     /// the volume of tweets in last 24 hours
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString)
@@ -195,6 +192,9 @@ class Trend with _$Trend {
 
     /// the twitter url
     String? url,
+
+    /// name of the trend
+    String? name,
   }) = _Trend;
   factory Trend.fromJson(Map<String, dynamic> json) => _$TrendFromJson(json);
 }
@@ -221,9 +221,6 @@ class TrendsResponse with _$TrendsResponse {
 @Freezed()
 class Tweet with _$Tweet {
   const factory Tweet({
-    /// time of tweet
-    String? created_at,
-
     /// number of times favourited
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString)
@@ -243,6 +240,9 @@ class Tweet with _$Tweet {
 
     /// username of the person who tweeted
     String? username,
+
+    /// time of tweet
+    String? created_at,
   }) = _Tweet;
   factory Tweet.fromJson(Map<String, dynamic> json) => _$TweetFromJson(json);
 }
