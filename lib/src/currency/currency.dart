@@ -142,9 +142,6 @@ class ConvertRequest with _$ConvertRequest {
 @Freezed()
 class ConvertResponse with _$ConvertResponse {
   const factory ConvertResponse({
-    /// the base code e.g USD
-    String? from,
-
     /// conversion rate e.g 0.71
     double? rate,
 
@@ -153,6 +150,9 @@ class ConvertResponse with _$ConvertResponse {
 
     /// converted amount e.g 7.10
     double? amount,
+
+    /// the base code e.g USD
+    String? from,
   }) = ConvertResponseData;
   const factory ConvertResponse.Merr({Map<String, dynamic>? body}) =
       ConvertResponseMerr;

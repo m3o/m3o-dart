@@ -89,6 +89,9 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
+    /// the volume
+    int? volume,
+
     /// the close price
     double? close,
 
@@ -106,9 +109,6 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the stock symbol
     String? symbol,
-
-    /// the volume
-    int? volume,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;

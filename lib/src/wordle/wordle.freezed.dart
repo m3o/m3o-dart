@@ -222,15 +222,15 @@ Guess _$GuessFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Guess {
-  /// the full guess word
-  String? get word => throw _privateConstructorUsedError;
-
   /// individual characters
   List<Char>? get chars => throw _privateConstructorUsedError;
 
   /// the highlighted word e.g n[o]is{e}
   /// where [ ] is correct, { } is in word
   String? get highlight => throw _privateConstructorUsedError;
+
+  /// the full guess word
+  String? get word => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -241,7 +241,7 @@ mixin _$Guess {
 abstract class $GuessCopyWith<$Res> {
   factory $GuessCopyWith(Guess value, $Res Function(Guess) then) =
       _$GuessCopyWithImpl<$Res>;
-  $Res call({String? word, List<Char>? chars, String? highlight});
+  $Res call({List<Char>? chars, String? highlight, String? word});
 }
 
 /// @nodoc
@@ -254,15 +254,11 @@ class _$GuessCopyWithImpl<$Res> implements $GuessCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? word = freezed,
     Object? chars = freezed,
     Object? highlight = freezed,
+    Object? word = freezed,
   }) {
     return _then(_value.copyWith(
-      word: word == freezed
-          ? _value.word
-          : word // ignore: cast_nullable_to_non_nullable
-              as String?,
       chars: chars == freezed
           ? _value.chars
           : chars // ignore: cast_nullable_to_non_nullable
@@ -270,6 +266,10 @@ class _$GuessCopyWithImpl<$Res> implements $GuessCopyWith<$Res> {
       highlight: highlight == freezed
           ? _value.highlight
           : highlight // ignore: cast_nullable_to_non_nullable
+              as String?,
+      word: word == freezed
+          ? _value.word
+          : word // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -280,7 +280,7 @@ abstract class _$$_GuessCopyWith<$Res> implements $GuessCopyWith<$Res> {
   factory _$$_GuessCopyWith(_$_Guess value, $Res Function(_$_Guess) then) =
       __$$_GuessCopyWithImpl<$Res>;
   @override
-  $Res call({String? word, List<Char>? chars, String? highlight});
+  $Res call({List<Char>? chars, String? highlight, String? word});
 }
 
 /// @nodoc
@@ -294,15 +294,11 @@ class __$$_GuessCopyWithImpl<$Res> extends _$GuessCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? word = freezed,
     Object? chars = freezed,
     Object? highlight = freezed,
+    Object? word = freezed,
   }) {
     return _then(_$_Guess(
-      word: word == freezed
-          ? _value.word
-          : word // ignore: cast_nullable_to_non_nullable
-              as String?,
       chars: chars == freezed
           ? _value._chars
           : chars // ignore: cast_nullable_to_non_nullable
@@ -311,6 +307,10 @@ class __$$_GuessCopyWithImpl<$Res> extends _$GuessCopyWithImpl<$Res>
           ? _value.highlight
           : highlight // ignore: cast_nullable_to_non_nullable
               as String?,
+      word: word == freezed
+          ? _value.word
+          : word // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -318,15 +318,11 @@ class __$$_GuessCopyWithImpl<$Res> extends _$GuessCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Guess implements _Guess {
-  const _$_Guess({this.word, final List<Char>? chars, this.highlight})
+  const _$_Guess({final List<Char>? chars, this.highlight, this.word})
       : _chars = chars;
 
   factory _$_Guess.fromJson(Map<String, dynamic> json) =>
       _$$_GuessFromJson(json);
-
-  /// the full guess word
-  @override
-  final String? word;
 
   /// individual characters
   final List<Char>? _chars;
@@ -345,9 +341,13 @@ class _$_Guess implements _Guess {
   @override
   final String? highlight;
 
+  /// the full guess word
+  @override
+  final String? word;
+
   @override
   String toString() {
-    return 'Guess(word: $word, chars: $chars, highlight: $highlight)';
+    return 'Guess(chars: $chars, highlight: $highlight, word: $word)';
   }
 
   @override
@@ -355,18 +355,18 @@ class _$_Guess implements _Guess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Guess &&
-            const DeepCollectionEquality().equals(other.word, word) &&
             const DeepCollectionEquality().equals(other._chars, _chars) &&
-            const DeepCollectionEquality().equals(other.highlight, highlight));
+            const DeepCollectionEquality().equals(other.highlight, highlight) &&
+            const DeepCollectionEquality().equals(other.word, word));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(word),
       const DeepCollectionEquality().hash(_chars),
-      const DeepCollectionEquality().hash(highlight));
+      const DeepCollectionEquality().hash(highlight),
+      const DeepCollectionEquality().hash(word));
 
   @JsonKey(ignore: true)
   @override
@@ -383,16 +383,12 @@ class _$_Guess implements _Guess {
 
 abstract class _Guess implements Guess {
   const factory _Guess(
-      {final String? word,
-      final List<Char>? chars,
-      final String? highlight}) = _$_Guess;
+      {final List<Char>? chars,
+      final String? highlight,
+      final String? word}) = _$_Guess;
 
   factory _Guess.fromJson(Map<String, dynamic> json) = _$_Guess.fromJson;
 
-  @override
-
-  /// the full guess word
-  String? get word;
   @override
 
   /// individual characters
@@ -402,6 +398,10 @@ abstract class _Guess implements Guess {
   /// the highlighted word e.g n[o]is{e}
   /// where [ ] is correct, { } is in word
   String? get highlight;
+  @override
+
+  /// the full guess word
+  String? get word;
   @override
   @JsonKey(ignore: true)
   _$$_GuessCopyWith<_$_Guess> get copyWith =>
@@ -414,11 +414,11 @@ GuessRequest _$GuessRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GuessRequest {
-  /// guess word
-  String? get word => throw _privateConstructorUsedError;
-
   /// player
   String? get player => throw _privateConstructorUsedError;
+
+  /// guess word
+  String? get word => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -431,7 +431,7 @@ abstract class $GuessRequestCopyWith<$Res> {
   factory $GuessRequestCopyWith(
           GuessRequest value, $Res Function(GuessRequest) then) =
       _$GuessRequestCopyWithImpl<$Res>;
-  $Res call({String? word, String? player});
+  $Res call({String? player, String? word});
 }
 
 /// @nodoc
@@ -444,17 +444,17 @@ class _$GuessRequestCopyWithImpl<$Res> implements $GuessRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? word = freezed,
     Object? player = freezed,
+    Object? word = freezed,
   }) {
     return _then(_value.copyWith(
-      word: word == freezed
-          ? _value.word
-          : word // ignore: cast_nullable_to_non_nullable
-              as String?,
       player: player == freezed
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
+              as String?,
+      word: word == freezed
+          ? _value.word
+          : word // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -467,7 +467,7 @@ abstract class _$$_GuessRequestCopyWith<$Res>
           _$_GuessRequest value, $Res Function(_$_GuessRequest) then) =
       __$$_GuessRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? word, String? player});
+  $Res call({String? player, String? word});
 }
 
 /// @nodoc
@@ -483,17 +483,17 @@ class __$$_GuessRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? word = freezed,
     Object? player = freezed,
+    Object? word = freezed,
   }) {
     return _then(_$_GuessRequest(
-      word: word == freezed
-          ? _value.word
-          : word // ignore: cast_nullable_to_non_nullable
-              as String?,
       player: player == freezed
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
+              as String?,
+      word: word == freezed
+          ? _value.word
+          : word // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -502,22 +502,22 @@ class __$$_GuessRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_GuessRequest implements _GuessRequest {
-  const _$_GuessRequest({this.word, this.player});
+  const _$_GuessRequest({this.player, this.word});
 
   factory _$_GuessRequest.fromJson(Map<String, dynamic> json) =>
       _$$_GuessRequestFromJson(json);
-
-  /// guess word
-  @override
-  final String? word;
 
   /// player
   @override
   final String? player;
 
+  /// guess word
+  @override
+  final String? word;
+
   @override
   String toString() {
-    return 'GuessRequest(word: $word, player: $player)';
+    return 'GuessRequest(player: $player, word: $word)';
   }
 
   @override
@@ -525,16 +525,16 @@ class _$_GuessRequest implements _GuessRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GuessRequest &&
-            const DeepCollectionEquality().equals(other.word, word) &&
-            const DeepCollectionEquality().equals(other.player, player));
+            const DeepCollectionEquality().equals(other.player, player) &&
+            const DeepCollectionEquality().equals(other.word, word));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(word),
-      const DeepCollectionEquality().hash(player));
+      const DeepCollectionEquality().hash(player),
+      const DeepCollectionEquality().hash(word));
 
   @JsonKey(ignore: true)
   @override
@@ -550,7 +550,7 @@ class _$_GuessRequest implements _GuessRequest {
 }
 
 abstract class _GuessRequest implements GuessRequest {
-  const factory _GuessRequest({final String? word, final String? player}) =
+  const factory _GuessRequest({final String? player, final String? word}) =
       _$_GuessRequest;
 
   factory _GuessRequest.fromJson(Map<String, dynamic> json) =
@@ -558,12 +558,12 @@ abstract class _GuessRequest implements GuessRequest {
 
   @override
 
-  /// guess word
-  String? get word;
-  @override
-
   /// player
   String? get player;
+  @override
+
+  /// guess word
+  String? get word;
   @override
   @JsonKey(ignore: true)
   _$$_GuessRequestCopyWith<_$_GuessRequest> get copyWith =>

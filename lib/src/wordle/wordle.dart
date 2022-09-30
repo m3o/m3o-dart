@@ -74,15 +74,15 @@ class Char with _$Char {
 @Freezed()
 class Guess with _$Guess {
   const factory Guess({
-    /// the full guess word
-    String? word,
-
     /// individual characters
     List<Char>? chars,
 
     /// the highlighted word e.g n[o]is{e}
     /// where [ ] is correct, { } is in word
     String? highlight,
+
+    /// the full guess word
+    String? word,
   }) = _Guess;
   factory Guess.fromJson(Map<String, dynamic> json) => _$GuessFromJson(json);
 }
@@ -90,11 +90,11 @@ class Guess with _$Guess {
 @Freezed()
 class GuessRequest with _$GuessRequest {
   const factory GuessRequest({
-    /// guess word
-    String? word,
-
     /// player
     String? player,
+
+    /// guess word
+    String? word,
   }) = _GuessRequest;
   factory GuessRequest.fromJson(Map<String, dynamic> json) =>
       _$GuessRequestFromJson(json);

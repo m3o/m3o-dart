@@ -36,6 +36,9 @@ class PasswordService {
 @Freezed()
 class GenerateRequest with _$GenerateRequest {
   const factory GenerateRequest({
+    /// include lowercase letters
+    bool? lowercase,
+
     /// include numbers
     bool? numbers,
 
@@ -47,9 +50,6 @@ class GenerateRequest with _$GenerateRequest {
 
     /// password length; defaults to 8 chars
     int? length,
-
-    /// include lowercase letters
-    bool? lowercase,
   }) = _GenerateRequest;
   factory GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$GenerateRequestFromJson(json);

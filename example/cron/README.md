@@ -4,45 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/cron/api](http
 
 Endpoints:
 
-## Schedule
-
-Schedule a cron job
-
-
-[https://m3o.com/cron/api#Schedule](https://m3o.com/cron/api#Schedule)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/cron/cron.dart';
-
-void main() async {
-  final ser = CronService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "callback": "https://google.com",
-  "description": "testing",
-  "interval": "* * * * *",
-  "name": "test"
-,};
-
-  ScheduleRequest req = ScheduleRequest.fromJson(payload);
-
-  
-  try {
-
-	ScheduleResponse res = await ser.schedule(req);
-
-    res.map((value) => print(value),
-	  Merr: (ScheduleResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Delete
 
 Delete a cron job
@@ -105,6 +66,45 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (JobsResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Schedule
+
+Schedule a cron job
+
+
+[https://m3o.com/cron/api#Schedule](https://m3o.com/cron/api#Schedule)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/cron/cron.dart';
+
+void main() async {
+  final ser = CronService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "callback": "https://google.com",
+  "description": "testing",
+  "interval": "* * * * *",
+  "name": "test"
+,};
+
+  ScheduleRequest req = ScheduleRequest.fromJson(payload);
+
+  
+  try {
+
+	ScheduleResponse res = await ser.schedule(req);
+
+    res.map((value) => print(value),
+	  Merr: (ScheduleResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

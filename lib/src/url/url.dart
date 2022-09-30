@@ -203,11 +203,11 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class ResolveRequest with _$ResolveRequest {
   const factory ResolveRequest({
-    /// resolve by id
-    String? id,
-
     /// short url to resolve
     String? shortURL,
+
+    /// resolve by id
+    String? id,
   }) = _ResolveRequest;
   factory ResolveRequest.fromJson(Map<String, dynamic> json) =>
       _$ResolveRequestFromJson(json);
@@ -272,14 +272,14 @@ class URLPair with _$URLPair {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
+    /// update by short url
+    String? shortURL,
+
     /// the destination to update to
     String? destinationURL,
 
     /// update by id
     String? id,
-
-    /// update by short url
-    String? shortURL,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);
