@@ -76,15 +76,6 @@ class RoutingService {
 @Freezed()
 class Direction with _$Direction {
   const factory Direction({
-    /// distance to travel in meters
-    double? distance,
-
-    /// duration to travel in seconds
-    double? duration,
-
-    /// human readable instruction
-    String? instruction,
-
     /// intersections on route
     List<Intersection>? intersections,
 
@@ -96,6 +87,15 @@ class Direction with _$Direction {
 
     /// alternative reference
     String? reference,
+
+    /// distance to travel in meters
+    double? distance,
+
+    /// duration to travel in seconds
+    double? duration,
+
+    /// human readable instruction
+    String? instruction,
   }) = _Direction;
   factory Direction.fromJson(Map<String, dynamic> json) =>
       _$DirectionFromJson(json);
@@ -117,9 +117,6 @@ class DirectionsRequest with _$DirectionsRequest {
 @Freezed()
 class DirectionsResponse with _$DirectionsResponse {
   const factory DirectionsResponse({
-    /// Turn by turn directions
-    List<Direction>? directions,
-
     /// Estimated distance of the route in meters
     double? distance,
 
@@ -128,6 +125,9 @@ class DirectionsResponse with _$DirectionsResponse {
 
     /// The waypoints on the route
     List<Waypoint>? waypoints,
+
+    /// Turn by turn directions
+    List<Direction>? directions,
   }) = DirectionsResponseData;
   const factory DirectionsResponse.Merr({Map<String, dynamic>? body}) =
       DirectionsResponseMerr;
@@ -192,11 +192,11 @@ class Maneuver with _$Maneuver {
 @Freezed()
 class Point with _$Point {
   const factory Point({
-    /// Long e.g 13.428555
-    double? longitude,
-
     /// Lat e.g 52.523219
     double? latitude,
+
+    /// Long e.g 13.428555
+    double? longitude,
   }) = _Point;
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 }
@@ -204,11 +204,11 @@ class Point with _$Point {
 @Freezed()
 class RouteRequest with _$RouteRequest {
   const factory RouteRequest({
-    /// Point of destination for the trip
-    Point? destination,
-
     /// Point of origin for the trip
     Point? origin,
+
+    /// Point of destination for the trip
+    Point? destination,
   }) = _RouteRequest;
   factory RouteRequest.fromJson(Map<String, dynamic> json) =>
       _$RouteRequestFromJson(json);

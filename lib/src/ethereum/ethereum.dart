@@ -131,23 +131,41 @@ class TransactionRequest with _$TransactionRequest {
 @Freezed()
 class TransactionResponse with _$TransactionResponse {
   const factory TransactionResponse({
-    /// the block hash
-    String? block_hash,
+    /// chain id
+    String? chain_id,
 
     /// gas price
     String? gas_price,
 
-    /// the nonce
-    String? nonce,
+    /// to address
+    String? to_address,
+    String? v,
+
+    /// value of transaction
+    String? value,
 
     /// type of transaction
     String? type,
 
+    /// the block hash
+    String? block_hash,
+
     /// the block number
     String? block_number,
 
-    /// chain id
-    String? chain_id,
+    /// max priority fee per gas
+    String? max_priority_fee_per_gas,
+
+    /// the nonce
+    String? nonce,
+    String? r,
+    String? s,
+
+    /// gas
+    String? gas,
+
+    /// transaction index
+    String? tx_index,
 
     /// sent from
     String? from_address,
@@ -158,26 +176,8 @@ class TransactionResponse with _$TransactionResponse {
     /// input
     String? input,
 
-    /// max priority fee per gas
-    String? max_priority_fee_per_gas,
-
-    /// to address
-    String? to_address,
-    String? v,
-
-    /// gas
-    String? gas,
-
     /// max fee per gas
     String? max_fee_per_gas,
-    String? r,
-
-    /// transaction index
-    String? tx_index,
-
-    /// value of transaction
-    String? value,
-    String? s,
   }) = TransactionResponseData;
   const factory TransactionResponse.Merr({Map<String, dynamic>? body}) =
       TransactionResponseMerr;

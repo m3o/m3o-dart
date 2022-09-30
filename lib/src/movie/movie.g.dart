@@ -7,59 +7,59 @@ part of 'movie.dart';
 // **************************************************************************
 
 _$_MovieInfo _$$_MovieInfoFromJson(Map<String, dynamic> json) => _$_MovieInfo(
-      id: json['id'] as int?,
-      release_date: json['release_date'] as String?,
+      original_language: json['original_language'] as String?,
       overview: json['overview'] as String?,
+      video: json['video'] as bool?,
+      vote_average: (json['vote_average'] as num?)?.toDouble(),
       adult: json['adult'] as bool?,
       backdrop_path: json['backdrop_path'] as String?,
       genre_ids:
           (json['genre_ids'] as List<dynamic>?)?.map((e) => e as int).toList(),
-      original_language: json['original_language'] as String?,
       vote_count: json['vote_count'] as int?,
-      popularity: (json['popularity'] as num?)?.toDouble(),
-      poster_path: json['poster_path'] as String?,
-      video: json['video'] as bool?,
-      vote_average: (json['vote_average'] as num?)?.toDouble(),
       original_title: json['original_title'] as String?,
+      popularity: (json['popularity'] as num?)?.toDouble(),
       title: json['title'] as String?,
+      id: json['id'] as int?,
+      poster_path: json['poster_path'] as String?,
+      release_date: json['release_date'] as String?,
     );
 
 Map<String, dynamic> _$$_MovieInfoToJson(_$_MovieInfo instance) =>
     <String, dynamic>{
-      'id': instance.id,
-      'release_date': instance.release_date,
+      'original_language': instance.original_language,
       'overview': instance.overview,
+      'video': instance.video,
+      'vote_average': instance.vote_average,
       'adult': instance.adult,
       'backdrop_path': instance.backdrop_path,
       'genre_ids': instance.genre_ids,
-      'original_language': instance.original_language,
       'vote_count': instance.vote_count,
-      'popularity': instance.popularity,
-      'poster_path': instance.poster_path,
-      'video': instance.video,
-      'vote_average': instance.vote_average,
       'original_title': instance.original_title,
+      'popularity': instance.popularity,
       'title': instance.title,
+      'id': instance.id,
+      'poster_path': instance.poster_path,
+      'release_date': instance.release_date,
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
     _$_SearchRequest(
+      page: json['page'] as int?,
       primary_release_year: json['primary_release_year'] as int?,
       query: json['query'] as String?,
       region: json['region'] as String?,
       year: json['year'] as int?,
       language: json['language'] as String?,
-      page: json['page'] as int?,
     );
 
 Map<String, dynamic> _$$_SearchRequestToJson(_$_SearchRequest instance) =>
     <String, dynamic>{
+      'page': instance.page,
       'primary_release_year': instance.primary_release_year,
       'query': instance.query,
       'region': instance.region,
       'year': instance.year,
       'language': instance.language,
-      'page': instance.page,
     };
 
 _$SearchResponseData _$$SearchResponseDataFromJson(Map<String, dynamic> json) =>

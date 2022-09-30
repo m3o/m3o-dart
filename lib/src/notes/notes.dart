@@ -231,6 +231,12 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Note with _$Note {
   const factory Note({
+    /// time at which the note was created
+    String? created,
+
+    /// unique id for the note, generated if not specified
+    String? id,
+
     /// text within the note
     String? text,
 
@@ -239,12 +245,6 @@ class Note with _$Note {
 
     /// time at which the note was updated
     String? updated,
-
-    /// time at which the note was created
-    String? created,
-
-    /// unique id for the note, generated if not specified
-    String? id,
   }) = _Note;
   factory Note.fromJson(Map<String, dynamic> json) => _$NoteFromJson(json);
 }

@@ -4,6 +4,82 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/chat/api](http
 
 Endpoints:
 
+## Join
+
+Join a group
+
+
+[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/chat/chat.dart';
+
+void main() async {
+  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-2"
+,};
+
+  JoinRequest req = JoinRequest.fromJson(payload);
+
+  
+  	
+  try {
+
+    final res = await ser.join(req);
+
+	  await for (var sr in res) {
+	  sr.map((value) => print(value),
+		Merr: (JoinResponseMerr err) => print(err.body));
+	  }
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Kick
+
+Kick a user from a group
+
+
+[https://m3o.com/chat/api#Kick](https://m3o.com/chat/api#Kick)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/chat/chat.dart';
+
+void main() async {
+  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-1"
+,};
+
+  KickRequest req = KickRequest.fromJson(payload);
+
+  
+  try {
+
+	KickResponse res = await ser.kick(req);
+
+    res.map((value) => print(value),
+	  Merr: (KickResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Leave
 
 Leave a group
@@ -33,6 +109,40 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (LeaveResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## List
+
+List available chats
+
+
+[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/chat/chat.dart';
+
+void main() async {
+  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  ListRequest req = ListRequest.fromJson(payload);
+
+  
+  try {
+
+	ListResponse res = await ser.list(req);
+
+    res.map((value) => print(value),
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -77,48 +187,12 @@ void main() async {
   }
 }
 ```
-## History
+## Invite
 
-List the messages in a chat
-
-
-[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/chat/chat.dart';
-
-void main() async {
-  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
-,};
-
-  HistoryRequest req = HistoryRequest.fromJson(payload);
-
-  
-  try {
-
-	HistoryResponse res = await ser.history(req);
-
-    res.map((value) => print(value),
-	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Join
-
-Join a group
+Invite a user to a group
 
 
-[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
+[https://m3o.com/chat/api#Invite](https://m3o.com/chat/api#Invite)
 
 ```dart
 import 'dart:io';
@@ -130,21 +204,19 @@ void main() async {
  
   final payload = <String, dynamic>{
   "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-2"
+  "user_id": "user-1"
 ,};
 
-  JoinRequest req = JoinRequest.fromJson(payload);
+  InviteRequest req = InviteRequest.fromJson(payload);
 
   
-  	
   try {
 
-    final res = await ser.join(req);
+	InviteResponse res = await ser.invite(req);
 
-	  await for (var sr in res) {
-	  sr.map((value) => print(value),
-		Merr: (JoinResponseMerr err) => print(err.body));
-	  }
+    res.map((value) => print(value),
+	  Merr: (InviteResponseMerr err) => print(err.body!['body']));	
+  
   } catch (e) {
     print(e);
   } finally {
@@ -193,12 +265,12 @@ void main() async {
   }
 }
 ```
-## Kick
+## History
 
-Kick a user from a group
+List the messages in a chat
 
 
-[https://m3o.com/chat/api#Kick](https://m3o.com/chat/api#Kick)
+[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
 
 ```dart
 import 'dart:io';
@@ -209,19 +281,18 @@ void main() async {
   final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-1"
+  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
 ,};
 
-  KickRequest req = KickRequest.fromJson(payload);
+  HistoryRequest req = HistoryRequest.fromJson(payload);
 
   
   try {
 
-	KickResponse res = await ser.kick(req);
+	HistoryResponse res = await ser.history(req);
 
     res.map((value) => print(value),
-	  Merr: (KickResponseMerr err) => print(err.body!['body']));	
+	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -259,77 +330,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (CreateResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## List
-
-List available chats
-
-
-[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/chat/chat.dart';
-
-void main() async {
-  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{};
-
-  ListRequest req = ListRequest.fromJson(payload);
-
-  
-  try {
-
-	ListResponse res = await ser.list(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Invite
-
-Invite a user to a group
-
-
-[https://m3o.com/chat/api#Invite](https://m3o.com/chat/api#Invite)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/chat/chat.dart';
-
-void main() async {
-  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-1"
-,};
-
-  InviteRequest req = InviteRequest.fromJson(payload);
-
-  
-  try {
-
-	InviteResponse res = await ser.invite(req);
-
-    res.map((value) => print(value),
-	  Merr: (InviteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

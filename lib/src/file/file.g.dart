@@ -44,14 +44,14 @@ Map<String, dynamic> _$$DeleteResponseMerrToJson(
 
 _$_ListRequest _$$_ListRequestFromJson(Map<String, dynamic> json) =>
     _$_ListRequest(
-      path: json['path'] as String?,
       project: json['project'] as String?,
+      path: json['path'] as String?,
     );
 
 Map<String, dynamic> _$$_ListRequestToJson(_$_ListRequest instance) =>
     <String, dynamic>{
-      'path': instance.path,
       'project': instance.project,
+      'path': instance.path,
     };
 
 _$ListResponseData _$$ListResponseDataFromJson(Map<String, dynamic> json) =>
@@ -119,7 +119,6 @@ Map<String, dynamic> _$$ReadResponseMerrToJson(_$ReadResponseMerr instance) =>
     };
 
 _$_Record _$$_RecordFromJson(Map<String, dynamic> json) => _$_Record(
-      updated: json['updated'] as String?,
       content: json['content'] as String?,
       created: json['created'] as String?,
       metadata: (json['metadata'] as Map<String, dynamic>?)?.map(
@@ -127,15 +126,16 @@ _$_Record _$$_RecordFromJson(Map<String, dynamic> json) => _$_Record(
       ),
       path: json['path'] as String?,
       project: json['project'] as String?,
+      updated: json['updated'] as String?,
     );
 
 Map<String, dynamic> _$$_RecordToJson(_$_Record instance) => <String, dynamic>{
-      'updated': instance.updated,
       'content': instance.content,
       'created': instance.created,
       'metadata': instance.metadata,
       'path': instance.path,
       'project': instance.project,
+      'updated': instance.updated,
     };
 
 _$_SaveRequest _$$_SaveRequestFromJson(Map<String, dynamic> json) =>
