@@ -1121,11 +1121,11 @@ UrlRequest _$UrlRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UrlRequest {
-  /// method of the call
-  String? get method => throw _privateConstructorUsedError;
-
   /// address to use
   String? get address => throw _privateConstructorUsedError;
+
+  /// method of the call
+  String? get method => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1138,7 +1138,7 @@ abstract class $UrlRequestCopyWith<$Res> {
   factory $UrlRequestCopyWith(
           UrlRequest value, $Res Function(UrlRequest) then) =
       _$UrlRequestCopyWithImpl<$Res>;
-  $Res call({String? method, String? address});
+  $Res call({String? address, String? method});
 }
 
 /// @nodoc
@@ -1151,17 +1151,17 @@ class _$UrlRequestCopyWithImpl<$Res> implements $UrlRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? method = freezed,
     Object? address = freezed,
+    Object? method = freezed,
   }) {
     return _then(_value.copyWith(
-      method: method == freezed
-          ? _value.method
-          : method // ignore: cast_nullable_to_non_nullable
-              as String?,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      method: method == freezed
+          ? _value.method
+          : method // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1174,7 +1174,7 @@ abstract class _$$_UrlRequestCopyWith<$Res>
           _$_UrlRequest value, $Res Function(_$_UrlRequest) then) =
       __$$_UrlRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? method, String? address});
+  $Res call({String? address, String? method});
 }
 
 /// @nodoc
@@ -1189,17 +1189,17 @@ class __$$_UrlRequestCopyWithImpl<$Res> extends _$UrlRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? method = freezed,
     Object? address = freezed,
+    Object? method = freezed,
   }) {
     return _then(_$_UrlRequest(
-      method: method == freezed
-          ? _value.method
-          : method // ignore: cast_nullable_to_non_nullable
-              as String?,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      method: method == freezed
+          ? _value.method
+          : method // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1208,22 +1208,22 @@ class __$$_UrlRequestCopyWithImpl<$Res> extends _$UrlRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UrlRequest implements _UrlRequest {
-  const _$_UrlRequest({this.method, this.address});
+  const _$_UrlRequest({this.address, this.method});
 
   factory _$_UrlRequest.fromJson(Map<String, dynamic> json) =>
       _$$_UrlRequestFromJson(json);
-
-  /// method of the call
-  @override
-  final String? method;
 
   /// address to use
   @override
   final String? address;
 
+  /// method of the call
+  @override
+  final String? method;
+
   @override
   String toString() {
-    return 'UrlRequest(method: $method, address: $address)';
+    return 'UrlRequest(address: $address, method: $method)';
   }
 
   @override
@@ -1231,16 +1231,16 @@ class _$_UrlRequest implements _UrlRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UrlRequest &&
-            const DeepCollectionEquality().equals(other.method, method) &&
-            const DeepCollectionEquality().equals(other.address, address));
+            const DeepCollectionEquality().equals(other.address, address) &&
+            const DeepCollectionEquality().equals(other.method, method));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(method),
-      const DeepCollectionEquality().hash(address));
+      const DeepCollectionEquality().hash(address),
+      const DeepCollectionEquality().hash(method));
 
   @JsonKey(ignore: true)
   @override
@@ -1256,7 +1256,7 @@ class _$_UrlRequest implements _UrlRequest {
 }
 
 abstract class _UrlRequest implements UrlRequest {
-  const factory _UrlRequest({final String? method, final String? address}) =
+  const factory _UrlRequest({final String? address, final String? method}) =
       _$_UrlRequest;
 
   factory _UrlRequest.fromJson(Map<String, dynamic> json) =
@@ -1264,12 +1264,12 @@ abstract class _UrlRequest implements UrlRequest {
 
   @override
 
-  /// method of the call
-  String? get method;
-  @override
-
   /// address to use
   String? get address;
+  @override
+
+  /// method of the call
+  String? get method;
   @override
   @JsonKey(ignore: true)
   _$$_UrlRequestCopyWith<_$_UrlRequest> get copyWith =>

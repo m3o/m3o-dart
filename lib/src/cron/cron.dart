@@ -95,12 +95,6 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Job with _$Job {
   const factory Job({
-    /// scheduled interval
-    String? interval,
-
-    /// name
-    String? name,
-
     /// callback url e.g https://google.com
     String? callback,
 
@@ -109,6 +103,12 @@ class Job with _$Job {
 
     /// job id
     String? id,
+
+    /// scheduled interval
+    String? interval,
+
+    /// name
+    String? name,
   }) = _Job;
   factory Job.fromJson(Map<String, dynamic> json) => _$JobFromJson(json);
 }

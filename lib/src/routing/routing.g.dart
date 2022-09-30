@@ -7,7 +7,6 @@ part of 'routing.dart';
 // **************************************************************************
 
 _$_Direction _$$_DirectionFromJson(Map<String, dynamic> json) => _$_Direction(
-      reference: json['reference'] as String?,
       distance: (json['distance'] as num?)?.toDouble(),
       duration: (json['duration'] as num?)?.toDouble(),
       instruction: json['instruction'] as String?,
@@ -18,17 +17,18 @@ _$_Direction _$$_DirectionFromJson(Map<String, dynamic> json) => _$_Direction(
           ? null
           : Maneuver.fromJson(json['maneuver'] as Map<String, dynamic>),
       name: json['name'] as String?,
+      reference: json['reference'] as String?,
     );
 
 Map<String, dynamic> _$$_DirectionToJson(_$_Direction instance) =>
     <String, dynamic>{
-      'reference': instance.reference,
       'distance': instance.distance,
       'duration': instance.duration,
       'instruction': instance.instruction,
       'intersections': instance.intersections,
       'maneuver': instance.maneuver,
       'name': instance.name,
+      'reference': instance.reference,
     };
 
 _$_DirectionsRequest _$$_DirectionsRequestFromJson(Map<String, dynamic> json) =>
@@ -88,22 +88,22 @@ Map<String, dynamic> _$$DirectionsResponseMerrToJson(
 
 _$_EtaRequest _$$_EtaRequestFromJson(Map<String, dynamic> json) =>
     _$_EtaRequest(
+      speed: (json['speed'] as num?)?.toDouble(),
+      type: json['type'] as String?,
       destination: json['destination'] == null
           ? null
           : Point.fromJson(json['destination'] as Map<String, dynamic>),
       origin: json['origin'] == null
           ? null
           : Point.fromJson(json['origin'] as Map<String, dynamic>),
-      speed: (json['speed'] as num?)?.toDouble(),
-      type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$$_EtaRequestToJson(_$_EtaRequest instance) =>
     <String, dynamic>{
-      'destination': instance.destination,
-      'origin': instance.origin,
       'speed': instance.speed,
       'type': instance.type,
+      'destination': instance.destination,
+      'origin': instance.origin,
     };
 
 _$EtaResponseData _$$EtaResponseDataFromJson(Map<String, dynamic> json) =>
@@ -166,13 +166,13 @@ Map<String, dynamic> _$$_ManeuverToJson(_$_Maneuver instance) =>
     };
 
 _$_Point _$$_PointFromJson(Map<String, dynamic> json) => _$_Point(
-      latitude: (json['latitude'] as num?)?.toDouble(),
       longitude: (json['longitude'] as num?)?.toDouble(),
+      latitude: (json['latitude'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_PointToJson(_$_Point instance) => <String, dynamic>{
-      'latitude': instance.latitude,
       'longitude': instance.longitude,
+      'latitude': instance.latitude,
     };
 
 _$_RouteRequest _$$_RouteRequestFromJson(Map<String, dynamic> json) =>

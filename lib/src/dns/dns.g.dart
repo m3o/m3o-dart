@@ -22,30 +22,30 @@ Map<String, dynamic> _$$_AnswerToJson(_$_Answer instance) => <String, dynamic>{
 
 _$_QueryRequest _$$_QueryRequestFromJson(Map<String, dynamic> json) =>
     _$_QueryRequest(
-      type: json['type'] as String?,
       name: json['name'] as String?,
+      type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$$_QueryRequestToJson(_$_QueryRequest instance) =>
     <String, dynamic>{
-      'type': instance.type,
       'name': instance.name,
+      'type': instance.type,
     };
 
 _$QueryResponseData _$$QueryResponseDataFromJson(Map<String, dynamic> json) =>
     _$QueryResponseData(
       CD: json['CD'] as bool?,
-      RA: json['RA'] as bool?,
       answer: (json['answer'] as List<dynamic>?)
           ?.map((e) => Answer.fromJson(e as Map<String, dynamic>))
           .toList(),
-      AD: json['AD'] as bool?,
-      TC: json['TC'] as bool?,
-      provider: json['provider'] as String?,
       question: (json['question'] as List<dynamic>?)
           ?.map((e) => Question.fromJson(e as Map<String, dynamic>))
           .toList(),
+      TC: json['TC'] as bool?,
+      provider: json['provider'] as String?,
       status: json['status'] as int?,
+      AD: json['AD'] as bool?,
+      RA: json['RA'] as bool?,
       RD: json['RD'] as bool?,
       $type: json['runtimeType'] as String?,
     );
@@ -53,13 +53,13 @@ _$QueryResponseData _$$QueryResponseDataFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$QueryResponseDataToJson(_$QueryResponseData instance) =>
     <String, dynamic>{
       'CD': instance.CD,
-      'RA': instance.RA,
       'answer': instance.answer,
-      'AD': instance.AD,
+      'question': instance.question,
       'TC': instance.TC,
       'provider': instance.provider,
-      'question': instance.question,
       'status': instance.status,
+      'AD': instance.AD,
+      'RA': instance.RA,
       'RD': instance.RD,
       'runtimeType': instance.$type,
     };
@@ -77,12 +77,12 @@ Map<String, dynamic> _$$QueryResponseMerrToJson(_$QueryResponseMerr instance) =>
     };
 
 _$_Question _$$_QuestionFromJson(Map<String, dynamic> json) => _$_Question(
-      name: json['name'] as String?,
       type: json['type'] as int?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_QuestionToJson(_$_Question instance) =>
     <String, dynamic>{
-      'name': instance.name,
       'type': instance.type,
+      'name': instance.name,
     };

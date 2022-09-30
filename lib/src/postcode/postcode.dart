@@ -123,9 +123,6 @@ class RandomRequest with _$RandomRequest {
 @Freezed()
 class RandomResponse with _$RandomResponse {
   const factory RandomResponse({
-    /// e.g -0.127695
-    double? longitude,
-
     /// UK postcode e.g SW1A 2AA
     String? postcode,
 
@@ -143,6 +140,9 @@ class RandomResponse with _$RandomResponse {
 
     /// e.g 51.50354
     double? latitude,
+
+    /// e.g -0.127695
+    double? longitude,
   }) = RandomResponseData;
   const factory RandomResponse.Merr({Map<String, dynamic>? body}) =
       RandomResponseMerr;

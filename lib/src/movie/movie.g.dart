@@ -7,38 +7,38 @@ part of 'movie.dart';
 // **************************************************************************
 
 _$_MovieInfo _$$_MovieInfoFromJson(Map<String, dynamic> json) => _$_MovieInfo(
+      id: json['id'] as int?,
+      release_date: json['release_date'] as String?,
+      overview: json['overview'] as String?,
       adult: json['adult'] as bool?,
+      backdrop_path: json['backdrop_path'] as String?,
       genre_ids:
           (json['genre_ids'] as List<dynamic>?)?.map((e) => e as int).toList(),
-      id: json['id'] as int?,
-      overview: json['overview'] as String?,
+      original_language: json['original_language'] as String?,
+      vote_count: json['vote_count'] as int?,
+      popularity: (json['popularity'] as num?)?.toDouble(),
       poster_path: json['poster_path'] as String?,
       video: json['video'] as bool?,
       vote_average: (json['vote_average'] as num?)?.toDouble(),
-      vote_count: json['vote_count'] as int?,
-      backdrop_path: json['backdrop_path'] as String?,
-      original_language: json['original_language'] as String?,
       original_title: json['original_title'] as String?,
-      popularity: (json['popularity'] as num?)?.toDouble(),
-      release_date: json['release_date'] as String?,
       title: json['title'] as String?,
     );
 
 Map<String, dynamic> _$$_MovieInfoToJson(_$_MovieInfo instance) =>
     <String, dynamic>{
-      'adult': instance.adult,
-      'genre_ids': instance.genre_ids,
       'id': instance.id,
+      'release_date': instance.release_date,
       'overview': instance.overview,
+      'adult': instance.adult,
+      'backdrop_path': instance.backdrop_path,
+      'genre_ids': instance.genre_ids,
+      'original_language': instance.original_language,
+      'vote_count': instance.vote_count,
+      'popularity': instance.popularity,
       'poster_path': instance.poster_path,
       'video': instance.video,
       'vote_average': instance.vote_average,
-      'vote_count': instance.vote_count,
-      'backdrop_path': instance.backdrop_path,
-      'original_language': instance.original_language,
       'original_title': instance.original_title,
-      'popularity': instance.popularity,
-      'release_date': instance.release_date,
       'title': instance.title,
     };
 
