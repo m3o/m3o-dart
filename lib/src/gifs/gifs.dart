@@ -36,32 +36,32 @@ class GifsService {
 @Freezed()
 class Gif with _$Gif {
   const factory Gif({
-    /// The ID of the GIF
-    String? id,
-
-    /// The different formats available for this GIF
-    ImageFormats? images,
-
-    /// A short URL for this GIF
-    String? short_url,
-
     /// The slug used in the GIF's URL
     String? slug,
-
-    /// The page on which this GIF was found
-    String? source,
-
-    /// The URL for this GIF
-    String? url,
 
     /// URL used for embedding the GIF
     String? embed_url,
 
+    /// The ID of the GIF
+    String? id,
+
     /// The content rating for the GIF
     String? rating,
 
+    /// A short URL for this GIF
+    String? short_url,
+
+    /// The different formats available for this GIF
+    ImageFormats? images,
+
+    /// The page on which this GIF was found
+    String? source,
+
     /// The title for this GIF
     String? title,
+
+    /// The URL for this GIF
+    String? url,
   }) = _Gif;
   factory Gif.fromJson(Map<String, dynamic> json) => _$GifFromJson(json);
 }
@@ -69,18 +69,6 @@ class Gif with _$Gif {
 @Freezed()
 class ImageFormat with _$ImageFormat {
   const factory ImageFormat({
-    /// URL of the gif
-    String? url,
-
-    /// size of the webp version
-    int? webp_size,
-
-    /// URL to a webp version of the gif
-    String? webp_url,
-
-    /// width
-    int? width,
-
     /// height
     int? height,
 
@@ -92,6 +80,18 @@ class ImageFormat with _$ImageFormat {
 
     /// size in bytes
     int? size,
+
+    /// URL of the gif
+    String? url,
+
+    /// size of the webp version
+    int? webp_size,
+
+    /// URL to a webp version of the gif
+    String? webp_url,
+
+    /// width
+    int? width,
   }) = _ImageFormat;
   factory ImageFormat.fromJson(Map<String, dynamic> json) =>
       _$ImageFormatFromJson(json);
@@ -100,17 +100,17 @@ class ImageFormat with _$ImageFormat {
 @Freezed()
 class ImageFormats with _$ImageFormats {
   const factory ImageFormats({
-    /// A downsized version of the GIF < 8MB
-    ImageFormat? downsized_large,
+    /// A downsized version of the GIF < 2MB
+    ImageFormat? downsized,
 
-    /// Static image of the downsized version of the GIF
-    ImageFormat? downsized_still,
+    /// A downsized version of the GIF < 200kb
+    ImageFormat? downsized_small,
 
-    /// Static image of the GIF with fixed height of 100 pixels
-    ImageFormat? fixed_height_small_still,
+    /// Version of the GIF with fixed height of 100 pixels. Good for mobile keyboards
+    ImageFormat? fixed_height_small,
 
-    /// Static image of the GIF with fixed width of 100 pixels
-    ImageFormat? fixed_width_small_still,
+    /// Version of the GIF with fixed width of 200 pixels. Good for mobile use
+    ImageFormat? fixed_width,
 
     /// Static image of the GIF with fixed width of 200 pixels
     ImageFormat? fixed_width_still,
@@ -121,8 +121,8 @@ class ImageFormats with _$ImageFormats {
     /// The original GIF. Good for desktop use
     ImageFormat? original,
 
-    /// A downsized version of the GIF < 2MB
-    ImageFormat? downsized,
+    /// Version of the GIF <50kb displaying first 1-2 secs
+    ImageFormat? preview_gif,
 
     /// A downsized version of the GIF < 5MB
     ImageFormat? downsized_medium,
@@ -130,32 +130,32 @@ class ImageFormats with _$ImageFormats {
     /// Version of the GIF with fixed height of 200 pixels and number of frames reduced to 6
     ImageFormat? fixed_height_downsampled,
 
-    /// Version of the GIF with fixed height of 100 pixels. Good for mobile keyboards
-    ImageFormat? fixed_height_small,
-
-    /// Static image of the GIF with fixed height of 200 pixels
-    ImageFormat? fixed_height_still,
-
-    /// Version of the GIF with fixed width of 200 pixels. Good for mobile use
-    ImageFormat? fixed_width,
+    /// Static image of the GIF with fixed height of 100 pixels
+    ImageFormat? fixed_height_small_still,
 
     /// Version of the GIF with fixed width of 100 pixels. Good for mobile keyboards
     ImageFormat? fixed_width_small,
 
-    /// Version of the GIF <50kb displaying first 1-2 secs
-    ImageFormat? preview_gif,
+    /// Static image of the GIF with fixed height of 200 pixels
+    ImageFormat? fixed_height_still,
 
     /// Version of the GIF with fixed width of 200 pixels and number of frames reduced to 6
     ImageFormat? fixed_width_downsampled,
 
-    /// Static image of the original version of the GIF
-    ImageFormat? original_still,
+    /// Static image of the GIF with fixed width of 100 pixels
+    ImageFormat? fixed_width_small_still,
 
-    /// A downsized version of the GIF < 200kb
-    ImageFormat? downsized_small,
+    /// A downsized version of the GIF < 8MB
+    ImageFormat? downsized_large,
+
+    /// Static image of the downsized version of the GIF
+    ImageFormat? downsized_still,
 
     /// Version of the GIF with fixed height of 200 pixels. Good for mobile use
     ImageFormat? fixed_height,
+
+    /// Static image of the original version of the GIF
+    ImageFormat? original_still,
 
     /// mp4 version of the GIF <50kb displaying first 1-2 secs
     ImageFormat? preview,
@@ -167,14 +167,14 @@ class ImageFormats with _$ImageFormats {
 @Freezed()
 class Pagination with _$Pagination {
   const factory Pagination({
-    /// total number of results available
-    int? total_count,
-
     /// total number returned in this response
     int? count,
 
     /// position in pagination
     int? offset,
+
+    /// total number of results available
+    int? total_count,
   }) = _Pagination;
   factory Pagination.fromJson(Map<String, dynamic> json) =>
       _$PaginationFromJson(json);
@@ -183,9 +183,6 @@ class Pagination with _$Pagination {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// The start position of results (used with pagination)
-    int? offset,
-
     /// The search term
     String? query,
 
@@ -197,6 +194,9 @@ class SearchRequest with _$SearchRequest {
 
     /// Max number of gifs to return. Defaults to 25
     int? limit,
+
+    /// The start position of results (used with pagination)
+    int? offset,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);

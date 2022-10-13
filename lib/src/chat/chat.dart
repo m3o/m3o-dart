@@ -202,9 +202,6 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// chat description
-    String? description,
-
     /// name of the group
     String? name,
 
@@ -213,6 +210,9 @@ class CreateRequest with _$CreateRequest {
 
     /// optional list of user ids
     List<String>? user_ids,
+
+    /// chat description
+    String? description,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -445,9 +445,6 @@ class Message with _$Message {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
-    /// id of the user who sent the message
-    String? user_id,
-
     /// a client side id, should be validated by the server to make the request retry safe
     String? client,
 
@@ -459,6 +456,9 @@ class SendRequest with _$SendRequest {
 
     /// text of the message
     String? text,
+
+    /// id of the user who sent the message
+    String? user_id,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);

@@ -86,11 +86,11 @@ class IpRequest with _$IpRequest {
 @Freezed()
 class IpResponse with _$IpResponse {
   const factory IpResponse({
-    /// response status
-    String? status,
-
     /// average latency e.g 10ms
     String? latency,
+
+    /// response status
+    String? status,
   }) = IpResponseData;
   const factory IpResponse.Merr({Map<String, dynamic>? body}) = IpResponseMerr;
   factory IpResponse.fromJson(Map<String, dynamic> json) =>
@@ -100,11 +100,11 @@ class IpResponse with _$IpResponse {
 @Freezed()
 class TcpRequest with _$TcpRequest {
   const factory TcpRequest({
-    /// address to dial
-    String? address,
-
     /// optional data to send
     String? data,
+
+    /// address to dial
+    String? address,
   }) = _TcpRequest;
   factory TcpRequest.fromJson(Map<String, dynamic> json) =>
       _$TcpRequestFromJson(json);
@@ -128,11 +128,11 @@ class TcpResponse with _$TcpResponse {
 @Freezed()
 class UrlRequest with _$UrlRequest {
   const factory UrlRequest({
-    /// address to use
-    String? address,
-
     /// method of the call
     String? method,
+
+    /// address to use
+    String? address,
   }) = _UrlRequest;
   factory UrlRequest.fromJson(Map<String, dynamic> json) =>
       _$UrlRequestFromJson(json);

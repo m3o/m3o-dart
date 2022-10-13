@@ -7,9 +7,6 @@ part of 'routing.dart';
 // **************************************************************************
 
 _$_Direction _$$_DirectionFromJson(Map<String, dynamic> json) => _$_Direction(
-      intersections: (json['intersections'] as List<dynamic>?)
-          ?.map((e) => Intersection.fromJson(e as Map<String, dynamic>))
-          .toList(),
       maneuver: json['maneuver'] == null
           ? null
           : Maneuver.fromJson(json['maneuver'] as Map<String, dynamic>),
@@ -18,17 +15,20 @@ _$_Direction _$$_DirectionFromJson(Map<String, dynamic> json) => _$_Direction(
       distance: (json['distance'] as num?)?.toDouble(),
       duration: (json['duration'] as num?)?.toDouble(),
       instruction: json['instruction'] as String?,
+      intersections: (json['intersections'] as List<dynamic>?)
+          ?.map((e) => Intersection.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_DirectionToJson(_$_Direction instance) =>
     <String, dynamic>{
-      'intersections': instance.intersections,
       'maneuver': instance.maneuver,
       'name': instance.name,
       'reference': instance.reference,
       'distance': instance.distance,
       'duration': instance.duration,
       'instruction': instance.instruction,
+      'intersections': instance.intersections,
     };
 
 _$_DirectionsRequest _$$_DirectionsRequestFromJson(Map<String, dynamic> json) =>
@@ -51,13 +51,13 @@ Map<String, dynamic> _$$_DirectionsRequestToJson(
 _$DirectionsResponseData _$$DirectionsResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$DirectionsResponseData(
+      directions: (json['directions'] as List<dynamic>?)
+          ?.map((e) => Direction.fromJson(e as Map<String, dynamic>))
+          .toList(),
       distance: (json['distance'] as num?)?.toDouble(),
       duration: (json['duration'] as num?)?.toDouble(),
       waypoints: (json['waypoints'] as List<dynamic>?)
           ?.map((e) => Waypoint.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      directions: (json['directions'] as List<dynamic>?)
-          ?.map((e) => Direction.fromJson(e as Map<String, dynamic>))
           .toList(),
       $type: json['runtimeType'] as String?,
     );
@@ -65,10 +65,10 @@ _$DirectionsResponseData _$$DirectionsResponseDataFromJson(
 Map<String, dynamic> _$$DirectionsResponseDataToJson(
         _$DirectionsResponseData instance) =>
     <String, dynamic>{
+      'directions': instance.directions,
       'distance': instance.distance,
       'duration': instance.duration,
       'waypoints': instance.waypoints,
-      'directions': instance.directions,
       'runtimeType': instance.$type,
     };
 
@@ -88,22 +88,22 @@ Map<String, dynamic> _$$DirectionsResponseMerrToJson(
 
 _$_EtaRequest _$$_EtaRequestFromJson(Map<String, dynamic> json) =>
     _$_EtaRequest(
-      speed: (json['speed'] as num?)?.toDouble(),
-      type: json['type'] as String?,
       destination: json['destination'] == null
           ? null
           : Point.fromJson(json['destination'] as Map<String, dynamic>),
       origin: json['origin'] == null
           ? null
           : Point.fromJson(json['origin'] as Map<String, dynamic>),
+      speed: (json['speed'] as num?)?.toDouble(),
+      type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$$_EtaRequestToJson(_$_EtaRequest instance) =>
     <String, dynamic>{
-      'speed': instance.speed,
-      'type': instance.type,
       'destination': instance.destination,
       'origin': instance.origin,
+      'speed': instance.speed,
+      'type': instance.type,
     };
 
 _$EtaResponseData _$$EtaResponseDataFromJson(Map<String, dynamic> json) =>
@@ -177,18 +177,18 @@ Map<String, dynamic> _$$_PointToJson(_$_Point instance) => <String, dynamic>{
 
 _$_RouteRequest _$$_RouteRequestFromJson(Map<String, dynamic> json) =>
     _$_RouteRequest(
-      origin: json['origin'] == null
-          ? null
-          : Point.fromJson(json['origin'] as Map<String, dynamic>),
       destination: json['destination'] == null
           ? null
           : Point.fromJson(json['destination'] as Map<String, dynamic>),
+      origin: json['origin'] == null
+          ? null
+          : Point.fromJson(json['origin'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_RouteRequestToJson(_$_RouteRequest instance) =>
     <String, dynamic>{
-      'origin': instance.origin,
       'destination': instance.destination,
+      'origin': instance.origin,
     };
 
 _$RouteResponseData _$$RouteResponseDataFromJson(Map<String, dynamic> json) =>
@@ -222,14 +222,14 @@ Map<String, dynamic> _$$RouteResponseMerrToJson(_$RouteResponseMerr instance) =>
     };
 
 _$_Waypoint _$$_WaypointFromJson(Map<String, dynamic> json) => _$_Waypoint(
+      name: json['name'] as String?,
       location: json['location'] == null
           ? null
           : Point.fromJson(json['location'] as Map<String, dynamic>),
-      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_WaypointToJson(_$_Waypoint instance) =>
     <String, dynamic>{
-      'location': instance.location,
       'name': instance.name,
+      'location': instance.location,
     };

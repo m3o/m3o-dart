@@ -7,29 +7,29 @@ part of 'twitter.dart';
 // **************************************************************************
 
 _$_Profile _$$_ProfileFromJson(Map<String, dynamic> json) => _$_Profile(
-      description: json['description'] as String?,
-      followers: int64FromString(json['followers'] as String?),
       id: int64FromString(json['id'] as String?),
-      image_url: json['image_url'] as String?,
-      name: json['name'] as String?,
-      username: json['username'] as String?,
-      created_at: json['created_at'] as String?,
       location: json['location'] as String?,
       private: json['private'] as bool?,
+      username: json['username'] as String?,
+      created_at: json['created_at'] as String?,
+      description: json['description'] as String?,
+      followers: int64FromString(json['followers'] as String?),
+      image_url: json['image_url'] as String?,
+      name: json['name'] as String?,
       verified: json['verified'] as bool?,
     );
 
 Map<String, dynamic> _$$_ProfileToJson(_$_Profile instance) =>
     <String, dynamic>{
-      'description': instance.description,
-      'followers': int64ToString(instance.followers),
       'id': int64ToString(instance.id),
-      'image_url': instance.image_url,
-      'name': instance.name,
-      'username': instance.username,
-      'created_at': instance.created_at,
       'location': instance.location,
       'private': instance.private,
+      'username': instance.username,
+      'created_at': instance.created_at,
+      'description': instance.description,
+      'followers': int64ToString(instance.followers),
+      'image_url': instance.image_url,
+      'name': instance.name,
       'verified': instance.verified,
     };
 
@@ -75,14 +75,14 @@ Map<String, dynamic> _$$SearchResponseMerrToJson(
 
 _$_TimelineRequest _$$_TimelineRequestFromJson(Map<String, dynamic> json) =>
     _$_TimelineRequest(
-      username: json['username'] as String?,
       limit: json['limit'] as int?,
+      username: json['username'] as String?,
     );
 
 Map<String, dynamic> _$$_TimelineRequestToJson(_$_TimelineRequest instance) =>
     <String, dynamic>{
-      'username': instance.username,
       'limit': instance.limit,
+      'username': instance.username,
     };
 
 _$TimelineResponseData _$$TimelineResponseDataFromJson(

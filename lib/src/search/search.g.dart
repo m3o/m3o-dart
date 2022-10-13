@@ -119,13 +119,13 @@ Map<String, dynamic> _$$DeleteResponseMerrToJson(
     };
 
 _$_Field _$$_FieldFromJson(Map<String, dynamic> json) => _$_Field(
-      name: json['name'] as String?,
       type: json['type'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_FieldToJson(_$_Field instance) => <String, dynamic>{
-      'name': instance.name,
       'type': instance.type,
+      'name': instance.name,
     };
 
 _$_IndexRequest _$$_IndexRequestFromJson(Map<String, dynamic> json) =>

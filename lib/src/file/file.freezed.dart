@@ -541,14 +541,14 @@ ListRequest _$ListRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListRequest {
-  /// Project, required for listing.
-  String? get project => throw _privateConstructorUsedError;
-
   /// Defaults to '/', ie. lists all files in a project.
   /// Supply path to a folder if you want to list
   /// files inside that folder
   /// eg. '/docs'
   String? get path => throw _privateConstructorUsedError;
+
+  /// Project, required for listing.
+  String? get project => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -561,7 +561,7 @@ abstract class $ListRequestCopyWith<$Res> {
   factory $ListRequestCopyWith(
           ListRequest value, $Res Function(ListRequest) then) =
       _$ListRequestCopyWithImpl<$Res>;
-  $Res call({String? project, String? path});
+  $Res call({String? path, String? project});
 }
 
 /// @nodoc
@@ -574,17 +574,17 @@ class _$ListRequestCopyWithImpl<$Res> implements $ListRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? project = freezed,
     Object? path = freezed,
+    Object? project = freezed,
   }) {
     return _then(_value.copyWith(
-      project: project == freezed
-          ? _value.project
-          : project // ignore: cast_nullable_to_non_nullable
-              as String?,
       path: path == freezed
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
+              as String?,
+      project: project == freezed
+          ? _value.project
+          : project // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -597,7 +597,7 @@ abstract class _$$_ListRequestCopyWith<$Res>
           _$_ListRequest value, $Res Function(_$_ListRequest) then) =
       __$$_ListRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? project, String? path});
+  $Res call({String? path, String? project});
 }
 
 /// @nodoc
@@ -612,17 +612,17 @@ class __$$_ListRequestCopyWithImpl<$Res> extends _$ListRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? project = freezed,
     Object? path = freezed,
+    Object? project = freezed,
   }) {
     return _then(_$_ListRequest(
-      project: project == freezed
-          ? _value.project
-          : project // ignore: cast_nullable_to_non_nullable
-              as String?,
       path: path == freezed
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
+              as String?,
+      project: project == freezed
+          ? _value.project
+          : project // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -631,14 +631,10 @@ class __$$_ListRequestCopyWithImpl<$Res> extends _$ListRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ListRequest implements _ListRequest {
-  const _$_ListRequest({this.project, this.path});
+  const _$_ListRequest({this.path, this.project});
 
   factory _$_ListRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ListRequestFromJson(json);
-
-  /// Project, required for listing.
-  @override
-  final String? project;
 
   /// Defaults to '/', ie. lists all files in a project.
   /// Supply path to a folder if you want to list
@@ -647,9 +643,13 @@ class _$_ListRequest implements _ListRequest {
   @override
   final String? path;
 
+  /// Project, required for listing.
+  @override
+  final String? project;
+
   @override
   String toString() {
-    return 'ListRequest(project: $project, path: $path)';
+    return 'ListRequest(path: $path, project: $project)';
   }
 
   @override
@@ -657,16 +657,16 @@ class _$_ListRequest implements _ListRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ListRequest &&
-            const DeepCollectionEquality().equals(other.project, project) &&
-            const DeepCollectionEquality().equals(other.path, path));
+            const DeepCollectionEquality().equals(other.path, path) &&
+            const DeepCollectionEquality().equals(other.project, project));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(project),
-      const DeepCollectionEquality().hash(path));
+      const DeepCollectionEquality().hash(path),
+      const DeepCollectionEquality().hash(project));
 
   @JsonKey(ignore: true)
   @override
@@ -682,7 +682,7 @@ class _$_ListRequest implements _ListRequest {
 }
 
 abstract class _ListRequest implements ListRequest {
-  const factory _ListRequest({final String? project, final String? path}) =
+  const factory _ListRequest({final String? path, final String? project}) =
       _$_ListRequest;
 
   factory _ListRequest.fromJson(Map<String, dynamic> json) =
@@ -690,15 +690,15 @@ abstract class _ListRequest implements ListRequest {
 
   @override
 
-  /// Project, required for listing.
-  String? get project;
-  @override
-
   /// Defaults to '/', ie. lists all files in a project.
   /// Supply path to a folder if you want to list
   /// files inside that folder
   /// eg. '/docs'
   String? get path;
+  @override
+
+  /// Project, required for listing.
+  String? get project;
   @override
   @JsonKey(ignore: true)
   _$$_ListRequestCopyWith<_$_ListRequest> get copyWith =>
@@ -1947,11 +1947,11 @@ SaveRequest _$SaveRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SaveRequest {
-  /// The file to save
-  Record? get file => throw _privateConstructorUsedError;
-
   /// Make the file public: true or false
   bool? get public => throw _privateConstructorUsedError;
+
+  /// The file to save
+  Record? get file => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1964,7 +1964,7 @@ abstract class $SaveRequestCopyWith<$Res> {
   factory $SaveRequestCopyWith(
           SaveRequest value, $Res Function(SaveRequest) then) =
       _$SaveRequestCopyWithImpl<$Res>;
-  $Res call({Record? file, bool? public});
+  $Res call({bool? public, Record? file});
 
   $RecordCopyWith<$Res>? get file;
 }
@@ -1979,18 +1979,18 @@ class _$SaveRequestCopyWithImpl<$Res> implements $SaveRequestCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? file = freezed,
     Object? public = freezed,
+    Object? file = freezed,
   }) {
     return _then(_value.copyWith(
-      file: file == freezed
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as Record?,
       public: public == freezed
           ? _value.public
           : public // ignore: cast_nullable_to_non_nullable
               as bool?,
+      file: file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as Record?,
     ));
   }
 
@@ -2013,7 +2013,7 @@ abstract class _$$_SaveRequestCopyWith<$Res>
           _$_SaveRequest value, $Res Function(_$_SaveRequest) then) =
       __$$_SaveRequestCopyWithImpl<$Res>;
   @override
-  $Res call({Record? file, bool? public});
+  $Res call({bool? public, Record? file});
 
   @override
   $RecordCopyWith<$Res>? get file;
@@ -2031,18 +2031,18 @@ class __$$_SaveRequestCopyWithImpl<$Res> extends _$SaveRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? file = freezed,
     Object? public = freezed,
+    Object? file = freezed,
   }) {
     return _then(_$_SaveRequest(
-      file: file == freezed
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as Record?,
       public: public == freezed
           ? _value.public
           : public // ignore: cast_nullable_to_non_nullable
               as bool?,
+      file: file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as Record?,
     ));
   }
 }
@@ -2050,22 +2050,22 @@ class __$$_SaveRequestCopyWithImpl<$Res> extends _$SaveRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SaveRequest implements _SaveRequest {
-  const _$_SaveRequest({this.file, this.public});
+  const _$_SaveRequest({this.public, this.file});
 
   factory _$_SaveRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SaveRequestFromJson(json);
-
-  /// The file to save
-  @override
-  final Record? file;
 
   /// Make the file public: true or false
   @override
   final bool? public;
 
+  /// The file to save
+  @override
+  final Record? file;
+
   @override
   String toString() {
-    return 'SaveRequest(file: $file, public: $public)';
+    return 'SaveRequest(public: $public, file: $file)';
   }
 
   @override
@@ -2073,16 +2073,16 @@ class _$_SaveRequest implements _SaveRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SaveRequest &&
-            const DeepCollectionEquality().equals(other.file, file) &&
-            const DeepCollectionEquality().equals(other.public, public));
+            const DeepCollectionEquality().equals(other.public, public) &&
+            const DeepCollectionEquality().equals(other.file, file));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(file),
-      const DeepCollectionEquality().hash(public));
+      const DeepCollectionEquality().hash(public),
+      const DeepCollectionEquality().hash(file));
 
   @JsonKey(ignore: true)
   @override
@@ -2098,7 +2098,7 @@ class _$_SaveRequest implements _SaveRequest {
 }
 
 abstract class _SaveRequest implements SaveRequest {
-  const factory _SaveRequest({final Record? file, final bool? public}) =
+  const factory _SaveRequest({final bool? public, final Record? file}) =
       _$_SaveRequest;
 
   factory _SaveRequest.fromJson(Map<String, dynamic> json) =
@@ -2106,12 +2106,12 @@ abstract class _SaveRequest implements SaveRequest {
 
   @override
 
-  /// The file to save
-  Record? get file;
-  @override
-
   /// Make the file public: true or false
   bool? get public;
+  @override
+
+  /// The file to save
+  Record? get file;
   @override
   @JsonKey(ignore: true)
   _$$_SaveRequestCopyWith<_$_SaveRequest> get copyWith =>

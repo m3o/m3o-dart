@@ -99,17 +99,17 @@ class SunnahService {
 @Freezed()
 class Book with _$Book {
   const factory Book({
-    /// arabic name of the book
-    String? arabic_name,
-
-    /// number of hadiths in the book
-    int? hadiths,
-
     /// number of the book e.g 1
     int? id,
 
     /// name of the book
     String? name,
+
+    /// arabic name of the book
+    String? arabic_name,
+
+    /// number of hadiths in the book
+    int? hadiths,
   }) = _Book;
   factory Book.fromJson(Map<String, dynamic> json) => _$BookFromJson(json);
 }
@@ -133,6 +133,9 @@ class BooksRequest with _$BooksRequest {
 @Freezed()
 class BooksResponse with _$BooksResponse {
   const factory BooksResponse({
+    /// The limit specified
+    int? limit,
+
     /// The page requested
     int? page,
 
@@ -144,9 +147,6 @@ class BooksResponse with _$BooksResponse {
 
     /// Name of the collection
     String? collection,
-
-    /// The limit specified
-    int? limit,
   }) = BooksResponseData;
   const factory BooksResponse.Merr({Map<String, dynamic>? body}) =
       BooksResponseMerr;
@@ -179,17 +179,17 @@ class Chapter with _$Chapter {
 @Freezed()
 class ChaptersRequest with _$ChaptersRequest {
   const factory ChaptersRequest({
-    /// The page in the pagination
-    int? page,
-
-    /// number of the book
-    int? book,
-
     /// name of the collection
     String? collection,
 
     /// Limit the number of chapters returned
     int? limit,
+
+    /// The page in the pagination
+    int? page,
+
+    /// number of the book
+    int? book,
   }) = _ChaptersRequest;
   factory ChaptersRequest.fromJson(Map<String, dynamic> json) =>
       _$ChaptersRequestFromJson(json);
@@ -317,9 +317,6 @@ class HadithsRequest with _$HadithsRequest {
 @Freezed()
 class HadithsResponse with _$HadithsResponse {
   const factory HadithsResponse({
-    /// The page in the pagination
-    int? page,
-
     /// Total hadiths in the  book
     int? total,
 
@@ -334,6 +331,9 @@ class HadithsResponse with _$HadithsResponse {
 
     /// Limit the number of hadiths returned
     int? limit,
+
+    /// The page in the pagination
+    int? page,
   }) = HadithsResponseData;
   const factory HadithsResponse.Merr({Map<String, dynamic>? body}) =
       HadithsResponseMerr;

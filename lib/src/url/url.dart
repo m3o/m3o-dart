@@ -160,11 +160,11 @@ class CreateResponse with _$CreateResponse {
 @Freezed()
 class DeleteRequest with _$DeleteRequest {
   const factory DeleteRequest({
-    /// delete by shortURL
-    String? shortURL,
-
     /// delete by id
     String? id,
+
+    /// delete by shortURL
+    String? shortURL,
   }) = _DeleteRequest;
   factory DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$DeleteRequestFromJson(json);
@@ -272,14 +272,14 @@ class URLPair with _$URLPair {
 @Freezed()
 class UpdateRequest with _$UpdateRequest {
   const factory UpdateRequest({
+    /// the destination to update to
+    String? destinationURL,
+
     /// update by id
     String? id,
 
     /// update by short url
     String? shortURL,
-
-    /// the destination to update to
-    String? destinationURL,
   }) = _UpdateRequest;
   factory UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$UpdateRequestFromJson(json);

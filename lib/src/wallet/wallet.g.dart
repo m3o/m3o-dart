@@ -7,18 +7,18 @@ part of 'wallet.dart';
 // **************************************************************************
 
 _$_Account _$$_AccountFromJson(Map<String, dynamic> json) => _$_Account(
-      balance: int64FromString(json['balance'] as String?),
-      description: json['description'] as String?,
       id: json['id'] as String?,
       name: json['name'] as String?,
+      balance: int64FromString(json['balance'] as String?),
+      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$$_AccountToJson(_$_Account instance) =>
     <String, dynamic>{
-      'balance': int64ToString(instance.balance),
-      'description': instance.description,
       'id': instance.id,
       'name': instance.name,
+      'balance': int64ToString(instance.balance),
+      'description': instance.description,
     };
 
 _$_BalanceRequest _$$_BalanceRequestFromJson(Map<String, dynamic> json) =>
@@ -61,16 +61,16 @@ Map<String, dynamic> _$$BalanceResponseMerrToJson(
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      name: json['name'] as String?,
       description: json['description'] as String?,
       id: json['id'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
-      'name': instance.name,
       'description': instance.description,
       'id': instance.id,
+      'name': instance.name,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -353,20 +353,20 @@ Map<String, dynamic> _$$TransactionsResponseMerrToJson(
 
 _$_TransferRequest _$$_TransferRequestFromJson(Map<String, dynamic> json) =>
     _$_TransferRequest(
+      visible: json['visible'] as bool?,
+      amount: int64FromString(json['amount'] as String?),
       from_id: json['from_id'] as String?,
       reference: json['reference'] as String?,
       to_id: json['to_id'] as String?,
-      visible: json['visible'] as bool?,
-      amount: int64FromString(json['amount'] as String?),
     );
 
 Map<String, dynamic> _$$_TransferRequestToJson(_$_TransferRequest instance) =>
     <String, dynamic>{
+      'visible': instance.visible,
+      'amount': int64ToString(instance.amount),
       'from_id': instance.from_id,
       'reference': instance.reference,
       'to_id': instance.to_id,
-      'visible': instance.visible,
-      'amount': int64ToString(instance.amount),
     };
 
 _$TransferResponseData _$$TransferResponseDataFromJson(

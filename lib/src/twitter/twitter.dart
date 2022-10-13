@@ -96,22 +96,15 @@ class TwitterService {
 @Freezed()
 class Profile with _$Profile {
   const factory Profile({
-    /// the user description
-    String? description,
-
-    /// the follower count
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
-
     /// the user id
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
 
-    /// The user's profile picture
-    String? image_url,
+    /// the user's location
+    String? location,
 
-    /// display name of the user
-    String? name,
+    /// if the account is private
+    bool? private,
 
     /// the username
     String? username,
@@ -119,11 +112,18 @@ class Profile with _$Profile {
     /// the account creation date
     String? created_at,
 
-    /// the user's location
-    String? location,
+    /// the user description
+    String? description,
 
-    /// if the account is private
-    bool? private,
+    /// the follower count
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
+
+    /// The user's profile picture
+    String? image_url,
+
+    /// display name of the user
+    String? name,
 
     /// if the account is verified
     bool? verified,
@@ -160,11 +160,11 @@ class SearchResponse with _$SearchResponse {
 @Freezed()
 class TimelineRequest with _$TimelineRequest {
   const factory TimelineRequest({
-    /// the username to request the timeline for
-    String? username,
-
     /// number of tweets to return. default: 20
     int? limit,
+
+    /// the username to request the timeline for
+    String? username,
   }) = _TimelineRequest;
   factory TimelineRequest.fromJson(Map<String, dynamic> json) =>
       _$TimelineRequestFromJson(json);
