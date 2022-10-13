@@ -1,3 +1,9 @@
+## v1.0.204 - 2022-10-13
+
+[eb609d](https://github.com/micro/services/commit/eb609d201ded4e053dcb17002fa9fca269e0cca3) Update README.md
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.203...v1.0.204
+
 ## v1.0.203 - 2022-09-30
 
 [922081](https://github.com/micro/services/commit/922081372ee2a58001cbac785376b9e30d697774) add utc to cron readme
