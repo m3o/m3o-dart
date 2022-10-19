@@ -1,3 +1,9 @@
+## v1.0.207 - 2022-10-19
+
+[39b7c8](https://github.com/micro/services/commit/39b7c857d5dd3029934c3c9611e8dd0a3ff03c78) Update README.md
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.206...v1.0.207
+
 ## v1.0.206 - 2022-10-19
 
 [1f807e](https://github.com/micro/services/commit/1f807e0471e39277141f25104366e70f7e688d84) add check endpoint
