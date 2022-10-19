@@ -8,14 +8,14 @@ part of 'file.dart';
 
 _$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
     _$_DeleteRequest(
-      path: json['path'] as String?,
       project: json['project'] as String?,
+      path: json['path'] as String?,
     );
 
 Map<String, dynamic> _$$_DeleteRequestToJson(_$_DeleteRequest instance) =>
     <String, dynamic>{
-      'path': instance.path,
       'project': instance.project,
+      'path': instance.path,
     };
 
 _$DeleteResponseData _$$DeleteResponseDataFromJson(Map<String, dynamic> json) =>
@@ -44,14 +44,14 @@ Map<String, dynamic> _$$DeleteResponseMerrToJson(
 
 _$_ListRequest _$$_ListRequestFromJson(Map<String, dynamic> json) =>
     _$_ListRequest(
-      path: json['path'] as String?,
       project: json['project'] as String?,
+      path: json['path'] as String?,
     );
 
 Map<String, dynamic> _$$_ListRequestToJson(_$_ListRequest instance) =>
     <String, dynamic>{
-      'path': instance.path,
       'project': instance.project,
+      'path': instance.path,
     };
 
 _$ListResponseData _$$ListResponseDataFromJson(Map<String, dynamic> json) =>

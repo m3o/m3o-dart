@@ -116,6 +116,9 @@ class PriceService {
 @Freezed()
 class AddRequest with _$AddRequest {
   const factory AddRequest({
+    /// author of the price
+    String? author,
+
     /// currency e.g USD
     String? currency,
 
@@ -130,9 +133,6 @@ class AddRequest with _$AddRequest {
 
     /// symbol of value
     String? symbol,
-
-    /// author of the price
-    String? author,
   }) = _AddRequest;
   factory AddRequest.fromJson(Map<String, dynamic> json) =>
       _$AddRequestFromJson(json);
@@ -152,14 +152,14 @@ class AddResponse with _$AddResponse {
 @Freezed()
 class GetRequest with _$GetRequest {
   const factory GetRequest({
+    /// currency to get
+    String? currency,
+
     /// name of the value
     String? name,
 
     /// symbol of value
     String? symbol,
-
-    /// currency to get
-    String? currency,
   }) = _GetRequest;
   factory GetRequest.fromJson(Map<String, dynamic> json) =>
       _$GetRequestFromJson(json);
@@ -212,14 +212,14 @@ class IndexResponse with _$IndexResponse {
 @Freezed()
 class ListRequest with _$ListRequest {
   const factory ListRequest({
-    /// currency to get
-    String? currency,
-
     /// limit number of values
     int? limit,
 
     /// offset to read from
     int? offset,
+
+    /// currency to get
+    String? currency,
   }) = _ListRequest;
   factory ListRequest.fromJson(Map<String, dynamic> json) =>
       _$ListRequestFromJson(json);
@@ -239,10 +239,10 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Report with _$Report {
   const factory Report({
+    String? symbol,
     String? author,
     String? comment,
     String? name,
-    String? symbol,
   }) = _Report;
   factory Report.fromJson(Map<String, dynamic> json) => _$ReportFromJson(json);
 }
@@ -275,12 +275,6 @@ class ReportResponse with _$ReportResponse {
 @Freezed()
 class Value with _$Value {
   const factory Value({
-    /// name of thing
-    String? name,
-
-    /// price of thing
-    double? price,
-
     /// where it came from
     String? source,
 
@@ -295,6 +289,12 @@ class Value with _$Value {
 
     /// currency of thing
     String? currency,
+
+    /// name of thing
+    String? name,
+
+    /// price of thing
+    double? price,
   }) = _Value;
   factory Value.fromJson(Map<String, dynamic> json) => _$ValueFromJson(json);
 }

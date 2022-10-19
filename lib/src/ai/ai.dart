@@ -32,6 +32,26 @@ class AiService {
     }
   }
 
+  /// Check or edit text/code
+  Future<CheckResponse> check(CheckRequest req) async {
+    Request request = Request(
+      service: 'ai',
+      endpoint: 'Check',
+      body: req.toJson(),
+    );
+
+    try {
+      Response res = await _client.call(request);
+      if (isError(res.body)) {
+        final err = Merr(res.toJson());
+        return CheckResponse.Merr(body: err.b);
+      }
+      return CheckResponseData.fromJson(res.body);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
   /// Moderate hate speech
   Future<ModerateResponse> moderate(ModerateRequest req) async {
     Request request = Request(
@@ -73,6 +93,31 @@ class CallResponse with _$CallResponse {
       CallResponseMerr;
   factory CallResponse.fromJson(Map<String, dynamic> json) =>
       _$CallResponseFromJson(json);
+}
+
+@Freezed()
+class CheckRequest with _$CheckRequest {
+  const factory CheckRequest({
+    /// instruction hint e.g check the grammar
+    String? instruction,
+
+    /// text/code to check
+    String? text,
+  }) = _CheckRequest;
+  factory CheckRequest.fromJson(Map<String, dynamic> json) =>
+      _$CheckRequestFromJson(json);
+}
+
+@Freezed()
+class CheckResponse with _$CheckResponse {
+  const factory CheckResponse({
+    /// response output
+    String? text,
+  }) = CheckResponseData;
+  const factory CheckResponse.Merr({Map<String, dynamic>? body}) =
+      CheckResponseMerr;
+  factory CheckResponse.fromJson(Map<String, dynamic> json) =>
+      _$CheckResponseFromJson(json);
 }
 
 @Freezed()

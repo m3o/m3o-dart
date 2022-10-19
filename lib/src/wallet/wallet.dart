@@ -196,6 +196,9 @@ class WalletService {
 @Freezed()
 class Account with _$Account {
   const factory Account({
+    /// name of the wallet
+    String? name,
+
     /// current balance
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? balance,
@@ -205,9 +208,6 @@ class Account with _$Account {
 
     /// wallet id
     String? id,
-
-    /// name of the wallet
-    String? name,
   }) = _Account;
   factory Account.fromJson(Map<String, dynamic> json) =>
       _$AccountFromJson(json);
@@ -239,14 +239,14 @@ class BalanceResponse with _$BalanceResponse {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// name of the wallet
-    String? name,
-
     /// description for wallet
     String? description,
 
     /// optional id
     String? id,
+
+    /// name of the wallet
+    String? name,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -267,6 +267,10 @@ class CreateResponse with _$CreateResponse {
 @Freezed()
 class CreditRequest with _$CreditRequest {
   const factory CreditRequest({
+    /// amount to credit
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
+
     /// wallet id
     String? id,
 
@@ -278,10 +282,6 @@ class CreditRequest with _$CreditRequest {
 
     /// if the transaction is visible
     bool? visible,
-
-    /// amount to credit
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
   }) = _CreditRequest;
   factory CreditRequest.fromJson(Map<String, dynamic> json) =>
       _$CreditRequestFromJson(json);
@@ -303,9 +303,6 @@ class CreditResponse with _$CreditResponse {
 @Freezed()
 class DebitRequest with _$DebitRequest {
   const factory DebitRequest({
-    /// if the transaction is visible
-    bool? visible,
-
     /// amount to debit
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
@@ -318,6 +315,9 @@ class DebitRequest with _$DebitRequest {
 
     /// reference note
     String? reference,
+
+    /// if the transaction is visible
+    bool? visible,
   }) = _DebitRequest;
   factory DebitRequest.fromJson(Map<String, dynamic> json) =>
       _$DebitRequestFromJson(json);
@@ -396,12 +396,6 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class Transaction with _$Transaction {
   const factory Transaction({
-    /// associated metadata
-    Map<String, String>? metadata,
-
-    /// reference note
-    String? reference,
-
     /// amount in transaction
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
@@ -411,6 +405,12 @@ class Transaction with _$Transaction {
 
     /// unique id of transaction
     String? id,
+
+    /// associated metadata
+    Map<String, String>? metadata,
+
+    /// reference note
+    String? reference,
   }) = _Transaction;
   factory Transaction.fromJson(Map<String, dynamic> json) =>
       _$TransactionFromJson(json);
@@ -441,6 +441,12 @@ class TransactionsResponse with _$TransactionsResponse {
 @Freezed()
 class TransferRequest with _$TransferRequest {
   const factory TransferRequest({
+    /// to wallet id
+    String? to_id,
+
+    /// visible?
+    bool? visible,
+
     /// amount to transfer
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
@@ -450,12 +456,6 @@ class TransferRequest with _$TransferRequest {
 
     /// reference
     String? reference,
-
-    /// to wallet id
-    String? to_id,
-
-    /// visible?
-    bool? visible,
   }) = _TransferRequest;
   factory TransferRequest.fromJson(Map<String, dynamic> json) =>
       _$TransferRequestFromJson(json);

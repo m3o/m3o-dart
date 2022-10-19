@@ -568,14 +568,14 @@ Project _$ProjectFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Project {
-  /// name of the project
-  String? get name => throw _privateConstructorUsedError;
-
   /// percentage that went to this
   double? get percentage => throw _privateConstructorUsedError;
 
   /// amount in tonnes
   double? get tonnes => throw _privateConstructorUsedError;
+
+  /// name of the project
+  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -587,7 +587,7 @@ abstract class $ProjectCopyWith<$Res> {
   factory $ProjectCopyWith(Project value, $Res Function(Project) then) =
       _$ProjectCopyWithImpl<$Res, Project>;
   @useResult
-  $Res call({String? name, double? percentage, double? tonnes});
+  $Res call({double? percentage, double? tonnes, String? name});
 }
 
 /// @nodoc
@@ -603,15 +603,11 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
     Object? percentage = freezed,
     Object? tonnes = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       percentage: freezed == percentage
           ? _value.percentage
           : percentage // ignore: cast_nullable_to_non_nullable
@@ -620,6 +616,10 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
           ? _value.tonnes
           : tonnes // ignore: cast_nullable_to_non_nullable
               as double?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -631,7 +631,7 @@ abstract class _$$_ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
       __$$_ProjectCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? name, double? percentage, double? tonnes});
+  $Res call({double? percentage, double? tonnes, String? name});
 }
 
 /// @nodoc
@@ -644,15 +644,11 @@ class __$$_ProjectCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
     Object? percentage = freezed,
     Object? tonnes = freezed,
+    Object? name = freezed,
   }) {
     return _then(_$_Project(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       percentage: freezed == percentage
           ? _value.percentage
           : percentage // ignore: cast_nullable_to_non_nullable
@@ -661,6 +657,10 @@ class __$$_ProjectCopyWithImpl<$Res>
           ? _value.tonnes
           : tonnes // ignore: cast_nullable_to_non_nullable
               as double?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -668,14 +668,10 @@ class __$$_ProjectCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Project implements _Project {
-  const _$_Project({this.name, this.percentage, this.tonnes});
+  const _$_Project({this.percentage, this.tonnes, this.name});
 
   factory _$_Project.fromJson(Map<String, dynamic> json) =>
       _$$_ProjectFromJson(json);
-
-  /// name of the project
-  @override
-  final String? name;
 
   /// percentage that went to this
   @override
@@ -685,9 +681,13 @@ class _$_Project implements _Project {
   @override
   final double? tonnes;
 
+  /// name of the project
+  @override
+  final String? name;
+
   @override
   String toString() {
-    return 'Project(name: $name, percentage: $percentage, tonnes: $tonnes)';
+    return 'Project(percentage: $percentage, tonnes: $tonnes, name: $name)';
   }
 
   @override
@@ -695,15 +695,15 @@ class _$_Project implements _Project {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Project &&
-            (identical(other.name, name) || other.name == name) &&
             (identical(other.percentage, percentage) ||
                 other.percentage == percentage) &&
-            (identical(other.tonnes, tonnes) || other.tonnes == tonnes));
+            (identical(other.tonnes, tonnes) || other.tonnes == tonnes) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, percentage, tonnes);
+  int get hashCode => Object.hash(runtimeType, percentage, tonnes, name);
 
   @JsonKey(ignore: true)
   @override
@@ -721,16 +721,12 @@ class _$_Project implements _Project {
 
 abstract class _Project implements Project {
   const factory _Project(
-      {final String? name,
-      final double? percentage,
-      final double? tonnes}) = _$_Project;
+      {final double? percentage,
+      final double? tonnes,
+      final String? name}) = _$_Project;
 
   factory _Project.fromJson(Map<String, dynamic> json) = _$_Project.fromJson;
 
-  @override
-
-  /// name of the project
-  String? get name;
   @override
 
   /// percentage that went to this
@@ -739,6 +735,10 @@ abstract class _Project implements Project {
 
   /// amount in tonnes
   double? get tonnes;
+  @override
+
+  /// name of the project
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$$_ProjectCopyWith<_$_Project> get copyWith =>

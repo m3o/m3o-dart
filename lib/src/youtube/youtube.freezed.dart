@@ -1165,33 +1165,33 @@ SearchResult _$SearchResultFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SearchResult {
+  /// the channel title
+  String? get channel_title => throw _privateConstructorUsedError;
+
+  /// title of the result
+  String? get title => throw _privateConstructorUsedError;
+
+  /// the associated url
+  String? get url => throw _privateConstructorUsedError;
+
+  /// kind of result: "video", "channel", "playlist"
+  String? get kind => throw _privateConstructorUsedError;
+
+  /// published at time
+  String? get published_at => throw _privateConstructorUsedError;
+
   /// if live broadcast then indicates activity:
   /// none, upcoming, live, completed
   String? get broadcasting => throw _privateConstructorUsedError;
 
-  /// the channel title
-  String? get channel_title => throw _privateConstructorUsedError;
+  /// the channel id
+  String? get channel_id => throw _privateConstructorUsedError;
 
   /// the result description
   String? get description => throw _privateConstructorUsedError;
 
   /// id of the result
   String? get id => throw _privateConstructorUsedError;
-
-  /// published at time
-  String? get published_at => throw _privateConstructorUsedError;
-
-  /// the associated url
-  String? get url => throw _privateConstructorUsedError;
-
-  /// the channel id
-  String? get channel_id => throw _privateConstructorUsedError;
-
-  /// kind of result: "video", "channel", "playlist"
-  String? get kind => throw _privateConstructorUsedError;
-
-  /// title of the result
-  String? get title => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1206,15 +1206,15 @@ abstract class $SearchResultCopyWith<$Res> {
       _$SearchResultCopyWithImpl<$Res, SearchResult>;
   @useResult
   $Res call(
-      {String? broadcasting,
-      String? channel_title,
-      String? description,
-      String? id,
-      String? published_at,
+      {String? channel_title,
+      String? title,
       String? url,
-      String? channel_id,
       String? kind,
-      String? title});
+      String? published_at,
+      String? broadcasting,
+      String? channel_id,
+      String? description,
+      String? id});
 }
 
 /// @nodoc
@@ -1230,24 +1230,44 @@ class _$SearchResultCopyWithImpl<$Res, $Val extends SearchResult>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? broadcasting = freezed,
     Object? channel_title = freezed,
+    Object? title = freezed,
+    Object? url = freezed,
+    Object? kind = freezed,
+    Object? published_at = freezed,
+    Object? broadcasting = freezed,
+    Object? channel_id = freezed,
     Object? description = freezed,
     Object? id = freezed,
-    Object? published_at = freezed,
-    Object? url = freezed,
-    Object? channel_id = freezed,
-    Object? kind = freezed,
-    Object? title = freezed,
   }) {
     return _then(_value.copyWith(
+      channel_title: freezed == channel_title
+          ? _value.channel_title
+          : channel_title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      kind: freezed == kind
+          ? _value.kind
+          : kind // ignore: cast_nullable_to_non_nullable
+              as String?,
+      published_at: freezed == published_at
+          ? _value.published_at
+          : published_at // ignore: cast_nullable_to_non_nullable
+              as String?,
       broadcasting: freezed == broadcasting
           ? _value.broadcasting
           : broadcasting // ignore: cast_nullable_to_non_nullable
               as String?,
-      channel_title: freezed == channel_title
-          ? _value.channel_title
-          : channel_title // ignore: cast_nullable_to_non_nullable
+      channel_id: freezed == channel_id
+          ? _value.channel_id
+          : channel_id // ignore: cast_nullable_to_non_nullable
               as String?,
       description: freezed == description
           ? _value.description
@@ -1256,26 +1276,6 @@ class _$SearchResultCopyWithImpl<$Res, $Val extends SearchResult>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      published_at: freezed == published_at
-          ? _value.published_at
-          : published_at // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: freezed == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      channel_id: freezed == channel_id
-          ? _value.channel_id
-          : channel_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      kind: freezed == kind
-          ? _value.kind
-          : kind // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1290,15 +1290,15 @@ abstract class _$$_SearchResultCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? broadcasting,
-      String? channel_title,
-      String? description,
-      String? id,
-      String? published_at,
+      {String? channel_title,
+      String? title,
       String? url,
-      String? channel_id,
       String? kind,
-      String? title});
+      String? published_at,
+      String? broadcasting,
+      String? channel_id,
+      String? description,
+      String? id});
 }
 
 /// @nodoc
@@ -1312,24 +1312,44 @@ class __$$_SearchResultCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? broadcasting = freezed,
     Object? channel_title = freezed,
+    Object? title = freezed,
+    Object? url = freezed,
+    Object? kind = freezed,
+    Object? published_at = freezed,
+    Object? broadcasting = freezed,
+    Object? channel_id = freezed,
     Object? description = freezed,
     Object? id = freezed,
-    Object? published_at = freezed,
-    Object? url = freezed,
-    Object? channel_id = freezed,
-    Object? kind = freezed,
-    Object? title = freezed,
   }) {
     return _then(_$_SearchResult(
+      channel_title: freezed == channel_title
+          ? _value.channel_title
+          : channel_title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      kind: freezed == kind
+          ? _value.kind
+          : kind // ignore: cast_nullable_to_non_nullable
+              as String?,
+      published_at: freezed == published_at
+          ? _value.published_at
+          : published_at // ignore: cast_nullable_to_non_nullable
+              as String?,
       broadcasting: freezed == broadcasting
           ? _value.broadcasting
           : broadcasting // ignore: cast_nullable_to_non_nullable
               as String?,
-      channel_title: freezed == channel_title
-          ? _value.channel_title
-          : channel_title // ignore: cast_nullable_to_non_nullable
+      channel_id: freezed == channel_id
+          ? _value.channel_id
+          : channel_id // ignore: cast_nullable_to_non_nullable
               as String?,
       description: freezed == description
           ? _value.description
@@ -1339,26 +1359,6 @@ class __$$_SearchResultCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      published_at: freezed == published_at
-          ? _value.published_at
-          : published_at // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: freezed == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      channel_id: freezed == channel_id
-          ? _value.channel_id
-          : channel_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      kind: freezed == kind
-          ? _value.kind
-          : kind // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1367,27 +1367,47 @@ class __$$_SearchResultCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SearchResult implements _SearchResult {
   const _$_SearchResult(
-      {this.broadcasting,
-      this.channel_title,
-      this.description,
-      this.id,
-      this.published_at,
+      {this.channel_title,
+      this.title,
       this.url,
-      this.channel_id,
       this.kind,
-      this.title});
+      this.published_at,
+      this.broadcasting,
+      this.channel_id,
+      this.description,
+      this.id});
 
   factory _$_SearchResult.fromJson(Map<String, dynamic> json) =>
       _$$_SearchResultFromJson(json);
+
+  /// the channel title
+  @override
+  final String? channel_title;
+
+  /// title of the result
+  @override
+  final String? title;
+
+  /// the associated url
+  @override
+  final String? url;
+
+  /// kind of result: "video", "channel", "playlist"
+  @override
+  final String? kind;
+
+  /// published at time
+  @override
+  final String? published_at;
 
   /// if live broadcast then indicates activity:
   /// none, upcoming, live, completed
   @override
   final String? broadcasting;
 
-  /// the channel title
+  /// the channel id
   @override
-  final String? channel_title;
+  final String? channel_id;
 
   /// the result description
   @override
@@ -1397,29 +1417,9 @@ class _$_SearchResult implements _SearchResult {
   @override
   final String? id;
 
-  /// published at time
-  @override
-  final String? published_at;
-
-  /// the associated url
-  @override
-  final String? url;
-
-  /// the channel id
-  @override
-  final String? channel_id;
-
-  /// kind of result: "video", "channel", "playlist"
-  @override
-  final String? kind;
-
-  /// title of the result
-  @override
-  final String? title;
-
   @override
   String toString() {
-    return 'SearchResult(broadcasting: $broadcasting, channel_title: $channel_title, description: $description, id: $id, published_at: $published_at, url: $url, channel_id: $channel_id, kind: $kind, title: $title)';
+    return 'SearchResult(channel_title: $channel_title, title: $title, url: $url, kind: $kind, published_at: $published_at, broadcasting: $broadcasting, channel_id: $channel_id, description: $description, id: $id)';
   }
 
   @override
@@ -1427,26 +1427,26 @@ class _$_SearchResult implements _SearchResult {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SearchResult &&
-            (identical(other.broadcasting, broadcasting) ||
-                other.broadcasting == broadcasting) &&
             (identical(other.channel_title, channel_title) ||
                 other.channel_title == channel_title) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.kind, kind) || other.kind == kind) &&
             (identical(other.published_at, published_at) ||
                 other.published_at == published_at) &&
-            (identical(other.url, url) || other.url == url) &&
+            (identical(other.broadcasting, broadcasting) ||
+                other.broadcasting == broadcasting) &&
             (identical(other.channel_id, channel_id) ||
                 other.channel_id == channel_id) &&
-            (identical(other.kind, kind) || other.kind == kind) &&
-            (identical(other.title, title) || other.title == title));
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, broadcasting, channel_title,
-      description, id, published_at, url, channel_id, kind, title);
+  int get hashCode => Object.hash(runtimeType, channel_title, title, url, kind,
+      published_at, broadcasting, channel_id, description, id);
 
   @JsonKey(ignore: true)
   @override
@@ -1464,19 +1464,39 @@ class _$_SearchResult implements _SearchResult {
 
 abstract class _SearchResult implements SearchResult {
   const factory _SearchResult(
-      {final String? broadcasting,
-      final String? channel_title,
-      final String? description,
-      final String? id,
-      final String? published_at,
+      {final String? channel_title,
+      final String? title,
       final String? url,
-      final String? channel_id,
       final String? kind,
-      final String? title}) = _$_SearchResult;
+      final String? published_at,
+      final String? broadcasting,
+      final String? channel_id,
+      final String? description,
+      final String? id}) = _$_SearchResult;
 
   factory _SearchResult.fromJson(Map<String, dynamic> json) =
       _$_SearchResult.fromJson;
 
+  @override
+
+  /// the channel title
+  String? get channel_title;
+  @override
+
+  /// title of the result
+  String? get title;
+  @override
+
+  /// the associated url
+  String? get url;
+  @override
+
+  /// kind of result: "video", "channel", "playlist"
+  String? get kind;
+  @override
+
+  /// published at time
+  String? get published_at;
   @override
 
   /// if live broadcast then indicates activity:
@@ -1484,8 +1504,8 @@ abstract class _SearchResult implements SearchResult {
   String? get broadcasting;
   @override
 
-  /// the channel title
-  String? get channel_title;
+  /// the channel id
+  String? get channel_id;
   @override
 
   /// the result description
@@ -1494,26 +1514,6 @@ abstract class _SearchResult implements SearchResult {
 
   /// id of the result
   String? get id;
-  @override
-
-  /// published at time
-  String? get published_at;
-  @override
-
-  /// the associated url
-  String? get url;
-  @override
-
-  /// the channel id
-  String? get channel_id;
-  @override
-
-  /// kind of result: "video", "channel", "playlist"
-  String? get kind;
-  @override
-
-  /// title of the result
-  String? get title;
   @override
   @JsonKey(ignore: true)
   _$$_SearchResultCopyWith<_$_SearchResult> get copyWith =>

@@ -20,20 +20,38 @@ Asset _$AssetFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Asset {
+  /// asset contract
+  Contract? get contract => throw _privateConstructorUsedError;
+
+  /// traits associated with the item
+  List<Map<String, dynamic>>? get traits => throw _privateConstructorUsedError;
+
+  /// associated collection
+  Collection? get collection => throw _privateConstructorUsedError;
+
+  /// last time sold
+  Sale? get last_sale => throw _privateConstructorUsedError;
+
+  /// the permalink
+  String? get permalink => throw _privateConstructorUsedError;
+
+  /// the token id
+  String? get token_id => throw _privateConstructorUsedError;
+
   /// Creator of the NFT
   User? get creator => throw _privateConstructorUsedError;
 
   /// listing date
   String? get listing_date => throw _privateConstructorUsedError;
 
+  /// name of the asset
+  String? get name => throw _privateConstructorUsedError;
+
+  /// Owner of the NFT
+  User? get owner => throw _privateConstructorUsedError;
+
   /// is it a presale
   bool? get presale => throw _privateConstructorUsedError;
-
-  /// the token id
-  String? get token_id => throw _privateConstructorUsedError;
-
-  /// asset contract
-  Contract? get contract => throw _privateConstructorUsedError;
 
   /// id of the asset
   int? get id => throw _privateConstructorUsedError;
@@ -41,29 +59,11 @@ mixin _$Asset {
   /// the image url
   String? get image_url => throw _privateConstructorUsedError;
 
-  /// name of the asset
-  String? get name => throw _privateConstructorUsedError;
-
-  /// associated collection
-  Collection? get collection => throw _privateConstructorUsedError;
-
-  /// Owner of the NFT
-  User? get owner => throw _privateConstructorUsedError;
-
-  /// the permalink
-  String? get permalink => throw _privateConstructorUsedError;
-
-  /// traits associated with the item
-  List<Map<String, dynamic>>? get traits => throw _privateConstructorUsedError;
+  /// number of sales
+  int? get sales => throw _privateConstructorUsedError;
 
   /// related description
   String? get description => throw _privateConstructorUsedError;
-
-  /// last time sold
-  Sale? get last_sale => throw _privateConstructorUsedError;
-
-  /// number of sales
-  int? get sales => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -76,27 +76,27 @@ abstract class $AssetCopyWith<$Res> {
       _$AssetCopyWithImpl<$Res, Asset>;
   @useResult
   $Res call(
-      {User? creator,
-      String? listing_date,
-      bool? presale,
+      {Contract? contract,
+      List<Map<String, dynamic>>? traits,
+      Collection? collection,
+      Sale? last_sale,
+      String? permalink,
       String? token_id,
-      Contract? contract,
+      User? creator,
+      String? listing_date,
+      String? name,
+      User? owner,
+      bool? presale,
       int? id,
       String? image_url,
-      String? name,
-      Collection? collection,
-      User? owner,
-      String? permalink,
-      List<Map<String, dynamic>>? traits,
-      String? description,
-      Sale? last_sale,
-      int? sales});
+      int? sales,
+      String? description});
 
-  $UserCopyWith<$Res>? get creator;
   $ContractCopyWith<$Res>? get contract;
   $CollectionCopyWith<$Res>? get collection;
-  $UserCopyWith<$Res>? get owner;
   $SaleCopyWith<$Res>? get last_sale;
+  $UserCopyWith<$Res>? get creator;
+  $UserCopyWith<$Res>? get owner;
 }
 
 /// @nodoc
@@ -112,23 +112,47 @@ class _$AssetCopyWithImpl<$Res, $Val extends Asset>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? contract = freezed,
+    Object? traits = freezed,
+    Object? collection = freezed,
+    Object? last_sale = freezed,
+    Object? permalink = freezed,
+    Object? token_id = freezed,
     Object? creator = freezed,
     Object? listing_date = freezed,
+    Object? name = freezed,
+    Object? owner = freezed,
     Object? presale = freezed,
-    Object? token_id = freezed,
-    Object? contract = freezed,
     Object? id = freezed,
     Object? image_url = freezed,
-    Object? name = freezed,
-    Object? collection = freezed,
-    Object? owner = freezed,
-    Object? permalink = freezed,
-    Object? traits = freezed,
-    Object? description = freezed,
-    Object? last_sale = freezed,
     Object? sales = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
+      contract: freezed == contract
+          ? _value.contract
+          : contract // ignore: cast_nullable_to_non_nullable
+              as Contract?,
+      traits: freezed == traits
+          ? _value.traits
+          : traits // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, dynamic>>?,
+      collection: freezed == collection
+          ? _value.collection
+          : collection // ignore: cast_nullable_to_non_nullable
+              as Collection?,
+      last_sale: freezed == last_sale
+          ? _value.last_sale
+          : last_sale // ignore: cast_nullable_to_non_nullable
+              as Sale?,
+      permalink: freezed == permalink
+          ? _value.permalink
+          : permalink // ignore: cast_nullable_to_non_nullable
+              as String?,
+      token_id: freezed == token_id
+          ? _value.token_id
+          : token_id // ignore: cast_nullable_to_non_nullable
+              as String?,
       creator: freezed == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
@@ -137,18 +161,18 @@ class _$AssetCopyWithImpl<$Res, $Val extends Asset>
           ? _value.listing_date
           : listing_date // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      owner: freezed == owner
+          ? _value.owner
+          : owner // ignore: cast_nullable_to_non_nullable
+              as User?,
       presale: freezed == presale
           ? _value.presale
           : presale // ignore: cast_nullable_to_non_nullable
               as bool?,
-      token_id: freezed == token_id
-          ? _value.token_id
-          : token_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      contract: freezed == contract
-          ? _value.contract
-          : contract // ignore: cast_nullable_to_non_nullable
-              as Contract?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -157,51 +181,15 @@ class _$AssetCopyWithImpl<$Res, $Val extends Asset>
           ? _value.image_url
           : image_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      collection: freezed == collection
-          ? _value.collection
-          : collection // ignore: cast_nullable_to_non_nullable
-              as Collection?,
-      owner: freezed == owner
-          ? _value.owner
-          : owner // ignore: cast_nullable_to_non_nullable
-              as User?,
-      permalink: freezed == permalink
-          ? _value.permalink
-          : permalink // ignore: cast_nullable_to_non_nullable
-              as String?,
-      traits: freezed == traits
-          ? _value.traits
-          : traits // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      last_sale: freezed == last_sale
-          ? _value.last_sale
-          : last_sale // ignore: cast_nullable_to_non_nullable
-              as Sale?,
       sales: freezed == sales
           ? _value.sales
           : sales // ignore: cast_nullable_to_non_nullable
               as int?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res>? get creator {
-    if (_value.creator == null) {
-      return null;
-    }
-
-    return $UserCopyWith<$Res>(_value.creator!, (value) {
-      return _then(_value.copyWith(creator: value) as $Val);
-    });
   }
 
   @override
@@ -230,18 +218,6 @@ class _$AssetCopyWithImpl<$Res, $Val extends Asset>
 
   @override
   @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res>? get owner {
-    if (_value.owner == null) {
-      return null;
-    }
-
-    return $UserCopyWith<$Res>(_value.owner!, (value) {
-      return _then(_value.copyWith(owner: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
   $SaleCopyWith<$Res>? get last_sale {
     if (_value.last_sale == null) {
       return null;
@@ -249,6 +225,30 @@ class _$AssetCopyWithImpl<$Res, $Val extends Asset>
 
     return $SaleCopyWith<$Res>(_value.last_sale!, (value) {
       return _then(_value.copyWith(last_sale: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res>? get creator {
+    if (_value.creator == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_value.creator!, (value) {
+      return _then(_value.copyWith(creator: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res>? get owner {
+    if (_value.owner == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_value.owner!, (value) {
+      return _then(_value.copyWith(owner: value) as $Val);
     });
   }
 }
@@ -260,32 +260,32 @@ abstract class _$$_AssetCopyWith<$Res> implements $AssetCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {User? creator,
-      String? listing_date,
-      bool? presale,
+      {Contract? contract,
+      List<Map<String, dynamic>>? traits,
+      Collection? collection,
+      Sale? last_sale,
+      String? permalink,
       String? token_id,
-      Contract? contract,
+      User? creator,
+      String? listing_date,
+      String? name,
+      User? owner,
+      bool? presale,
       int? id,
       String? image_url,
-      String? name,
-      Collection? collection,
-      User? owner,
-      String? permalink,
-      List<Map<String, dynamic>>? traits,
-      String? description,
-      Sale? last_sale,
-      int? sales});
+      int? sales,
+      String? description});
 
-  @override
-  $UserCopyWith<$Res>? get creator;
   @override
   $ContractCopyWith<$Res>? get contract;
   @override
   $CollectionCopyWith<$Res>? get collection;
   @override
-  $UserCopyWith<$Res>? get owner;
-  @override
   $SaleCopyWith<$Res>? get last_sale;
+  @override
+  $UserCopyWith<$Res>? get creator;
+  @override
+  $UserCopyWith<$Res>? get owner;
 }
 
 /// @nodoc
@@ -297,23 +297,47 @@ class __$$_AssetCopyWithImpl<$Res> extends _$AssetCopyWithImpl<$Res, _$_Asset>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? contract = freezed,
+    Object? traits = freezed,
+    Object? collection = freezed,
+    Object? last_sale = freezed,
+    Object? permalink = freezed,
+    Object? token_id = freezed,
     Object? creator = freezed,
     Object? listing_date = freezed,
+    Object? name = freezed,
+    Object? owner = freezed,
     Object? presale = freezed,
-    Object? token_id = freezed,
-    Object? contract = freezed,
     Object? id = freezed,
     Object? image_url = freezed,
-    Object? name = freezed,
-    Object? collection = freezed,
-    Object? owner = freezed,
-    Object? permalink = freezed,
-    Object? traits = freezed,
-    Object? description = freezed,
-    Object? last_sale = freezed,
     Object? sales = freezed,
+    Object? description = freezed,
   }) {
     return _then(_$_Asset(
+      contract: freezed == contract
+          ? _value.contract
+          : contract // ignore: cast_nullable_to_non_nullable
+              as Contract?,
+      traits: freezed == traits
+          ? _value._traits
+          : traits // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, dynamic>>?,
+      collection: freezed == collection
+          ? _value.collection
+          : collection // ignore: cast_nullable_to_non_nullable
+              as Collection?,
+      last_sale: freezed == last_sale
+          ? _value.last_sale
+          : last_sale // ignore: cast_nullable_to_non_nullable
+              as Sale?,
+      permalink: freezed == permalink
+          ? _value.permalink
+          : permalink // ignore: cast_nullable_to_non_nullable
+              as String?,
+      token_id: freezed == token_id
+          ? _value.token_id
+          : token_id // ignore: cast_nullable_to_non_nullable
+              as String?,
       creator: freezed == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
@@ -322,18 +346,18 @@ class __$$_AssetCopyWithImpl<$Res> extends _$AssetCopyWithImpl<$Res, _$_Asset>
           ? _value.listing_date
           : listing_date // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      owner: freezed == owner
+          ? _value.owner
+          : owner // ignore: cast_nullable_to_non_nullable
+              as User?,
       presale: freezed == presale
           ? _value.presale
           : presale // ignore: cast_nullable_to_non_nullable
               as bool?,
-      token_id: freezed == token_id
-          ? _value.token_id
-          : token_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      contract: freezed == contract
-          ? _value.contract
-          : contract // ignore: cast_nullable_to_non_nullable
-              as Contract?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -342,38 +366,14 @@ class __$$_AssetCopyWithImpl<$Res> extends _$AssetCopyWithImpl<$Res, _$_Asset>
           ? _value.image_url
           : image_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      collection: freezed == collection
-          ? _value.collection
-          : collection // ignore: cast_nullable_to_non_nullable
-              as Collection?,
-      owner: freezed == owner
-          ? _value.owner
-          : owner // ignore: cast_nullable_to_non_nullable
-              as User?,
-      permalink: freezed == permalink
-          ? _value.permalink
-          : permalink // ignore: cast_nullable_to_non_nullable
-              as String?,
-      traits: freezed == traits
-          ? _value._traits
-          : traits // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      last_sale: freezed == last_sale
-          ? _value.last_sale
-          : last_sale // ignore: cast_nullable_to_non_nullable
-              as Sale?,
       sales: freezed == sales
           ? _value.sales
           : sales // ignore: cast_nullable_to_non_nullable
               as int?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -382,69 +382,29 @@ class __$$_AssetCopyWithImpl<$Res> extends _$AssetCopyWithImpl<$Res, _$_Asset>
 @JsonSerializable()
 class _$_Asset implements _Asset {
   const _$_Asset(
-      {this.creator,
-      this.listing_date,
-      this.presale,
+      {this.contract,
+      final List<Map<String, dynamic>>? traits,
+      this.collection,
+      this.last_sale,
+      this.permalink,
       this.token_id,
-      this.contract,
+      this.creator,
+      this.listing_date,
+      this.name,
+      this.owner,
+      this.presale,
       this.id,
       this.image_url,
-      this.name,
-      this.collection,
-      this.owner,
-      this.permalink,
-      final List<Map<String, dynamic>>? traits,
-      this.description,
-      this.last_sale,
-      this.sales})
+      this.sales,
+      this.description})
       : _traits = traits;
 
   factory _$_Asset.fromJson(Map<String, dynamic> json) =>
       _$$_AssetFromJson(json);
 
-  /// Creator of the NFT
-  @override
-  final User? creator;
-
-  /// listing date
-  @override
-  final String? listing_date;
-
-  /// is it a presale
-  @override
-  final bool? presale;
-
-  /// the token id
-  @override
-  final String? token_id;
-
   /// asset contract
   @override
   final Contract? contract;
-
-  /// id of the asset
-  @override
-  final int? id;
-
-  /// the image url
-  @override
-  final String? image_url;
-
-  /// name of the asset
-  @override
-  final String? name;
-
-  /// associated collection
-  @override
-  final Collection? collection;
-
-  /// Owner of the NFT
-  @override
-  final User? owner;
-
-  /// the permalink
-  @override
-  final String? permalink;
 
   /// traits associated with the item
   final List<Map<String, dynamic>>? _traits;
@@ -458,21 +418,61 @@ class _$_Asset implements _Asset {
     return EqualUnmodifiableListView(value);
   }
 
-  /// related description
+  /// associated collection
   @override
-  final String? description;
+  final Collection? collection;
 
   /// last time sold
   @override
   final Sale? last_sale;
 
+  /// the permalink
+  @override
+  final String? permalink;
+
+  /// the token id
+  @override
+  final String? token_id;
+
+  /// Creator of the NFT
+  @override
+  final User? creator;
+
+  /// listing date
+  @override
+  final String? listing_date;
+
+  /// name of the asset
+  @override
+  final String? name;
+
+  /// Owner of the NFT
+  @override
+  final User? owner;
+
+  /// is it a presale
+  @override
+  final bool? presale;
+
+  /// id of the asset
+  @override
+  final int? id;
+
+  /// the image url
+  @override
+  final String? image_url;
+
   /// number of sales
   @override
   final int? sales;
 
+  /// related description
+  @override
+  final String? description;
+
   @override
   String toString() {
-    return 'Asset(creator: $creator, listing_date: $listing_date, presale: $presale, token_id: $token_id, contract: $contract, id: $id, image_url: $image_url, name: $name, collection: $collection, owner: $owner, permalink: $permalink, traits: $traits, description: $description, last_sale: $last_sale, sales: $sales)';
+    return 'Asset(contract: $contract, traits: $traits, collection: $collection, last_sale: $last_sale, permalink: $permalink, token_id: $token_id, creator: $creator, listing_date: $listing_date, name: $name, owner: $owner, presale: $presale, id: $id, image_url: $image_url, sales: $sales, description: $description)';
   }
 
   @override
@@ -480,50 +480,50 @@ class _$_Asset implements _Asset {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Asset &&
+            (identical(other.contract, contract) ||
+                other.contract == contract) &&
+            const DeepCollectionEquality().equals(other._traits, _traits) &&
+            (identical(other.collection, collection) ||
+                other.collection == collection) &&
+            (identical(other.last_sale, last_sale) ||
+                other.last_sale == last_sale) &&
+            (identical(other.permalink, permalink) ||
+                other.permalink == permalink) &&
+            (identical(other.token_id, token_id) ||
+                other.token_id == token_id) &&
             (identical(other.creator, creator) || other.creator == creator) &&
             (identical(other.listing_date, listing_date) ||
                 other.listing_date == listing_date) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.owner, owner) || other.owner == owner) &&
             (identical(other.presale, presale) || other.presale == presale) &&
-            (identical(other.token_id, token_id) ||
-                other.token_id == token_id) &&
-            (identical(other.contract, contract) ||
-                other.contract == contract) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.image_url, image_url) ||
                 other.image_url == image_url) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.collection, collection) ||
-                other.collection == collection) &&
-            (identical(other.owner, owner) || other.owner == owner) &&
-            (identical(other.permalink, permalink) ||
-                other.permalink == permalink) &&
-            const DeepCollectionEquality().equals(other._traits, _traits) &&
+            (identical(other.sales, sales) || other.sales == sales) &&
             (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.last_sale, last_sale) ||
-                other.last_sale == last_sale) &&
-            (identical(other.sales, sales) || other.sales == sales));
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      contract,
+      const DeepCollectionEquality().hash(_traits),
+      collection,
+      last_sale,
+      permalink,
+      token_id,
       creator,
       listing_date,
+      name,
+      owner,
       presale,
-      token_id,
-      contract,
       id,
       image_url,
-      name,
-      collection,
-      owner,
-      permalink,
-      const DeepCollectionEquality().hash(_traits),
-      description,
-      last_sale,
-      sales);
+      sales,
+      description);
 
   @JsonKey(ignore: true)
   @override
@@ -541,24 +541,48 @@ class _$_Asset implements _Asset {
 
 abstract class _Asset implements Asset {
   const factory _Asset(
-      {final User? creator,
-      final String? listing_date,
-      final bool? presale,
+      {final Contract? contract,
+      final List<Map<String, dynamic>>? traits,
+      final Collection? collection,
+      final Sale? last_sale,
+      final String? permalink,
       final String? token_id,
-      final Contract? contract,
+      final User? creator,
+      final String? listing_date,
+      final String? name,
+      final User? owner,
+      final bool? presale,
       final int? id,
       final String? image_url,
-      final String? name,
-      final Collection? collection,
-      final User? owner,
-      final String? permalink,
-      final List<Map<String, dynamic>>? traits,
-      final String? description,
-      final Sale? last_sale,
-      final int? sales}) = _$_Asset;
+      final int? sales,
+      final String? description}) = _$_Asset;
 
   factory _Asset.fromJson(Map<String, dynamic> json) = _$_Asset.fromJson;
 
+  @override
+
+  /// asset contract
+  Contract? get contract;
+  @override
+
+  /// traits associated with the item
+  List<Map<String, dynamic>>? get traits;
+  @override
+
+  /// associated collection
+  Collection? get collection;
+  @override
+
+  /// last time sold
+  Sale? get last_sale;
+  @override
+
+  /// the permalink
+  String? get permalink;
+  @override
+
+  /// the token id
+  String? get token_id;
   @override
 
   /// Creator of the NFT
@@ -569,16 +593,16 @@ abstract class _Asset implements Asset {
   String? get listing_date;
   @override
 
+  /// name of the asset
+  String? get name;
+  @override
+
+  /// Owner of the NFT
+  User? get owner;
+  @override
+
   /// is it a presale
   bool? get presale;
-  @override
-
-  /// the token id
-  String? get token_id;
-  @override
-
-  /// asset contract
-  Contract? get contract;
   @override
 
   /// id of the asset
@@ -589,36 +613,12 @@ abstract class _Asset implements Asset {
   String? get image_url;
   @override
 
-  /// name of the asset
-  String? get name;
-  @override
-
-  /// associated collection
-  Collection? get collection;
-  @override
-
-  /// Owner of the NFT
-  User? get owner;
-  @override
-
-  /// the permalink
-  String? get permalink;
-  @override
-
-  /// traits associated with the item
-  List<Map<String, dynamic>>? get traits;
+  /// number of sales
+  int? get sales;
   @override
 
   /// related description
   String? get description;
-  @override
-
-  /// last time sold
-  Sale? get last_sale;
-  @override
-
-  /// number of sales
-  int? get sales;
   @override
   @JsonKey(ignore: true)
   _$$_AssetCopyWith<_$_Asset> get copyWith =>
@@ -1187,9 +1187,6 @@ AssetsRequest _$AssetsRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AssetsRequest {
-  /// order "asc" or "desc"
-  String? get order => throw _privateConstructorUsedError;
-
   /// order by "sale_date", "sale_count", "sale_price", "total_price"
   String? get order_by => throw _privateConstructorUsedError;
 
@@ -1208,6 +1205,9 @@ mixin _$AssetsRequest {
   /// DEPRECATED offset for pagination, please use cursor instead
   int? get offset => throw _privateConstructorUsedError;
 
+  /// order "asc" or "desc"
+  String? get order => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AssetsRequestCopyWith<AssetsRequest> get copyWith =>
@@ -1221,13 +1221,13 @@ abstract class $AssetsRequestCopyWith<$Res> {
       _$AssetsRequestCopyWithImpl<$Res, AssetsRequest>;
   @useResult
   $Res call(
-      {String? order,
-      String? order_by,
+      {String? order_by,
       String? owner,
       String? collection,
       String? cursor,
       int? limit,
-      int? offset});
+      int? offset,
+      String? order});
 }
 
 /// @nodoc
@@ -1243,19 +1243,15 @@ class _$AssetsRequestCopyWithImpl<$Res, $Val extends AssetsRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? order = freezed,
     Object? order_by = freezed,
     Object? owner = freezed,
     Object? collection = freezed,
     Object? cursor = freezed,
     Object? limit = freezed,
     Object? offset = freezed,
+    Object? order = freezed,
   }) {
     return _then(_value.copyWith(
-      order: freezed == order
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as String?,
       order_by: freezed == order_by
           ? _value.order_by
           : order_by // ignore: cast_nullable_to_non_nullable
@@ -1280,6 +1276,10 @@ class _$AssetsRequestCopyWithImpl<$Res, $Val extends AssetsRequest>
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
               as int?,
+      order: freezed == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -1293,13 +1293,13 @@ abstract class _$$_AssetsRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? order,
-      String? order_by,
+      {String? order_by,
       String? owner,
       String? collection,
       String? cursor,
       int? limit,
-      int? offset});
+      int? offset,
+      String? order});
 }
 
 /// @nodoc
@@ -1313,19 +1313,15 @@ class __$$_AssetsRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? order = freezed,
     Object? order_by = freezed,
     Object? owner = freezed,
     Object? collection = freezed,
     Object? cursor = freezed,
     Object? limit = freezed,
     Object? offset = freezed,
+    Object? order = freezed,
   }) {
     return _then(_$_AssetsRequest(
-      order: freezed == order
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as String?,
       order_by: freezed == order_by
           ? _value.order_by
           : order_by // ignore: cast_nullable_to_non_nullable
@@ -1350,6 +1346,10 @@ class __$$_AssetsRequestCopyWithImpl<$Res>
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
               as int?,
+      order: freezed == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1358,20 +1358,16 @@ class __$$_AssetsRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_AssetsRequest implements _AssetsRequest {
   const _$_AssetsRequest(
-      {this.order,
-      this.order_by,
+      {this.order_by,
       this.owner,
       this.collection,
       this.cursor,
       this.limit,
-      this.offset});
+      this.offset,
+      this.order});
 
   factory _$_AssetsRequest.fromJson(Map<String, dynamic> json) =>
       _$$_AssetsRequestFromJson(json);
-
-  /// order "asc" or "desc"
-  @override
-  final String? order;
 
   /// order by "sale_date", "sale_count", "sale_price", "total_price"
   @override
@@ -1397,9 +1393,13 @@ class _$_AssetsRequest implements _AssetsRequest {
   @override
   final int? offset;
 
+  /// order "asc" or "desc"
+  @override
+  final String? order;
+
   @override
   String toString() {
-    return 'AssetsRequest(order: $order, order_by: $order_by, owner: $owner, collection: $collection, cursor: $cursor, limit: $limit, offset: $offset)';
+    return 'AssetsRequest(order_by: $order_by, owner: $owner, collection: $collection, cursor: $cursor, limit: $limit, offset: $offset, order: $order)';
   }
 
   @override
@@ -1407,7 +1407,6 @@ class _$_AssetsRequest implements _AssetsRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AssetsRequest &&
-            (identical(other.order, order) || other.order == order) &&
             (identical(other.order_by, order_by) ||
                 other.order_by == order_by) &&
             (identical(other.owner, owner) || other.owner == owner) &&
@@ -1415,13 +1414,14 @@ class _$_AssetsRequest implements _AssetsRequest {
                 other.collection == collection) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
             (identical(other.limit, limit) || other.limit == limit) &&
-            (identical(other.offset, offset) || other.offset == offset));
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.order, order) || other.order == order));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, order, order_by, owner, collection, cursor, limit, offset);
+      runtimeType, order_by, owner, collection, cursor, limit, offset, order);
 
   @JsonKey(ignore: true)
   @override
@@ -1439,21 +1439,17 @@ class _$_AssetsRequest implements _AssetsRequest {
 
 abstract class _AssetsRequest implements AssetsRequest {
   const factory _AssetsRequest(
-      {final String? order,
-      final String? order_by,
+      {final String? order_by,
       final String? owner,
       final String? collection,
       final String? cursor,
       final int? limit,
-      final int? offset}) = _$_AssetsRequest;
+      final int? offset,
+      final String? order}) = _$_AssetsRequest;
 
   factory _AssetsRequest.fromJson(Map<String, dynamic> json) =
       _$_AssetsRequest.fromJson;
 
-  @override
-
-  /// order "asc" or "desc"
-  String? get order;
   @override
 
   /// order by "sale_date", "sale_count", "sale_price", "total_price"
@@ -1478,6 +1474,10 @@ abstract class _AssetsRequest implements AssetsRequest {
 
   /// DEPRECATED offset for pagination, please use cursor instead
   int? get offset;
+  @override
+
+  /// order "asc" or "desc"
+  String? get order;
   @override
   @JsonKey(ignore: true)
   _$$_AssetsRequestCopyWith<_$_AssetsRequest> get copyWith =>
@@ -1933,51 +1933,51 @@ Collection _$CollectionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Collection {
-  /// the payment tokens accepted for this collection
-  List<Token>? get payment_tokens => throw _privateConstructorUsedError;
-
-  /// sales statistics associated with the collection
-  Map<String, dynamic>? get stats => throw _privateConstructorUsedError;
-
-  /// creation time
-  String? get created_at => throw _privateConstructorUsedError;
-
   /// approved editors for this collection
   List<String>? get editors => throw _privateConstructorUsedError;
 
-  /// external link to the original website for the collection
-  String? get external_link => throw _privateConstructorUsedError;
-
-  /// the fees that get paid out when a sale is made
-  String? get seller_fees => throw _privateConstructorUsedError;
-
-  /// collection slug
-  String? get slug => throw _privateConstructorUsedError;
-
-  /// listing of all the trait types available within this collection
-  Map<String, dynamic>? get traits => throw _privateConstructorUsedError;
-
-  /// image used in the banner for the collection
-  String? get banner_image_url => throw _privateConstructorUsedError;
-
-  /// description of the collection
-  String? get description => throw _privateConstructorUsedError;
-
-  /// name of the collection
-  String? get name => throw _privateConstructorUsedError;
+  /// the payment tokens accepted for this collection
+  List<Token>? get payment_tokens => throw _privateConstructorUsedError;
 
   /// payout address for the collection's royalties
   String? get payout_address => throw _privateConstructorUsedError;
-
-  /// an image for the collection
-  String? get image_url => throw _privateConstructorUsedError;
 
   /// a list of the contracts associated with this collection
   List<Contract>? get primary_asset_contracts =>
       throw _privateConstructorUsedError;
 
+  /// the fees that get paid out when a sale is made
+  String? get seller_fees => throw _privateConstructorUsedError;
+
+  /// sales statistics associated with the collection
+  Map<String, dynamic>? get stats => throw _privateConstructorUsedError;
+
+  /// image used in the banner for the collection
+  String? get banner_image_url => throw _privateConstructorUsedError;
+
+  /// creation time
+  String? get created_at => throw _privateConstructorUsedError;
+
+  /// external link to the original website for the collection
+  String? get external_link => throw _privateConstructorUsedError;
+
   /// the collection's approval status on OpenSea
   String? get safelist_request_status => throw _privateConstructorUsedError;
+
+  /// name of the collection
+  String? get name => throw _privateConstructorUsedError;
+
+  /// collection slug
+  String? get slug => throw _privateConstructorUsedError;
+
+  /// description of the collection
+  String? get description => throw _privateConstructorUsedError;
+
+  /// an image for the collection
+  String? get image_url => throw _privateConstructorUsedError;
+
+  /// listing of all the trait types available within this collection
+  Map<String, dynamic>? get traits => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1992,21 +1992,21 @@ abstract class $CollectionCopyWith<$Res> {
       _$CollectionCopyWithImpl<$Res, Collection>;
   @useResult
   $Res call(
-      {List<Token>? payment_tokens,
-      Map<String, dynamic>? stats,
-      String? created_at,
-      List<String>? editors,
-      String? external_link,
-      String? seller_fees,
-      String? slug,
-      Map<String, dynamic>? traits,
-      String? banner_image_url,
-      String? description,
-      String? name,
+      {List<String>? editors,
+      List<Token>? payment_tokens,
       String? payout_address,
-      String? image_url,
       List<Contract>? primary_asset_contracts,
-      String? safelist_request_status});
+      String? seller_fees,
+      Map<String, dynamic>? stats,
+      String? banner_image_url,
+      String? created_at,
+      String? external_link,
+      String? safelist_request_status,
+      String? name,
+      String? slug,
+      String? description,
+      String? image_url,
+      Map<String, dynamic>? traits});
 }
 
 /// @nodoc
@@ -2022,83 +2022,83 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? payment_tokens = freezed,
-    Object? stats = freezed,
-    Object? created_at = freezed,
     Object? editors = freezed,
-    Object? external_link = freezed,
-    Object? seller_fees = freezed,
-    Object? slug = freezed,
-    Object? traits = freezed,
-    Object? banner_image_url = freezed,
-    Object? description = freezed,
-    Object? name = freezed,
+    Object? payment_tokens = freezed,
     Object? payout_address = freezed,
-    Object? image_url = freezed,
     Object? primary_asset_contracts = freezed,
+    Object? seller_fees = freezed,
+    Object? stats = freezed,
+    Object? banner_image_url = freezed,
+    Object? created_at = freezed,
+    Object? external_link = freezed,
     Object? safelist_request_status = freezed,
+    Object? name = freezed,
+    Object? slug = freezed,
+    Object? description = freezed,
+    Object? image_url = freezed,
+    Object? traits = freezed,
   }) {
     return _then(_value.copyWith(
-      payment_tokens: freezed == payment_tokens
-          ? _value.payment_tokens
-          : payment_tokens // ignore: cast_nullable_to_non_nullable
-              as List<Token>?,
-      stats: freezed == stats
-          ? _value.stats
-          : stats // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      created_at: freezed == created_at
-          ? _value.created_at
-          : created_at // ignore: cast_nullable_to_non_nullable
-              as String?,
       editors: freezed == editors
           ? _value.editors
           : editors // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      external_link: freezed == external_link
-          ? _value.external_link
-          : external_link // ignore: cast_nullable_to_non_nullable
-              as String?,
-      seller_fees: freezed == seller_fees
-          ? _value.seller_fees
-          : seller_fees // ignore: cast_nullable_to_non_nullable
-              as String?,
-      slug: freezed == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String?,
-      traits: freezed == traits
-          ? _value.traits
-          : traits // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      banner_image_url: freezed == banner_image_url
-          ? _value.banner_image_url
-          : banner_image_url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+      payment_tokens: freezed == payment_tokens
+          ? _value.payment_tokens
+          : payment_tokens // ignore: cast_nullable_to_non_nullable
+              as List<Token>?,
       payout_address: freezed == payout_address
           ? _value.payout_address
           : payout_address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image_url: freezed == image_url
-          ? _value.image_url
-          : image_url // ignore: cast_nullable_to_non_nullable
               as String?,
       primary_asset_contracts: freezed == primary_asset_contracts
           ? _value.primary_asset_contracts
           : primary_asset_contracts // ignore: cast_nullable_to_non_nullable
               as List<Contract>?,
+      seller_fees: freezed == seller_fees
+          ? _value.seller_fees
+          : seller_fees // ignore: cast_nullable_to_non_nullable
+              as String?,
+      stats: freezed == stats
+          ? _value.stats
+          : stats // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      banner_image_url: freezed == banner_image_url
+          ? _value.banner_image_url
+          : banner_image_url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      created_at: freezed == created_at
+          ? _value.created_at
+          : created_at // ignore: cast_nullable_to_non_nullable
+              as String?,
+      external_link: freezed == external_link
+          ? _value.external_link
+          : external_link // ignore: cast_nullable_to_non_nullable
+              as String?,
       safelist_request_status: freezed == safelist_request_status
           ? _value.safelist_request_status
           : safelist_request_status // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      slug: freezed == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image_url: freezed == image_url
+          ? _value.image_url
+          : image_url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      traits: freezed == traits
+          ? _value.traits
+          : traits // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -2112,21 +2112,21 @@ abstract class _$$_CollectionCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Token>? payment_tokens,
-      Map<String, dynamic>? stats,
-      String? created_at,
-      List<String>? editors,
-      String? external_link,
-      String? seller_fees,
-      String? slug,
-      Map<String, dynamic>? traits,
-      String? banner_image_url,
-      String? description,
-      String? name,
+      {List<String>? editors,
+      List<Token>? payment_tokens,
       String? payout_address,
-      String? image_url,
       List<Contract>? primary_asset_contracts,
-      String? safelist_request_status});
+      String? seller_fees,
+      Map<String, dynamic>? stats,
+      String? banner_image_url,
+      String? created_at,
+      String? external_link,
+      String? safelist_request_status,
+      String? name,
+      String? slug,
+      String? description,
+      String? image_url,
+      Map<String, dynamic>? traits});
 }
 
 /// @nodoc
@@ -2140,83 +2140,83 @@ class __$$_CollectionCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? payment_tokens = freezed,
-    Object? stats = freezed,
-    Object? created_at = freezed,
     Object? editors = freezed,
-    Object? external_link = freezed,
-    Object? seller_fees = freezed,
-    Object? slug = freezed,
-    Object? traits = freezed,
-    Object? banner_image_url = freezed,
-    Object? description = freezed,
-    Object? name = freezed,
+    Object? payment_tokens = freezed,
     Object? payout_address = freezed,
-    Object? image_url = freezed,
     Object? primary_asset_contracts = freezed,
+    Object? seller_fees = freezed,
+    Object? stats = freezed,
+    Object? banner_image_url = freezed,
+    Object? created_at = freezed,
+    Object? external_link = freezed,
     Object? safelist_request_status = freezed,
+    Object? name = freezed,
+    Object? slug = freezed,
+    Object? description = freezed,
+    Object? image_url = freezed,
+    Object? traits = freezed,
   }) {
     return _then(_$_Collection(
-      payment_tokens: freezed == payment_tokens
-          ? _value._payment_tokens
-          : payment_tokens // ignore: cast_nullable_to_non_nullable
-              as List<Token>?,
-      stats: freezed == stats
-          ? _value._stats
-          : stats // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      created_at: freezed == created_at
-          ? _value.created_at
-          : created_at // ignore: cast_nullable_to_non_nullable
-              as String?,
       editors: freezed == editors
           ? _value._editors
           : editors // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      external_link: freezed == external_link
-          ? _value.external_link
-          : external_link // ignore: cast_nullable_to_non_nullable
-              as String?,
-      seller_fees: freezed == seller_fees
-          ? _value.seller_fees
-          : seller_fees // ignore: cast_nullable_to_non_nullable
-              as String?,
-      slug: freezed == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String?,
-      traits: freezed == traits
-          ? _value._traits
-          : traits // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      banner_image_url: freezed == banner_image_url
-          ? _value.banner_image_url
-          : banner_image_url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+      payment_tokens: freezed == payment_tokens
+          ? _value._payment_tokens
+          : payment_tokens // ignore: cast_nullable_to_non_nullable
+              as List<Token>?,
       payout_address: freezed == payout_address
           ? _value.payout_address
           : payout_address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image_url: freezed == image_url
-          ? _value.image_url
-          : image_url // ignore: cast_nullable_to_non_nullable
               as String?,
       primary_asset_contracts: freezed == primary_asset_contracts
           ? _value._primary_asset_contracts
           : primary_asset_contracts // ignore: cast_nullable_to_non_nullable
               as List<Contract>?,
+      seller_fees: freezed == seller_fees
+          ? _value.seller_fees
+          : seller_fees // ignore: cast_nullable_to_non_nullable
+              as String?,
+      stats: freezed == stats
+          ? _value._stats
+          : stats // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      banner_image_url: freezed == banner_image_url
+          ? _value.banner_image_url
+          : banner_image_url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      created_at: freezed == created_at
+          ? _value.created_at
+          : created_at // ignore: cast_nullable_to_non_nullable
+              as String?,
+      external_link: freezed == external_link
+          ? _value.external_link
+          : external_link // ignore: cast_nullable_to_non_nullable
+              as String?,
       safelist_request_status: freezed == safelist_request_status
           ? _value.safelist_request_status
           : safelist_request_status // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      slug: freezed == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image_url: freezed == image_url
+          ? _value.image_url
+          : image_url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      traits: freezed == traits
+          ? _value._traits
+          : traits // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -2225,57 +2225,29 @@ class __$$_CollectionCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Collection implements _Collection {
   const _$_Collection(
-      {final List<Token>? payment_tokens,
-      final Map<String, dynamic>? stats,
-      this.created_at,
-      final List<String>? editors,
-      this.external_link,
-      this.seller_fees,
-      this.slug,
-      final Map<String, dynamic>? traits,
-      this.banner_image_url,
-      this.description,
-      this.name,
+      {final List<String>? editors,
+      final List<Token>? payment_tokens,
       this.payout_address,
-      this.image_url,
       final List<Contract>? primary_asset_contracts,
-      this.safelist_request_status})
-      : _payment_tokens = payment_tokens,
+      this.seller_fees,
+      final Map<String, dynamic>? stats,
+      this.banner_image_url,
+      this.created_at,
+      this.external_link,
+      this.safelist_request_status,
+      this.name,
+      this.slug,
+      this.description,
+      this.image_url,
+      final Map<String, dynamic>? traits})
+      : _editors = editors,
+        _payment_tokens = payment_tokens,
+        _primary_asset_contracts = primary_asset_contracts,
         _stats = stats,
-        _editors = editors,
-        _traits = traits,
-        _primary_asset_contracts = primary_asset_contracts;
+        _traits = traits;
 
   factory _$_Collection.fromJson(Map<String, dynamic> json) =>
       _$$_CollectionFromJson(json);
-
-  /// the payment tokens accepted for this collection
-  final List<Token>? _payment_tokens;
-
-  /// the payment tokens accepted for this collection
-  @override
-  List<Token>? get payment_tokens {
-    final value = _payment_tokens;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  /// sales statistics associated with the collection
-  final Map<String, dynamic>? _stats;
-
-  /// sales statistics associated with the collection
-  @override
-  Map<String, dynamic>? get stats {
-    final value = _stats;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  /// creation time
-  @override
-  final String? created_at;
 
   /// approved editors for this collection
   final List<String>? _editors;
@@ -2289,49 +2261,21 @@ class _$_Collection implements _Collection {
     return EqualUnmodifiableListView(value);
   }
 
-  /// external link to the original website for the collection
-  @override
-  final String? external_link;
+  /// the payment tokens accepted for this collection
+  final List<Token>? _payment_tokens;
 
-  /// the fees that get paid out when a sale is made
+  /// the payment tokens accepted for this collection
   @override
-  final String? seller_fees;
-
-  /// collection slug
-  @override
-  final String? slug;
-
-  /// listing of all the trait types available within this collection
-  final Map<String, dynamic>? _traits;
-
-  /// listing of all the trait types available within this collection
-  @override
-  Map<String, dynamic>? get traits {
-    final value = _traits;
+  List<Token>? get payment_tokens {
+    final value = _payment_tokens;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
+    return EqualUnmodifiableListView(value);
   }
-
-  /// image used in the banner for the collection
-  @override
-  final String? banner_image_url;
-
-  /// description of the collection
-  @override
-  final String? description;
-
-  /// name of the collection
-  @override
-  final String? name;
 
   /// payout address for the collection's royalties
   @override
   final String? payout_address;
-
-  /// an image for the collection
-  @override
-  final String? image_url;
 
   /// a list of the contracts associated with this collection
   final List<Contract>? _primary_asset_contracts;
@@ -2345,13 +2289,69 @@ class _$_Collection implements _Collection {
     return EqualUnmodifiableListView(value);
   }
 
+  /// the fees that get paid out when a sale is made
+  @override
+  final String? seller_fees;
+
+  /// sales statistics associated with the collection
+  final Map<String, dynamic>? _stats;
+
+  /// sales statistics associated with the collection
+  @override
+  Map<String, dynamic>? get stats {
+    final value = _stats;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  /// image used in the banner for the collection
+  @override
+  final String? banner_image_url;
+
+  /// creation time
+  @override
+  final String? created_at;
+
+  /// external link to the original website for the collection
+  @override
+  final String? external_link;
+
   /// the collection's approval status on OpenSea
   @override
   final String? safelist_request_status;
 
+  /// name of the collection
+  @override
+  final String? name;
+
+  /// collection slug
+  @override
+  final String? slug;
+
+  /// description of the collection
+  @override
+  final String? description;
+
+  /// an image for the collection
+  @override
+  final String? image_url;
+
+  /// listing of all the trait types available within this collection
+  final Map<String, dynamic>? _traits;
+
+  /// listing of all the trait types available within this collection
+  @override
+  Map<String, dynamic>? get traits {
+    final value = _traits;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   String toString() {
-    return 'Collection(payment_tokens: $payment_tokens, stats: $stats, created_at: $created_at, editors: $editors, external_link: $external_link, seller_fees: $seller_fees, slug: $slug, traits: $traits, banner_image_url: $banner_image_url, description: $description, name: $name, payout_address: $payout_address, image_url: $image_url, primary_asset_contracts: $primary_asset_contracts, safelist_request_status: $safelist_request_status)';
+    return 'Collection(editors: $editors, payment_tokens: $payment_tokens, payout_address: $payout_address, primary_asset_contracts: $primary_asset_contracts, seller_fees: $seller_fees, stats: $stats, banner_image_url: $banner_image_url, created_at: $created_at, external_link: $external_link, safelist_request_status: $safelist_request_status, name: $name, slug: $slug, description: $description, image_url: $image_url, traits: $traits)';
   }
 
   @override
@@ -2359,53 +2359,53 @@ class _$_Collection implements _Collection {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Collection &&
+            const DeepCollectionEquality().equals(other._editors, _editors) &&
             const DeepCollectionEquality()
                 .equals(other._payment_tokens, _payment_tokens) &&
-            const DeepCollectionEquality().equals(other._stats, _stats) &&
-            (identical(other.created_at, created_at) ||
-                other.created_at == created_at) &&
-            const DeepCollectionEquality().equals(other._editors, _editors) &&
-            (identical(other.external_link, external_link) ||
-                other.external_link == external_link) &&
-            (identical(other.seller_fees, seller_fees) ||
-                other.seller_fees == seller_fees) &&
-            (identical(other.slug, slug) || other.slug == slug) &&
-            const DeepCollectionEquality().equals(other._traits, _traits) &&
-            (identical(other.banner_image_url, banner_image_url) ||
-                other.banner_image_url == banner_image_url) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.name, name) || other.name == name) &&
             (identical(other.payout_address, payout_address) ||
                 other.payout_address == payout_address) &&
-            (identical(other.image_url, image_url) ||
-                other.image_url == image_url) &&
             const DeepCollectionEquality().equals(
                 other._primary_asset_contracts, _primary_asset_contracts) &&
+            (identical(other.seller_fees, seller_fees) ||
+                other.seller_fees == seller_fees) &&
+            const DeepCollectionEquality().equals(other._stats, _stats) &&
+            (identical(other.banner_image_url, banner_image_url) ||
+                other.banner_image_url == banner_image_url) &&
+            (identical(other.created_at, created_at) ||
+                other.created_at == created_at) &&
+            (identical(other.external_link, external_link) ||
+                other.external_link == external_link) &&
             (identical(
                     other.safelist_request_status, safelist_request_status) ||
-                other.safelist_request_status == safelist_request_status));
+                other.safelist_request_status == safelist_request_status) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.slug, slug) || other.slug == slug) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.image_url, image_url) ||
+                other.image_url == image_url) &&
+            const DeepCollectionEquality().equals(other._traits, _traits));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_payment_tokens),
-      const DeepCollectionEquality().hash(_stats),
-      created_at,
       const DeepCollectionEquality().hash(_editors),
-      external_link,
-      seller_fees,
-      slug,
-      const DeepCollectionEquality().hash(_traits),
-      banner_image_url,
-      description,
-      name,
+      const DeepCollectionEquality().hash(_payment_tokens),
       payout_address,
-      image_url,
       const DeepCollectionEquality().hash(_primary_asset_contracts),
-      safelist_request_status);
+      seller_fees,
+      const DeepCollectionEquality().hash(_stats),
+      banner_image_url,
+      created_at,
+      external_link,
+      safelist_request_status,
+      name,
+      slug,
+      description,
+      image_url,
+      const DeepCollectionEquality().hash(_traits));
 
   @JsonKey(ignore: true)
   @override
@@ -2423,85 +2423,85 @@ class _$_Collection implements _Collection {
 
 abstract class _Collection implements Collection {
   const factory _Collection(
-      {final List<Token>? payment_tokens,
-      final Map<String, dynamic>? stats,
-      final String? created_at,
-      final List<String>? editors,
-      final String? external_link,
-      final String? seller_fees,
-      final String? slug,
-      final Map<String, dynamic>? traits,
-      final String? banner_image_url,
-      final String? description,
-      final String? name,
+      {final List<String>? editors,
+      final List<Token>? payment_tokens,
       final String? payout_address,
-      final String? image_url,
       final List<Contract>? primary_asset_contracts,
-      final String? safelist_request_status}) = _$_Collection;
+      final String? seller_fees,
+      final Map<String, dynamic>? stats,
+      final String? banner_image_url,
+      final String? created_at,
+      final String? external_link,
+      final String? safelist_request_status,
+      final String? name,
+      final String? slug,
+      final String? description,
+      final String? image_url,
+      final Map<String, dynamic>? traits}) = _$_Collection;
 
   factory _Collection.fromJson(Map<String, dynamic> json) =
       _$_Collection.fromJson;
 
   @override
 
-  /// the payment tokens accepted for this collection
-  List<Token>? get payment_tokens;
-  @override
-
-  /// sales statistics associated with the collection
-  Map<String, dynamic>? get stats;
-  @override
-
-  /// creation time
-  String? get created_at;
-  @override
-
   /// approved editors for this collection
   List<String>? get editors;
   @override
 
-  /// external link to the original website for the collection
-  String? get external_link;
-  @override
-
-  /// the fees that get paid out when a sale is made
-  String? get seller_fees;
-  @override
-
-  /// collection slug
-  String? get slug;
-  @override
-
-  /// listing of all the trait types available within this collection
-  Map<String, dynamic>? get traits;
-  @override
-
-  /// image used in the banner for the collection
-  String? get banner_image_url;
-  @override
-
-  /// description of the collection
-  String? get description;
-  @override
-
-  /// name of the collection
-  String? get name;
+  /// the payment tokens accepted for this collection
+  List<Token>? get payment_tokens;
   @override
 
   /// payout address for the collection's royalties
   String? get payout_address;
   @override
 
-  /// an image for the collection
-  String? get image_url;
-  @override
-
   /// a list of the contracts associated with this collection
   List<Contract>? get primary_asset_contracts;
   @override
 
+  /// the fees that get paid out when a sale is made
+  String? get seller_fees;
+  @override
+
+  /// sales statistics associated with the collection
+  Map<String, dynamic>? get stats;
+  @override
+
+  /// image used in the banner for the collection
+  String? get banner_image_url;
+  @override
+
+  /// creation time
+  String? get created_at;
+  @override
+
+  /// external link to the original website for the collection
+  String? get external_link;
+  @override
+
   /// the collection's approval status on OpenSea
   String? get safelist_request_status;
+  @override
+
+  /// name of the collection
+  String? get name;
+  @override
+
+  /// collection slug
+  String? get slug;
+  @override
+
+  /// description of the collection
+  String? get description;
+  @override
+
+  /// an image for the collection
+  String? get image_url;
+  @override
+
+  /// listing of all the trait types available within this collection
+  Map<String, dynamic>? get traits;
   @override
   @JsonKey(ignore: true)
   _$$_CollectionCopyWith<_$_Collection> get copyWith =>
@@ -3632,23 +3632,23 @@ Contract _$ContractFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Contract {
+  /// ethereum address
+  String? get address => throw _privateConstructorUsedError;
+
   /// name of contract
   String? get name => throw _privateConstructorUsedError;
 
-  /// related symbol
-  String? get symbol => throw _privateConstructorUsedError;
-
-  /// aka "ERC1155"
-  String? get schema => throw _privateConstructorUsedError;
+  /// owner id
+  int? get owner => throw _privateConstructorUsedError;
 
   /// seller fees
   String? get seller_fees => throw _privateConstructorUsedError;
 
+  /// related symbol
+  String? get symbol => throw _privateConstructorUsedError;
+
   /// type of contract e.g "semi-fungible"
   String? get type => throw _privateConstructorUsedError;
-
-  /// ethereum address
-  String? get address => throw _privateConstructorUsedError;
 
   /// timestamp of creation
   String? get created_at => throw _privateConstructorUsedError;
@@ -3656,11 +3656,11 @@ mixin _$Contract {
   /// description of contract
   String? get description => throw _privateConstructorUsedError;
 
-  /// owner id
-  int? get owner => throw _privateConstructorUsedError;
-
   /// payout address
   String? get payout_address => throw _privateConstructorUsedError;
+
+  /// aka "ERC1155"
+  String? get schema => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -3674,16 +3674,16 @@ abstract class $ContractCopyWith<$Res> {
       _$ContractCopyWithImpl<$Res, Contract>;
   @useResult
   $Res call(
-      {String? name,
-      String? symbol,
-      String? schema,
+      {String? address,
+      String? name,
+      int? owner,
       String? seller_fees,
+      String? symbol,
       String? type,
-      String? address,
       String? created_at,
       String? description,
-      int? owner,
-      String? payout_address});
+      String? payout_address,
+      String? schema});
 }
 
 /// @nodoc
@@ -3699,41 +3699,41 @@ class _$ContractCopyWithImpl<$Res, $Val extends Contract>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? symbol = freezed,
-    Object? schema = freezed,
-    Object? seller_fees = freezed,
-    Object? type = freezed,
     Object? address = freezed,
+    Object? name = freezed,
+    Object? owner = freezed,
+    Object? seller_fees = freezed,
+    Object? symbol = freezed,
+    Object? type = freezed,
     Object? created_at = freezed,
     Object? description = freezed,
-    Object? owner = freezed,
     Object? payout_address = freezed,
+    Object? schema = freezed,
   }) {
     return _then(_value.copyWith(
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      owner: freezed == owner
+          ? _value.owner
+          : owner // ignore: cast_nullable_to_non_nullable
+              as int?,
+      seller_fees: freezed == seller_fees
+          ? _value.seller_fees
+          : seller_fees // ignore: cast_nullable_to_non_nullable
               as String?,
       symbol: freezed == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String?,
-      schema: freezed == schema
-          ? _value.schema
-          : schema // ignore: cast_nullable_to_non_nullable
-              as String?,
-      seller_fees: freezed == seller_fees
-          ? _value.seller_fees
-          : seller_fees // ignore: cast_nullable_to_non_nullable
-              as String?,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address: freezed == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
               as String?,
       created_at: freezed == created_at
           ? _value.created_at
@@ -3743,13 +3743,13 @@ class _$ContractCopyWithImpl<$Res, $Val extends Contract>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      owner: freezed == owner
-          ? _value.owner
-          : owner // ignore: cast_nullable_to_non_nullable
-              as int?,
       payout_address: freezed == payout_address
           ? _value.payout_address
           : payout_address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      schema: freezed == schema
+          ? _value.schema
+          : schema // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -3763,16 +3763,16 @@ abstract class _$$_ContractCopyWith<$Res> implements $ContractCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? name,
-      String? symbol,
-      String? schema,
+      {String? address,
+      String? name,
+      int? owner,
       String? seller_fees,
+      String? symbol,
       String? type,
-      String? address,
       String? created_at,
       String? description,
-      int? owner,
-      String? payout_address});
+      String? payout_address,
+      String? schema});
 }
 
 /// @nodoc
@@ -3786,41 +3786,41 @@ class __$$_ContractCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? symbol = freezed,
-    Object? schema = freezed,
-    Object? seller_fees = freezed,
-    Object? type = freezed,
     Object? address = freezed,
+    Object? name = freezed,
+    Object? owner = freezed,
+    Object? seller_fees = freezed,
+    Object? symbol = freezed,
+    Object? type = freezed,
     Object? created_at = freezed,
     Object? description = freezed,
-    Object? owner = freezed,
     Object? payout_address = freezed,
+    Object? schema = freezed,
   }) {
     return _then(_$_Contract(
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      owner: freezed == owner
+          ? _value.owner
+          : owner // ignore: cast_nullable_to_non_nullable
+              as int?,
+      seller_fees: freezed == seller_fees
+          ? _value.seller_fees
+          : seller_fees // ignore: cast_nullable_to_non_nullable
               as String?,
       symbol: freezed == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String?,
-      schema: freezed == schema
-          ? _value.schema
-          : schema // ignore: cast_nullable_to_non_nullable
-              as String?,
-      seller_fees: freezed == seller_fees
-          ? _value.seller_fees
-          : seller_fees // ignore: cast_nullable_to_non_nullable
-              as String?,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address: freezed == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
               as String?,
       created_at: freezed == created_at
           ? _value.created_at
@@ -3830,13 +3830,13 @@ class __$$_ContractCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      owner: freezed == owner
-          ? _value.owner
-          : owner // ignore: cast_nullable_to_non_nullable
-              as int?,
       payout_address: freezed == payout_address
           ? _value.payout_address
           : payout_address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      schema: freezed == schema
+          ? _value.schema
+          : schema // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -3846,43 +3846,43 @@ class __$$_ContractCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Contract implements _Contract {
   const _$_Contract(
-      {this.name,
-      this.symbol,
-      this.schema,
+      {this.address,
+      this.name,
+      this.owner,
       this.seller_fees,
+      this.symbol,
       this.type,
-      this.address,
       this.created_at,
       this.description,
-      this.owner,
-      this.payout_address});
+      this.payout_address,
+      this.schema});
 
   factory _$_Contract.fromJson(Map<String, dynamic> json) =>
       _$$_ContractFromJson(json);
+
+  /// ethereum address
+  @override
+  final String? address;
 
   /// name of contract
   @override
   final String? name;
 
-  /// related symbol
+  /// owner id
   @override
-  final String? symbol;
-
-  /// aka "ERC1155"
-  @override
-  final String? schema;
+  final int? owner;
 
   /// seller fees
   @override
   final String? seller_fees;
 
+  /// related symbol
+  @override
+  final String? symbol;
+
   /// type of contract e.g "semi-fungible"
   @override
   final String? type;
-
-  /// ethereum address
-  @override
-  final String? address;
 
   /// timestamp of creation
   @override
@@ -3892,17 +3892,17 @@ class _$_Contract implements _Contract {
   @override
   final String? description;
 
-  /// owner id
-  @override
-  final int? owner;
-
   /// payout address
   @override
   final String? payout_address;
 
+  /// aka "ERC1155"
+  @override
+  final String? schema;
+
   @override
   String toString() {
-    return 'Contract(name: $name, symbol: $symbol, schema: $schema, seller_fees: $seller_fees, type: $type, address: $address, created_at: $created_at, description: $description, owner: $owner, payout_address: $payout_address)';
+    return 'Contract(address: $address, name: $name, owner: $owner, seller_fees: $seller_fees, symbol: $symbol, type: $type, created_at: $created_at, description: $description, payout_address: $payout_address, schema: $schema)';
   }
 
   @override
@@ -3910,36 +3910,36 @@ class _$_Contract implements _Contract {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Contract &&
+            (identical(other.address, address) || other.address == address) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.symbol, symbol) || other.symbol == symbol) &&
-            (identical(other.schema, schema) || other.schema == schema) &&
+            (identical(other.owner, owner) || other.owner == owner) &&
             (identical(other.seller_fees, seller_fees) ||
                 other.seller_fees == seller_fees) &&
+            (identical(other.symbol, symbol) || other.symbol == symbol) &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.address, address) || other.address == address) &&
             (identical(other.created_at, created_at) ||
                 other.created_at == created_at) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.owner, owner) || other.owner == owner) &&
             (identical(other.payout_address, payout_address) ||
-                other.payout_address == payout_address));
+                other.payout_address == payout_address) &&
+            (identical(other.schema, schema) || other.schema == schema));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      name,
-      symbol,
-      schema,
-      seller_fees,
-      type,
       address,
+      name,
+      owner,
+      seller_fees,
+      symbol,
+      type,
       created_at,
       description,
-      owner,
-      payout_address);
+      payout_address,
+      schema);
 
   @JsonKey(ignore: true)
   @override
@@ -3957,43 +3957,43 @@ class _$_Contract implements _Contract {
 
 abstract class _Contract implements Contract {
   const factory _Contract(
-      {final String? name,
-      final String? symbol,
-      final String? schema,
+      {final String? address,
+      final String? name,
+      final int? owner,
       final String? seller_fees,
+      final String? symbol,
       final String? type,
-      final String? address,
       final String? created_at,
       final String? description,
-      final int? owner,
-      final String? payout_address}) = _$_Contract;
+      final String? payout_address,
+      final String? schema}) = _$_Contract;
 
   factory _Contract.fromJson(Map<String, dynamic> json) = _$_Contract.fromJson;
 
+  @override
+
+  /// ethereum address
+  String? get address;
   @override
 
   /// name of contract
   String? get name;
   @override
 
-  /// related symbol
-  String? get symbol;
-  @override
-
-  /// aka "ERC1155"
-  String? get schema;
+  /// owner id
+  int? get owner;
   @override
 
   /// seller fees
   String? get seller_fees;
   @override
 
-  /// type of contract e.g "semi-fungible"
-  String? get type;
+  /// related symbol
+  String? get symbol;
   @override
 
-  /// ethereum address
-  String? get address;
+  /// type of contract e.g "semi-fungible"
+  String? get type;
   @override
 
   /// timestamp of creation
@@ -4004,12 +4004,12 @@ abstract class _Contract implements Contract {
   String? get description;
   @override
 
-  /// owner id
-  int? get owner;
-  @override
-
   /// payout address
   String? get payout_address;
+  @override
+
+  /// aka "ERC1155"
+  String? get schema;
   @override
   @JsonKey(ignore: true)
   _$$_ContractCopyWith<_$_Contract> get copyWith =>
@@ -4635,15 +4635,15 @@ Sale _$SaleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Sale {
-  String? get event_timestamp => throw _privateConstructorUsedError;
   String? get event_type => throw _privateConstructorUsedError;
-  String? get quantity => throw _privateConstructorUsedError;
-  Transaction? get transaction => throw _privateConstructorUsedError;
-  int? get asset_decimals => throw _privateConstructorUsedError;
+  String? get total_price => throw _privateConstructorUsedError;
+  String? get event_timestamp => throw _privateConstructorUsedError;
   String? get asset_token_id => throw _privateConstructorUsedError;
   String? get created_at => throw _privateConstructorUsedError;
   Token? get payment_token => throw _privateConstructorUsedError;
-  String? get total_price => throw _privateConstructorUsedError;
+  String? get quantity => throw _privateConstructorUsedError;
+  Transaction? get transaction => throw _privateConstructorUsedError;
+  int? get asset_decimals => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -4656,18 +4656,18 @@ abstract class $SaleCopyWith<$Res> {
       _$SaleCopyWithImpl<$Res, Sale>;
   @useResult
   $Res call(
-      {String? event_timestamp,
-      String? event_type,
-      String? quantity,
-      Transaction? transaction,
-      int? asset_decimals,
+      {String? event_type,
+      String? total_price,
+      String? event_timestamp,
       String? asset_token_id,
       String? created_at,
       Token? payment_token,
-      String? total_price});
+      String? quantity,
+      Transaction? transaction,
+      int? asset_decimals});
 
-  $TransactionCopyWith<$Res>? get transaction;
   $TokenCopyWith<$Res>? get payment_token;
+  $TransactionCopyWith<$Res>? get transaction;
 }
 
 /// @nodoc
@@ -4683,37 +4683,29 @@ class _$SaleCopyWithImpl<$Res, $Val extends Sale>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event_timestamp = freezed,
     Object? event_type = freezed,
-    Object? quantity = freezed,
-    Object? transaction = freezed,
-    Object? asset_decimals = freezed,
+    Object? total_price = freezed,
+    Object? event_timestamp = freezed,
     Object? asset_token_id = freezed,
     Object? created_at = freezed,
     Object? payment_token = freezed,
-    Object? total_price = freezed,
+    Object? quantity = freezed,
+    Object? transaction = freezed,
+    Object? asset_decimals = freezed,
   }) {
     return _then(_value.copyWith(
-      event_timestamp: freezed == event_timestamp
-          ? _value.event_timestamp
-          : event_timestamp // ignore: cast_nullable_to_non_nullable
-              as String?,
       event_type: freezed == event_type
           ? _value.event_type
           : event_type // ignore: cast_nullable_to_non_nullable
               as String?,
-      quantity: freezed == quantity
-          ? _value.quantity
-          : quantity // ignore: cast_nullable_to_non_nullable
+      total_price: freezed == total_price
+          ? _value.total_price
+          : total_price // ignore: cast_nullable_to_non_nullable
               as String?,
-      transaction: freezed == transaction
-          ? _value.transaction
-          : transaction // ignore: cast_nullable_to_non_nullable
-              as Transaction?,
-      asset_decimals: freezed == asset_decimals
-          ? _value.asset_decimals
-          : asset_decimals // ignore: cast_nullable_to_non_nullable
-              as int?,
+      event_timestamp: freezed == event_timestamp
+          ? _value.event_timestamp
+          : event_timestamp // ignore: cast_nullable_to_non_nullable
+              as String?,
       asset_token_id: freezed == asset_token_id
           ? _value.asset_token_id
           : asset_token_id // ignore: cast_nullable_to_non_nullable
@@ -4726,23 +4718,19 @@ class _$SaleCopyWithImpl<$Res, $Val extends Sale>
           ? _value.payment_token
           : payment_token // ignore: cast_nullable_to_non_nullable
               as Token?,
-      total_price: freezed == total_price
-          ? _value.total_price
-          : total_price // ignore: cast_nullable_to_non_nullable
+      quantity: freezed == quantity
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
               as String?,
+      transaction: freezed == transaction
+          ? _value.transaction
+          : transaction // ignore: cast_nullable_to_non_nullable
+              as Transaction?,
+      asset_decimals: freezed == asset_decimals
+          ? _value.asset_decimals
+          : asset_decimals // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TransactionCopyWith<$Res>? get transaction {
-    if (_value.transaction == null) {
-      return null;
-    }
-
-    return $TransactionCopyWith<$Res>(_value.transaction!, (value) {
-      return _then(_value.copyWith(transaction: value) as $Val);
-    });
   }
 
   @override
@@ -4756,6 +4744,18 @@ class _$SaleCopyWithImpl<$Res, $Val extends Sale>
       return _then(_value.copyWith(payment_token: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TransactionCopyWith<$Res>? get transaction {
+    if (_value.transaction == null) {
+      return null;
+    }
+
+    return $TransactionCopyWith<$Res>(_value.transaction!, (value) {
+      return _then(_value.copyWith(transaction: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -4765,20 +4765,20 @@ abstract class _$$_SaleCopyWith<$Res> implements $SaleCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? event_timestamp,
-      String? event_type,
-      String? quantity,
-      Transaction? transaction,
-      int? asset_decimals,
+      {String? event_type,
+      String? total_price,
+      String? event_timestamp,
       String? asset_token_id,
       String? created_at,
       Token? payment_token,
-      String? total_price});
+      String? quantity,
+      Transaction? transaction,
+      int? asset_decimals});
 
   @override
-  $TransactionCopyWith<$Res>? get transaction;
-  @override
   $TokenCopyWith<$Res>? get payment_token;
+  @override
+  $TransactionCopyWith<$Res>? get transaction;
 }
 
 /// @nodoc
@@ -4790,37 +4790,29 @@ class __$$_SaleCopyWithImpl<$Res> extends _$SaleCopyWithImpl<$Res, _$_Sale>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event_timestamp = freezed,
     Object? event_type = freezed,
-    Object? quantity = freezed,
-    Object? transaction = freezed,
-    Object? asset_decimals = freezed,
+    Object? total_price = freezed,
+    Object? event_timestamp = freezed,
     Object? asset_token_id = freezed,
     Object? created_at = freezed,
     Object? payment_token = freezed,
-    Object? total_price = freezed,
+    Object? quantity = freezed,
+    Object? transaction = freezed,
+    Object? asset_decimals = freezed,
   }) {
     return _then(_$_Sale(
-      event_timestamp: freezed == event_timestamp
-          ? _value.event_timestamp
-          : event_timestamp // ignore: cast_nullable_to_non_nullable
-              as String?,
       event_type: freezed == event_type
           ? _value.event_type
           : event_type // ignore: cast_nullable_to_non_nullable
               as String?,
-      quantity: freezed == quantity
-          ? _value.quantity
-          : quantity // ignore: cast_nullable_to_non_nullable
+      total_price: freezed == total_price
+          ? _value.total_price
+          : total_price // ignore: cast_nullable_to_non_nullable
               as String?,
-      transaction: freezed == transaction
-          ? _value.transaction
-          : transaction // ignore: cast_nullable_to_non_nullable
-              as Transaction?,
-      asset_decimals: freezed == asset_decimals
-          ? _value.asset_decimals
-          : asset_decimals // ignore: cast_nullable_to_non_nullable
-              as int?,
+      event_timestamp: freezed == event_timestamp
+          ? _value.event_timestamp
+          : event_timestamp // ignore: cast_nullable_to_non_nullable
+              as String?,
       asset_token_id: freezed == asset_token_id
           ? _value.asset_token_id
           : asset_token_id // ignore: cast_nullable_to_non_nullable
@@ -4833,10 +4825,18 @@ class __$$_SaleCopyWithImpl<$Res> extends _$SaleCopyWithImpl<$Res, _$_Sale>
           ? _value.payment_token
           : payment_token // ignore: cast_nullable_to_non_nullable
               as Token?,
-      total_price: freezed == total_price
-          ? _value.total_price
-          : total_price // ignore: cast_nullable_to_non_nullable
+      quantity: freezed == quantity
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
               as String?,
+      transaction: freezed == transaction
+          ? _value.transaction
+          : transaction // ignore: cast_nullable_to_non_nullable
+              as Transaction?,
+      asset_decimals: freezed == asset_decimals
+          ? _value.asset_decimals
+          : asset_decimals // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -4845,28 +4845,24 @@ class __$$_SaleCopyWithImpl<$Res> extends _$SaleCopyWithImpl<$Res, _$_Sale>
 @JsonSerializable()
 class _$_Sale implements _Sale {
   const _$_Sale(
-      {this.event_timestamp,
-      this.event_type,
-      this.quantity,
-      this.transaction,
-      this.asset_decimals,
+      {this.event_type,
+      this.total_price,
+      this.event_timestamp,
       this.asset_token_id,
       this.created_at,
       this.payment_token,
-      this.total_price});
+      this.quantity,
+      this.transaction,
+      this.asset_decimals});
 
   factory _$_Sale.fromJson(Map<String, dynamic> json) => _$$_SaleFromJson(json);
 
   @override
-  final String? event_timestamp;
-  @override
   final String? event_type;
   @override
-  final String? quantity;
+  final String? total_price;
   @override
-  final Transaction? transaction;
-  @override
-  final int? asset_decimals;
+  final String? event_timestamp;
   @override
   final String? asset_token_id;
   @override
@@ -4874,11 +4870,15 @@ class _$_Sale implements _Sale {
   @override
   final Token? payment_token;
   @override
-  final String? total_price;
+  final String? quantity;
+  @override
+  final Transaction? transaction;
+  @override
+  final int? asset_decimals;
 
   @override
   String toString() {
-    return 'Sale(event_timestamp: $event_timestamp, event_type: $event_type, quantity: $quantity, transaction: $transaction, asset_decimals: $asset_decimals, asset_token_id: $asset_token_id, created_at: $created_at, payment_token: $payment_token, total_price: $total_price)';
+    return 'Sale(event_type: $event_type, total_price: $total_price, event_timestamp: $event_timestamp, asset_token_id: $asset_token_id, created_at: $created_at, payment_token: $payment_token, quantity: $quantity, transaction: $transaction, asset_decimals: $asset_decimals)';
   }
 
   @override
@@ -4886,39 +4886,39 @@ class _$_Sale implements _Sale {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Sale &&
-            (identical(other.event_timestamp, event_timestamp) ||
-                other.event_timestamp == event_timestamp) &&
             (identical(other.event_type, event_type) ||
                 other.event_type == event_type) &&
-            (identical(other.quantity, quantity) ||
-                other.quantity == quantity) &&
-            (identical(other.transaction, transaction) ||
-                other.transaction == transaction) &&
-            (identical(other.asset_decimals, asset_decimals) ||
-                other.asset_decimals == asset_decimals) &&
+            (identical(other.total_price, total_price) ||
+                other.total_price == total_price) &&
+            (identical(other.event_timestamp, event_timestamp) ||
+                other.event_timestamp == event_timestamp) &&
             (identical(other.asset_token_id, asset_token_id) ||
                 other.asset_token_id == asset_token_id) &&
             (identical(other.created_at, created_at) ||
                 other.created_at == created_at) &&
             (identical(other.payment_token, payment_token) ||
                 other.payment_token == payment_token) &&
-            (identical(other.total_price, total_price) ||
-                other.total_price == total_price));
+            (identical(other.quantity, quantity) ||
+                other.quantity == quantity) &&
+            (identical(other.transaction, transaction) ||
+                other.transaction == transaction) &&
+            (identical(other.asset_decimals, asset_decimals) ||
+                other.asset_decimals == asset_decimals));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      event_timestamp,
       event_type,
-      quantity,
-      transaction,
-      asset_decimals,
+      total_price,
+      event_timestamp,
       asset_token_id,
       created_at,
       payment_token,
-      total_price);
+      quantity,
+      transaction,
+      asset_decimals);
 
   @JsonKey(ignore: true)
   @override
@@ -4936,28 +4936,24 @@ class _$_Sale implements _Sale {
 
 abstract class _Sale implements Sale {
   const factory _Sale(
-      {final String? event_timestamp,
-      final String? event_type,
-      final String? quantity,
-      final Transaction? transaction,
-      final int? asset_decimals,
+      {final String? event_type,
+      final String? total_price,
+      final String? event_timestamp,
       final String? asset_token_id,
       final String? created_at,
       final Token? payment_token,
-      final String? total_price}) = _$_Sale;
+      final String? quantity,
+      final Transaction? transaction,
+      final int? asset_decimals}) = _$_Sale;
 
   factory _Sale.fromJson(Map<String, dynamic> json) = _$_Sale.fromJson;
 
   @override
-  String? get event_timestamp;
-  @override
   String? get event_type;
   @override
-  String? get quantity;
+  String? get total_price;
   @override
-  Transaction? get transaction;
-  @override
-  int? get asset_decimals;
+  String? get event_timestamp;
   @override
   String? get asset_token_id;
   @override
@@ -4965,7 +4961,11 @@ abstract class _Sale implements Sale {
   @override
   Token? get payment_token;
   @override
-  String? get total_price;
+  String? get quantity;
+  @override
+  Transaction? get transaction;
+  @override
+  int? get asset_decimals;
   @override
   @JsonKey(ignore: true)
   _$$_SaleCopyWith<_$_Sale> get copyWith => throw _privateConstructorUsedError;
@@ -4977,6 +4977,7 @@ Token _$TokenFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Token {
+  int? get decimals => throw _privateConstructorUsedError;
   String? get eth_price => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
   String? get image_url => throw _privateConstructorUsedError;
@@ -4984,7 +4985,6 @@ mixin _$Token {
   String? get symbol => throw _privateConstructorUsedError;
   String? get usd_price => throw _privateConstructorUsedError;
   String? get address => throw _privateConstructorUsedError;
-  int? get decimals => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -4997,14 +4997,14 @@ abstract class $TokenCopyWith<$Res> {
       _$TokenCopyWithImpl<$Res, Token>;
   @useResult
   $Res call(
-      {String? eth_price,
+      {int? decimals,
+      String? eth_price,
       int? id,
       String? image_url,
       String? name,
       String? symbol,
       String? usd_price,
-      String? address,
-      int? decimals});
+      String? address});
 }
 
 /// @nodoc
@@ -5020,6 +5020,7 @@ class _$TokenCopyWithImpl<$Res, $Val extends Token>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? decimals = freezed,
     Object? eth_price = freezed,
     Object? id = freezed,
     Object? image_url = freezed,
@@ -5027,9 +5028,12 @@ class _$TokenCopyWithImpl<$Res, $Val extends Token>
     Object? symbol = freezed,
     Object? usd_price = freezed,
     Object? address = freezed,
-    Object? decimals = freezed,
   }) {
     return _then(_value.copyWith(
+      decimals: freezed == decimals
+          ? _value.decimals
+          : decimals // ignore: cast_nullable_to_non_nullable
+              as int?,
       eth_price: freezed == eth_price
           ? _value.eth_price
           : eth_price // ignore: cast_nullable_to_non_nullable
@@ -5058,10 +5062,6 @@ class _$TokenCopyWithImpl<$Res, $Val extends Token>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String?,
-      decimals: freezed == decimals
-          ? _value.decimals
-          : decimals // ignore: cast_nullable_to_non_nullable
-              as int?,
     ) as $Val);
   }
 }
@@ -5073,14 +5073,14 @@ abstract class _$$_TokenCopyWith<$Res> implements $TokenCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? eth_price,
+      {int? decimals,
+      String? eth_price,
       int? id,
       String? image_url,
       String? name,
       String? symbol,
       String? usd_price,
-      String? address,
-      int? decimals});
+      String? address});
 }
 
 /// @nodoc
@@ -5092,6 +5092,7 @@ class __$$_TokenCopyWithImpl<$Res> extends _$TokenCopyWithImpl<$Res, _$_Token>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? decimals = freezed,
     Object? eth_price = freezed,
     Object? id = freezed,
     Object? image_url = freezed,
@@ -5099,9 +5100,12 @@ class __$$_TokenCopyWithImpl<$Res> extends _$TokenCopyWithImpl<$Res, _$_Token>
     Object? symbol = freezed,
     Object? usd_price = freezed,
     Object? address = freezed,
-    Object? decimals = freezed,
   }) {
     return _then(_$_Token(
+      decimals: freezed == decimals
+          ? _value.decimals
+          : decimals // ignore: cast_nullable_to_non_nullable
+              as int?,
       eth_price: freezed == eth_price
           ? _value.eth_price
           : eth_price // ignore: cast_nullable_to_non_nullable
@@ -5130,10 +5134,6 @@ class __$$_TokenCopyWithImpl<$Res> extends _$TokenCopyWithImpl<$Res, _$_Token>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String?,
-      decimals: freezed == decimals
-          ? _value.decimals
-          : decimals // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -5142,18 +5142,20 @@ class __$$_TokenCopyWithImpl<$Res> extends _$TokenCopyWithImpl<$Res, _$_Token>
 @JsonSerializable()
 class _$_Token implements _Token {
   const _$_Token(
-      {this.eth_price,
+      {this.decimals,
+      this.eth_price,
       this.id,
       this.image_url,
       this.name,
       this.symbol,
       this.usd_price,
-      this.address,
-      this.decimals});
+      this.address});
 
   factory _$_Token.fromJson(Map<String, dynamic> json) =>
       _$$_TokenFromJson(json);
 
+  @override
+  final int? decimals;
   @override
   final String? eth_price;
   @override
@@ -5168,12 +5170,10 @@ class _$_Token implements _Token {
   final String? usd_price;
   @override
   final String? address;
-  @override
-  final int? decimals;
 
   @override
   String toString() {
-    return 'Token(eth_price: $eth_price, id: $id, image_url: $image_url, name: $name, symbol: $symbol, usd_price: $usd_price, address: $address, decimals: $decimals)';
+    return 'Token(decimals: $decimals, eth_price: $eth_price, id: $id, image_url: $image_url, name: $name, symbol: $symbol, usd_price: $usd_price, address: $address)';
   }
 
   @override
@@ -5181,6 +5181,8 @@ class _$_Token implements _Token {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Token &&
+            (identical(other.decimals, decimals) ||
+                other.decimals == decimals) &&
             (identical(other.eth_price, eth_price) ||
                 other.eth_price == eth_price) &&
             (identical(other.id, id) || other.id == id) &&
@@ -5190,15 +5192,13 @@ class _$_Token implements _Token {
             (identical(other.symbol, symbol) || other.symbol == symbol) &&
             (identical(other.usd_price, usd_price) ||
                 other.usd_price == usd_price) &&
-            (identical(other.address, address) || other.address == address) &&
-            (identical(other.decimals, decimals) ||
-                other.decimals == decimals));
+            (identical(other.address, address) || other.address == address));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, eth_price, id, image_url, name,
-      symbol, usd_price, address, decimals);
+  int get hashCode => Object.hash(runtimeType, decimals, eth_price, id,
+      image_url, name, symbol, usd_price, address);
 
   @JsonKey(ignore: true)
   @override
@@ -5216,17 +5216,19 @@ class _$_Token implements _Token {
 
 abstract class _Token implements Token {
   const factory _Token(
-      {final String? eth_price,
+      {final int? decimals,
+      final String? eth_price,
       final int? id,
       final String? image_url,
       final String? name,
       final String? symbol,
       final String? usd_price,
-      final String? address,
-      final int? decimals}) = _$_Token;
+      final String? address}) = _$_Token;
 
   factory _Token.fromJson(Map<String, dynamic> json) = _$_Token.fromJson;
 
+  @override
+  int? get decimals;
   @override
   String? get eth_price;
   @override
@@ -5241,8 +5243,6 @@ abstract class _Token implements Token {
   String? get usd_price;
   @override
   String? get address;
-  @override
-  int? get decimals;
   @override
   @JsonKey(ignore: true)
   _$$_TokenCopyWith<_$_Token> get copyWith =>

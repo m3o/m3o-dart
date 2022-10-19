@@ -650,14 +650,14 @@ ConvertRequest _$ConvertRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ConvertRequest {
-  /// target code to convert to e.g GBP
-  String? get to => throw _privateConstructorUsedError;
-
   /// optional amount to convert e.g 10.0
   double? get amount => throw _privateConstructorUsedError;
 
   /// base code to convert from e.g USD
   String? get from => throw _privateConstructorUsedError;
+
+  /// target code to convert to e.g GBP
+  String? get to => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -671,7 +671,7 @@ abstract class $ConvertRequestCopyWith<$Res> {
           ConvertRequest value, $Res Function(ConvertRequest) then) =
       _$ConvertRequestCopyWithImpl<$Res, ConvertRequest>;
   @useResult
-  $Res call({String? to, double? amount, String? from});
+  $Res call({double? amount, String? from, String? to});
 }
 
 /// @nodoc
@@ -687,15 +687,11 @@ class _$ConvertRequestCopyWithImpl<$Res, $Val extends ConvertRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? to = freezed,
     Object? amount = freezed,
     Object? from = freezed,
+    Object? to = freezed,
   }) {
     return _then(_value.copyWith(
-      to: freezed == to
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as String?,
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -703,6 +699,10 @@ class _$ConvertRequestCopyWithImpl<$Res, $Val extends ConvertRequest>
       from: freezed == from
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
+              as String?,
+      to: freezed == to
+          ? _value.to
+          : to // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -716,7 +716,7 @@ abstract class _$$_ConvertRequestCopyWith<$Res>
       __$$_ConvertRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? to, double? amount, String? from});
+  $Res call({double? amount, String? from, String? to});
 }
 
 /// @nodoc
@@ -730,15 +730,11 @@ class __$$_ConvertRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? to = freezed,
     Object? amount = freezed,
     Object? from = freezed,
+    Object? to = freezed,
   }) {
     return _then(_$_ConvertRequest(
-      to: freezed == to
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as String?,
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -747,6 +743,10 @@ class __$$_ConvertRequestCopyWithImpl<$Res>
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
               as String?,
+      to: freezed == to
+          ? _value.to
+          : to // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -754,14 +754,10 @@ class __$$_ConvertRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ConvertRequest implements _ConvertRequest {
-  const _$_ConvertRequest({this.to, this.amount, this.from});
+  const _$_ConvertRequest({this.amount, this.from, this.to});
 
   factory _$_ConvertRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ConvertRequestFromJson(json);
-
-  /// target code to convert to e.g GBP
-  @override
-  final String? to;
 
   /// optional amount to convert e.g 10.0
   @override
@@ -771,9 +767,13 @@ class _$_ConvertRequest implements _ConvertRequest {
   @override
   final String? from;
 
+  /// target code to convert to e.g GBP
+  @override
+  final String? to;
+
   @override
   String toString() {
-    return 'ConvertRequest(to: $to, amount: $amount, from: $from)';
+    return 'ConvertRequest(amount: $amount, from: $from, to: $to)';
   }
 
   @override
@@ -781,14 +781,14 @@ class _$_ConvertRequest implements _ConvertRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ConvertRequest &&
-            (identical(other.to, to) || other.to == to) &&
             (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.from, from) || other.from == from));
+            (identical(other.from, from) || other.from == from) &&
+            (identical(other.to, to) || other.to == to));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, to, amount, from);
+  int get hashCode => Object.hash(runtimeType, amount, from, to);
 
   @JsonKey(ignore: true)
   @override
@@ -806,17 +806,13 @@ class _$_ConvertRequest implements _ConvertRequest {
 
 abstract class _ConvertRequest implements ConvertRequest {
   const factory _ConvertRequest(
-      {final String? to,
-      final double? amount,
-      final String? from}) = _$_ConvertRequest;
+      {final double? amount,
+      final String? from,
+      final String? to}) = _$_ConvertRequest;
 
   factory _ConvertRequest.fromJson(Map<String, dynamic> json) =
       _$_ConvertRequest.fromJson;
 
-  @override
-
-  /// target code to convert to e.g GBP
-  String? get to;
   @override
 
   /// optional amount to convert e.g 10.0
@@ -825,6 +821,10 @@ abstract class _ConvertRequest implements ConvertRequest {
 
   /// base code to convert from e.g USD
   String? get from;
+  @override
+
+  /// target code to convert to e.g GBP
+  String? get to;
   @override
   @JsonKey(ignore: true)
   _$$_ConvertRequestCopyWith<_$_ConvertRequest> get copyWith =>
@@ -848,21 +848,21 @@ ConvertResponse _$ConvertResponseFromJson(Map<String, dynamic> json) {
 mixin _$ConvertResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? amount, String? from, double? rate, String? to)
+    TResult Function(String? to, double? amount, String? from, double? rate)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(double? amount, String? from, double? rate, String? to)?
+    TResult? Function(String? to, double? amount, String? from, double? rate)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? amount, String? from, double? rate, String? to)?
+    TResult Function(String? to, double? amount, String? from, double? rate)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -914,7 +914,7 @@ abstract class _$$ConvertResponseDataCopyWith<$Res> {
           $Res Function(_$ConvertResponseData) then) =
       __$$ConvertResponseDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({double? amount, String? from, double? rate, String? to});
+  $Res call({String? to, double? amount, String? from, double? rate});
 }
 
 /// @nodoc
@@ -928,12 +928,16 @@ class __$$ConvertResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? to = freezed,
     Object? amount = freezed,
     Object? from = freezed,
     Object? rate = freezed,
-    Object? to = freezed,
   }) {
     return _then(_$ConvertResponseData(
+      to: freezed == to
+          ? _value.to
+          : to // ignore: cast_nullable_to_non_nullable
+              as String?,
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -946,10 +950,6 @@ class __$$ConvertResponseDataCopyWithImpl<$Res>
           ? _value.rate
           : rate // ignore: cast_nullable_to_non_nullable
               as double?,
-      to: freezed == to
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -958,11 +958,15 @@ class __$$ConvertResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ConvertResponseData implements ConvertResponseData {
   const _$ConvertResponseData(
-      {this.amount, this.from, this.rate, this.to, final String? $type})
+      {this.to, this.amount, this.from, this.rate, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$ConvertResponseData.fromJson(Map<String, dynamic> json) =>
       _$$ConvertResponseDataFromJson(json);
+
+  /// the target code e.g GBP
+  @override
+  final String? to;
 
   /// converted amount e.g 7.10
   @override
@@ -976,16 +980,12 @@ class _$ConvertResponseData implements ConvertResponseData {
   @override
   final double? rate;
 
-  /// the target code e.g GBP
-  @override
-  final String? to;
-
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'ConvertResponse(amount: $amount, from: $from, rate: $rate, to: $to)';
+    return 'ConvertResponse(to: $to, amount: $amount, from: $from, rate: $rate)';
   }
 
   @override
@@ -993,15 +993,15 @@ class _$ConvertResponseData implements ConvertResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ConvertResponseData &&
+            (identical(other.to, to) || other.to == to) &&
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.from, from) || other.from == from) &&
-            (identical(other.rate, rate) || other.rate == rate) &&
-            (identical(other.to, to) || other.to == to));
+            (identical(other.rate, rate) || other.rate == rate));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, amount, from, rate, to);
+  int get hashCode => Object.hash(runtimeType, to, amount, from, rate);
 
   @JsonKey(ignore: true)
   @override
@@ -1013,33 +1013,33 @@ class _$ConvertResponseData implements ConvertResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? amount, String? from, double? rate, String? to)
+    TResult Function(String? to, double? amount, String? from, double? rate)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(amount, from, rate, to);
+    return $default(to, amount, from, rate);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(double? amount, String? from, double? rate, String? to)?
+    TResult? Function(String? to, double? amount, String? from, double? rate)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(amount, from, rate, to);
+    return $default?.call(to, amount, from, rate);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? amount, String? from, double? rate, String? to)?
+    TResult Function(String? to, double? amount, String? from, double? rate)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(amount, from, rate, to);
+      return $default(to, amount, from, rate);
     }
     return orElse();
   }
@@ -1085,13 +1085,16 @@ class _$ConvertResponseData implements ConvertResponseData {
 
 abstract class ConvertResponseData implements ConvertResponse {
   const factory ConvertResponseData(
-      {final double? amount,
+      {final String? to,
+      final double? amount,
       final String? from,
-      final double? rate,
-      final String? to}) = _$ConvertResponseData;
+      final double? rate}) = _$ConvertResponseData;
 
   factory ConvertResponseData.fromJson(Map<String, dynamic> json) =
       _$ConvertResponseData.fromJson;
+
+  /// the target code e.g GBP
+  String? get to;
 
   /// converted amount e.g 7.10
   double? get amount;
@@ -1101,9 +1104,6 @@ abstract class ConvertResponseData implements ConvertResponse {
 
   /// conversion rate e.g 0.71
   double? get rate;
-
-  /// the target code e.g GBP
-  String? get to;
   @JsonKey(ignore: true)
   _$$ConvertResponseDataCopyWith<_$ConvertResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1191,7 +1191,7 @@ class _$ConvertResponseMerr implements ConvertResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? amount, String? from, double? rate, String? to)
+    TResult Function(String? to, double? amount, String? from, double? rate)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -1201,7 +1201,7 @@ class _$ConvertResponseMerr implements ConvertResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(double? amount, String? from, double? rate, String? to)?
+    TResult? Function(String? to, double? amount, String? from, double? rate)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -1211,7 +1211,7 @@ class _$ConvertResponseMerr implements ConvertResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? amount, String? from, double? rate, String? to)?
+    TResult Function(String? to, double? amount, String? from, double? rate)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

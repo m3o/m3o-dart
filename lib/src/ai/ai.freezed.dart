@@ -542,6 +542,558 @@ abstract class CallResponseMerr implements CallResponse {
       throw _privateConstructorUsedError;
 }
 
+CheckRequest _$CheckRequestFromJson(Map<String, dynamic> json) {
+  return _CheckRequest.fromJson(json);
+}
+
+/// @nodoc
+mixin _$CheckRequest {
+  /// instruction hint e.g check the grammar
+  String? get instruction => throw _privateConstructorUsedError;
+
+  /// text/code to check
+  String? get text => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CheckRequestCopyWith<CheckRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CheckRequestCopyWith<$Res> {
+  factory $CheckRequestCopyWith(
+          CheckRequest value, $Res Function(CheckRequest) then) =
+      _$CheckRequestCopyWithImpl<$Res, CheckRequest>;
+  @useResult
+  $Res call({String? instruction, String? text});
+}
+
+/// @nodoc
+class _$CheckRequestCopyWithImpl<$Res, $Val extends CheckRequest>
+    implements $CheckRequestCopyWith<$Res> {
+  _$CheckRequestCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? instruction = freezed,
+    Object? text = freezed,
+  }) {
+    return _then(_value.copyWith(
+      instruction: freezed == instruction
+          ? _value.instruction
+          : instruction // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text: freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_CheckRequestCopyWith<$Res>
+    implements $CheckRequestCopyWith<$Res> {
+  factory _$$_CheckRequestCopyWith(
+          _$_CheckRequest value, $Res Function(_$_CheckRequest) then) =
+      __$$_CheckRequestCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? instruction, String? text});
+}
+
+/// @nodoc
+class __$$_CheckRequestCopyWithImpl<$Res>
+    extends _$CheckRequestCopyWithImpl<$Res, _$_CheckRequest>
+    implements _$$_CheckRequestCopyWith<$Res> {
+  __$$_CheckRequestCopyWithImpl(
+      _$_CheckRequest _value, $Res Function(_$_CheckRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? instruction = freezed,
+    Object? text = freezed,
+  }) {
+    return _then(_$_CheckRequest(
+      instruction: freezed == instruction
+          ? _value.instruction
+          : instruction // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text: freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_CheckRequest implements _CheckRequest {
+  const _$_CheckRequest({this.instruction, this.text});
+
+  factory _$_CheckRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_CheckRequestFromJson(json);
+
+  /// instruction hint e.g check the grammar
+  @override
+  final String? instruction;
+
+  /// text/code to check
+  @override
+  final String? text;
+
+  @override
+  String toString() {
+    return 'CheckRequest(instruction: $instruction, text: $text)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CheckRequest &&
+            (identical(other.instruction, instruction) ||
+                other.instruction == instruction) &&
+            (identical(other.text, text) || other.text == text));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, instruction, text);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CheckRequestCopyWith<_$_CheckRequest> get copyWith =>
+      __$$_CheckRequestCopyWithImpl<_$_CheckRequest>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_CheckRequestToJson(
+      this,
+    );
+  }
+}
+
+abstract class _CheckRequest implements CheckRequest {
+  const factory _CheckRequest({final String? instruction, final String? text}) =
+      _$_CheckRequest;
+
+  factory _CheckRequest.fromJson(Map<String, dynamic> json) =
+      _$_CheckRequest.fromJson;
+
+  @override
+
+  /// instruction hint e.g check the grammar
+  String? get instruction;
+  @override
+
+  /// text/code to check
+  String? get text;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CheckRequestCopyWith<_$_CheckRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+CheckResponse _$CheckResponseFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'default':
+      return CheckResponseData.fromJson(json);
+    case 'Merr':
+      return CheckResponseMerr.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'CheckResponse',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
+/// @nodoc
+mixin _$CheckResponse {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(String? text) $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(String? text)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String? text)? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(CheckResponseData value) $default, {
+    required TResult Function(CheckResponseMerr value) Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(CheckResponseData value)? $default, {
+    TResult? Function(CheckResponseMerr value)? Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CheckResponseData value)? $default, {
+    TResult Function(CheckResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CheckResponseCopyWith<$Res> {
+  factory $CheckResponseCopyWith(
+          CheckResponse value, $Res Function(CheckResponse) then) =
+      _$CheckResponseCopyWithImpl<$Res, CheckResponse>;
+}
+
+/// @nodoc
+class _$CheckResponseCopyWithImpl<$Res, $Val extends CheckResponse>
+    implements $CheckResponseCopyWith<$Res> {
+  _$CheckResponseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$CheckResponseDataCopyWith<$Res> {
+  factory _$$CheckResponseDataCopyWith(
+          _$CheckResponseData value, $Res Function(_$CheckResponseData) then) =
+      __$$CheckResponseDataCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? text});
+}
+
+/// @nodoc
+class __$$CheckResponseDataCopyWithImpl<$Res>
+    extends _$CheckResponseCopyWithImpl<$Res, _$CheckResponseData>
+    implements _$$CheckResponseDataCopyWith<$Res> {
+  __$$CheckResponseDataCopyWithImpl(
+      _$CheckResponseData _value, $Res Function(_$CheckResponseData) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? text = freezed,
+  }) {
+    return _then(_$CheckResponseData(
+      text: freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CheckResponseData implements CheckResponseData {
+  const _$CheckResponseData({this.text, final String? $type})
+      : $type = $type ?? 'default';
+
+  factory _$CheckResponseData.fromJson(Map<String, dynamic> json) =>
+      _$$CheckResponseDataFromJson(json);
+
+  /// response output
+  @override
+  final String? text;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'CheckResponse(text: $text)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CheckResponseData &&
+            (identical(other.text, text) || other.text == text));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, text);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CheckResponseDataCopyWith<_$CheckResponseData> get copyWith =>
+      __$$CheckResponseDataCopyWithImpl<_$CheckResponseData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(String? text) $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) {
+    return $default(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(String? text)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
+  }) {
+    return $default?.call(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String? text)? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(text);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(CheckResponseData value) $default, {
+    required TResult Function(CheckResponseMerr value) Merr,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(CheckResponseData value)? $default, {
+    TResult? Function(CheckResponseMerr value)? Merr,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CheckResponseData value)? $default, {
+    TResult Function(CheckResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CheckResponseDataToJson(
+      this,
+    );
+  }
+}
+
+abstract class CheckResponseData implements CheckResponse {
+  const factory CheckResponseData({final String? text}) = _$CheckResponseData;
+
+  factory CheckResponseData.fromJson(Map<String, dynamic> json) =
+      _$CheckResponseData.fromJson;
+
+  /// response output
+  String? get text;
+  @JsonKey(ignore: true)
+  _$$CheckResponseDataCopyWith<_$CheckResponseData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CheckResponseMerrCopyWith<$Res> {
+  factory _$$CheckResponseMerrCopyWith(
+          _$CheckResponseMerr value, $Res Function(_$CheckResponseMerr) then) =
+      __$$CheckResponseMerrCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic>? body});
+}
+
+/// @nodoc
+class __$$CheckResponseMerrCopyWithImpl<$Res>
+    extends _$CheckResponseCopyWithImpl<$Res, _$CheckResponseMerr>
+    implements _$$CheckResponseMerrCopyWith<$Res> {
+  __$$CheckResponseMerrCopyWithImpl(
+      _$CheckResponseMerr _value, $Res Function(_$CheckResponseMerr) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? body = freezed,
+  }) {
+    return _then(_$CheckResponseMerr(
+      body: freezed == body
+          ? _value._body
+          : body // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CheckResponseMerr implements CheckResponseMerr {
+  const _$CheckResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
+
+  factory _$CheckResponseMerr.fromJson(Map<String, dynamic> json) =>
+      _$$CheckResponseMerrFromJson(json);
+
+  final Map<String, dynamic>? _body;
+  @override
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'CheckResponse.Merr(body: $body)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CheckResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CheckResponseMerrCopyWith<_$CheckResponseMerr> get copyWith =>
+      __$$CheckResponseMerrCopyWithImpl<_$CheckResponseMerr>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(String? text) $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) {
+    return Merr(body);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(String? text)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
+  }) {
+    return Merr?.call(body);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String? text)? $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) {
+    if (Merr != null) {
+      return Merr(body);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(CheckResponseData value) $default, {
+    required TResult Function(CheckResponseMerr value) Merr,
+  }) {
+    return Merr(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(CheckResponseData value)? $default, {
+    TResult? Function(CheckResponseMerr value)? Merr,
+  }) {
+    return Merr?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CheckResponseData value)? $default, {
+    TResult Function(CheckResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) {
+    if (Merr != null) {
+      return Merr(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CheckResponseMerrToJson(
+      this,
+    );
+  }
+}
+
+abstract class CheckResponseMerr implements CheckResponse {
+  const factory CheckResponseMerr({final Map<String, dynamic>? body}) =
+      _$CheckResponseMerr;
+
+  factory CheckResponseMerr.fromJson(Map<String, dynamic> json) =
+      _$CheckResponseMerr.fromJson;
+
+  Map<String, dynamic>? get body;
+  @JsonKey(ignore: true)
+  _$$CheckResponseMerrCopyWith<_$CheckResponseMerr> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 ModerateRequest _$ModerateRequestFromJson(Map<String, dynamic> json) {
   return _ModerateRequest.fromJson(json);
 }
