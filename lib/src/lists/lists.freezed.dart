@@ -1297,19 +1297,19 @@ EventsResponse _$EventsResponseFromJson(Map<String, dynamic> json) {
 mixin _$EventsResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(List? list, String? event) $default, {
+    TResult Function(String? event, List? list) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List? list, String? event)? $default, {
+    TResult? Function(String? event, List? list)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List? list, String? event)? $default, {
+    TResult Function(String? event, List? list)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -1360,7 +1360,7 @@ abstract class _$$EventsResponseDataCopyWith<$Res> {
           $Res Function(_$EventsResponseData) then) =
       __$$EventsResponseDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({List? list, String? event});
+  $Res call({String? event, List? list});
 
   $ListCopyWith<$Res>? get list;
 }
@@ -1376,18 +1376,18 @@ class __$$EventsResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? list = freezed,
     Object? event = freezed,
+    Object? list = freezed,
   }) {
     return _then(_$EventsResponseData(
-      list: freezed == list
-          ? _value.list
-          : list // ignore: cast_nullable_to_non_nullable
-              as List?,
       event: freezed == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as String?,
+      list: freezed == list
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List?,
     ));
   }
 
@@ -1407,26 +1407,26 @@ class __$$EventsResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$EventsResponseData implements EventsResponseData {
-  const _$EventsResponseData({this.list, this.event, final String? $type})
+  const _$EventsResponseData({this.event, this.list, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$EventsResponseData.fromJson(Map<String, dynamic> json) =>
       _$$EventsResponseDataFromJson(json);
 
-  /// the list which the operation occured on
-  @override
-  final List? list;
-
   /// the event which occured; create, delete, update
   @override
   final String? event;
+
+  /// the list which the operation occured on
+  @override
+  final List? list;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'EventsResponse(list: $list, event: $event)';
+    return 'EventsResponse(event: $event, list: $list)';
   }
 
   @override
@@ -1434,13 +1434,13 @@ class _$EventsResponseData implements EventsResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EventsResponseData &&
-            (identical(other.list, list) || other.list == list) &&
-            (identical(other.event, event) || other.event == event));
+            (identical(other.event, event) || other.event == event) &&
+            (identical(other.list, list) || other.list == list));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, list, event);
+  int get hashCode => Object.hash(runtimeType, event, list);
 
   @JsonKey(ignore: true)
   @override
@@ -1452,30 +1452,30 @@ class _$EventsResponseData implements EventsResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(List? list, String? event) $default, {
+    TResult Function(String? event, List? list) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(list, event);
+    return $default(event, list);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List? list, String? event)? $default, {
+    TResult? Function(String? event, List? list)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(list, event);
+    return $default?.call(event, list);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List? list, String? event)? $default, {
+    TResult Function(String? event, List? list)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(list, event);
+      return $default(event, list);
     }
     return orElse();
   }
@@ -1520,17 +1520,17 @@ class _$EventsResponseData implements EventsResponseData {
 }
 
 abstract class EventsResponseData implements EventsResponse {
-  const factory EventsResponseData({final List? list, final String? event}) =
+  const factory EventsResponseData({final String? event, final List? list}) =
       _$EventsResponseData;
 
   factory EventsResponseData.fromJson(Map<String, dynamic> json) =
       _$EventsResponseData.fromJson;
 
-  /// the list which the operation occured on
-  List? get list;
-
   /// the event which occured; create, delete, update
   String? get event;
+
+  /// the list which the operation occured on
+  List? get list;
   @JsonKey(ignore: true)
   _$$EventsResponseDataCopyWith<_$EventsResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1618,7 +1618,7 @@ class _$EventsResponseMerr implements EventsResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(List? list, String? event) $default, {
+    TResult Function(String? event, List? list) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -1627,7 +1627,7 @@ class _$EventsResponseMerr implements EventsResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List? list, String? event)? $default, {
+    TResult? Function(String? event, List? list)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -1636,7 +1636,7 @@ class _$EventsResponseMerr implements EventsResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List? list, String? event)? $default, {
+    TResult Function(String? event, List? list)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
@@ -1704,12 +1704,6 @@ List _$ListFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$List {
-  /// name of the list
-  String? get name => throw _privateConstructorUsedError;
-
-  /// time at which the list was updated
-  String? get updated => throw _privateConstructorUsedError;
-
   /// time at which the list was created
   String? get created => throw _privateConstructorUsedError;
 
@@ -1718,6 +1712,12 @@ mixin _$List {
 
   /// items within the list
   List? get items => throw _privateConstructorUsedError;
+
+  /// name of the list
+  String? get name => throw _privateConstructorUsedError;
+
+  /// time at which the list was updated
+  String? get updated => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1730,11 +1730,11 @@ abstract class $ListCopyWith<$Res> {
       _$ListCopyWithImpl<$Res, List>;
   @useResult
   $Res call(
-      {String? name,
-      String? updated,
-      String? created,
+      {String? created,
       String? id,
-      List? items});
+      List? items,
+      String? name,
+      String? updated});
 
   $ListCopyWith<$Res>? get items;
 }
@@ -1752,21 +1752,13 @@ class _$ListCopyWithImpl<$Res, $Val extends List>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? updated = freezed,
     Object? created = freezed,
     Object? id = freezed,
     Object? items = freezed,
+    Object? name = freezed,
+    Object? updated = freezed,
   }) {
     return _then(_value.copyWith(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      updated: freezed == updated
-          ? _value.updated
-          : updated // ignore: cast_nullable_to_non_nullable
-              as String?,
       created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
@@ -1779,6 +1771,14 @@ class _$ListCopyWithImpl<$Res, $Val extends List>
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updated: freezed == updated
+          ? _value.updated
+          : updated // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -1802,11 +1802,11 @@ abstract class _$$_ListCopyWith<$Res> implements $ListCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? name,
-      String? updated,
-      String? created,
+      {String? created,
       String? id,
-      List? items});
+      List? items,
+      String? name,
+      String? updated});
 
   @override
   $ListCopyWith<$Res>? get items;
@@ -1821,21 +1821,13 @@ class __$$_ListCopyWithImpl<$Res> extends _$ListCopyWithImpl<$Res, _$_List>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? updated = freezed,
     Object? created = freezed,
     Object? id = freezed,
     Object? items = freezed,
+    Object? name = freezed,
+    Object? updated = freezed,
   }) {
     return _then(_$_List(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      updated: freezed == updated
-          ? _value.updated
-          : updated // ignore: cast_nullable_to_non_nullable
-              as String?,
       created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
@@ -1848,6 +1840,14 @@ class __$$_ListCopyWithImpl<$Res> extends _$ListCopyWithImpl<$Res, _$_List>
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updated: freezed == updated
+          ? _value.updated
+          : updated // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1855,17 +1855,9 @@ class __$$_ListCopyWithImpl<$Res> extends _$ListCopyWithImpl<$Res, _$_List>
 /// @nodoc
 @JsonSerializable()
 class _$_List implements _List {
-  const _$_List({this.name, this.updated, this.created, this.id, this.items});
+  const _$_List({this.created, this.id, this.items, this.name, this.updated});
 
   factory _$_List.fromJson(Map<String, dynamic> json) => _$$_ListFromJson(json);
-
-  /// name of the list
-  @override
-  final String? name;
-
-  /// time at which the list was updated
-  @override
-  final String? updated;
 
   /// time at which the list was created
   @override
@@ -1879,9 +1871,17 @@ class _$_List implements _List {
   @override
   final List? items;
 
+  /// name of the list
+  @override
+  final String? name;
+
+  /// time at which the list was updated
+  @override
+  final String? updated;
+
   @override
   String toString() {
-    return 'List(name: $name, updated: $updated, created: $created, id: $id, items: $items)';
+    return 'List(created: $created, id: $id, items: $items, name: $name, updated: $updated)';
   }
 
   @override
@@ -1889,17 +1889,17 @@ class _$_List implements _List {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_List &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.updated, updated) || other.updated == updated) &&
             (identical(other.created, created) || other.created == created) &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.items, items) || other.items == items));
+            (identical(other.items, items) || other.items == items) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.updated, updated) || other.updated == updated));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, updated, created, id, items);
+      Object.hash(runtimeType, created, id, items, name, updated);
 
   @JsonKey(ignore: true)
   @override
@@ -1917,22 +1917,14 @@ class _$_List implements _List {
 
 abstract class _List implements List {
   const factory _List(
-      {final String? name,
-      final String? updated,
-      final String? created,
+      {final String? created,
       final String? id,
-      final List? items}) = _$_List;
+      final List? items,
+      final String? name,
+      final String? updated}) = _$_List;
 
   factory _List.fromJson(Map<String, dynamic> json) = _$_List.fromJson;
 
-  @override
-
-  /// name of the list
-  String? get name;
-  @override
-
-  /// time at which the list was updated
-  String? get updated;
   @override
 
   /// time at which the list was created
@@ -1945,6 +1937,14 @@ abstract class _List implements List {
 
   /// items within the list
   List? get items;
+  @override
+
+  /// name of the list
+  String? get name;
+  @override
+
+  /// time at which the list was updated
+  String? get updated;
   @override
   @JsonKey(ignore: true)
   _$$_ListCopyWith<_$_List> get copyWith => throw _privateConstructorUsedError;

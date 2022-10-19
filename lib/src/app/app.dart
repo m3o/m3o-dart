@@ -276,6 +276,12 @@ class RegionsResponse with _$RegionsResponse {
 @Freezed()
 class Reservation with _$Reservation {
   const factory Reservation({
+    /// owner id
+    String? owner,
+
+    /// associated token
+    String? token,
+
     /// time of reservation
     String? created,
 
@@ -284,12 +290,6 @@ class Reservation with _$Reservation {
 
     /// name of the app
     String? name,
-
-    /// owner id
-    String? owner,
-
-    /// associated token
-    String? token,
   }) = _Reservation;
   factory Reservation.fromJson(Map<String, dynamic> json) =>
       _$ReservationFromJson(json);
@@ -379,32 +379,14 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
-    /// region running in
-    String? region,
-
-    /// source repository
-    String? repo,
-
-    /// status of the app
-    String? status,
-
-    /// raw backend endpoint
-    String? backend,
-
-    /// custom domains
-    List<String>? custom_domains,
-
-    /// unique id
-    String? id,
-
-    /// name of the app
-    String? name,
-
     /// port running on
     int? port,
 
-    /// app url
-    String? url,
+    /// region running in
+    String? region,
+
+    /// last updated
+    String? updated,
 
     /// branch of code
     String? branch,
@@ -412,11 +394,29 @@ class Service with _$Service {
     /// time of creation
     String? created,
 
+    /// unique id
+    String? id,
+
+    /// name of the app
+    String? name,
+
+    /// source repository
+    String? repo,
+
+    /// status of the app
+    String? status,
+
+    /// app url
+    String? url,
+
+    /// raw backend endpoint
+    String? backend,
+
+    /// custom domains
+    List<String>? custom_domains,
+
     /// associated env vars
     Map<String, String>? env_vars,
-
-    /// last updated
-    String? updated,
   }) = _Service;
   factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);

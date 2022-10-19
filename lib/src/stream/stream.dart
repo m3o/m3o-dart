@@ -96,14 +96,14 @@ class StreamService {
 @Freezed()
 class Channel with _$Channel {
   const factory Channel({
-    /// last activity time
-    String? last_active,
-
     /// name of the channel
     String? name,
 
     /// description for the channel
     String? description,
+
+    /// last activity time
+    String? last_active,
   }) = _Channel;
   factory Channel.fromJson(Map<String, dynamic> json) =>
       _$ChannelFromJson(json);

@@ -202,6 +202,9 @@ class ChatService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
+    /// chat description
+    String? description,
+
     /// name of the group
     String? name,
 
@@ -210,9 +213,6 @@ class CreateRequest with _$CreateRequest {
 
     /// optional list of user ids
     List<String>? user_ids,
-
-    /// chat description
-    String? description,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -254,6 +254,9 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Group with _$Group {
   const factory Group({
+    /// name of the chat
+    String? name,
+
     /// whether its a private group
     bool? private,
 
@@ -268,9 +271,6 @@ class Group with _$Group {
 
     /// unique group id
     String? id,
-
-    /// name of the chat
-    String? name,
   }) = _Group;
   factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
 }
@@ -324,11 +324,11 @@ class InviteResponse with _$InviteResponse {
 @Freezed()
 class JoinRequest with _$JoinRequest {
   const factory JoinRequest({
-    /// user id joining
-    String? user_id,
-
     /// group to join
     String? group_id,
+
+    /// user id joining
+    String? user_id,
   }) = _JoinRequest;
   factory JoinRequest.fromJson(Map<String, dynamic> json) =>
       _$JoinRequestFromJson(json);
@@ -348,11 +348,11 @@ class JoinResponse with _$JoinResponse {
 @Freezed()
 class KickRequest with _$KickRequest {
   const factory KickRequest({
-    /// the group id
-    String? group_id,
-
     /// the user id
     String? user_id,
+
+    /// the group id
+    String? group_id,
   }) = _KickRequest;
   factory KickRequest.fromJson(Map<String, dynamic> json) =>
       _$KickRequestFromJson(json);

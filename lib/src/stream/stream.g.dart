@@ -7,16 +7,16 @@ part of 'stream.dart';
 // **************************************************************************
 
 _$_Channel _$$_ChannelFromJson(Map<String, dynamic> json) => _$_Channel(
-      last_active: json['last_active'] as String?,
       name: json['name'] as String?,
       description: json['description'] as String?,
+      last_active: json['last_active'] as String?,
     );
 
 Map<String, dynamic> _$$_ChannelToJson(_$_Channel instance) =>
     <String, dynamic>{
-      'last_active': instance.last_active,
       'name': instance.name,
       'description': instance.description,
+      'last_active': instance.last_active,
     };
 
 _$_CreateChannelRequest _$$_CreateChannelRequestFromJson(

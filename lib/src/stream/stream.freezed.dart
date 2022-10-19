@@ -20,14 +20,14 @@ Channel _$ChannelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Channel {
-  /// last activity time
-  String? get last_active => throw _privateConstructorUsedError;
-
   /// name of the channel
   String? get name => throw _privateConstructorUsedError;
 
   /// description for the channel
   String? get description => throw _privateConstructorUsedError;
+
+  /// last activity time
+  String? get last_active => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,7 +39,7 @@ abstract class $ChannelCopyWith<$Res> {
   factory $ChannelCopyWith(Channel value, $Res Function(Channel) then) =
       _$ChannelCopyWithImpl<$Res, Channel>;
   @useResult
-  $Res call({String? last_active, String? name, String? description});
+  $Res call({String? name, String? description, String? last_active});
 }
 
 /// @nodoc
@@ -55,15 +55,11 @@ class _$ChannelCopyWithImpl<$Res, $Val extends Channel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? last_active = freezed,
     Object? name = freezed,
     Object? description = freezed,
+    Object? last_active = freezed,
   }) {
     return _then(_value.copyWith(
-      last_active: freezed == last_active
-          ? _value.last_active
-          : last_active // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -71,6 +67,10 @@ class _$ChannelCopyWithImpl<$Res, $Val extends Channel>
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      last_active: freezed == last_active
+          ? _value.last_active
+          : last_active // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -83,7 +83,7 @@ abstract class _$$_ChannelCopyWith<$Res> implements $ChannelCopyWith<$Res> {
       __$$_ChannelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? last_active, String? name, String? description});
+  $Res call({String? name, String? description, String? last_active});
 }
 
 /// @nodoc
@@ -96,15 +96,11 @@ class __$$_ChannelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? last_active = freezed,
     Object? name = freezed,
     Object? description = freezed,
+    Object? last_active = freezed,
   }) {
     return _then(_$_Channel(
-      last_active: freezed == last_active
-          ? _value.last_active
-          : last_active // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -113,6 +109,10 @@ class __$$_ChannelCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      last_active: freezed == last_active
+          ? _value.last_active
+          : last_active // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -120,14 +120,10 @@ class __$$_ChannelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Channel implements _Channel {
-  const _$_Channel({this.last_active, this.name, this.description});
+  const _$_Channel({this.name, this.description, this.last_active});
 
   factory _$_Channel.fromJson(Map<String, dynamic> json) =>
       _$$_ChannelFromJson(json);
-
-  /// last activity time
-  @override
-  final String? last_active;
 
   /// name of the channel
   @override
@@ -137,9 +133,13 @@ class _$_Channel implements _Channel {
   @override
   final String? description;
 
+  /// last activity time
+  @override
+  final String? last_active;
+
   @override
   String toString() {
-    return 'Channel(last_active: $last_active, name: $name, description: $description)';
+    return 'Channel(name: $name, description: $description, last_active: $last_active)';
   }
 
   @override
@@ -147,16 +147,16 @@ class _$_Channel implements _Channel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Channel &&
-            (identical(other.last_active, last_active) ||
-                other.last_active == last_active) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
-                other.description == description));
+                other.description == description) &&
+            (identical(other.last_active, last_active) ||
+                other.last_active == last_active));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, last_active, name, description);
+  int get hashCode => Object.hash(runtimeType, name, description, last_active);
 
   @JsonKey(ignore: true)
   @override
@@ -174,16 +174,12 @@ class _$_Channel implements _Channel {
 
 abstract class _Channel implements Channel {
   const factory _Channel(
-      {final String? last_active,
-      final String? name,
-      final String? description}) = _$_Channel;
+      {final String? name,
+      final String? description,
+      final String? last_active}) = _$_Channel;
 
   factory _Channel.fromJson(Map<String, dynamic> json) = _$_Channel.fromJson;
 
-  @override
-
-  /// last activity time
-  String? get last_active;
   @override
 
   /// name of the channel
@@ -192,6 +188,10 @@ abstract class _Channel implements Channel {
 
   /// description for the channel
   String? get description;
+  @override
+
+  /// last activity time
+  String? get last_active;
   @override
   @JsonKey(ignore: true)
   _$$_ChannelCopyWith<_$_Channel> get copyWith =>
