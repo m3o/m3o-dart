@@ -195,11 +195,11 @@ class Record with _$Record {
 @Freezed()
 class SaveRequest with _$SaveRequest {
   const factory SaveRequest({
-    /// Make the file public: true or false
-    bool? public,
-
     /// The file to save
     Record? file,
+
+    /// Make the file public: true or false
+    bool? public,
   }) = _SaveRequest;
   factory SaveRequest.fromJson(Map<String, dynamic> json) =>
       _$SaveRequestFromJson(json);

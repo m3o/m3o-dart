@@ -36,34 +36,37 @@ mixin _$PublishRequest {
 abstract class $PublishRequestCopyWith<$Res> {
   factory $PublishRequestCopyWith(
           PublishRequest value, $Res Function(PublishRequest) then) =
-      _$PublishRequestCopyWithImpl<$Res>;
+      _$PublishRequestCopyWithImpl<$Res, PublishRequest>;
+  @useResult
   $Res call({Map<String, dynamic>? message, String? topic});
 }
 
 /// @nodoc
-class _$PublishRequestCopyWithImpl<$Res>
+class _$PublishRequestCopyWithImpl<$Res, $Val extends PublishRequest>
     implements $PublishRequestCopyWith<$Res> {
   _$PublishRequestCopyWithImpl(this._value, this._then);
 
-  final PublishRequest _value;
   // ignore: unused_field
-  final $Res Function(PublishRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
     Object? topic = freezed,
   }) {
     return _then(_value.copyWith(
-      message: message == freezed
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      topic: topic == freezed
+      topic: freezed == topic
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -74,31 +77,30 @@ abstract class _$$_PublishRequestCopyWith<$Res>
           _$_PublishRequest value, $Res Function(_$_PublishRequest) then) =
       __$$_PublishRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Map<String, dynamic>? message, String? topic});
 }
 
 /// @nodoc
 class __$$_PublishRequestCopyWithImpl<$Res>
-    extends _$PublishRequestCopyWithImpl<$Res>
+    extends _$PublishRequestCopyWithImpl<$Res, _$_PublishRequest>
     implements _$$_PublishRequestCopyWith<$Res> {
   __$$_PublishRequestCopyWithImpl(
       _$_PublishRequest _value, $Res Function(_$_PublishRequest) _then)
-      : super(_value, (v) => _then(v as _$_PublishRequest));
+      : super(_value, _then);
 
-  @override
-  _$_PublishRequest get _value => super._value as _$_PublishRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
     Object? topic = freezed,
   }) {
     return _then(_$_PublishRequest(
-      message: message == freezed
+      message: freezed == message
           ? _value._message
           : message // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      topic: topic == freezed
+      topic: freezed == topic
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -142,18 +144,17 @@ class _$_PublishRequest implements _PublishRequest {
         (other.runtimeType == runtimeType &&
             other is _$_PublishRequest &&
             const DeepCollectionEquality().equals(other._message, _message) &&
-            const DeepCollectionEquality().equals(other.topic, topic));
+            (identical(other.topic, topic) || other.topic == topic));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_message),
-      const DeepCollectionEquality().hash(topic));
+      runtimeType, const DeepCollectionEquality().hash(_message), topic);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PublishRequestCopyWith<_$_PublishRequest> get copyWith =>
       __$$_PublishRequestCopyWithImpl<_$_PublishRequest>(this, _$identity);
 
@@ -210,8 +211,8 @@ mixin _$PublishResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function()? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -229,8 +230,8 @@ mixin _$PublishResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(PublishResponseData value)? $default, {
-    TResult Function(PublishResponseMerr value)? Merr,
+    TResult? Function(PublishResponseData value)? $default, {
+    TResult? Function(PublishResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -247,17 +248,18 @@ mixin _$PublishResponse {
 abstract class $PublishResponseCopyWith<$Res> {
   factory $PublishResponseCopyWith(
           PublishResponse value, $Res Function(PublishResponse) then) =
-      _$PublishResponseCopyWithImpl<$Res>;
+      _$PublishResponseCopyWithImpl<$Res, PublishResponse>;
 }
 
 /// @nodoc
-class _$PublishResponseCopyWithImpl<$Res>
+class _$PublishResponseCopyWithImpl<$Res, $Val extends PublishResponse>
     implements $PublishResponseCopyWith<$Res> {
   _$PublishResponseCopyWithImpl(this._value, this._then);
 
-  final PublishResponse _value;
   // ignore: unused_field
-  final $Res Function(PublishResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -269,14 +271,11 @@ abstract class _$$PublishResponseDataCopyWith<$Res> {
 
 /// @nodoc
 class __$$PublishResponseDataCopyWithImpl<$Res>
-    extends _$PublishResponseCopyWithImpl<$Res>
+    extends _$PublishResponseCopyWithImpl<$Res, _$PublishResponseData>
     implements _$$PublishResponseDataCopyWith<$Res> {
   __$$PublishResponseDataCopyWithImpl(
       _$PublishResponseData _value, $Res Function(_$PublishResponseData) _then)
-      : super(_value, (v) => _then(v as _$PublishResponseData));
-
-  @override
-  _$PublishResponseData get _value => super._value as _$PublishResponseData;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -318,8 +317,8 @@ class _$PublishResponseData implements PublishResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function()? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call();
   }
@@ -349,8 +348,8 @@ class _$PublishResponseData implements PublishResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(PublishResponseData value)? $default, {
-    TResult Function(PublishResponseMerr value)? Merr,
+    TResult? Function(PublishResponseData value)? $default, {
+    TResult? Function(PublishResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -388,26 +387,25 @@ abstract class _$$PublishResponseMerrCopyWith<$Res> {
   factory _$$PublishResponseMerrCopyWith(_$PublishResponseMerr value,
           $Res Function(_$PublishResponseMerr) then) =
       __$$PublishResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$PublishResponseMerrCopyWithImpl<$Res>
-    extends _$PublishResponseCopyWithImpl<$Res>
+    extends _$PublishResponseCopyWithImpl<$Res, _$PublishResponseMerr>
     implements _$$PublishResponseMerrCopyWith<$Res> {
   __$$PublishResponseMerrCopyWithImpl(
       _$PublishResponseMerr _value, $Res Function(_$PublishResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$PublishResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$PublishResponseMerr get _value => super._value as _$PublishResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$PublishResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -458,6 +456,7 @@ class _$PublishResponseMerr implements PublishResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$PublishResponseMerrCopyWith<_$PublishResponseMerr> get copyWith =>
       __$$PublishResponseMerrCopyWithImpl<_$PublishResponseMerr>(
           this, _$identity);
@@ -474,8 +473,8 @@ class _$PublishResponseMerr implements PublishResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function()? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -505,8 +504,8 @@ class _$PublishResponseMerr implements PublishResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(PublishResponseData value)? $default, {
-    TResult Function(PublishResponseMerr value)? Merr,
+    TResult? Function(PublishResponseData value)? $default, {
+    TResult? Function(PublishResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -564,29 +563,32 @@ mixin _$SubscribeRequest {
 abstract class $SubscribeRequestCopyWith<$Res> {
   factory $SubscribeRequestCopyWith(
           SubscribeRequest value, $Res Function(SubscribeRequest) then) =
-      _$SubscribeRequestCopyWithImpl<$Res>;
+      _$SubscribeRequestCopyWithImpl<$Res, SubscribeRequest>;
+  @useResult
   $Res call({String? topic});
 }
 
 /// @nodoc
-class _$SubscribeRequestCopyWithImpl<$Res>
+class _$SubscribeRequestCopyWithImpl<$Res, $Val extends SubscribeRequest>
     implements $SubscribeRequestCopyWith<$Res> {
   _$SubscribeRequestCopyWithImpl(this._value, this._then);
 
-  final SubscribeRequest _value;
   // ignore: unused_field
-  final $Res Function(SubscribeRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? topic = freezed,
   }) {
     return _then(_value.copyWith(
-      topic: topic == freezed
+      topic: freezed == topic
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -597,26 +599,25 @@ abstract class _$$_SubscribeRequestCopyWith<$Res>
           _$_SubscribeRequest value, $Res Function(_$_SubscribeRequest) then) =
       __$$_SubscribeRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? topic});
 }
 
 /// @nodoc
 class __$$_SubscribeRequestCopyWithImpl<$Res>
-    extends _$SubscribeRequestCopyWithImpl<$Res>
+    extends _$SubscribeRequestCopyWithImpl<$Res, _$_SubscribeRequest>
     implements _$$_SubscribeRequestCopyWith<$Res> {
   __$$_SubscribeRequestCopyWithImpl(
       _$_SubscribeRequest _value, $Res Function(_$_SubscribeRequest) _then)
-      : super(_value, (v) => _then(v as _$_SubscribeRequest));
+      : super(_value, _then);
 
-  @override
-  _$_SubscribeRequest get _value => super._value as _$_SubscribeRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? topic = freezed,
   }) {
     return _then(_$_SubscribeRequest(
-      topic: topic == freezed
+      topic: freezed == topic
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -646,16 +647,16 @@ class _$_SubscribeRequest implements _SubscribeRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SubscribeRequest &&
-            const DeepCollectionEquality().equals(other.topic, topic));
+            (identical(other.topic, topic) || other.topic == topic));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(topic));
+  int get hashCode => Object.hash(runtimeType, topic);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SubscribeRequestCopyWith<_$_SubscribeRequest> get copyWith =>
       __$$_SubscribeRequestCopyWithImpl<_$_SubscribeRequest>(this, _$identity);
 
@@ -700,19 +701,19 @@ SubscribeResponse _$SubscribeResponseFromJson(Map<String, dynamic> json) {
 mixin _$SubscribeResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? topic, Map<String, dynamic>? message) $default, {
+    TResult Function(Map<String, dynamic>? message, String? topic) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? topic, Map<String, dynamic>? message)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? message, String? topic)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? topic, Map<String, dynamic>? message)? $default, {
+    TResult Function(Map<String, dynamic>? message, String? topic)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -725,8 +726,8 @@ mixin _$SubscribeResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(SubscribeResponseData value)? $default, {
-    TResult Function(SubscribeResponseMerr value)? Merr,
+    TResult? Function(SubscribeResponseData value)? $default, {
+    TResult? Function(SubscribeResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -743,17 +744,18 @@ mixin _$SubscribeResponse {
 abstract class $SubscribeResponseCopyWith<$Res> {
   factory $SubscribeResponseCopyWith(
           SubscribeResponse value, $Res Function(SubscribeResponse) then) =
-      _$SubscribeResponseCopyWithImpl<$Res>;
+      _$SubscribeResponseCopyWithImpl<$Res, SubscribeResponse>;
 }
 
 /// @nodoc
-class _$SubscribeResponseCopyWithImpl<$Res>
+class _$SubscribeResponseCopyWithImpl<$Res, $Val extends SubscribeResponse>
     implements $SubscribeResponseCopyWith<$Res> {
   _$SubscribeResponseCopyWithImpl(this._value, this._then);
 
-  final SubscribeResponse _value;
   // ignore: unused_field
-  final $Res Function(SubscribeResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -761,34 +763,33 @@ abstract class _$$SubscribeResponseDataCopyWith<$Res> {
   factory _$$SubscribeResponseDataCopyWith(_$SubscribeResponseData value,
           $Res Function(_$SubscribeResponseData) then) =
       __$$SubscribeResponseDataCopyWithImpl<$Res>;
-  $Res call({String? topic, Map<String, dynamic>? message});
+  @useResult
+  $Res call({Map<String, dynamic>? message, String? topic});
 }
 
 /// @nodoc
 class __$$SubscribeResponseDataCopyWithImpl<$Res>
-    extends _$SubscribeResponseCopyWithImpl<$Res>
+    extends _$SubscribeResponseCopyWithImpl<$Res, _$SubscribeResponseData>
     implements _$$SubscribeResponseDataCopyWith<$Res> {
   __$$SubscribeResponseDataCopyWithImpl(_$SubscribeResponseData _value,
       $Res Function(_$SubscribeResponseData) _then)
-      : super(_value, (v) => _then(v as _$SubscribeResponseData));
+      : super(_value, _then);
 
-  @override
-  _$SubscribeResponseData get _value => super._value as _$SubscribeResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? topic = freezed,
     Object? message = freezed,
+    Object? topic = freezed,
   }) {
     return _then(_$SubscribeResponseData(
-      topic: topic == freezed
-          ? _value.topic
-          : topic // ignore: cast_nullable_to_non_nullable
-              as String?,
-      message: message == freezed
+      message: freezed == message
           ? _value._message
           : message // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      topic: freezed == topic
+          ? _value.topic
+          : topic // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -797,16 +798,12 @@ class __$$SubscribeResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SubscribeResponseData implements SubscribeResponseData {
   const _$SubscribeResponseData(
-      {this.topic, final Map<String, dynamic>? message, final String? $type})
+      {final Map<String, dynamic>? message, this.topic, final String? $type})
       : _message = message,
         $type = $type ?? 'default';
 
   factory _$SubscribeResponseData.fromJson(Map<String, dynamic> json) =>
       _$$SubscribeResponseDataFromJson(json);
-
-  /// The topic subscribed to
-  @override
-  final String? topic;
 
   /// The next json message on the topic
   final Map<String, dynamic>? _message;
@@ -820,12 +817,16 @@ class _$SubscribeResponseData implements SubscribeResponseData {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// The topic subscribed to
+  @override
+  final String? topic;
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'SubscribeResponse(topic: $topic, message: $message)';
+    return 'SubscribeResponse(message: $message, topic: $topic)';
   }
 
   @override
@@ -833,19 +834,18 @@ class _$SubscribeResponseData implements SubscribeResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SubscribeResponseData &&
-            const DeepCollectionEquality().equals(other.topic, topic) &&
-            const DeepCollectionEquality().equals(other._message, _message));
+            const DeepCollectionEquality().equals(other._message, _message) &&
+            (identical(other.topic, topic) || other.topic == topic));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(topic),
-      const DeepCollectionEquality().hash(_message));
+      runtimeType, const DeepCollectionEquality().hash(_message), topic);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$SubscribeResponseDataCopyWith<_$SubscribeResponseData> get copyWith =>
       __$$SubscribeResponseDataCopyWithImpl<_$SubscribeResponseData>(
           this, _$identity);
@@ -853,30 +853,30 @@ class _$SubscribeResponseData implements SubscribeResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? topic, Map<String, dynamic>? message) $default, {
+    TResult Function(Map<String, dynamic>? message, String? topic) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(topic, message);
+    return $default(message, topic);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? topic, Map<String, dynamic>? message)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? message, String? topic)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(topic, message);
+    return $default?.call(message, topic);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? topic, Map<String, dynamic>? message)? $default, {
+    TResult Function(Map<String, dynamic>? message, String? topic)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(topic, message);
+      return $default(message, topic);
     }
     return orElse();
   }
@@ -893,8 +893,8 @@ class _$SubscribeResponseData implements SubscribeResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(SubscribeResponseData value)? $default, {
-    TResult Function(SubscribeResponseMerr value)? Merr,
+    TResult? Function(SubscribeResponseData value)? $default, {
+    TResult? Function(SubscribeResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -922,17 +922,17 @@ class _$SubscribeResponseData implements SubscribeResponseData {
 
 abstract class SubscribeResponseData implements SubscribeResponse {
   const factory SubscribeResponseData(
-      {final String? topic,
-      final Map<String, dynamic>? message}) = _$SubscribeResponseData;
+      {final Map<String, dynamic>? message,
+      final String? topic}) = _$SubscribeResponseData;
 
   factory SubscribeResponseData.fromJson(Map<String, dynamic> json) =
       _$SubscribeResponseData.fromJson;
 
-  /// The topic subscribed to
-  String? get topic;
-
   /// The next json message on the topic
   Map<String, dynamic>? get message;
+
+  /// The topic subscribed to
+  String? get topic;
   @JsonKey(ignore: true)
   _$$SubscribeResponseDataCopyWith<_$SubscribeResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -943,26 +943,25 @@ abstract class _$$SubscribeResponseMerrCopyWith<$Res> {
   factory _$$SubscribeResponseMerrCopyWith(_$SubscribeResponseMerr value,
           $Res Function(_$SubscribeResponseMerr) then) =
       __$$SubscribeResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$SubscribeResponseMerrCopyWithImpl<$Res>
-    extends _$SubscribeResponseCopyWithImpl<$Res>
+    extends _$SubscribeResponseCopyWithImpl<$Res, _$SubscribeResponseMerr>
     implements _$$SubscribeResponseMerrCopyWith<$Res> {
   __$$SubscribeResponseMerrCopyWithImpl(_$SubscribeResponseMerr _value,
       $Res Function(_$SubscribeResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$SubscribeResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$SubscribeResponseMerr get _value => super._value as _$SubscribeResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$SubscribeResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -1013,6 +1012,7 @@ class _$SubscribeResponseMerr implements SubscribeResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$SubscribeResponseMerrCopyWith<_$SubscribeResponseMerr> get copyWith =>
       __$$SubscribeResponseMerrCopyWithImpl<_$SubscribeResponseMerr>(
           this, _$identity);
@@ -1020,7 +1020,7 @@ class _$SubscribeResponseMerr implements SubscribeResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? topic, Map<String, dynamic>? message) $default, {
+    TResult Function(Map<String, dynamic>? message, String? topic) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -1029,8 +1029,8 @@ class _$SubscribeResponseMerr implements SubscribeResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? topic, Map<String, dynamic>? message)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? message, String? topic)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -1038,7 +1038,7 @@ class _$SubscribeResponseMerr implements SubscribeResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? topic, Map<String, dynamic>? message)? $default, {
+    TResult Function(Map<String, dynamic>? message, String? topic)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
@@ -1060,8 +1060,8 @@ class _$SubscribeResponseMerr implements SubscribeResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(SubscribeResponseData value)? $default, {
-    TResult Function(SubscribeResponseMerr value)? Merr,
+    TResult? Function(SubscribeResponseData value)? $default, {
+    TResult? Function(SubscribeResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }

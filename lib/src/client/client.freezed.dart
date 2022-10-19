@@ -32,38 +32,42 @@ mixin _$Request {
 /// @nodoc
 abstract class $RequestCopyWith<$Res> {
   factory $RequestCopyWith(Request value, $Res Function(Request) then) =
-      _$RequestCopyWithImpl<$Res>;
+      _$RequestCopyWithImpl<$Res, Request>;
+  @useResult
   $Res call({String service, String endpoint, Map<String, dynamic> body});
 }
 
 /// @nodoc
-class _$RequestCopyWithImpl<$Res> implements $RequestCopyWith<$Res> {
+class _$RequestCopyWithImpl<$Res, $Val extends Request>
+    implements $RequestCopyWith<$Res> {
   _$RequestCopyWithImpl(this._value, this._then);
 
-  final Request _value;
   // ignore: unused_field
-  final $Res Function(Request) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? service = freezed,
-    Object? endpoint = freezed,
-    Object? body = freezed,
+    Object? service = null,
+    Object? endpoint = null,
+    Object? body = null,
   }) {
     return _then(_value.copyWith(
-      service: service == freezed
+      service: null == service
           ? _value.service
           : service // ignore: cast_nullable_to_non_nullable
               as String,
-      endpoint: endpoint == freezed
+      endpoint: null == endpoint
           ? _value.endpoint
           : endpoint // ignore: cast_nullable_to_non_nullable
               as String,
-      body: body == freezed
+      body: null == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -73,34 +77,34 @@ abstract class _$$_RequestCopyWith<$Res> implements $RequestCopyWith<$Res> {
           _$_Request value, $Res Function(_$_Request) then) =
       __$$_RequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String service, String endpoint, Map<String, dynamic> body});
 }
 
 /// @nodoc
-class __$$_RequestCopyWithImpl<$Res> extends _$RequestCopyWithImpl<$Res>
+class __$$_RequestCopyWithImpl<$Res>
+    extends _$RequestCopyWithImpl<$Res, _$_Request>
     implements _$$_RequestCopyWith<$Res> {
   __$$_RequestCopyWithImpl(_$_Request _value, $Res Function(_$_Request) _then)
-      : super(_value, (v) => _then(v as _$_Request));
+      : super(_value, _then);
 
-  @override
-  _$_Request get _value => super._value as _$_Request;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? service = freezed,
-    Object? endpoint = freezed,
-    Object? body = freezed,
+    Object? service = null,
+    Object? endpoint = null,
+    Object? body = null,
   }) {
     return _then(_$_Request(
-      service: service == freezed
+      service: null == service
           ? _value.service
           : service // ignore: cast_nullable_to_non_nullable
               as String,
-      endpoint: endpoint == freezed
+      endpoint: null == endpoint
           ? _value.endpoint
           : endpoint // ignore: cast_nullable_to_non_nullable
               as String,
-      body: body == freezed
+      body: null == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
@@ -141,21 +145,20 @@ class _$_Request implements _Request {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Request &&
-            const DeepCollectionEquality().equals(other.service, service) &&
-            const DeepCollectionEquality().equals(other.endpoint, endpoint) &&
+            (identical(other.service, service) || other.service == service) &&
+            (identical(other.endpoint, endpoint) ||
+                other.endpoint == endpoint) &&
             const DeepCollectionEquality().equals(other._body, _body));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(service),
-      const DeepCollectionEquality().hash(endpoint),
+  int get hashCode => Object.hash(runtimeType, service, endpoint,
       const DeepCollectionEquality().hash(_body));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RequestCopyWith<_$_Request> get copyWith =>
       __$$_RequestCopyWithImpl<_$_Request>(this, _$identity);
 
@@ -204,28 +207,32 @@ mixin _$Response {
 /// @nodoc
 abstract class $ResponseCopyWith<$Res> {
   factory $ResponseCopyWith(Response value, $Res Function(Response) then) =
-      _$ResponseCopyWithImpl<$Res>;
+      _$ResponseCopyWithImpl<$Res, Response>;
+  @useResult
   $Res call({Map<String, dynamic> body});
 }
 
 /// @nodoc
-class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
+class _$ResponseCopyWithImpl<$Res, $Val extends Response>
+    implements $ResponseCopyWith<$Res> {
   _$ResponseCopyWithImpl(this._value, this._then);
 
-  final Response _value;
   // ignore: unused_field
-  final $Res Function(Response) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? body = freezed,
+    Object? body = null,
   }) {
     return _then(_value.copyWith(
-      body: body == freezed
+      body: null == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -235,25 +242,25 @@ abstract class _$$_ResponseCopyWith<$Res> implements $ResponseCopyWith<$Res> {
           _$_Response value, $Res Function(_$_Response) then) =
       __$$_ResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Map<String, dynamic> body});
 }
 
 /// @nodoc
-class __$$_ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
+class __$$_ResponseCopyWithImpl<$Res>
+    extends _$ResponseCopyWithImpl<$Res, _$_Response>
     implements _$$_ResponseCopyWith<$Res> {
   __$$_ResponseCopyWithImpl(
       _$_Response _value, $Res Function(_$_Response) _then)
-      : super(_value, (v) => _then(v as _$_Response));
+      : super(_value, _then);
 
-  @override
-  _$_Response get _value => super._value as _$_Response;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? body = freezed,
+    Object? body = null,
   }) {
     return _then(_$_Response(
-      body == freezed
+      null == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
@@ -296,6 +303,7 @@ class _$_Response implements _Response {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ResponseCopyWith<_$_Response> get copyWith =>
       __$$_ResponseCopyWithImpl<_$_Response>(this, _$identity);
 
@@ -336,28 +344,32 @@ mixin _$Merr {
 /// @nodoc
 abstract class $MerrCopyWith<$Res> {
   factory $MerrCopyWith(Merr value, $Res Function(Merr) then) =
-      _$MerrCopyWithImpl<$Res>;
+      _$MerrCopyWithImpl<$Res, Merr>;
+  @useResult
   $Res call({Map<String, dynamic> b});
 }
 
 /// @nodoc
-class _$MerrCopyWithImpl<$Res> implements $MerrCopyWith<$Res> {
+class _$MerrCopyWithImpl<$Res, $Val extends Merr>
+    implements $MerrCopyWith<$Res> {
   _$MerrCopyWithImpl(this._value, this._then);
 
-  final Merr _value;
   // ignore: unused_field
-  final $Res Function(Merr) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? b = freezed,
+    Object? b = null,
   }) {
     return _then(_value.copyWith(
-      b: b == freezed
+      b: null == b
           ? _value.b
           : b // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -366,24 +378,23 @@ abstract class _$$_MerrCopyWith<$Res> implements $MerrCopyWith<$Res> {
   factory _$$_MerrCopyWith(_$_Merr value, $Res Function(_$_Merr) then) =
       __$$_MerrCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Map<String, dynamic> b});
 }
 
 /// @nodoc
-class __$$_MerrCopyWithImpl<$Res> extends _$MerrCopyWithImpl<$Res>
+class __$$_MerrCopyWithImpl<$Res> extends _$MerrCopyWithImpl<$Res, _$_Merr>
     implements _$$_MerrCopyWith<$Res> {
   __$$_MerrCopyWithImpl(_$_Merr _value, $Res Function(_$_Merr) _then)
-      : super(_value, (v) => _then(v as _$_Merr));
+      : super(_value, _then);
 
-  @override
-  _$_Merr get _value => super._value as _$_Merr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? b = freezed,
+    Object? b = null,
   }) {
     return _then(_$_Merr(
-      b == freezed
+      null == b
           ? _value._b
           : b // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
@@ -425,6 +436,7 @@ class _$_Merr implements _Merr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MerrCopyWith<_$_Merr> get copyWith =>
       __$$_MerrCopyWithImpl<_$_Merr>(this, _$identity);
 

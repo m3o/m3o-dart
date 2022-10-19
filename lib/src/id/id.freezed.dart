@@ -33,29 +33,32 @@ mixin _$GenerateRequest {
 abstract class $GenerateRequestCopyWith<$Res> {
   factory $GenerateRequestCopyWith(
           GenerateRequest value, $Res Function(GenerateRequest) then) =
-      _$GenerateRequestCopyWithImpl<$Res>;
+      _$GenerateRequestCopyWithImpl<$Res, GenerateRequest>;
+  @useResult
   $Res call({String? type});
 }
 
 /// @nodoc
-class _$GenerateRequestCopyWithImpl<$Res>
+class _$GenerateRequestCopyWithImpl<$Res, $Val extends GenerateRequest>
     implements $GenerateRequestCopyWith<$Res> {
   _$GenerateRequestCopyWithImpl(this._value, this._then);
 
-  final GenerateRequest _value;
   // ignore: unused_field
-  final $Res Function(GenerateRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? type = freezed,
   }) {
     return _then(_value.copyWith(
-      type: type == freezed
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -66,26 +69,25 @@ abstract class _$$_GenerateRequestCopyWith<$Res>
           _$_GenerateRequest value, $Res Function(_$_GenerateRequest) then) =
       __$$_GenerateRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? type});
 }
 
 /// @nodoc
 class __$$_GenerateRequestCopyWithImpl<$Res>
-    extends _$GenerateRequestCopyWithImpl<$Res>
+    extends _$GenerateRequestCopyWithImpl<$Res, _$_GenerateRequest>
     implements _$$_GenerateRequestCopyWith<$Res> {
   __$$_GenerateRequestCopyWithImpl(
       _$_GenerateRequest _value, $Res Function(_$_GenerateRequest) _then)
-      : super(_value, (v) => _then(v as _$_GenerateRequest));
+      : super(_value, _then);
 
-  @override
-  _$_GenerateRequest get _value => super._value as _$_GenerateRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? type = freezed,
   }) {
     return _then(_$_GenerateRequest(
-      type: type == freezed
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -115,16 +117,16 @@ class _$_GenerateRequest implements _GenerateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GenerateRequest &&
-            const DeepCollectionEquality().equals(other.type, type));
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(type));
+  int get hashCode => Object.hash(runtimeType, type);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_GenerateRequestCopyWith<_$_GenerateRequest> get copyWith =>
       __$$_GenerateRequestCopyWithImpl<_$_GenerateRequest>(this, _$identity);
 
@@ -175,8 +177,8 @@ mixin _$GenerateResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? id, String? type)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? id, String? type)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -194,8 +196,8 @@ mixin _$GenerateResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(GenerateResponseData value)? $default, {
-    TResult Function(GenerateResponseMerr value)? Merr,
+    TResult? Function(GenerateResponseData value)? $default, {
+    TResult? Function(GenerateResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -212,17 +214,18 @@ mixin _$GenerateResponse {
 abstract class $GenerateResponseCopyWith<$Res> {
   factory $GenerateResponseCopyWith(
           GenerateResponse value, $Res Function(GenerateResponse) then) =
-      _$GenerateResponseCopyWithImpl<$Res>;
+      _$GenerateResponseCopyWithImpl<$Res, GenerateResponse>;
 }
 
 /// @nodoc
-class _$GenerateResponseCopyWithImpl<$Res>
+class _$GenerateResponseCopyWithImpl<$Res, $Val extends GenerateResponse>
     implements $GenerateResponseCopyWith<$Res> {
   _$GenerateResponseCopyWithImpl(this._value, this._then);
 
-  final GenerateResponse _value;
   // ignore: unused_field
-  final $Res Function(GenerateResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -230,31 +233,30 @@ abstract class _$$GenerateResponseDataCopyWith<$Res> {
   factory _$$GenerateResponseDataCopyWith(_$GenerateResponseData value,
           $Res Function(_$GenerateResponseData) then) =
       __$$GenerateResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? id, String? type});
 }
 
 /// @nodoc
 class __$$GenerateResponseDataCopyWithImpl<$Res>
-    extends _$GenerateResponseCopyWithImpl<$Res>
+    extends _$GenerateResponseCopyWithImpl<$Res, _$GenerateResponseData>
     implements _$$GenerateResponseDataCopyWith<$Res> {
   __$$GenerateResponseDataCopyWithImpl(_$GenerateResponseData _value,
       $Res Function(_$GenerateResponseData) _then)
-      : super(_value, (v) => _then(v as _$GenerateResponseData));
+      : super(_value, _then);
 
-  @override
-  _$GenerateResponseData get _value => super._value as _$GenerateResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = freezed,
     Object? type = freezed,
   }) {
     return _then(_$GenerateResponseData(
-      id: id == freezed
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      type: type == freezed
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -292,19 +294,17 @@ class _$GenerateResponseData implements GenerateResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateResponseData &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.type, type));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(type));
+  int get hashCode => Object.hash(runtimeType, id, type);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$GenerateResponseDataCopyWith<_$GenerateResponseData> get copyWith =>
       __$$GenerateResponseDataCopyWithImpl<_$GenerateResponseData>(
           this, _$identity);
@@ -321,8 +321,8 @@ class _$GenerateResponseData implements GenerateResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? id, String? type)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? id, String? type)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(id, type);
   }
@@ -352,8 +352,8 @@ class _$GenerateResponseData implements GenerateResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(GenerateResponseData value)? $default, {
-    TResult Function(GenerateResponseMerr value)? Merr,
+    TResult? Function(GenerateResponseData value)? $default, {
+    TResult? Function(GenerateResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -401,26 +401,25 @@ abstract class _$$GenerateResponseMerrCopyWith<$Res> {
   factory _$$GenerateResponseMerrCopyWith(_$GenerateResponseMerr value,
           $Res Function(_$GenerateResponseMerr) then) =
       __$$GenerateResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$GenerateResponseMerrCopyWithImpl<$Res>
-    extends _$GenerateResponseCopyWithImpl<$Res>
+    extends _$GenerateResponseCopyWithImpl<$Res, _$GenerateResponseMerr>
     implements _$$GenerateResponseMerrCopyWith<$Res> {
   __$$GenerateResponseMerrCopyWithImpl(_$GenerateResponseMerr _value,
       $Res Function(_$GenerateResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$GenerateResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$GenerateResponseMerr get _value => super._value as _$GenerateResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$GenerateResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -471,6 +470,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$GenerateResponseMerrCopyWith<_$GenerateResponseMerr> get copyWith =>
       __$$GenerateResponseMerrCopyWithImpl<_$GenerateResponseMerr>(
           this, _$identity);
@@ -487,8 +487,8 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? id, String? type)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? id, String? type)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -518,8 +518,8 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(GenerateResponseData value)? $default, {
-    TResult Function(GenerateResponseMerr value)? Merr,
+    TResult? Function(GenerateResponseData value)? $default, {
+    TResult? Function(GenerateResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -571,16 +571,18 @@ mixin _$TypesRequest {
 abstract class $TypesRequestCopyWith<$Res> {
   factory $TypesRequestCopyWith(
           TypesRequest value, $Res Function(TypesRequest) then) =
-      _$TypesRequestCopyWithImpl<$Res>;
+      _$TypesRequestCopyWithImpl<$Res, TypesRequest>;
 }
 
 /// @nodoc
-class _$TypesRequestCopyWithImpl<$Res> implements $TypesRequestCopyWith<$Res> {
+class _$TypesRequestCopyWithImpl<$Res, $Val extends TypesRequest>
+    implements $TypesRequestCopyWith<$Res> {
   _$TypesRequestCopyWithImpl(this._value, this._then);
 
-  final TypesRequest _value;
   // ignore: unused_field
-  final $Res Function(TypesRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -592,14 +594,11 @@ abstract class _$$_TypesRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_TypesRequestCopyWithImpl<$Res>
-    extends _$TypesRequestCopyWithImpl<$Res>
+    extends _$TypesRequestCopyWithImpl<$Res, _$_TypesRequest>
     implements _$$_TypesRequestCopyWith<$Res> {
   __$$_TypesRequestCopyWithImpl(
       _$_TypesRequest _value, $Res Function(_$_TypesRequest) _then)
-      : super(_value, (v) => _then(v as _$_TypesRequest));
-
-  @override
-  _$_TypesRequest get _value => super._value as _$_TypesRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -663,8 +662,8 @@ mixin _$TypesResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<String>? types)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<String>? types)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -682,8 +681,8 @@ mixin _$TypesResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(TypesResponseData value)? $default, {
-    TResult Function(TypesResponseMerr value)? Merr,
+    TResult? Function(TypesResponseData value)? $default, {
+    TResult? Function(TypesResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -700,17 +699,18 @@ mixin _$TypesResponse {
 abstract class $TypesResponseCopyWith<$Res> {
   factory $TypesResponseCopyWith(
           TypesResponse value, $Res Function(TypesResponse) then) =
-      _$TypesResponseCopyWithImpl<$Res>;
+      _$TypesResponseCopyWithImpl<$Res, TypesResponse>;
 }
 
 /// @nodoc
-class _$TypesResponseCopyWithImpl<$Res>
+class _$TypesResponseCopyWithImpl<$Res, $Val extends TypesResponse>
     implements $TypesResponseCopyWith<$Res> {
   _$TypesResponseCopyWithImpl(this._value, this._then);
 
-  final TypesResponse _value;
   // ignore: unused_field
-  final $Res Function(TypesResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -718,26 +718,25 @@ abstract class _$$TypesResponseDataCopyWith<$Res> {
   factory _$$TypesResponseDataCopyWith(
           _$TypesResponseData value, $Res Function(_$TypesResponseData) then) =
       __$$TypesResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<String>? types});
 }
 
 /// @nodoc
 class __$$TypesResponseDataCopyWithImpl<$Res>
-    extends _$TypesResponseCopyWithImpl<$Res>
+    extends _$TypesResponseCopyWithImpl<$Res, _$TypesResponseData>
     implements _$$TypesResponseDataCopyWith<$Res> {
   __$$TypesResponseDataCopyWithImpl(
       _$TypesResponseData _value, $Res Function(_$TypesResponseData) _then)
-      : super(_value, (v) => _then(v as _$TypesResponseData));
+      : super(_value, _then);
 
-  @override
-  _$TypesResponseData get _value => super._value as _$TypesResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? types = freezed,
   }) {
     return _then(_$TypesResponseData(
-      types: types == freezed
+      types: freezed == types
           ? _value._types
           : types // ignore: cast_nullable_to_non_nullable
               as List<String>?,
@@ -787,6 +786,7 @@ class _$TypesResponseData implements TypesResponseData {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$TypesResponseDataCopyWith<_$TypesResponseData> get copyWith =>
       __$$TypesResponseDataCopyWithImpl<_$TypesResponseData>(this, _$identity);
 
@@ -802,8 +802,8 @@ class _$TypesResponseData implements TypesResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<String>? types)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<String>? types)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(types);
   }
@@ -833,8 +833,8 @@ class _$TypesResponseData implements TypesResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(TypesResponseData value)? $default, {
-    TResult Function(TypesResponseMerr value)? Merr,
+    TResult? Function(TypesResponseData value)? $default, {
+    TResult? Function(TypesResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -878,26 +878,25 @@ abstract class _$$TypesResponseMerrCopyWith<$Res> {
   factory _$$TypesResponseMerrCopyWith(
           _$TypesResponseMerr value, $Res Function(_$TypesResponseMerr) then) =
       __$$TypesResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$TypesResponseMerrCopyWithImpl<$Res>
-    extends _$TypesResponseCopyWithImpl<$Res>
+    extends _$TypesResponseCopyWithImpl<$Res, _$TypesResponseMerr>
     implements _$$TypesResponseMerrCopyWith<$Res> {
   __$$TypesResponseMerrCopyWithImpl(
       _$TypesResponseMerr _value, $Res Function(_$TypesResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$TypesResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$TypesResponseMerr get _value => super._value as _$TypesResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$TypesResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -948,6 +947,7 @@ class _$TypesResponseMerr implements TypesResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$TypesResponseMerrCopyWith<_$TypesResponseMerr> get copyWith =>
       __$$TypesResponseMerrCopyWithImpl<_$TypesResponseMerr>(this, _$identity);
 
@@ -963,8 +963,8 @@ class _$TypesResponseMerr implements TypesResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<String>? types)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<String>? types)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -994,8 +994,8 @@ class _$TypesResponseMerr implements TypesResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(TypesResponseData value)? $default, {
-    TResult Function(TypesResponseMerr value)? Merr,
+    TResult? Function(TypesResponseData value)? $default, {
+    TResult? Function(TypesResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }

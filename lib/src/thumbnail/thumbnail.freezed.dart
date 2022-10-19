@@ -20,12 +20,12 @@ ScreenshotRequest _$ScreenshotRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ScreenshotRequest {
+  /// width of the browser window. optional
+  int? get width => throw _privateConstructorUsedError;
+
   /// height of the browser window, optional
   int? get height => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
-
-  /// width of the browser window. optional
-  int? get width => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,39 +37,42 @@ mixin _$ScreenshotRequest {
 abstract class $ScreenshotRequestCopyWith<$Res> {
   factory $ScreenshotRequestCopyWith(
           ScreenshotRequest value, $Res Function(ScreenshotRequest) then) =
-      _$ScreenshotRequestCopyWithImpl<$Res>;
-  $Res call({int? height, String? url, int? width});
+      _$ScreenshotRequestCopyWithImpl<$Res, ScreenshotRequest>;
+  @useResult
+  $Res call({int? width, int? height, String? url});
 }
 
 /// @nodoc
-class _$ScreenshotRequestCopyWithImpl<$Res>
+class _$ScreenshotRequestCopyWithImpl<$Res, $Val extends ScreenshotRequest>
     implements $ScreenshotRequestCopyWith<$Res> {
   _$ScreenshotRequestCopyWithImpl(this._value, this._then);
 
-  final ScreenshotRequest _value;
   // ignore: unused_field
-  final $Res Function(ScreenshotRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? width = freezed,
     Object? height = freezed,
     Object? url = freezed,
-    Object? width = freezed,
   }) {
     return _then(_value.copyWith(
-      height: height == freezed
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as int?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      width: width == freezed
+      width: freezed == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+      height: freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
   }
 }
 
@@ -80,39 +83,38 @@ abstract class _$$_ScreenshotRequestCopyWith<$Res>
           $Res Function(_$_ScreenshotRequest) then) =
       __$$_ScreenshotRequestCopyWithImpl<$Res>;
   @override
-  $Res call({int? height, String? url, int? width});
+  @useResult
+  $Res call({int? width, int? height, String? url});
 }
 
 /// @nodoc
 class __$$_ScreenshotRequestCopyWithImpl<$Res>
-    extends _$ScreenshotRequestCopyWithImpl<$Res>
+    extends _$ScreenshotRequestCopyWithImpl<$Res, _$_ScreenshotRequest>
     implements _$$_ScreenshotRequestCopyWith<$Res> {
   __$$_ScreenshotRequestCopyWithImpl(
       _$_ScreenshotRequest _value, $Res Function(_$_ScreenshotRequest) _then)
-      : super(_value, (v) => _then(v as _$_ScreenshotRequest));
+      : super(_value, _then);
 
-  @override
-  _$_ScreenshotRequest get _value => super._value as _$_ScreenshotRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? width = freezed,
     Object? height = freezed,
     Object? url = freezed,
-    Object? width = freezed,
   }) {
     return _then(_$_ScreenshotRequest(
-      height: height == freezed
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as int?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      width: width == freezed
+      width: freezed == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
               as int?,
+      height: freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -120,10 +122,14 @@ class __$$_ScreenshotRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ScreenshotRequest implements _ScreenshotRequest {
-  const _$_ScreenshotRequest({this.height, this.url, this.width});
+  const _$_ScreenshotRequest({this.width, this.height, this.url});
 
   factory _$_ScreenshotRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ScreenshotRequestFromJson(json);
+
+  /// width of the browser window. optional
+  @override
+  final int? width;
 
   /// height of the browser window, optional
   @override
@@ -131,13 +137,9 @@ class _$_ScreenshotRequest implements _ScreenshotRequest {
   @override
   final String? url;
 
-  /// width of the browser window. optional
-  @override
-  final int? width;
-
   @override
   String toString() {
-    return 'ScreenshotRequest(height: $height, url: $url, width: $width)';
+    return 'ScreenshotRequest(width: $width, height: $height, url: $url)';
   }
 
   @override
@@ -145,21 +147,18 @@ class _$_ScreenshotRequest implements _ScreenshotRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ScreenshotRequest &&
-            const DeepCollectionEquality().equals(other.height, height) &&
-            const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality().equals(other.width, width));
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.height, height) || other.height == height) &&
+            (identical(other.url, url) || other.url == url));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(height),
-      const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(width));
+  int get hashCode => Object.hash(runtimeType, width, height, url);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ScreenshotRequestCopyWith<_$_ScreenshotRequest> get copyWith =>
       __$$_ScreenshotRequestCopyWithImpl<_$_ScreenshotRequest>(
           this, _$identity);
@@ -174,23 +173,23 @@ class _$_ScreenshotRequest implements _ScreenshotRequest {
 
 abstract class _ScreenshotRequest implements ScreenshotRequest {
   const factory _ScreenshotRequest(
-      {final int? height,
-      final String? url,
-      final int? width}) = _$_ScreenshotRequest;
+      {final int? width,
+      final int? height,
+      final String? url}) = _$_ScreenshotRequest;
 
   factory _ScreenshotRequest.fromJson(Map<String, dynamic> json) =
       _$_ScreenshotRequest.fromJson;
 
   @override
 
+  /// width of the browser window. optional
+  int? get width;
+  @override
+
   /// height of the browser window, optional
   int? get height;
   @override
   String? get url;
-  @override
-
-  /// width of the browser window. optional
-  int? get width;
   @override
   @JsonKey(ignore: true)
   _$$_ScreenshotRequestCopyWith<_$_ScreenshotRequest> get copyWith =>
@@ -220,8 +219,8 @@ mixin _$ScreenshotResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? imageURL)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? imageURL)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -239,8 +238,8 @@ mixin _$ScreenshotResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ScreenshotResponseData value)? $default, {
-    TResult Function(ScreenshotResponseMerr value)? Merr,
+    TResult? Function(ScreenshotResponseData value)? $default, {
+    TResult? Function(ScreenshotResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -257,17 +256,18 @@ mixin _$ScreenshotResponse {
 abstract class $ScreenshotResponseCopyWith<$Res> {
   factory $ScreenshotResponseCopyWith(
           ScreenshotResponse value, $Res Function(ScreenshotResponse) then) =
-      _$ScreenshotResponseCopyWithImpl<$Res>;
+      _$ScreenshotResponseCopyWithImpl<$Res, ScreenshotResponse>;
 }
 
 /// @nodoc
-class _$ScreenshotResponseCopyWithImpl<$Res>
+class _$ScreenshotResponseCopyWithImpl<$Res, $Val extends ScreenshotResponse>
     implements $ScreenshotResponseCopyWith<$Res> {
   _$ScreenshotResponseCopyWithImpl(this._value, this._then);
 
-  final ScreenshotResponse _value;
   // ignore: unused_field
-  final $Res Function(ScreenshotResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -275,27 +275,25 @@ abstract class _$$ScreenshotResponseDataCopyWith<$Res> {
   factory _$$ScreenshotResponseDataCopyWith(_$ScreenshotResponseData value,
           $Res Function(_$ScreenshotResponseData) then) =
       __$$ScreenshotResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? imageURL});
 }
 
 /// @nodoc
 class __$$ScreenshotResponseDataCopyWithImpl<$Res>
-    extends _$ScreenshotResponseCopyWithImpl<$Res>
+    extends _$ScreenshotResponseCopyWithImpl<$Res, _$ScreenshotResponseData>
     implements _$$ScreenshotResponseDataCopyWith<$Res> {
   __$$ScreenshotResponseDataCopyWithImpl(_$ScreenshotResponseData _value,
       $Res Function(_$ScreenshotResponseData) _then)
-      : super(_value, (v) => _then(v as _$ScreenshotResponseData));
+      : super(_value, _then);
 
-  @override
-  _$ScreenshotResponseData get _value =>
-      super._value as _$ScreenshotResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? imageURL = freezed,
   }) {
     return _then(_$ScreenshotResponseData(
-      imageURL: imageURL == freezed
+      imageURL: freezed == imageURL
           ? _value.imageURL
           : imageURL // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -328,16 +326,17 @@ class _$ScreenshotResponseData implements ScreenshotResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ScreenshotResponseData &&
-            const DeepCollectionEquality().equals(other.imageURL, imageURL));
+            (identical(other.imageURL, imageURL) ||
+                other.imageURL == imageURL));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(imageURL));
+  int get hashCode => Object.hash(runtimeType, imageURL);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ScreenshotResponseDataCopyWith<_$ScreenshotResponseData> get copyWith =>
       __$$ScreenshotResponseDataCopyWithImpl<_$ScreenshotResponseData>(
           this, _$identity);
@@ -354,8 +353,8 @@ class _$ScreenshotResponseData implements ScreenshotResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? imageURL)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? imageURL)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(imageURL);
   }
@@ -385,8 +384,8 @@ class _$ScreenshotResponseData implements ScreenshotResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ScreenshotResponseData value)? $default, {
-    TResult Function(ScreenshotResponseMerr value)? Merr,
+    TResult? Function(ScreenshotResponseData value)? $default, {
+    TResult? Function(ScreenshotResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -430,27 +429,25 @@ abstract class _$$ScreenshotResponseMerrCopyWith<$Res> {
   factory _$$ScreenshotResponseMerrCopyWith(_$ScreenshotResponseMerr value,
           $Res Function(_$ScreenshotResponseMerr) then) =
       __$$ScreenshotResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$ScreenshotResponseMerrCopyWithImpl<$Res>
-    extends _$ScreenshotResponseCopyWithImpl<$Res>
+    extends _$ScreenshotResponseCopyWithImpl<$Res, _$ScreenshotResponseMerr>
     implements _$$ScreenshotResponseMerrCopyWith<$Res> {
   __$$ScreenshotResponseMerrCopyWithImpl(_$ScreenshotResponseMerr _value,
       $Res Function(_$ScreenshotResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$ScreenshotResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$ScreenshotResponseMerr get _value =>
-      super._value as _$ScreenshotResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$ScreenshotResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -501,6 +498,7 @@ class _$ScreenshotResponseMerr implements ScreenshotResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ScreenshotResponseMerrCopyWith<_$ScreenshotResponseMerr> get copyWith =>
       __$$ScreenshotResponseMerrCopyWithImpl<_$ScreenshotResponseMerr>(
           this, _$identity);
@@ -517,8 +515,8 @@ class _$ScreenshotResponseMerr implements ScreenshotResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? imageURL)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? imageURL)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -548,8 +546,8 @@ class _$ScreenshotResponseMerr implements ScreenshotResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ScreenshotResponseData value)? $default, {
-    TResult Function(ScreenshotResponseMerr value)? Merr,
+    TResult? Function(ScreenshotResponseData value)? $default, {
+    TResult? Function(ScreenshotResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }

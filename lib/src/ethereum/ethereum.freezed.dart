@@ -33,29 +33,32 @@ mixin _$BalanceRequest {
 abstract class $BalanceRequestCopyWith<$Res> {
   factory $BalanceRequestCopyWith(
           BalanceRequest value, $Res Function(BalanceRequest) then) =
-      _$BalanceRequestCopyWithImpl<$Res>;
+      _$BalanceRequestCopyWithImpl<$Res, BalanceRequest>;
+  @useResult
   $Res call({String? address});
 }
 
 /// @nodoc
-class _$BalanceRequestCopyWithImpl<$Res>
+class _$BalanceRequestCopyWithImpl<$Res, $Val extends BalanceRequest>
     implements $BalanceRequestCopyWith<$Res> {
   _$BalanceRequestCopyWithImpl(this._value, this._then);
 
-  final BalanceRequest _value;
   // ignore: unused_field
-  final $Res Function(BalanceRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? address = freezed,
   }) {
     return _then(_value.copyWith(
-      address: address == freezed
+      address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -66,26 +69,25 @@ abstract class _$$_BalanceRequestCopyWith<$Res>
           _$_BalanceRequest value, $Res Function(_$_BalanceRequest) then) =
       __$$_BalanceRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? address});
 }
 
 /// @nodoc
 class __$$_BalanceRequestCopyWithImpl<$Res>
-    extends _$BalanceRequestCopyWithImpl<$Res>
+    extends _$BalanceRequestCopyWithImpl<$Res, _$_BalanceRequest>
     implements _$$_BalanceRequestCopyWith<$Res> {
   __$$_BalanceRequestCopyWithImpl(
       _$_BalanceRequest _value, $Res Function(_$_BalanceRequest) _then)
-      : super(_value, (v) => _then(v as _$_BalanceRequest));
+      : super(_value, _then);
 
-  @override
-  _$_BalanceRequest get _value => super._value as _$_BalanceRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? address = freezed,
   }) {
     return _then(_$_BalanceRequest(
-      address: address == freezed
+      address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -115,16 +117,16 @@ class _$_BalanceRequest implements _BalanceRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_BalanceRequest &&
-            const DeepCollectionEquality().equals(other.address, address));
+            (identical(other.address, address) || other.address == address));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(address));
+  int get hashCode => Object.hash(runtimeType, address);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_BalanceRequestCopyWith<_$_BalanceRequest> get copyWith =>
       __$$_BalanceRequestCopyWithImpl<_$_BalanceRequest>(this, _$identity);
 
@@ -178,11 +180,11 @@ mixin _$BalanceResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
+    TResult? Function(
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? balance)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -203,8 +205,8 @@ mixin _$BalanceResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(BalanceResponseData value)? $default, {
-    TResult Function(BalanceResponseMerr value)? Merr,
+    TResult? Function(BalanceResponseData value)? $default, {
+    TResult? Function(BalanceResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -221,17 +223,18 @@ mixin _$BalanceResponse {
 abstract class $BalanceResponseCopyWith<$Res> {
   factory $BalanceResponseCopyWith(
           BalanceResponse value, $Res Function(BalanceResponse) then) =
-      _$BalanceResponseCopyWithImpl<$Res>;
+      _$BalanceResponseCopyWithImpl<$Res, BalanceResponse>;
 }
 
 /// @nodoc
-class _$BalanceResponseCopyWithImpl<$Res>
+class _$BalanceResponseCopyWithImpl<$Res, $Val extends BalanceResponse>
     implements $BalanceResponseCopyWith<$Res> {
   _$BalanceResponseCopyWithImpl(this._value, this._then);
 
-  final BalanceResponse _value;
   // ignore: unused_field
-  final $Res Function(BalanceResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -239,6 +242,7 @@ abstract class _$$BalanceResponseDataCopyWith<$Res> {
   factory _$$BalanceResponseDataCopyWith(_$BalanceResponseData value,
           $Res Function(_$BalanceResponseData) then) =
       __$$BalanceResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? balance});
@@ -246,21 +250,19 @@ abstract class _$$BalanceResponseDataCopyWith<$Res> {
 
 /// @nodoc
 class __$$BalanceResponseDataCopyWithImpl<$Res>
-    extends _$BalanceResponseCopyWithImpl<$Res>
+    extends _$BalanceResponseCopyWithImpl<$Res, _$BalanceResponseData>
     implements _$$BalanceResponseDataCopyWith<$Res> {
   __$$BalanceResponseDataCopyWithImpl(
       _$BalanceResponseData _value, $Res Function(_$BalanceResponseData) _then)
-      : super(_value, (v) => _then(v as _$BalanceResponseData));
+      : super(_value, _then);
 
-  @override
-  _$BalanceResponseData get _value => super._value as _$BalanceResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? balance = freezed,
   }) {
     return _then(_$BalanceResponseData(
-      balance: balance == freezed
+      balance: freezed == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -297,16 +299,16 @@ class _$BalanceResponseData implements BalanceResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BalanceResponseData &&
-            const DeepCollectionEquality().equals(other.balance, balance));
+            (identical(other.balance, balance) || other.balance == balance));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(balance));
+  int get hashCode => Object.hash(runtimeType, balance);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$BalanceResponseDataCopyWith<_$BalanceResponseData> get copyWith =>
       __$$BalanceResponseDataCopyWithImpl<_$BalanceResponseData>(
           this, _$identity);
@@ -326,11 +328,11 @@ class _$BalanceResponseData implements BalanceResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
+    TResult? Function(
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? balance)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(balance);
   }
@@ -363,8 +365,8 @@ class _$BalanceResponseData implements BalanceResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(BalanceResponseData value)? $default, {
-    TResult Function(BalanceResponseMerr value)? Merr,
+    TResult? Function(BalanceResponseData value)? $default, {
+    TResult? Function(BalanceResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -411,26 +413,25 @@ abstract class _$$BalanceResponseMerrCopyWith<$Res> {
   factory _$$BalanceResponseMerrCopyWith(_$BalanceResponseMerr value,
           $Res Function(_$BalanceResponseMerr) then) =
       __$$BalanceResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$BalanceResponseMerrCopyWithImpl<$Res>
-    extends _$BalanceResponseCopyWithImpl<$Res>
+    extends _$BalanceResponseCopyWithImpl<$Res, _$BalanceResponseMerr>
     implements _$$BalanceResponseMerrCopyWith<$Res> {
   __$$BalanceResponseMerrCopyWithImpl(
       _$BalanceResponseMerr _value, $Res Function(_$BalanceResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$BalanceResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$BalanceResponseMerr get _value => super._value as _$BalanceResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$BalanceResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -481,6 +482,7 @@ class _$BalanceResponseMerr implements BalanceResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$BalanceResponseMerrCopyWith<_$BalanceResponseMerr> get copyWith =>
       __$$BalanceResponseMerrCopyWithImpl<_$BalanceResponseMerr>(
           this, _$identity);
@@ -500,11 +502,11 @@ class _$BalanceResponseMerr implements BalanceResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
+    TResult? Function(
             @JsonKey(fromJson: int64FromString, toJson: int64ToString)
                 int? balance)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -537,8 +539,8 @@ class _$BalanceResponseMerr implements BalanceResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(BalanceResponseData value)? $default, {
-    TResult Function(BalanceResponseMerr value)? Merr,
+    TResult? Function(BalanceResponseData value)? $default, {
+    TResult? Function(BalanceResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -596,29 +598,32 @@ mixin _$BroadcastRequest {
 abstract class $BroadcastRequestCopyWith<$Res> {
   factory $BroadcastRequestCopyWith(
           BroadcastRequest value, $Res Function(BroadcastRequest) then) =
-      _$BroadcastRequestCopyWithImpl<$Res>;
+      _$BroadcastRequestCopyWithImpl<$Res, BroadcastRequest>;
+  @useResult
   $Res call({String? hex});
 }
 
 /// @nodoc
-class _$BroadcastRequestCopyWithImpl<$Res>
+class _$BroadcastRequestCopyWithImpl<$Res, $Val extends BroadcastRequest>
     implements $BroadcastRequestCopyWith<$Res> {
   _$BroadcastRequestCopyWithImpl(this._value, this._then);
 
-  final BroadcastRequest _value;
   // ignore: unused_field
-  final $Res Function(BroadcastRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? hex = freezed,
   }) {
     return _then(_value.copyWith(
-      hex: hex == freezed
+      hex: freezed == hex
           ? _value.hex
           : hex // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -629,26 +634,25 @@ abstract class _$$_BroadcastRequestCopyWith<$Res>
           _$_BroadcastRequest value, $Res Function(_$_BroadcastRequest) then) =
       __$$_BroadcastRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? hex});
 }
 
 /// @nodoc
 class __$$_BroadcastRequestCopyWithImpl<$Res>
-    extends _$BroadcastRequestCopyWithImpl<$Res>
+    extends _$BroadcastRequestCopyWithImpl<$Res, _$_BroadcastRequest>
     implements _$$_BroadcastRequestCopyWith<$Res> {
   __$$_BroadcastRequestCopyWithImpl(
       _$_BroadcastRequest _value, $Res Function(_$_BroadcastRequest) _then)
-      : super(_value, (v) => _then(v as _$_BroadcastRequest));
+      : super(_value, _then);
 
-  @override
-  _$_BroadcastRequest get _value => super._value as _$_BroadcastRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? hex = freezed,
   }) {
     return _then(_$_BroadcastRequest(
-      hex: hex == freezed
+      hex: freezed == hex
           ? _value.hex
           : hex // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -678,16 +682,16 @@ class _$_BroadcastRequest implements _BroadcastRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_BroadcastRequest &&
-            const DeepCollectionEquality().equals(other.hex, hex));
+            (identical(other.hex, hex) || other.hex == hex));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(hex));
+  int get hashCode => Object.hash(runtimeType, hex);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_BroadcastRequestCopyWith<_$_BroadcastRequest> get copyWith =>
       __$$_BroadcastRequestCopyWithImpl<_$_BroadcastRequest>(this, _$identity);
 
@@ -738,8 +742,8 @@ mixin _$BroadcastResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? hash)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? hash)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -757,8 +761,8 @@ mixin _$BroadcastResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(BroadcastResponseData value)? $default, {
-    TResult Function(BroadcastResponseMerr value)? Merr,
+    TResult? Function(BroadcastResponseData value)? $default, {
+    TResult? Function(BroadcastResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -775,17 +779,18 @@ mixin _$BroadcastResponse {
 abstract class $BroadcastResponseCopyWith<$Res> {
   factory $BroadcastResponseCopyWith(
           BroadcastResponse value, $Res Function(BroadcastResponse) then) =
-      _$BroadcastResponseCopyWithImpl<$Res>;
+      _$BroadcastResponseCopyWithImpl<$Res, BroadcastResponse>;
 }
 
 /// @nodoc
-class _$BroadcastResponseCopyWithImpl<$Res>
+class _$BroadcastResponseCopyWithImpl<$Res, $Val extends BroadcastResponse>
     implements $BroadcastResponseCopyWith<$Res> {
   _$BroadcastResponseCopyWithImpl(this._value, this._then);
 
-  final BroadcastResponse _value;
   // ignore: unused_field
-  final $Res Function(BroadcastResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -793,26 +798,25 @@ abstract class _$$BroadcastResponseDataCopyWith<$Res> {
   factory _$$BroadcastResponseDataCopyWith(_$BroadcastResponseData value,
           $Res Function(_$BroadcastResponseData) then) =
       __$$BroadcastResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? hash});
 }
 
 /// @nodoc
 class __$$BroadcastResponseDataCopyWithImpl<$Res>
-    extends _$BroadcastResponseCopyWithImpl<$Res>
+    extends _$BroadcastResponseCopyWithImpl<$Res, _$BroadcastResponseData>
     implements _$$BroadcastResponseDataCopyWith<$Res> {
   __$$BroadcastResponseDataCopyWithImpl(_$BroadcastResponseData _value,
       $Res Function(_$BroadcastResponseData) _then)
-      : super(_value, (v) => _then(v as _$BroadcastResponseData));
+      : super(_value, _then);
 
-  @override
-  _$BroadcastResponseData get _value => super._value as _$BroadcastResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? hash = freezed,
   }) {
     return _then(_$BroadcastResponseData(
-      hash: hash == freezed
+      hash: freezed == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -846,16 +850,16 @@ class _$BroadcastResponseData implements BroadcastResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BroadcastResponseData &&
-            const DeepCollectionEquality().equals(other.hash, hash));
+            (identical(other.hash, hash) || other.hash == hash));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(hash));
+  int get hashCode => Object.hash(runtimeType, hash);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$BroadcastResponseDataCopyWith<_$BroadcastResponseData> get copyWith =>
       __$$BroadcastResponseDataCopyWithImpl<_$BroadcastResponseData>(
           this, _$identity);
@@ -872,8 +876,8 @@ class _$BroadcastResponseData implements BroadcastResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? hash)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? hash)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(hash);
   }
@@ -903,8 +907,8 @@ class _$BroadcastResponseData implements BroadcastResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(BroadcastResponseData value)? $default, {
-    TResult Function(BroadcastResponseMerr value)? Merr,
+    TResult? Function(BroadcastResponseData value)? $default, {
+    TResult? Function(BroadcastResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -949,26 +953,25 @@ abstract class _$$BroadcastResponseMerrCopyWith<$Res> {
   factory _$$BroadcastResponseMerrCopyWith(_$BroadcastResponseMerr value,
           $Res Function(_$BroadcastResponseMerr) then) =
       __$$BroadcastResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$BroadcastResponseMerrCopyWithImpl<$Res>
-    extends _$BroadcastResponseCopyWithImpl<$Res>
+    extends _$BroadcastResponseCopyWithImpl<$Res, _$BroadcastResponseMerr>
     implements _$$BroadcastResponseMerrCopyWith<$Res> {
   __$$BroadcastResponseMerrCopyWithImpl(_$BroadcastResponseMerr _value,
       $Res Function(_$BroadcastResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$BroadcastResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$BroadcastResponseMerr get _value => super._value as _$BroadcastResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$BroadcastResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -1019,6 +1022,7 @@ class _$BroadcastResponseMerr implements BroadcastResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$BroadcastResponseMerrCopyWith<_$BroadcastResponseMerr> get copyWith =>
       __$$BroadcastResponseMerrCopyWithImpl<_$BroadcastResponseMerr>(
           this, _$identity);
@@ -1035,8 +1039,8 @@ class _$BroadcastResponseMerr implements BroadcastResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? hash)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? hash)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -1066,8 +1070,8 @@ class _$BroadcastResponseMerr implements BroadcastResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(BroadcastResponseData value)? $default, {
-    TResult Function(BroadcastResponseMerr value)? Merr,
+    TResult? Function(BroadcastResponseData value)? $default, {
+    TResult? Function(BroadcastResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -1125,29 +1129,32 @@ mixin _$TransactionRequest {
 abstract class $TransactionRequestCopyWith<$Res> {
   factory $TransactionRequestCopyWith(
           TransactionRequest value, $Res Function(TransactionRequest) then) =
-      _$TransactionRequestCopyWithImpl<$Res>;
+      _$TransactionRequestCopyWithImpl<$Res, TransactionRequest>;
+  @useResult
   $Res call({String? hash});
 }
 
 /// @nodoc
-class _$TransactionRequestCopyWithImpl<$Res>
+class _$TransactionRequestCopyWithImpl<$Res, $Val extends TransactionRequest>
     implements $TransactionRequestCopyWith<$Res> {
   _$TransactionRequestCopyWithImpl(this._value, this._then);
 
-  final TransactionRequest _value;
   // ignore: unused_field
-  final $Res Function(TransactionRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? hash = freezed,
   }) {
     return _then(_value.copyWith(
-      hash: hash == freezed
+      hash: freezed == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -1158,26 +1165,25 @@ abstract class _$$_TransactionRequestCopyWith<$Res>
           $Res Function(_$_TransactionRequest) then) =
       __$$_TransactionRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? hash});
 }
 
 /// @nodoc
 class __$$_TransactionRequestCopyWithImpl<$Res>
-    extends _$TransactionRequestCopyWithImpl<$Res>
+    extends _$TransactionRequestCopyWithImpl<$Res, _$_TransactionRequest>
     implements _$$_TransactionRequestCopyWith<$Res> {
   __$$_TransactionRequestCopyWithImpl(
       _$_TransactionRequest _value, $Res Function(_$_TransactionRequest) _then)
-      : super(_value, (v) => _then(v as _$_TransactionRequest));
+      : super(_value, _then);
 
-  @override
-  _$_TransactionRequest get _value => super._value as _$_TransactionRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? hash = freezed,
   }) {
     return _then(_$_TransactionRequest(
-      hash: hash == freezed
+      hash: freezed == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -1207,16 +1213,16 @@ class _$_TransactionRequest implements _TransactionRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TransactionRequest &&
-            const DeepCollectionEquality().equals(other.hash, hash));
+            (identical(other.hash, hash) || other.hash == hash));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(hash));
+  int get hashCode => Object.hash(runtimeType, hash);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TransactionRequestCopyWith<_$_TransactionRequest> get copyWith =>
       __$$_TransactionRequestCopyWithImpl<_$_TransactionRequest>(
           this, _$identity);
@@ -1264,74 +1270,74 @@ mixin _$TransactionResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            String? block_hash,
-            String? gas_price,
-            String? input,
-            String? value,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? to_address,
-            String? type,
-            String? v,
-            String? chain_id,
-            String? gas,
             String? max_priority_fee_per_gas,
-            String? r,
-            String? s,
             String? tx_index,
             String? block_number,
-            String? from_address,
-            String? hash)
+            String? gas,
+            String? hash,
+            String? v,
+            String? value,
+            String? gas_price,
+            String? max_fee_per_gas,
+            String? nonce,
+            String? r,
+            String? type,
+            String? input,
+            String? s,
+            String? to_address,
+            String? block_hash,
+            String? chain_id,
+            String? from_address)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
-            String? block_hash,
-            String? gas_price,
-            String? input,
-            String? value,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? to_address,
-            String? type,
-            String? v,
-            String? chain_id,
-            String? gas,
+    TResult? Function(
             String? max_priority_fee_per_gas,
-            String? r,
-            String? s,
             String? tx_index,
             String? block_number,
-            String? from_address,
-            String? hash)?
+            String? gas,
+            String? hash,
+            String? v,
+            String? value,
+            String? gas_price,
+            String? max_fee_per_gas,
+            String? nonce,
+            String? r,
+            String? type,
+            String? input,
+            String? s,
+            String? to_address,
+            String? block_hash,
+            String? chain_id,
+            String? from_address)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            String? block_hash,
-            String? gas_price,
-            String? input,
-            String? value,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? to_address,
-            String? type,
-            String? v,
-            String? chain_id,
-            String? gas,
             String? max_priority_fee_per_gas,
-            String? r,
-            String? s,
             String? tx_index,
             String? block_number,
-            String? from_address,
-            String? hash)?
+            String? gas,
+            String? hash,
+            String? v,
+            String? value,
+            String? gas_price,
+            String? max_fee_per_gas,
+            String? nonce,
+            String? r,
+            String? type,
+            String? input,
+            String? s,
+            String? to_address,
+            String? block_hash,
+            String? chain_id,
+            String? from_address)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -1345,8 +1351,8 @@ mixin _$TransactionResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(TransactionResponseData value)? $default, {
-    TResult Function(TransactionResponseMerr value)? Merr,
+    TResult? Function(TransactionResponseData value)? $default, {
+    TResult? Function(TransactionResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1363,17 +1369,18 @@ mixin _$TransactionResponse {
 abstract class $TransactionResponseCopyWith<$Res> {
   factory $TransactionResponseCopyWith(
           TransactionResponse value, $Res Function(TransactionResponse) then) =
-      _$TransactionResponseCopyWithImpl<$Res>;
+      _$TransactionResponseCopyWithImpl<$Res, TransactionResponse>;
 }
 
 /// @nodoc
-class _$TransactionResponseCopyWithImpl<$Res>
+class _$TransactionResponseCopyWithImpl<$Res, $Val extends TransactionResponse>
     implements $TransactionResponseCopyWith<$Res> {
   _$TransactionResponseCopyWithImpl(this._value, this._then);
 
-  final TransactionResponse _value;
   // ignore: unused_field
-  final $Res Function(TransactionResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -1381,132 +1388,130 @@ abstract class _$$TransactionResponseDataCopyWith<$Res> {
   factory _$$TransactionResponseDataCopyWith(_$TransactionResponseData value,
           $Res Function(_$TransactionResponseData) then) =
       __$$TransactionResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call(
-      {String? block_hash,
-      String? gas_price,
-      String? input,
-      String? value,
-      String? max_fee_per_gas,
-      String? nonce,
-      String? to_address,
-      String? type,
-      String? v,
-      String? chain_id,
-      String? gas,
-      String? max_priority_fee_per_gas,
-      String? r,
-      String? s,
+      {String? max_priority_fee_per_gas,
       String? tx_index,
       String? block_number,
-      String? from_address,
-      String? hash});
+      String? gas,
+      String? hash,
+      String? v,
+      String? value,
+      String? gas_price,
+      String? max_fee_per_gas,
+      String? nonce,
+      String? r,
+      String? type,
+      String? input,
+      String? s,
+      String? to_address,
+      String? block_hash,
+      String? chain_id,
+      String? from_address});
 }
 
 /// @nodoc
 class __$$TransactionResponseDataCopyWithImpl<$Res>
-    extends _$TransactionResponseCopyWithImpl<$Res>
+    extends _$TransactionResponseCopyWithImpl<$Res, _$TransactionResponseData>
     implements _$$TransactionResponseDataCopyWith<$Res> {
   __$$TransactionResponseDataCopyWithImpl(_$TransactionResponseData _value,
       $Res Function(_$TransactionResponseData) _then)
-      : super(_value, (v) => _then(v as _$TransactionResponseData));
+      : super(_value, _then);
 
-  @override
-  _$TransactionResponseData get _value =>
-      super._value as _$TransactionResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? block_hash = freezed,
-    Object? gas_price = freezed,
-    Object? input = freezed,
-    Object? value = freezed,
-    Object? max_fee_per_gas = freezed,
-    Object? nonce = freezed,
-    Object? to_address = freezed,
-    Object? type = freezed,
-    Object? v = freezed,
-    Object? chain_id = freezed,
-    Object? gas = freezed,
     Object? max_priority_fee_per_gas = freezed,
-    Object? r = freezed,
-    Object? s = freezed,
     Object? tx_index = freezed,
     Object? block_number = freezed,
-    Object? from_address = freezed,
+    Object? gas = freezed,
     Object? hash = freezed,
+    Object? v = freezed,
+    Object? value = freezed,
+    Object? gas_price = freezed,
+    Object? max_fee_per_gas = freezed,
+    Object? nonce = freezed,
+    Object? r = freezed,
+    Object? type = freezed,
+    Object? input = freezed,
+    Object? s = freezed,
+    Object? to_address = freezed,
+    Object? block_hash = freezed,
+    Object? chain_id = freezed,
+    Object? from_address = freezed,
   }) {
     return _then(_$TransactionResponseData(
-      block_hash: block_hash == freezed
-          ? _value.block_hash
-          : block_hash // ignore: cast_nullable_to_non_nullable
-              as String?,
-      gas_price: gas_price == freezed
-          ? _value.gas_price
-          : gas_price // ignore: cast_nullable_to_non_nullable
-              as String?,
-      input: input == freezed
-          ? _value.input
-          : input // ignore: cast_nullable_to_non_nullable
-              as String?,
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String?,
-      max_fee_per_gas: max_fee_per_gas == freezed
-          ? _value.max_fee_per_gas
-          : max_fee_per_gas // ignore: cast_nullable_to_non_nullable
-              as String?,
-      nonce: nonce == freezed
-          ? _value.nonce
-          : nonce // ignore: cast_nullable_to_non_nullable
-              as String?,
-      to_address: to_address == freezed
-          ? _value.to_address
-          : to_address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
-      v: v == freezed
-          ? _value.v
-          : v // ignore: cast_nullable_to_non_nullable
-              as String?,
-      chain_id: chain_id == freezed
-          ? _value.chain_id
-          : chain_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      gas: gas == freezed
-          ? _value.gas
-          : gas // ignore: cast_nullable_to_non_nullable
-              as String?,
-      max_priority_fee_per_gas: max_priority_fee_per_gas == freezed
+      max_priority_fee_per_gas: freezed == max_priority_fee_per_gas
           ? _value.max_priority_fee_per_gas
           : max_priority_fee_per_gas // ignore: cast_nullable_to_non_nullable
               as String?,
-      r: r == freezed
-          ? _value.r
-          : r // ignore: cast_nullable_to_non_nullable
-              as String?,
-      s: s == freezed
-          ? _value.s
-          : s // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tx_index: tx_index == freezed
+      tx_index: freezed == tx_index
           ? _value.tx_index
           : tx_index // ignore: cast_nullable_to_non_nullable
               as String?,
-      block_number: block_number == freezed
+      block_number: freezed == block_number
           ? _value.block_number
           : block_number // ignore: cast_nullable_to_non_nullable
               as String?,
-      from_address: from_address == freezed
-          ? _value.from_address
-          : from_address // ignore: cast_nullable_to_non_nullable
+      gas: freezed == gas
+          ? _value.gas
+          : gas // ignore: cast_nullable_to_non_nullable
               as String?,
-      hash: hash == freezed
+      hash: freezed == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
+              as String?,
+      v: freezed == v
+          ? _value.v
+          : v // ignore: cast_nullable_to_non_nullable
+              as String?,
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String?,
+      gas_price: freezed == gas_price
+          ? _value.gas_price
+          : gas_price // ignore: cast_nullable_to_non_nullable
+              as String?,
+      max_fee_per_gas: freezed == max_fee_per_gas
+          ? _value.max_fee_per_gas
+          : max_fee_per_gas // ignore: cast_nullable_to_non_nullable
+              as String?,
+      nonce: freezed == nonce
+          ? _value.nonce
+          : nonce // ignore: cast_nullable_to_non_nullable
+              as String?,
+      r: freezed == r
+          ? _value.r
+          : r // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      input: freezed == input
+          ? _value.input
+          : input // ignore: cast_nullable_to_non_nullable
+              as String?,
+      s: freezed == s
+          ? _value.s
+          : s // ignore: cast_nullable_to_non_nullable
+              as String?,
+      to_address: freezed == to_address
+          ? _value.to_address
+          : to_address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      block_hash: freezed == block_hash
+          ? _value.block_hash
+          : block_hash // ignore: cast_nullable_to_non_nullable
+              as String?,
+      chain_id: freezed == chain_id
+          ? _value.chain_id
+          : chain_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      from_address: freezed == from_address
+          ? _value.from_address
+          : from_address // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1516,79 +1521,33 @@ class __$$TransactionResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$TransactionResponseData implements TransactionResponseData {
   const _$TransactionResponseData(
-      {this.block_hash,
-      this.gas_price,
-      this.input,
-      this.value,
-      this.max_fee_per_gas,
-      this.nonce,
-      this.to_address,
-      this.type,
-      this.v,
-      this.chain_id,
-      this.gas,
-      this.max_priority_fee_per_gas,
-      this.r,
-      this.s,
+      {this.max_priority_fee_per_gas,
       this.tx_index,
       this.block_number,
-      this.from_address,
+      this.gas,
       this.hash,
+      this.v,
+      this.value,
+      this.gas_price,
+      this.max_fee_per_gas,
+      this.nonce,
+      this.r,
+      this.type,
+      this.input,
+      this.s,
+      this.to_address,
+      this.block_hash,
+      this.chain_id,
+      this.from_address,
       final String? $type})
       : $type = $type ?? 'default';
 
   factory _$TransactionResponseData.fromJson(Map<String, dynamic> json) =>
       _$$TransactionResponseDataFromJson(json);
 
-  /// the block hash
-  @override
-  final String? block_hash;
-
-  /// gas price
-  @override
-  final String? gas_price;
-
-  /// input
-  @override
-  final String? input;
-
-  /// value of transaction
-  @override
-  final String? value;
-
-  /// max fee per gas
-  @override
-  final String? max_fee_per_gas;
-
-  /// the nonce
-  @override
-  final String? nonce;
-
-  /// to address
-  @override
-  final String? to_address;
-
-  /// type of transaction
-  @override
-  final String? type;
-  @override
-  final String? v;
-
-  /// chain id
-  @override
-  final String? chain_id;
-
-  /// gas
-  @override
-  final String? gas;
-
   /// max priority fee per gas
   @override
   final String? max_priority_fee_per_gas;
-  @override
-  final String? r;
-  @override
-  final String? s;
 
   /// transaction index
   @override
@@ -1598,20 +1557,66 @@ class _$TransactionResponseData implements TransactionResponseData {
   @override
   final String? block_number;
 
-  /// sent from
+  /// gas
   @override
-  final String? from_address;
+  final String? gas;
 
   /// tx hash
   @override
   final String? hash;
+  @override
+  final String? v;
+
+  /// value of transaction
+  @override
+  final String? value;
+
+  /// gas price
+  @override
+  final String? gas_price;
+
+  /// max fee per gas
+  @override
+  final String? max_fee_per_gas;
+
+  /// the nonce
+  @override
+  final String? nonce;
+  @override
+  final String? r;
+
+  /// type of transaction
+  @override
+  final String? type;
+
+  /// input
+  @override
+  final String? input;
+  @override
+  final String? s;
+
+  /// to address
+  @override
+  final String? to_address;
+
+  /// the block hash
+  @override
+  final String? block_hash;
+
+  /// chain id
+  @override
+  final String? chain_id;
+
+  /// sent from
+  @override
+  final String? from_address;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'TransactionResponse(block_hash: $block_hash, gas_price: $gas_price, input: $input, value: $value, max_fee_per_gas: $max_fee_per_gas, nonce: $nonce, to_address: $to_address, type: $type, v: $v, chain_id: $chain_id, gas: $gas, max_priority_fee_per_gas: $max_priority_fee_per_gas, r: $r, s: $s, tx_index: $tx_index, block_number: $block_number, from_address: $from_address, hash: $hash)';
+    return 'TransactionResponse(max_priority_fee_per_gas: $max_priority_fee_per_gas, tx_index: $tx_index, block_number: $block_number, gas: $gas, hash: $hash, v: $v, value: $value, gas_price: $gas_price, max_fee_per_gas: $max_fee_per_gas, nonce: $nonce, r: $r, type: $type, input: $input, s: $s, to_address: $to_address, block_hash: $block_hash, chain_id: $chain_id, from_address: $from_address)';
   }
 
   @override
@@ -1619,57 +1624,62 @@ class _$TransactionResponseData implements TransactionResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TransactionResponseData &&
-            const DeepCollectionEquality()
-                .equals(other.block_hash, block_hash) &&
-            const DeepCollectionEquality().equals(other.gas_price, gas_price) &&
-            const DeepCollectionEquality().equals(other.input, input) &&
-            const DeepCollectionEquality().equals(other.value, value) &&
-            const DeepCollectionEquality()
-                .equals(other.max_fee_per_gas, max_fee_per_gas) &&
-            const DeepCollectionEquality().equals(other.nonce, nonce) &&
-            const DeepCollectionEquality()
-                .equals(other.to_address, to_address) &&
-            const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.v, v) &&
-            const DeepCollectionEquality().equals(other.chain_id, chain_id) &&
-            const DeepCollectionEquality().equals(other.gas, gas) &&
-            const DeepCollectionEquality().equals(
-                other.max_priority_fee_per_gas, max_priority_fee_per_gas) &&
-            const DeepCollectionEquality().equals(other.r, r) &&
-            const DeepCollectionEquality().equals(other.s, s) &&
-            const DeepCollectionEquality().equals(other.tx_index, tx_index) &&
-            const DeepCollectionEquality()
-                .equals(other.block_number, block_number) &&
-            const DeepCollectionEquality()
-                .equals(other.from_address, from_address) &&
-            const DeepCollectionEquality().equals(other.hash, hash));
+            (identical(
+                    other.max_priority_fee_per_gas, max_priority_fee_per_gas) ||
+                other.max_priority_fee_per_gas == max_priority_fee_per_gas) &&
+            (identical(other.tx_index, tx_index) ||
+                other.tx_index == tx_index) &&
+            (identical(other.block_number, block_number) ||
+                other.block_number == block_number) &&
+            (identical(other.gas, gas) || other.gas == gas) &&
+            (identical(other.hash, hash) || other.hash == hash) &&
+            (identical(other.v, v) || other.v == v) &&
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.gas_price, gas_price) ||
+                other.gas_price == gas_price) &&
+            (identical(other.max_fee_per_gas, max_fee_per_gas) ||
+                other.max_fee_per_gas == max_fee_per_gas) &&
+            (identical(other.nonce, nonce) || other.nonce == nonce) &&
+            (identical(other.r, r) || other.r == r) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.input, input) || other.input == input) &&
+            (identical(other.s, s) || other.s == s) &&
+            (identical(other.to_address, to_address) ||
+                other.to_address == to_address) &&
+            (identical(other.block_hash, block_hash) ||
+                other.block_hash == block_hash) &&
+            (identical(other.chain_id, chain_id) ||
+                other.chain_id == chain_id) &&
+            (identical(other.from_address, from_address) ||
+                other.from_address == from_address));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(block_hash),
-      const DeepCollectionEquality().hash(gas_price),
-      const DeepCollectionEquality().hash(input),
-      const DeepCollectionEquality().hash(value),
-      const DeepCollectionEquality().hash(max_fee_per_gas),
-      const DeepCollectionEquality().hash(nonce),
-      const DeepCollectionEquality().hash(to_address),
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(v),
-      const DeepCollectionEquality().hash(chain_id),
-      const DeepCollectionEquality().hash(gas),
-      const DeepCollectionEquality().hash(max_priority_fee_per_gas),
-      const DeepCollectionEquality().hash(r),
-      const DeepCollectionEquality().hash(s),
-      const DeepCollectionEquality().hash(tx_index),
-      const DeepCollectionEquality().hash(block_number),
-      const DeepCollectionEquality().hash(from_address),
-      const DeepCollectionEquality().hash(hash));
+      max_priority_fee_per_gas,
+      tx_index,
+      block_number,
+      gas,
+      hash,
+      v,
+      value,
+      gas_price,
+      max_fee_per_gas,
+      nonce,
+      r,
+      type,
+      input,
+      s,
+      to_address,
+      block_hash,
+      chain_id,
+      from_address);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$TransactionResponseDataCopyWith<_$TransactionResponseData> get copyWith =>
       __$$TransactionResponseDataCopyWithImpl<_$TransactionResponseData>(
           this, _$identity);
@@ -1678,140 +1688,140 @@ class _$TransactionResponseData implements TransactionResponseData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            String? block_hash,
-            String? gas_price,
-            String? input,
-            String? value,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? to_address,
-            String? type,
-            String? v,
-            String? chain_id,
-            String? gas,
             String? max_priority_fee_per_gas,
-            String? r,
-            String? s,
             String? tx_index,
             String? block_number,
-            String? from_address,
-            String? hash)
+            String? gas,
+            String? hash,
+            String? v,
+            String? value,
+            String? gas_price,
+            String? max_fee_per_gas,
+            String? nonce,
+            String? r,
+            String? type,
+            String? input,
+            String? s,
+            String? to_address,
+            String? block_hash,
+            String? chain_id,
+            String? from_address)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return $default(
-        block_hash,
-        gas_price,
-        input,
-        value,
-        max_fee_per_gas,
-        nonce,
-        to_address,
-        type,
-        v,
-        chain_id,
-        gas,
         max_priority_fee_per_gas,
-        r,
-        s,
         tx_index,
         block_number,
-        from_address,
-        hash);
+        gas,
+        hash,
+        v,
+        value,
+        gas_price,
+        max_fee_per_gas,
+        nonce,
+        r,
+        type,
+        input,
+        s,
+        to_address,
+        block_hash,
+        chain_id,
+        from_address);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
-            String? block_hash,
-            String? gas_price,
-            String? input,
-            String? value,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? to_address,
-            String? type,
-            String? v,
-            String? chain_id,
-            String? gas,
+    TResult? Function(
             String? max_priority_fee_per_gas,
-            String? r,
-            String? s,
             String? tx_index,
             String? block_number,
-            String? from_address,
-            String? hash)?
+            String? gas,
+            String? hash,
+            String? v,
+            String? value,
+            String? gas_price,
+            String? max_fee_per_gas,
+            String? nonce,
+            String? r,
+            String? type,
+            String? input,
+            String? s,
+            String? to_address,
+            String? block_hash,
+            String? chain_id,
+            String? from_address)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(
-        block_hash,
-        gas_price,
-        input,
-        value,
-        max_fee_per_gas,
-        nonce,
-        to_address,
-        type,
-        v,
-        chain_id,
-        gas,
         max_priority_fee_per_gas,
-        r,
-        s,
         tx_index,
         block_number,
-        from_address,
-        hash);
+        gas,
+        hash,
+        v,
+        value,
+        gas_price,
+        max_fee_per_gas,
+        nonce,
+        r,
+        type,
+        input,
+        s,
+        to_address,
+        block_hash,
+        chain_id,
+        from_address);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            String? block_hash,
-            String? gas_price,
-            String? input,
-            String? value,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? to_address,
-            String? type,
-            String? v,
-            String? chain_id,
-            String? gas,
             String? max_priority_fee_per_gas,
-            String? r,
-            String? s,
             String? tx_index,
             String? block_number,
-            String? from_address,
-            String? hash)?
+            String? gas,
+            String? hash,
+            String? v,
+            String? value,
+            String? gas_price,
+            String? max_fee_per_gas,
+            String? nonce,
+            String? r,
+            String? type,
+            String? input,
+            String? s,
+            String? to_address,
+            String? block_hash,
+            String? chain_id,
+            String? from_address)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
       return $default(
-          block_hash,
-          gas_price,
-          input,
-          value,
-          max_fee_per_gas,
-          nonce,
-          to_address,
-          type,
-          v,
-          chain_id,
-          gas,
           max_priority_fee_per_gas,
-          r,
-          s,
           tx_index,
           block_number,
-          from_address,
-          hash);
+          gas,
+          hash,
+          v,
+          value,
+          gas_price,
+          max_fee_per_gas,
+          nonce,
+          r,
+          type,
+          input,
+          s,
+          to_address,
+          block_hash,
+          chain_id,
+          from_address);
     }
     return orElse();
   }
@@ -1828,8 +1838,8 @@ class _$TransactionResponseData implements TransactionResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(TransactionResponseData value)? $default, {
-    TResult Function(TransactionResponseMerr value)? Merr,
+    TResult? Function(TransactionResponseData value)? $default, {
+    TResult? Function(TransactionResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -1857,63 +1867,30 @@ class _$TransactionResponseData implements TransactionResponseData {
 
 abstract class TransactionResponseData implements TransactionResponse {
   const factory TransactionResponseData(
-      {final String? block_hash,
-      final String? gas_price,
-      final String? input,
-      final String? value,
-      final String? max_fee_per_gas,
-      final String? nonce,
-      final String? to_address,
-      final String? type,
-      final String? v,
-      final String? chain_id,
-      final String? gas,
-      final String? max_priority_fee_per_gas,
-      final String? r,
-      final String? s,
+      {final String? max_priority_fee_per_gas,
       final String? tx_index,
       final String? block_number,
-      final String? from_address,
-      final String? hash}) = _$TransactionResponseData;
+      final String? gas,
+      final String? hash,
+      final String? v,
+      final String? value,
+      final String? gas_price,
+      final String? max_fee_per_gas,
+      final String? nonce,
+      final String? r,
+      final String? type,
+      final String? input,
+      final String? s,
+      final String? to_address,
+      final String? block_hash,
+      final String? chain_id,
+      final String? from_address}) = _$TransactionResponseData;
 
   factory TransactionResponseData.fromJson(Map<String, dynamic> json) =
       _$TransactionResponseData.fromJson;
 
-  /// the block hash
-  String? get block_hash;
-
-  /// gas price
-  String? get gas_price;
-
-  /// input
-  String? get input;
-
-  /// value of transaction
-  String? get value;
-
-  /// max fee per gas
-  String? get max_fee_per_gas;
-
-  /// the nonce
-  String? get nonce;
-
-  /// to address
-  String? get to_address;
-
-  /// type of transaction
-  String? get type;
-  String? get v;
-
-  /// chain id
-  String? get chain_id;
-
-  /// gas
-  String? get gas;
-
   /// max priority fee per gas
   String? get max_priority_fee_per_gas;
-  String? get r;
-  String? get s;
 
   /// transaction index
   String? get tx_index;
@@ -1921,11 +1898,44 @@ abstract class TransactionResponseData implements TransactionResponse {
   /// the block number
   String? get block_number;
 
-  /// sent from
-  String? get from_address;
+  /// gas
+  String? get gas;
 
   /// tx hash
   String? get hash;
+  String? get v;
+
+  /// value of transaction
+  String? get value;
+
+  /// gas price
+  String? get gas_price;
+
+  /// max fee per gas
+  String? get max_fee_per_gas;
+
+  /// the nonce
+  String? get nonce;
+  String? get r;
+
+  /// type of transaction
+  String? get type;
+
+  /// input
+  String? get input;
+  String? get s;
+
+  /// to address
+  String? get to_address;
+
+  /// the block hash
+  String? get block_hash;
+
+  /// chain id
+  String? get chain_id;
+
+  /// sent from
+  String? get from_address;
   @JsonKey(ignore: true)
   _$$TransactionResponseDataCopyWith<_$TransactionResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1936,27 +1946,25 @@ abstract class _$$TransactionResponseMerrCopyWith<$Res> {
   factory _$$TransactionResponseMerrCopyWith(_$TransactionResponseMerr value,
           $Res Function(_$TransactionResponseMerr) then) =
       __$$TransactionResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$TransactionResponseMerrCopyWithImpl<$Res>
-    extends _$TransactionResponseCopyWithImpl<$Res>
+    extends _$TransactionResponseCopyWithImpl<$Res, _$TransactionResponseMerr>
     implements _$$TransactionResponseMerrCopyWith<$Res> {
   __$$TransactionResponseMerrCopyWithImpl(_$TransactionResponseMerr _value,
       $Res Function(_$TransactionResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$TransactionResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$TransactionResponseMerr get _value =>
-      super._value as _$TransactionResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$TransactionResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -2007,6 +2015,7 @@ class _$TransactionResponseMerr implements TransactionResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$TransactionResponseMerrCopyWith<_$TransactionResponseMerr> get copyWith =>
       __$$TransactionResponseMerrCopyWithImpl<_$TransactionResponseMerr>(
           this, _$identity);
@@ -2015,24 +2024,24 @@ class _$TransactionResponseMerr implements TransactionResponseMerr {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            String? block_hash,
-            String? gas_price,
-            String? input,
-            String? value,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? to_address,
-            String? type,
-            String? v,
-            String? chain_id,
-            String? gas,
             String? max_priority_fee_per_gas,
-            String? r,
-            String? s,
             String? tx_index,
             String? block_number,
-            String? from_address,
-            String? hash)
+            String? gas,
+            String? hash,
+            String? v,
+            String? value,
+            String? gas_price,
+            String? max_fee_per_gas,
+            String? nonce,
+            String? r,
+            String? type,
+            String? input,
+            String? s,
+            String? to_address,
+            String? block_hash,
+            String? chain_id,
+            String? from_address)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -2042,27 +2051,27 @@ class _$TransactionResponseMerr implements TransactionResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
-            String? block_hash,
-            String? gas_price,
-            String? input,
-            String? value,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? to_address,
-            String? type,
-            String? v,
-            String? chain_id,
-            String? gas,
+    TResult? Function(
             String? max_priority_fee_per_gas,
-            String? r,
-            String? s,
             String? tx_index,
             String? block_number,
-            String? from_address,
-            String? hash)?
+            String? gas,
+            String? hash,
+            String? v,
+            String? value,
+            String? gas_price,
+            String? max_fee_per_gas,
+            String? nonce,
+            String? r,
+            String? type,
+            String? input,
+            String? s,
+            String? to_address,
+            String? block_hash,
+            String? chain_id,
+            String? from_address)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -2071,24 +2080,24 @@ class _$TransactionResponseMerr implements TransactionResponseMerr {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            String? block_hash,
-            String? gas_price,
-            String? input,
-            String? value,
-            String? max_fee_per_gas,
-            String? nonce,
-            String? to_address,
-            String? type,
-            String? v,
-            String? chain_id,
-            String? gas,
             String? max_priority_fee_per_gas,
-            String? r,
-            String? s,
             String? tx_index,
             String? block_number,
-            String? from_address,
-            String? hash)?
+            String? gas,
+            String? hash,
+            String? v,
+            String? value,
+            String? gas_price,
+            String? max_fee_per_gas,
+            String? nonce,
+            String? r,
+            String? type,
+            String? input,
+            String? s,
+            String? to_address,
+            String? block_hash,
+            String? chain_id,
+            String? from_address)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -2111,8 +2120,8 @@ class _$TransactionResponseMerr implements TransactionResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(TransactionResponseData value)? $default, {
-    TResult Function(TransactionResponseMerr value)? Merr,
+    TResult? Function(TransactionResponseData value)? $default, {
+    TResult? Function(TransactionResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }

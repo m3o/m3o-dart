@@ -20,11 +20,11 @@ JokeInfo _$JokeInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$JokeInfo {
+  String? get body => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
   String? get source => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
-  String? get body => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,53 +35,57 @@ mixin _$JokeInfo {
 /// @nodoc
 abstract class $JokeInfoCopyWith<$Res> {
   factory $JokeInfoCopyWith(JokeInfo value, $Res Function(JokeInfo) then) =
-      _$JokeInfoCopyWithImpl<$Res>;
+      _$JokeInfoCopyWithImpl<$Res, JokeInfo>;
+  @useResult
   $Res call(
-      {String? category,
+      {String? body,
+      String? category,
       String? id,
       String? source,
-      String? title,
-      String? body});
+      String? title});
 }
 
 /// @nodoc
-class _$JokeInfoCopyWithImpl<$Res> implements $JokeInfoCopyWith<$Res> {
+class _$JokeInfoCopyWithImpl<$Res, $Val extends JokeInfo>
+    implements $JokeInfoCopyWith<$Res> {
   _$JokeInfoCopyWithImpl(this._value, this._then);
 
-  final JokeInfo _value;
   // ignore: unused_field
-  final $Res Function(JokeInfo) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? body = freezed,
     Object? category = freezed,
     Object? id = freezed,
     Object? source = freezed,
     Object? title = freezed,
-    Object? body = freezed,
   }) {
     return _then(_value.copyWith(
-      category: category == freezed
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      source: source == freezed
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      body: body == freezed
+      body: freezed == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      source: freezed == source
+          ? _value.source
+          : source // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
   }
 }
 
@@ -91,52 +95,52 @@ abstract class _$$_JokeInfoCopyWith<$Res> implements $JokeInfoCopyWith<$Res> {
           _$_JokeInfo value, $Res Function(_$_JokeInfo) then) =
       __$$_JokeInfoCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
-      {String? category,
+      {String? body,
+      String? category,
       String? id,
       String? source,
-      String? title,
-      String? body});
+      String? title});
 }
 
 /// @nodoc
-class __$$_JokeInfoCopyWithImpl<$Res> extends _$JokeInfoCopyWithImpl<$Res>
+class __$$_JokeInfoCopyWithImpl<$Res>
+    extends _$JokeInfoCopyWithImpl<$Res, _$_JokeInfo>
     implements _$$_JokeInfoCopyWith<$Res> {
   __$$_JokeInfoCopyWithImpl(
       _$_JokeInfo _value, $Res Function(_$_JokeInfo) _then)
-      : super(_value, (v) => _then(v as _$_JokeInfo));
+      : super(_value, _then);
 
-  @override
-  _$_JokeInfo get _value => super._value as _$_JokeInfo;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? body = freezed,
     Object? category = freezed,
     Object? id = freezed,
     Object? source = freezed,
     Object? title = freezed,
-    Object? body = freezed,
   }) {
     return _then(_$_JokeInfo(
-      category: category == freezed
+      body: freezed == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String?,
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      source: source == freezed
+      source: freezed == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: title == freezed
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      body: body == freezed
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -146,11 +150,13 @@ class __$$_JokeInfoCopyWithImpl<$Res> extends _$JokeInfoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_JokeInfo implements _JokeInfo {
   const _$_JokeInfo(
-      {this.category, this.id, this.source, this.title, this.body});
+      {this.body, this.category, this.id, this.source, this.title});
 
   factory _$_JokeInfo.fromJson(Map<String, dynamic> json) =>
       _$$_JokeInfoFromJson(json);
 
+  @override
+  final String? body;
   @override
   final String? category;
   @override
@@ -159,12 +165,10 @@ class _$_JokeInfo implements _JokeInfo {
   final String? source;
   @override
   final String? title;
-  @override
-  final String? body;
 
   @override
   String toString() {
-    return 'JokeInfo(category: $category, id: $id, source: $source, title: $title, body: $body)';
+    return 'JokeInfo(body: $body, category: $category, id: $id, source: $source, title: $title)';
   }
 
   @override
@@ -172,25 +176,22 @@ class _$_JokeInfo implements _JokeInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_JokeInfo &&
-            const DeepCollectionEquality().equals(other.category, category) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.source, source) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.body, body));
+            (identical(other.body, body) || other.body == body) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.source, source) || other.source == source) &&
+            (identical(other.title, title) || other.title == title));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(category),
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(source),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(body));
+  int get hashCode =>
+      Object.hash(runtimeType, body, category, id, source, title);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_JokeInfoCopyWith<_$_JokeInfo> get copyWith =>
       __$$_JokeInfoCopyWithImpl<_$_JokeInfo>(this, _$identity);
 
@@ -204,14 +205,16 @@ class _$_JokeInfo implements _JokeInfo {
 
 abstract class _JokeInfo implements JokeInfo {
   const factory _JokeInfo(
-      {final String? category,
+      {final String? body,
+      final String? category,
       final String? id,
       final String? source,
-      final String? title,
-      final String? body}) = _$_JokeInfo;
+      final String? title}) = _$_JokeInfo;
 
   factory _JokeInfo.fromJson(Map<String, dynamic> json) = _$_JokeInfo.fromJson;
 
+  @override
+  String? get body;
   @override
   String? get category;
   @override
@@ -220,8 +223,6 @@ abstract class _JokeInfo implements JokeInfo {
   String? get source;
   @override
   String? get title;
-  @override
-  String? get body;
   @override
   @JsonKey(ignore: true)
   _$$_JokeInfoCopyWith<_$_JokeInfo> get copyWith =>
@@ -247,29 +248,32 @@ mixin _$RandomRequest {
 abstract class $RandomRequestCopyWith<$Res> {
   factory $RandomRequestCopyWith(
           RandomRequest value, $Res Function(RandomRequest) then) =
-      _$RandomRequestCopyWithImpl<$Res>;
+      _$RandomRequestCopyWithImpl<$Res, RandomRequest>;
+  @useResult
   $Res call({int? count});
 }
 
 /// @nodoc
-class _$RandomRequestCopyWithImpl<$Res>
+class _$RandomRequestCopyWithImpl<$Res, $Val extends RandomRequest>
     implements $RandomRequestCopyWith<$Res> {
   _$RandomRequestCopyWithImpl(this._value, this._then);
 
-  final RandomRequest _value;
   // ignore: unused_field
-  final $Res Function(RandomRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? count = freezed,
   }) {
     return _then(_value.copyWith(
-      count: count == freezed
+      count: freezed == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -280,26 +284,25 @@ abstract class _$$_RandomRequestCopyWith<$Res>
           _$_RandomRequest value, $Res Function(_$_RandomRequest) then) =
       __$$_RandomRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int? count});
 }
 
 /// @nodoc
 class __$$_RandomRequestCopyWithImpl<$Res>
-    extends _$RandomRequestCopyWithImpl<$Res>
+    extends _$RandomRequestCopyWithImpl<$Res, _$_RandomRequest>
     implements _$$_RandomRequestCopyWith<$Res> {
   __$$_RandomRequestCopyWithImpl(
       _$_RandomRequest _value, $Res Function(_$_RandomRequest) _then)
-      : super(_value, (v) => _then(v as _$_RandomRequest));
+      : super(_value, _then);
 
-  @override
-  _$_RandomRequest get _value => super._value as _$_RandomRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? count = freezed,
   }) {
     return _then(_$_RandomRequest(
-      count: count == freezed
+      count: freezed == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -329,16 +332,16 @@ class _$_RandomRequest implements _RandomRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RandomRequest &&
-            const DeepCollectionEquality().equals(other.count, count));
+            (identical(other.count, count) || other.count == count));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(count));
+  int get hashCode => Object.hash(runtimeType, count);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RandomRequestCopyWith<_$_RandomRequest> get copyWith =>
       __$$_RandomRequestCopyWithImpl<_$_RandomRequest>(this, _$identity);
 
@@ -389,8 +392,8 @@ mixin _$RandomResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<JokeInfo>? jokes)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<JokeInfo>? jokes)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -408,8 +411,8 @@ mixin _$RandomResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(RandomResponseData value)? $default, {
-    TResult Function(RandomResponseMerr value)? Merr,
+    TResult? Function(RandomResponseData value)? $default, {
+    TResult? Function(RandomResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -426,17 +429,18 @@ mixin _$RandomResponse {
 abstract class $RandomResponseCopyWith<$Res> {
   factory $RandomResponseCopyWith(
           RandomResponse value, $Res Function(RandomResponse) then) =
-      _$RandomResponseCopyWithImpl<$Res>;
+      _$RandomResponseCopyWithImpl<$Res, RandomResponse>;
 }
 
 /// @nodoc
-class _$RandomResponseCopyWithImpl<$Res>
+class _$RandomResponseCopyWithImpl<$Res, $Val extends RandomResponse>
     implements $RandomResponseCopyWith<$Res> {
   _$RandomResponseCopyWithImpl(this._value, this._then);
 
-  final RandomResponse _value;
   // ignore: unused_field
-  final $Res Function(RandomResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -444,26 +448,25 @@ abstract class _$$RandomResponseDataCopyWith<$Res> {
   factory _$$RandomResponseDataCopyWith(_$RandomResponseData value,
           $Res Function(_$RandomResponseData) then) =
       __$$RandomResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<JokeInfo>? jokes});
 }
 
 /// @nodoc
 class __$$RandomResponseDataCopyWithImpl<$Res>
-    extends _$RandomResponseCopyWithImpl<$Res>
+    extends _$RandomResponseCopyWithImpl<$Res, _$RandomResponseData>
     implements _$$RandomResponseDataCopyWith<$Res> {
   __$$RandomResponseDataCopyWithImpl(
       _$RandomResponseData _value, $Res Function(_$RandomResponseData) _then)
-      : super(_value, (v) => _then(v as _$RandomResponseData));
+      : super(_value, _then);
 
-  @override
-  _$RandomResponseData get _value => super._value as _$RandomResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? jokes = freezed,
   }) {
     return _then(_$RandomResponseData(
-      jokes: jokes == freezed
+      jokes: freezed == jokes
           ? _value._jokes
           : jokes // ignore: cast_nullable_to_non_nullable
               as List<JokeInfo>?,
@@ -513,6 +516,7 @@ class _$RandomResponseData implements RandomResponseData {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$RandomResponseDataCopyWith<_$RandomResponseData> get copyWith =>
       __$$RandomResponseDataCopyWithImpl<_$RandomResponseData>(
           this, _$identity);
@@ -529,8 +533,8 @@ class _$RandomResponseData implements RandomResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<JokeInfo>? jokes)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<JokeInfo>? jokes)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(jokes);
   }
@@ -560,8 +564,8 @@ class _$RandomResponseData implements RandomResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(RandomResponseData value)? $default, {
-    TResult Function(RandomResponseMerr value)? Merr,
+    TResult? Function(RandomResponseData value)? $default, {
+    TResult? Function(RandomResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -605,26 +609,25 @@ abstract class _$$RandomResponseMerrCopyWith<$Res> {
   factory _$$RandomResponseMerrCopyWith(_$RandomResponseMerr value,
           $Res Function(_$RandomResponseMerr) then) =
       __$$RandomResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$RandomResponseMerrCopyWithImpl<$Res>
-    extends _$RandomResponseCopyWithImpl<$Res>
+    extends _$RandomResponseCopyWithImpl<$Res, _$RandomResponseMerr>
     implements _$$RandomResponseMerrCopyWith<$Res> {
   __$$RandomResponseMerrCopyWithImpl(
       _$RandomResponseMerr _value, $Res Function(_$RandomResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$RandomResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$RandomResponseMerr get _value => super._value as _$RandomResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$RandomResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -675,6 +678,7 @@ class _$RandomResponseMerr implements RandomResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$RandomResponseMerrCopyWith<_$RandomResponseMerr> get copyWith =>
       __$$RandomResponseMerrCopyWithImpl<_$RandomResponseMerr>(
           this, _$identity);
@@ -691,8 +695,8 @@ class _$RandomResponseMerr implements RandomResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<JokeInfo>? jokes)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<JokeInfo>? jokes)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -722,8 +726,8 @@ class _$RandomResponseMerr implements RandomResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(RandomResponseData value)? $default, {
-    TResult Function(RandomResponseMerr value)? Merr,
+    TResult? Function(RandomResponseData value)? $default, {
+    TResult? Function(RandomResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }

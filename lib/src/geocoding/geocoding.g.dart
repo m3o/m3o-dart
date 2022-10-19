@@ -7,20 +7,20 @@ part of 'geocoding.dart';
 // **************************************************************************
 
 _$_Address _$$_AddressFromJson(Map<String, dynamic> json) => _$_Address(
+      postcode: json['postcode'] as String?,
+      city: json['city'] as String?,
       country: json['country'] as String?,
       line_one: json['line_one'] as String?,
       line_two: json['line_two'] as String?,
-      postcode: json['postcode'] as String?,
-      city: json['city'] as String?,
     );
 
 Map<String, dynamic> _$$_AddressToJson(_$_Address instance) =>
     <String, dynamic>{
+      'postcode': instance.postcode,
+      'city': instance.city,
       'country': instance.country,
       'line_one': instance.line_one,
       'line_two': instance.line_two,
-      'postcode': instance.postcode,
-      'city': instance.city,
     };
 
 _$_Location _$$_LocationFromJson(Map<String, dynamic> json) => _$_Location(
@@ -52,20 +52,20 @@ Map<String, dynamic> _$$_LookupRequestToJson(_$_LookupRequest instance) =>
 
 _$LookupResponseData _$$LookupResponseDataFromJson(Map<String, dynamic> json) =>
     _$LookupResponseData(
-      address: json['address'] == null
-          ? null
-          : Address.fromJson(json['address'] as Map<String, dynamic>),
       location: json['location'] == null
           ? null
           : Location.fromJson(json['location'] as Map<String, dynamic>),
+      address: json['address'] == null
+          ? null
+          : Address.fromJson(json['address'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$LookupResponseDataToJson(
         _$LookupResponseData instance) =>
     <String, dynamic>{
-      'address': instance.address,
       'location': instance.location,
+      'address': instance.address,
       'runtimeType': instance.$type,
     };
 
@@ -97,20 +97,20 @@ Map<String, dynamic> _$$_ReverseRequestToJson(_$_ReverseRequest instance) =>
 _$ReverseResponseData _$$ReverseResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$ReverseResponseData(
-      location: json['location'] == null
-          ? null
-          : Location.fromJson(json['location'] as Map<String, dynamic>),
       address: json['address'] == null
           ? null
           : Address.fromJson(json['address'] as Map<String, dynamic>),
+      location: json['location'] == null
+          ? null
+          : Location.fromJson(json['location'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ReverseResponseDataToJson(
         _$ReverseResponseData instance) =>
     <String, dynamic>{
-      'location': instance.location,
       'address': instance.address,
+      'location': instance.location,
       'runtimeType': instance.$type,
     };
 

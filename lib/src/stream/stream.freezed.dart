@@ -37,18 +37,22 @@ mixin _$Channel {
 /// @nodoc
 abstract class $ChannelCopyWith<$Res> {
   factory $ChannelCopyWith(Channel value, $Res Function(Channel) then) =
-      _$ChannelCopyWithImpl<$Res>;
+      _$ChannelCopyWithImpl<$Res, Channel>;
+  @useResult
   $Res call({String? description, String? last_active, String? name});
 }
 
 /// @nodoc
-class _$ChannelCopyWithImpl<$Res> implements $ChannelCopyWith<$Res> {
+class _$ChannelCopyWithImpl<$Res, $Val extends Channel>
+    implements $ChannelCopyWith<$Res> {
   _$ChannelCopyWithImpl(this._value, this._then);
 
-  final Channel _value;
   // ignore: unused_field
-  final $Res Function(Channel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? description = freezed,
@@ -56,19 +60,19 @@ class _$ChannelCopyWithImpl<$Res> implements $ChannelCopyWith<$Res> {
     Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      last_active: last_active == freezed
+      last_active: freezed == last_active
           ? _value.last_active
           : last_active // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -78,18 +82,18 @@ abstract class _$$_ChannelCopyWith<$Res> implements $ChannelCopyWith<$Res> {
           _$_Channel value, $Res Function(_$_Channel) then) =
       __$$_ChannelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? description, String? last_active, String? name});
 }
 
 /// @nodoc
-class __$$_ChannelCopyWithImpl<$Res> extends _$ChannelCopyWithImpl<$Res>
+class __$$_ChannelCopyWithImpl<$Res>
+    extends _$ChannelCopyWithImpl<$Res, _$_Channel>
     implements _$$_ChannelCopyWith<$Res> {
   __$$_ChannelCopyWithImpl(_$_Channel _value, $Res Function(_$_Channel) _then)
-      : super(_value, (v) => _then(v as _$_Channel));
+      : super(_value, _then);
 
-  @override
-  _$_Channel get _value => super._value as _$_Channel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? description = freezed,
@@ -97,15 +101,15 @@ class __$$_ChannelCopyWithImpl<$Res> extends _$ChannelCopyWithImpl<$Res>
     Object? name = freezed,
   }) {
     return _then(_$_Channel(
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      last_active: last_active == freezed
+      last_active: freezed == last_active
           ? _value.last_active
           : last_active // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -143,23 +147,20 @@ class _$_Channel implements _Channel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Channel &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality()
-                .equals(other.last_active, last_active) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.last_active, last_active) ||
+                other.last_active == last_active) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(last_active),
-      const DeepCollectionEquality().hash(name));
+  int get hashCode => Object.hash(runtimeType, description, last_active, name);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ChannelCopyWith<_$_Channel> get copyWith =>
       __$$_ChannelCopyWithImpl<_$_Channel>(this, _$identity);
 
@@ -219,34 +220,38 @@ mixin _$CreateChannelRequest {
 abstract class $CreateChannelRequestCopyWith<$Res> {
   factory $CreateChannelRequestCopyWith(CreateChannelRequest value,
           $Res Function(CreateChannelRequest) then) =
-      _$CreateChannelRequestCopyWithImpl<$Res>;
+      _$CreateChannelRequestCopyWithImpl<$Res, CreateChannelRequest>;
+  @useResult
   $Res call({String? description, String? name});
 }
 
 /// @nodoc
-class _$CreateChannelRequestCopyWithImpl<$Res>
+class _$CreateChannelRequestCopyWithImpl<$Res,
+        $Val extends CreateChannelRequest>
     implements $CreateChannelRequestCopyWith<$Res> {
   _$CreateChannelRequestCopyWithImpl(this._value, this._then);
 
-  final CreateChannelRequest _value;
   // ignore: unused_field
-  final $Res Function(CreateChannelRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? description = freezed,
     Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -257,31 +262,30 @@ abstract class _$$_CreateChannelRequestCopyWith<$Res>
           $Res Function(_$_CreateChannelRequest) then) =
       __$$_CreateChannelRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? description, String? name});
 }
 
 /// @nodoc
 class __$$_CreateChannelRequestCopyWithImpl<$Res>
-    extends _$CreateChannelRequestCopyWithImpl<$Res>
+    extends _$CreateChannelRequestCopyWithImpl<$Res, _$_CreateChannelRequest>
     implements _$$_CreateChannelRequestCopyWith<$Res> {
   __$$_CreateChannelRequestCopyWithImpl(_$_CreateChannelRequest _value,
       $Res Function(_$_CreateChannelRequest) _then)
-      : super(_value, (v) => _then(v as _$_CreateChannelRequest));
+      : super(_value, _then);
 
-  @override
-  _$_CreateChannelRequest get _value => super._value as _$_CreateChannelRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? description = freezed,
     Object? name = freezed,
   }) {
     return _then(_$_CreateChannelRequest(
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -315,20 +319,18 @@ class _$_CreateChannelRequest implements _CreateChannelRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateChannelRequest &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(name));
+  int get hashCode => Object.hash(runtimeType, description, name);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CreateChannelRequestCopyWith<_$_CreateChannelRequest> get copyWith =>
       __$$_CreateChannelRequestCopyWithImpl<_$_CreateChannelRequest>(
           this, _$identity);
@@ -390,8 +392,8 @@ mixin _$CreateChannelResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function()? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -409,8 +411,8 @@ mixin _$CreateChannelResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(CreateChannelResponseData value)? $default, {
-    TResult Function(CreateChannelResponseMerr value)? Merr,
+    TResult? Function(CreateChannelResponseData value)? $default, {
+    TResult? Function(CreateChannelResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -427,17 +429,19 @@ mixin _$CreateChannelResponse {
 abstract class $CreateChannelResponseCopyWith<$Res> {
   factory $CreateChannelResponseCopyWith(CreateChannelResponse value,
           $Res Function(CreateChannelResponse) then) =
-      _$CreateChannelResponseCopyWithImpl<$Res>;
+      _$CreateChannelResponseCopyWithImpl<$Res, CreateChannelResponse>;
 }
 
 /// @nodoc
-class _$CreateChannelResponseCopyWithImpl<$Res>
+class _$CreateChannelResponseCopyWithImpl<$Res,
+        $Val extends CreateChannelResponse>
     implements $CreateChannelResponseCopyWith<$Res> {
   _$CreateChannelResponseCopyWithImpl(this._value, this._then);
 
-  final CreateChannelResponse _value;
   // ignore: unused_field
-  final $Res Function(CreateChannelResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -450,15 +454,12 @@ abstract class _$$CreateChannelResponseDataCopyWith<$Res> {
 
 /// @nodoc
 class __$$CreateChannelResponseDataCopyWithImpl<$Res>
-    extends _$CreateChannelResponseCopyWithImpl<$Res>
+    extends _$CreateChannelResponseCopyWithImpl<$Res,
+        _$CreateChannelResponseData>
     implements _$$CreateChannelResponseDataCopyWith<$Res> {
   __$$CreateChannelResponseDataCopyWithImpl(_$CreateChannelResponseData _value,
       $Res Function(_$CreateChannelResponseData) _then)
-      : super(_value, (v) => _then(v as _$CreateChannelResponseData));
-
-  @override
-  _$CreateChannelResponseData get _value =>
-      super._value as _$CreateChannelResponseData;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -501,8 +502,8 @@ class _$CreateChannelResponseData implements CreateChannelResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function()? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call();
   }
@@ -532,8 +533,8 @@ class _$CreateChannelResponseData implements CreateChannelResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(CreateChannelResponseData value)? $default, {
-    TResult Function(CreateChannelResponseMerr value)? Merr,
+    TResult? Function(CreateChannelResponseData value)? $default, {
+    TResult? Function(CreateChannelResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -572,27 +573,26 @@ abstract class _$$CreateChannelResponseMerrCopyWith<$Res> {
           _$CreateChannelResponseMerr value,
           $Res Function(_$CreateChannelResponseMerr) then) =
       __$$CreateChannelResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$CreateChannelResponseMerrCopyWithImpl<$Res>
-    extends _$CreateChannelResponseCopyWithImpl<$Res>
+    extends _$CreateChannelResponseCopyWithImpl<$Res,
+        _$CreateChannelResponseMerr>
     implements _$$CreateChannelResponseMerrCopyWith<$Res> {
   __$$CreateChannelResponseMerrCopyWithImpl(_$CreateChannelResponseMerr _value,
       $Res Function(_$CreateChannelResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$CreateChannelResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$CreateChannelResponseMerr get _value =>
-      super._value as _$CreateChannelResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$CreateChannelResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -643,6 +643,7 @@ class _$CreateChannelResponseMerr implements CreateChannelResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$CreateChannelResponseMerrCopyWith<_$CreateChannelResponseMerr>
       get copyWith => __$$CreateChannelResponseMerrCopyWithImpl<
           _$CreateChannelResponseMerr>(this, _$identity);
@@ -659,8 +660,8 @@ class _$CreateChannelResponseMerr implements CreateChannelResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function()? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -690,8 +691,8 @@ class _$CreateChannelResponseMerr implements CreateChannelResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(CreateChannelResponseData value)? $default, {
-    TResult Function(CreateChannelResponseMerr value)? Merr,
+    TResult? Function(CreateChannelResponseData value)? $default, {
+    TResult? Function(CreateChannelResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -743,17 +744,18 @@ mixin _$ListChannelsRequest {
 abstract class $ListChannelsRequestCopyWith<$Res> {
   factory $ListChannelsRequestCopyWith(
           ListChannelsRequest value, $Res Function(ListChannelsRequest) then) =
-      _$ListChannelsRequestCopyWithImpl<$Res>;
+      _$ListChannelsRequestCopyWithImpl<$Res, ListChannelsRequest>;
 }
 
 /// @nodoc
-class _$ListChannelsRequestCopyWithImpl<$Res>
+class _$ListChannelsRequestCopyWithImpl<$Res, $Val extends ListChannelsRequest>
     implements $ListChannelsRequestCopyWith<$Res> {
   _$ListChannelsRequestCopyWithImpl(this._value, this._then);
 
-  final ListChannelsRequest _value;
   // ignore: unused_field
-  final $Res Function(ListChannelsRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -765,14 +767,11 @@ abstract class _$$_ListChannelsRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ListChannelsRequestCopyWithImpl<$Res>
-    extends _$ListChannelsRequestCopyWithImpl<$Res>
+    extends _$ListChannelsRequestCopyWithImpl<$Res, _$_ListChannelsRequest>
     implements _$$_ListChannelsRequestCopyWith<$Res> {
   __$$_ListChannelsRequestCopyWithImpl(_$_ListChannelsRequest _value,
       $Res Function(_$_ListChannelsRequest) _then)
-      : super(_value, (v) => _then(v as _$_ListChannelsRequest));
-
-  @override
-  _$_ListChannelsRequest get _value => super._value as _$_ListChannelsRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -839,8 +838,8 @@ mixin _$ListChannelsResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Channel>? channels)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Channel>? channels)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -858,8 +857,8 @@ mixin _$ListChannelsResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ListChannelsResponseData value)? $default, {
-    TResult Function(ListChannelsResponseMerr value)? Merr,
+    TResult? Function(ListChannelsResponseData value)? $default, {
+    TResult? Function(ListChannelsResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -876,17 +875,19 @@ mixin _$ListChannelsResponse {
 abstract class $ListChannelsResponseCopyWith<$Res> {
   factory $ListChannelsResponseCopyWith(ListChannelsResponse value,
           $Res Function(ListChannelsResponse) then) =
-      _$ListChannelsResponseCopyWithImpl<$Res>;
+      _$ListChannelsResponseCopyWithImpl<$Res, ListChannelsResponse>;
 }
 
 /// @nodoc
-class _$ListChannelsResponseCopyWithImpl<$Res>
+class _$ListChannelsResponseCopyWithImpl<$Res,
+        $Val extends ListChannelsResponse>
     implements $ListChannelsResponseCopyWith<$Res> {
   _$ListChannelsResponseCopyWithImpl(this._value, this._then);
 
-  final ListChannelsResponse _value;
   // ignore: unused_field
-  final $Res Function(ListChannelsResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -894,27 +895,25 @@ abstract class _$$ListChannelsResponseDataCopyWith<$Res> {
   factory _$$ListChannelsResponseDataCopyWith(_$ListChannelsResponseData value,
           $Res Function(_$ListChannelsResponseData) then) =
       __$$ListChannelsResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Channel>? channels});
 }
 
 /// @nodoc
 class __$$ListChannelsResponseDataCopyWithImpl<$Res>
-    extends _$ListChannelsResponseCopyWithImpl<$Res>
+    extends _$ListChannelsResponseCopyWithImpl<$Res, _$ListChannelsResponseData>
     implements _$$ListChannelsResponseDataCopyWith<$Res> {
   __$$ListChannelsResponseDataCopyWithImpl(_$ListChannelsResponseData _value,
       $Res Function(_$ListChannelsResponseData) _then)
-      : super(_value, (v) => _then(v as _$ListChannelsResponseData));
+      : super(_value, _then);
 
-  @override
-  _$ListChannelsResponseData get _value =>
-      super._value as _$ListChannelsResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? channels = freezed,
   }) {
     return _then(_$ListChannelsResponseData(
-      channels: channels == freezed
+      channels: freezed == channels
           ? _value._channels
           : channels // ignore: cast_nullable_to_non_nullable
               as List<Channel>?,
@@ -965,6 +964,7 @@ class _$ListChannelsResponseData implements ListChannelsResponseData {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ListChannelsResponseDataCopyWith<_$ListChannelsResponseData>
       get copyWith =>
           __$$ListChannelsResponseDataCopyWithImpl<_$ListChannelsResponseData>(
@@ -982,8 +982,8 @@ class _$ListChannelsResponseData implements ListChannelsResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Channel>? channels)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Channel>? channels)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(channels);
   }
@@ -1013,8 +1013,8 @@ class _$ListChannelsResponseData implements ListChannelsResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ListChannelsResponseData value)? $default, {
-    TResult Function(ListChannelsResponseMerr value)? Merr,
+    TResult? Function(ListChannelsResponseData value)? $default, {
+    TResult? Function(ListChannelsResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -1058,27 +1058,25 @@ abstract class _$$ListChannelsResponseMerrCopyWith<$Res> {
   factory _$$ListChannelsResponseMerrCopyWith(_$ListChannelsResponseMerr value,
           $Res Function(_$ListChannelsResponseMerr) then) =
       __$$ListChannelsResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$ListChannelsResponseMerrCopyWithImpl<$Res>
-    extends _$ListChannelsResponseCopyWithImpl<$Res>
+    extends _$ListChannelsResponseCopyWithImpl<$Res, _$ListChannelsResponseMerr>
     implements _$$ListChannelsResponseMerrCopyWith<$Res> {
   __$$ListChannelsResponseMerrCopyWithImpl(_$ListChannelsResponseMerr _value,
       $Res Function(_$ListChannelsResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$ListChannelsResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$ListChannelsResponseMerr get _value =>
-      super._value as _$ListChannelsResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$ListChannelsResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -1129,6 +1127,7 @@ class _$ListChannelsResponseMerr implements ListChannelsResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ListChannelsResponseMerrCopyWith<_$ListChannelsResponseMerr>
       get copyWith =>
           __$$ListChannelsResponseMerrCopyWithImpl<_$ListChannelsResponseMerr>(
@@ -1146,8 +1145,8 @@ class _$ListChannelsResponseMerr implements ListChannelsResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Channel>? channels)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Channel>? channels)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -1177,8 +1176,8 @@ class _$ListChannelsResponseMerr implements ListChannelsResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ListChannelsResponseData value)? $default, {
-    TResult Function(ListChannelsResponseMerr value)? Merr,
+    TResult? Function(ListChannelsResponseData value)? $default, {
+    TResult? Function(ListChannelsResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -1239,34 +1238,37 @@ mixin _$ListMessagesRequest {
 abstract class $ListMessagesRequestCopyWith<$Res> {
   factory $ListMessagesRequestCopyWith(
           ListMessagesRequest value, $Res Function(ListMessagesRequest) then) =
-      _$ListMessagesRequestCopyWithImpl<$Res>;
+      _$ListMessagesRequestCopyWithImpl<$Res, ListMessagesRequest>;
+  @useResult
   $Res call({String? channel, int? limit});
 }
 
 /// @nodoc
-class _$ListMessagesRequestCopyWithImpl<$Res>
+class _$ListMessagesRequestCopyWithImpl<$Res, $Val extends ListMessagesRequest>
     implements $ListMessagesRequestCopyWith<$Res> {
   _$ListMessagesRequestCopyWithImpl(this._value, this._then);
 
-  final ListMessagesRequest _value;
   // ignore: unused_field
-  final $Res Function(ListMessagesRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? channel = freezed,
     Object? limit = freezed,
   }) {
     return _then(_value.copyWith(
-      channel: channel == freezed
+      channel: freezed == channel
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: limit == freezed
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -1277,31 +1279,30 @@ abstract class _$$_ListMessagesRequestCopyWith<$Res>
           $Res Function(_$_ListMessagesRequest) then) =
       __$$_ListMessagesRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? channel, int? limit});
 }
 
 /// @nodoc
 class __$$_ListMessagesRequestCopyWithImpl<$Res>
-    extends _$ListMessagesRequestCopyWithImpl<$Res>
+    extends _$ListMessagesRequestCopyWithImpl<$Res, _$_ListMessagesRequest>
     implements _$$_ListMessagesRequestCopyWith<$Res> {
   __$$_ListMessagesRequestCopyWithImpl(_$_ListMessagesRequest _value,
       $Res Function(_$_ListMessagesRequest) _then)
-      : super(_value, (v) => _then(v as _$_ListMessagesRequest));
+      : super(_value, _then);
 
-  @override
-  _$_ListMessagesRequest get _value => super._value as _$_ListMessagesRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? channel = freezed,
     Object? limit = freezed,
   }) {
     return _then(_$_ListMessagesRequest(
-      channel: channel == freezed
+      channel: freezed == channel
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: limit == freezed
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -1335,19 +1336,17 @@ class _$_ListMessagesRequest implements _ListMessagesRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ListMessagesRequest &&
-            const DeepCollectionEquality().equals(other.channel, channel) &&
-            const DeepCollectionEquality().equals(other.limit, limit));
+            (identical(other.channel, channel) || other.channel == channel) &&
+            (identical(other.limit, limit) || other.limit == limit));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(channel),
-      const DeepCollectionEquality().hash(limit));
+  int get hashCode => Object.hash(runtimeType, channel, limit);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ListMessagesRequestCopyWith<_$_ListMessagesRequest> get copyWith =>
       __$$_ListMessagesRequestCopyWithImpl<_$_ListMessagesRequest>(
           this, _$identity);
@@ -1407,8 +1406,8 @@ mixin _$ListMessagesResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? channel, List<Message>? messages)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? channel, List<Message>? messages)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1426,8 +1425,8 @@ mixin _$ListMessagesResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ListMessagesResponseData value)? $default, {
-    TResult Function(ListMessagesResponseMerr value)? Merr,
+    TResult? Function(ListMessagesResponseData value)? $default, {
+    TResult? Function(ListMessagesResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1444,17 +1443,19 @@ mixin _$ListMessagesResponse {
 abstract class $ListMessagesResponseCopyWith<$Res> {
   factory $ListMessagesResponseCopyWith(ListMessagesResponse value,
           $Res Function(ListMessagesResponse) then) =
-      _$ListMessagesResponseCopyWithImpl<$Res>;
+      _$ListMessagesResponseCopyWithImpl<$Res, ListMessagesResponse>;
 }
 
 /// @nodoc
-class _$ListMessagesResponseCopyWithImpl<$Res>
+class _$ListMessagesResponseCopyWithImpl<$Res,
+        $Val extends ListMessagesResponse>
     implements $ListMessagesResponseCopyWith<$Res> {
   _$ListMessagesResponseCopyWithImpl(this._value, this._then);
 
-  final ListMessagesResponse _value;
   // ignore: unused_field
-  final $Res Function(ListMessagesResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -1462,32 +1463,30 @@ abstract class _$$ListMessagesResponseDataCopyWith<$Res> {
   factory _$$ListMessagesResponseDataCopyWith(_$ListMessagesResponseData value,
           $Res Function(_$ListMessagesResponseData) then) =
       __$$ListMessagesResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? channel, List<Message>? messages});
 }
 
 /// @nodoc
 class __$$ListMessagesResponseDataCopyWithImpl<$Res>
-    extends _$ListMessagesResponseCopyWithImpl<$Res>
+    extends _$ListMessagesResponseCopyWithImpl<$Res, _$ListMessagesResponseData>
     implements _$$ListMessagesResponseDataCopyWith<$Res> {
   __$$ListMessagesResponseDataCopyWithImpl(_$ListMessagesResponseData _value,
       $Res Function(_$ListMessagesResponseData) _then)
-      : super(_value, (v) => _then(v as _$ListMessagesResponseData));
+      : super(_value, _then);
 
-  @override
-  _$ListMessagesResponseData get _value =>
-      super._value as _$ListMessagesResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? channel = freezed,
     Object? messages = freezed,
   }) {
     return _then(_$ListMessagesResponseData(
-      channel: channel == freezed
+      channel: freezed == channel
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
               as String?,
-      messages: messages == freezed
+      messages: freezed == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<Message>?,
@@ -1535,19 +1534,18 @@ class _$ListMessagesResponseData implements ListMessagesResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ListMessagesResponseData &&
-            const DeepCollectionEquality().equals(other.channel, channel) &&
+            (identical(other.channel, channel) || other.channel == channel) &&
             const DeepCollectionEquality().equals(other._messages, _messages));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(channel),
-      const DeepCollectionEquality().hash(_messages));
+      runtimeType, channel, const DeepCollectionEquality().hash(_messages));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ListMessagesResponseDataCopyWith<_$ListMessagesResponseData>
       get copyWith =>
           __$$ListMessagesResponseDataCopyWithImpl<_$ListMessagesResponseData>(
@@ -1565,8 +1563,8 @@ class _$ListMessagesResponseData implements ListMessagesResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? channel, List<Message>? messages)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? channel, List<Message>? messages)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(channel, messages);
   }
@@ -1596,8 +1594,8 @@ class _$ListMessagesResponseData implements ListMessagesResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ListMessagesResponseData value)? $default, {
-    TResult Function(ListMessagesResponseMerr value)? Merr,
+    TResult? Function(ListMessagesResponseData value)? $default, {
+    TResult? Function(ListMessagesResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -1646,27 +1644,25 @@ abstract class _$$ListMessagesResponseMerrCopyWith<$Res> {
   factory _$$ListMessagesResponseMerrCopyWith(_$ListMessagesResponseMerr value,
           $Res Function(_$ListMessagesResponseMerr) then) =
       __$$ListMessagesResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$ListMessagesResponseMerrCopyWithImpl<$Res>
-    extends _$ListMessagesResponseCopyWithImpl<$Res>
+    extends _$ListMessagesResponseCopyWithImpl<$Res, _$ListMessagesResponseMerr>
     implements _$$ListMessagesResponseMerrCopyWith<$Res> {
   __$$ListMessagesResponseMerrCopyWithImpl(_$ListMessagesResponseMerr _value,
       $Res Function(_$ListMessagesResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$ListMessagesResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$ListMessagesResponseMerr get _value =>
-      super._value as _$ListMessagesResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$ListMessagesResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -1717,6 +1713,7 @@ class _$ListMessagesResponseMerr implements ListMessagesResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ListMessagesResponseMerrCopyWith<_$ListMessagesResponseMerr>
       get copyWith =>
           __$$ListMessagesResponseMerrCopyWithImpl<_$ListMessagesResponseMerr>(
@@ -1734,8 +1731,8 @@ class _$ListMessagesResponseMerr implements ListMessagesResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? channel, List<Message>? messages)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? channel, List<Message>? messages)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -1765,8 +1762,8 @@ class _$ListMessagesResponseMerr implements ListMessagesResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ListMessagesResponseData value)? $default, {
-    TResult Function(ListMessagesResponseMerr value)? Merr,
+    TResult? Function(ListMessagesResponseData value)? $default, {
+    TResult? Function(ListMessagesResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -1834,7 +1831,8 @@ mixin _$Message {
 /// @nodoc
 abstract class $MessageCopyWith<$Res> {
   factory $MessageCopyWith(Message value, $Res Function(Message) then) =
-      _$MessageCopyWithImpl<$Res>;
+      _$MessageCopyWithImpl<$Res, Message>;
+  @useResult
   $Res call(
       {String? channel,
       String? id,
@@ -1844,13 +1842,16 @@ abstract class $MessageCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MessageCopyWithImpl<$Res> implements $MessageCopyWith<$Res> {
+class _$MessageCopyWithImpl<$Res, $Val extends Message>
+    implements $MessageCopyWith<$Res> {
   _$MessageCopyWithImpl(this._value, this._then);
 
-  final Message _value;
   // ignore: unused_field
-  final $Res Function(Message) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? channel = freezed,
@@ -1860,27 +1861,27 @@ class _$MessageCopyWithImpl<$Res> implements $MessageCopyWith<$Res> {
     Object? timestamp = freezed,
   }) {
     return _then(_value.copyWith(
-      channel: channel == freezed
+      channel: freezed == channel
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      metadata: metadata == freezed
+      metadata: freezed == metadata
           ? _value.metadata
           : metadata // ignore: cast_nullable_to_non_nullable
               as Map<String, String>?,
-      text: text == freezed
+      text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
-      timestamp: timestamp == freezed
+      timestamp: freezed == timestamp
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -1890,6 +1891,7 @@ abstract class _$$_MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
           _$_Message value, $Res Function(_$_Message) then) =
       __$$_MessageCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? channel,
       String? id,
@@ -1899,14 +1901,13 @@ abstract class _$$_MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_MessageCopyWithImpl<$Res> extends _$MessageCopyWithImpl<$Res>
+class __$$_MessageCopyWithImpl<$Res>
+    extends _$MessageCopyWithImpl<$Res, _$_Message>
     implements _$$_MessageCopyWith<$Res> {
   __$$_MessageCopyWithImpl(_$_Message _value, $Res Function(_$_Message) _then)
-      : super(_value, (v) => _then(v as _$_Message));
+      : super(_value, _then);
 
-  @override
-  _$_Message get _value => super._value as _$_Message;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? channel = freezed,
@@ -1916,23 +1917,23 @@ class __$$_MessageCopyWithImpl<$Res> extends _$MessageCopyWithImpl<$Res>
     Object? timestamp = freezed,
   }) {
     return _then(_$_Message(
-      channel: channel == freezed
+      channel: freezed == channel
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      metadata: metadata == freezed
+      metadata: freezed == metadata
           ? _value._metadata
           : metadata // ignore: cast_nullable_to_non_nullable
               as Map<String, String>?,
-      text: text == freezed
+      text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
-      timestamp: timestamp == freezed
+      timestamp: freezed == timestamp
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -1992,25 +1993,22 @@ class _$_Message implements _Message {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Message &&
-            const DeepCollectionEquality().equals(other.channel, channel) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
+            (identical(other.channel, channel) || other.channel == channel) &&
+            (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality().equals(other._metadata, _metadata) &&
-            const DeepCollectionEquality().equals(other.text, text) &&
-            const DeepCollectionEquality().equals(other.timestamp, timestamp));
+            (identical(other.text, text) || other.text == text) &&
+            (identical(other.timestamp, timestamp) ||
+                other.timestamp == timestamp));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(channel),
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(_metadata),
-      const DeepCollectionEquality().hash(text),
-      const DeepCollectionEquality().hash(timestamp));
+  int get hashCode => Object.hash(runtimeType, channel, id,
+      const DeepCollectionEquality().hash(_metadata), text, timestamp);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MessageCopyWith<_$_Message> get copyWith =>
       __$$_MessageCopyWithImpl<_$_Message>(this, _$identity);
 
@@ -2080,34 +2078,37 @@ mixin _$SendMessageRequest {
 abstract class $SendMessageRequestCopyWith<$Res> {
   factory $SendMessageRequestCopyWith(
           SendMessageRequest value, $Res Function(SendMessageRequest) then) =
-      _$SendMessageRequestCopyWithImpl<$Res>;
+      _$SendMessageRequestCopyWithImpl<$Res, SendMessageRequest>;
+  @useResult
   $Res call({String? channel, String? text});
 }
 
 /// @nodoc
-class _$SendMessageRequestCopyWithImpl<$Res>
+class _$SendMessageRequestCopyWithImpl<$Res, $Val extends SendMessageRequest>
     implements $SendMessageRequestCopyWith<$Res> {
   _$SendMessageRequestCopyWithImpl(this._value, this._then);
 
-  final SendMessageRequest _value;
   // ignore: unused_field
-  final $Res Function(SendMessageRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? channel = freezed,
     Object? text = freezed,
   }) {
     return _then(_value.copyWith(
-      channel: channel == freezed
+      channel: freezed == channel
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
               as String?,
-      text: text == freezed
+      text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -2118,31 +2119,30 @@ abstract class _$$_SendMessageRequestCopyWith<$Res>
           $Res Function(_$_SendMessageRequest) then) =
       __$$_SendMessageRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? channel, String? text});
 }
 
 /// @nodoc
 class __$$_SendMessageRequestCopyWithImpl<$Res>
-    extends _$SendMessageRequestCopyWithImpl<$Res>
+    extends _$SendMessageRequestCopyWithImpl<$Res, _$_SendMessageRequest>
     implements _$$_SendMessageRequestCopyWith<$Res> {
   __$$_SendMessageRequestCopyWithImpl(
       _$_SendMessageRequest _value, $Res Function(_$_SendMessageRequest) _then)
-      : super(_value, (v) => _then(v as _$_SendMessageRequest));
+      : super(_value, _then);
 
-  @override
-  _$_SendMessageRequest get _value => super._value as _$_SendMessageRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? channel = freezed,
     Object? text = freezed,
   }) {
     return _then(_$_SendMessageRequest(
-      channel: channel == freezed
+      channel: freezed == channel
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
               as String?,
-      text: text == freezed
+      text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -2176,19 +2176,17 @@ class _$_SendMessageRequest implements _SendMessageRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SendMessageRequest &&
-            const DeepCollectionEquality().equals(other.channel, channel) &&
-            const DeepCollectionEquality().equals(other.text, text));
+            (identical(other.channel, channel) || other.channel == channel) &&
+            (identical(other.text, text) || other.text == text));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(channel),
-      const DeepCollectionEquality().hash(text));
+  int get hashCode => Object.hash(runtimeType, channel, text);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SendMessageRequestCopyWith<_$_SendMessageRequest> get copyWith =>
       __$$_SendMessageRequestCopyWithImpl<_$_SendMessageRequest>(
           this, _$identity);
@@ -2245,8 +2243,8 @@ mixin _$SendMessageResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function()? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2264,8 +2262,8 @@ mixin _$SendMessageResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(SendMessageResponseData value)? $default, {
-    TResult Function(SendMessageResponseMerr value)? Merr,
+    TResult? Function(SendMessageResponseData value)? $default, {
+    TResult? Function(SendMessageResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2282,17 +2280,18 @@ mixin _$SendMessageResponse {
 abstract class $SendMessageResponseCopyWith<$Res> {
   factory $SendMessageResponseCopyWith(
           SendMessageResponse value, $Res Function(SendMessageResponse) then) =
-      _$SendMessageResponseCopyWithImpl<$Res>;
+      _$SendMessageResponseCopyWithImpl<$Res, SendMessageResponse>;
 }
 
 /// @nodoc
-class _$SendMessageResponseCopyWithImpl<$Res>
+class _$SendMessageResponseCopyWithImpl<$Res, $Val extends SendMessageResponse>
     implements $SendMessageResponseCopyWith<$Res> {
   _$SendMessageResponseCopyWithImpl(this._value, this._then);
 
-  final SendMessageResponse _value;
   // ignore: unused_field
-  final $Res Function(SendMessageResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -2304,15 +2303,11 @@ abstract class _$$SendMessageResponseDataCopyWith<$Res> {
 
 /// @nodoc
 class __$$SendMessageResponseDataCopyWithImpl<$Res>
-    extends _$SendMessageResponseCopyWithImpl<$Res>
+    extends _$SendMessageResponseCopyWithImpl<$Res, _$SendMessageResponseData>
     implements _$$SendMessageResponseDataCopyWith<$Res> {
   __$$SendMessageResponseDataCopyWithImpl(_$SendMessageResponseData _value,
       $Res Function(_$SendMessageResponseData) _then)
-      : super(_value, (v) => _then(v as _$SendMessageResponseData));
-
-  @override
-  _$SendMessageResponseData get _value =>
-      super._value as _$SendMessageResponseData;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -2355,8 +2350,8 @@ class _$SendMessageResponseData implements SendMessageResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function()? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call();
   }
@@ -2386,8 +2381,8 @@ class _$SendMessageResponseData implements SendMessageResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(SendMessageResponseData value)? $default, {
-    TResult Function(SendMessageResponseMerr value)? Merr,
+    TResult? Function(SendMessageResponseData value)? $default, {
+    TResult? Function(SendMessageResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -2425,27 +2420,25 @@ abstract class _$$SendMessageResponseMerrCopyWith<$Res> {
   factory _$$SendMessageResponseMerrCopyWith(_$SendMessageResponseMerr value,
           $Res Function(_$SendMessageResponseMerr) then) =
       __$$SendMessageResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$SendMessageResponseMerrCopyWithImpl<$Res>
-    extends _$SendMessageResponseCopyWithImpl<$Res>
+    extends _$SendMessageResponseCopyWithImpl<$Res, _$SendMessageResponseMerr>
     implements _$$SendMessageResponseMerrCopyWith<$Res> {
   __$$SendMessageResponseMerrCopyWithImpl(_$SendMessageResponseMerr _value,
       $Res Function(_$SendMessageResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$SendMessageResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$SendMessageResponseMerr get _value =>
-      super._value as _$SendMessageResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$SendMessageResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -2496,6 +2489,7 @@ class _$SendMessageResponseMerr implements SendMessageResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$SendMessageResponseMerrCopyWith<_$SendMessageResponseMerr> get copyWith =>
       __$$SendMessageResponseMerrCopyWithImpl<_$SendMessageResponseMerr>(
           this, _$identity);
@@ -2512,8 +2506,8 @@ class _$SendMessageResponseMerr implements SendMessageResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function()? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -2543,8 +2537,8 @@ class _$SendMessageResponseMerr implements SendMessageResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(SendMessageResponseData value)? $default, {
-    TResult Function(SendMessageResponseMerr value)? Merr,
+    TResult? Function(SendMessageResponseData value)? $default, {
+    TResult? Function(SendMessageResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }

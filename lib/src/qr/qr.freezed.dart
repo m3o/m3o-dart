@@ -20,15 +20,15 @@ Code _$CodeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Code {
+  /// time of creation
+  String? get created => throw _privateConstructorUsedError;
+
   /// file name
   String? get file => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
 
   /// text of the QR code
   String? get text => throw _privateConstructorUsedError;
-
-  /// time of creation
-  String? get created => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,43 +38,47 @@ mixin _$Code {
 /// @nodoc
 abstract class $CodeCopyWith<$Res> {
   factory $CodeCopyWith(Code value, $Res Function(Code) then) =
-      _$CodeCopyWithImpl<$Res>;
-  $Res call({String? file, String? id, String? text, String? created});
+      _$CodeCopyWithImpl<$Res, Code>;
+  @useResult
+  $Res call({String? created, String? file, String? id, String? text});
 }
 
 /// @nodoc
-class _$CodeCopyWithImpl<$Res> implements $CodeCopyWith<$Res> {
+class _$CodeCopyWithImpl<$Res, $Val extends Code>
+    implements $CodeCopyWith<$Res> {
   _$CodeCopyWithImpl(this._value, this._then);
 
-  final Code _value;
   // ignore: unused_field
-  final $Res Function(Code) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? created = freezed,
     Object? file = freezed,
     Object? id = freezed,
     Object? text = freezed,
-    Object? created = freezed,
   }) {
     return _then(_value.copyWith(
-      file: file == freezed
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      text: text == freezed
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
-      created: created == freezed
+      created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+      file: freezed == file
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text: freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
   }
 }
 
@@ -83,41 +87,40 @@ abstract class _$$_CodeCopyWith<$Res> implements $CodeCopyWith<$Res> {
   factory _$$_CodeCopyWith(_$_Code value, $Res Function(_$_Code) then) =
       __$$_CodeCopyWithImpl<$Res>;
   @override
-  $Res call({String? file, String? id, String? text, String? created});
+  @useResult
+  $Res call({String? created, String? file, String? id, String? text});
 }
 
 /// @nodoc
-class __$$_CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res>
+class __$$_CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res, _$_Code>
     implements _$$_CodeCopyWith<$Res> {
   __$$_CodeCopyWithImpl(_$_Code _value, $Res Function(_$_Code) _then)
-      : super(_value, (v) => _then(v as _$_Code));
+      : super(_value, _then);
 
-  @override
-  _$_Code get _value => super._value as _$_Code;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? created = freezed,
     Object? file = freezed,
     Object? id = freezed,
     Object? text = freezed,
-    Object? created = freezed,
   }) {
     return _then(_$_Code(
-      file: file == freezed
+      created: freezed == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
+      file: freezed == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      text: text == freezed
+      text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
-              as String?,
-      created: created == freezed
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -126,9 +129,13 @@ class __$$_CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Code implements _Code {
-  const _$_Code({this.file, this.id, this.text, this.created});
+  const _$_Code({this.created, this.file, this.id, this.text});
 
   factory _$_Code.fromJson(Map<String, dynamic> json) => _$$_CodeFromJson(json);
+
+  /// time of creation
+  @override
+  final String? created;
 
   /// file name
   @override
@@ -140,13 +147,9 @@ class _$_Code implements _Code {
   @override
   final String? text;
 
-  /// time of creation
-  @override
-  final String? created;
-
   @override
   String toString() {
-    return 'Code(file: $file, id: $id, text: $text, created: $created)';
+    return 'Code(created: $created, file: $file, id: $id, text: $text)';
   }
 
   @override
@@ -154,23 +157,19 @@ class _$_Code implements _Code {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Code &&
-            const DeepCollectionEquality().equals(other.file, file) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.text, text) &&
-            const DeepCollectionEquality().equals(other.created, created));
+            (identical(other.created, created) || other.created == created) &&
+            (identical(other.file, file) || other.file == file) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.text, text) || other.text == text));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(file),
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(text),
-      const DeepCollectionEquality().hash(created));
+  int get hashCode => Object.hash(runtimeType, created, file, id, text);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CodeCopyWith<_$_Code> get copyWith =>
       __$$_CodeCopyWithImpl<_$_Code>(this, _$identity);
 
@@ -184,13 +183,17 @@ class _$_Code implements _Code {
 
 abstract class _Code implements Code {
   const factory _Code(
-      {final String? file,
+      {final String? created,
+      final String? file,
       final String? id,
-      final String? text,
-      final String? created}) = _$_Code;
+      final String? text}) = _$_Code;
 
   factory _Code.fromJson(Map<String, dynamic> json) = _$_Code.fromJson;
 
+  @override
+
+  /// time of creation
+  String? get created;
   @override
 
   /// file name
@@ -201,10 +204,6 @@ abstract class _Code implements Code {
 
   /// text of the QR code
   String? get text;
-  @override
-
-  /// time of creation
-  String? get created;
   @override
   @JsonKey(ignore: true)
   _$$_CodeCopyWith<_$_Code> get copyWith => throw _privateConstructorUsedError;
@@ -223,16 +222,18 @@ mixin _$CodesRequest {
 abstract class $CodesRequestCopyWith<$Res> {
   factory $CodesRequestCopyWith(
           CodesRequest value, $Res Function(CodesRequest) then) =
-      _$CodesRequestCopyWithImpl<$Res>;
+      _$CodesRequestCopyWithImpl<$Res, CodesRequest>;
 }
 
 /// @nodoc
-class _$CodesRequestCopyWithImpl<$Res> implements $CodesRequestCopyWith<$Res> {
+class _$CodesRequestCopyWithImpl<$Res, $Val extends CodesRequest>
+    implements $CodesRequestCopyWith<$Res> {
   _$CodesRequestCopyWithImpl(this._value, this._then);
 
-  final CodesRequest _value;
   // ignore: unused_field
-  final $Res Function(CodesRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -244,14 +245,11 @@ abstract class _$$_CodesRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_CodesRequestCopyWithImpl<$Res>
-    extends _$CodesRequestCopyWithImpl<$Res>
+    extends _$CodesRequestCopyWithImpl<$Res, _$_CodesRequest>
     implements _$$_CodesRequestCopyWith<$Res> {
   __$$_CodesRequestCopyWithImpl(
       _$_CodesRequest _value, $Res Function(_$_CodesRequest) _then)
-      : super(_value, (v) => _then(v as _$_CodesRequest));
-
-  @override
-  _$_CodesRequest get _value => super._value as _$_CodesRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -315,8 +313,8 @@ mixin _$CodesResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Code>? codes)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Code>? codes)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -334,8 +332,8 @@ mixin _$CodesResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(CodesResponseData value)? $default, {
-    TResult Function(CodesResponseMerr value)? Merr,
+    TResult? Function(CodesResponseData value)? $default, {
+    TResult? Function(CodesResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -352,17 +350,18 @@ mixin _$CodesResponse {
 abstract class $CodesResponseCopyWith<$Res> {
   factory $CodesResponseCopyWith(
           CodesResponse value, $Res Function(CodesResponse) then) =
-      _$CodesResponseCopyWithImpl<$Res>;
+      _$CodesResponseCopyWithImpl<$Res, CodesResponse>;
 }
 
 /// @nodoc
-class _$CodesResponseCopyWithImpl<$Res>
+class _$CodesResponseCopyWithImpl<$Res, $Val extends CodesResponse>
     implements $CodesResponseCopyWith<$Res> {
   _$CodesResponseCopyWithImpl(this._value, this._then);
 
-  final CodesResponse _value;
   // ignore: unused_field
-  final $Res Function(CodesResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -370,26 +369,25 @@ abstract class _$$CodesResponseDataCopyWith<$Res> {
   factory _$$CodesResponseDataCopyWith(
           _$CodesResponseData value, $Res Function(_$CodesResponseData) then) =
       __$$CodesResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Code>? codes});
 }
 
 /// @nodoc
 class __$$CodesResponseDataCopyWithImpl<$Res>
-    extends _$CodesResponseCopyWithImpl<$Res>
+    extends _$CodesResponseCopyWithImpl<$Res, _$CodesResponseData>
     implements _$$CodesResponseDataCopyWith<$Res> {
   __$$CodesResponseDataCopyWithImpl(
       _$CodesResponseData _value, $Res Function(_$CodesResponseData) _then)
-      : super(_value, (v) => _then(v as _$CodesResponseData));
+      : super(_value, _then);
 
-  @override
-  _$CodesResponseData get _value => super._value as _$CodesResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? codes = freezed,
   }) {
     return _then(_$CodesResponseData(
-      codes: codes == freezed
+      codes: freezed == codes
           ? _value._codes
           : codes // ignore: cast_nullable_to_non_nullable
               as List<Code>?,
@@ -439,6 +437,7 @@ class _$CodesResponseData implements CodesResponseData {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$CodesResponseDataCopyWith<_$CodesResponseData> get copyWith =>
       __$$CodesResponseDataCopyWithImpl<_$CodesResponseData>(this, _$identity);
 
@@ -454,8 +453,8 @@ class _$CodesResponseData implements CodesResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Code>? codes)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Code>? codes)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(codes);
   }
@@ -485,8 +484,8 @@ class _$CodesResponseData implements CodesResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(CodesResponseData value)? $default, {
-    TResult Function(CodesResponseMerr value)? Merr,
+    TResult? Function(CodesResponseData value)? $default, {
+    TResult? Function(CodesResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -530,26 +529,25 @@ abstract class _$$CodesResponseMerrCopyWith<$Res> {
   factory _$$CodesResponseMerrCopyWith(
           _$CodesResponseMerr value, $Res Function(_$CodesResponseMerr) then) =
       __$$CodesResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$CodesResponseMerrCopyWithImpl<$Res>
-    extends _$CodesResponseCopyWithImpl<$Res>
+    extends _$CodesResponseCopyWithImpl<$Res, _$CodesResponseMerr>
     implements _$$CodesResponseMerrCopyWith<$Res> {
   __$$CodesResponseMerrCopyWithImpl(
       _$CodesResponseMerr _value, $Res Function(_$CodesResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$CodesResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$CodesResponseMerr get _value => super._value as _$CodesResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$CodesResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -600,6 +598,7 @@ class _$CodesResponseMerr implements CodesResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$CodesResponseMerrCopyWith<_$CodesResponseMerr> get copyWith =>
       __$$CodesResponseMerrCopyWithImpl<_$CodesResponseMerr>(this, _$identity);
 
@@ -615,8 +614,8 @@ class _$CodesResponseMerr implements CodesResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Code>? codes)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Code>? codes)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -646,8 +645,8 @@ class _$CodesResponseMerr implements CodesResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(CodesResponseData value)? $default, {
-    TResult Function(CodesResponseMerr value)? Merr,
+    TResult? Function(CodesResponseData value)? $default, {
+    TResult? Function(CodesResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -709,36 +708,39 @@ mixin _$GenerateRequest {
 abstract class $GenerateRequestCopyWith<$Res> {
   factory $GenerateRequestCopyWith(
           GenerateRequest value, $Res Function(GenerateRequest) then) =
-      _$GenerateRequestCopyWithImpl<$Res>;
+      _$GenerateRequestCopyWithImpl<$Res, GenerateRequest>;
+  @useResult
   $Res call(
       {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
       String? text});
 }
 
 /// @nodoc
-class _$GenerateRequestCopyWithImpl<$Res>
+class _$GenerateRequestCopyWithImpl<$Res, $Val extends GenerateRequest>
     implements $GenerateRequestCopyWith<$Res> {
   _$GenerateRequestCopyWithImpl(this._value, this._then);
 
-  final GenerateRequest _value;
   // ignore: unused_field
-  final $Res Function(GenerateRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? size = freezed,
     Object? text = freezed,
   }) {
     return _then(_value.copyWith(
-      size: size == freezed
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as int?,
-      text: text == freezed
+      text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -749,6 +751,7 @@ abstract class _$$_GenerateRequestCopyWith<$Res>
           _$_GenerateRequest value, $Res Function(_$_GenerateRequest) then) =
       __$$_GenerateRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
       String? text});
@@ -756,26 +759,24 @@ abstract class _$$_GenerateRequestCopyWith<$Res>
 
 /// @nodoc
 class __$$_GenerateRequestCopyWithImpl<$Res>
-    extends _$GenerateRequestCopyWithImpl<$Res>
+    extends _$GenerateRequestCopyWithImpl<$Res, _$_GenerateRequest>
     implements _$$_GenerateRequestCopyWith<$Res> {
   __$$_GenerateRequestCopyWithImpl(
       _$_GenerateRequest _value, $Res Function(_$_GenerateRequest) _then)
-      : super(_value, (v) => _then(v as _$_GenerateRequest));
+      : super(_value, _then);
 
-  @override
-  _$_GenerateRequest get _value => super._value as _$_GenerateRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? size = freezed,
     Object? text = freezed,
   }) {
     return _then(_$_GenerateRequest(
-      size: size == freezed
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as int?,
-      text: text == freezed
+      text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -812,19 +813,17 @@ class _$_GenerateRequest implements _GenerateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GenerateRequest &&
-            const DeepCollectionEquality().equals(other.size, size) &&
-            const DeepCollectionEquality().equals(other.text, text));
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.text, text) || other.text == text));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(size),
-      const DeepCollectionEquality().hash(text));
+  int get hashCode => Object.hash(runtimeType, size, text);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_GenerateRequestCopyWith<_$_GenerateRequest> get copyWith =>
       __$$_GenerateRequestCopyWithImpl<_$_GenerateRequest>(this, _$identity);
 
@@ -883,8 +882,8 @@ mixin _$GenerateResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? qr)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? qr)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -902,8 +901,8 @@ mixin _$GenerateResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(GenerateResponseData value)? $default, {
-    TResult Function(GenerateResponseMerr value)? Merr,
+    TResult? Function(GenerateResponseData value)? $default, {
+    TResult? Function(GenerateResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -920,17 +919,18 @@ mixin _$GenerateResponse {
 abstract class $GenerateResponseCopyWith<$Res> {
   factory $GenerateResponseCopyWith(
           GenerateResponse value, $Res Function(GenerateResponse) then) =
-      _$GenerateResponseCopyWithImpl<$Res>;
+      _$GenerateResponseCopyWithImpl<$Res, GenerateResponse>;
 }
 
 /// @nodoc
-class _$GenerateResponseCopyWithImpl<$Res>
+class _$GenerateResponseCopyWithImpl<$Res, $Val extends GenerateResponse>
     implements $GenerateResponseCopyWith<$Res> {
   _$GenerateResponseCopyWithImpl(this._value, this._then);
 
-  final GenerateResponse _value;
   // ignore: unused_field
-  final $Res Function(GenerateResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -938,26 +938,25 @@ abstract class _$$GenerateResponseDataCopyWith<$Res> {
   factory _$$GenerateResponseDataCopyWith(_$GenerateResponseData value,
           $Res Function(_$GenerateResponseData) then) =
       __$$GenerateResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? qr});
 }
 
 /// @nodoc
 class __$$GenerateResponseDataCopyWithImpl<$Res>
-    extends _$GenerateResponseCopyWithImpl<$Res>
+    extends _$GenerateResponseCopyWithImpl<$Res, _$GenerateResponseData>
     implements _$$GenerateResponseDataCopyWith<$Res> {
   __$$GenerateResponseDataCopyWithImpl(_$GenerateResponseData _value,
       $Res Function(_$GenerateResponseData) _then)
-      : super(_value, (v) => _then(v as _$GenerateResponseData));
+      : super(_value, _then);
 
-  @override
-  _$GenerateResponseData get _value => super._value as _$GenerateResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? qr = freezed,
   }) {
     return _then(_$GenerateResponseData(
-      qr: qr == freezed
+      qr: freezed == qr
           ? _value.qr
           : qr // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -991,16 +990,16 @@ class _$GenerateResponseData implements GenerateResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateResponseData &&
-            const DeepCollectionEquality().equals(other.qr, qr));
+            (identical(other.qr, qr) || other.qr == qr));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(qr));
+  int get hashCode => Object.hash(runtimeType, qr);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$GenerateResponseDataCopyWith<_$GenerateResponseData> get copyWith =>
       __$$GenerateResponseDataCopyWithImpl<_$GenerateResponseData>(
           this, _$identity);
@@ -1017,8 +1016,8 @@ class _$GenerateResponseData implements GenerateResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? qr)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? qr)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(qr);
   }
@@ -1048,8 +1047,8 @@ class _$GenerateResponseData implements GenerateResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(GenerateResponseData value)? $default, {
-    TResult Function(GenerateResponseMerr value)? Merr,
+    TResult? Function(GenerateResponseData value)? $default, {
+    TResult? Function(GenerateResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -1094,26 +1093,25 @@ abstract class _$$GenerateResponseMerrCopyWith<$Res> {
   factory _$$GenerateResponseMerrCopyWith(_$GenerateResponseMerr value,
           $Res Function(_$GenerateResponseMerr) then) =
       __$$GenerateResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$GenerateResponseMerrCopyWithImpl<$Res>
-    extends _$GenerateResponseCopyWithImpl<$Res>
+    extends _$GenerateResponseCopyWithImpl<$Res, _$GenerateResponseMerr>
     implements _$$GenerateResponseMerrCopyWith<$Res> {
   __$$GenerateResponseMerrCopyWithImpl(_$GenerateResponseMerr _value,
       $Res Function(_$GenerateResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$GenerateResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$GenerateResponseMerr get _value => super._value as _$GenerateResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$GenerateResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -1164,6 +1162,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$GenerateResponseMerrCopyWith<_$GenerateResponseMerr> get copyWith =>
       __$$GenerateResponseMerrCopyWithImpl<_$GenerateResponseMerr>(
           this, _$identity);
@@ -1180,8 +1179,8 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? qr)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? qr)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -1211,8 +1210,8 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(GenerateResponseData value)? $default, {
-    TResult Function(GenerateResponseMerr value)? Merr,
+    TResult? Function(GenerateResponseData value)? $default, {
+    TResult? Function(GenerateResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }

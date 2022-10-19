@@ -46,6 +46,9 @@ class PingRequest with _$PingRequest {
 @Freezed()
 class PingResponse with _$PingResponse {
   const factory PingResponse({
+    /// Version of the server
+    String? version,
+
     /// Favicon in base64
     String? favicon,
 
@@ -66,9 +69,6 @@ class PingResponse with _$PingResponse {
 
     /// List of connected players
     List<PlayerSample>? sample,
-
-    /// Version of the server
-    String? version,
   }) = PingResponseData;
   const factory PingResponse.Merr({Map<String, dynamic>? body}) =
       PingResponseMerr;
@@ -79,11 +79,11 @@ class PingResponse with _$PingResponse {
 @Freezed()
 class PlayerSample with _$PlayerSample {
   const factory PlayerSample({
-    /// name of the player
-    String? name,
-
     /// unique id of player
     String? uuid,
+
+    /// name of the player
+    String? name,
   }) = _PlayerSample;
   factory PlayerSample.fromJson(Map<String, dynamic> json) =>
       _$PlayerSampleFromJson(json);

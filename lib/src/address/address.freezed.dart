@@ -34,29 +34,33 @@ mixin _$LookupPostcodeRequest {
 abstract class $LookupPostcodeRequestCopyWith<$Res> {
   factory $LookupPostcodeRequestCopyWith(LookupPostcodeRequest value,
           $Res Function(LookupPostcodeRequest) then) =
-      _$LookupPostcodeRequestCopyWithImpl<$Res>;
+      _$LookupPostcodeRequestCopyWithImpl<$Res, LookupPostcodeRequest>;
+  @useResult
   $Res call({String? postcode});
 }
 
 /// @nodoc
-class _$LookupPostcodeRequestCopyWithImpl<$Res>
+class _$LookupPostcodeRequestCopyWithImpl<$Res,
+        $Val extends LookupPostcodeRequest>
     implements $LookupPostcodeRequestCopyWith<$Res> {
   _$LookupPostcodeRequestCopyWithImpl(this._value, this._then);
 
-  final LookupPostcodeRequest _value;
   // ignore: unused_field
-  final $Res Function(LookupPostcodeRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? postcode = freezed,
   }) {
     return _then(_value.copyWith(
-      postcode: postcode == freezed
+      postcode: freezed == postcode
           ? _value.postcode
           : postcode // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -67,27 +71,25 @@ abstract class _$$_LookupPostcodeRequestCopyWith<$Res>
           $Res Function(_$_LookupPostcodeRequest) then) =
       __$$_LookupPostcodeRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? postcode});
 }
 
 /// @nodoc
 class __$$_LookupPostcodeRequestCopyWithImpl<$Res>
-    extends _$LookupPostcodeRequestCopyWithImpl<$Res>
+    extends _$LookupPostcodeRequestCopyWithImpl<$Res, _$_LookupPostcodeRequest>
     implements _$$_LookupPostcodeRequestCopyWith<$Res> {
   __$$_LookupPostcodeRequestCopyWithImpl(_$_LookupPostcodeRequest _value,
       $Res Function(_$_LookupPostcodeRequest) _then)
-      : super(_value, (v) => _then(v as _$_LookupPostcodeRequest));
+      : super(_value, _then);
 
-  @override
-  _$_LookupPostcodeRequest get _value =>
-      super._value as _$_LookupPostcodeRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? postcode = freezed,
   }) {
     return _then(_$_LookupPostcodeRequest(
-      postcode: postcode == freezed
+      postcode: freezed == postcode
           ? _value.postcode
           : postcode // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -117,16 +119,17 @@ class _$_LookupPostcodeRequest implements _LookupPostcodeRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LookupPostcodeRequest &&
-            const DeepCollectionEquality().equals(other.postcode, postcode));
+            (identical(other.postcode, postcode) ||
+                other.postcode == postcode));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(postcode));
+  int get hashCode => Object.hash(runtimeType, postcode);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LookupPostcodeRequestCopyWith<_$_LookupPostcodeRequest> get copyWith =>
       __$$_LookupPostcodeRequestCopyWithImpl<_$_LookupPostcodeRequest>(
           this, _$identity);
@@ -183,8 +186,8 @@ mixin _$LookupPostcodeResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Record>? addresses)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Record>? addresses)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -202,8 +205,8 @@ mixin _$LookupPostcodeResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(LookupPostcodeResponseData value)? $default, {
-    TResult Function(LookupPostcodeResponseMerr value)? Merr,
+    TResult? Function(LookupPostcodeResponseData value)? $default, {
+    TResult? Function(LookupPostcodeResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -220,17 +223,19 @@ mixin _$LookupPostcodeResponse {
 abstract class $LookupPostcodeResponseCopyWith<$Res> {
   factory $LookupPostcodeResponseCopyWith(LookupPostcodeResponse value,
           $Res Function(LookupPostcodeResponse) then) =
-      _$LookupPostcodeResponseCopyWithImpl<$Res>;
+      _$LookupPostcodeResponseCopyWithImpl<$Res, LookupPostcodeResponse>;
 }
 
 /// @nodoc
-class _$LookupPostcodeResponseCopyWithImpl<$Res>
+class _$LookupPostcodeResponseCopyWithImpl<$Res,
+        $Val extends LookupPostcodeResponse>
     implements $LookupPostcodeResponseCopyWith<$Res> {
   _$LookupPostcodeResponseCopyWithImpl(this._value, this._then);
 
-  final LookupPostcodeResponse _value;
   // ignore: unused_field
-  final $Res Function(LookupPostcodeResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -239,28 +244,27 @@ abstract class _$$LookupPostcodeResponseDataCopyWith<$Res> {
           _$LookupPostcodeResponseData value,
           $Res Function(_$LookupPostcodeResponseData) then) =
       __$$LookupPostcodeResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Record>? addresses});
 }
 
 /// @nodoc
 class __$$LookupPostcodeResponseDataCopyWithImpl<$Res>
-    extends _$LookupPostcodeResponseCopyWithImpl<$Res>
+    extends _$LookupPostcodeResponseCopyWithImpl<$Res,
+        _$LookupPostcodeResponseData>
     implements _$$LookupPostcodeResponseDataCopyWith<$Res> {
   __$$LookupPostcodeResponseDataCopyWithImpl(
       _$LookupPostcodeResponseData _value,
       $Res Function(_$LookupPostcodeResponseData) _then)
-      : super(_value, (v) => _then(v as _$LookupPostcodeResponseData));
+      : super(_value, _then);
 
-  @override
-  _$LookupPostcodeResponseData get _value =>
-      super._value as _$LookupPostcodeResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? addresses = freezed,
   }) {
     return _then(_$LookupPostcodeResponseData(
-      addresses: addresses == freezed
+      addresses: freezed == addresses
           ? _value._addresses
           : addresses // ignore: cast_nullable_to_non_nullable
               as List<Record>?,
@@ -312,6 +316,7 @@ class _$LookupPostcodeResponseData implements LookupPostcodeResponseData {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$LookupPostcodeResponseDataCopyWith<_$LookupPostcodeResponseData>
       get copyWith => __$$LookupPostcodeResponseDataCopyWithImpl<
           _$LookupPostcodeResponseData>(this, _$identity);
@@ -328,8 +333,8 @@ class _$LookupPostcodeResponseData implements LookupPostcodeResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Record>? addresses)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Record>? addresses)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(addresses);
   }
@@ -359,8 +364,8 @@ class _$LookupPostcodeResponseData implements LookupPostcodeResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(LookupPostcodeResponseData value)? $default, {
-    TResult Function(LookupPostcodeResponseMerr value)? Merr,
+    TResult? Function(LookupPostcodeResponseData value)? $default, {
+    TResult? Function(LookupPostcodeResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -405,28 +410,27 @@ abstract class _$$LookupPostcodeResponseMerrCopyWith<$Res> {
           _$LookupPostcodeResponseMerr value,
           $Res Function(_$LookupPostcodeResponseMerr) then) =
       __$$LookupPostcodeResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$LookupPostcodeResponseMerrCopyWithImpl<$Res>
-    extends _$LookupPostcodeResponseCopyWithImpl<$Res>
+    extends _$LookupPostcodeResponseCopyWithImpl<$Res,
+        _$LookupPostcodeResponseMerr>
     implements _$$LookupPostcodeResponseMerrCopyWith<$Res> {
   __$$LookupPostcodeResponseMerrCopyWithImpl(
       _$LookupPostcodeResponseMerr _value,
       $Res Function(_$LookupPostcodeResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$LookupPostcodeResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$LookupPostcodeResponseMerr get _value =>
-      super._value as _$LookupPostcodeResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$LookupPostcodeResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -477,6 +481,7 @@ class _$LookupPostcodeResponseMerr implements LookupPostcodeResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$LookupPostcodeResponseMerrCopyWith<_$LookupPostcodeResponseMerr>
       get copyWith => __$$LookupPostcodeResponseMerrCopyWithImpl<
           _$LookupPostcodeResponseMerr>(this, _$identity);
@@ -493,8 +498,8 @@ class _$LookupPostcodeResponseMerr implements LookupPostcodeResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Record>? addresses)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Record>? addresses)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -524,8 +529,8 @@ class _$LookupPostcodeResponseMerr implements LookupPostcodeResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(LookupPostcodeResponseData value)? $default, {
-    TResult Function(LookupPostcodeResponseMerr value)? Merr,
+    TResult? Function(LookupPostcodeResponseData value)? $default, {
+    TResult? Function(LookupPostcodeResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -570,8 +575,26 @@ Record _$RecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Record {
+  /// organisation if present
+  String? get organisation => throw _privateConstructorUsedError;
+
+  /// the postcode
+  String? get postcode => throw _privateConstructorUsedError;
+
   /// the premise
   String? get premise => throw _privateConstructorUsedError;
+
+  /// post town
+  String? get town => throw _privateConstructorUsedError;
+
+  /// building name
+  String? get building_name => throw _privateConstructorUsedError;
+
+  /// dependent locality
+  String? get locality => throw _privateConstructorUsedError;
+
+  /// line two of address
+  String? get line_two => throw _privateConstructorUsedError;
 
   /// street name
   String? get street => throw _privateConstructorUsedError;
@@ -579,29 +602,11 @@ mixin _$Record {
   /// the complete address
   String? get summary => throw _privateConstructorUsedError;
 
-  /// building name
-  String? get building_name => throw _privateConstructorUsedError;
-
-  /// line one of address
-  String? get line_one => throw _privateConstructorUsedError;
-
-  /// line two of address
-  String? get line_two => throw _privateConstructorUsedError;
-
-  /// dependent locality
-  String? get locality => throw _privateConstructorUsedError;
-
-  /// organisation if present
-  String? get organisation => throw _privateConstructorUsedError;
-
-  /// post town
-  String? get town => throw _privateConstructorUsedError;
-
   /// the county
   String? get county => throw _privateConstructorUsedError;
 
-  /// the postcode
-  String? get postcode => throw _privateConstructorUsedError;
+  /// line one of address
+  String? get line_one => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -611,89 +616,93 @@ mixin _$Record {
 /// @nodoc
 abstract class $RecordCopyWith<$Res> {
   factory $RecordCopyWith(Record value, $Res Function(Record) then) =
-      _$RecordCopyWithImpl<$Res>;
+      _$RecordCopyWithImpl<$Res, Record>;
+  @useResult
   $Res call(
-      {String? premise,
+      {String? organisation,
+      String? postcode,
+      String? premise,
+      String? town,
+      String? building_name,
+      String? locality,
+      String? line_two,
       String? street,
       String? summary,
-      String? building_name,
-      String? line_one,
-      String? line_two,
-      String? locality,
-      String? organisation,
-      String? town,
       String? county,
-      String? postcode});
+      String? line_one});
 }
 
 /// @nodoc
-class _$RecordCopyWithImpl<$Res> implements $RecordCopyWith<$Res> {
+class _$RecordCopyWithImpl<$Res, $Val extends Record>
+    implements $RecordCopyWith<$Res> {
   _$RecordCopyWithImpl(this._value, this._then);
 
-  final Record _value;
   // ignore: unused_field
-  final $Res Function(Record) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? organisation = freezed,
+    Object? postcode = freezed,
     Object? premise = freezed,
+    Object? town = freezed,
+    Object? building_name = freezed,
+    Object? locality = freezed,
+    Object? line_two = freezed,
     Object? street = freezed,
     Object? summary = freezed,
-    Object? building_name = freezed,
-    Object? line_one = freezed,
-    Object? line_two = freezed,
-    Object? locality = freezed,
-    Object? organisation = freezed,
-    Object? town = freezed,
     Object? county = freezed,
-    Object? postcode = freezed,
+    Object? line_one = freezed,
   }) {
     return _then(_value.copyWith(
-      premise: premise == freezed
-          ? _value.premise
-          : premise // ignore: cast_nullable_to_non_nullable
-              as String?,
-      street: street == freezed
-          ? _value.street
-          : street // ignore: cast_nullable_to_non_nullable
-              as String?,
-      summary: summary == freezed
-          ? _value.summary
-          : summary // ignore: cast_nullable_to_non_nullable
-              as String?,
-      building_name: building_name == freezed
-          ? _value.building_name
-          : building_name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      line_one: line_one == freezed
-          ? _value.line_one
-          : line_one // ignore: cast_nullable_to_non_nullable
-              as String?,
-      line_two: line_two == freezed
-          ? _value.line_two
-          : line_two // ignore: cast_nullable_to_non_nullable
-              as String?,
-      locality: locality == freezed
-          ? _value.locality
-          : locality // ignore: cast_nullable_to_non_nullable
-              as String?,
-      organisation: organisation == freezed
+      organisation: freezed == organisation
           ? _value.organisation
           : organisation // ignore: cast_nullable_to_non_nullable
               as String?,
-      town: town == freezed
-          ? _value.town
-          : town // ignore: cast_nullable_to_non_nullable
-              as String?,
-      county: county == freezed
-          ? _value.county
-          : county // ignore: cast_nullable_to_non_nullable
-              as String?,
-      postcode: postcode == freezed
+      postcode: freezed == postcode
           ? _value.postcode
           : postcode // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+      premise: freezed == premise
+          ? _value.premise
+          : premise // ignore: cast_nullable_to_non_nullable
+              as String?,
+      town: freezed == town
+          ? _value.town
+          : town // ignore: cast_nullable_to_non_nullable
+              as String?,
+      building_name: freezed == building_name
+          ? _value.building_name
+          : building_name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      locality: freezed == locality
+          ? _value.locality
+          : locality // ignore: cast_nullable_to_non_nullable
+              as String?,
+      line_two: freezed == line_two
+          ? _value.line_two
+          : line_two // ignore: cast_nullable_to_non_nullable
+              as String?,
+      street: freezed == street
+          ? _value.street
+          : street // ignore: cast_nullable_to_non_nullable
+              as String?,
+      summary: freezed == summary
+          ? _value.summary
+          : summary // ignore: cast_nullable_to_non_nullable
+              as String?,
+      county: freezed == county
+          ? _value.county
+          : county // ignore: cast_nullable_to_non_nullable
+              as String?,
+      line_one: freezed == line_one
+          ? _value.line_one
+          : line_one // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
   }
 }
 
@@ -702,87 +711,87 @@ abstract class _$$_RecordCopyWith<$Res> implements $RecordCopyWith<$Res> {
   factory _$$_RecordCopyWith(_$_Record value, $Res Function(_$_Record) then) =
       __$$_RecordCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
-      {String? premise,
+      {String? organisation,
+      String? postcode,
+      String? premise,
+      String? town,
+      String? building_name,
+      String? locality,
+      String? line_two,
       String? street,
       String? summary,
-      String? building_name,
-      String? line_one,
-      String? line_two,
-      String? locality,
-      String? organisation,
-      String? town,
       String? county,
-      String? postcode});
+      String? line_one});
 }
 
 /// @nodoc
-class __$$_RecordCopyWithImpl<$Res> extends _$RecordCopyWithImpl<$Res>
+class __$$_RecordCopyWithImpl<$Res>
+    extends _$RecordCopyWithImpl<$Res, _$_Record>
     implements _$$_RecordCopyWith<$Res> {
   __$$_RecordCopyWithImpl(_$_Record _value, $Res Function(_$_Record) _then)
-      : super(_value, (v) => _then(v as _$_Record));
+      : super(_value, _then);
 
-  @override
-  _$_Record get _value => super._value as _$_Record;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? organisation = freezed,
+    Object? postcode = freezed,
     Object? premise = freezed,
+    Object? town = freezed,
+    Object? building_name = freezed,
+    Object? locality = freezed,
+    Object? line_two = freezed,
     Object? street = freezed,
     Object? summary = freezed,
-    Object? building_name = freezed,
-    Object? line_one = freezed,
-    Object? line_two = freezed,
-    Object? locality = freezed,
-    Object? organisation = freezed,
-    Object? town = freezed,
     Object? county = freezed,
-    Object? postcode = freezed,
+    Object? line_one = freezed,
   }) {
     return _then(_$_Record(
-      premise: premise == freezed
-          ? _value.premise
-          : premise // ignore: cast_nullable_to_non_nullable
-              as String?,
-      street: street == freezed
-          ? _value.street
-          : street // ignore: cast_nullable_to_non_nullable
-              as String?,
-      summary: summary == freezed
-          ? _value.summary
-          : summary // ignore: cast_nullable_to_non_nullable
-              as String?,
-      building_name: building_name == freezed
-          ? _value.building_name
-          : building_name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      line_one: line_one == freezed
-          ? _value.line_one
-          : line_one // ignore: cast_nullable_to_non_nullable
-              as String?,
-      line_two: line_two == freezed
-          ? _value.line_two
-          : line_two // ignore: cast_nullable_to_non_nullable
-              as String?,
-      locality: locality == freezed
-          ? _value.locality
-          : locality // ignore: cast_nullable_to_non_nullable
-              as String?,
-      organisation: organisation == freezed
+      organisation: freezed == organisation
           ? _value.organisation
           : organisation // ignore: cast_nullable_to_non_nullable
               as String?,
-      town: town == freezed
+      postcode: freezed == postcode
+          ? _value.postcode
+          : postcode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      premise: freezed == premise
+          ? _value.premise
+          : premise // ignore: cast_nullable_to_non_nullable
+              as String?,
+      town: freezed == town
           ? _value.town
           : town // ignore: cast_nullable_to_non_nullable
               as String?,
-      county: county == freezed
+      building_name: freezed == building_name
+          ? _value.building_name
+          : building_name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      locality: freezed == locality
+          ? _value.locality
+          : locality // ignore: cast_nullable_to_non_nullable
+              as String?,
+      line_two: freezed == line_two
+          ? _value.line_two
+          : line_two // ignore: cast_nullable_to_non_nullable
+              as String?,
+      street: freezed == street
+          ? _value.street
+          : street // ignore: cast_nullable_to_non_nullable
+              as String?,
+      summary: freezed == summary
+          ? _value.summary
+          : summary // ignore: cast_nullable_to_non_nullable
+              as String?,
+      county: freezed == county
           ? _value.county
           : county // ignore: cast_nullable_to_non_nullable
               as String?,
-      postcode: postcode == freezed
-          ? _value.postcode
-          : postcode // ignore: cast_nullable_to_non_nullable
+      line_one: freezed == line_one
+          ? _value.line_one
+          : line_one // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -792,24 +801,48 @@ class __$$_RecordCopyWithImpl<$Res> extends _$RecordCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Record implements _Record {
   const _$_Record(
-      {this.premise,
+      {this.organisation,
+      this.postcode,
+      this.premise,
+      this.town,
+      this.building_name,
+      this.locality,
+      this.line_two,
       this.street,
       this.summary,
-      this.building_name,
-      this.line_one,
-      this.line_two,
-      this.locality,
-      this.organisation,
-      this.town,
       this.county,
-      this.postcode});
+      this.line_one});
 
   factory _$_Record.fromJson(Map<String, dynamic> json) =>
       _$$_RecordFromJson(json);
 
+  /// organisation if present
+  @override
+  final String? organisation;
+
+  /// the postcode
+  @override
+  final String? postcode;
+
   /// the premise
   @override
   final String? premise;
+
+  /// post town
+  @override
+  final String? town;
+
+  /// building name
+  @override
+  final String? building_name;
+
+  /// dependent locality
+  @override
+  final String? locality;
+
+  /// line two of address
+  @override
+  final String? line_two;
 
   /// street name
   @override
@@ -819,41 +852,17 @@ class _$_Record implements _Record {
   @override
   final String? summary;
 
-  /// building name
+  /// the county
   @override
-  final String? building_name;
+  final String? county;
 
   /// line one of address
   @override
   final String? line_one;
 
-  /// line two of address
-  @override
-  final String? line_two;
-
-  /// dependent locality
-  @override
-  final String? locality;
-
-  /// organisation if present
-  @override
-  final String? organisation;
-
-  /// post town
-  @override
-  final String? town;
-
-  /// the county
-  @override
-  final String? county;
-
-  /// the postcode
-  @override
-  final String? postcode;
-
   @override
   String toString() {
-    return 'Record(premise: $premise, street: $street, summary: $summary, building_name: $building_name, line_one: $line_one, line_two: $line_two, locality: $locality, organisation: $organisation, town: $town, county: $county, postcode: $postcode)';
+    return 'Record(organisation: $organisation, postcode: $postcode, premise: $premise, town: $town, building_name: $building_name, locality: $locality, line_two: $line_two, street: $street, summary: $summary, county: $county, line_one: $line_one)';
   }
 
   @override
@@ -861,39 +870,44 @@ class _$_Record implements _Record {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Record &&
-            const DeepCollectionEquality().equals(other.premise, premise) &&
-            const DeepCollectionEquality().equals(other.street, street) &&
-            const DeepCollectionEquality().equals(other.summary, summary) &&
-            const DeepCollectionEquality()
-                .equals(other.building_name, building_name) &&
-            const DeepCollectionEquality().equals(other.line_one, line_one) &&
-            const DeepCollectionEquality().equals(other.line_two, line_two) &&
-            const DeepCollectionEquality().equals(other.locality, locality) &&
-            const DeepCollectionEquality()
-                .equals(other.organisation, organisation) &&
-            const DeepCollectionEquality().equals(other.town, town) &&
-            const DeepCollectionEquality().equals(other.county, county) &&
-            const DeepCollectionEquality().equals(other.postcode, postcode));
+            (identical(other.organisation, organisation) ||
+                other.organisation == organisation) &&
+            (identical(other.postcode, postcode) ||
+                other.postcode == postcode) &&
+            (identical(other.premise, premise) || other.premise == premise) &&
+            (identical(other.town, town) || other.town == town) &&
+            (identical(other.building_name, building_name) ||
+                other.building_name == building_name) &&
+            (identical(other.locality, locality) ||
+                other.locality == locality) &&
+            (identical(other.line_two, line_two) ||
+                other.line_two == line_two) &&
+            (identical(other.street, street) || other.street == street) &&
+            (identical(other.summary, summary) || other.summary == summary) &&
+            (identical(other.county, county) || other.county == county) &&
+            (identical(other.line_one, line_one) ||
+                other.line_one == line_one));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(premise),
-      const DeepCollectionEquality().hash(street),
-      const DeepCollectionEquality().hash(summary),
-      const DeepCollectionEquality().hash(building_name),
-      const DeepCollectionEquality().hash(line_one),
-      const DeepCollectionEquality().hash(line_two),
-      const DeepCollectionEquality().hash(locality),
-      const DeepCollectionEquality().hash(organisation),
-      const DeepCollectionEquality().hash(town),
-      const DeepCollectionEquality().hash(county),
-      const DeepCollectionEquality().hash(postcode));
+      organisation,
+      postcode,
+      premise,
+      town,
+      building_name,
+      locality,
+      line_two,
+      street,
+      summary,
+      county,
+      line_one);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RecordCopyWith<_$_Record> get copyWith =>
       __$$_RecordCopyWithImpl<_$_Record>(this, _$identity);
 
@@ -907,24 +921,48 @@ class _$_Record implements _Record {
 
 abstract class _Record implements Record {
   const factory _Record(
-      {final String? premise,
+      {final String? organisation,
+      final String? postcode,
+      final String? premise,
+      final String? town,
+      final String? building_name,
+      final String? locality,
+      final String? line_two,
       final String? street,
       final String? summary,
-      final String? building_name,
-      final String? line_one,
-      final String? line_two,
-      final String? locality,
-      final String? organisation,
-      final String? town,
       final String? county,
-      final String? postcode}) = _$_Record;
+      final String? line_one}) = _$_Record;
 
   factory _Record.fromJson(Map<String, dynamic> json) = _$_Record.fromJson;
 
   @override
 
+  /// organisation if present
+  String? get organisation;
+  @override
+
+  /// the postcode
+  String? get postcode;
+  @override
+
   /// the premise
   String? get premise;
+  @override
+
+  /// post town
+  String? get town;
+  @override
+
+  /// building name
+  String? get building_name;
+  @override
+
+  /// dependent locality
+  String? get locality;
+  @override
+
+  /// line two of address
+  String? get line_two;
   @override
 
   /// street name
@@ -935,36 +973,12 @@ abstract class _Record implements Record {
   String? get summary;
   @override
 
-  /// building name
-  String? get building_name;
-  @override
-
-  /// line one of address
-  String? get line_one;
-  @override
-
-  /// line two of address
-  String? get line_two;
-  @override
-
-  /// dependent locality
-  String? get locality;
-  @override
-
-  /// organisation if present
-  String? get organisation;
-  @override
-
-  /// post town
-  String? get town;
-  @override
-
   /// the county
   String? get county;
   @override
 
-  /// the postcode
-  String? get postcode;
+  /// line one of address
+  String? get line_one;
   @override
   @JsonKey(ignore: true)
   _$$_RecordCopyWith<_$_Record> get copyWith =>

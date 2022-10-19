@@ -33,28 +33,32 @@ mixin _$EmbedRequest {
 abstract class $EmbedRequestCopyWith<$Res> {
   factory $EmbedRequestCopyWith(
           EmbedRequest value, $Res Function(EmbedRequest) then) =
-      _$EmbedRequestCopyWithImpl<$Res>;
+      _$EmbedRequestCopyWithImpl<$Res, EmbedRequest>;
+  @useResult
   $Res call({String? url});
 }
 
 /// @nodoc
-class _$EmbedRequestCopyWithImpl<$Res> implements $EmbedRequestCopyWith<$Res> {
+class _$EmbedRequestCopyWithImpl<$Res, $Val extends EmbedRequest>
+    implements $EmbedRequestCopyWith<$Res> {
   _$EmbedRequestCopyWithImpl(this._value, this._then);
 
-  final EmbedRequest _value;
   // ignore: unused_field
-  final $Res Function(EmbedRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? url = freezed,
   }) {
     return _then(_value.copyWith(
-      url: url == freezed
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -65,26 +69,25 @@ abstract class _$$_EmbedRequestCopyWith<$Res>
           _$_EmbedRequest value, $Res Function(_$_EmbedRequest) then) =
       __$$_EmbedRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? url});
 }
 
 /// @nodoc
 class __$$_EmbedRequestCopyWithImpl<$Res>
-    extends _$EmbedRequestCopyWithImpl<$Res>
+    extends _$EmbedRequestCopyWithImpl<$Res, _$_EmbedRequest>
     implements _$$_EmbedRequestCopyWith<$Res> {
   __$$_EmbedRequestCopyWithImpl(
       _$_EmbedRequest _value, $Res Function(_$_EmbedRequest) _then)
-      : super(_value, (v) => _then(v as _$_EmbedRequest));
+      : super(_value, _then);
 
-  @override
-  _$_EmbedRequest get _value => super._value as _$_EmbedRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? url = freezed,
   }) {
     return _then(_$_EmbedRequest(
-      url: url == freezed
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -114,16 +117,16 @@ class _$_EmbedRequest implements _EmbedRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EmbedRequest &&
-            const DeepCollectionEquality().equals(other.url, url));
+            (identical(other.url, url) || other.url == url));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(url));
+  int get hashCode => Object.hash(runtimeType, url);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EmbedRequestCopyWith<_$_EmbedRequest> get copyWith =>
       __$$_EmbedRequestCopyWithImpl<_$_EmbedRequest>(this, _$identity);
 
@@ -176,10 +179,10 @@ mixin _$EmbedResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? html_script, String? long_url, String? short_url,
+    TResult? Function(String? html_script, String? long_url, String? short_url,
             String? embed_url)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -199,8 +202,8 @@ mixin _$EmbedResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(EmbedResponseData value)? $default, {
-    TResult Function(EmbedResponseMerr value)? Merr,
+    TResult? Function(EmbedResponseData value)? $default, {
+    TResult? Function(EmbedResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -217,17 +220,18 @@ mixin _$EmbedResponse {
 abstract class $EmbedResponseCopyWith<$Res> {
   factory $EmbedResponseCopyWith(
           EmbedResponse value, $Res Function(EmbedResponse) then) =
-      _$EmbedResponseCopyWithImpl<$Res>;
+      _$EmbedResponseCopyWithImpl<$Res, EmbedResponse>;
 }
 
 /// @nodoc
-class _$EmbedResponseCopyWithImpl<$Res>
+class _$EmbedResponseCopyWithImpl<$Res, $Val extends EmbedResponse>
     implements $EmbedResponseCopyWith<$Res> {
   _$EmbedResponseCopyWithImpl(this._value, this._then);
 
-  final EmbedResponse _value;
   // ignore: unused_field
-  final $Res Function(EmbedResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -235,6 +239,7 @@ abstract class _$$EmbedResponseDataCopyWith<$Res> {
   factory _$$EmbedResponseDataCopyWith(
           _$EmbedResponseData value, $Res Function(_$EmbedResponseData) then) =
       __$$EmbedResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {String? html_script,
       String? long_url,
@@ -244,15 +249,13 @@ abstract class _$$EmbedResponseDataCopyWith<$Res> {
 
 /// @nodoc
 class __$$EmbedResponseDataCopyWithImpl<$Res>
-    extends _$EmbedResponseCopyWithImpl<$Res>
+    extends _$EmbedResponseCopyWithImpl<$Res, _$EmbedResponseData>
     implements _$$EmbedResponseDataCopyWith<$Res> {
   __$$EmbedResponseDataCopyWithImpl(
       _$EmbedResponseData _value, $Res Function(_$EmbedResponseData) _then)
-      : super(_value, (v) => _then(v as _$EmbedResponseData));
+      : super(_value, _then);
 
-  @override
-  _$EmbedResponseData get _value => super._value as _$EmbedResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? html_script = freezed,
@@ -261,19 +264,19 @@ class __$$EmbedResponseDataCopyWithImpl<$Res>
     Object? embed_url = freezed,
   }) {
     return _then(_$EmbedResponseData(
-      html_script: html_script == freezed
+      html_script: freezed == html_script
           ? _value.html_script
           : html_script // ignore: cast_nullable_to_non_nullable
               as String?,
-      long_url: long_url == freezed
+      long_url: freezed == long_url
           ? _value.long_url
           : long_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      short_url: short_url == freezed
+      short_url: freezed == short_url
           ? _value.short_url
           : short_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      embed_url: embed_url == freezed
+      embed_url: freezed == embed_url
           ? _value.embed_url
           : embed_url // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -324,24 +327,24 @@ class _$EmbedResponseData implements EmbedResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmbedResponseData &&
-            const DeepCollectionEquality()
-                .equals(other.html_script, html_script) &&
-            const DeepCollectionEquality().equals(other.long_url, long_url) &&
-            const DeepCollectionEquality().equals(other.short_url, short_url) &&
-            const DeepCollectionEquality().equals(other.embed_url, embed_url));
+            (identical(other.html_script, html_script) ||
+                other.html_script == html_script) &&
+            (identical(other.long_url, long_url) ||
+                other.long_url == long_url) &&
+            (identical(other.short_url, short_url) ||
+                other.short_url == short_url) &&
+            (identical(other.embed_url, embed_url) ||
+                other.embed_url == embed_url));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(html_script),
-      const DeepCollectionEquality().hash(long_url),
-      const DeepCollectionEquality().hash(short_url),
-      const DeepCollectionEquality().hash(embed_url));
+  int get hashCode =>
+      Object.hash(runtimeType, html_script, long_url, short_url, embed_url);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$EmbedResponseDataCopyWith<_$EmbedResponseData> get copyWith =>
       __$$EmbedResponseDataCopyWithImpl<_$EmbedResponseData>(this, _$identity);
 
@@ -359,10 +362,10 @@ class _$EmbedResponseData implements EmbedResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? html_script, String? long_url, String? short_url,
+    TResult? Function(String? html_script, String? long_url, String? short_url,
             String? embed_url)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(html_script, long_url, short_url, embed_url);
   }
@@ -394,8 +397,8 @@ class _$EmbedResponseData implements EmbedResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(EmbedResponseData value)? $default, {
-    TResult Function(EmbedResponseMerr value)? Merr,
+    TResult? Function(EmbedResponseData value)? $default, {
+    TResult? Function(EmbedResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -452,26 +455,25 @@ abstract class _$$EmbedResponseMerrCopyWith<$Res> {
   factory _$$EmbedResponseMerrCopyWith(
           _$EmbedResponseMerr value, $Res Function(_$EmbedResponseMerr) then) =
       __$$EmbedResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$EmbedResponseMerrCopyWithImpl<$Res>
-    extends _$EmbedResponseCopyWithImpl<$Res>
+    extends _$EmbedResponseCopyWithImpl<$Res, _$EmbedResponseMerr>
     implements _$$EmbedResponseMerrCopyWith<$Res> {
   __$$EmbedResponseMerrCopyWithImpl(
       _$EmbedResponseMerr _value, $Res Function(_$EmbedResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$EmbedResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$EmbedResponseMerr get _value => super._value as _$EmbedResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$EmbedResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -522,6 +524,7 @@ class _$EmbedResponseMerr implements EmbedResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$EmbedResponseMerrCopyWith<_$EmbedResponseMerr> get copyWith =>
       __$$EmbedResponseMerrCopyWithImpl<_$EmbedResponseMerr>(this, _$identity);
 
@@ -539,10 +542,10 @@ class _$EmbedResponseMerr implements EmbedResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? html_script, String? long_url, String? short_url,
+    TResult? Function(String? html_script, String? long_url, String? short_url,
             String? embed_url)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -574,8 +577,8 @@ class _$EmbedResponseMerr implements EmbedResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(EmbedResponseData value)? $default, {
-    TResult Function(EmbedResponseMerr value)? Merr,
+    TResult? Function(EmbedResponseData value)? $default, {
+    TResult? Function(EmbedResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -633,29 +636,32 @@ mixin _$SearchRequest {
 abstract class $SearchRequestCopyWith<$Res> {
   factory $SearchRequestCopyWith(
           SearchRequest value, $Res Function(SearchRequest) then) =
-      _$SearchRequestCopyWithImpl<$Res>;
+      _$SearchRequestCopyWithImpl<$Res, SearchRequest>;
+  @useResult
   $Res call({String? query});
 }
 
 /// @nodoc
-class _$SearchRequestCopyWithImpl<$Res>
+class _$SearchRequestCopyWithImpl<$Res, $Val extends SearchRequest>
     implements $SearchRequestCopyWith<$Res> {
   _$SearchRequestCopyWithImpl(this._value, this._then);
 
-  final SearchRequest _value;
   // ignore: unused_field
-  final $Res Function(SearchRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? query = freezed,
   }) {
     return _then(_value.copyWith(
-      query: query == freezed
+      query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -666,26 +672,25 @@ abstract class _$$_SearchRequestCopyWith<$Res>
           _$_SearchRequest value, $Res Function(_$_SearchRequest) then) =
       __$$_SearchRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? query});
 }
 
 /// @nodoc
 class __$$_SearchRequestCopyWithImpl<$Res>
-    extends _$SearchRequestCopyWithImpl<$Res>
+    extends _$SearchRequestCopyWithImpl<$Res, _$_SearchRequest>
     implements _$$_SearchRequestCopyWith<$Res> {
   __$$_SearchRequestCopyWithImpl(
       _$_SearchRequest _value, $Res Function(_$_SearchRequest) _then)
-      : super(_value, (v) => _then(v as _$_SearchRequest));
+      : super(_value, _then);
 
-  @override
-  _$_SearchRequest get _value => super._value as _$_SearchRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? query = freezed,
   }) {
     return _then(_$_SearchRequest(
-      query: query == freezed
+      query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -715,16 +720,16 @@ class _$_SearchRequest implements _SearchRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SearchRequest &&
-            const DeepCollectionEquality().equals(other.query, query));
+            (identical(other.query, query) || other.query == query));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(query));
+  int get hashCode => Object.hash(runtimeType, query);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SearchRequestCopyWith<_$_SearchRequest> get copyWith =>
       __$$_SearchRequestCopyWithImpl<_$_SearchRequest>(this, _$identity);
 
@@ -775,8 +780,8 @@ mixin _$SearchResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<SearchResult>? results)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<SearchResult>? results)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -794,8 +799,8 @@ mixin _$SearchResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(SearchResponseData value)? $default, {
-    TResult Function(SearchResponseMerr value)? Merr,
+    TResult? Function(SearchResponseData value)? $default, {
+    TResult? Function(SearchResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -812,17 +817,18 @@ mixin _$SearchResponse {
 abstract class $SearchResponseCopyWith<$Res> {
   factory $SearchResponseCopyWith(
           SearchResponse value, $Res Function(SearchResponse) then) =
-      _$SearchResponseCopyWithImpl<$Res>;
+      _$SearchResponseCopyWithImpl<$Res, SearchResponse>;
 }
 
 /// @nodoc
-class _$SearchResponseCopyWithImpl<$Res>
+class _$SearchResponseCopyWithImpl<$Res, $Val extends SearchResponse>
     implements $SearchResponseCopyWith<$Res> {
   _$SearchResponseCopyWithImpl(this._value, this._then);
 
-  final SearchResponse _value;
   // ignore: unused_field
-  final $Res Function(SearchResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -830,26 +836,25 @@ abstract class _$$SearchResponseDataCopyWith<$Res> {
   factory _$$SearchResponseDataCopyWith(_$SearchResponseData value,
           $Res Function(_$SearchResponseData) then) =
       __$$SearchResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<SearchResult>? results});
 }
 
 /// @nodoc
 class __$$SearchResponseDataCopyWithImpl<$Res>
-    extends _$SearchResponseCopyWithImpl<$Res>
+    extends _$SearchResponseCopyWithImpl<$Res, _$SearchResponseData>
     implements _$$SearchResponseDataCopyWith<$Res> {
   __$$SearchResponseDataCopyWithImpl(
       _$SearchResponseData _value, $Res Function(_$SearchResponseData) _then)
-      : super(_value, (v) => _then(v as _$SearchResponseData));
+      : super(_value, _then);
 
-  @override
-  _$SearchResponseData get _value => super._value as _$SearchResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? results = freezed,
   }) {
     return _then(_$SearchResponseData(
-      results: results == freezed
+      results: freezed == results
           ? _value._results
           : results // ignore: cast_nullable_to_non_nullable
               as List<SearchResult>?,
@@ -903,6 +908,7 @@ class _$SearchResponseData implements SearchResponseData {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$SearchResponseDataCopyWith<_$SearchResponseData> get copyWith =>
       __$$SearchResponseDataCopyWithImpl<_$SearchResponseData>(
           this, _$identity);
@@ -919,8 +925,8 @@ class _$SearchResponseData implements SearchResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<SearchResult>? results)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<SearchResult>? results)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(results);
   }
@@ -950,8 +956,8 @@ class _$SearchResponseData implements SearchResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(SearchResponseData value)? $default, {
-    TResult Function(SearchResponseMerr value)? Merr,
+    TResult? Function(SearchResponseData value)? $default, {
+    TResult? Function(SearchResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -996,26 +1002,25 @@ abstract class _$$SearchResponseMerrCopyWith<$Res> {
   factory _$$SearchResponseMerrCopyWith(_$SearchResponseMerr value,
           $Res Function(_$SearchResponseMerr) then) =
       __$$SearchResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$SearchResponseMerrCopyWithImpl<$Res>
-    extends _$SearchResponseCopyWithImpl<$Res>
+    extends _$SearchResponseCopyWithImpl<$Res, _$SearchResponseMerr>
     implements _$$SearchResponseMerrCopyWith<$Res> {
   __$$SearchResponseMerrCopyWithImpl(
       _$SearchResponseMerr _value, $Res Function(_$SearchResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$SearchResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$SearchResponseMerr get _value => super._value as _$SearchResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$SearchResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -1066,6 +1071,7 @@ class _$SearchResponseMerr implements SearchResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$SearchResponseMerrCopyWith<_$SearchResponseMerr> get copyWith =>
       __$$SearchResponseMerrCopyWithImpl<_$SearchResponseMerr>(
           this, _$identity);
@@ -1082,8 +1088,8 @@ class _$SearchResponseMerr implements SearchResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<SearchResult>? results)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<SearchResult>? results)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -1113,8 +1119,8 @@ class _$SearchResponseMerr implements SearchResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(SearchResponseData value)? $default, {
-    TResult Function(SearchResponseMerr value)? Merr,
+    TResult? Function(SearchResponseData value)? $default, {
+    TResult? Function(SearchResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -1163,6 +1169,9 @@ mixin _$SearchResult {
   /// none, upcoming, live, completed
   String? get broadcasting => throw _privateConstructorUsedError;
 
+  /// the channel title
+  String? get channel_title => throw _privateConstructorUsedError;
+
   /// the result description
   String? get description => throw _privateConstructorUsedError;
 
@@ -1177,9 +1186,6 @@ mixin _$SearchResult {
 
   /// the channel id
   String? get channel_id => throw _privateConstructorUsedError;
-
-  /// the channel title
-  String? get channel_title => throw _privateConstructorUsedError;
 
   /// kind of result: "video", "channel", "playlist"
   String? get kind => throw _privateConstructorUsedError;
@@ -1197,77 +1203,81 @@ mixin _$SearchResult {
 abstract class $SearchResultCopyWith<$Res> {
   factory $SearchResultCopyWith(
           SearchResult value, $Res Function(SearchResult) then) =
-      _$SearchResultCopyWithImpl<$Res>;
+      _$SearchResultCopyWithImpl<$Res, SearchResult>;
+  @useResult
   $Res call(
       {String? broadcasting,
+      String? channel_title,
       String? description,
       String? id,
       String? published_at,
       String? url,
       String? channel_id,
-      String? channel_title,
       String? kind,
       String? title});
 }
 
 /// @nodoc
-class _$SearchResultCopyWithImpl<$Res> implements $SearchResultCopyWith<$Res> {
+class _$SearchResultCopyWithImpl<$Res, $Val extends SearchResult>
+    implements $SearchResultCopyWith<$Res> {
   _$SearchResultCopyWithImpl(this._value, this._then);
 
-  final SearchResult _value;
   // ignore: unused_field
-  final $Res Function(SearchResult) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? broadcasting = freezed,
+    Object? channel_title = freezed,
     Object? description = freezed,
     Object? id = freezed,
     Object? published_at = freezed,
     Object? url = freezed,
     Object? channel_id = freezed,
-    Object? channel_title = freezed,
     Object? kind = freezed,
     Object? title = freezed,
   }) {
     return _then(_value.copyWith(
-      broadcasting: broadcasting == freezed
+      broadcasting: freezed == broadcasting
           ? _value.broadcasting
           : broadcasting // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      published_at: published_at == freezed
-          ? _value.published_at
-          : published_at // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      channel_id: channel_id == freezed
-          ? _value.channel_id
-          : channel_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      channel_title: channel_title == freezed
+      channel_title: freezed == channel_title
           ? _value.channel_title
           : channel_title // ignore: cast_nullable_to_non_nullable
               as String?,
-      kind: kind == freezed
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      published_at: freezed == published_at
+          ? _value.published_at
+          : published_at // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      channel_id: freezed == channel_id
+          ? _value.channel_id
+          : channel_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      kind: freezed == kind
           ? _value.kind
           : kind // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: title == freezed
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -1278,75 +1288,74 @@ abstract class _$$_SearchResultCopyWith<$Res>
           _$_SearchResult value, $Res Function(_$_SearchResult) then) =
       __$$_SearchResultCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? broadcasting,
+      String? channel_title,
       String? description,
       String? id,
       String? published_at,
       String? url,
       String? channel_id,
-      String? channel_title,
       String? kind,
       String? title});
 }
 
 /// @nodoc
 class __$$_SearchResultCopyWithImpl<$Res>
-    extends _$SearchResultCopyWithImpl<$Res>
+    extends _$SearchResultCopyWithImpl<$Res, _$_SearchResult>
     implements _$$_SearchResultCopyWith<$Res> {
   __$$_SearchResultCopyWithImpl(
       _$_SearchResult _value, $Res Function(_$_SearchResult) _then)
-      : super(_value, (v) => _then(v as _$_SearchResult));
+      : super(_value, _then);
 
-  @override
-  _$_SearchResult get _value => super._value as _$_SearchResult;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? broadcasting = freezed,
+    Object? channel_title = freezed,
     Object? description = freezed,
     Object? id = freezed,
     Object? published_at = freezed,
     Object? url = freezed,
     Object? channel_id = freezed,
-    Object? channel_title = freezed,
     Object? kind = freezed,
     Object? title = freezed,
   }) {
     return _then(_$_SearchResult(
-      broadcasting: broadcasting == freezed
+      broadcasting: freezed == broadcasting
           ? _value.broadcasting
           : broadcasting // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      published_at: published_at == freezed
-          ? _value.published_at
-          : published_at // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      channel_id: channel_id == freezed
-          ? _value.channel_id
-          : channel_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      channel_title: channel_title == freezed
+      channel_title: freezed == channel_title
           ? _value.channel_title
           : channel_title // ignore: cast_nullable_to_non_nullable
               as String?,
-      kind: kind == freezed
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      published_at: freezed == published_at
+          ? _value.published_at
+          : published_at // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      channel_id: freezed == channel_id
+          ? _value.channel_id
+          : channel_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      kind: freezed == kind
           ? _value.kind
           : kind // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: title == freezed
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -1359,12 +1368,12 @@ class __$$_SearchResultCopyWithImpl<$Res>
 class _$_SearchResult implements _SearchResult {
   const _$_SearchResult(
       {this.broadcasting,
+      this.channel_title,
       this.description,
       this.id,
       this.published_at,
       this.url,
       this.channel_id,
-      this.channel_title,
       this.kind,
       this.title});
 
@@ -1375,6 +1384,10 @@ class _$_SearchResult implements _SearchResult {
   /// none, upcoming, live, completed
   @override
   final String? broadcasting;
+
+  /// the channel title
+  @override
+  final String? channel_title;
 
   /// the result description
   @override
@@ -1396,10 +1409,6 @@ class _$_SearchResult implements _SearchResult {
   @override
   final String? channel_id;
 
-  /// the channel title
-  @override
-  final String? channel_title;
-
   /// kind of result: "video", "channel", "playlist"
   @override
   final String? kind;
@@ -1410,7 +1419,7 @@ class _$_SearchResult implements _SearchResult {
 
   @override
   String toString() {
-    return 'SearchResult(broadcasting: $broadcasting, description: $description, id: $id, published_at: $published_at, url: $url, channel_id: $channel_id, channel_title: $channel_title, kind: $kind, title: $title)';
+    return 'SearchResult(broadcasting: $broadcasting, channel_title: $channel_title, description: $description, id: $id, published_at: $published_at, url: $url, channel_id: $channel_id, kind: $kind, title: $title)';
   }
 
   @override
@@ -1418,38 +1427,30 @@ class _$_SearchResult implements _SearchResult {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SearchResult &&
-            const DeepCollectionEquality()
-                .equals(other.broadcasting, broadcasting) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality()
-                .equals(other.published_at, published_at) &&
-            const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality()
-                .equals(other.channel_id, channel_id) &&
-            const DeepCollectionEquality()
-                .equals(other.channel_title, channel_title) &&
-            const DeepCollectionEquality().equals(other.kind, kind) &&
-            const DeepCollectionEquality().equals(other.title, title));
+            (identical(other.broadcasting, broadcasting) ||
+                other.broadcasting == broadcasting) &&
+            (identical(other.channel_title, channel_title) ||
+                other.channel_title == channel_title) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.published_at, published_at) ||
+                other.published_at == published_at) &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.channel_id, channel_id) ||
+                other.channel_id == channel_id) &&
+            (identical(other.kind, kind) || other.kind == kind) &&
+            (identical(other.title, title) || other.title == title));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(broadcasting),
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(published_at),
-      const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(channel_id),
-      const DeepCollectionEquality().hash(channel_title),
-      const DeepCollectionEquality().hash(kind),
-      const DeepCollectionEquality().hash(title));
+  int get hashCode => Object.hash(runtimeType, broadcasting, channel_title,
+      description, id, published_at, url, channel_id, kind, title);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SearchResultCopyWith<_$_SearchResult> get copyWith =>
       __$$_SearchResultCopyWithImpl<_$_SearchResult>(this, _$identity);
 
@@ -1464,12 +1465,12 @@ class _$_SearchResult implements _SearchResult {
 abstract class _SearchResult implements SearchResult {
   const factory _SearchResult(
       {final String? broadcasting,
+      final String? channel_title,
       final String? description,
       final String? id,
       final String? published_at,
       final String? url,
       final String? channel_id,
-      final String? channel_title,
       final String? kind,
       final String? title}) = _$_SearchResult;
 
@@ -1481,6 +1482,10 @@ abstract class _SearchResult implements SearchResult {
   /// if live broadcast then indicates activity:
   /// none, upcoming, live, completed
   String? get broadcasting;
+  @override
+
+  /// the channel title
+  String? get channel_title;
   @override
 
   /// the result description
@@ -1501,10 +1506,6 @@ abstract class _SearchResult implements SearchResult {
 
   /// the channel id
   String? get channel_id;
-  @override
-
-  /// the channel title
-  String? get channel_title;
   @override
 
   /// kind of result: "video", "channel", "playlist"

@@ -33,28 +33,32 @@ mixin _$CallRequest {
 abstract class $CallRequestCopyWith<$Res> {
   factory $CallRequestCopyWith(
           CallRequest value, $Res Function(CallRequest) then) =
-      _$CallRequestCopyWithImpl<$Res>;
+      _$CallRequestCopyWithImpl<$Res, CallRequest>;
+  @useResult
   $Res call({String? name});
 }
 
 /// @nodoc
-class _$CallRequestCopyWithImpl<$Res> implements $CallRequestCopyWith<$Res> {
+class _$CallRequestCopyWithImpl<$Res, $Val extends CallRequest>
+    implements $CallRequestCopyWith<$Res> {
   _$CallRequestCopyWithImpl(this._value, this._then);
 
-  final CallRequest _value;
   // ignore: unused_field
-  final $Res Function(CallRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -65,25 +69,25 @@ abstract class _$$_CallRequestCopyWith<$Res>
           _$_CallRequest value, $Res Function(_$_CallRequest) then) =
       __$$_CallRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? name});
 }
 
 /// @nodoc
-class __$$_CallRequestCopyWithImpl<$Res> extends _$CallRequestCopyWithImpl<$Res>
+class __$$_CallRequestCopyWithImpl<$Res>
+    extends _$CallRequestCopyWithImpl<$Res, _$_CallRequest>
     implements _$$_CallRequestCopyWith<$Res> {
   __$$_CallRequestCopyWithImpl(
       _$_CallRequest _value, $Res Function(_$_CallRequest) _then)
-      : super(_value, (v) => _then(v as _$_CallRequest));
+      : super(_value, _then);
 
-  @override
-  _$_CallRequest get _value => super._value as _$_CallRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
   }) {
     return _then(_$_CallRequest(
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -113,16 +117,16 @@ class _$_CallRequest implements _CallRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CallRequest &&
-            const DeepCollectionEquality().equals(other.name, name));
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(name));
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CallRequestCopyWith<_$_CallRequest> get copyWith =>
       __$$_CallRequestCopyWithImpl<_$_CallRequest>(this, _$identity);
 
@@ -173,8 +177,8 @@ mixin _$CallResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? message)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? message)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -192,8 +196,8 @@ mixin _$CallResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(CallResponseData value)? $default, {
-    TResult Function(CallResponseMerr value)? Merr,
+    TResult? Function(CallResponseData value)? $default, {
+    TResult? Function(CallResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -210,16 +214,18 @@ mixin _$CallResponse {
 abstract class $CallResponseCopyWith<$Res> {
   factory $CallResponseCopyWith(
           CallResponse value, $Res Function(CallResponse) then) =
-      _$CallResponseCopyWithImpl<$Res>;
+      _$CallResponseCopyWithImpl<$Res, CallResponse>;
 }
 
 /// @nodoc
-class _$CallResponseCopyWithImpl<$Res> implements $CallResponseCopyWith<$Res> {
+class _$CallResponseCopyWithImpl<$Res, $Val extends CallResponse>
+    implements $CallResponseCopyWith<$Res> {
   _$CallResponseCopyWithImpl(this._value, this._then);
 
-  final CallResponse _value;
   // ignore: unused_field
-  final $Res Function(CallResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -227,26 +233,25 @@ abstract class _$$CallResponseDataCopyWith<$Res> {
   factory _$$CallResponseDataCopyWith(
           _$CallResponseData value, $Res Function(_$CallResponseData) then) =
       __$$CallResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
 class __$$CallResponseDataCopyWithImpl<$Res>
-    extends _$CallResponseCopyWithImpl<$Res>
+    extends _$CallResponseCopyWithImpl<$Res, _$CallResponseData>
     implements _$$CallResponseDataCopyWith<$Res> {
   __$$CallResponseDataCopyWithImpl(
       _$CallResponseData _value, $Res Function(_$CallResponseData) _then)
-      : super(_value, (v) => _then(v as _$CallResponseData));
+      : super(_value, _then);
 
-  @override
-  _$CallResponseData get _value => super._value as _$CallResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
   }) {
     return _then(_$CallResponseData(
-      message: message == freezed
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -280,16 +285,16 @@ class _$CallResponseData implements CallResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CallResponseData &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$CallResponseDataCopyWith<_$CallResponseData> get copyWith =>
       __$$CallResponseDataCopyWithImpl<_$CallResponseData>(this, _$identity);
 
@@ -305,8 +310,8 @@ class _$CallResponseData implements CallResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? message)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? message)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(message);
   }
@@ -336,8 +341,8 @@ class _$CallResponseData implements CallResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(CallResponseData value)? $default, {
-    TResult Function(CallResponseMerr value)? Merr,
+    TResult? Function(CallResponseData value)? $default, {
+    TResult? Function(CallResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -381,26 +386,25 @@ abstract class _$$CallResponseMerrCopyWith<$Res> {
   factory _$$CallResponseMerrCopyWith(
           _$CallResponseMerr value, $Res Function(_$CallResponseMerr) then) =
       __$$CallResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$CallResponseMerrCopyWithImpl<$Res>
-    extends _$CallResponseCopyWithImpl<$Res>
+    extends _$CallResponseCopyWithImpl<$Res, _$CallResponseMerr>
     implements _$$CallResponseMerrCopyWith<$Res> {
   __$$CallResponseMerrCopyWithImpl(
       _$CallResponseMerr _value, $Res Function(_$CallResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$CallResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$CallResponseMerr get _value => super._value as _$CallResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$CallResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -451,6 +455,7 @@ class _$CallResponseMerr implements CallResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$CallResponseMerrCopyWith<_$CallResponseMerr> get copyWith =>
       __$$CallResponseMerrCopyWithImpl<_$CallResponseMerr>(this, _$identity);
 
@@ -466,8 +471,8 @@ class _$CallResponseMerr implements CallResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? message)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? message)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -497,8 +502,8 @@ class _$CallResponseMerr implements CallResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(CallResponseData value)? $default, {
-    TResult Function(CallResponseMerr value)? Merr,
+    TResult? Function(CallResponseData value)? $default, {
+    TResult? Function(CallResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -560,36 +565,39 @@ mixin _$StreamRequest {
 abstract class $StreamRequestCopyWith<$Res> {
   factory $StreamRequestCopyWith(
           StreamRequest value, $Res Function(StreamRequest) then) =
-      _$StreamRequestCopyWithImpl<$Res>;
+      _$StreamRequestCopyWithImpl<$Res, StreamRequest>;
+  @useResult
   $Res call(
       {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? messages,
       String? name});
 }
 
 /// @nodoc
-class _$StreamRequestCopyWithImpl<$Res>
+class _$StreamRequestCopyWithImpl<$Res, $Val extends StreamRequest>
     implements $StreamRequestCopyWith<$Res> {
   _$StreamRequestCopyWithImpl(this._value, this._then);
 
-  final StreamRequest _value;
   // ignore: unused_field
-  final $Res Function(StreamRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? messages = freezed,
     Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      messages: messages == freezed
+      messages: freezed == messages
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
               as int?,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -600,6 +608,7 @@ abstract class _$$_StreamRequestCopyWith<$Res>
           _$_StreamRequest value, $Res Function(_$_StreamRequest) then) =
       __$$_StreamRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? messages,
       String? name});
@@ -607,26 +616,24 @@ abstract class _$$_StreamRequestCopyWith<$Res>
 
 /// @nodoc
 class __$$_StreamRequestCopyWithImpl<$Res>
-    extends _$StreamRequestCopyWithImpl<$Res>
+    extends _$StreamRequestCopyWithImpl<$Res, _$_StreamRequest>
     implements _$$_StreamRequestCopyWith<$Res> {
   __$$_StreamRequestCopyWithImpl(
       _$_StreamRequest _value, $Res Function(_$_StreamRequest) _then)
-      : super(_value, (v) => _then(v as _$_StreamRequest));
+      : super(_value, _then);
 
-  @override
-  _$_StreamRequest get _value => super._value as _$_StreamRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? messages = freezed,
     Object? name = freezed,
   }) {
     return _then(_$_StreamRequest(
-      messages: messages == freezed
+      messages: freezed == messages
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
               as int?,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -663,19 +670,18 @@ class _$_StreamRequest implements _StreamRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_StreamRequest &&
-            const DeepCollectionEquality().equals(other.messages, messages) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            (identical(other.messages, messages) ||
+                other.messages == messages) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(messages),
-      const DeepCollectionEquality().hash(name));
+  int get hashCode => Object.hash(runtimeType, messages, name);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StreamRequestCopyWith<_$_StreamRequest> get copyWith =>
       __$$_StreamRequestCopyWithImpl<_$_StreamRequest>(this, _$identity);
 
@@ -734,8 +740,8 @@ mixin _$StreamResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? message)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? message)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -753,8 +759,8 @@ mixin _$StreamResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(StreamResponseData value)? $default, {
-    TResult Function(StreamResponseMerr value)? Merr,
+    TResult? Function(StreamResponseData value)? $default, {
+    TResult? Function(StreamResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -771,17 +777,18 @@ mixin _$StreamResponse {
 abstract class $StreamResponseCopyWith<$Res> {
   factory $StreamResponseCopyWith(
           StreamResponse value, $Res Function(StreamResponse) then) =
-      _$StreamResponseCopyWithImpl<$Res>;
+      _$StreamResponseCopyWithImpl<$Res, StreamResponse>;
 }
 
 /// @nodoc
-class _$StreamResponseCopyWithImpl<$Res>
+class _$StreamResponseCopyWithImpl<$Res, $Val extends StreamResponse>
     implements $StreamResponseCopyWith<$Res> {
   _$StreamResponseCopyWithImpl(this._value, this._then);
 
-  final StreamResponse _value;
   // ignore: unused_field
-  final $Res Function(StreamResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -789,26 +796,25 @@ abstract class _$$StreamResponseDataCopyWith<$Res> {
   factory _$$StreamResponseDataCopyWith(_$StreamResponseData value,
           $Res Function(_$StreamResponseData) then) =
       __$$StreamResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
 class __$$StreamResponseDataCopyWithImpl<$Res>
-    extends _$StreamResponseCopyWithImpl<$Res>
+    extends _$StreamResponseCopyWithImpl<$Res, _$StreamResponseData>
     implements _$$StreamResponseDataCopyWith<$Res> {
   __$$StreamResponseDataCopyWithImpl(
       _$StreamResponseData _value, $Res Function(_$StreamResponseData) _then)
-      : super(_value, (v) => _then(v as _$StreamResponseData));
+      : super(_value, _then);
 
-  @override
-  _$StreamResponseData get _value => super._value as _$StreamResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
   }) {
     return _then(_$StreamResponseData(
-      message: message == freezed
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -842,16 +848,16 @@ class _$StreamResponseData implements StreamResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StreamResponseData &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$StreamResponseDataCopyWith<_$StreamResponseData> get copyWith =>
       __$$StreamResponseDataCopyWithImpl<_$StreamResponseData>(
           this, _$identity);
@@ -868,8 +874,8 @@ class _$StreamResponseData implements StreamResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? message)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? message)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(message);
   }
@@ -899,8 +905,8 @@ class _$StreamResponseData implements StreamResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(StreamResponseData value)? $default, {
-    TResult Function(StreamResponseMerr value)? Merr,
+    TResult? Function(StreamResponseData value)? $default, {
+    TResult? Function(StreamResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -945,26 +951,25 @@ abstract class _$$StreamResponseMerrCopyWith<$Res> {
   factory _$$StreamResponseMerrCopyWith(_$StreamResponseMerr value,
           $Res Function(_$StreamResponseMerr) then) =
       __$$StreamResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$StreamResponseMerrCopyWithImpl<$Res>
-    extends _$StreamResponseCopyWithImpl<$Res>
+    extends _$StreamResponseCopyWithImpl<$Res, _$StreamResponseMerr>
     implements _$$StreamResponseMerrCopyWith<$Res> {
   __$$StreamResponseMerrCopyWithImpl(
       _$StreamResponseMerr _value, $Res Function(_$StreamResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$StreamResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$StreamResponseMerr get _value => super._value as _$StreamResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$StreamResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -1015,6 +1020,7 @@ class _$StreamResponseMerr implements StreamResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$StreamResponseMerrCopyWith<_$StreamResponseMerr> get copyWith =>
       __$$StreamResponseMerrCopyWithImpl<_$StreamResponseMerr>(
           this, _$identity);
@@ -1031,8 +1037,8 @@ class _$StreamResponseMerr implements StreamResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? message)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? message)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -1062,8 +1068,8 @@ class _$StreamResponseMerr implements StreamResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(StreamResponseData value)? $default, {
-    TResult Function(StreamResponseMerr value)? Merr,
+    TResult? Function(StreamResponseData value)? $default, {
+    TResult? Function(StreamResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }

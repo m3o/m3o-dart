@@ -20,12 +20,14 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Profile {
-  /// the user id
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get id => throw _privateConstructorUsedError;
-
   /// the user's location
   String? get location => throw _privateConstructorUsedError;
+
+  /// if the account is verified
+  bool? get verified => throw _privateConstructorUsedError;
+
+  /// display name of the user
+  String? get name => throw _privateConstructorUsedError;
 
   /// if the account is private
   bool? get private => throw _privateConstructorUsedError;
@@ -43,14 +45,12 @@ mixin _$Profile {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get followers => throw _privateConstructorUsedError;
 
+  /// the user id
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get id => throw _privateConstructorUsedError;
+
   /// The user's profile picture
   String? get image_url => throw _privateConstructorUsedError;
-
-  /// display name of the user
-  String? get name => throw _privateConstructorUsedError;
-
-  /// if the account is verified
-  bool? get verified => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -60,83 +60,87 @@ mixin _$Profile {
 /// @nodoc
 abstract class $ProfileCopyWith<$Res> {
   factory $ProfileCopyWith(Profile value, $Res Function(Profile) then) =
-      _$ProfileCopyWithImpl<$Res>;
+      _$ProfileCopyWithImpl<$Res, Profile>;
+  @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
-      String? location,
+      {String? location,
+      bool? verified,
+      String? name,
       bool? private,
       String? username,
       String? created_at,
       String? description,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
-      String? image_url,
-      String? name,
-      bool? verified});
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
+      String? image_url});
 }
 
 /// @nodoc
-class _$ProfileCopyWithImpl<$Res> implements $ProfileCopyWith<$Res> {
+class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
+    implements $ProfileCopyWith<$Res> {
   _$ProfileCopyWithImpl(this._value, this._then);
 
-  final Profile _value;
   // ignore: unused_field
-  final $Res Function(Profile) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
     Object? location = freezed,
+    Object? verified = freezed,
+    Object? name = freezed,
     Object? private = freezed,
     Object? username = freezed,
     Object? created_at = freezed,
     Object? description = freezed,
     Object? followers = freezed,
+    Object? id = freezed,
     Object? image_url = freezed,
-    Object? name = freezed,
-    Object? verified = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      location: location == freezed
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as String?,
-      private: private == freezed
-          ? _value.private
-          : private // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      username: username == freezed
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
-      created_at: created_at == freezed
-          ? _value.created_at
-          : created_at // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      followers: followers == freezed
-          ? _value.followers
-          : followers // ignore: cast_nullable_to_non_nullable
-              as int?,
-      image_url: image_url == freezed
-          ? _value.image_url
-          : image_url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      verified: verified == freezed
+      verified: freezed == verified
           ? _value.verified
           : verified // ignore: cast_nullable_to_non_nullable
               as bool?,
-    ));
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      private: freezed == private
+          ? _value.private
+          : private // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      username: freezed == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String?,
+      created_at: freezed == created_at
+          ? _value.created_at
+          : created_at // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      followers: freezed == followers
+          ? _value.followers
+          : followers // ignore: cast_nullable_to_non_nullable
+              as int?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      image_url: freezed == image_url
+          ? _value.image_url
+          : image_url // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
   }
 }
 
@@ -146,82 +150,82 @@ abstract class _$$_ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
           _$_Profile value, $Res Function(_$_Profile) then) =
       __$$_ProfileCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
-      String? location,
+      {String? location,
+      bool? verified,
+      String? name,
       bool? private,
       String? username,
       String? created_at,
       String? description,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
-      String? image_url,
-      String? name,
-      bool? verified});
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
+      String? image_url});
 }
 
 /// @nodoc
-class __$$_ProfileCopyWithImpl<$Res> extends _$ProfileCopyWithImpl<$Res>
+class __$$_ProfileCopyWithImpl<$Res>
+    extends _$ProfileCopyWithImpl<$Res, _$_Profile>
     implements _$$_ProfileCopyWith<$Res> {
   __$$_ProfileCopyWithImpl(_$_Profile _value, $Res Function(_$_Profile) _then)
-      : super(_value, (v) => _then(v as _$_Profile));
+      : super(_value, _then);
 
-  @override
-  _$_Profile get _value => super._value as _$_Profile;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
     Object? location = freezed,
+    Object? verified = freezed,
+    Object? name = freezed,
     Object? private = freezed,
     Object? username = freezed,
     Object? created_at = freezed,
     Object? description = freezed,
     Object? followers = freezed,
+    Object? id = freezed,
     Object? image_url = freezed,
-    Object? name = freezed,
-    Object? verified = freezed,
   }) {
     return _then(_$_Profile(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      location: location == freezed
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as String?,
-      private: private == freezed
-          ? _value.private
-          : private // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      username: username == freezed
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
-      created_at: created_at == freezed
-          ? _value.created_at
-          : created_at // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      followers: followers == freezed
-          ? _value.followers
-          : followers // ignore: cast_nullable_to_non_nullable
-              as int?,
-      image_url: image_url == freezed
-          ? _value.image_url
-          : image_url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      verified: verified == freezed
+      verified: freezed == verified
           ? _value.verified
           : verified // ignore: cast_nullable_to_non_nullable
               as bool?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      private: freezed == private
+          ? _value.private
+          : private // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      username: freezed == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String?,
+      created_at: freezed == created_at
+          ? _value.created_at
+          : created_at // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      followers: freezed == followers
+          ? _value.followers
+          : followers // ignore: cast_nullable_to_non_nullable
+              as int?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      image_url: freezed == image_url
+          ? _value.image_url
+          : image_url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -230,28 +234,31 @@ class __$$_ProfileCopyWithImpl<$Res> extends _$ProfileCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Profile implements _Profile {
   const _$_Profile(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.id,
-      this.location,
+      {this.location,
+      this.verified,
+      this.name,
       this.private,
       this.username,
       this.created_at,
       this.description,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.followers,
-      this.image_url,
-      this.name,
-      this.verified});
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.id,
+      this.image_url});
 
   factory _$_Profile.fromJson(Map<String, dynamic> json) =>
       _$$_ProfileFromJson(json);
 
-  /// the user id
-  @override
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? id;
-
   /// the user's location
   @override
   final String? location;
+
+  /// if the account is verified
+  @override
+  final bool? verified;
+
+  /// display name of the user
+  @override
+  final String? name;
 
   /// if the account is private
   @override
@@ -274,21 +281,18 @@ class _$_Profile implements _Profile {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? followers;
 
+  /// the user id
+  @override
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? id;
+
   /// The user's profile picture
   @override
   final String? image_url;
 
-  /// display name of the user
-  @override
-  final String? name;
-
-  /// if the account is verified
-  @override
-  final bool? verified;
-
   @override
   String toString() {
-    return 'Profile(id: $id, location: $location, private: $private, username: $username, created_at: $created_at, description: $description, followers: $followers, image_url: $image_url, name: $name, verified: $verified)';
+    return 'Profile(location: $location, verified: $verified, name: $name, private: $private, username: $username, created_at: $created_at, description: $description, followers: $followers, id: $id, image_url: $image_url)';
   }
 
   @override
@@ -296,37 +300,33 @@ class _$_Profile implements _Profile {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Profile &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.location, location) &&
-            const DeepCollectionEquality().equals(other.private, private) &&
-            const DeepCollectionEquality().equals(other.username, username) &&
-            const DeepCollectionEquality()
-                .equals(other.created_at, created_at) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.followers, followers) &&
-            const DeepCollectionEquality().equals(other.image_url, image_url) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.verified, verified));
+            (identical(other.location, location) ||
+                other.location == location) &&
+            (identical(other.verified, verified) ||
+                other.verified == verified) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.private, private) || other.private == private) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.created_at, created_at) ||
+                other.created_at == created_at) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.followers, followers) ||
+                other.followers == followers) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.image_url, image_url) ||
+                other.image_url == image_url));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(location),
-      const DeepCollectionEquality().hash(private),
-      const DeepCollectionEquality().hash(username),
-      const DeepCollectionEquality().hash(created_at),
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(followers),
-      const DeepCollectionEquality().hash(image_url),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(verified));
+  int get hashCode => Object.hash(runtimeType, location, verified, name,
+      private, username, created_at, description, followers, id, image_url);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ProfileCopyWith<_$_Profile> get copyWith =>
       __$$_ProfileCopyWithImpl<_$_Profile>(this, _$identity);
 
@@ -340,30 +340,33 @@ class _$_Profile implements _Profile {
 
 abstract class _Profile implements Profile {
   const factory _Profile(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? id,
-      final String? location,
+      {final String? location,
+      final bool? verified,
+      final String? name,
       final bool? private,
       final String? username,
       final String? created_at,
       final String? description,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? followers,
-      final String? image_url,
-      final String? name,
-      final bool? verified}) = _$_Profile;
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          final int? id,
+      final String? image_url}) = _$_Profile;
 
   factory _Profile.fromJson(Map<String, dynamic> json) = _$_Profile.fromJson;
 
   @override
 
-  /// the user id
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get id;
-  @override
-
   /// the user's location
   String? get location;
+  @override
+
+  /// if the account is verified
+  bool? get verified;
+  @override
+
+  /// display name of the user
+  String? get name;
   @override
 
   /// if the account is private
@@ -387,16 +390,13 @@ abstract class _Profile implements Profile {
   int? get followers;
   @override
 
+  /// the user id
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get id;
+  @override
+
   /// The user's profile picture
   String? get image_url;
-  @override
-
-  /// display name of the user
-  String? get name;
-  @override
-
-  /// if the account is verified
-  bool? get verified;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileCopyWith<_$_Profile> get copyWith =>
@@ -425,34 +425,37 @@ mixin _$SearchRequest {
 abstract class $SearchRequestCopyWith<$Res> {
   factory $SearchRequestCopyWith(
           SearchRequest value, $Res Function(SearchRequest) then) =
-      _$SearchRequestCopyWithImpl<$Res>;
+      _$SearchRequestCopyWithImpl<$Res, SearchRequest>;
+  @useResult
   $Res call({int? limit, String? query});
 }
 
 /// @nodoc
-class _$SearchRequestCopyWithImpl<$Res>
+class _$SearchRequestCopyWithImpl<$Res, $Val extends SearchRequest>
     implements $SearchRequestCopyWith<$Res> {
   _$SearchRequestCopyWithImpl(this._value, this._then);
 
-  final SearchRequest _value;
   // ignore: unused_field
-  final $Res Function(SearchRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? limit = freezed,
     Object? query = freezed,
   }) {
     return _then(_value.copyWith(
-      limit: limit == freezed
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int?,
-      query: query == freezed
+      query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -463,31 +466,30 @@ abstract class _$$_SearchRequestCopyWith<$Res>
           _$_SearchRequest value, $Res Function(_$_SearchRequest) then) =
       __$$_SearchRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int? limit, String? query});
 }
 
 /// @nodoc
 class __$$_SearchRequestCopyWithImpl<$Res>
-    extends _$SearchRequestCopyWithImpl<$Res>
+    extends _$SearchRequestCopyWithImpl<$Res, _$_SearchRequest>
     implements _$$_SearchRequestCopyWith<$Res> {
   __$$_SearchRequestCopyWithImpl(
       _$_SearchRequest _value, $Res Function(_$_SearchRequest) _then)
-      : super(_value, (v) => _then(v as _$_SearchRequest));
+      : super(_value, _then);
 
-  @override
-  _$_SearchRequest get _value => super._value as _$_SearchRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? limit = freezed,
     Object? query = freezed,
   }) {
     return _then(_$_SearchRequest(
-      limit: limit == freezed
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int?,
-      query: query == freezed
+      query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -521,19 +523,17 @@ class _$_SearchRequest implements _SearchRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SearchRequest &&
-            const DeepCollectionEquality().equals(other.limit, limit) &&
-            const DeepCollectionEquality().equals(other.query, query));
+            (identical(other.limit, limit) || other.limit == limit) &&
+            (identical(other.query, query) || other.query == query));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(limit),
-      const DeepCollectionEquality().hash(query));
+  int get hashCode => Object.hash(runtimeType, limit, query);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SearchRequestCopyWith<_$_SearchRequest> get copyWith =>
       __$$_SearchRequestCopyWithImpl<_$_SearchRequest>(this, _$identity);
 
@@ -589,8 +589,8 @@ mixin _$SearchResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Tweet>? tweets)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Tweet>? tweets)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -608,8 +608,8 @@ mixin _$SearchResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(SearchResponseData value)? $default, {
-    TResult Function(SearchResponseMerr value)? Merr,
+    TResult? Function(SearchResponseData value)? $default, {
+    TResult? Function(SearchResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -626,17 +626,18 @@ mixin _$SearchResponse {
 abstract class $SearchResponseCopyWith<$Res> {
   factory $SearchResponseCopyWith(
           SearchResponse value, $Res Function(SearchResponse) then) =
-      _$SearchResponseCopyWithImpl<$Res>;
+      _$SearchResponseCopyWithImpl<$Res, SearchResponse>;
 }
 
 /// @nodoc
-class _$SearchResponseCopyWithImpl<$Res>
+class _$SearchResponseCopyWithImpl<$Res, $Val extends SearchResponse>
     implements $SearchResponseCopyWith<$Res> {
   _$SearchResponseCopyWithImpl(this._value, this._then);
 
-  final SearchResponse _value;
   // ignore: unused_field
-  final $Res Function(SearchResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -644,26 +645,25 @@ abstract class _$$SearchResponseDataCopyWith<$Res> {
   factory _$$SearchResponseDataCopyWith(_$SearchResponseData value,
           $Res Function(_$SearchResponseData) then) =
       __$$SearchResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Tweet>? tweets});
 }
 
 /// @nodoc
 class __$$SearchResponseDataCopyWithImpl<$Res>
-    extends _$SearchResponseCopyWithImpl<$Res>
+    extends _$SearchResponseCopyWithImpl<$Res, _$SearchResponseData>
     implements _$$SearchResponseDataCopyWith<$Res> {
   __$$SearchResponseDataCopyWithImpl(
       _$SearchResponseData _value, $Res Function(_$SearchResponseData) _then)
-      : super(_value, (v) => _then(v as _$SearchResponseData));
+      : super(_value, _then);
 
-  @override
-  _$SearchResponseData get _value => super._value as _$SearchResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? tweets = freezed,
   }) {
     return _then(_$SearchResponseData(
-      tweets: tweets == freezed
+      tweets: freezed == tweets
           ? _value._tweets
           : tweets // ignore: cast_nullable_to_non_nullable
               as List<Tweet>?,
@@ -716,6 +716,7 @@ class _$SearchResponseData implements SearchResponseData {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$SearchResponseDataCopyWith<_$SearchResponseData> get copyWith =>
       __$$SearchResponseDataCopyWithImpl<_$SearchResponseData>(
           this, _$identity);
@@ -732,8 +733,8 @@ class _$SearchResponseData implements SearchResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Tweet>? tweets)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Tweet>? tweets)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(tweets);
   }
@@ -763,8 +764,8 @@ class _$SearchResponseData implements SearchResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(SearchResponseData value)? $default, {
-    TResult Function(SearchResponseMerr value)? Merr,
+    TResult? Function(SearchResponseData value)? $default, {
+    TResult? Function(SearchResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -809,26 +810,25 @@ abstract class _$$SearchResponseMerrCopyWith<$Res> {
   factory _$$SearchResponseMerrCopyWith(_$SearchResponseMerr value,
           $Res Function(_$SearchResponseMerr) then) =
       __$$SearchResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$SearchResponseMerrCopyWithImpl<$Res>
-    extends _$SearchResponseCopyWithImpl<$Res>
+    extends _$SearchResponseCopyWithImpl<$Res, _$SearchResponseMerr>
     implements _$$SearchResponseMerrCopyWith<$Res> {
   __$$SearchResponseMerrCopyWithImpl(
       _$SearchResponseMerr _value, $Res Function(_$SearchResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$SearchResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$SearchResponseMerr get _value => super._value as _$SearchResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$SearchResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -879,6 +879,7 @@ class _$SearchResponseMerr implements SearchResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$SearchResponseMerrCopyWith<_$SearchResponseMerr> get copyWith =>
       __$$SearchResponseMerrCopyWithImpl<_$SearchResponseMerr>(
           this, _$identity);
@@ -895,8 +896,8 @@ class _$SearchResponseMerr implements SearchResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Tweet>? tweets)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Tweet>? tweets)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -926,8 +927,8 @@ class _$SearchResponseMerr implements SearchResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(SearchResponseData value)? $default, {
-    TResult Function(SearchResponseMerr value)? Merr,
+    TResult? Function(SearchResponseData value)? $default, {
+    TResult? Function(SearchResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -988,34 +989,37 @@ mixin _$TimelineRequest {
 abstract class $TimelineRequestCopyWith<$Res> {
   factory $TimelineRequestCopyWith(
           TimelineRequest value, $Res Function(TimelineRequest) then) =
-      _$TimelineRequestCopyWithImpl<$Res>;
+      _$TimelineRequestCopyWithImpl<$Res, TimelineRequest>;
+  @useResult
   $Res call({int? limit, String? username});
 }
 
 /// @nodoc
-class _$TimelineRequestCopyWithImpl<$Res>
+class _$TimelineRequestCopyWithImpl<$Res, $Val extends TimelineRequest>
     implements $TimelineRequestCopyWith<$Res> {
   _$TimelineRequestCopyWithImpl(this._value, this._then);
 
-  final TimelineRequest _value;
   // ignore: unused_field
-  final $Res Function(TimelineRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? limit = freezed,
     Object? username = freezed,
   }) {
     return _then(_value.copyWith(
-      limit: limit == freezed
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int?,
-      username: username == freezed
+      username: freezed == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -1026,31 +1030,30 @@ abstract class _$$_TimelineRequestCopyWith<$Res>
           _$_TimelineRequest value, $Res Function(_$_TimelineRequest) then) =
       __$$_TimelineRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int? limit, String? username});
 }
 
 /// @nodoc
 class __$$_TimelineRequestCopyWithImpl<$Res>
-    extends _$TimelineRequestCopyWithImpl<$Res>
+    extends _$TimelineRequestCopyWithImpl<$Res, _$_TimelineRequest>
     implements _$$_TimelineRequestCopyWith<$Res> {
   __$$_TimelineRequestCopyWithImpl(
       _$_TimelineRequest _value, $Res Function(_$_TimelineRequest) _then)
-      : super(_value, (v) => _then(v as _$_TimelineRequest));
+      : super(_value, _then);
 
-  @override
-  _$_TimelineRequest get _value => super._value as _$_TimelineRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? limit = freezed,
     Object? username = freezed,
   }) {
     return _then(_$_TimelineRequest(
-      limit: limit == freezed
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int?,
-      username: username == freezed
+      username: freezed == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -1084,19 +1087,18 @@ class _$_TimelineRequest implements _TimelineRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TimelineRequest &&
-            const DeepCollectionEquality().equals(other.limit, limit) &&
-            const DeepCollectionEquality().equals(other.username, username));
+            (identical(other.limit, limit) || other.limit == limit) &&
+            (identical(other.username, username) ||
+                other.username == username));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(limit),
-      const DeepCollectionEquality().hash(username));
+  int get hashCode => Object.hash(runtimeType, limit, username);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TimelineRequestCopyWith<_$_TimelineRequest> get copyWith =>
       __$$_TimelineRequestCopyWithImpl<_$_TimelineRequest>(this, _$identity);
 
@@ -1152,8 +1154,8 @@ mixin _$TimelineResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Tweet>? tweets)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Tweet>? tweets)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1171,8 +1173,8 @@ mixin _$TimelineResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(TimelineResponseData value)? $default, {
-    TResult Function(TimelineResponseMerr value)? Merr,
+    TResult? Function(TimelineResponseData value)? $default, {
+    TResult? Function(TimelineResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1189,17 +1191,18 @@ mixin _$TimelineResponse {
 abstract class $TimelineResponseCopyWith<$Res> {
   factory $TimelineResponseCopyWith(
           TimelineResponse value, $Res Function(TimelineResponse) then) =
-      _$TimelineResponseCopyWithImpl<$Res>;
+      _$TimelineResponseCopyWithImpl<$Res, TimelineResponse>;
 }
 
 /// @nodoc
-class _$TimelineResponseCopyWithImpl<$Res>
+class _$TimelineResponseCopyWithImpl<$Res, $Val extends TimelineResponse>
     implements $TimelineResponseCopyWith<$Res> {
   _$TimelineResponseCopyWithImpl(this._value, this._then);
 
-  final TimelineResponse _value;
   // ignore: unused_field
-  final $Res Function(TimelineResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -1207,26 +1210,25 @@ abstract class _$$TimelineResponseDataCopyWith<$Res> {
   factory _$$TimelineResponseDataCopyWith(_$TimelineResponseData value,
           $Res Function(_$TimelineResponseData) then) =
       __$$TimelineResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Tweet>? tweets});
 }
 
 /// @nodoc
 class __$$TimelineResponseDataCopyWithImpl<$Res>
-    extends _$TimelineResponseCopyWithImpl<$Res>
+    extends _$TimelineResponseCopyWithImpl<$Res, _$TimelineResponseData>
     implements _$$TimelineResponseDataCopyWith<$Res> {
   __$$TimelineResponseDataCopyWithImpl(_$TimelineResponseData _value,
       $Res Function(_$TimelineResponseData) _then)
-      : super(_value, (v) => _then(v as _$TimelineResponseData));
+      : super(_value, _then);
 
-  @override
-  _$TimelineResponseData get _value => super._value as _$TimelineResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? tweets = freezed,
   }) {
     return _then(_$TimelineResponseData(
-      tweets: tweets == freezed
+      tweets: freezed == tweets
           ? _value._tweets
           : tweets // ignore: cast_nullable_to_non_nullable
               as List<Tweet>?,
@@ -1279,6 +1281,7 @@ class _$TimelineResponseData implements TimelineResponseData {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$TimelineResponseDataCopyWith<_$TimelineResponseData> get copyWith =>
       __$$TimelineResponseDataCopyWithImpl<_$TimelineResponseData>(
           this, _$identity);
@@ -1295,8 +1298,8 @@ class _$TimelineResponseData implements TimelineResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Tweet>? tweets)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Tweet>? tweets)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(tweets);
   }
@@ -1326,8 +1329,8 @@ class _$TimelineResponseData implements TimelineResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(TimelineResponseData value)? $default, {
-    TResult Function(TimelineResponseMerr value)? Merr,
+    TResult? Function(TimelineResponseData value)? $default, {
+    TResult? Function(TimelineResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -1372,26 +1375,25 @@ abstract class _$$TimelineResponseMerrCopyWith<$Res> {
   factory _$$TimelineResponseMerrCopyWith(_$TimelineResponseMerr value,
           $Res Function(_$TimelineResponseMerr) then) =
       __$$TimelineResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$TimelineResponseMerrCopyWithImpl<$Res>
-    extends _$TimelineResponseCopyWithImpl<$Res>
+    extends _$TimelineResponseCopyWithImpl<$Res, _$TimelineResponseMerr>
     implements _$$TimelineResponseMerrCopyWith<$Res> {
   __$$TimelineResponseMerrCopyWithImpl(_$TimelineResponseMerr _value,
       $Res Function(_$TimelineResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$TimelineResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$TimelineResponseMerr get _value => super._value as _$TimelineResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$TimelineResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -1442,6 +1444,7 @@ class _$TimelineResponseMerr implements TimelineResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$TimelineResponseMerrCopyWith<_$TimelineResponseMerr> get copyWith =>
       __$$TimelineResponseMerrCopyWithImpl<_$TimelineResponseMerr>(
           this, _$identity);
@@ -1458,8 +1461,8 @@ class _$TimelineResponseMerr implements TimelineResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Tweet>? tweets)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Tweet>? tweets)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -1489,8 +1492,8 @@ class _$TimelineResponseMerr implements TimelineResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(TimelineResponseData value)? $default, {
-    TResult Function(TimelineResponseMerr value)? Merr,
+    TResult? Function(TimelineResponseData value)? $default, {
+    TResult? Function(TimelineResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -1553,7 +1556,8 @@ mixin _$Trend {
 /// @nodoc
 abstract class $TrendCopyWith<$Res> {
   factory $TrendCopyWith(Trend value, $Res Function(Trend) then) =
-      _$TrendCopyWithImpl<$Res>;
+      _$TrendCopyWithImpl<$Res, Trend>;
+  @useResult
   $Res call(
       {String? name,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
@@ -1562,13 +1566,16 @@ abstract class $TrendCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TrendCopyWithImpl<$Res> implements $TrendCopyWith<$Res> {
+class _$TrendCopyWithImpl<$Res, $Val extends Trend>
+    implements $TrendCopyWith<$Res> {
   _$TrendCopyWithImpl(this._value, this._then);
 
-  final Trend _value;
   // ignore: unused_field
-  final $Res Function(Trend) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
@@ -1576,19 +1583,19 @@ class _$TrendCopyWithImpl<$Res> implements $TrendCopyWith<$Res> {
     Object? url = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      tweet_volume: tweet_volume == freezed
+      tweet_volume: freezed == tweet_volume
           ? _value.tweet_volume
           : tweet_volume // ignore: cast_nullable_to_non_nullable
               as int?,
-      url: url == freezed
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -1597,6 +1604,7 @@ abstract class _$$_TrendCopyWith<$Res> implements $TrendCopyWith<$Res> {
   factory _$$_TrendCopyWith(_$_Trend value, $Res Function(_$_Trend) then) =
       __$$_TrendCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? name,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
@@ -1605,14 +1613,12 @@ abstract class _$$_TrendCopyWith<$Res> implements $TrendCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_TrendCopyWithImpl<$Res> extends _$TrendCopyWithImpl<$Res>
+class __$$_TrendCopyWithImpl<$Res> extends _$TrendCopyWithImpl<$Res, _$_Trend>
     implements _$$_TrendCopyWith<$Res> {
   __$$_TrendCopyWithImpl(_$_Trend _value, $Res Function(_$_Trend) _then)
-      : super(_value, (v) => _then(v as _$_Trend));
+      : super(_value, _then);
 
-  @override
-  _$_Trend get _value => super._value as _$_Trend;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
@@ -1620,15 +1626,15 @@ class __$$_TrendCopyWithImpl<$Res> extends _$TrendCopyWithImpl<$Res>
     Object? url = freezed,
   }) {
     return _then(_$_Trend(
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      tweet_volume: tweet_volume == freezed
+      tweet_volume: freezed == tweet_volume
           ? _value.tweet_volume
           : tweet_volume // ignore: cast_nullable_to_non_nullable
               as int?,
-      url: url == freezed
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -1671,22 +1677,19 @@ class _$_Trend implements _Trend {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Trend &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality()
-                .equals(other.tweet_volume, tweet_volume) &&
-            const DeepCollectionEquality().equals(other.url, url));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.tweet_volume, tweet_volume) ||
+                other.tweet_volume == tweet_volume) &&
+            (identical(other.url, url) || other.url == url));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(tweet_volume),
-      const DeepCollectionEquality().hash(url));
+  int get hashCode => Object.hash(runtimeType, name, tweet_volume, url);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TrendCopyWith<_$_Trend> get copyWith =>
       __$$_TrendCopyWithImpl<_$_Trend>(this, _$identity);
 
@@ -1739,17 +1742,18 @@ mixin _$TrendsRequest {
 abstract class $TrendsRequestCopyWith<$Res> {
   factory $TrendsRequestCopyWith(
           TrendsRequest value, $Res Function(TrendsRequest) then) =
-      _$TrendsRequestCopyWithImpl<$Res>;
+      _$TrendsRequestCopyWithImpl<$Res, TrendsRequest>;
 }
 
 /// @nodoc
-class _$TrendsRequestCopyWithImpl<$Res>
+class _$TrendsRequestCopyWithImpl<$Res, $Val extends TrendsRequest>
     implements $TrendsRequestCopyWith<$Res> {
   _$TrendsRequestCopyWithImpl(this._value, this._then);
 
-  final TrendsRequest _value;
   // ignore: unused_field
-  final $Res Function(TrendsRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -1761,14 +1765,11 @@ abstract class _$$_TrendsRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_TrendsRequestCopyWithImpl<$Res>
-    extends _$TrendsRequestCopyWithImpl<$Res>
+    extends _$TrendsRequestCopyWithImpl<$Res, _$_TrendsRequest>
     implements _$$_TrendsRequestCopyWith<$Res> {
   __$$_TrendsRequestCopyWithImpl(
       _$_TrendsRequest _value, $Res Function(_$_TrendsRequest) _then)
-      : super(_value, (v) => _then(v as _$_TrendsRequest));
-
-  @override
-  _$_TrendsRequest get _value => super._value as _$_TrendsRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1832,8 +1833,8 @@ mixin _$TrendsResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Trend>? trends)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Trend>? trends)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1851,8 +1852,8 @@ mixin _$TrendsResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(TrendsResponseData value)? $default, {
-    TResult Function(TrendsResponseMerr value)? Merr,
+    TResult? Function(TrendsResponseData value)? $default, {
+    TResult? Function(TrendsResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1869,17 +1870,18 @@ mixin _$TrendsResponse {
 abstract class $TrendsResponseCopyWith<$Res> {
   factory $TrendsResponseCopyWith(
           TrendsResponse value, $Res Function(TrendsResponse) then) =
-      _$TrendsResponseCopyWithImpl<$Res>;
+      _$TrendsResponseCopyWithImpl<$Res, TrendsResponse>;
 }
 
 /// @nodoc
-class _$TrendsResponseCopyWithImpl<$Res>
+class _$TrendsResponseCopyWithImpl<$Res, $Val extends TrendsResponse>
     implements $TrendsResponseCopyWith<$Res> {
   _$TrendsResponseCopyWithImpl(this._value, this._then);
 
-  final TrendsResponse _value;
   // ignore: unused_field
-  final $Res Function(TrendsResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -1887,26 +1889,25 @@ abstract class _$$TrendsResponseDataCopyWith<$Res> {
   factory _$$TrendsResponseDataCopyWith(_$TrendsResponseData value,
           $Res Function(_$TrendsResponseData) then) =
       __$$TrendsResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Trend>? trends});
 }
 
 /// @nodoc
 class __$$TrendsResponseDataCopyWithImpl<$Res>
-    extends _$TrendsResponseCopyWithImpl<$Res>
+    extends _$TrendsResponseCopyWithImpl<$Res, _$TrendsResponseData>
     implements _$$TrendsResponseDataCopyWith<$Res> {
   __$$TrendsResponseDataCopyWithImpl(
       _$TrendsResponseData _value, $Res Function(_$TrendsResponseData) _then)
-      : super(_value, (v) => _then(v as _$TrendsResponseData));
+      : super(_value, _then);
 
-  @override
-  _$TrendsResponseData get _value => super._value as _$TrendsResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? trends = freezed,
   }) {
     return _then(_$TrendsResponseData(
-      trends: trends == freezed
+      trends: freezed == trends
           ? _value._trends
           : trends // ignore: cast_nullable_to_non_nullable
               as List<Trend>?,
@@ -1959,6 +1960,7 @@ class _$TrendsResponseData implements TrendsResponseData {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$TrendsResponseDataCopyWith<_$TrendsResponseData> get copyWith =>
       __$$TrendsResponseDataCopyWithImpl<_$TrendsResponseData>(
           this, _$identity);
@@ -1975,8 +1977,8 @@ class _$TrendsResponseData implements TrendsResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Trend>? trends)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Trend>? trends)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(trends);
   }
@@ -2006,8 +2008,8 @@ class _$TrendsResponseData implements TrendsResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(TrendsResponseData value)? $default, {
-    TResult Function(TrendsResponseMerr value)? Merr,
+    TResult? Function(TrendsResponseData value)? $default, {
+    TResult? Function(TrendsResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -2052,26 +2054,25 @@ abstract class _$$TrendsResponseMerrCopyWith<$Res> {
   factory _$$TrendsResponseMerrCopyWith(_$TrendsResponseMerr value,
           $Res Function(_$TrendsResponseMerr) then) =
       __$$TrendsResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$TrendsResponseMerrCopyWithImpl<$Res>
-    extends _$TrendsResponseCopyWithImpl<$Res>
+    extends _$TrendsResponseCopyWithImpl<$Res, _$TrendsResponseMerr>
     implements _$$TrendsResponseMerrCopyWith<$Res> {
   __$$TrendsResponseMerrCopyWithImpl(
       _$TrendsResponseMerr _value, $Res Function(_$TrendsResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$TrendsResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$TrendsResponseMerr get _value => super._value as _$TrendsResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$TrendsResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -2122,6 +2123,7 @@ class _$TrendsResponseMerr implements TrendsResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$TrendsResponseMerrCopyWith<_$TrendsResponseMerr> get copyWith =>
       __$$TrendsResponseMerrCopyWithImpl<_$TrendsResponseMerr>(
           this, _$identity);
@@ -2138,8 +2140,8 @@ class _$TrendsResponseMerr implements TrendsResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Trend>? trends)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Trend>? trends)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -2169,8 +2171,8 @@ class _$TrendsResponseMerr implements TrendsResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(TrendsResponseData value)? $default, {
-    TResult Function(TrendsResponseMerr value)? Merr,
+    TResult? Function(TrendsResponseData value)? $default, {
+    TResult? Function(TrendsResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -2215,10 +2217,6 @@ Tweet _$TweetFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Tweet {
-  /// id of the tweet
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get id => throw _privateConstructorUsedError;
-
   /// number of times retweeted
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get retweeted_count => throw _privateConstructorUsedError;
@@ -2236,6 +2234,10 @@ mixin _$Tweet {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get favourited_count => throw _privateConstructorUsedError;
 
+  /// id of the tweet
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get id => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TweetCopyWith<Tweet> get copyWith => throw _privateConstructorUsedError;
@@ -2244,62 +2246,66 @@ mixin _$Tweet {
 /// @nodoc
 abstract class $TweetCopyWith<$Res> {
   factory $TweetCopyWith(Tweet value, $Res Function(Tweet) then) =
-      _$TweetCopyWithImpl<$Res>;
+      _$TweetCopyWithImpl<$Res, Tweet>;
+  @useResult
   $Res call(
       {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? id,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? retweeted_count,
       String? text,
       String? username,
       String? created_at,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? favourited_count});
+          int? favourited_count,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? id});
 }
 
 /// @nodoc
-class _$TweetCopyWithImpl<$Res> implements $TweetCopyWith<$Res> {
+class _$TweetCopyWithImpl<$Res, $Val extends Tweet>
+    implements $TweetCopyWith<$Res> {
   _$TweetCopyWithImpl(this._value, this._then);
 
-  final Tweet _value;
   // ignore: unused_field
-  final $Res Function(Tweet) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
     Object? retweeted_count = freezed,
     Object? text = freezed,
     Object? username = freezed,
     Object? created_at = freezed,
     Object? favourited_count = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      retweeted_count: retweeted_count == freezed
+      retweeted_count: freezed == retweeted_count
           ? _value.retweeted_count
           : retweeted_count // ignore: cast_nullable_to_non_nullable
               as int?,
-      text: text == freezed
+      text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
-      username: username == freezed
+      username: freezed == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String?,
-      created_at: created_at == freezed
+      created_at: freezed == created_at
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
               as String?,
-      favourited_count: favourited_count == freezed
+      favourited_count: freezed == favourited_count
           ? _value.favourited_count
           : favourited_count // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
   }
 }
 
@@ -2308,60 +2314,59 @@ abstract class _$$_TweetCopyWith<$Res> implements $TweetCopyWith<$Res> {
   factory _$$_TweetCopyWith(_$_Tweet value, $Res Function(_$_Tweet) then) =
       __$$_TweetCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? id,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? retweeted_count,
       String? text,
       String? username,
       String? created_at,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? favourited_count});
+          int? favourited_count,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          int? id});
 }
 
 /// @nodoc
-class __$$_TweetCopyWithImpl<$Res> extends _$TweetCopyWithImpl<$Res>
+class __$$_TweetCopyWithImpl<$Res> extends _$TweetCopyWithImpl<$Res, _$_Tweet>
     implements _$$_TweetCopyWith<$Res> {
   __$$_TweetCopyWithImpl(_$_Tweet _value, $Res Function(_$_Tweet) _then)
-      : super(_value, (v) => _then(v as _$_Tweet));
+      : super(_value, _then);
 
-  @override
-  _$_Tweet get _value => super._value as _$_Tweet;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
     Object? retweeted_count = freezed,
     Object? text = freezed,
     Object? username = freezed,
     Object? created_at = freezed,
     Object? favourited_count = freezed,
+    Object? id = freezed,
   }) {
     return _then(_$_Tweet(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      retweeted_count: retweeted_count == freezed
+      retweeted_count: freezed == retweeted_count
           ? _value.retweeted_count
           : retweeted_count // ignore: cast_nullable_to_non_nullable
               as int?,
-      text: text == freezed
+      text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
-      username: username == freezed
+      username: freezed == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String?,
-      created_at: created_at == freezed
+      created_at: freezed == created_at
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
               as String?,
-      favourited_count: favourited_count == freezed
+      favourited_count: freezed == favourited_count
           ? _value.favourited_count
           : favourited_count // ignore: cast_nullable_to_non_nullable
+              as int?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
@@ -2372,22 +2377,17 @@ class __$$_TweetCopyWithImpl<$Res> extends _$TweetCopyWithImpl<$Res>
 class _$_Tweet implements _Tweet {
   const _$_Tweet(
       {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.id,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           this.retweeted_count,
       this.text,
       this.username,
       this.created_at,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.favourited_count});
+          this.favourited_count,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          this.id});
 
   factory _$_Tweet.fromJson(Map<String, dynamic> json) =>
       _$$_TweetFromJson(json);
-
-  /// id of the tweet
-  @override
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? id;
 
   /// number of times retweeted
   @override
@@ -2411,9 +2411,14 @@ class _$_Tweet implements _Tweet {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? favourited_count;
 
+  /// id of the tweet
+  @override
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? id;
+
   @override
   String toString() {
-    return 'Tweet(id: $id, retweeted_count: $retweeted_count, text: $text, username: $username, created_at: $created_at, favourited_count: $favourited_count)';
+    return 'Tweet(retweeted_count: $retweeted_count, text: $text, username: $username, created_at: $created_at, favourited_count: $favourited_count, id: $id)';
   }
 
   @override
@@ -2421,30 +2426,26 @@ class _$_Tweet implements _Tweet {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Tweet &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality()
-                .equals(other.retweeted_count, retweeted_count) &&
-            const DeepCollectionEquality().equals(other.text, text) &&
-            const DeepCollectionEquality().equals(other.username, username) &&
-            const DeepCollectionEquality()
-                .equals(other.created_at, created_at) &&
-            const DeepCollectionEquality()
-                .equals(other.favourited_count, favourited_count));
+            (identical(other.retweeted_count, retweeted_count) ||
+                other.retweeted_count == retweeted_count) &&
+            (identical(other.text, text) || other.text == text) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.created_at, created_at) ||
+                other.created_at == created_at) &&
+            (identical(other.favourited_count, favourited_count) ||
+                other.favourited_count == favourited_count) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(retweeted_count),
-      const DeepCollectionEquality().hash(text),
-      const DeepCollectionEquality().hash(username),
-      const DeepCollectionEquality().hash(created_at),
-      const DeepCollectionEquality().hash(favourited_count));
+  int get hashCode => Object.hash(runtimeType, retweeted_count, text, username,
+      created_at, favourited_count, id);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TweetCopyWith<_$_Tweet> get copyWith =>
       __$$_TweetCopyWithImpl<_$_Tweet>(this, _$identity);
 
@@ -2459,22 +2460,17 @@ class _$_Tweet implements _Tweet {
 abstract class _Tweet implements Tweet {
   const factory _Tweet(
       {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? id,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? retweeted_count,
       final String? text,
       final String? username,
       final String? created_at,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? favourited_count}) = _$_Tweet;
+          final int? favourited_count,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          final int? id}) = _$_Tweet;
 
   factory _Tweet.fromJson(Map<String, dynamic> json) = _$_Tweet.fromJson;
 
-  @override
-
-  /// id of the tweet
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get id;
   @override
 
   /// number of times retweeted
@@ -2497,6 +2493,11 @@ abstract class _Tweet implements Tweet {
   /// number of times favourited
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get favourited_count;
+  @override
+
+  /// id of the tweet
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get id;
   @override
   @JsonKey(ignore: true)
   _$$_TweetCopyWith<_$_Tweet> get copyWith =>
@@ -2522,28 +2523,32 @@ mixin _$UserRequest {
 abstract class $UserRequestCopyWith<$Res> {
   factory $UserRequestCopyWith(
           UserRequest value, $Res Function(UserRequest) then) =
-      _$UserRequestCopyWithImpl<$Res>;
+      _$UserRequestCopyWithImpl<$Res, UserRequest>;
+  @useResult
   $Res call({String? username});
 }
 
 /// @nodoc
-class _$UserRequestCopyWithImpl<$Res> implements $UserRequestCopyWith<$Res> {
+class _$UserRequestCopyWithImpl<$Res, $Val extends UserRequest>
+    implements $UserRequestCopyWith<$Res> {
   _$UserRequestCopyWithImpl(this._value, this._then);
 
-  final UserRequest _value;
   // ignore: unused_field
-  final $Res Function(UserRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? username = freezed,
   }) {
     return _then(_value.copyWith(
-      username: username == freezed
+      username: freezed == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -2554,25 +2559,25 @@ abstract class _$$_UserRequestCopyWith<$Res>
           _$_UserRequest value, $Res Function(_$_UserRequest) then) =
       __$$_UserRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? username});
 }
 
 /// @nodoc
-class __$$_UserRequestCopyWithImpl<$Res> extends _$UserRequestCopyWithImpl<$Res>
+class __$$_UserRequestCopyWithImpl<$Res>
+    extends _$UserRequestCopyWithImpl<$Res, _$_UserRequest>
     implements _$$_UserRequestCopyWith<$Res> {
   __$$_UserRequestCopyWithImpl(
       _$_UserRequest _value, $Res Function(_$_UserRequest) _then)
-      : super(_value, (v) => _then(v as _$_UserRequest));
+      : super(_value, _then);
 
-  @override
-  _$_UserRequest get _value => super._value as _$_UserRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? username = freezed,
   }) {
     return _then(_$_UserRequest(
-      username: username == freezed
+      username: freezed == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -2602,16 +2607,17 @@ class _$_UserRequest implements _UserRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UserRequest &&
-            const DeepCollectionEquality().equals(other.username, username));
+            (identical(other.username, username) ||
+                other.username == username));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(username));
+  int get hashCode => Object.hash(runtimeType, username);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UserRequestCopyWith<_$_UserRequest> get copyWith =>
       __$$_UserRequestCopyWithImpl<_$_UserRequest>(this, _$identity);
 
@@ -2662,8 +2668,8 @@ mixin _$UserResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Profile? profile, Tweet? status)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Profile? profile, Tweet? status)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2681,8 +2687,8 @@ mixin _$UserResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(UserResponseData value)? $default, {
-    TResult Function(UserResponseMerr value)? Merr,
+    TResult? Function(UserResponseData value)? $default, {
+    TResult? Function(UserResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2699,16 +2705,18 @@ mixin _$UserResponse {
 abstract class $UserResponseCopyWith<$Res> {
   factory $UserResponseCopyWith(
           UserResponse value, $Res Function(UserResponse) then) =
-      _$UserResponseCopyWithImpl<$Res>;
+      _$UserResponseCopyWithImpl<$Res, UserResponse>;
 }
 
 /// @nodoc
-class _$UserResponseCopyWithImpl<$Res> implements $UserResponseCopyWith<$Res> {
+class _$UserResponseCopyWithImpl<$Res, $Val extends UserResponse>
+    implements $UserResponseCopyWith<$Res> {
   _$UserResponseCopyWithImpl(this._value, this._then);
 
-  final UserResponse _value;
   // ignore: unused_field
-  final $Res Function(UserResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -2716,6 +2724,7 @@ abstract class _$$UserResponseDataCopyWith<$Res> {
   factory _$$UserResponseDataCopyWith(
           _$UserResponseData value, $Res Function(_$UserResponseData) then) =
       __$$UserResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({Profile? profile, Tweet? status});
 
   $ProfileCopyWith<$Res>? get profile;
@@ -2724,26 +2733,24 @@ abstract class _$$UserResponseDataCopyWith<$Res> {
 
 /// @nodoc
 class __$$UserResponseDataCopyWithImpl<$Res>
-    extends _$UserResponseCopyWithImpl<$Res>
+    extends _$UserResponseCopyWithImpl<$Res, _$UserResponseData>
     implements _$$UserResponseDataCopyWith<$Res> {
   __$$UserResponseDataCopyWithImpl(
       _$UserResponseData _value, $Res Function(_$UserResponseData) _then)
-      : super(_value, (v) => _then(v as _$UserResponseData));
+      : super(_value, _then);
 
-  @override
-  _$UserResponseData get _value => super._value as _$UserResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? profile = freezed,
     Object? status = freezed,
   }) {
     return _then(_$UserResponseData(
-      profile: profile == freezed
+      profile: freezed == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
               as Profile?,
-      status: status == freezed
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Tweet?,
@@ -2751,6 +2758,7 @@ class __$$UserResponseDataCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ProfileCopyWith<$Res>? get profile {
     if (_value.profile == null) {
       return null;
@@ -2762,6 +2770,7 @@ class __$$UserResponseDataCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TweetCopyWith<$Res>? get status {
     if (_value.status == null) {
       return null;
@@ -2803,19 +2812,17 @@ class _$UserResponseData implements UserResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserResponseData &&
-            const DeepCollectionEquality().equals(other.profile, profile) &&
-            const DeepCollectionEquality().equals(other.status, status));
+            (identical(other.profile, profile) || other.profile == profile) &&
+            (identical(other.status, status) || other.status == status));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(profile),
-      const DeepCollectionEquality().hash(status));
+  int get hashCode => Object.hash(runtimeType, profile, status);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$UserResponseDataCopyWith<_$UserResponseData> get copyWith =>
       __$$UserResponseDataCopyWithImpl<_$UserResponseData>(this, _$identity);
 
@@ -2831,8 +2838,8 @@ class _$UserResponseData implements UserResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Profile? profile, Tweet? status)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Profile? profile, Tweet? status)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(profile, status);
   }
@@ -2862,8 +2869,8 @@ class _$UserResponseData implements UserResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(UserResponseData value)? $default, {
-    TResult Function(UserResponseMerr value)? Merr,
+    TResult? Function(UserResponseData value)? $default, {
+    TResult? Function(UserResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -2911,26 +2918,25 @@ abstract class _$$UserResponseMerrCopyWith<$Res> {
   factory _$$UserResponseMerrCopyWith(
           _$UserResponseMerr value, $Res Function(_$UserResponseMerr) then) =
       __$$UserResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$UserResponseMerrCopyWithImpl<$Res>
-    extends _$UserResponseCopyWithImpl<$Res>
+    extends _$UserResponseCopyWithImpl<$Res, _$UserResponseMerr>
     implements _$$UserResponseMerrCopyWith<$Res> {
   __$$UserResponseMerrCopyWithImpl(
       _$UserResponseMerr _value, $Res Function(_$UserResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$UserResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$UserResponseMerr get _value => super._value as _$UserResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$UserResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -2981,6 +2987,7 @@ class _$UserResponseMerr implements UserResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$UserResponseMerrCopyWith<_$UserResponseMerr> get copyWith =>
       __$$UserResponseMerrCopyWithImpl<_$UserResponseMerr>(this, _$identity);
 
@@ -2996,8 +3003,8 @@ class _$UserResponseMerr implements UserResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Profile? profile, Tweet? status)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Profile? profile, Tweet? status)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -3027,8 +3034,8 @@ class _$UserResponseMerr implements UserResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(UserResponseData value)? $default, {
-    TResult Function(UserResponseMerr value)? Merr,
+    TResult? Function(UserResponseData value)? $default, {
+    TResult? Function(UserResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }

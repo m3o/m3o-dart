@@ -33,29 +33,32 @@ mixin _$QuestionRequest {
 abstract class $QuestionRequestCopyWith<$Res> {
   factory $QuestionRequestCopyWith(
           QuestionRequest value, $Res Function(QuestionRequest) then) =
-      _$QuestionRequestCopyWithImpl<$Res>;
+      _$QuestionRequestCopyWithImpl<$Res, QuestionRequest>;
+  @useResult
   $Res call({String? query});
 }
 
 /// @nodoc
-class _$QuestionRequestCopyWithImpl<$Res>
+class _$QuestionRequestCopyWithImpl<$Res, $Val extends QuestionRequest>
     implements $QuestionRequestCopyWith<$Res> {
   _$QuestionRequestCopyWithImpl(this._value, this._then);
 
-  final QuestionRequest _value;
   // ignore: unused_field
-  final $Res Function(QuestionRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? query = freezed,
   }) {
     return _then(_value.copyWith(
-      query: query == freezed
+      query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -66,26 +69,25 @@ abstract class _$$_QuestionRequestCopyWith<$Res>
           _$_QuestionRequest value, $Res Function(_$_QuestionRequest) then) =
       __$$_QuestionRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? query});
 }
 
 /// @nodoc
 class __$$_QuestionRequestCopyWithImpl<$Res>
-    extends _$QuestionRequestCopyWithImpl<$Res>
+    extends _$QuestionRequestCopyWithImpl<$Res, _$_QuestionRequest>
     implements _$$_QuestionRequestCopyWith<$Res> {
   __$$_QuestionRequestCopyWithImpl(
       _$_QuestionRequest _value, $Res Function(_$_QuestionRequest) _then)
-      : super(_value, (v) => _then(v as _$_QuestionRequest));
+      : super(_value, _then);
 
-  @override
-  _$_QuestionRequest get _value => super._value as _$_QuestionRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? query = freezed,
   }) {
     return _then(_$_QuestionRequest(
-      query: query == freezed
+      query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -115,16 +117,16 @@ class _$_QuestionRequest implements _QuestionRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_QuestionRequest &&
-            const DeepCollectionEquality().equals(other.query, query));
+            (identical(other.query, query) || other.query == query));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(query));
+  int get hashCode => Object.hash(runtimeType, query);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_QuestionRequestCopyWith<_$_QuestionRequest> get copyWith =>
       __$$_QuestionRequestCopyWithImpl<_$_QuestionRequest>(this, _$identity);
 
@@ -175,8 +177,8 @@ mixin _$QuestionResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? answer, String? image, String? url)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? answer, String? image, String? url)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -194,8 +196,8 @@ mixin _$QuestionResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(QuestionResponseData value)? $default, {
-    TResult Function(QuestionResponseMerr value)? Merr,
+    TResult? Function(QuestionResponseData value)? $default, {
+    TResult? Function(QuestionResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -212,17 +214,18 @@ mixin _$QuestionResponse {
 abstract class $QuestionResponseCopyWith<$Res> {
   factory $QuestionResponseCopyWith(
           QuestionResponse value, $Res Function(QuestionResponse) then) =
-      _$QuestionResponseCopyWithImpl<$Res>;
+      _$QuestionResponseCopyWithImpl<$Res, QuestionResponse>;
 }
 
 /// @nodoc
-class _$QuestionResponseCopyWithImpl<$Res>
+class _$QuestionResponseCopyWithImpl<$Res, $Val extends QuestionResponse>
     implements $QuestionResponseCopyWith<$Res> {
   _$QuestionResponseCopyWithImpl(this._value, this._then);
 
-  final QuestionResponse _value;
   // ignore: unused_field
-  final $Res Function(QuestionResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -230,20 +233,19 @@ abstract class _$$QuestionResponseDataCopyWith<$Res> {
   factory _$$QuestionResponseDataCopyWith(_$QuestionResponseData value,
           $Res Function(_$QuestionResponseData) then) =
       __$$QuestionResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? answer, String? image, String? url});
 }
 
 /// @nodoc
 class __$$QuestionResponseDataCopyWithImpl<$Res>
-    extends _$QuestionResponseCopyWithImpl<$Res>
+    extends _$QuestionResponseCopyWithImpl<$Res, _$QuestionResponseData>
     implements _$$QuestionResponseDataCopyWith<$Res> {
   __$$QuestionResponseDataCopyWithImpl(_$QuestionResponseData _value,
       $Res Function(_$QuestionResponseData) _then)
-      : super(_value, (v) => _then(v as _$QuestionResponseData));
+      : super(_value, _then);
 
-  @override
-  _$QuestionResponseData get _value => super._value as _$QuestionResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? answer = freezed,
@@ -251,15 +253,15 @@ class __$$QuestionResponseDataCopyWithImpl<$Res>
     Object? url = freezed,
   }) {
     return _then(_$QuestionResponseData(
-      answer: answer == freezed
+      answer: freezed == answer
           ? _value.answer
           : answer // ignore: cast_nullable_to_non_nullable
               as String?,
-      image: image == freezed
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
-      url: url == freezed
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -302,21 +304,18 @@ class _$QuestionResponseData implements QuestionResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QuestionResponseData &&
-            const DeepCollectionEquality().equals(other.answer, answer) &&
-            const DeepCollectionEquality().equals(other.image, image) &&
-            const DeepCollectionEquality().equals(other.url, url));
+            (identical(other.answer, answer) || other.answer == answer) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.url, url) || other.url == url));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(answer),
-      const DeepCollectionEquality().hash(image),
-      const DeepCollectionEquality().hash(url));
+  int get hashCode => Object.hash(runtimeType, answer, image, url);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$QuestionResponseDataCopyWith<_$QuestionResponseData> get copyWith =>
       __$$QuestionResponseDataCopyWithImpl<_$QuestionResponseData>(
           this, _$identity);
@@ -333,8 +332,8 @@ class _$QuestionResponseData implements QuestionResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? answer, String? image, String? url)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? answer, String? image, String? url)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(answer, image, url);
   }
@@ -364,8 +363,8 @@ class _$QuestionResponseData implements QuestionResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(QuestionResponseData value)? $default, {
-    TResult Function(QuestionResponseMerr value)? Merr,
+    TResult? Function(QuestionResponseData value)? $default, {
+    TResult? Function(QuestionResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -418,26 +417,25 @@ abstract class _$$QuestionResponseMerrCopyWith<$Res> {
   factory _$$QuestionResponseMerrCopyWith(_$QuestionResponseMerr value,
           $Res Function(_$QuestionResponseMerr) then) =
       __$$QuestionResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$QuestionResponseMerrCopyWithImpl<$Res>
-    extends _$QuestionResponseCopyWithImpl<$Res>
+    extends _$QuestionResponseCopyWithImpl<$Res, _$QuestionResponseMerr>
     implements _$$QuestionResponseMerrCopyWith<$Res> {
   __$$QuestionResponseMerrCopyWithImpl(_$QuestionResponseMerr _value,
       $Res Function(_$QuestionResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$QuestionResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$QuestionResponseMerr get _value => super._value as _$QuestionResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$QuestionResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -488,6 +486,7 @@ class _$QuestionResponseMerr implements QuestionResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$QuestionResponseMerrCopyWith<_$QuestionResponseMerr> get copyWith =>
       __$$QuestionResponseMerrCopyWithImpl<_$QuestionResponseMerr>(
           this, _$identity);
@@ -504,8 +503,8 @@ class _$QuestionResponseMerr implements QuestionResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? answer, String? image, String? url)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? answer, String? image, String? url)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -535,8 +534,8 @@ class _$QuestionResponseMerr implements QuestionResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(QuestionResponseData value)? $default, {
-    TResult Function(QuestionResponseMerr value)? Merr,
+    TResult? Function(QuestionResponseData value)? $default, {
+    TResult? Function(QuestionResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }

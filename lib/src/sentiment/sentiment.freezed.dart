@@ -36,34 +36,37 @@ mixin _$AnalyzeRequest {
 abstract class $AnalyzeRequestCopyWith<$Res> {
   factory $AnalyzeRequestCopyWith(
           AnalyzeRequest value, $Res Function(AnalyzeRequest) then) =
-      _$AnalyzeRequestCopyWithImpl<$Res>;
+      _$AnalyzeRequestCopyWithImpl<$Res, AnalyzeRequest>;
+  @useResult
   $Res call({String? lang, String? text});
 }
 
 /// @nodoc
-class _$AnalyzeRequestCopyWithImpl<$Res>
+class _$AnalyzeRequestCopyWithImpl<$Res, $Val extends AnalyzeRequest>
     implements $AnalyzeRequestCopyWith<$Res> {
   _$AnalyzeRequestCopyWithImpl(this._value, this._then);
 
-  final AnalyzeRequest _value;
   // ignore: unused_field
-  final $Res Function(AnalyzeRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? lang = freezed,
     Object? text = freezed,
   }) {
     return _then(_value.copyWith(
-      lang: lang == freezed
+      lang: freezed == lang
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
               as String?,
-      text: text == freezed
+      text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -74,31 +77,30 @@ abstract class _$$_AnalyzeRequestCopyWith<$Res>
           _$_AnalyzeRequest value, $Res Function(_$_AnalyzeRequest) then) =
       __$$_AnalyzeRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? lang, String? text});
 }
 
 /// @nodoc
 class __$$_AnalyzeRequestCopyWithImpl<$Res>
-    extends _$AnalyzeRequestCopyWithImpl<$Res>
+    extends _$AnalyzeRequestCopyWithImpl<$Res, _$_AnalyzeRequest>
     implements _$$_AnalyzeRequestCopyWith<$Res> {
   __$$_AnalyzeRequestCopyWithImpl(
       _$_AnalyzeRequest _value, $Res Function(_$_AnalyzeRequest) _then)
-      : super(_value, (v) => _then(v as _$_AnalyzeRequest));
+      : super(_value, _then);
 
-  @override
-  _$_AnalyzeRequest get _value => super._value as _$_AnalyzeRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? lang = freezed,
     Object? text = freezed,
   }) {
     return _then(_$_AnalyzeRequest(
-      lang: lang == freezed
+      lang: freezed == lang
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
               as String?,
-      text: text == freezed
+      text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -132,19 +134,17 @@ class _$_AnalyzeRequest implements _AnalyzeRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AnalyzeRequest &&
-            const DeepCollectionEquality().equals(other.lang, lang) &&
-            const DeepCollectionEquality().equals(other.text, text));
+            (identical(other.lang, lang) || other.lang == lang) &&
+            (identical(other.text, text) || other.text == text));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(lang),
-      const DeepCollectionEquality().hash(text));
+  int get hashCode => Object.hash(runtimeType, lang, text);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AnalyzeRequestCopyWith<_$_AnalyzeRequest> get copyWith =>
       __$$_AnalyzeRequestCopyWithImpl<_$_AnalyzeRequest>(this, _$identity);
 
@@ -200,8 +200,8 @@ mixin _$AnalyzeResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? score)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(double? score)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -219,8 +219,8 @@ mixin _$AnalyzeResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(AnalyzeResponseData value)? $default, {
-    TResult Function(AnalyzeResponseMerr value)? Merr,
+    TResult? Function(AnalyzeResponseData value)? $default, {
+    TResult? Function(AnalyzeResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -237,17 +237,18 @@ mixin _$AnalyzeResponse {
 abstract class $AnalyzeResponseCopyWith<$Res> {
   factory $AnalyzeResponseCopyWith(
           AnalyzeResponse value, $Res Function(AnalyzeResponse) then) =
-      _$AnalyzeResponseCopyWithImpl<$Res>;
+      _$AnalyzeResponseCopyWithImpl<$Res, AnalyzeResponse>;
 }
 
 /// @nodoc
-class _$AnalyzeResponseCopyWithImpl<$Res>
+class _$AnalyzeResponseCopyWithImpl<$Res, $Val extends AnalyzeResponse>
     implements $AnalyzeResponseCopyWith<$Res> {
   _$AnalyzeResponseCopyWithImpl(this._value, this._then);
 
-  final AnalyzeResponse _value;
   // ignore: unused_field
-  final $Res Function(AnalyzeResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -255,26 +256,25 @@ abstract class _$$AnalyzeResponseDataCopyWith<$Res> {
   factory _$$AnalyzeResponseDataCopyWith(_$AnalyzeResponseData value,
           $Res Function(_$AnalyzeResponseData) then) =
       __$$AnalyzeResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({double? score});
 }
 
 /// @nodoc
 class __$$AnalyzeResponseDataCopyWithImpl<$Res>
-    extends _$AnalyzeResponseCopyWithImpl<$Res>
+    extends _$AnalyzeResponseCopyWithImpl<$Res, _$AnalyzeResponseData>
     implements _$$AnalyzeResponseDataCopyWith<$Res> {
   __$$AnalyzeResponseDataCopyWithImpl(
       _$AnalyzeResponseData _value, $Res Function(_$AnalyzeResponseData) _then)
-      : super(_value, (v) => _then(v as _$AnalyzeResponseData));
+      : super(_value, _then);
 
-  @override
-  _$AnalyzeResponseData get _value => super._value as _$AnalyzeResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? score = freezed,
   }) {
     return _then(_$AnalyzeResponseData(
-      score: score == freezed
+      score: freezed == score
           ? _value.score
           : score // ignore: cast_nullable_to_non_nullable
               as double?,
@@ -308,16 +308,16 @@ class _$AnalyzeResponseData implements AnalyzeResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AnalyzeResponseData &&
-            const DeepCollectionEquality().equals(other.score, score));
+            (identical(other.score, score) || other.score == score));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(score));
+  int get hashCode => Object.hash(runtimeType, score);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$AnalyzeResponseDataCopyWith<_$AnalyzeResponseData> get copyWith =>
       __$$AnalyzeResponseDataCopyWithImpl<_$AnalyzeResponseData>(
           this, _$identity);
@@ -334,8 +334,8 @@ class _$AnalyzeResponseData implements AnalyzeResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? score)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(double? score)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(score);
   }
@@ -365,8 +365,8 @@ class _$AnalyzeResponseData implements AnalyzeResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(AnalyzeResponseData value)? $default, {
-    TResult Function(AnalyzeResponseMerr value)? Merr,
+    TResult? Function(AnalyzeResponseData value)? $default, {
+    TResult? Function(AnalyzeResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -411,26 +411,25 @@ abstract class _$$AnalyzeResponseMerrCopyWith<$Res> {
   factory _$$AnalyzeResponseMerrCopyWith(_$AnalyzeResponseMerr value,
           $Res Function(_$AnalyzeResponseMerr) then) =
       __$$AnalyzeResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$AnalyzeResponseMerrCopyWithImpl<$Res>
-    extends _$AnalyzeResponseCopyWithImpl<$Res>
+    extends _$AnalyzeResponseCopyWithImpl<$Res, _$AnalyzeResponseMerr>
     implements _$$AnalyzeResponseMerrCopyWith<$Res> {
   __$$AnalyzeResponseMerrCopyWithImpl(
       _$AnalyzeResponseMerr _value, $Res Function(_$AnalyzeResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$AnalyzeResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$AnalyzeResponseMerr get _value => super._value as _$AnalyzeResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$AnalyzeResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -481,6 +480,7 @@ class _$AnalyzeResponseMerr implements AnalyzeResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$AnalyzeResponseMerrCopyWith<_$AnalyzeResponseMerr> get copyWith =>
       __$$AnalyzeResponseMerrCopyWithImpl<_$AnalyzeResponseMerr>(
           this, _$identity);
@@ -497,8 +497,8 @@ class _$AnalyzeResponseMerr implements AnalyzeResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? score)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(double? score)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -528,8 +528,8 @@ class _$AnalyzeResponseMerr implements AnalyzeResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(AnalyzeResponseData value)? $default, {
-    TResult Function(AnalyzeResponseMerr value)? Merr,
+    TResult? Function(AnalyzeResponseData value)? $default, {
+    TResult? Function(AnalyzeResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }

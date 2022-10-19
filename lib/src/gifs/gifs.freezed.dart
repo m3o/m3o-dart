@@ -20,14 +20,14 @@ Gif _$GifFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Gif {
-  /// The slug used in the GIF's URL
-  String? get slug => throw _privateConstructorUsedError;
-
   /// URL used for embedding the GIF
   String? get embed_url => throw _privateConstructorUsedError;
 
   /// The ID of the GIF
   String? get id => throw _privateConstructorUsedError;
+
+  /// The different formats available for this GIF
+  ImageFormats? get images => throw _privateConstructorUsedError;
 
   /// The content rating for the GIF
   String? get rating => throw _privateConstructorUsedError;
@@ -35,17 +35,17 @@ mixin _$Gif {
   /// A short URL for this GIF
   String? get short_url => throw _privateConstructorUsedError;
 
-  /// The different formats available for this GIF
-  ImageFormats? get images => throw _privateConstructorUsedError;
+  /// The URL for this GIF
+  String? get url => throw _privateConstructorUsedError;
+
+  /// The slug used in the GIF's URL
+  String? get slug => throw _privateConstructorUsedError;
 
   /// The page on which this GIF was found
   String? get source => throw _privateConstructorUsedError;
 
   /// The title for this GIF
   String? get title => throw _privateConstructorUsedError;
-
-  /// The URL for this GIF
-  String? get url => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -55,89 +55,93 @@ mixin _$Gif {
 /// @nodoc
 abstract class $GifCopyWith<$Res> {
   factory $GifCopyWith(Gif value, $Res Function(Gif) then) =
-      _$GifCopyWithImpl<$Res>;
+      _$GifCopyWithImpl<$Res, Gif>;
+  @useResult
   $Res call(
-      {String? slug,
-      String? embed_url,
+      {String? embed_url,
       String? id,
+      ImageFormats? images,
       String? rating,
       String? short_url,
-      ImageFormats? images,
+      String? url,
+      String? slug,
       String? source,
-      String? title,
-      String? url});
+      String? title});
 
   $ImageFormatsCopyWith<$Res>? get images;
 }
 
 /// @nodoc
-class _$GifCopyWithImpl<$Res> implements $GifCopyWith<$Res> {
+class _$GifCopyWithImpl<$Res, $Val extends Gif> implements $GifCopyWith<$Res> {
   _$GifCopyWithImpl(this._value, this._then);
 
-  final Gif _value;
   // ignore: unused_field
-  final $Res Function(Gif) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? slug = freezed,
     Object? embed_url = freezed,
     Object? id = freezed,
+    Object? images = freezed,
     Object? rating = freezed,
     Object? short_url = freezed,
-    Object? images = freezed,
+    Object? url = freezed,
+    Object? slug = freezed,
     Object? source = freezed,
     Object? title = freezed,
-    Object? url = freezed,
   }) {
     return _then(_value.copyWith(
-      slug: slug == freezed
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String?,
-      embed_url: embed_url == freezed
+      embed_url: freezed == embed_url
           ? _value.embed_url
           : embed_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      rating: rating == freezed
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as String?,
-      short_url: short_url == freezed
-          ? _value.short_url
-          : short_url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      images: images == freezed
+      images: freezed == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
               as ImageFormats?,
-      source: source == freezed
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      short_url: freezed == short_url
+          ? _value.short_url
+          : short_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      url: url == freezed
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+      slug: freezed == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
+              as String?,
+      source: freezed == source
+          ? _value.source
+          : source // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ImageFormatsCopyWith<$Res>? get images {
     if (_value.images == null) {
       return null;
     }
 
     return $ImageFormatsCopyWith<$Res>(_value.images!, (value) {
-      return _then(_value.copyWith(images: value));
+      return _then(_value.copyWith(images: value) as $Val);
     });
   }
 }
@@ -147,78 +151,77 @@ abstract class _$$_GifCopyWith<$Res> implements $GifCopyWith<$Res> {
   factory _$$_GifCopyWith(_$_Gif value, $Res Function(_$_Gif) then) =
       __$$_GifCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
-      {String? slug,
-      String? embed_url,
+      {String? embed_url,
       String? id,
+      ImageFormats? images,
       String? rating,
       String? short_url,
-      ImageFormats? images,
+      String? url,
+      String? slug,
       String? source,
-      String? title,
-      String? url});
+      String? title});
 
   @override
   $ImageFormatsCopyWith<$Res>? get images;
 }
 
 /// @nodoc
-class __$$_GifCopyWithImpl<$Res> extends _$GifCopyWithImpl<$Res>
+class __$$_GifCopyWithImpl<$Res> extends _$GifCopyWithImpl<$Res, _$_Gif>
     implements _$$_GifCopyWith<$Res> {
   __$$_GifCopyWithImpl(_$_Gif _value, $Res Function(_$_Gif) _then)
-      : super(_value, (v) => _then(v as _$_Gif));
+      : super(_value, _then);
 
-  @override
-  _$_Gif get _value => super._value as _$_Gif;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? slug = freezed,
     Object? embed_url = freezed,
     Object? id = freezed,
+    Object? images = freezed,
     Object? rating = freezed,
     Object? short_url = freezed,
-    Object? images = freezed,
+    Object? url = freezed,
+    Object? slug = freezed,
     Object? source = freezed,
     Object? title = freezed,
-    Object? url = freezed,
   }) {
     return _then(_$_Gif(
-      slug: slug == freezed
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String?,
-      embed_url: embed_url == freezed
+      embed_url: freezed == embed_url
           ? _value.embed_url
           : embed_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      rating: rating == freezed
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as String?,
-      short_url: short_url == freezed
-          ? _value.short_url
-          : short_url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      images: images == freezed
+      images: freezed == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
               as ImageFormats?,
-      source: source == freezed
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as String?,
+      short_url: freezed == short_url
+          ? _value.short_url
+          : short_url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      slug: freezed == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
+              as String?,
+      source: freezed == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: title == freezed
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -228,21 +231,17 @@ class __$$_GifCopyWithImpl<$Res> extends _$GifCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Gif implements _Gif {
   const _$_Gif(
-      {this.slug,
-      this.embed_url,
+      {this.embed_url,
       this.id,
+      this.images,
       this.rating,
       this.short_url,
-      this.images,
+      this.url,
+      this.slug,
       this.source,
-      this.title,
-      this.url});
+      this.title});
 
   factory _$_Gif.fromJson(Map<String, dynamic> json) => _$$_GifFromJson(json);
-
-  /// The slug used in the GIF's URL
-  @override
-  final String? slug;
 
   /// URL used for embedding the GIF
   @override
@@ -252,6 +251,10 @@ class _$_Gif implements _Gif {
   @override
   final String? id;
 
+  /// The different formats available for this GIF
+  @override
+  final ImageFormats? images;
+
   /// The content rating for the GIF
   @override
   final String? rating;
@@ -260,9 +263,13 @@ class _$_Gif implements _Gif {
   @override
   final String? short_url;
 
-  /// The different formats available for this GIF
+  /// The URL for this GIF
   @override
-  final ImageFormats? images;
+  final String? url;
+
+  /// The slug used in the GIF's URL
+  @override
+  final String? slug;
 
   /// The page on which this GIF was found
   @override
@@ -272,13 +279,9 @@ class _$_Gif implements _Gif {
   @override
   final String? title;
 
-  /// The URL for this GIF
-  @override
-  final String? url;
-
   @override
   String toString() {
-    return 'Gif(slug: $slug, embed_url: $embed_url, id: $id, rating: $rating, short_url: $short_url, images: $images, source: $source, title: $title, url: $url)';
+    return 'Gif(embed_url: $embed_url, id: $id, images: $images, rating: $rating, short_url: $short_url, url: $url, slug: $slug, source: $source, title: $title)';
   }
 
   @override
@@ -286,33 +289,27 @@ class _$_Gif implements _Gif {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Gif &&
-            const DeepCollectionEquality().equals(other.slug, slug) &&
-            const DeepCollectionEquality().equals(other.embed_url, embed_url) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.rating, rating) &&
-            const DeepCollectionEquality().equals(other.short_url, short_url) &&
-            const DeepCollectionEquality().equals(other.images, images) &&
-            const DeepCollectionEquality().equals(other.source, source) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.url, url));
+            (identical(other.embed_url, embed_url) ||
+                other.embed_url == embed_url) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.images, images) || other.images == images) &&
+            (identical(other.rating, rating) || other.rating == rating) &&
+            (identical(other.short_url, short_url) ||
+                other.short_url == short_url) &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.slug, slug) || other.slug == slug) &&
+            (identical(other.source, source) || other.source == source) &&
+            (identical(other.title, title) || other.title == title));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(slug),
-      const DeepCollectionEquality().hash(embed_url),
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(rating),
-      const DeepCollectionEquality().hash(short_url),
-      const DeepCollectionEquality().hash(images),
-      const DeepCollectionEquality().hash(source),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(url));
+  int get hashCode => Object.hash(runtimeType, embed_url, id, images, rating,
+      short_url, url, slug, source, title);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_GifCopyWith<_$_Gif> get copyWith =>
       __$$_GifCopyWithImpl<_$_Gif>(this, _$identity);
 
@@ -326,22 +323,18 @@ class _$_Gif implements _Gif {
 
 abstract class _Gif implements Gif {
   const factory _Gif(
-      {final String? slug,
-      final String? embed_url,
+      {final String? embed_url,
       final String? id,
+      final ImageFormats? images,
       final String? rating,
       final String? short_url,
-      final ImageFormats? images,
+      final String? url,
+      final String? slug,
       final String? source,
-      final String? title,
-      final String? url}) = _$_Gif;
+      final String? title}) = _$_Gif;
 
   factory _Gif.fromJson(Map<String, dynamic> json) = _$_Gif.fromJson;
 
-  @override
-
-  /// The slug used in the GIF's URL
-  String? get slug;
   @override
 
   /// URL used for embedding the GIF
@@ -352,6 +345,10 @@ abstract class _Gif implements Gif {
   String? get id;
   @override
 
+  /// The different formats available for this GIF
+  ImageFormats? get images;
+  @override
+
   /// The content rating for the GIF
   String? get rating;
   @override
@@ -360,8 +357,12 @@ abstract class _Gif implements Gif {
   String? get short_url;
   @override
 
-  /// The different formats available for this GIF
-  ImageFormats? get images;
+  /// The URL for this GIF
+  String? get url;
+  @override
+
+  /// The slug used in the GIF's URL
+  String? get slug;
   @override
 
   /// The page on which this GIF was found
@@ -370,10 +371,6 @@ abstract class _Gif implements Gif {
 
   /// The title for this GIF
   String? get title;
-  @override
-
-  /// The URL for this GIF
-  String? get url;
   @override
   @JsonKey(ignore: true)
   _$$_GifCopyWith<_$_Gif> get copyWith => throw _privateConstructorUsedError;
@@ -385,15 +382,6 @@ ImageFormat _$ImageFormatFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ImageFormat {
-  /// height
-  int? get height => throw _privateConstructorUsedError;
-
-  /// size of the MP4 version
-  int? get mp4_size => throw _privateConstructorUsedError;
-
-  /// URL to an MP4 version of the gif
-  String? get mp4_url => throw _privateConstructorUsedError;
-
   /// size in bytes
   int? get size => throw _privateConstructorUsedError;
 
@@ -409,6 +397,15 @@ mixin _$ImageFormat {
   /// width
   int? get width => throw _privateConstructorUsedError;
 
+  /// height
+  int? get height => throw _privateConstructorUsedError;
+
+  /// size of the MP4 version
+  int? get mp4_size => throw _privateConstructorUsedError;
+
+  /// URL to an MP4 version of the gif
+  String? get mp4_url => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ImageFormatCopyWith<ImageFormat> get copyWith =>
@@ -419,71 +416,75 @@ mixin _$ImageFormat {
 abstract class $ImageFormatCopyWith<$Res> {
   factory $ImageFormatCopyWith(
           ImageFormat value, $Res Function(ImageFormat) then) =
-      _$ImageFormatCopyWithImpl<$Res>;
+      _$ImageFormatCopyWithImpl<$Res, ImageFormat>;
+  @useResult
   $Res call(
-      {int? height,
-      int? mp4_size,
-      String? mp4_url,
-      int? size,
+      {int? size,
       String? url,
       int? webp_size,
       String? webp_url,
-      int? width});
+      int? width,
+      int? height,
+      int? mp4_size,
+      String? mp4_url});
 }
 
 /// @nodoc
-class _$ImageFormatCopyWithImpl<$Res> implements $ImageFormatCopyWith<$Res> {
+class _$ImageFormatCopyWithImpl<$Res, $Val extends ImageFormat>
+    implements $ImageFormatCopyWith<$Res> {
   _$ImageFormatCopyWithImpl(this._value, this._then);
 
-  final ImageFormat _value;
   // ignore: unused_field
-  final $Res Function(ImageFormat) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? height = freezed,
-    Object? mp4_size = freezed,
-    Object? mp4_url = freezed,
     Object? size = freezed,
     Object? url = freezed,
     Object? webp_size = freezed,
     Object? webp_url = freezed,
     Object? width = freezed,
+    Object? height = freezed,
+    Object? mp4_size = freezed,
+    Object? mp4_url = freezed,
   }) {
     return _then(_value.copyWith(
-      height: height == freezed
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as int?,
-      mp4_size: mp4_size == freezed
-          ? _value.mp4_size
-          : mp4_size // ignore: cast_nullable_to_non_nullable
-              as int?,
-      mp4_url: mp4_url == freezed
-          ? _value.mp4_url
-          : mp4_url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      size: size == freezed
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as int?,
-      url: url == freezed
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
-      webp_size: webp_size == freezed
+      webp_size: freezed == webp_size
           ? _value.webp_size
           : webp_size // ignore: cast_nullable_to_non_nullable
               as int?,
-      webp_url: webp_url == freezed
+      webp_url: freezed == webp_url
           ? _value.webp_url
           : webp_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      width: width == freezed
+      width: freezed == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+      height: freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int?,
+      mp4_size: freezed == mp4_size
+          ? _value.mp4_size
+          : mp4_size // ignore: cast_nullable_to_non_nullable
+              as int?,
+      mp4_url: freezed == mp4_url
+          ? _value.mp4_url
+          : mp4_url // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
   }
 }
 
@@ -494,71 +495,71 @@ abstract class _$$_ImageFormatCopyWith<$Res>
           _$_ImageFormat value, $Res Function(_$_ImageFormat) then) =
       __$$_ImageFormatCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
-      {int? height,
-      int? mp4_size,
-      String? mp4_url,
-      int? size,
+      {int? size,
       String? url,
       int? webp_size,
       String? webp_url,
-      int? width});
+      int? width,
+      int? height,
+      int? mp4_size,
+      String? mp4_url});
 }
 
 /// @nodoc
-class __$$_ImageFormatCopyWithImpl<$Res> extends _$ImageFormatCopyWithImpl<$Res>
+class __$$_ImageFormatCopyWithImpl<$Res>
+    extends _$ImageFormatCopyWithImpl<$Res, _$_ImageFormat>
     implements _$$_ImageFormatCopyWith<$Res> {
   __$$_ImageFormatCopyWithImpl(
       _$_ImageFormat _value, $Res Function(_$_ImageFormat) _then)
-      : super(_value, (v) => _then(v as _$_ImageFormat));
+      : super(_value, _then);
 
-  @override
-  _$_ImageFormat get _value => super._value as _$_ImageFormat;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? height = freezed,
-    Object? mp4_size = freezed,
-    Object? mp4_url = freezed,
     Object? size = freezed,
     Object? url = freezed,
     Object? webp_size = freezed,
     Object? webp_url = freezed,
     Object? width = freezed,
+    Object? height = freezed,
+    Object? mp4_size = freezed,
+    Object? mp4_url = freezed,
   }) {
     return _then(_$_ImageFormat(
-      height: height == freezed
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as int?,
-      mp4_size: mp4_size == freezed
-          ? _value.mp4_size
-          : mp4_size // ignore: cast_nullable_to_non_nullable
-              as int?,
-      mp4_url: mp4_url == freezed
-          ? _value.mp4_url
-          : mp4_url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      size: size == freezed
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as int?,
-      url: url == freezed
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
-      webp_size: webp_size == freezed
+      webp_size: freezed == webp_size
           ? _value.webp_size
           : webp_size // ignore: cast_nullable_to_non_nullable
               as int?,
-      webp_url: webp_url == freezed
+      webp_url: freezed == webp_url
           ? _value.webp_url
           : webp_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      width: width == freezed
+      width: freezed == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
               as int?,
+      height: freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int?,
+      mp4_size: freezed == mp4_size
+          ? _value.mp4_size
+          : mp4_size // ignore: cast_nullable_to_non_nullable
+              as int?,
+      mp4_url: freezed == mp4_url
+          ? _value.mp4_url
+          : mp4_url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -567,29 +568,17 @@ class __$$_ImageFormatCopyWithImpl<$Res> extends _$ImageFormatCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ImageFormat implements _ImageFormat {
   const _$_ImageFormat(
-      {this.height,
-      this.mp4_size,
-      this.mp4_url,
-      this.size,
+      {this.size,
       this.url,
       this.webp_size,
       this.webp_url,
-      this.width});
+      this.width,
+      this.height,
+      this.mp4_size,
+      this.mp4_url});
 
   factory _$_ImageFormat.fromJson(Map<String, dynamic> json) =>
       _$$_ImageFormatFromJson(json);
-
-  /// height
-  @override
-  final int? height;
-
-  /// size of the MP4 version
-  @override
-  final int? mp4_size;
-
-  /// URL to an MP4 version of the gif
-  @override
-  final String? mp4_url;
 
   /// size in bytes
   @override
@@ -611,9 +600,21 @@ class _$_ImageFormat implements _ImageFormat {
   @override
   final int? width;
 
+  /// height
+  @override
+  final int? height;
+
+  /// size of the MP4 version
+  @override
+  final int? mp4_size;
+
+  /// URL to an MP4 version of the gif
+  @override
+  final String? mp4_url;
+
   @override
   String toString() {
-    return 'ImageFormat(height: $height, mp4_size: $mp4_size, mp4_url: $mp4_url, size: $size, url: $url, webp_size: $webp_size, webp_url: $webp_url, width: $width)';
+    return 'ImageFormat(size: $size, url: $url, webp_size: $webp_size, webp_url: $webp_url, width: $width, height: $height, mp4_size: $mp4_size, mp4_url: $mp4_url)';
   }
 
   @override
@@ -621,31 +622,27 @@ class _$_ImageFormat implements _ImageFormat {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ImageFormat &&
-            const DeepCollectionEquality().equals(other.height, height) &&
-            const DeepCollectionEquality().equals(other.mp4_size, mp4_size) &&
-            const DeepCollectionEquality().equals(other.mp4_url, mp4_url) &&
-            const DeepCollectionEquality().equals(other.size, size) &&
-            const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality().equals(other.webp_size, webp_size) &&
-            const DeepCollectionEquality().equals(other.webp_url, webp_url) &&
-            const DeepCollectionEquality().equals(other.width, width));
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.webp_size, webp_size) ||
+                other.webp_size == webp_size) &&
+            (identical(other.webp_url, webp_url) ||
+                other.webp_url == webp_url) &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.height, height) || other.height == height) &&
+            (identical(other.mp4_size, mp4_size) ||
+                other.mp4_size == mp4_size) &&
+            (identical(other.mp4_url, mp4_url) || other.mp4_url == mp4_url));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(height),
-      const DeepCollectionEquality().hash(mp4_size),
-      const DeepCollectionEquality().hash(mp4_url),
-      const DeepCollectionEquality().hash(size),
-      const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(webp_size),
-      const DeepCollectionEquality().hash(webp_url),
-      const DeepCollectionEquality().hash(width));
+  int get hashCode => Object.hash(runtimeType, size, url, webp_size, webp_url,
+      width, height, mp4_size, mp4_url);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ImageFormatCopyWith<_$_ImageFormat> get copyWith =>
       __$$_ImageFormatCopyWithImpl<_$_ImageFormat>(this, _$identity);
 
@@ -659,30 +656,18 @@ class _$_ImageFormat implements _ImageFormat {
 
 abstract class _ImageFormat implements ImageFormat {
   const factory _ImageFormat(
-      {final int? height,
-      final int? mp4_size,
-      final String? mp4_url,
-      final int? size,
+      {final int? size,
       final String? url,
       final int? webp_size,
       final String? webp_url,
-      final int? width}) = _$_ImageFormat;
+      final int? width,
+      final int? height,
+      final int? mp4_size,
+      final String? mp4_url}) = _$_ImageFormat;
 
   factory _ImageFormat.fromJson(Map<String, dynamic> json) =
       _$_ImageFormat.fromJson;
 
-  @override
-
-  /// height
-  int? get height;
-  @override
-
-  /// size of the MP4 version
-  int? get mp4_size;
-  @override
-
-  /// URL to an MP4 version of the gif
-  String? get mp4_url;
   @override
 
   /// size in bytes
@@ -704,6 +689,18 @@ abstract class _ImageFormat implements ImageFormat {
   /// width
   int? get width;
   @override
+
+  /// height
+  int? get height;
+  @override
+
+  /// size of the MP4 version
+  int? get mp4_size;
+  @override
+
+  /// URL to an MP4 version of the gif
+  String? get mp4_url;
+  @override
   @JsonKey(ignore: true)
   _$$_ImageFormatCopyWith<_$_ImageFormat> get copyWith =>
       throw _privateConstructorUsedError;
@@ -718,17 +715,44 @@ mixin _$ImageFormats {
   /// A downsized version of the GIF < 2MB
   ImageFormat? get downsized => throw _privateConstructorUsedError;
 
-  /// A downsized version of the GIF < 200kb
-  ImageFormat? get downsized_small => throw _privateConstructorUsedError;
+  /// A downsized version of the GIF < 8MB
+  ImageFormat? get downsized_large => throw _privateConstructorUsedError;
 
   /// Version of the GIF with fixed height of 100 pixels. Good for mobile keyboards
   ImageFormat? get fixed_height_small => throw _privateConstructorUsedError;
 
-  /// Version of the GIF with fixed width of 200 pixels. Good for mobile use
-  ImageFormat? get fixed_width => throw _privateConstructorUsedError;
+  /// Static image of the GIF with fixed height of 100 pixels
+  ImageFormat? get fixed_height_small_still =>
+      throw _privateConstructorUsedError;
+
+  /// Static image of the GIF with fixed width of 100 pixels
+  ImageFormat? get fixed_width_small_still =>
+      throw _privateConstructorUsedError;
 
   /// Static image of the GIF with fixed width of 200 pixels
   ImageFormat? get fixed_width_still => throw _privateConstructorUsedError;
+
+  /// Version of the GIF <50kb displaying first 1-2 secs
+  ImageFormat? get preview_gif => throw _privateConstructorUsedError;
+
+  /// Static image of the downsized version of the GIF
+  ImageFormat? get downsized_still => throw _privateConstructorUsedError;
+
+  /// Static image of the GIF with fixed height of 200 pixels
+  ImageFormat? get fixed_height_still => throw _privateConstructorUsedError;
+
+  /// Version of the GIF with fixed width of 200 pixels. Good for mobile use
+  ImageFormat? get fixed_width => throw _privateConstructorUsedError;
+
+  /// A downsized version of the GIF < 5MB
+  ImageFormat? get downsized_medium => throw _privateConstructorUsedError;
+
+  /// Version of the GIF with fixed height of 200 pixels. Good for mobile use
+  ImageFormat? get fixed_height => throw _privateConstructorUsedError;
+
+  /// Version of the GIF with fixed height of 200 pixels and number of frames reduced to 6
+  ImageFormat? get fixed_height_downsampled =>
+      throw _privateConstructorUsedError;
 
   /// 15 second version of the GIF looping
   ImageFormat? get looping => throw _privateConstructorUsedError;
@@ -736,45 +760,18 @@ mixin _$ImageFormats {
   /// The original GIF. Good for desktop use
   ImageFormat? get original => throw _privateConstructorUsedError;
 
-  /// Version of the GIF <50kb displaying first 1-2 secs
-  ImageFormat? get preview_gif => throw _privateConstructorUsedError;
+  /// Static image of the original version of the GIF
+  ImageFormat? get original_still => throw _privateConstructorUsedError;
 
-  /// A downsized version of the GIF < 5MB
-  ImageFormat? get downsized_medium => throw _privateConstructorUsedError;
-
-  /// Version of the GIF with fixed height of 200 pixels and number of frames reduced to 6
-  ImageFormat? get fixed_height_downsampled =>
-      throw _privateConstructorUsedError;
-
-  /// Static image of the GIF with fixed height of 100 pixels
-  ImageFormat? get fixed_height_small_still =>
-      throw _privateConstructorUsedError;
-
-  /// Version of the GIF with fixed width of 100 pixels. Good for mobile keyboards
-  ImageFormat? get fixed_width_small => throw _privateConstructorUsedError;
-
-  /// Static image of the GIF with fixed height of 200 pixels
-  ImageFormat? get fixed_height_still => throw _privateConstructorUsedError;
+  /// A downsized version of the GIF < 200kb
+  ImageFormat? get downsized_small => throw _privateConstructorUsedError;
 
   /// Version of the GIF with fixed width of 200 pixels and number of frames reduced to 6
   ImageFormat? get fixed_width_downsampled =>
       throw _privateConstructorUsedError;
 
-  /// Static image of the GIF with fixed width of 100 pixels
-  ImageFormat? get fixed_width_small_still =>
-      throw _privateConstructorUsedError;
-
-  /// A downsized version of the GIF < 8MB
-  ImageFormat? get downsized_large => throw _privateConstructorUsedError;
-
-  /// Static image of the downsized version of the GIF
-  ImageFormat? get downsized_still => throw _privateConstructorUsedError;
-
-  /// Version of the GIF with fixed height of 200 pixels. Good for mobile use
-  ImageFormat? get fixed_height => throw _privateConstructorUsedError;
-
-  /// Static image of the original version of the GIF
-  ImageFormat? get original_still => throw _privateConstructorUsedError;
+  /// Version of the GIF with fixed width of 100 pixels. Good for mobile keyboards
+  ImageFormat? get fixed_width_small => throw _privateConstructorUsedError;
 
   /// mp4 version of the GIF <50kb displaying first 1-2 secs
   ImageFormat? get preview => throw _privateConstructorUsedError;
@@ -789,278 +786,208 @@ mixin _$ImageFormats {
 abstract class $ImageFormatsCopyWith<$Res> {
   factory $ImageFormatsCopyWith(
           ImageFormats value, $Res Function(ImageFormats) then) =
-      _$ImageFormatsCopyWithImpl<$Res>;
+      _$ImageFormatsCopyWithImpl<$Res, ImageFormats>;
+  @useResult
   $Res call(
       {ImageFormat? downsized,
-      ImageFormat? downsized_small,
+      ImageFormat? downsized_large,
       ImageFormat? fixed_height_small,
-      ImageFormat? fixed_width,
+      ImageFormat? fixed_height_small_still,
+      ImageFormat? fixed_width_small_still,
       ImageFormat? fixed_width_still,
+      ImageFormat? preview_gif,
+      ImageFormat? downsized_still,
+      ImageFormat? fixed_height_still,
+      ImageFormat? fixed_width,
+      ImageFormat? downsized_medium,
+      ImageFormat? fixed_height,
+      ImageFormat? fixed_height_downsampled,
       ImageFormat? looping,
       ImageFormat? original,
-      ImageFormat? preview_gif,
-      ImageFormat? downsized_medium,
-      ImageFormat? fixed_height_downsampled,
-      ImageFormat? fixed_height_small_still,
-      ImageFormat? fixed_width_small,
-      ImageFormat? fixed_height_still,
-      ImageFormat? fixed_width_downsampled,
-      ImageFormat? fixed_width_small_still,
-      ImageFormat? downsized_large,
-      ImageFormat? downsized_still,
-      ImageFormat? fixed_height,
       ImageFormat? original_still,
+      ImageFormat? downsized_small,
+      ImageFormat? fixed_width_downsampled,
+      ImageFormat? fixed_width_small,
       ImageFormat? preview});
 
   $ImageFormatCopyWith<$Res>? get downsized;
-  $ImageFormatCopyWith<$Res>? get downsized_small;
+  $ImageFormatCopyWith<$Res>? get downsized_large;
   $ImageFormatCopyWith<$Res>? get fixed_height_small;
-  $ImageFormatCopyWith<$Res>? get fixed_width;
+  $ImageFormatCopyWith<$Res>? get fixed_height_small_still;
+  $ImageFormatCopyWith<$Res>? get fixed_width_small_still;
   $ImageFormatCopyWith<$Res>? get fixed_width_still;
+  $ImageFormatCopyWith<$Res>? get preview_gif;
+  $ImageFormatCopyWith<$Res>? get downsized_still;
+  $ImageFormatCopyWith<$Res>? get fixed_height_still;
+  $ImageFormatCopyWith<$Res>? get fixed_width;
+  $ImageFormatCopyWith<$Res>? get downsized_medium;
+  $ImageFormatCopyWith<$Res>? get fixed_height;
+  $ImageFormatCopyWith<$Res>? get fixed_height_downsampled;
   $ImageFormatCopyWith<$Res>? get looping;
   $ImageFormatCopyWith<$Res>? get original;
-  $ImageFormatCopyWith<$Res>? get preview_gif;
-  $ImageFormatCopyWith<$Res>? get downsized_medium;
-  $ImageFormatCopyWith<$Res>? get fixed_height_downsampled;
-  $ImageFormatCopyWith<$Res>? get fixed_height_small_still;
-  $ImageFormatCopyWith<$Res>? get fixed_width_small;
-  $ImageFormatCopyWith<$Res>? get fixed_height_still;
-  $ImageFormatCopyWith<$Res>? get fixed_width_downsampled;
-  $ImageFormatCopyWith<$Res>? get fixed_width_small_still;
-  $ImageFormatCopyWith<$Res>? get downsized_large;
-  $ImageFormatCopyWith<$Res>? get downsized_still;
-  $ImageFormatCopyWith<$Res>? get fixed_height;
   $ImageFormatCopyWith<$Res>? get original_still;
+  $ImageFormatCopyWith<$Res>? get downsized_small;
+  $ImageFormatCopyWith<$Res>? get fixed_width_downsampled;
+  $ImageFormatCopyWith<$Res>? get fixed_width_small;
   $ImageFormatCopyWith<$Res>? get preview;
 }
 
 /// @nodoc
-class _$ImageFormatsCopyWithImpl<$Res> implements $ImageFormatsCopyWith<$Res> {
+class _$ImageFormatsCopyWithImpl<$Res, $Val extends ImageFormats>
+    implements $ImageFormatsCopyWith<$Res> {
   _$ImageFormatsCopyWithImpl(this._value, this._then);
 
-  final ImageFormats _value;
   // ignore: unused_field
-  final $Res Function(ImageFormats) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? downsized = freezed,
-    Object? downsized_small = freezed,
+    Object? downsized_large = freezed,
     Object? fixed_height_small = freezed,
-    Object? fixed_width = freezed,
+    Object? fixed_height_small_still = freezed,
+    Object? fixed_width_small_still = freezed,
     Object? fixed_width_still = freezed,
+    Object? preview_gif = freezed,
+    Object? downsized_still = freezed,
+    Object? fixed_height_still = freezed,
+    Object? fixed_width = freezed,
+    Object? downsized_medium = freezed,
+    Object? fixed_height = freezed,
+    Object? fixed_height_downsampled = freezed,
     Object? looping = freezed,
     Object? original = freezed,
-    Object? preview_gif = freezed,
-    Object? downsized_medium = freezed,
-    Object? fixed_height_downsampled = freezed,
-    Object? fixed_height_small_still = freezed,
-    Object? fixed_width_small = freezed,
-    Object? fixed_height_still = freezed,
-    Object? fixed_width_downsampled = freezed,
-    Object? fixed_width_small_still = freezed,
-    Object? downsized_large = freezed,
-    Object? downsized_still = freezed,
-    Object? fixed_height = freezed,
     Object? original_still = freezed,
+    Object? downsized_small = freezed,
+    Object? fixed_width_downsampled = freezed,
+    Object? fixed_width_small = freezed,
     Object? preview = freezed,
   }) {
     return _then(_value.copyWith(
-      downsized: downsized == freezed
+      downsized: freezed == downsized
           ? _value.downsized
           : downsized // ignore: cast_nullable_to_non_nullable
               as ImageFormat?,
-      downsized_small: downsized_small == freezed
-          ? _value.downsized_small
-          : downsized_small // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_height_small: fixed_height_small == freezed
-          ? _value.fixed_height_small
-          : fixed_height_small // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_width: fixed_width == freezed
-          ? _value.fixed_width
-          : fixed_width // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_width_still: fixed_width_still == freezed
-          ? _value.fixed_width_still
-          : fixed_width_still // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      looping: looping == freezed
-          ? _value.looping
-          : looping // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      original: original == freezed
-          ? _value.original
-          : original // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      preview_gif: preview_gif == freezed
-          ? _value.preview_gif
-          : preview_gif // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      downsized_medium: downsized_medium == freezed
-          ? _value.downsized_medium
-          : downsized_medium // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_height_downsampled: fixed_height_downsampled == freezed
-          ? _value.fixed_height_downsampled
-          : fixed_height_downsampled // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_height_small_still: fixed_height_small_still == freezed
-          ? _value.fixed_height_small_still
-          : fixed_height_small_still // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_width_small: fixed_width_small == freezed
-          ? _value.fixed_width_small
-          : fixed_width_small // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_height_still: fixed_height_still == freezed
-          ? _value.fixed_height_still
-          : fixed_height_still // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_width_downsampled: fixed_width_downsampled == freezed
-          ? _value.fixed_width_downsampled
-          : fixed_width_downsampled // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_width_small_still: fixed_width_small_still == freezed
-          ? _value.fixed_width_small_still
-          : fixed_width_small_still // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      downsized_large: downsized_large == freezed
+      downsized_large: freezed == downsized_large
           ? _value.downsized_large
           : downsized_large // ignore: cast_nullable_to_non_nullable
               as ImageFormat?,
-      downsized_still: downsized_still == freezed
+      fixed_height_small: freezed == fixed_height_small
+          ? _value.fixed_height_small
+          : fixed_height_small // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      fixed_height_small_still: freezed == fixed_height_small_still
+          ? _value.fixed_height_small_still
+          : fixed_height_small_still // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      fixed_width_small_still: freezed == fixed_width_small_still
+          ? _value.fixed_width_small_still
+          : fixed_width_small_still // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      fixed_width_still: freezed == fixed_width_still
+          ? _value.fixed_width_still
+          : fixed_width_still // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      preview_gif: freezed == preview_gif
+          ? _value.preview_gif
+          : preview_gif // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      downsized_still: freezed == downsized_still
           ? _value.downsized_still
           : downsized_still // ignore: cast_nullable_to_non_nullable
               as ImageFormat?,
-      fixed_height: fixed_height == freezed
+      fixed_height_still: freezed == fixed_height_still
+          ? _value.fixed_height_still
+          : fixed_height_still // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      fixed_width: freezed == fixed_width
+          ? _value.fixed_width
+          : fixed_width // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      downsized_medium: freezed == downsized_medium
+          ? _value.downsized_medium
+          : downsized_medium // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      fixed_height: freezed == fixed_height
           ? _value.fixed_height
           : fixed_height // ignore: cast_nullable_to_non_nullable
               as ImageFormat?,
-      original_still: original_still == freezed
+      fixed_height_downsampled: freezed == fixed_height_downsampled
+          ? _value.fixed_height_downsampled
+          : fixed_height_downsampled // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      looping: freezed == looping
+          ? _value.looping
+          : looping // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      original: freezed == original
+          ? _value.original
+          : original // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      original_still: freezed == original_still
           ? _value.original_still
           : original_still // ignore: cast_nullable_to_non_nullable
               as ImageFormat?,
-      preview: preview == freezed
+      downsized_small: freezed == downsized_small
+          ? _value.downsized_small
+          : downsized_small // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      fixed_width_downsampled: freezed == fixed_width_downsampled
+          ? _value.fixed_width_downsampled
+          : fixed_width_downsampled // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      fixed_width_small: freezed == fixed_width_small
+          ? _value.fixed_width_small
+          : fixed_width_small // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      preview: freezed == preview
           ? _value.preview
           : preview // ignore: cast_nullable_to_non_nullable
               as ImageFormat?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ImageFormatCopyWith<$Res>? get downsized {
     if (_value.downsized == null) {
       return null;
     }
 
     return $ImageFormatCopyWith<$Res>(_value.downsized!, (value) {
-      return _then(_value.copyWith(downsized: value));
+      return _then(_value.copyWith(downsized: value) as $Val);
     });
   }
 
   @override
-  $ImageFormatCopyWith<$Res>? get downsized_small {
-    if (_value.downsized_small == null) {
+  @pragma('vm:prefer-inline')
+  $ImageFormatCopyWith<$Res>? get downsized_large {
+    if (_value.downsized_large == null) {
       return null;
     }
 
-    return $ImageFormatCopyWith<$Res>(_value.downsized_small!, (value) {
-      return _then(_value.copyWith(downsized_small: value));
+    return $ImageFormatCopyWith<$Res>(_value.downsized_large!, (value) {
+      return _then(_value.copyWith(downsized_large: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ImageFormatCopyWith<$Res>? get fixed_height_small {
     if (_value.fixed_height_small == null) {
       return null;
     }
 
     return $ImageFormatCopyWith<$Res>(_value.fixed_height_small!, (value) {
-      return _then(_value.copyWith(fixed_height_small: value));
+      return _then(_value.copyWith(fixed_height_small: value) as $Val);
     });
   }
 
   @override
-  $ImageFormatCopyWith<$Res>? get fixed_width {
-    if (_value.fixed_width == null) {
-      return null;
-    }
-
-    return $ImageFormatCopyWith<$Res>(_value.fixed_width!, (value) {
-      return _then(_value.copyWith(fixed_width: value));
-    });
-  }
-
-  @override
-  $ImageFormatCopyWith<$Res>? get fixed_width_still {
-    if (_value.fixed_width_still == null) {
-      return null;
-    }
-
-    return $ImageFormatCopyWith<$Res>(_value.fixed_width_still!, (value) {
-      return _then(_value.copyWith(fixed_width_still: value));
-    });
-  }
-
-  @override
-  $ImageFormatCopyWith<$Res>? get looping {
-    if (_value.looping == null) {
-      return null;
-    }
-
-    return $ImageFormatCopyWith<$Res>(_value.looping!, (value) {
-      return _then(_value.copyWith(looping: value));
-    });
-  }
-
-  @override
-  $ImageFormatCopyWith<$Res>? get original {
-    if (_value.original == null) {
-      return null;
-    }
-
-    return $ImageFormatCopyWith<$Res>(_value.original!, (value) {
-      return _then(_value.copyWith(original: value));
-    });
-  }
-
-  @override
-  $ImageFormatCopyWith<$Res>? get preview_gif {
-    if (_value.preview_gif == null) {
-      return null;
-    }
-
-    return $ImageFormatCopyWith<$Res>(_value.preview_gif!, (value) {
-      return _then(_value.copyWith(preview_gif: value));
-    });
-  }
-
-  @override
-  $ImageFormatCopyWith<$Res>? get downsized_medium {
-    if (_value.downsized_medium == null) {
-      return null;
-    }
-
-    return $ImageFormatCopyWith<$Res>(_value.downsized_medium!, (value) {
-      return _then(_value.copyWith(downsized_medium: value));
-    });
-  }
-
-  @override
-  $ImageFormatCopyWith<$Res>? get fixed_height_downsampled {
-    if (_value.fixed_height_downsampled == null) {
-      return null;
-    }
-
-    return $ImageFormatCopyWith<$Res>(_value.fixed_height_downsampled!,
-        (value) {
-      return _then(_value.copyWith(fixed_height_downsampled: value));
-    });
-  }
-
-  @override
+  @pragma('vm:prefer-inline')
   $ImageFormatCopyWith<$Res>? get fixed_height_small_still {
     if (_value.fixed_height_small_still == null) {
       return null;
@@ -1068,106 +995,200 @@ class _$ImageFormatsCopyWithImpl<$Res> implements $ImageFormatsCopyWith<$Res> {
 
     return $ImageFormatCopyWith<$Res>(_value.fixed_height_small_still!,
         (value) {
-      return _then(_value.copyWith(fixed_height_small_still: value));
+      return _then(_value.copyWith(fixed_height_small_still: value) as $Val);
     });
   }
 
   @override
-  $ImageFormatCopyWith<$Res>? get fixed_width_small {
-    if (_value.fixed_width_small == null) {
-      return null;
-    }
-
-    return $ImageFormatCopyWith<$Res>(_value.fixed_width_small!, (value) {
-      return _then(_value.copyWith(fixed_width_small: value));
-    });
-  }
-
-  @override
-  $ImageFormatCopyWith<$Res>? get fixed_height_still {
-    if (_value.fixed_height_still == null) {
-      return null;
-    }
-
-    return $ImageFormatCopyWith<$Res>(_value.fixed_height_still!, (value) {
-      return _then(_value.copyWith(fixed_height_still: value));
-    });
-  }
-
-  @override
-  $ImageFormatCopyWith<$Res>? get fixed_width_downsampled {
-    if (_value.fixed_width_downsampled == null) {
-      return null;
-    }
-
-    return $ImageFormatCopyWith<$Res>(_value.fixed_width_downsampled!, (value) {
-      return _then(_value.copyWith(fixed_width_downsampled: value));
-    });
-  }
-
-  @override
+  @pragma('vm:prefer-inline')
   $ImageFormatCopyWith<$Res>? get fixed_width_small_still {
     if (_value.fixed_width_small_still == null) {
       return null;
     }
 
     return $ImageFormatCopyWith<$Res>(_value.fixed_width_small_still!, (value) {
-      return _then(_value.copyWith(fixed_width_small_still: value));
+      return _then(_value.copyWith(fixed_width_small_still: value) as $Val);
     });
   }
 
   @override
-  $ImageFormatCopyWith<$Res>? get downsized_large {
-    if (_value.downsized_large == null) {
+  @pragma('vm:prefer-inline')
+  $ImageFormatCopyWith<$Res>? get fixed_width_still {
+    if (_value.fixed_width_still == null) {
       return null;
     }
 
-    return $ImageFormatCopyWith<$Res>(_value.downsized_large!, (value) {
-      return _then(_value.copyWith(downsized_large: value));
+    return $ImageFormatCopyWith<$Res>(_value.fixed_width_still!, (value) {
+      return _then(_value.copyWith(fixed_width_still: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
+  $ImageFormatCopyWith<$Res>? get preview_gif {
+    if (_value.preview_gif == null) {
+      return null;
+    }
+
+    return $ImageFormatCopyWith<$Res>(_value.preview_gif!, (value) {
+      return _then(_value.copyWith(preview_gif: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $ImageFormatCopyWith<$Res>? get downsized_still {
     if (_value.downsized_still == null) {
       return null;
     }
 
     return $ImageFormatCopyWith<$Res>(_value.downsized_still!, (value) {
-      return _then(_value.copyWith(downsized_still: value));
+      return _then(_value.copyWith(downsized_still: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
+  $ImageFormatCopyWith<$Res>? get fixed_height_still {
+    if (_value.fixed_height_still == null) {
+      return null;
+    }
+
+    return $ImageFormatCopyWith<$Res>(_value.fixed_height_still!, (value) {
+      return _then(_value.copyWith(fixed_height_still: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ImageFormatCopyWith<$Res>? get fixed_width {
+    if (_value.fixed_width == null) {
+      return null;
+    }
+
+    return $ImageFormatCopyWith<$Res>(_value.fixed_width!, (value) {
+      return _then(_value.copyWith(fixed_width: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ImageFormatCopyWith<$Res>? get downsized_medium {
+    if (_value.downsized_medium == null) {
+      return null;
+    }
+
+    return $ImageFormatCopyWith<$Res>(_value.downsized_medium!, (value) {
+      return _then(_value.copyWith(downsized_medium: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $ImageFormatCopyWith<$Res>? get fixed_height {
     if (_value.fixed_height == null) {
       return null;
     }
 
     return $ImageFormatCopyWith<$Res>(_value.fixed_height!, (value) {
-      return _then(_value.copyWith(fixed_height: value));
+      return _then(_value.copyWith(fixed_height: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
+  $ImageFormatCopyWith<$Res>? get fixed_height_downsampled {
+    if (_value.fixed_height_downsampled == null) {
+      return null;
+    }
+
+    return $ImageFormatCopyWith<$Res>(_value.fixed_height_downsampled!,
+        (value) {
+      return _then(_value.copyWith(fixed_height_downsampled: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ImageFormatCopyWith<$Res>? get looping {
+    if (_value.looping == null) {
+      return null;
+    }
+
+    return $ImageFormatCopyWith<$Res>(_value.looping!, (value) {
+      return _then(_value.copyWith(looping: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ImageFormatCopyWith<$Res>? get original {
+    if (_value.original == null) {
+      return null;
+    }
+
+    return $ImageFormatCopyWith<$Res>(_value.original!, (value) {
+      return _then(_value.copyWith(original: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $ImageFormatCopyWith<$Res>? get original_still {
     if (_value.original_still == null) {
       return null;
     }
 
     return $ImageFormatCopyWith<$Res>(_value.original_still!, (value) {
-      return _then(_value.copyWith(original_still: value));
+      return _then(_value.copyWith(original_still: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
+  $ImageFormatCopyWith<$Res>? get downsized_small {
+    if (_value.downsized_small == null) {
+      return null;
+    }
+
+    return $ImageFormatCopyWith<$Res>(_value.downsized_small!, (value) {
+      return _then(_value.copyWith(downsized_small: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ImageFormatCopyWith<$Res>? get fixed_width_downsampled {
+    if (_value.fixed_width_downsampled == null) {
+      return null;
+    }
+
+    return $ImageFormatCopyWith<$Res>(_value.fixed_width_downsampled!, (value) {
+      return _then(_value.copyWith(fixed_width_downsampled: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ImageFormatCopyWith<$Res>? get fixed_width_small {
+    if (_value.fixed_width_small == null) {
+      return null;
+    }
+
+    return $ImageFormatCopyWith<$Res>(_value.fixed_width_small!, (value) {
+      return _then(_value.copyWith(fixed_width_small: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $ImageFormatCopyWith<$Res>? get preview {
     if (_value.preview == null) {
       return null;
     }
 
     return $ImageFormatCopyWith<$Res>(_value.preview!, (value) {
-      return _then(_value.copyWith(preview: value));
+      return _then(_value.copyWith(preview: value) as $Val);
     });
   }
 }
@@ -1179,182 +1200,181 @@ abstract class _$$_ImageFormatsCopyWith<$Res>
           _$_ImageFormats value, $Res Function(_$_ImageFormats) then) =
       __$$_ImageFormatsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {ImageFormat? downsized,
-      ImageFormat? downsized_small,
+      ImageFormat? downsized_large,
       ImageFormat? fixed_height_small,
-      ImageFormat? fixed_width,
+      ImageFormat? fixed_height_small_still,
+      ImageFormat? fixed_width_small_still,
       ImageFormat? fixed_width_still,
+      ImageFormat? preview_gif,
+      ImageFormat? downsized_still,
+      ImageFormat? fixed_height_still,
+      ImageFormat? fixed_width,
+      ImageFormat? downsized_medium,
+      ImageFormat? fixed_height,
+      ImageFormat? fixed_height_downsampled,
       ImageFormat? looping,
       ImageFormat? original,
-      ImageFormat? preview_gif,
-      ImageFormat? downsized_medium,
-      ImageFormat? fixed_height_downsampled,
-      ImageFormat? fixed_height_small_still,
-      ImageFormat? fixed_width_small,
-      ImageFormat? fixed_height_still,
-      ImageFormat? fixed_width_downsampled,
-      ImageFormat? fixed_width_small_still,
-      ImageFormat? downsized_large,
-      ImageFormat? downsized_still,
-      ImageFormat? fixed_height,
       ImageFormat? original_still,
+      ImageFormat? downsized_small,
+      ImageFormat? fixed_width_downsampled,
+      ImageFormat? fixed_width_small,
       ImageFormat? preview});
 
   @override
   $ImageFormatCopyWith<$Res>? get downsized;
   @override
-  $ImageFormatCopyWith<$Res>? get downsized_small;
+  $ImageFormatCopyWith<$Res>? get downsized_large;
   @override
   $ImageFormatCopyWith<$Res>? get fixed_height_small;
   @override
-  $ImageFormatCopyWith<$Res>? get fixed_width;
+  $ImageFormatCopyWith<$Res>? get fixed_height_small_still;
+  @override
+  $ImageFormatCopyWith<$Res>? get fixed_width_small_still;
   @override
   $ImageFormatCopyWith<$Res>? get fixed_width_still;
+  @override
+  $ImageFormatCopyWith<$Res>? get preview_gif;
+  @override
+  $ImageFormatCopyWith<$Res>? get downsized_still;
+  @override
+  $ImageFormatCopyWith<$Res>? get fixed_height_still;
+  @override
+  $ImageFormatCopyWith<$Res>? get fixed_width;
+  @override
+  $ImageFormatCopyWith<$Res>? get downsized_medium;
+  @override
+  $ImageFormatCopyWith<$Res>? get fixed_height;
+  @override
+  $ImageFormatCopyWith<$Res>? get fixed_height_downsampled;
   @override
   $ImageFormatCopyWith<$Res>? get looping;
   @override
   $ImageFormatCopyWith<$Res>? get original;
   @override
-  $ImageFormatCopyWith<$Res>? get preview_gif;
+  $ImageFormatCopyWith<$Res>? get original_still;
   @override
-  $ImageFormatCopyWith<$Res>? get downsized_medium;
-  @override
-  $ImageFormatCopyWith<$Res>? get fixed_height_downsampled;
-  @override
-  $ImageFormatCopyWith<$Res>? get fixed_height_small_still;
-  @override
-  $ImageFormatCopyWith<$Res>? get fixed_width_small;
-  @override
-  $ImageFormatCopyWith<$Res>? get fixed_height_still;
+  $ImageFormatCopyWith<$Res>? get downsized_small;
   @override
   $ImageFormatCopyWith<$Res>? get fixed_width_downsampled;
   @override
-  $ImageFormatCopyWith<$Res>? get fixed_width_small_still;
-  @override
-  $ImageFormatCopyWith<$Res>? get downsized_large;
-  @override
-  $ImageFormatCopyWith<$Res>? get downsized_still;
-  @override
-  $ImageFormatCopyWith<$Res>? get fixed_height;
-  @override
-  $ImageFormatCopyWith<$Res>? get original_still;
+  $ImageFormatCopyWith<$Res>? get fixed_width_small;
   @override
   $ImageFormatCopyWith<$Res>? get preview;
 }
 
 /// @nodoc
 class __$$_ImageFormatsCopyWithImpl<$Res>
-    extends _$ImageFormatsCopyWithImpl<$Res>
+    extends _$ImageFormatsCopyWithImpl<$Res, _$_ImageFormats>
     implements _$$_ImageFormatsCopyWith<$Res> {
   __$$_ImageFormatsCopyWithImpl(
       _$_ImageFormats _value, $Res Function(_$_ImageFormats) _then)
-      : super(_value, (v) => _then(v as _$_ImageFormats));
+      : super(_value, _then);
 
-  @override
-  _$_ImageFormats get _value => super._value as _$_ImageFormats;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? downsized = freezed,
-    Object? downsized_small = freezed,
+    Object? downsized_large = freezed,
     Object? fixed_height_small = freezed,
-    Object? fixed_width = freezed,
+    Object? fixed_height_small_still = freezed,
+    Object? fixed_width_small_still = freezed,
     Object? fixed_width_still = freezed,
+    Object? preview_gif = freezed,
+    Object? downsized_still = freezed,
+    Object? fixed_height_still = freezed,
+    Object? fixed_width = freezed,
+    Object? downsized_medium = freezed,
+    Object? fixed_height = freezed,
+    Object? fixed_height_downsampled = freezed,
     Object? looping = freezed,
     Object? original = freezed,
-    Object? preview_gif = freezed,
-    Object? downsized_medium = freezed,
-    Object? fixed_height_downsampled = freezed,
-    Object? fixed_height_small_still = freezed,
-    Object? fixed_width_small = freezed,
-    Object? fixed_height_still = freezed,
-    Object? fixed_width_downsampled = freezed,
-    Object? fixed_width_small_still = freezed,
-    Object? downsized_large = freezed,
-    Object? downsized_still = freezed,
-    Object? fixed_height = freezed,
     Object? original_still = freezed,
+    Object? downsized_small = freezed,
+    Object? fixed_width_downsampled = freezed,
+    Object? fixed_width_small = freezed,
     Object? preview = freezed,
   }) {
     return _then(_$_ImageFormats(
-      downsized: downsized == freezed
+      downsized: freezed == downsized
           ? _value.downsized
           : downsized // ignore: cast_nullable_to_non_nullable
               as ImageFormat?,
-      downsized_small: downsized_small == freezed
-          ? _value.downsized_small
-          : downsized_small // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_height_small: fixed_height_small == freezed
-          ? _value.fixed_height_small
-          : fixed_height_small // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_width: fixed_width == freezed
-          ? _value.fixed_width
-          : fixed_width // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_width_still: fixed_width_still == freezed
-          ? _value.fixed_width_still
-          : fixed_width_still // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      looping: looping == freezed
-          ? _value.looping
-          : looping // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      original: original == freezed
-          ? _value.original
-          : original // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      preview_gif: preview_gif == freezed
-          ? _value.preview_gif
-          : preview_gif // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      downsized_medium: downsized_medium == freezed
-          ? _value.downsized_medium
-          : downsized_medium // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_height_downsampled: fixed_height_downsampled == freezed
-          ? _value.fixed_height_downsampled
-          : fixed_height_downsampled // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_height_small_still: fixed_height_small_still == freezed
-          ? _value.fixed_height_small_still
-          : fixed_height_small_still // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_width_small: fixed_width_small == freezed
-          ? _value.fixed_width_small
-          : fixed_width_small // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_height_still: fixed_height_still == freezed
-          ? _value.fixed_height_still
-          : fixed_height_still // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_width_downsampled: fixed_width_downsampled == freezed
-          ? _value.fixed_width_downsampled
-          : fixed_width_downsampled // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      fixed_width_small_still: fixed_width_small_still == freezed
-          ? _value.fixed_width_small_still
-          : fixed_width_small_still // ignore: cast_nullable_to_non_nullable
-              as ImageFormat?,
-      downsized_large: downsized_large == freezed
+      downsized_large: freezed == downsized_large
           ? _value.downsized_large
           : downsized_large // ignore: cast_nullable_to_non_nullable
               as ImageFormat?,
-      downsized_still: downsized_still == freezed
+      fixed_height_small: freezed == fixed_height_small
+          ? _value.fixed_height_small
+          : fixed_height_small // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      fixed_height_small_still: freezed == fixed_height_small_still
+          ? _value.fixed_height_small_still
+          : fixed_height_small_still // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      fixed_width_small_still: freezed == fixed_width_small_still
+          ? _value.fixed_width_small_still
+          : fixed_width_small_still // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      fixed_width_still: freezed == fixed_width_still
+          ? _value.fixed_width_still
+          : fixed_width_still // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      preview_gif: freezed == preview_gif
+          ? _value.preview_gif
+          : preview_gif // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      downsized_still: freezed == downsized_still
           ? _value.downsized_still
           : downsized_still // ignore: cast_nullable_to_non_nullable
               as ImageFormat?,
-      fixed_height: fixed_height == freezed
+      fixed_height_still: freezed == fixed_height_still
+          ? _value.fixed_height_still
+          : fixed_height_still // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      fixed_width: freezed == fixed_width
+          ? _value.fixed_width
+          : fixed_width // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      downsized_medium: freezed == downsized_medium
+          ? _value.downsized_medium
+          : downsized_medium // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      fixed_height: freezed == fixed_height
           ? _value.fixed_height
           : fixed_height // ignore: cast_nullable_to_non_nullable
               as ImageFormat?,
-      original_still: original_still == freezed
+      fixed_height_downsampled: freezed == fixed_height_downsampled
+          ? _value.fixed_height_downsampled
+          : fixed_height_downsampled // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      looping: freezed == looping
+          ? _value.looping
+          : looping // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      original: freezed == original
+          ? _value.original
+          : original // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      original_still: freezed == original_still
           ? _value.original_still
           : original_still // ignore: cast_nullable_to_non_nullable
               as ImageFormat?,
-      preview: preview == freezed
+      downsized_small: freezed == downsized_small
+          ? _value.downsized_small
+          : downsized_small // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      fixed_width_downsampled: freezed == fixed_width_downsampled
+          ? _value.fixed_width_downsampled
+          : fixed_width_downsampled // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      fixed_width_small: freezed == fixed_width_small
+          ? _value.fixed_width_small
+          : fixed_width_small // ignore: cast_nullable_to_non_nullable
+              as ImageFormat?,
+      preview: freezed == preview
           ? _value.preview
           : preview // ignore: cast_nullable_to_non_nullable
               as ImageFormat?,
@@ -1367,24 +1387,24 @@ class __$$_ImageFormatsCopyWithImpl<$Res>
 class _$_ImageFormats implements _ImageFormats {
   const _$_ImageFormats(
       {this.downsized,
-      this.downsized_small,
+      this.downsized_large,
       this.fixed_height_small,
-      this.fixed_width,
+      this.fixed_height_small_still,
+      this.fixed_width_small_still,
       this.fixed_width_still,
+      this.preview_gif,
+      this.downsized_still,
+      this.fixed_height_still,
+      this.fixed_width,
+      this.downsized_medium,
+      this.fixed_height,
+      this.fixed_height_downsampled,
       this.looping,
       this.original,
-      this.preview_gif,
-      this.downsized_medium,
-      this.fixed_height_downsampled,
-      this.fixed_height_small_still,
-      this.fixed_width_small,
-      this.fixed_height_still,
-      this.fixed_width_downsampled,
-      this.fixed_width_small_still,
-      this.downsized_large,
-      this.downsized_still,
-      this.fixed_height,
       this.original_still,
+      this.downsized_small,
+      this.fixed_width_downsampled,
+      this.fixed_width_small,
       this.preview});
 
   factory _$_ImageFormats.fromJson(Map<String, dynamic> json) =>
@@ -1394,21 +1414,53 @@ class _$_ImageFormats implements _ImageFormats {
   @override
   final ImageFormat? downsized;
 
-  /// A downsized version of the GIF < 200kb
+  /// A downsized version of the GIF < 8MB
   @override
-  final ImageFormat? downsized_small;
+  final ImageFormat? downsized_large;
 
   /// Version of the GIF with fixed height of 100 pixels. Good for mobile keyboards
   @override
   final ImageFormat? fixed_height_small;
 
-  /// Version of the GIF with fixed width of 200 pixels. Good for mobile use
+  /// Static image of the GIF with fixed height of 100 pixels
   @override
-  final ImageFormat? fixed_width;
+  final ImageFormat? fixed_height_small_still;
+
+  /// Static image of the GIF with fixed width of 100 pixels
+  @override
+  final ImageFormat? fixed_width_small_still;
 
   /// Static image of the GIF with fixed width of 200 pixels
   @override
   final ImageFormat? fixed_width_still;
+
+  /// Version of the GIF <50kb displaying first 1-2 secs
+  @override
+  final ImageFormat? preview_gif;
+
+  /// Static image of the downsized version of the GIF
+  @override
+  final ImageFormat? downsized_still;
+
+  /// Static image of the GIF with fixed height of 200 pixels
+  @override
+  final ImageFormat? fixed_height_still;
+
+  /// Version of the GIF with fixed width of 200 pixels. Good for mobile use
+  @override
+  final ImageFormat? fixed_width;
+
+  /// A downsized version of the GIF < 5MB
+  @override
+  final ImageFormat? downsized_medium;
+
+  /// Version of the GIF with fixed height of 200 pixels. Good for mobile use
+  @override
+  final ImageFormat? fixed_height;
+
+  /// Version of the GIF with fixed height of 200 pixels and number of frames reduced to 6
+  @override
+  final ImageFormat? fixed_height_downsampled;
 
   /// 15 second version of the GIF looping
   @override
@@ -1418,53 +1470,21 @@ class _$_ImageFormats implements _ImageFormats {
   @override
   final ImageFormat? original;
 
-  /// Version of the GIF <50kb displaying first 1-2 secs
+  /// Static image of the original version of the GIF
   @override
-  final ImageFormat? preview_gif;
+  final ImageFormat? original_still;
 
-  /// A downsized version of the GIF < 5MB
+  /// A downsized version of the GIF < 200kb
   @override
-  final ImageFormat? downsized_medium;
-
-  /// Version of the GIF with fixed height of 200 pixels and number of frames reduced to 6
-  @override
-  final ImageFormat? fixed_height_downsampled;
-
-  /// Static image of the GIF with fixed height of 100 pixels
-  @override
-  final ImageFormat? fixed_height_small_still;
-
-  /// Version of the GIF with fixed width of 100 pixels. Good for mobile keyboards
-  @override
-  final ImageFormat? fixed_width_small;
-
-  /// Static image of the GIF with fixed height of 200 pixels
-  @override
-  final ImageFormat? fixed_height_still;
+  final ImageFormat? downsized_small;
 
   /// Version of the GIF with fixed width of 200 pixels and number of frames reduced to 6
   @override
   final ImageFormat? fixed_width_downsampled;
 
-  /// Static image of the GIF with fixed width of 100 pixels
+  /// Version of the GIF with fixed width of 100 pixels. Good for mobile keyboards
   @override
-  final ImageFormat? fixed_width_small_still;
-
-  /// A downsized version of the GIF < 8MB
-  @override
-  final ImageFormat? downsized_large;
-
-  /// Static image of the downsized version of the GIF
-  @override
-  final ImageFormat? downsized_still;
-
-  /// Version of the GIF with fixed height of 200 pixels. Good for mobile use
-  @override
-  final ImageFormat? fixed_height;
-
-  /// Static image of the original version of the GIF
-  @override
-  final ImageFormat? original_still;
+  final ImageFormat? fixed_width_small;
 
   /// mp4 version of the GIF <50kb displaying first 1-2 secs
   @override
@@ -1472,7 +1492,7 @@ class _$_ImageFormats implements _ImageFormats {
 
   @override
   String toString() {
-    return 'ImageFormats(downsized: $downsized, downsized_small: $downsized_small, fixed_height_small: $fixed_height_small, fixed_width: $fixed_width, fixed_width_still: $fixed_width_still, looping: $looping, original: $original, preview_gif: $preview_gif, downsized_medium: $downsized_medium, fixed_height_downsampled: $fixed_height_downsampled, fixed_height_small_still: $fixed_height_small_still, fixed_width_small: $fixed_width_small, fixed_height_still: $fixed_height_still, fixed_width_downsampled: $fixed_width_downsampled, fixed_width_small_still: $fixed_width_small_still, downsized_large: $downsized_large, downsized_still: $downsized_still, fixed_height: $fixed_height, original_still: $original_still, preview: $preview)';
+    return 'ImageFormats(downsized: $downsized, downsized_large: $downsized_large, fixed_height_small: $fixed_height_small, fixed_height_small_still: $fixed_height_small_still, fixed_width_small_still: $fixed_width_small_still, fixed_width_still: $fixed_width_still, preview_gif: $preview_gif, downsized_still: $downsized_still, fixed_height_still: $fixed_height_still, fixed_width: $fixed_width, downsized_medium: $downsized_medium, fixed_height: $fixed_height, fixed_height_downsampled: $fixed_height_downsampled, looping: $looping, original: $original, original_still: $original_still, downsized_small: $downsized_small, fixed_width_downsampled: $fixed_width_downsampled, fixed_width_small: $fixed_width_small, preview: $preview)';
   }
 
   @override
@@ -1480,72 +1500,79 @@ class _$_ImageFormats implements _ImageFormats {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ImageFormats &&
-            const DeepCollectionEquality().equals(other.downsized, downsized) &&
-            const DeepCollectionEquality()
-                .equals(other.downsized_small, downsized_small) &&
-            const DeepCollectionEquality()
-                .equals(other.fixed_height_small, fixed_height_small) &&
-            const DeepCollectionEquality()
-                .equals(other.fixed_width, fixed_width) &&
-            const DeepCollectionEquality()
-                .equals(other.fixed_width_still, fixed_width_still) &&
-            const DeepCollectionEquality().equals(other.looping, looping) &&
-            const DeepCollectionEquality().equals(other.original, original) &&
-            const DeepCollectionEquality()
-                .equals(other.preview_gif, preview_gif) &&
-            const DeepCollectionEquality()
-                .equals(other.downsized_medium, downsized_medium) &&
-            const DeepCollectionEquality().equals(
-                other.fixed_height_downsampled, fixed_height_downsampled) &&
-            const DeepCollectionEquality().equals(
-                other.fixed_height_small_still, fixed_height_small_still) &&
-            const DeepCollectionEquality()
-                .equals(other.fixed_width_small, fixed_width_small) &&
-            const DeepCollectionEquality()
-                .equals(other.fixed_height_still, fixed_height_still) &&
-            const DeepCollectionEquality().equals(
-                other.fixed_width_downsampled, fixed_width_downsampled) &&
-            const DeepCollectionEquality().equals(
-                other.fixed_width_small_still, fixed_width_small_still) &&
-            const DeepCollectionEquality()
-                .equals(other.downsized_large, downsized_large) &&
-            const DeepCollectionEquality()
-                .equals(other.downsized_still, downsized_still) &&
-            const DeepCollectionEquality()
-                .equals(other.fixed_height, fixed_height) &&
-            const DeepCollectionEquality()
-                .equals(other.original_still, original_still) &&
-            const DeepCollectionEquality().equals(other.preview, preview));
+            (identical(other.downsized, downsized) ||
+                other.downsized == downsized) &&
+            (identical(other.downsized_large, downsized_large) ||
+                other.downsized_large == downsized_large) &&
+            (identical(other.fixed_height_small, fixed_height_small) ||
+                other.fixed_height_small == fixed_height_small) &&
+            (identical(
+                    other.fixed_height_small_still, fixed_height_small_still) ||
+                other.fixed_height_small_still == fixed_height_small_still) &&
+            (identical(
+                    other.fixed_width_small_still, fixed_width_small_still) ||
+                other.fixed_width_small_still == fixed_width_small_still) &&
+            (identical(other.fixed_width_still, fixed_width_still) ||
+                other.fixed_width_still == fixed_width_still) &&
+            (identical(other.preview_gif, preview_gif) ||
+                other.preview_gif == preview_gif) &&
+            (identical(other.downsized_still, downsized_still) ||
+                other.downsized_still == downsized_still) &&
+            (identical(other.fixed_height_still, fixed_height_still) ||
+                other.fixed_height_still == fixed_height_still) &&
+            (identical(other.fixed_width, fixed_width) ||
+                other.fixed_width == fixed_width) &&
+            (identical(other.downsized_medium, downsized_medium) ||
+                other.downsized_medium == downsized_medium) &&
+            (identical(other.fixed_height, fixed_height) ||
+                other.fixed_height == fixed_height) &&
+            (identical(
+                    other.fixed_height_downsampled, fixed_height_downsampled) ||
+                other.fixed_height_downsampled == fixed_height_downsampled) &&
+            (identical(other.looping, looping) || other.looping == looping) &&
+            (identical(other.original, original) ||
+                other.original == original) &&
+            (identical(other.original_still, original_still) ||
+                other.original_still == original_still) &&
+            (identical(other.downsized_small, downsized_small) ||
+                other.downsized_small == downsized_small) &&
+            (identical(
+                    other.fixed_width_downsampled, fixed_width_downsampled) ||
+                other.fixed_width_downsampled == fixed_width_downsampled) &&
+            (identical(other.fixed_width_small, fixed_width_small) ||
+                other.fixed_width_small == fixed_width_small) &&
+            (identical(other.preview, preview) || other.preview == preview));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        const DeepCollectionEquality().hash(downsized),
-        const DeepCollectionEquality().hash(downsized_small),
-        const DeepCollectionEquality().hash(fixed_height_small),
-        const DeepCollectionEquality().hash(fixed_width),
-        const DeepCollectionEquality().hash(fixed_width_still),
-        const DeepCollectionEquality().hash(looping),
-        const DeepCollectionEquality().hash(original),
-        const DeepCollectionEquality().hash(preview_gif),
-        const DeepCollectionEquality().hash(downsized_medium),
-        const DeepCollectionEquality().hash(fixed_height_downsampled),
-        const DeepCollectionEquality().hash(fixed_height_small_still),
-        const DeepCollectionEquality().hash(fixed_width_small),
-        const DeepCollectionEquality().hash(fixed_height_still),
-        const DeepCollectionEquality().hash(fixed_width_downsampled),
-        const DeepCollectionEquality().hash(fixed_width_small_still),
-        const DeepCollectionEquality().hash(downsized_large),
-        const DeepCollectionEquality().hash(downsized_still),
-        const DeepCollectionEquality().hash(fixed_height),
-        const DeepCollectionEquality().hash(original_still),
-        const DeepCollectionEquality().hash(preview)
+        downsized,
+        downsized_large,
+        fixed_height_small,
+        fixed_height_small_still,
+        fixed_width_small_still,
+        fixed_width_still,
+        preview_gif,
+        downsized_still,
+        fixed_height_still,
+        fixed_width,
+        downsized_medium,
+        fixed_height,
+        fixed_height_downsampled,
+        looping,
+        original,
+        original_still,
+        downsized_small,
+        fixed_width_downsampled,
+        fixed_width_small,
+        preview
       ]);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ImageFormatsCopyWith<_$_ImageFormats> get copyWith =>
       __$$_ImageFormatsCopyWithImpl<_$_ImageFormats>(this, _$identity);
 
@@ -1560,24 +1587,24 @@ class _$_ImageFormats implements _ImageFormats {
 abstract class _ImageFormats implements ImageFormats {
   const factory _ImageFormats(
       {final ImageFormat? downsized,
-      final ImageFormat? downsized_small,
+      final ImageFormat? downsized_large,
       final ImageFormat? fixed_height_small,
-      final ImageFormat? fixed_width,
+      final ImageFormat? fixed_height_small_still,
+      final ImageFormat? fixed_width_small_still,
       final ImageFormat? fixed_width_still,
+      final ImageFormat? preview_gif,
+      final ImageFormat? downsized_still,
+      final ImageFormat? fixed_height_still,
+      final ImageFormat? fixed_width,
+      final ImageFormat? downsized_medium,
+      final ImageFormat? fixed_height,
+      final ImageFormat? fixed_height_downsampled,
       final ImageFormat? looping,
       final ImageFormat? original,
-      final ImageFormat? preview_gif,
-      final ImageFormat? downsized_medium,
-      final ImageFormat? fixed_height_downsampled,
-      final ImageFormat? fixed_height_small_still,
-      final ImageFormat? fixed_width_small,
-      final ImageFormat? fixed_height_still,
-      final ImageFormat? fixed_width_downsampled,
-      final ImageFormat? fixed_width_small_still,
-      final ImageFormat? downsized_large,
-      final ImageFormat? downsized_still,
-      final ImageFormat? fixed_height,
       final ImageFormat? original_still,
+      final ImageFormat? downsized_small,
+      final ImageFormat? fixed_width_downsampled,
+      final ImageFormat? fixed_width_small,
       final ImageFormat? preview}) = _$_ImageFormats;
 
   factory _ImageFormats.fromJson(Map<String, dynamic> json) =
@@ -1589,20 +1616,52 @@ abstract class _ImageFormats implements ImageFormats {
   ImageFormat? get downsized;
   @override
 
-  /// A downsized version of the GIF < 200kb
-  ImageFormat? get downsized_small;
+  /// A downsized version of the GIF < 8MB
+  ImageFormat? get downsized_large;
   @override
 
   /// Version of the GIF with fixed height of 100 pixels. Good for mobile keyboards
   ImageFormat? get fixed_height_small;
   @override
 
-  /// Version of the GIF with fixed width of 200 pixels. Good for mobile use
-  ImageFormat? get fixed_width;
+  /// Static image of the GIF with fixed height of 100 pixels
+  ImageFormat? get fixed_height_small_still;
+  @override
+
+  /// Static image of the GIF with fixed width of 100 pixels
+  ImageFormat? get fixed_width_small_still;
   @override
 
   /// Static image of the GIF with fixed width of 200 pixels
   ImageFormat? get fixed_width_still;
+  @override
+
+  /// Version of the GIF <50kb displaying first 1-2 secs
+  ImageFormat? get preview_gif;
+  @override
+
+  /// Static image of the downsized version of the GIF
+  ImageFormat? get downsized_still;
+  @override
+
+  /// Static image of the GIF with fixed height of 200 pixels
+  ImageFormat? get fixed_height_still;
+  @override
+
+  /// Version of the GIF with fixed width of 200 pixels. Good for mobile use
+  ImageFormat? get fixed_width;
+  @override
+
+  /// A downsized version of the GIF < 5MB
+  ImageFormat? get downsized_medium;
+  @override
+
+  /// Version of the GIF with fixed height of 200 pixels. Good for mobile use
+  ImageFormat? get fixed_height;
+  @override
+
+  /// Version of the GIF with fixed height of 200 pixels and number of frames reduced to 6
+  ImageFormat? get fixed_height_downsampled;
   @override
 
   /// 15 second version of the GIF looping
@@ -1613,52 +1672,20 @@ abstract class _ImageFormats implements ImageFormats {
   ImageFormat? get original;
   @override
 
-  /// Version of the GIF <50kb displaying first 1-2 secs
-  ImageFormat? get preview_gif;
+  /// Static image of the original version of the GIF
+  ImageFormat? get original_still;
   @override
 
-  /// A downsized version of the GIF < 5MB
-  ImageFormat? get downsized_medium;
-  @override
-
-  /// Version of the GIF with fixed height of 200 pixels and number of frames reduced to 6
-  ImageFormat? get fixed_height_downsampled;
-  @override
-
-  /// Static image of the GIF with fixed height of 100 pixels
-  ImageFormat? get fixed_height_small_still;
-  @override
-
-  /// Version of the GIF with fixed width of 100 pixels. Good for mobile keyboards
-  ImageFormat? get fixed_width_small;
-  @override
-
-  /// Static image of the GIF with fixed height of 200 pixels
-  ImageFormat? get fixed_height_still;
+  /// A downsized version of the GIF < 200kb
+  ImageFormat? get downsized_small;
   @override
 
   /// Version of the GIF with fixed width of 200 pixels and number of frames reduced to 6
   ImageFormat? get fixed_width_downsampled;
   @override
 
-  /// Static image of the GIF with fixed width of 100 pixels
-  ImageFormat? get fixed_width_small_still;
-  @override
-
-  /// A downsized version of the GIF < 8MB
-  ImageFormat? get downsized_large;
-  @override
-
-  /// Static image of the downsized version of the GIF
-  ImageFormat? get downsized_still;
-  @override
-
-  /// Version of the GIF with fixed height of 200 pixels. Good for mobile use
-  ImageFormat? get fixed_height;
-  @override
-
-  /// Static image of the original version of the GIF
-  ImageFormat? get original_still;
+  /// Version of the GIF with fixed width of 100 pixels. Good for mobile keyboards
+  ImageFormat? get fixed_width_small;
   @override
 
   /// mp4 version of the GIF <50kb displaying first 1-2 secs
@@ -1694,18 +1721,22 @@ mixin _$Pagination {
 abstract class $PaginationCopyWith<$Res> {
   factory $PaginationCopyWith(
           Pagination value, $Res Function(Pagination) then) =
-      _$PaginationCopyWithImpl<$Res>;
+      _$PaginationCopyWithImpl<$Res, Pagination>;
+  @useResult
   $Res call({int? count, int? offset, int? total_count});
 }
 
 /// @nodoc
-class _$PaginationCopyWithImpl<$Res> implements $PaginationCopyWith<$Res> {
+class _$PaginationCopyWithImpl<$Res, $Val extends Pagination>
+    implements $PaginationCopyWith<$Res> {
   _$PaginationCopyWithImpl(this._value, this._then);
 
-  final Pagination _value;
   // ignore: unused_field
-  final $Res Function(Pagination) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? count = freezed,
@@ -1713,19 +1744,19 @@ class _$PaginationCopyWithImpl<$Res> implements $PaginationCopyWith<$Res> {
     Object? total_count = freezed,
   }) {
     return _then(_value.copyWith(
-      count: count == freezed
+      count: freezed == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int?,
-      offset: offset == freezed
+      offset: freezed == offset
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
               as int?,
-      total_count: total_count == freezed
+      total_count: freezed == total_count
           ? _value.total_count
           : total_count // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -1736,19 +1767,19 @@ abstract class _$$_PaginationCopyWith<$Res>
           _$_Pagination value, $Res Function(_$_Pagination) then) =
       __$$_PaginationCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int? count, int? offset, int? total_count});
 }
 
 /// @nodoc
-class __$$_PaginationCopyWithImpl<$Res> extends _$PaginationCopyWithImpl<$Res>
+class __$$_PaginationCopyWithImpl<$Res>
+    extends _$PaginationCopyWithImpl<$Res, _$_Pagination>
     implements _$$_PaginationCopyWith<$Res> {
   __$$_PaginationCopyWithImpl(
       _$_Pagination _value, $Res Function(_$_Pagination) _then)
-      : super(_value, (v) => _then(v as _$_Pagination));
+      : super(_value, _then);
 
-  @override
-  _$_Pagination get _value => super._value as _$_Pagination;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? count = freezed,
@@ -1756,15 +1787,15 @@ class __$$_PaginationCopyWithImpl<$Res> extends _$PaginationCopyWithImpl<$Res>
     Object? total_count = freezed,
   }) {
     return _then(_$_Pagination(
-      count: count == freezed
+      count: freezed == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int?,
-      offset: offset == freezed
+      offset: freezed == offset
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
               as int?,
-      total_count: total_count == freezed
+      total_count: freezed == total_count
           ? _value.total_count
           : total_count // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -1802,22 +1833,19 @@ class _$_Pagination implements _Pagination {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Pagination &&
-            const DeepCollectionEquality().equals(other.count, count) &&
-            const DeepCollectionEquality().equals(other.offset, offset) &&
-            const DeepCollectionEquality()
-                .equals(other.total_count, total_count));
+            (identical(other.count, count) || other.count == count) &&
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.total_count, total_count) ||
+                other.total_count == total_count));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(count),
-      const DeepCollectionEquality().hash(offset),
-      const DeepCollectionEquality().hash(total_count));
+  int get hashCode => Object.hash(runtimeType, count, offset, total_count);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PaginationCopyWith<_$_Pagination> get copyWith =>
       __$$_PaginationCopyWithImpl<_$_Pagination>(this, _$identity);
 
@@ -1862,6 +1890,9 @@ SearchRequest _$SearchRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SearchRequest {
+  /// The start position of results (used with pagination)
+  int? get offset => throw _privateConstructorUsedError;
+
   /// The search term
   String? get query => throw _privateConstructorUsedError;
 
@@ -1874,9 +1905,6 @@ mixin _$SearchRequest {
   /// Max number of gifs to return. Defaults to 25
   int? get limit => throw _privateConstructorUsedError;
 
-  /// The start position of results (used with pagination)
-  int? get offset => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SearchRequestCopyWith<SearchRequest> get copyWith =>
@@ -1887,50 +1915,53 @@ mixin _$SearchRequest {
 abstract class $SearchRequestCopyWith<$Res> {
   factory $SearchRequestCopyWith(
           SearchRequest value, $Res Function(SearchRequest) then) =
-      _$SearchRequestCopyWithImpl<$Res>;
+      _$SearchRequestCopyWithImpl<$Res, SearchRequest>;
+  @useResult
   $Res call(
-      {String? query, String? rating, String? lang, int? limit, int? offset});
+      {int? offset, String? query, String? rating, String? lang, int? limit});
 }
 
 /// @nodoc
-class _$SearchRequestCopyWithImpl<$Res>
+class _$SearchRequestCopyWithImpl<$Res, $Val extends SearchRequest>
     implements $SearchRequestCopyWith<$Res> {
   _$SearchRequestCopyWithImpl(this._value, this._then);
 
-  final SearchRequest _value;
   // ignore: unused_field
-  final $Res Function(SearchRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = freezed,
     Object? query = freezed,
     Object? rating = freezed,
     Object? lang = freezed,
     Object? limit = freezed,
-    Object? offset = freezed,
   }) {
     return _then(_value.copyWith(
-      query: query == freezed
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as String?,
-      rating: rating == freezed
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lang: lang == freezed
-          ? _value.lang
-          : lang // ignore: cast_nullable_to_non_nullable
-              as String?,
-      limit: limit == freezed
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int?,
-      offset: offset == freezed
+      offset: freezed == offset
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+      query: freezed == query
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lang: freezed == lang
+          ? _value.lang
+          : lang // ignore: cast_nullable_to_non_nullable
+              as String?,
+      limit: freezed == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
   }
 }
 
@@ -1941,49 +1972,48 @@ abstract class _$$_SearchRequestCopyWith<$Res>
           _$_SearchRequest value, $Res Function(_$_SearchRequest) then) =
       __$$_SearchRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
-      {String? query, String? rating, String? lang, int? limit, int? offset});
+      {int? offset, String? query, String? rating, String? lang, int? limit});
 }
 
 /// @nodoc
 class __$$_SearchRequestCopyWithImpl<$Res>
-    extends _$SearchRequestCopyWithImpl<$Res>
+    extends _$SearchRequestCopyWithImpl<$Res, _$_SearchRequest>
     implements _$$_SearchRequestCopyWith<$Res> {
   __$$_SearchRequestCopyWithImpl(
       _$_SearchRequest _value, $Res Function(_$_SearchRequest) _then)
-      : super(_value, (v) => _then(v as _$_SearchRequest));
+      : super(_value, _then);
 
-  @override
-  _$_SearchRequest get _value => super._value as _$_SearchRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = freezed,
     Object? query = freezed,
     Object? rating = freezed,
     Object? lang = freezed,
     Object? limit = freezed,
-    Object? offset = freezed,
   }) {
     return _then(_$_SearchRequest(
-      query: query == freezed
+      offset: freezed == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int?,
+      query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String?,
-      rating: rating == freezed
+      rating: freezed == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as String?,
-      lang: lang == freezed
+      lang: freezed == lang
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: limit == freezed
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int?,
-      offset: offset == freezed
-          ? _value.offset
-          : offset // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
@@ -1993,10 +2023,14 @@ class __$$_SearchRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SearchRequest implements _SearchRequest {
   const _$_SearchRequest(
-      {this.query, this.rating, this.lang, this.limit, this.offset});
+      {this.offset, this.query, this.rating, this.lang, this.limit});
 
   factory _$_SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SearchRequestFromJson(json);
+
+  /// The start position of results (used with pagination)
+  @override
+  final int? offset;
 
   /// The search term
   @override
@@ -2014,13 +2048,9 @@ class _$_SearchRequest implements _SearchRequest {
   @override
   final int? limit;
 
-  /// The start position of results (used with pagination)
-  @override
-  final int? offset;
-
   @override
   String toString() {
-    return 'SearchRequest(query: $query, rating: $rating, lang: $lang, limit: $limit, offset: $offset)';
+    return 'SearchRequest(offset: $offset, query: $query, rating: $rating, lang: $lang, limit: $limit)';
   }
 
   @override
@@ -2028,25 +2058,21 @@ class _$_SearchRequest implements _SearchRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SearchRequest &&
-            const DeepCollectionEquality().equals(other.query, query) &&
-            const DeepCollectionEquality().equals(other.rating, rating) &&
-            const DeepCollectionEquality().equals(other.lang, lang) &&
-            const DeepCollectionEquality().equals(other.limit, limit) &&
-            const DeepCollectionEquality().equals(other.offset, offset));
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.query, query) || other.query == query) &&
+            (identical(other.rating, rating) || other.rating == rating) &&
+            (identical(other.lang, lang) || other.lang == lang) &&
+            (identical(other.limit, limit) || other.limit == limit));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(query),
-      const DeepCollectionEquality().hash(rating),
-      const DeepCollectionEquality().hash(lang),
-      const DeepCollectionEquality().hash(limit),
-      const DeepCollectionEquality().hash(offset));
+  int get hashCode =>
+      Object.hash(runtimeType, offset, query, rating, lang, limit);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SearchRequestCopyWith<_$_SearchRequest> get copyWith =>
       __$$_SearchRequestCopyWithImpl<_$_SearchRequest>(this, _$identity);
 
@@ -2060,15 +2086,19 @@ class _$_SearchRequest implements _SearchRequest {
 
 abstract class _SearchRequest implements SearchRequest {
   const factory _SearchRequest(
-      {final String? query,
+      {final int? offset,
+      final String? query,
       final String? rating,
       final String? lang,
-      final int? limit,
-      final int? offset}) = _$_SearchRequest;
+      final int? limit}) = _$_SearchRequest;
 
   factory _SearchRequest.fromJson(Map<String, dynamic> json) =
       _$_SearchRequest.fromJson;
 
+  @override
+
+  /// The start position of results (used with pagination)
+  int? get offset;
   @override
 
   /// The search term
@@ -2085,10 +2115,6 @@ abstract class _SearchRequest implements SearchRequest {
 
   /// Max number of gifs to return. Defaults to 25
   int? get limit;
-  @override
-
-  /// The start position of results (used with pagination)
-  int? get offset;
   @override
   @JsonKey(ignore: true)
   _$$_SearchRequestCopyWith<_$_SearchRequest> get copyWith =>
@@ -2118,8 +2144,8 @@ mixin _$SearchResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Gif>? data, Pagination? pagination)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Gif>? data, Pagination? pagination)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2137,8 +2163,8 @@ mixin _$SearchResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(SearchResponseData value)? $default, {
-    TResult Function(SearchResponseMerr value)? Merr,
+    TResult? Function(SearchResponseData value)? $default, {
+    TResult? Function(SearchResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2155,17 +2181,18 @@ mixin _$SearchResponse {
 abstract class $SearchResponseCopyWith<$Res> {
   factory $SearchResponseCopyWith(
           SearchResponse value, $Res Function(SearchResponse) then) =
-      _$SearchResponseCopyWithImpl<$Res>;
+      _$SearchResponseCopyWithImpl<$Res, SearchResponse>;
 }
 
 /// @nodoc
-class _$SearchResponseCopyWithImpl<$Res>
+class _$SearchResponseCopyWithImpl<$Res, $Val extends SearchResponse>
     implements $SearchResponseCopyWith<$Res> {
   _$SearchResponseCopyWithImpl(this._value, this._then);
 
-  final SearchResponse _value;
   // ignore: unused_field
-  final $Res Function(SearchResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -2173,6 +2200,7 @@ abstract class _$$SearchResponseDataCopyWith<$Res> {
   factory _$$SearchResponseDataCopyWith(_$SearchResponseData value,
           $Res Function(_$SearchResponseData) then) =
       __$$SearchResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Gif>? data, Pagination? pagination});
 
   $PaginationCopyWith<$Res>? get pagination;
@@ -2180,26 +2208,24 @@ abstract class _$$SearchResponseDataCopyWith<$Res> {
 
 /// @nodoc
 class __$$SearchResponseDataCopyWithImpl<$Res>
-    extends _$SearchResponseCopyWithImpl<$Res>
+    extends _$SearchResponseCopyWithImpl<$Res, _$SearchResponseData>
     implements _$$SearchResponseDataCopyWith<$Res> {
   __$$SearchResponseDataCopyWithImpl(
       _$SearchResponseData _value, $Res Function(_$SearchResponseData) _then)
-      : super(_value, (v) => _then(v as _$SearchResponseData));
+      : super(_value, _then);
 
-  @override
-  _$SearchResponseData get _value => super._value as _$SearchResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? data = freezed,
     Object? pagination = freezed,
   }) {
     return _then(_$SearchResponseData(
-      data: data == freezed
+      data: freezed == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<Gif>?,
-      pagination: pagination == freezed
+      pagination: freezed == pagination
           ? _value.pagination
           : pagination // ignore: cast_nullable_to_non_nullable
               as Pagination?,
@@ -2207,6 +2233,7 @@ class __$$SearchResponseDataCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PaginationCopyWith<$Res>? get pagination {
     if (_value.pagination == null) {
       return null;
@@ -2259,19 +2286,18 @@ class _$SearchResponseData implements SearchResponseData {
         (other.runtimeType == runtimeType &&
             other is _$SearchResponseData &&
             const DeepCollectionEquality().equals(other._data, _data) &&
-            const DeepCollectionEquality()
-                .equals(other.pagination, pagination));
+            (identical(other.pagination, pagination) ||
+                other.pagination == pagination));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_data),
-      const DeepCollectionEquality().hash(pagination));
+      runtimeType, const DeepCollectionEquality().hash(_data), pagination);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$SearchResponseDataCopyWith<_$SearchResponseData> get copyWith =>
       __$$SearchResponseDataCopyWithImpl<_$SearchResponseData>(
           this, _$identity);
@@ -2288,8 +2314,8 @@ class _$SearchResponseData implements SearchResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Gif>? data, Pagination? pagination)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Gif>? data, Pagination? pagination)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(data, pagination);
   }
@@ -2319,8 +2345,8 @@ class _$SearchResponseData implements SearchResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(SearchResponseData value)? $default, {
-    TResult Function(SearchResponseMerr value)? Merr,
+    TResult? Function(SearchResponseData value)? $default, {
+    TResult? Function(SearchResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -2369,26 +2395,25 @@ abstract class _$$SearchResponseMerrCopyWith<$Res> {
   factory _$$SearchResponseMerrCopyWith(_$SearchResponseMerr value,
           $Res Function(_$SearchResponseMerr) then) =
       __$$SearchResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$SearchResponseMerrCopyWithImpl<$Res>
-    extends _$SearchResponseCopyWithImpl<$Res>
+    extends _$SearchResponseCopyWithImpl<$Res, _$SearchResponseMerr>
     implements _$$SearchResponseMerrCopyWith<$Res> {
   __$$SearchResponseMerrCopyWithImpl(
       _$SearchResponseMerr _value, $Res Function(_$SearchResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$SearchResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$SearchResponseMerr get _value => super._value as _$SearchResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$SearchResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -2439,6 +2464,7 @@ class _$SearchResponseMerr implements SearchResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$SearchResponseMerrCopyWith<_$SearchResponseMerr> get copyWith =>
       __$$SearchResponseMerrCopyWithImpl<_$SearchResponseMerr>(
           this, _$identity);
@@ -2455,8 +2481,8 @@ class _$SearchResponseMerr implements SearchResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Gif>? data, Pagination? pagination)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Gif>? data, Pagination? pagination)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -2486,8 +2512,8 @@ class _$SearchResponseMerr implements SearchResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(SearchResponseData value)? $default, {
-    TResult Function(SearchResponseMerr value)? Merr,
+    TResult? Function(SearchResponseData value)? $default, {
+    TResult? Function(SearchResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }

@@ -20,9 +20,6 @@ GenerateRequest _$GenerateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GenerateRequest {
-  /// include special characters (!@#$%&*)
-  bool? get special => throw _privateConstructorUsedError;
-
   /// include uppercase letters
   bool? get uppercase => throw _privateConstructorUsedError;
 
@@ -35,6 +32,9 @@ mixin _$GenerateRequest {
   /// include numbers
   bool? get numbers => throw _privateConstructorUsedError;
 
+  /// include special characters (!@#$%&*)
+  bool? get special => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GenerateRequestCopyWith<GenerateRequest> get copyWith =>
@@ -45,54 +45,57 @@ mixin _$GenerateRequest {
 abstract class $GenerateRequestCopyWith<$Res> {
   factory $GenerateRequestCopyWith(
           GenerateRequest value, $Res Function(GenerateRequest) then) =
-      _$GenerateRequestCopyWithImpl<$Res>;
+      _$GenerateRequestCopyWithImpl<$Res, GenerateRequest>;
+  @useResult
   $Res call(
-      {bool? special,
-      bool? uppercase,
+      {bool? uppercase,
       int? length,
       bool? lowercase,
-      bool? numbers});
+      bool? numbers,
+      bool? special});
 }
 
 /// @nodoc
-class _$GenerateRequestCopyWithImpl<$Res>
+class _$GenerateRequestCopyWithImpl<$Res, $Val extends GenerateRequest>
     implements $GenerateRequestCopyWith<$Res> {
   _$GenerateRequestCopyWithImpl(this._value, this._then);
 
-  final GenerateRequest _value;
   // ignore: unused_field
-  final $Res Function(GenerateRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? special = freezed,
     Object? uppercase = freezed,
     Object? length = freezed,
     Object? lowercase = freezed,
     Object? numbers = freezed,
+    Object? special = freezed,
   }) {
     return _then(_value.copyWith(
-      special: special == freezed
-          ? _value.special
-          : special // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      uppercase: uppercase == freezed
+      uppercase: freezed == uppercase
           ? _value.uppercase
           : uppercase // ignore: cast_nullable_to_non_nullable
               as bool?,
-      length: length == freezed
+      length: freezed == length
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
               as int?,
-      lowercase: lowercase == freezed
+      lowercase: freezed == lowercase
           ? _value.lowercase
           : lowercase // ignore: cast_nullable_to_non_nullable
               as bool?,
-      numbers: numbers == freezed
+      numbers: freezed == numbers
           ? _value.numbers
           : numbers // ignore: cast_nullable_to_non_nullable
               as bool?,
-    ));
+      special: freezed == special
+          ? _value.special
+          : special // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ) as $Val);
   }
 }
 
@@ -103,53 +106,52 @@ abstract class _$$_GenerateRequestCopyWith<$Res>
           _$_GenerateRequest value, $Res Function(_$_GenerateRequest) then) =
       __$$_GenerateRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
-      {bool? special,
-      bool? uppercase,
+      {bool? uppercase,
       int? length,
       bool? lowercase,
-      bool? numbers});
+      bool? numbers,
+      bool? special});
 }
 
 /// @nodoc
 class __$$_GenerateRequestCopyWithImpl<$Res>
-    extends _$GenerateRequestCopyWithImpl<$Res>
+    extends _$GenerateRequestCopyWithImpl<$Res, _$_GenerateRequest>
     implements _$$_GenerateRequestCopyWith<$Res> {
   __$$_GenerateRequestCopyWithImpl(
       _$_GenerateRequest _value, $Res Function(_$_GenerateRequest) _then)
-      : super(_value, (v) => _then(v as _$_GenerateRequest));
+      : super(_value, _then);
 
-  @override
-  _$_GenerateRequest get _value => super._value as _$_GenerateRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? special = freezed,
     Object? uppercase = freezed,
     Object? length = freezed,
     Object? lowercase = freezed,
     Object? numbers = freezed,
+    Object? special = freezed,
   }) {
     return _then(_$_GenerateRequest(
-      special: special == freezed
-          ? _value.special
-          : special // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      uppercase: uppercase == freezed
+      uppercase: freezed == uppercase
           ? _value.uppercase
           : uppercase // ignore: cast_nullable_to_non_nullable
               as bool?,
-      length: length == freezed
+      length: freezed == length
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
               as int?,
-      lowercase: lowercase == freezed
+      lowercase: freezed == lowercase
           ? _value.lowercase
           : lowercase // ignore: cast_nullable_to_non_nullable
               as bool?,
-      numbers: numbers == freezed
+      numbers: freezed == numbers
           ? _value.numbers
           : numbers // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      special: freezed == special
+          ? _value.special
+          : special // ignore: cast_nullable_to_non_nullable
               as bool?,
     ));
   }
@@ -159,18 +161,14 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GenerateRequest implements _GenerateRequest {
   const _$_GenerateRequest(
-      {this.special,
-      this.uppercase,
+      {this.uppercase,
       this.length,
       this.lowercase,
-      this.numbers});
+      this.numbers,
+      this.special});
 
   factory _$_GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_GenerateRequestFromJson(json);
-
-  /// include special characters (!@#$%&*)
-  @override
-  final bool? special;
 
   /// include uppercase letters
   @override
@@ -188,9 +186,13 @@ class _$_GenerateRequest implements _GenerateRequest {
   @override
   final bool? numbers;
 
+  /// include special characters (!@#$%&*)
+  @override
+  final bool? special;
+
   @override
   String toString() {
-    return 'GenerateRequest(special: $special, uppercase: $uppercase, length: $length, lowercase: $lowercase, numbers: $numbers)';
+    return 'GenerateRequest(uppercase: $uppercase, length: $length, lowercase: $lowercase, numbers: $numbers, special: $special)';
   }
 
   @override
@@ -198,25 +200,23 @@ class _$_GenerateRequest implements _GenerateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GenerateRequest &&
-            const DeepCollectionEquality().equals(other.special, special) &&
-            const DeepCollectionEquality().equals(other.uppercase, uppercase) &&
-            const DeepCollectionEquality().equals(other.length, length) &&
-            const DeepCollectionEquality().equals(other.lowercase, lowercase) &&
-            const DeepCollectionEquality().equals(other.numbers, numbers));
+            (identical(other.uppercase, uppercase) ||
+                other.uppercase == uppercase) &&
+            (identical(other.length, length) || other.length == length) &&
+            (identical(other.lowercase, lowercase) ||
+                other.lowercase == lowercase) &&
+            (identical(other.numbers, numbers) || other.numbers == numbers) &&
+            (identical(other.special, special) || other.special == special));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(special),
-      const DeepCollectionEquality().hash(uppercase),
-      const DeepCollectionEquality().hash(length),
-      const DeepCollectionEquality().hash(lowercase),
-      const DeepCollectionEquality().hash(numbers));
+  int get hashCode =>
+      Object.hash(runtimeType, uppercase, length, lowercase, numbers, special);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_GenerateRequestCopyWith<_$_GenerateRequest> get copyWith =>
       __$$_GenerateRequestCopyWithImpl<_$_GenerateRequest>(this, _$identity);
 
@@ -230,19 +230,15 @@ class _$_GenerateRequest implements _GenerateRequest {
 
 abstract class _GenerateRequest implements GenerateRequest {
   const factory _GenerateRequest(
-      {final bool? special,
-      final bool? uppercase,
+      {final bool? uppercase,
       final int? length,
       final bool? lowercase,
-      final bool? numbers}) = _$_GenerateRequest;
+      final bool? numbers,
+      final bool? special}) = _$_GenerateRequest;
 
   factory _GenerateRequest.fromJson(Map<String, dynamic> json) =
       _$_GenerateRequest.fromJson;
 
-  @override
-
-  /// include special characters (!@#$%&*)
-  bool? get special;
   @override
 
   /// include uppercase letters
@@ -259,6 +255,10 @@ abstract class _GenerateRequest implements GenerateRequest {
 
   /// include numbers
   bool? get numbers;
+  @override
+
+  /// include special characters (!@#$%&*)
+  bool? get special;
   @override
   @JsonKey(ignore: true)
   _$$_GenerateRequestCopyWith<_$_GenerateRequest> get copyWith =>
@@ -288,8 +288,8 @@ mixin _$GenerateResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? password)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? password)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -307,8 +307,8 @@ mixin _$GenerateResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(GenerateResponseData value)? $default, {
-    TResult Function(GenerateResponseMerr value)? Merr,
+    TResult? Function(GenerateResponseData value)? $default, {
+    TResult? Function(GenerateResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -325,17 +325,18 @@ mixin _$GenerateResponse {
 abstract class $GenerateResponseCopyWith<$Res> {
   factory $GenerateResponseCopyWith(
           GenerateResponse value, $Res Function(GenerateResponse) then) =
-      _$GenerateResponseCopyWithImpl<$Res>;
+      _$GenerateResponseCopyWithImpl<$Res, GenerateResponse>;
 }
 
 /// @nodoc
-class _$GenerateResponseCopyWithImpl<$Res>
+class _$GenerateResponseCopyWithImpl<$Res, $Val extends GenerateResponse>
     implements $GenerateResponseCopyWith<$Res> {
   _$GenerateResponseCopyWithImpl(this._value, this._then);
 
-  final GenerateResponse _value;
   // ignore: unused_field
-  final $Res Function(GenerateResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -343,26 +344,25 @@ abstract class _$$GenerateResponseDataCopyWith<$Res> {
   factory _$$GenerateResponseDataCopyWith(_$GenerateResponseData value,
           $Res Function(_$GenerateResponseData) then) =
       __$$GenerateResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? password});
 }
 
 /// @nodoc
 class __$$GenerateResponseDataCopyWithImpl<$Res>
-    extends _$GenerateResponseCopyWithImpl<$Res>
+    extends _$GenerateResponseCopyWithImpl<$Res, _$GenerateResponseData>
     implements _$$GenerateResponseDataCopyWith<$Res> {
   __$$GenerateResponseDataCopyWithImpl(_$GenerateResponseData _value,
       $Res Function(_$GenerateResponseData) _then)
-      : super(_value, (v) => _then(v as _$GenerateResponseData));
+      : super(_value, _then);
 
-  @override
-  _$GenerateResponseData get _value => super._value as _$GenerateResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? password = freezed,
   }) {
     return _then(_$GenerateResponseData(
-      password: password == freezed
+      password: freezed == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -396,16 +396,17 @@ class _$GenerateResponseData implements GenerateResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateResponseData &&
-            const DeepCollectionEquality().equals(other.password, password));
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(password));
+  int get hashCode => Object.hash(runtimeType, password);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$GenerateResponseDataCopyWith<_$GenerateResponseData> get copyWith =>
       __$$GenerateResponseDataCopyWithImpl<_$GenerateResponseData>(
           this, _$identity);
@@ -422,8 +423,8 @@ class _$GenerateResponseData implements GenerateResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? password)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? password)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(password);
   }
@@ -453,8 +454,8 @@ class _$GenerateResponseData implements GenerateResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(GenerateResponseData value)? $default, {
-    TResult Function(GenerateResponseMerr value)? Merr,
+    TResult? Function(GenerateResponseData value)? $default, {
+    TResult? Function(GenerateResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -499,26 +500,25 @@ abstract class _$$GenerateResponseMerrCopyWith<$Res> {
   factory _$$GenerateResponseMerrCopyWith(_$GenerateResponseMerr value,
           $Res Function(_$GenerateResponseMerr) then) =
       __$$GenerateResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$GenerateResponseMerrCopyWithImpl<$Res>
-    extends _$GenerateResponseCopyWithImpl<$Res>
+    extends _$GenerateResponseCopyWithImpl<$Res, _$GenerateResponseMerr>
     implements _$$GenerateResponseMerrCopyWith<$Res> {
   __$$GenerateResponseMerrCopyWithImpl(_$GenerateResponseMerr _value,
       $Res Function(_$GenerateResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$GenerateResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$GenerateResponseMerr get _value => super._value as _$GenerateResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$GenerateResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -569,6 +569,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$GenerateResponseMerrCopyWith<_$GenerateResponseMerr> get copyWith =>
       __$$GenerateResponseMerrCopyWithImpl<_$GenerateResponseMerr>(
           this, _$identity);
@@ -585,8 +586,8 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? password)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(String? password)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -616,8 +617,8 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(GenerateResponseData value)? $default, {
-    TResult Function(GenerateResponseMerr value)? Merr,
+    TResult? Function(GenerateResponseData value)? $default, {
+    TResult? Function(GenerateResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }

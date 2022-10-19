@@ -49,29 +49,29 @@ Map<String, dynamic> _$$LookupPostcodeResponseMerrToJson(
     };
 
 _$_Record _$$_RecordFromJson(Map<String, dynamic> json) => _$_Record(
+      organisation: json['organisation'] as String?,
+      postcode: json['postcode'] as String?,
       premise: json['premise'] as String?,
+      town: json['town'] as String?,
+      building_name: json['building_name'] as String?,
+      locality: json['locality'] as String?,
+      line_two: json['line_two'] as String?,
       street: json['street'] as String?,
       summary: json['summary'] as String?,
-      building_name: json['building_name'] as String?,
-      line_one: json['line_one'] as String?,
-      line_two: json['line_two'] as String?,
-      locality: json['locality'] as String?,
-      organisation: json['organisation'] as String?,
-      town: json['town'] as String?,
       county: json['county'] as String?,
-      postcode: json['postcode'] as String?,
+      line_one: json['line_one'] as String?,
     );
 
 Map<String, dynamic> _$$_RecordToJson(_$_Record instance) => <String, dynamic>{
+      'organisation': instance.organisation,
+      'postcode': instance.postcode,
       'premise': instance.premise,
+      'town': instance.town,
+      'building_name': instance.building_name,
+      'locality': instance.locality,
+      'line_two': instance.line_two,
       'street': instance.street,
       'summary': instance.summary,
-      'building_name': instance.building_name,
-      'line_one': instance.line_one,
-      'line_two': instance.line_two,
-      'locality': instance.locality,
-      'organisation': instance.organisation,
-      'town': instance.town,
       'county': instance.county,
-      'postcode': instance.postcode,
+      'line_one': instance.line_one,
     };

@@ -33,29 +33,32 @@ mixin _$LookupRequest {
 abstract class $LookupRequestCopyWith<$Res> {
   factory $LookupRequestCopyWith(
           LookupRequest value, $Res Function(LookupRequest) then) =
-      _$LookupRequestCopyWithImpl<$Res>;
+      _$LookupRequestCopyWithImpl<$Res, LookupRequest>;
+  @useResult
   $Res call({String? postcode});
 }
 
 /// @nodoc
-class _$LookupRequestCopyWithImpl<$Res>
+class _$LookupRequestCopyWithImpl<$Res, $Val extends LookupRequest>
     implements $LookupRequestCopyWith<$Res> {
   _$LookupRequestCopyWithImpl(this._value, this._then);
 
-  final LookupRequest _value;
   // ignore: unused_field
-  final $Res Function(LookupRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? postcode = freezed,
   }) {
     return _then(_value.copyWith(
-      postcode: postcode == freezed
+      postcode: freezed == postcode
           ? _value.postcode
           : postcode // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -66,26 +69,25 @@ abstract class _$$_LookupRequestCopyWith<$Res>
           _$_LookupRequest value, $Res Function(_$_LookupRequest) then) =
       __$$_LookupRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? postcode});
 }
 
 /// @nodoc
 class __$$_LookupRequestCopyWithImpl<$Res>
-    extends _$LookupRequestCopyWithImpl<$Res>
+    extends _$LookupRequestCopyWithImpl<$Res, _$_LookupRequest>
     implements _$$_LookupRequestCopyWith<$Res> {
   __$$_LookupRequestCopyWithImpl(
       _$_LookupRequest _value, $Res Function(_$_LookupRequest) _then)
-      : super(_value, (v) => _then(v as _$_LookupRequest));
+      : super(_value, _then);
 
-  @override
-  _$_LookupRequest get _value => super._value as _$_LookupRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? postcode = freezed,
   }) {
     return _then(_$_LookupRequest(
-      postcode: postcode == freezed
+      postcode: freezed == postcode
           ? _value.postcode
           : postcode // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -115,16 +117,17 @@ class _$_LookupRequest implements _LookupRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LookupRequest &&
-            const DeepCollectionEquality().equals(other.postcode, postcode));
+            (identical(other.postcode, postcode) ||
+                other.postcode == postcode));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(postcode));
+  int get hashCode => Object.hash(runtimeType, postcode);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LookupRequestCopyWith<_$_LookupRequest> get copyWith =>
       __$$_LookupRequestCopyWithImpl<_$_LookupRequest>(this, _$identity);
 
@@ -170,41 +173,41 @@ mixin _$LookupResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            String? region,
             String? ward,
             String? country,
             String? district,
             double? latitude,
             double? longitude,
-            String? postcode)
+            String? postcode,
+            String? region)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
-            String? region,
+    TResult? Function(
             String? ward,
             String? country,
             String? district,
             double? latitude,
             double? longitude,
-            String? postcode)?
+            String? postcode,
+            String? region)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            String? region,
             String? ward,
             String? country,
             String? district,
             double? latitude,
             double? longitude,
-            String? postcode)?
+            String? postcode,
+            String? region)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -218,8 +221,8 @@ mixin _$LookupResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(LookupResponseData value)? $default, {
-    TResult Function(LookupResponseMerr value)? Merr,
+    TResult? Function(LookupResponseData value)? $default, {
+    TResult? Function(LookupResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -236,17 +239,18 @@ mixin _$LookupResponse {
 abstract class $LookupResponseCopyWith<$Res> {
   factory $LookupResponseCopyWith(
           LookupResponse value, $Res Function(LookupResponse) then) =
-      _$LookupResponseCopyWithImpl<$Res>;
+      _$LookupResponseCopyWithImpl<$Res, LookupResponse>;
 }
 
 /// @nodoc
-class _$LookupResponseCopyWithImpl<$Res>
+class _$LookupResponseCopyWithImpl<$Res, $Val extends LookupResponse>
     implements $LookupResponseCopyWith<$Res> {
   _$LookupResponseCopyWithImpl(this._value, this._then);
 
-  final LookupResponse _value;
   // ignore: unused_field
-  final $Res Function(LookupResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -254,65 +258,64 @@ abstract class _$$LookupResponseDataCopyWith<$Res> {
   factory _$$LookupResponseDataCopyWith(_$LookupResponseData value,
           $Res Function(_$LookupResponseData) then) =
       __$$LookupResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call(
-      {String? region,
-      String? ward,
+      {String? ward,
       String? country,
       String? district,
       double? latitude,
       double? longitude,
-      String? postcode});
+      String? postcode,
+      String? region});
 }
 
 /// @nodoc
 class __$$LookupResponseDataCopyWithImpl<$Res>
-    extends _$LookupResponseCopyWithImpl<$Res>
+    extends _$LookupResponseCopyWithImpl<$Res, _$LookupResponseData>
     implements _$$LookupResponseDataCopyWith<$Res> {
   __$$LookupResponseDataCopyWithImpl(
       _$LookupResponseData _value, $Res Function(_$LookupResponseData) _then)
-      : super(_value, (v) => _then(v as _$LookupResponseData));
+      : super(_value, _then);
 
-  @override
-  _$LookupResponseData get _value => super._value as _$LookupResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? region = freezed,
     Object? ward = freezed,
     Object? country = freezed,
     Object? district = freezed,
     Object? latitude = freezed,
     Object? longitude = freezed,
     Object? postcode = freezed,
+    Object? region = freezed,
   }) {
     return _then(_$LookupResponseData(
-      region: region == freezed
-          ? _value.region
-          : region // ignore: cast_nullable_to_non_nullable
-              as String?,
-      ward: ward == freezed
+      ward: freezed == ward
           ? _value.ward
           : ward // ignore: cast_nullable_to_non_nullable
               as String?,
-      country: country == freezed
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String?,
-      district: district == freezed
+      district: freezed == district
           ? _value.district
           : district // ignore: cast_nullable_to_non_nullable
               as String?,
-      latitude: latitude == freezed
+      latitude: freezed == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
               as double?,
-      longitude: longitude == freezed
+      longitude: freezed == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as double?,
-      postcode: postcode == freezed
+      postcode: freezed == postcode
           ? _value.postcode
           : postcode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      region: freezed == region
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -322,22 +325,18 @@ class __$$LookupResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$LookupResponseData implements LookupResponseData {
   const _$LookupResponseData(
-      {this.region,
-      this.ward,
+      {this.ward,
       this.country,
       this.district,
       this.latitude,
       this.longitude,
       this.postcode,
+      this.region,
       final String? $type})
       : $type = $type ?? 'default';
 
   factory _$LookupResponseData.fromJson(Map<String, dynamic> json) =>
       _$$LookupResponseDataFromJson(json);
-
-  /// related region e.g London
-  @override
-  final String? region;
 
   /// e.g St James's
   @override
@@ -363,12 +362,16 @@ class _$LookupResponseData implements LookupResponseData {
   @override
   final String? postcode;
 
+  /// related region e.g London
+  @override
+  final String? region;
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'LookupResponse(region: $region, ward: $ward, country: $country, district: $district, latitude: $latitude, longitude: $longitude, postcode: $postcode)';
+    return 'LookupResponse(ward: $ward, country: $country, district: $district, latitude: $latitude, longitude: $longitude, postcode: $postcode, region: $region)';
   }
 
   @override
@@ -376,29 +379,27 @@ class _$LookupResponseData implements LookupResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LookupResponseData &&
-            const DeepCollectionEquality().equals(other.region, region) &&
-            const DeepCollectionEquality().equals(other.ward, ward) &&
-            const DeepCollectionEquality().equals(other.country, country) &&
-            const DeepCollectionEquality().equals(other.district, district) &&
-            const DeepCollectionEquality().equals(other.latitude, latitude) &&
-            const DeepCollectionEquality().equals(other.longitude, longitude) &&
-            const DeepCollectionEquality().equals(other.postcode, postcode));
+            (identical(other.ward, ward) || other.ward == ward) &&
+            (identical(other.country, country) || other.country == country) &&
+            (identical(other.district, district) ||
+                other.district == district) &&
+            (identical(other.latitude, latitude) ||
+                other.latitude == latitude) &&
+            (identical(other.longitude, longitude) ||
+                other.longitude == longitude) &&
+            (identical(other.postcode, postcode) ||
+                other.postcode == postcode) &&
+            (identical(other.region, region) || other.region == region));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(region),
-      const DeepCollectionEquality().hash(ward),
-      const DeepCollectionEquality().hash(country),
-      const DeepCollectionEquality().hash(district),
-      const DeepCollectionEquality().hash(latitude),
-      const DeepCollectionEquality().hash(longitude),
-      const DeepCollectionEquality().hash(postcode));
+  int get hashCode => Object.hash(runtimeType, ward, country, district,
+      latitude, longitude, postcode, region);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$LookupResponseDataCopyWith<_$LookupResponseData> get copyWith =>
       __$$LookupResponseDataCopyWithImpl<_$LookupResponseData>(
           this, _$identity);
@@ -407,56 +408,56 @@ class _$LookupResponseData implements LookupResponseData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            String? region,
             String? ward,
             String? country,
             String? district,
             double? latitude,
             double? longitude,
-            String? postcode)
+            String? postcode,
+            String? region)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return $default(
-        region, ward, country, district, latitude, longitude, postcode);
+        ward, country, district, latitude, longitude, postcode, region);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
-            String? region,
+    TResult? Function(
             String? ward,
             String? country,
             String? district,
             double? latitude,
             double? longitude,
-            String? postcode)?
+            String? postcode,
+            String? region)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(
-        region, ward, country, district, latitude, longitude, postcode);
+        ward, country, district, latitude, longitude, postcode, region);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            String? region,
             String? ward,
             String? country,
             String? district,
             double? latitude,
             double? longitude,
-            String? postcode)?
+            String? postcode,
+            String? region)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
       return $default(
-          region, ward, country, district, latitude, longitude, postcode);
+          ward, country, district, latitude, longitude, postcode, region);
     }
     return orElse();
   }
@@ -473,8 +474,8 @@ class _$LookupResponseData implements LookupResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(LookupResponseData value)? $default, {
-    TResult Function(LookupResponseMerr value)? Merr,
+    TResult? Function(LookupResponseData value)? $default, {
+    TResult? Function(LookupResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -502,19 +503,16 @@ class _$LookupResponseData implements LookupResponseData {
 
 abstract class LookupResponseData implements LookupResponse {
   const factory LookupResponseData(
-      {final String? region,
-      final String? ward,
+      {final String? ward,
       final String? country,
       final String? district,
       final double? latitude,
       final double? longitude,
-      final String? postcode}) = _$LookupResponseData;
+      final String? postcode,
+      final String? region}) = _$LookupResponseData;
 
   factory LookupResponseData.fromJson(Map<String, dynamic> json) =
       _$LookupResponseData.fromJson;
-
-  /// related region e.g London
-  String? get region;
 
   /// e.g St James's
   String? get ward;
@@ -533,6 +531,9 @@ abstract class LookupResponseData implements LookupResponse {
 
   /// UK postcode e.g SW1A 2AA
   String? get postcode;
+
+  /// related region e.g London
+  String? get region;
   @JsonKey(ignore: true)
   _$$LookupResponseDataCopyWith<_$LookupResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -543,26 +544,25 @@ abstract class _$$LookupResponseMerrCopyWith<$Res> {
   factory _$$LookupResponseMerrCopyWith(_$LookupResponseMerr value,
           $Res Function(_$LookupResponseMerr) then) =
       __$$LookupResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$LookupResponseMerrCopyWithImpl<$Res>
-    extends _$LookupResponseCopyWithImpl<$Res>
+    extends _$LookupResponseCopyWithImpl<$Res, _$LookupResponseMerr>
     implements _$$LookupResponseMerrCopyWith<$Res> {
   __$$LookupResponseMerrCopyWithImpl(
       _$LookupResponseMerr _value, $Res Function(_$LookupResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$LookupResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$LookupResponseMerr get _value => super._value as _$LookupResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$LookupResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -613,6 +613,7 @@ class _$LookupResponseMerr implements LookupResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$LookupResponseMerrCopyWith<_$LookupResponseMerr> get copyWith =>
       __$$LookupResponseMerrCopyWithImpl<_$LookupResponseMerr>(
           this, _$identity);
@@ -621,13 +622,13 @@ class _$LookupResponseMerr implements LookupResponseMerr {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            String? region,
             String? ward,
             String? country,
             String? district,
             double? latitude,
             double? longitude,
-            String? postcode)
+            String? postcode,
+            String? region)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -637,16 +638,16 @@ class _$LookupResponseMerr implements LookupResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
-            String? region,
+    TResult? Function(
             String? ward,
             String? country,
             String? district,
             double? latitude,
             double? longitude,
-            String? postcode)?
+            String? postcode,
+            String? region)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -655,13 +656,13 @@ class _$LookupResponseMerr implements LookupResponseMerr {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            String? region,
             String? ward,
             String? country,
             String? district,
             double? latitude,
             double? longitude,
-            String? postcode)?
+            String? postcode,
+            String? region)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -684,8 +685,8 @@ class _$LookupResponseMerr implements LookupResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(LookupResponseData value)? $default, {
-    TResult Function(LookupResponseMerr value)? Merr,
+    TResult? Function(LookupResponseData value)? $default, {
+    TResult? Function(LookupResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -737,17 +738,18 @@ mixin _$RandomRequest {
 abstract class $RandomRequestCopyWith<$Res> {
   factory $RandomRequestCopyWith(
           RandomRequest value, $Res Function(RandomRequest) then) =
-      _$RandomRequestCopyWithImpl<$Res>;
+      _$RandomRequestCopyWithImpl<$Res, RandomRequest>;
 }
 
 /// @nodoc
-class _$RandomRequestCopyWithImpl<$Res>
+class _$RandomRequestCopyWithImpl<$Res, $Val extends RandomRequest>
     implements $RandomRequestCopyWith<$Res> {
   _$RandomRequestCopyWithImpl(this._value, this._then);
 
-  final RandomRequest _value;
   // ignore: unused_field
-  final $Res Function(RandomRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -759,14 +761,11 @@ abstract class _$$_RandomRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_RandomRequestCopyWithImpl<$Res>
-    extends _$RandomRequestCopyWithImpl<$Res>
+    extends _$RandomRequestCopyWithImpl<$Res, _$_RandomRequest>
     implements _$$_RandomRequestCopyWith<$Res> {
   __$$_RandomRequestCopyWithImpl(
       _$_RandomRequest _value, $Res Function(_$_RandomRequest) _then)
-      : super(_value, (v) => _then(v as _$_RandomRequest));
-
-  @override
-  _$_RandomRequest get _value => super._value as _$_RandomRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -824,24 +823,42 @@ RandomResponse _$RandomResponseFromJson(Map<String, dynamic> json) {
 mixin _$RandomResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)
+    TResult Function(
+            String? region,
+            String? ward,
+            String? country,
+            String? district,
+            double? latitude,
+            double? longitude,
+            String? postcode)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)?
+    TResult? Function(
+            String? region,
+            String? ward,
+            String? country,
+            String? district,
+            double? latitude,
+            double? longitude,
+            String? postcode)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)?
+    TResult Function(
+            String? region,
+            String? ward,
+            String? country,
+            String? district,
+            double? latitude,
+            double? longitude,
+            String? postcode)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -855,8 +872,8 @@ mixin _$RandomResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(RandomResponseData value)? $default, {
-    TResult Function(RandomResponseMerr value)? Merr,
+    TResult? Function(RandomResponseData value)? $default, {
+    TResult? Function(RandomResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -873,17 +890,18 @@ mixin _$RandomResponse {
 abstract class $RandomResponseCopyWith<$Res> {
   factory $RandomResponseCopyWith(
           RandomResponse value, $Res Function(RandomResponse) then) =
-      _$RandomResponseCopyWithImpl<$Res>;
+      _$RandomResponseCopyWithImpl<$Res, RandomResponse>;
 }
 
 /// @nodoc
-class _$RandomResponseCopyWithImpl<$Res>
+class _$RandomResponseCopyWithImpl<$Res, $Val extends RandomResponse>
     implements $RandomResponseCopyWith<$Res> {
   _$RandomResponseCopyWithImpl(this._value, this._then);
 
-  final RandomResponse _value;
   // ignore: unused_field
-  final $Res Function(RandomResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -891,66 +909,65 @@ abstract class _$$RandomResponseDataCopyWith<$Res> {
   factory _$$RandomResponseDataCopyWith(_$RandomResponseData value,
           $Res Function(_$RandomResponseData) then) =
       __$$RandomResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call(
-      {double? longitude,
-      String? postcode,
-      String? region,
+      {String? region,
       String? ward,
       String? country,
       String? district,
-      double? latitude});
+      double? latitude,
+      double? longitude,
+      String? postcode});
 }
 
 /// @nodoc
 class __$$RandomResponseDataCopyWithImpl<$Res>
-    extends _$RandomResponseCopyWithImpl<$Res>
+    extends _$RandomResponseCopyWithImpl<$Res, _$RandomResponseData>
     implements _$$RandomResponseDataCopyWith<$Res> {
   __$$RandomResponseDataCopyWithImpl(
       _$RandomResponseData _value, $Res Function(_$RandomResponseData) _then)
-      : super(_value, (v) => _then(v as _$RandomResponseData));
+      : super(_value, _then);
 
-  @override
-  _$RandomResponseData get _value => super._value as _$RandomResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? longitude = freezed,
-    Object? postcode = freezed,
     Object? region = freezed,
     Object? ward = freezed,
     Object? country = freezed,
     Object? district = freezed,
     Object? latitude = freezed,
+    Object? longitude = freezed,
+    Object? postcode = freezed,
   }) {
     return _then(_$RandomResponseData(
-      longitude: longitude == freezed
-          ? _value.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as double?,
-      postcode: postcode == freezed
-          ? _value.postcode
-          : postcode // ignore: cast_nullable_to_non_nullable
-              as String?,
-      region: region == freezed
+      region: freezed == region
           ? _value.region
           : region // ignore: cast_nullable_to_non_nullable
               as String?,
-      ward: ward == freezed
+      ward: freezed == ward
           ? _value.ward
           : ward // ignore: cast_nullable_to_non_nullable
               as String?,
-      country: country == freezed
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String?,
-      district: district == freezed
+      district: freezed == district
           ? _value.district
           : district // ignore: cast_nullable_to_non_nullable
               as String?,
-      latitude: latitude == freezed
+      latitude: freezed == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
               as double?,
+      longitude: freezed == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double?,
+      postcode: freezed == postcode
+          ? _value.postcode
+          : postcode // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -959,26 +976,18 @@ class __$$RandomResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RandomResponseData implements RandomResponseData {
   const _$RandomResponseData(
-      {this.longitude,
-      this.postcode,
-      this.region,
+      {this.region,
       this.ward,
       this.country,
       this.district,
       this.latitude,
+      this.longitude,
+      this.postcode,
       final String? $type})
       : $type = $type ?? 'default';
 
   factory _$RandomResponseData.fromJson(Map<String, dynamic> json) =>
       _$$RandomResponseDataFromJson(json);
-
-  /// e.g -0.127695
-  @override
-  final double? longitude;
-
-  /// UK postcode e.g SW1A 2AA
-  @override
-  final String? postcode;
 
   /// related region e.g London
   @override
@@ -1000,12 +1009,20 @@ class _$RandomResponseData implements RandomResponseData {
   @override
   final double? latitude;
 
+  /// e.g -0.127695
+  @override
+  final double? longitude;
+
+  /// UK postcode e.g SW1A 2AA
+  @override
+  final String? postcode;
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'RandomResponse(longitude: $longitude, postcode: $postcode, region: $region, ward: $ward, country: $country, district: $district, latitude: $latitude)';
+    return 'RandomResponse(region: $region, ward: $ward, country: $country, district: $district, latitude: $latitude, longitude: $longitude, postcode: $postcode)';
   }
 
   @override
@@ -1013,29 +1030,27 @@ class _$RandomResponseData implements RandomResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RandomResponseData &&
-            const DeepCollectionEquality().equals(other.longitude, longitude) &&
-            const DeepCollectionEquality().equals(other.postcode, postcode) &&
-            const DeepCollectionEquality().equals(other.region, region) &&
-            const DeepCollectionEquality().equals(other.ward, ward) &&
-            const DeepCollectionEquality().equals(other.country, country) &&
-            const DeepCollectionEquality().equals(other.district, district) &&
-            const DeepCollectionEquality().equals(other.latitude, latitude));
+            (identical(other.region, region) || other.region == region) &&
+            (identical(other.ward, ward) || other.ward == ward) &&
+            (identical(other.country, country) || other.country == country) &&
+            (identical(other.district, district) ||
+                other.district == district) &&
+            (identical(other.latitude, latitude) ||
+                other.latitude == latitude) &&
+            (identical(other.longitude, longitude) ||
+                other.longitude == longitude) &&
+            (identical(other.postcode, postcode) ||
+                other.postcode == postcode));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(longitude),
-      const DeepCollectionEquality().hash(postcode),
-      const DeepCollectionEquality().hash(region),
-      const DeepCollectionEquality().hash(ward),
-      const DeepCollectionEquality().hash(country),
-      const DeepCollectionEquality().hash(district),
-      const DeepCollectionEquality().hash(latitude));
+  int get hashCode => Object.hash(runtimeType, region, ward, country, district,
+      latitude, longitude, postcode);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$RandomResponseDataCopyWith<_$RandomResponseData> get copyWith =>
       __$$RandomResponseDataCopyWithImpl<_$RandomResponseData>(
           this, _$identity);
@@ -1043,39 +1058,57 @@ class _$RandomResponseData implements RandomResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)
+    TResult Function(
+            String? region,
+            String? ward,
+            String? country,
+            String? district,
+            double? latitude,
+            double? longitude,
+            String? postcode)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return $default(
-        longitude, postcode, region, ward, country, district, latitude);
+        region, ward, country, district, latitude, longitude, postcode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)?
+    TResult? Function(
+            String? region,
+            String? ward,
+            String? country,
+            String? district,
+            double? latitude,
+            double? longitude,
+            String? postcode)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(
-        longitude, postcode, region, ward, country, district, latitude);
+        region, ward, country, district, latitude, longitude, postcode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)?
+    TResult Function(
+            String? region,
+            String? ward,
+            String? country,
+            String? district,
+            double? latitude,
+            double? longitude,
+            String? postcode)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
       return $default(
-          longitude, postcode, region, ward, country, district, latitude);
+          region, ward, country, district, latitude, longitude, postcode);
     }
     return orElse();
   }
@@ -1092,8 +1125,8 @@ class _$RandomResponseData implements RandomResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(RandomResponseData value)? $default, {
-    TResult Function(RandomResponseMerr value)? Merr,
+    TResult? Function(RandomResponseData value)? $default, {
+    TResult? Function(RandomResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -1121,22 +1154,16 @@ class _$RandomResponseData implements RandomResponseData {
 
 abstract class RandomResponseData implements RandomResponse {
   const factory RandomResponseData(
-      {final double? longitude,
-      final String? postcode,
-      final String? region,
+      {final String? region,
       final String? ward,
       final String? country,
       final String? district,
-      final double? latitude}) = _$RandomResponseData;
+      final double? latitude,
+      final double? longitude,
+      final String? postcode}) = _$RandomResponseData;
 
   factory RandomResponseData.fromJson(Map<String, dynamic> json) =
       _$RandomResponseData.fromJson;
-
-  /// e.g -0.127695
-  double? get longitude;
-
-  /// UK postcode e.g SW1A 2AA
-  String? get postcode;
 
   /// related region e.g London
   String? get region;
@@ -1152,6 +1179,12 @@ abstract class RandomResponseData implements RandomResponse {
 
   /// e.g 51.50354
   double? get latitude;
+
+  /// e.g -0.127695
+  double? get longitude;
+
+  /// UK postcode e.g SW1A 2AA
+  String? get postcode;
   @JsonKey(ignore: true)
   _$$RandomResponseDataCopyWith<_$RandomResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1162,26 +1195,25 @@ abstract class _$$RandomResponseMerrCopyWith<$Res> {
   factory _$$RandomResponseMerrCopyWith(_$RandomResponseMerr value,
           $Res Function(_$RandomResponseMerr) then) =
       __$$RandomResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$RandomResponseMerrCopyWithImpl<$Res>
-    extends _$RandomResponseCopyWithImpl<$Res>
+    extends _$RandomResponseCopyWithImpl<$Res, _$RandomResponseMerr>
     implements _$$RandomResponseMerrCopyWith<$Res> {
   __$$RandomResponseMerrCopyWithImpl(
       _$RandomResponseMerr _value, $Res Function(_$RandomResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$RandomResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$RandomResponseMerr get _value => super._value as _$RandomResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$RandomResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -1232,6 +1264,7 @@ class _$RandomResponseMerr implements RandomResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$RandomResponseMerrCopyWith<_$RandomResponseMerr> get copyWith =>
       __$$RandomResponseMerrCopyWithImpl<_$RandomResponseMerr>(
           this, _$identity);
@@ -1239,8 +1272,14 @@ class _$RandomResponseMerr implements RandomResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)
+    TResult Function(
+            String? region,
+            String? ward,
+            String? country,
+            String? district,
+            double? latitude,
+            double? longitude,
+            String? postcode)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -1250,10 +1289,16 @@ class _$RandomResponseMerr implements RandomResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)?
+    TResult? Function(
+            String? region,
+            String? ward,
+            String? country,
+            String? district,
+            double? latitude,
+            double? longitude,
+            String? postcode)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -1261,8 +1306,14 @@ class _$RandomResponseMerr implements RandomResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? longitude, String? postcode, String? region,
-            String? ward, String? country, String? district, double? latitude)?
+    TResult Function(
+            String? region,
+            String? ward,
+            String? country,
+            String? district,
+            double? latitude,
+            double? longitude,
+            String? postcode)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -1285,8 +1336,8 @@ class _$RandomResponseMerr implements RandomResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(RandomResponseData value)? $default, {
-    TResult Function(RandomResponseMerr value)? Merr,
+    TResult? Function(RandomResponseData value)? $default, {
+    TResult? Function(RandomResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -1344,29 +1395,32 @@ mixin _$ValidateRequest {
 abstract class $ValidateRequestCopyWith<$Res> {
   factory $ValidateRequestCopyWith(
           ValidateRequest value, $Res Function(ValidateRequest) then) =
-      _$ValidateRequestCopyWithImpl<$Res>;
+      _$ValidateRequestCopyWithImpl<$Res, ValidateRequest>;
+  @useResult
   $Res call({String? postcode});
 }
 
 /// @nodoc
-class _$ValidateRequestCopyWithImpl<$Res>
+class _$ValidateRequestCopyWithImpl<$Res, $Val extends ValidateRequest>
     implements $ValidateRequestCopyWith<$Res> {
   _$ValidateRequestCopyWithImpl(this._value, this._then);
 
-  final ValidateRequest _value;
   // ignore: unused_field
-  final $Res Function(ValidateRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? postcode = freezed,
   }) {
     return _then(_value.copyWith(
-      postcode: postcode == freezed
+      postcode: freezed == postcode
           ? _value.postcode
           : postcode // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -1377,26 +1431,25 @@ abstract class _$$_ValidateRequestCopyWith<$Res>
           _$_ValidateRequest value, $Res Function(_$_ValidateRequest) then) =
       __$$_ValidateRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? postcode});
 }
 
 /// @nodoc
 class __$$_ValidateRequestCopyWithImpl<$Res>
-    extends _$ValidateRequestCopyWithImpl<$Res>
+    extends _$ValidateRequestCopyWithImpl<$Res, _$_ValidateRequest>
     implements _$$_ValidateRequestCopyWith<$Res> {
   __$$_ValidateRequestCopyWithImpl(
       _$_ValidateRequest _value, $Res Function(_$_ValidateRequest) _then)
-      : super(_value, (v) => _then(v as _$_ValidateRequest));
+      : super(_value, _then);
 
-  @override
-  _$_ValidateRequest get _value => super._value as _$_ValidateRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? postcode = freezed,
   }) {
     return _then(_$_ValidateRequest(
-      postcode: postcode == freezed
+      postcode: freezed == postcode
           ? _value.postcode
           : postcode // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -1426,16 +1479,17 @@ class _$_ValidateRequest implements _ValidateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ValidateRequest &&
-            const DeepCollectionEquality().equals(other.postcode, postcode));
+            (identical(other.postcode, postcode) ||
+                other.postcode == postcode));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(postcode));
+  int get hashCode => Object.hash(runtimeType, postcode);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ValidateRequestCopyWith<_$_ValidateRequest> get copyWith =>
       __$$_ValidateRequestCopyWithImpl<_$_ValidateRequest>(this, _$identity);
 
@@ -1486,8 +1540,8 @@ mixin _$ValidateResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(bool? valid)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(bool? valid)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1505,8 +1559,8 @@ mixin _$ValidateResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ValidateResponseData value)? $default, {
-    TResult Function(ValidateResponseMerr value)? Merr,
+    TResult? Function(ValidateResponseData value)? $default, {
+    TResult? Function(ValidateResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1523,17 +1577,18 @@ mixin _$ValidateResponse {
 abstract class $ValidateResponseCopyWith<$Res> {
   factory $ValidateResponseCopyWith(
           ValidateResponse value, $Res Function(ValidateResponse) then) =
-      _$ValidateResponseCopyWithImpl<$Res>;
+      _$ValidateResponseCopyWithImpl<$Res, ValidateResponse>;
 }
 
 /// @nodoc
-class _$ValidateResponseCopyWithImpl<$Res>
+class _$ValidateResponseCopyWithImpl<$Res, $Val extends ValidateResponse>
     implements $ValidateResponseCopyWith<$Res> {
   _$ValidateResponseCopyWithImpl(this._value, this._then);
 
-  final ValidateResponse _value;
   // ignore: unused_field
-  final $Res Function(ValidateResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -1541,26 +1596,25 @@ abstract class _$$ValidateResponseDataCopyWith<$Res> {
   factory _$$ValidateResponseDataCopyWith(_$ValidateResponseData value,
           $Res Function(_$ValidateResponseData) then) =
       __$$ValidateResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({bool? valid});
 }
 
 /// @nodoc
 class __$$ValidateResponseDataCopyWithImpl<$Res>
-    extends _$ValidateResponseCopyWithImpl<$Res>
+    extends _$ValidateResponseCopyWithImpl<$Res, _$ValidateResponseData>
     implements _$$ValidateResponseDataCopyWith<$Res> {
   __$$ValidateResponseDataCopyWithImpl(_$ValidateResponseData _value,
       $Res Function(_$ValidateResponseData) _then)
-      : super(_value, (v) => _then(v as _$ValidateResponseData));
+      : super(_value, _then);
 
-  @override
-  _$ValidateResponseData get _value => super._value as _$ValidateResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? valid = freezed,
   }) {
     return _then(_$ValidateResponseData(
-      valid: valid == freezed
+      valid: freezed == valid
           ? _value.valid
           : valid // ignore: cast_nullable_to_non_nullable
               as bool?,
@@ -1594,16 +1648,16 @@ class _$ValidateResponseData implements ValidateResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ValidateResponseData &&
-            const DeepCollectionEquality().equals(other.valid, valid));
+            (identical(other.valid, valid) || other.valid == valid));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(valid));
+  int get hashCode => Object.hash(runtimeType, valid);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ValidateResponseDataCopyWith<_$ValidateResponseData> get copyWith =>
       __$$ValidateResponseDataCopyWithImpl<_$ValidateResponseData>(
           this, _$identity);
@@ -1620,8 +1674,8 @@ class _$ValidateResponseData implements ValidateResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(bool? valid)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(bool? valid)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(valid);
   }
@@ -1651,8 +1705,8 @@ class _$ValidateResponseData implements ValidateResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ValidateResponseData value)? $default, {
-    TResult Function(ValidateResponseMerr value)? Merr,
+    TResult? Function(ValidateResponseData value)? $default, {
+    TResult? Function(ValidateResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -1697,26 +1751,25 @@ abstract class _$$ValidateResponseMerrCopyWith<$Res> {
   factory _$$ValidateResponseMerrCopyWith(_$ValidateResponseMerr value,
           $Res Function(_$ValidateResponseMerr) then) =
       __$$ValidateResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$ValidateResponseMerrCopyWithImpl<$Res>
-    extends _$ValidateResponseCopyWithImpl<$Res>
+    extends _$ValidateResponseCopyWithImpl<$Res, _$ValidateResponseMerr>
     implements _$$ValidateResponseMerrCopyWith<$Res> {
   __$$ValidateResponseMerrCopyWithImpl(_$ValidateResponseMerr _value,
       $Res Function(_$ValidateResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$ValidateResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$ValidateResponseMerr get _value => super._value as _$ValidateResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$ValidateResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -1767,6 +1820,7 @@ class _$ValidateResponseMerr implements ValidateResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ValidateResponseMerrCopyWith<_$ValidateResponseMerr> get copyWith =>
       __$$ValidateResponseMerrCopyWithImpl<_$ValidateResponseMerr>(
           this, _$identity);
@@ -1783,8 +1837,8 @@ class _$ValidateResponseMerr implements ValidateResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(bool? valid)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(bool? valid)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -1814,8 +1868,8 @@ class _$ValidateResponseMerr implements ValidateResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ValidateResponseData value)? $default, {
-    TResult Function(ValidateResponseMerr value)? Merr,
+    TResult? Function(ValidateResponseData value)? $default, {
+    TResult? Function(ValidateResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }

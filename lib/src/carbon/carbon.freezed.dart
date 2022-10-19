@@ -27,17 +27,18 @@ mixin _$OffsetRequest {
 abstract class $OffsetRequestCopyWith<$Res> {
   factory $OffsetRequestCopyWith(
           OffsetRequest value, $Res Function(OffsetRequest) then) =
-      _$OffsetRequestCopyWithImpl<$Res>;
+      _$OffsetRequestCopyWithImpl<$Res, OffsetRequest>;
 }
 
 /// @nodoc
-class _$OffsetRequestCopyWithImpl<$Res>
+class _$OffsetRequestCopyWithImpl<$Res, $Val extends OffsetRequest>
     implements $OffsetRequestCopyWith<$Res> {
   _$OffsetRequestCopyWithImpl(this._value, this._then);
 
-  final OffsetRequest _value;
   // ignore: unused_field
-  final $Res Function(OffsetRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -49,14 +50,11 @@ abstract class _$$_OffsetRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_OffsetRequestCopyWithImpl<$Res>
-    extends _$OffsetRequestCopyWithImpl<$Res>
+    extends _$OffsetRequestCopyWithImpl<$Res, _$_OffsetRequest>
     implements _$$_OffsetRequestCopyWith<$Res> {
   __$$_OffsetRequestCopyWithImpl(
       _$_OffsetRequest _value, $Res Function(_$_OffsetRequest) _then)
-      : super(_value, (v) => _then(v as _$_OffsetRequest));
-
-  @override
-  _$_OffsetRequest get _value => super._value as _$_OffsetRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -122,10 +120,10 @@ mixin _$OffsetResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? metric, List<Project>? projects, double? tonnes,
+    TResult? Function(String? metric, List<Project>? projects, double? tonnes,
             int? units)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -145,8 +143,8 @@ mixin _$OffsetResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(OffsetResponseData value)? $default, {
-    TResult Function(OffsetResponseMerr value)? Merr,
+    TResult? Function(OffsetResponseData value)? $default, {
+    TResult? Function(OffsetResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -163,17 +161,18 @@ mixin _$OffsetResponse {
 abstract class $OffsetResponseCopyWith<$Res> {
   factory $OffsetResponseCopyWith(
           OffsetResponse value, $Res Function(OffsetResponse) then) =
-      _$OffsetResponseCopyWithImpl<$Res>;
+      _$OffsetResponseCopyWithImpl<$Res, OffsetResponse>;
 }
 
 /// @nodoc
-class _$OffsetResponseCopyWithImpl<$Res>
+class _$OffsetResponseCopyWithImpl<$Res, $Val extends OffsetResponse>
     implements $OffsetResponseCopyWith<$Res> {
   _$OffsetResponseCopyWithImpl(this._value, this._then);
 
-  final OffsetResponse _value;
   // ignore: unused_field
-  final $Res Function(OffsetResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -181,21 +180,20 @@ abstract class _$$OffsetResponseDataCopyWith<$Res> {
   factory _$$OffsetResponseDataCopyWith(_$OffsetResponseData value,
           $Res Function(_$OffsetResponseData) then) =
       __$$OffsetResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {String? metric, List<Project>? projects, double? tonnes, int? units});
 }
 
 /// @nodoc
 class __$$OffsetResponseDataCopyWithImpl<$Res>
-    extends _$OffsetResponseCopyWithImpl<$Res>
+    extends _$OffsetResponseCopyWithImpl<$Res, _$OffsetResponseData>
     implements _$$OffsetResponseDataCopyWith<$Res> {
   __$$OffsetResponseDataCopyWithImpl(
       _$OffsetResponseData _value, $Res Function(_$OffsetResponseData) _then)
-      : super(_value, (v) => _then(v as _$OffsetResponseData));
+      : super(_value, _then);
 
-  @override
-  _$OffsetResponseData get _value => super._value as _$OffsetResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? metric = freezed,
@@ -204,19 +202,19 @@ class __$$OffsetResponseDataCopyWithImpl<$Res>
     Object? units = freezed,
   }) {
     return _then(_$OffsetResponseData(
-      metric: metric == freezed
+      metric: freezed == metric
           ? _value.metric
           : metric // ignore: cast_nullable_to_non_nullable
               as String?,
-      projects: projects == freezed
+      projects: freezed == projects
           ? _value._projects
           : projects // ignore: cast_nullable_to_non_nullable
               as List<Project>?,
-      tonnes: tonnes == freezed
+      tonnes: freezed == tonnes
           ? _value.tonnes
           : tonnes // ignore: cast_nullable_to_non_nullable
               as double?,
-      units: units == freezed
+      units: freezed == units
           ? _value.units
           : units // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -276,23 +274,20 @@ class _$OffsetResponseData implements OffsetResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OffsetResponseData &&
-            const DeepCollectionEquality().equals(other.metric, metric) &&
+            (identical(other.metric, metric) || other.metric == metric) &&
             const DeepCollectionEquality().equals(other._projects, _projects) &&
-            const DeepCollectionEquality().equals(other.tonnes, tonnes) &&
-            const DeepCollectionEquality().equals(other.units, units));
+            (identical(other.tonnes, tonnes) || other.tonnes == tonnes) &&
+            (identical(other.units, units) || other.units == units));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(metric),
-      const DeepCollectionEquality().hash(_projects),
-      const DeepCollectionEquality().hash(tonnes),
-      const DeepCollectionEquality().hash(units));
+  int get hashCode => Object.hash(runtimeType, metric,
+      const DeepCollectionEquality().hash(_projects), tonnes, units);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$OffsetResponseDataCopyWith<_$OffsetResponseData> get copyWith =>
       __$$OffsetResponseDataCopyWithImpl<_$OffsetResponseData>(
           this, _$identity);
@@ -311,10 +306,10 @@ class _$OffsetResponseData implements OffsetResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? metric, List<Project>? projects, double? tonnes,
+    TResult? Function(String? metric, List<Project>? projects, double? tonnes,
             int? units)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(metric, projects, tonnes, units);
   }
@@ -346,8 +341,8 @@ class _$OffsetResponseData implements OffsetResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(OffsetResponseData value)? $default, {
-    TResult Function(OffsetResponseMerr value)? Merr,
+    TResult? Function(OffsetResponseData value)? $default, {
+    TResult? Function(OffsetResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -404,26 +399,25 @@ abstract class _$$OffsetResponseMerrCopyWith<$Res> {
   factory _$$OffsetResponseMerrCopyWith(_$OffsetResponseMerr value,
           $Res Function(_$OffsetResponseMerr) then) =
       __$$OffsetResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$OffsetResponseMerrCopyWithImpl<$Res>
-    extends _$OffsetResponseCopyWithImpl<$Res>
+    extends _$OffsetResponseCopyWithImpl<$Res, _$OffsetResponseMerr>
     implements _$$OffsetResponseMerrCopyWith<$Res> {
   __$$OffsetResponseMerrCopyWithImpl(
       _$OffsetResponseMerr _value, $Res Function(_$OffsetResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$OffsetResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$OffsetResponseMerr get _value => super._value as _$OffsetResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$OffsetResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -474,6 +468,7 @@ class _$OffsetResponseMerr implements OffsetResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$OffsetResponseMerrCopyWith<_$OffsetResponseMerr> get copyWith =>
       __$$OffsetResponseMerrCopyWithImpl<_$OffsetResponseMerr>(
           this, _$identity);
@@ -492,10 +487,10 @@ class _$OffsetResponseMerr implements OffsetResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? metric, List<Project>? projects, double? tonnes,
+    TResult? Function(String? metric, List<Project>? projects, double? tonnes,
             int? units)?
         $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -527,8 +522,8 @@ class _$OffsetResponseMerr implements OffsetResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(OffsetResponseData value)? $default, {
-    TResult Function(OffsetResponseMerr value)? Merr,
+    TResult? Function(OffsetResponseData value)? $default, {
+    TResult? Function(OffsetResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -590,18 +585,22 @@ mixin _$Project {
 /// @nodoc
 abstract class $ProjectCopyWith<$Res> {
   factory $ProjectCopyWith(Project value, $Res Function(Project) then) =
-      _$ProjectCopyWithImpl<$Res>;
+      _$ProjectCopyWithImpl<$Res, Project>;
+  @useResult
   $Res call({String? name, double? percentage, double? tonnes});
 }
 
 /// @nodoc
-class _$ProjectCopyWithImpl<$Res> implements $ProjectCopyWith<$Res> {
+class _$ProjectCopyWithImpl<$Res, $Val extends Project>
+    implements $ProjectCopyWith<$Res> {
   _$ProjectCopyWithImpl(this._value, this._then);
 
-  final Project _value;
   // ignore: unused_field
-  final $Res Function(Project) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
@@ -609,19 +608,19 @@ class _$ProjectCopyWithImpl<$Res> implements $ProjectCopyWith<$Res> {
     Object? tonnes = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      percentage: percentage == freezed
+      percentage: freezed == percentage
           ? _value.percentage
           : percentage // ignore: cast_nullable_to_non_nullable
               as double?,
-      tonnes: tonnes == freezed
+      tonnes: freezed == tonnes
           ? _value.tonnes
           : tonnes // ignore: cast_nullable_to_non_nullable
               as double?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -631,18 +630,18 @@ abstract class _$$_ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
           _$_Project value, $Res Function(_$_Project) then) =
       __$$_ProjectCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? name, double? percentage, double? tonnes});
 }
 
 /// @nodoc
-class __$$_ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
+class __$$_ProjectCopyWithImpl<$Res>
+    extends _$ProjectCopyWithImpl<$Res, _$_Project>
     implements _$$_ProjectCopyWith<$Res> {
   __$$_ProjectCopyWithImpl(_$_Project _value, $Res Function(_$_Project) _then)
-      : super(_value, (v) => _then(v as _$_Project));
+      : super(_value, _then);
 
-  @override
-  _$_Project get _value => super._value as _$_Project;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
@@ -650,15 +649,15 @@ class __$$_ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
     Object? tonnes = freezed,
   }) {
     return _then(_$_Project(
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      percentage: percentage == freezed
+      percentage: freezed == percentage
           ? _value.percentage
           : percentage // ignore: cast_nullable_to_non_nullable
               as double?,
-      tonnes: tonnes == freezed
+      tonnes: freezed == tonnes
           ? _value.tonnes
           : tonnes // ignore: cast_nullable_to_non_nullable
               as double?,
@@ -696,22 +695,19 @@ class _$_Project implements _Project {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Project &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality()
-                .equals(other.percentage, percentage) &&
-            const DeepCollectionEquality().equals(other.tonnes, tonnes));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.percentage, percentage) ||
+                other.percentage == percentage) &&
+            (identical(other.tonnes, tonnes) || other.tonnes == tonnes));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(percentage),
-      const DeepCollectionEquality().hash(tonnes));
+  int get hashCode => Object.hash(runtimeType, name, percentage, tonnes);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ProjectCopyWith<_$_Project> get copyWith =>
       __$$_ProjectCopyWithImpl<_$_Project>(this, _$identity);
 

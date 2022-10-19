@@ -27,17 +27,18 @@ mixin _$CountriesRequest {
 abstract class $CountriesRequestCopyWith<$Res> {
   factory $CountriesRequestCopyWith(
           CountriesRequest value, $Res Function(CountriesRequest) then) =
-      _$CountriesRequestCopyWithImpl<$Res>;
+      _$CountriesRequestCopyWithImpl<$Res, CountriesRequest>;
 }
 
 /// @nodoc
-class _$CountriesRequestCopyWithImpl<$Res>
+class _$CountriesRequestCopyWithImpl<$Res, $Val extends CountriesRequest>
     implements $CountriesRequestCopyWith<$Res> {
   _$CountriesRequestCopyWithImpl(this._value, this._then);
 
-  final CountriesRequest _value;
   // ignore: unused_field
-  final $Res Function(CountriesRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -49,14 +50,11 @@ abstract class _$$_CountriesRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_CountriesRequestCopyWithImpl<$Res>
-    extends _$CountriesRequestCopyWithImpl<$Res>
+    extends _$CountriesRequestCopyWithImpl<$Res, _$_CountriesRequest>
     implements _$$_CountriesRequestCopyWith<$Res> {
   __$$_CountriesRequestCopyWithImpl(
       _$_CountriesRequest _value, $Res Function(_$_CountriesRequest) _then)
-      : super(_value, (v) => _then(v as _$_CountriesRequest));
-
-  @override
-  _$_CountriesRequest get _value => super._value as _$_CountriesRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -120,8 +118,8 @@ mixin _$CountriesResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Country>? countries)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Country>? countries)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -139,8 +137,8 @@ mixin _$CountriesResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(CountriesResponseData value)? $default, {
-    TResult Function(CountriesResponseMerr value)? Merr,
+    TResult? Function(CountriesResponseData value)? $default, {
+    TResult? Function(CountriesResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -157,17 +155,18 @@ mixin _$CountriesResponse {
 abstract class $CountriesResponseCopyWith<$Res> {
   factory $CountriesResponseCopyWith(
           CountriesResponse value, $Res Function(CountriesResponse) then) =
-      _$CountriesResponseCopyWithImpl<$Res>;
+      _$CountriesResponseCopyWithImpl<$Res, CountriesResponse>;
 }
 
 /// @nodoc
-class _$CountriesResponseCopyWithImpl<$Res>
+class _$CountriesResponseCopyWithImpl<$Res, $Val extends CountriesResponse>
     implements $CountriesResponseCopyWith<$Res> {
   _$CountriesResponseCopyWithImpl(this._value, this._then);
 
-  final CountriesResponse _value;
   // ignore: unused_field
-  final $Res Function(CountriesResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -175,26 +174,25 @@ abstract class _$$CountriesResponseDataCopyWith<$Res> {
   factory _$$CountriesResponseDataCopyWith(_$CountriesResponseData value,
           $Res Function(_$CountriesResponseData) then) =
       __$$CountriesResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Country>? countries});
 }
 
 /// @nodoc
 class __$$CountriesResponseDataCopyWithImpl<$Res>
-    extends _$CountriesResponseCopyWithImpl<$Res>
+    extends _$CountriesResponseCopyWithImpl<$Res, _$CountriesResponseData>
     implements _$$CountriesResponseDataCopyWith<$Res> {
   __$$CountriesResponseDataCopyWithImpl(_$CountriesResponseData _value,
       $Res Function(_$CountriesResponseData) _then)
-      : super(_value, (v) => _then(v as _$CountriesResponseData));
+      : super(_value, _then);
 
-  @override
-  _$CountriesResponseData get _value => super._value as _$CountriesResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? countries = freezed,
   }) {
     return _then(_$CountriesResponseData(
-      countries: countries == freezed
+      countries: freezed == countries
           ? _value._countries
           : countries // ignore: cast_nullable_to_non_nullable
               as List<Country>?,
@@ -246,6 +244,7 @@ class _$CountriesResponseData implements CountriesResponseData {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$CountriesResponseDataCopyWith<_$CountriesResponseData> get copyWith =>
       __$$CountriesResponseDataCopyWithImpl<_$CountriesResponseData>(
           this, _$identity);
@@ -262,8 +261,8 @@ class _$CountriesResponseData implements CountriesResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Country>? countries)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Country>? countries)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(countries);
   }
@@ -293,8 +292,8 @@ class _$CountriesResponseData implements CountriesResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(CountriesResponseData value)? $default, {
-    TResult Function(CountriesResponseMerr value)? Merr,
+    TResult? Function(CountriesResponseData value)? $default, {
+    TResult? Function(CountriesResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -338,26 +337,25 @@ abstract class _$$CountriesResponseMerrCopyWith<$Res> {
   factory _$$CountriesResponseMerrCopyWith(_$CountriesResponseMerr value,
           $Res Function(_$CountriesResponseMerr) then) =
       __$$CountriesResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$CountriesResponseMerrCopyWithImpl<$Res>
-    extends _$CountriesResponseCopyWithImpl<$Res>
+    extends _$CountriesResponseCopyWithImpl<$Res, _$CountriesResponseMerr>
     implements _$$CountriesResponseMerrCopyWith<$Res> {
   __$$CountriesResponseMerrCopyWithImpl(_$CountriesResponseMerr _value,
       $Res Function(_$CountriesResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$CountriesResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$CountriesResponseMerr get _value => super._value as _$CountriesResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$CountriesResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -408,6 +406,7 @@ class _$CountriesResponseMerr implements CountriesResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$CountriesResponseMerrCopyWith<_$CountriesResponseMerr> get copyWith =>
       __$$CountriesResponseMerrCopyWithImpl<_$CountriesResponseMerr>(
           this, _$identity);
@@ -424,8 +423,8 @@ class _$CountriesResponseMerr implements CountriesResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Country>? countries)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Country>? countries)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -455,8 +454,8 @@ class _$CountriesResponseMerr implements CountriesResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(CountriesResponseData value)? $default, {
-    TResult Function(CountriesResponseMerr value)? Merr,
+    TResult? Function(CountriesResponseData value)? $default, {
+    TResult? Function(CountriesResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
@@ -515,33 +514,37 @@ mixin _$Country {
 /// @nodoc
 abstract class $CountryCopyWith<$Res> {
   factory $CountryCopyWith(Country value, $Res Function(Country) then) =
-      _$CountryCopyWithImpl<$Res>;
+      _$CountryCopyWithImpl<$Res, Country>;
+  @useResult
   $Res call({String? code, String? name});
 }
 
 /// @nodoc
-class _$CountryCopyWithImpl<$Res> implements $CountryCopyWith<$Res> {
+class _$CountryCopyWithImpl<$Res, $Val extends Country>
+    implements $CountryCopyWith<$Res> {
   _$CountryCopyWithImpl(this._value, this._then);
 
-  final Country _value;
   // ignore: unused_field
-  final $Res Function(Country) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? code = freezed,
     Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      code: code == freezed
+      code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -551,29 +554,29 @@ abstract class _$$_CountryCopyWith<$Res> implements $CountryCopyWith<$Res> {
           _$_Country value, $Res Function(_$_Country) then) =
       __$$_CountryCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? code, String? name});
 }
 
 /// @nodoc
-class __$$_CountryCopyWithImpl<$Res> extends _$CountryCopyWithImpl<$Res>
+class __$$_CountryCopyWithImpl<$Res>
+    extends _$CountryCopyWithImpl<$Res, _$_Country>
     implements _$$_CountryCopyWith<$Res> {
   __$$_CountryCopyWithImpl(_$_Country _value, $Res Function(_$_Country) _then)
-      : super(_value, (v) => _then(v as _$_Country));
+      : super(_value, _then);
 
-  @override
-  _$_Country get _value => super._value as _$_Country;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? code = freezed,
     Object? name = freezed,
   }) {
     return _then(_$_Country(
-      code: code == freezed
+      code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -607,19 +610,17 @@ class _$_Country implements _Country {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Country &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            (identical(other.code, code) || other.code == code) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(name));
+  int get hashCode => Object.hash(runtimeType, code, name);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CountryCopyWith<_$_Country> get copyWith =>
       __$$_CountryCopyWithImpl<_$_Country>(this, _$identity);
 
@@ -656,6 +657,12 @@ Holiday _$HolidayFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Holiday {
+  /// the country this holiday occurs in
+  String? get country_code => throw _privateConstructorUsedError;
+
+  /// date of the holiday in yyyy-mm-dd format
+  String? get date => throw _privateConstructorUsedError;
+
   /// the local name of the holiday
   String? get local_name => throw _privateConstructorUsedError;
 
@@ -668,12 +675,6 @@ mixin _$Holiday {
   /// the type of holiday Public, Bank, School, Authorities, Optional, Observance
   List<String>? get types => throw _privateConstructorUsedError;
 
-  /// the country this holiday occurs in
-  String? get country_code => throw _privateConstructorUsedError;
-
-  /// date of the holiday in yyyy-mm-dd format
-  String? get date => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $HolidayCopyWith<Holiday> get copyWith => throw _privateConstructorUsedError;
@@ -682,59 +683,63 @@ mixin _$Holiday {
 /// @nodoc
 abstract class $HolidayCopyWith<$Res> {
   factory $HolidayCopyWith(Holiday value, $Res Function(Holiday) then) =
-      _$HolidayCopyWithImpl<$Res>;
+      _$HolidayCopyWithImpl<$Res, Holiday>;
+  @useResult
   $Res call(
-      {String? local_name,
+      {String? country_code,
+      String? date,
+      String? local_name,
       String? name,
       List<String>? regions,
-      List<String>? types,
-      String? country_code,
-      String? date});
+      List<String>? types});
 }
 
 /// @nodoc
-class _$HolidayCopyWithImpl<$Res> implements $HolidayCopyWith<$Res> {
+class _$HolidayCopyWithImpl<$Res, $Val extends Holiday>
+    implements $HolidayCopyWith<$Res> {
   _$HolidayCopyWithImpl(this._value, this._then);
 
-  final Holiday _value;
   // ignore: unused_field
-  final $Res Function(Holiday) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? country_code = freezed,
+    Object? date = freezed,
     Object? local_name = freezed,
     Object? name = freezed,
     Object? regions = freezed,
     Object? types = freezed,
-    Object? country_code = freezed,
-    Object? date = freezed,
   }) {
     return _then(_value.copyWith(
-      local_name: local_name == freezed
-          ? _value.local_name
-          : local_name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      regions: regions == freezed
-          ? _value.regions
-          : regions // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      types: types == freezed
-          ? _value.types
-          : types // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      country_code: country_code == freezed
+      country_code: freezed == country_code
           ? _value.country_code
           : country_code // ignore: cast_nullable_to_non_nullable
               as String?,
-      date: date == freezed
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+      local_name: freezed == local_name
+          ? _value.local_name
+          : local_name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      regions: freezed == regions
+          ? _value.regions
+          : regions // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      types: freezed == types
+          ? _value.types
+          : types // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+    ) as $Val);
   }
 }
 
@@ -744,58 +749,58 @@ abstract class _$$_HolidayCopyWith<$Res> implements $HolidayCopyWith<$Res> {
           _$_Holiday value, $Res Function(_$_Holiday) then) =
       __$$_HolidayCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
-      {String? local_name,
+      {String? country_code,
+      String? date,
+      String? local_name,
       String? name,
       List<String>? regions,
-      List<String>? types,
-      String? country_code,
-      String? date});
+      List<String>? types});
 }
 
 /// @nodoc
-class __$$_HolidayCopyWithImpl<$Res> extends _$HolidayCopyWithImpl<$Res>
+class __$$_HolidayCopyWithImpl<$Res>
+    extends _$HolidayCopyWithImpl<$Res, _$_Holiday>
     implements _$$_HolidayCopyWith<$Res> {
   __$$_HolidayCopyWithImpl(_$_Holiday _value, $Res Function(_$_Holiday) _then)
-      : super(_value, (v) => _then(v as _$_Holiday));
+      : super(_value, _then);
 
-  @override
-  _$_Holiday get _value => super._value as _$_Holiday;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? country_code = freezed,
+    Object? date = freezed,
     Object? local_name = freezed,
     Object? name = freezed,
     Object? regions = freezed,
     Object? types = freezed,
-    Object? country_code = freezed,
-    Object? date = freezed,
   }) {
     return _then(_$_Holiday(
-      local_name: local_name == freezed
-          ? _value.local_name
-          : local_name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      regions: regions == freezed
-          ? _value._regions
-          : regions // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      types: types == freezed
-          ? _value._types
-          : types // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      country_code: country_code == freezed
+      country_code: freezed == country_code
           ? _value.country_code
           : country_code // ignore: cast_nullable_to_non_nullable
               as String?,
-      date: date == freezed
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String?,
+      local_name: freezed == local_name
+          ? _value.local_name
+          : local_name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      regions: freezed == regions
+          ? _value._regions
+          : regions // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      types: freezed == types
+          ? _value._types
+          : types // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -804,17 +809,25 @@ class __$$_HolidayCopyWithImpl<$Res> extends _$HolidayCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Holiday implements _Holiday {
   const _$_Holiday(
-      {this.local_name,
+      {this.country_code,
+      this.date,
+      this.local_name,
       this.name,
       final List<String>? regions,
-      final List<String>? types,
-      this.country_code,
-      this.date})
+      final List<String>? types})
       : _regions = regions,
         _types = types;
 
   factory _$_Holiday.fromJson(Map<String, dynamic> json) =>
       _$$_HolidayFromJson(json);
+
+  /// the country this holiday occurs in
+  @override
+  final String? country_code;
+
+  /// date of the holiday in yyyy-mm-dd format
+  @override
+  final String? date;
 
   /// the local name of the holiday
   @override
@@ -848,17 +861,9 @@ class _$_Holiday implements _Holiday {
     return EqualUnmodifiableListView(value);
   }
 
-  /// the country this holiday occurs in
-  @override
-  final String? country_code;
-
-  /// date of the holiday in yyyy-mm-dd format
-  @override
-  final String? date;
-
   @override
   String toString() {
-    return 'Holiday(local_name: $local_name, name: $name, regions: $regions, types: $types, country_code: $country_code, date: $date)';
+    return 'Holiday(country_code: $country_code, date: $date, local_name: $local_name, name: $name, regions: $regions, types: $types)';
   }
 
   @override
@@ -866,29 +871,30 @@ class _$_Holiday implements _Holiday {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Holiday &&
-            const DeepCollectionEquality()
-                .equals(other.local_name, local_name) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
+            (identical(other.country_code, country_code) ||
+                other.country_code == country_code) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.local_name, local_name) ||
+                other.local_name == local_name) &&
+            (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality().equals(other._regions, _regions) &&
-            const DeepCollectionEquality().equals(other._types, _types) &&
-            const DeepCollectionEquality()
-                .equals(other.country_code, country_code) &&
-            const DeepCollectionEquality().equals(other.date, date));
+            const DeepCollectionEquality().equals(other._types, _types));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(local_name),
-      const DeepCollectionEquality().hash(name),
+      country_code,
+      date,
+      local_name,
+      name,
       const DeepCollectionEquality().hash(_regions),
-      const DeepCollectionEquality().hash(_types),
-      const DeepCollectionEquality().hash(country_code),
-      const DeepCollectionEquality().hash(date));
+      const DeepCollectionEquality().hash(_types));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_HolidayCopyWith<_$_Holiday> get copyWith =>
       __$$_HolidayCopyWithImpl<_$_Holiday>(this, _$identity);
 
@@ -902,15 +908,23 @@ class _$_Holiday implements _Holiday {
 
 abstract class _Holiday implements Holiday {
   const factory _Holiday(
-      {final String? local_name,
+      {final String? country_code,
+      final String? date,
+      final String? local_name,
       final String? name,
       final List<String>? regions,
-      final List<String>? types,
-      final String? country_code,
-      final String? date}) = _$_Holiday;
+      final List<String>? types}) = _$_Holiday;
 
   factory _Holiday.fromJson(Map<String, dynamic> json) = _$_Holiday.fromJson;
 
+  @override
+
+  /// the country this holiday occurs in
+  String? get country_code;
+  @override
+
+  /// date of the holiday in yyyy-mm-dd format
+  String? get date;
   @override
 
   /// the local name of the holiday
@@ -927,14 +941,6 @@ abstract class _Holiday implements Holiday {
 
   /// the type of holiday Public, Bank, School, Authorities, Optional, Observance
   List<String>? get types;
-  @override
-
-  /// the country this holiday occurs in
-  String? get country_code;
-  @override
-
-  /// date of the holiday in yyyy-mm-dd format
-  String? get date;
   @override
   @JsonKey(ignore: true)
   _$$_HolidayCopyWith<_$_Holiday> get copyWith =>
@@ -964,35 +970,39 @@ mixin _$ListRequest {
 abstract class $ListRequestCopyWith<$Res> {
   factory $ListRequestCopyWith(
           ListRequest value, $Res Function(ListRequest) then) =
-      _$ListRequestCopyWithImpl<$Res>;
+      _$ListRequestCopyWithImpl<$Res, ListRequest>;
+  @useResult
   $Res call(
       {String? country_code,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? year});
 }
 
 /// @nodoc
-class _$ListRequestCopyWithImpl<$Res> implements $ListRequestCopyWith<$Res> {
+class _$ListRequestCopyWithImpl<$Res, $Val extends ListRequest>
+    implements $ListRequestCopyWith<$Res> {
   _$ListRequestCopyWithImpl(this._value, this._then);
 
-  final ListRequest _value;
   // ignore: unused_field
-  final $Res Function(ListRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? country_code = freezed,
     Object? year = freezed,
   }) {
     return _then(_value.copyWith(
-      country_code: country_code == freezed
+      country_code: freezed == country_code
           ? _value.country_code
           : country_code // ignore: cast_nullable_to_non_nullable
               as String?,
-      year: year == freezed
+      year: freezed == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -1003,32 +1013,32 @@ abstract class _$$_ListRequestCopyWith<$Res>
           _$_ListRequest value, $Res Function(_$_ListRequest) then) =
       __$$_ListRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? country_code,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? year});
 }
 
 /// @nodoc
-class __$$_ListRequestCopyWithImpl<$Res> extends _$ListRequestCopyWithImpl<$Res>
+class __$$_ListRequestCopyWithImpl<$Res>
+    extends _$ListRequestCopyWithImpl<$Res, _$_ListRequest>
     implements _$$_ListRequestCopyWith<$Res> {
   __$$_ListRequestCopyWithImpl(
       _$_ListRequest _value, $Res Function(_$_ListRequest) _then)
-      : super(_value, (v) => _then(v as _$_ListRequest));
+      : super(_value, _then);
 
-  @override
-  _$_ListRequest get _value => super._value as _$_ListRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? country_code = freezed,
     Object? year = freezed,
   }) {
     return _then(_$_ListRequest(
-      country_code: country_code == freezed
+      country_code: freezed == country_code
           ? _value.country_code
           : country_code // ignore: cast_nullable_to_non_nullable
               as String?,
-      year: year == freezed
+      year: freezed == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -1065,20 +1075,18 @@ class _$_ListRequest implements _ListRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ListRequest &&
-            const DeepCollectionEquality()
-                .equals(other.country_code, country_code) &&
-            const DeepCollectionEquality().equals(other.year, year));
+            (identical(other.country_code, country_code) ||
+                other.country_code == country_code) &&
+            (identical(other.year, year) || other.year == year));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(country_code),
-      const DeepCollectionEquality().hash(year));
+  int get hashCode => Object.hash(runtimeType, country_code, year);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ListRequestCopyWith<_$_ListRequest> get copyWith =>
       __$$_ListRequestCopyWithImpl<_$_ListRequest>(this, _$identity);
 
@@ -1137,8 +1145,8 @@ mixin _$ListResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Holiday>? holidays)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Holiday>? holidays)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1156,8 +1164,8 @@ mixin _$ListResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ListResponseData value)? $default, {
-    TResult Function(ListResponseMerr value)? Merr,
+    TResult? Function(ListResponseData value)? $default, {
+    TResult? Function(ListResponseMerr value)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1174,16 +1182,18 @@ mixin _$ListResponse {
 abstract class $ListResponseCopyWith<$Res> {
   factory $ListResponseCopyWith(
           ListResponse value, $Res Function(ListResponse) then) =
-      _$ListResponseCopyWithImpl<$Res>;
+      _$ListResponseCopyWithImpl<$Res, ListResponse>;
 }
 
 /// @nodoc
-class _$ListResponseCopyWithImpl<$Res> implements $ListResponseCopyWith<$Res> {
+class _$ListResponseCopyWithImpl<$Res, $Val extends ListResponse>
+    implements $ListResponseCopyWith<$Res> {
   _$ListResponseCopyWithImpl(this._value, this._then);
 
-  final ListResponse _value;
   // ignore: unused_field
-  final $Res Function(ListResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -1191,26 +1201,25 @@ abstract class _$$ListResponseDataCopyWith<$Res> {
   factory _$$ListResponseDataCopyWith(
           _$ListResponseData value, $Res Function(_$ListResponseData) then) =
       __$$ListResponseDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Holiday>? holidays});
 }
 
 /// @nodoc
 class __$$ListResponseDataCopyWithImpl<$Res>
-    extends _$ListResponseCopyWithImpl<$Res>
+    extends _$ListResponseCopyWithImpl<$Res, _$ListResponseData>
     implements _$$ListResponseDataCopyWith<$Res> {
   __$$ListResponseDataCopyWithImpl(
       _$ListResponseData _value, $Res Function(_$ListResponseData) _then)
-      : super(_value, (v) => _then(v as _$ListResponseData));
+      : super(_value, _then);
 
-  @override
-  _$ListResponseData get _value => super._value as _$ListResponseData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? holidays = freezed,
   }) {
     return _then(_$ListResponseData(
-      holidays: holidays == freezed
+      holidays: freezed == holidays
           ? _value._holidays
           : holidays // ignore: cast_nullable_to_non_nullable
               as List<Holiday>?,
@@ -1260,6 +1269,7 @@ class _$ListResponseData implements ListResponseData {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ListResponseDataCopyWith<_$ListResponseData> get copyWith =>
       __$$ListResponseDataCopyWithImpl<_$ListResponseData>(this, _$identity);
 
@@ -1275,8 +1285,8 @@ class _$ListResponseData implements ListResponseData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Holiday>? holidays)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Holiday>? holidays)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(holidays);
   }
@@ -1306,8 +1316,8 @@ class _$ListResponseData implements ListResponseData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ListResponseData value)? $default, {
-    TResult Function(ListResponseMerr value)? Merr,
+    TResult? Function(ListResponseData value)? $default, {
+    TResult? Function(ListResponseMerr value)? Merr,
   }) {
     return $default?.call(this);
   }
@@ -1351,26 +1361,25 @@ abstract class _$$ListResponseMerrCopyWith<$Res> {
   factory _$$ListResponseMerrCopyWith(
           _$ListResponseMerr value, $Res Function(_$ListResponseMerr) then) =
       __$$ListResponseMerrCopyWithImpl<$Res>;
+  @useResult
   $Res call({Map<String, dynamic>? body});
 }
 
 /// @nodoc
 class __$$ListResponseMerrCopyWithImpl<$Res>
-    extends _$ListResponseCopyWithImpl<$Res>
+    extends _$ListResponseCopyWithImpl<$Res, _$ListResponseMerr>
     implements _$$ListResponseMerrCopyWith<$Res> {
   __$$ListResponseMerrCopyWithImpl(
       _$ListResponseMerr _value, $Res Function(_$ListResponseMerr) _then)
-      : super(_value, (v) => _then(v as _$ListResponseMerr));
+      : super(_value, _then);
 
-  @override
-  _$ListResponseMerr get _value => super._value as _$ListResponseMerr;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? body = freezed,
   }) {
     return _then(_$ListResponseMerr(
-      body: body == freezed
+      body: freezed == body
           ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
@@ -1421,6 +1430,7 @@ class _$ListResponseMerr implements ListResponseMerr {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ListResponseMerrCopyWith<_$ListResponseMerr> get copyWith =>
       __$$ListResponseMerrCopyWithImpl<_$ListResponseMerr>(this, _$identity);
 
@@ -1436,8 +1446,8 @@ class _$ListResponseMerr implements ListResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<Holiday>? holidays)? $default, {
-    TResult Function(Map<String, dynamic>? body)? Merr,
+    TResult? Function(List<Holiday>? holidays)? $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
   }
@@ -1467,8 +1477,8 @@ class _$ListResponseMerr implements ListResponseMerr {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(ListResponseData value)? $default, {
-    TResult Function(ListResponseMerr value)? Merr,
+    TResult? Function(ListResponseData value)? $default, {
+    TResult? Function(ListResponseMerr value)? Merr,
   }) {
     return Merr?.call(this);
   }
