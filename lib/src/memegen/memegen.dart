@@ -83,12 +83,6 @@ class Box with _$Box {
 @Freezed()
 class GenerateRequest with _$GenerateRequest {
   const factory GenerateRequest({
-    /// font size; defaults to 50px
-    String? max_font_size,
-
-    /// top text
-    String? top_text,
-
     /// bottom text
     String? bottom_text,
 
@@ -97,6 +91,12 @@ class GenerateRequest with _$GenerateRequest {
 
     /// the template id to use
     String? id,
+
+    /// font size; defaults to 50px
+    String? max_font_size,
+
+    /// top text
+    String? top_text,
   }) = _GenerateRequest;
   factory GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$GenerateRequestFromJson(json);

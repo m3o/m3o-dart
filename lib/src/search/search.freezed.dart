@@ -1018,11 +1018,11 @@ DeleteRequest _$DeleteRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DeleteRequest {
-  /// The index the record belongs to
-  String? get index => throw _privateConstructorUsedError;
-
   /// The ID of the record to delete
   String? get id => throw _privateConstructorUsedError;
+
+  /// The index the record belongs to
+  String? get index => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1036,7 +1036,7 @@ abstract class $DeleteRequestCopyWith<$Res> {
           DeleteRequest value, $Res Function(DeleteRequest) then) =
       _$DeleteRequestCopyWithImpl<$Res, DeleteRequest>;
   @useResult
-  $Res call({String? index, String? id});
+  $Res call({String? id, String? index});
 }
 
 /// @nodoc
@@ -1052,17 +1052,17 @@ class _$DeleteRequestCopyWithImpl<$Res, $Val extends DeleteRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
     Object? id = freezed,
+    Object? index = freezed,
   }) {
     return _then(_value.copyWith(
-      index: freezed == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      index: freezed == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1076,7 +1076,7 @@ abstract class _$$_DeleteRequestCopyWith<$Res>
       __$$_DeleteRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? index, String? id});
+  $Res call({String? id, String? index});
 }
 
 /// @nodoc
@@ -1090,17 +1090,17 @@ class __$$_DeleteRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
     Object? id = freezed,
+    Object? index = freezed,
   }) {
     return _then(_$_DeleteRequest(
-      index: freezed == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      index: freezed == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1109,22 +1109,22 @@ class __$$_DeleteRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_DeleteRequest implements _DeleteRequest {
-  const _$_DeleteRequest({this.index, this.id});
+  const _$_DeleteRequest({this.id, this.index});
 
   factory _$_DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$$_DeleteRequestFromJson(json);
-
-  /// The index the record belongs to
-  @override
-  final String? index;
 
   /// The ID of the record to delete
   @override
   final String? id;
 
+  /// The index the record belongs to
+  @override
+  final String? index;
+
   @override
   String toString() {
-    return 'DeleteRequest(index: $index, id: $id)';
+    return 'DeleteRequest(id: $id, index: $index)';
   }
 
   @override
@@ -1132,13 +1132,13 @@ class _$_DeleteRequest implements _DeleteRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DeleteRequest &&
-            (identical(other.index, index) || other.index == index) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.index, index) || other.index == index));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, index, id);
+  int get hashCode => Object.hash(runtimeType, id, index);
 
   @JsonKey(ignore: true)
   @override
@@ -1155,7 +1155,7 @@ class _$_DeleteRequest implements _DeleteRequest {
 }
 
 abstract class _DeleteRequest implements DeleteRequest {
-  const factory _DeleteRequest({final String? index, final String? id}) =
+  const factory _DeleteRequest({final String? id, final String? index}) =
       _$_DeleteRequest;
 
   factory _DeleteRequest.fromJson(Map<String, dynamic> json) =
@@ -1163,12 +1163,12 @@ abstract class _DeleteRequest implements DeleteRequest {
 
   @override
 
-  /// The index the record belongs to
-  String? get index;
-  @override
-
   /// The ID of the record to delete
   String? get id;
+  @override
+
+  /// The index the record belongs to
+  String? get index;
   @override
   @JsonKey(ignore: true)
   _$$_DeleteRequestCopyWith<_$_DeleteRequest> get copyWith =>

@@ -196,6 +196,9 @@ class WalletService {
 @Freezed()
 class Account with _$Account {
   const factory Account({
+    /// wallet id
+    String? id,
+
     /// name of the wallet
     String? name,
 
@@ -205,9 +208,6 @@ class Account with _$Account {
 
     /// description of the wallet
     String? description,
-
-    /// wallet id
-    String? id,
   }) = _Account;
   factory Account.fromJson(Map<String, dynamic> json) =>
       _$AccountFromJson(json);
@@ -396,6 +396,9 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class Transaction with _$Transaction {
   const factory Transaction({
+    /// reference note
+    String? reference,
+
     /// amount in transaction
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
@@ -408,9 +411,6 @@ class Transaction with _$Transaction {
 
     /// associated metadata
     Map<String, String>? metadata,
-
-    /// reference note
-    String? reference,
   }) = _Transaction;
   factory Transaction.fromJson(Map<String, dynamic> json) =>
       _$TransactionFromJson(json);
@@ -441,12 +441,6 @@ class TransactionsResponse with _$TransactionsResponse {
 @Freezed()
 class TransferRequest with _$TransferRequest {
   const factory TransferRequest({
-    /// to wallet id
-    String? to_id,
-
-    /// visible?
-    bool? visible,
-
     /// amount to transfer
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
@@ -456,6 +450,12 @@ class TransferRequest with _$TransferRequest {
 
     /// reference
     String? reference,
+
+    /// to wallet id
+    String? to_id,
+
+    /// visible?
+    bool? visible,
   }) = _TransferRequest;
   factory TransferRequest.fromJson(Map<String, dynamic> json) =>
       _$TransferRequestFromJson(json);

@@ -25,16 +25,16 @@ Map<String, dynamic> _$$_GenerateRequestToJson(_$_GenerateRequest instance) =>
 _$GenerateResponseData _$$GenerateResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$GenerateResponseData(
-      base64: json['base64'] as String?,
       url: json['url'] as String?,
+      base64: json['base64'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$GenerateResponseDataToJson(
         _$GenerateResponseData instance) =>
     <String, dynamic>{
-      'base64': instance.base64,
       'url': instance.url,
+      'base64': instance.base64,
       'runtimeType': instance.$type,
     };
 

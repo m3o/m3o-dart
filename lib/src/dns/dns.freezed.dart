@@ -20,17 +20,17 @@ Answer _$AnswerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Answer {
-  /// name resolved
-  String? get name => throw _privateConstructorUsedError;
-
-  /// type of record
-  int? get type => throw _privateConstructorUsedError;
-
   /// time to live
   int? get TTL => throw _privateConstructorUsedError;
 
   /// the answer
   String? get data => throw _privateConstructorUsedError;
+
+  /// name resolved
+  String? get name => throw _privateConstructorUsedError;
+
+  /// type of record
+  int? get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +42,7 @@ abstract class $AnswerCopyWith<$Res> {
   factory $AnswerCopyWith(Answer value, $Res Function(Answer) then) =
       _$AnswerCopyWithImpl<$Res, Answer>;
   @useResult
-  $Res call({String? name, int? type, int? TTL, String? data});
+  $Res call({int? TTL, String? data, String? name, int? type});
 }
 
 /// @nodoc
@@ -58,20 +58,12 @@ class _$AnswerCopyWithImpl<$Res, $Val extends Answer>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? type = freezed,
     Object? TTL = freezed,
     Object? data = freezed,
+    Object? name = freezed,
+    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as int?,
       TTL: freezed == TTL
           ? _value.TTL
           : TTL // ignore: cast_nullable_to_non_nullable
@@ -80,6 +72,14 @@ class _$AnswerCopyWithImpl<$Res, $Val extends Answer>
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -90,7 +90,7 @@ abstract class _$$_AnswerCopyWith<$Res> implements $AnswerCopyWith<$Res> {
       __$$_AnswerCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? name, int? type, int? TTL, String? data});
+  $Res call({int? TTL, String? data, String? name, int? type});
 }
 
 /// @nodoc
@@ -103,20 +103,12 @@ class __$$_AnswerCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? type = freezed,
     Object? TTL = freezed,
     Object? data = freezed,
+    Object? name = freezed,
+    Object? type = freezed,
   }) {
     return _then(_$_Answer(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as int?,
       TTL: freezed == TTL
           ? _value.TTL
           : TTL // ignore: cast_nullable_to_non_nullable
@@ -125,6 +117,14 @@ class __$$_AnswerCopyWithImpl<$Res>
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -132,18 +132,10 @@ class __$$_AnswerCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Answer implements _Answer {
-  const _$_Answer({this.name, this.type, this.TTL, this.data});
+  const _$_Answer({this.TTL, this.data, this.name, this.type});
 
   factory _$_Answer.fromJson(Map<String, dynamic> json) =>
       _$$_AnswerFromJson(json);
-
-  /// name resolved
-  @override
-  final String? name;
-
-  /// type of record
-  @override
-  final int? type;
 
   /// time to live
   @override
@@ -153,9 +145,17 @@ class _$_Answer implements _Answer {
   @override
   final String? data;
 
+  /// name resolved
+  @override
+  final String? name;
+
+  /// type of record
+  @override
+  final int? type;
+
   @override
   String toString() {
-    return 'Answer(name: $name, type: $type, TTL: $TTL, data: $data)';
+    return 'Answer(TTL: $TTL, data: $data, name: $name, type: $type)';
   }
 
   @override
@@ -163,15 +163,15 @@ class _$_Answer implements _Answer {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Answer &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.TTL, TTL) || other.TTL == TTL) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, type, TTL, data);
+  int get hashCode => Object.hash(runtimeType, TTL, data, name, type);
 
   @JsonKey(ignore: true)
   @override
@@ -189,21 +189,13 @@ class _$_Answer implements _Answer {
 
 abstract class _Answer implements Answer {
   const factory _Answer(
-      {final String? name,
-      final int? type,
-      final int? TTL,
-      final String? data}) = _$_Answer;
+      {final int? TTL,
+      final String? data,
+      final String? name,
+      final int? type}) = _$_Answer;
 
   factory _Answer.fromJson(Map<String, dynamic> json) = _$_Answer.fromJson;
 
-  @override
-
-  /// name resolved
-  String? get name;
-  @override
-
-  /// type of record
-  int? get type;
   @override
 
   /// time to live
@@ -212,6 +204,14 @@ abstract class _Answer implements Answer {
 
   /// the answer
   String? get data;
+  @override
+
+  /// name resolved
+  String? get name;
+  @override
+
+  /// type of record
+  int? get type;
   @override
   @JsonKey(ignore: true)
   _$$_AnswerCopyWith<_$_Answer> get copyWith =>
@@ -399,15 +399,15 @@ mixin _$QueryResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            bool? CD,
-            bool? TC,
-            List<Answer>? answer,
-            int? status,
             bool? AD,
+            bool? RA,
+            bool? TC,
+            int? status,
+            bool? CD,
             bool? RD,
+            List<Answer>? answer,
             String? provider,
-            List<Question>? question,
-            bool? RA)
+            List<Question>? question)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
@@ -415,15 +415,15 @@ mixin _$QueryResponse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-            bool? CD,
-            bool? TC,
-            List<Answer>? answer,
-            int? status,
             bool? AD,
+            bool? RA,
+            bool? TC,
+            int? status,
+            bool? CD,
             bool? RD,
+            List<Answer>? answer,
             String? provider,
-            List<Question>? question,
-            bool? RA)?
+            List<Question>? question)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
@@ -431,15 +431,15 @@ mixin _$QueryResponse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            bool? CD,
-            bool? TC,
-            List<Answer>? answer,
-            int? status,
             bool? AD,
+            bool? RA,
+            bool? TC,
+            int? status,
+            bool? CD,
             bool? RD,
+            List<Answer>? answer,
             String? provider,
-            List<Question>? question,
-            bool? RA)?
+            List<Question>? question)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -492,15 +492,15 @@ abstract class _$$QueryResponseDataCopyWith<$Res> {
       __$$QueryResponseDataCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {bool? CD,
+      {bool? AD,
+      bool? RA,
       bool? TC,
-      List<Answer>? answer,
       int? status,
-      bool? AD,
+      bool? CD,
       bool? RD,
+      List<Answer>? answer,
       String? provider,
-      List<Question>? question,
-      bool? RA});
+      List<Question>? question});
 }
 
 /// @nodoc
@@ -514,41 +514,45 @@ class __$$QueryResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? CD = freezed,
-    Object? TC = freezed,
-    Object? answer = freezed,
-    Object? status = freezed,
     Object? AD = freezed,
+    Object? RA = freezed,
+    Object? TC = freezed,
+    Object? status = freezed,
+    Object? CD = freezed,
     Object? RD = freezed,
+    Object? answer = freezed,
     Object? provider = freezed,
     Object? question = freezed,
-    Object? RA = freezed,
   }) {
     return _then(_$QueryResponseData(
-      CD: freezed == CD
-          ? _value.CD
-          : CD // ignore: cast_nullable_to_non_nullable
+      AD: freezed == AD
+          ? _value.AD
+          : AD // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      RA: freezed == RA
+          ? _value.RA
+          : RA // ignore: cast_nullable_to_non_nullable
               as bool?,
       TC: freezed == TC
           ? _value.TC
           : TC // ignore: cast_nullable_to_non_nullable
               as bool?,
-      answer: freezed == answer
-          ? _value._answer
-          : answer // ignore: cast_nullable_to_non_nullable
-              as List<Answer>?,
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as int?,
-      AD: freezed == AD
-          ? _value.AD
-          : AD // ignore: cast_nullable_to_non_nullable
+      CD: freezed == CD
+          ? _value.CD
+          : CD // ignore: cast_nullable_to_non_nullable
               as bool?,
       RD: freezed == RD
           ? _value.RD
           : RD // ignore: cast_nullable_to_non_nullable
               as bool?,
+      answer: freezed == answer
+          ? _value._answer
+          : answer // ignore: cast_nullable_to_non_nullable
+              as List<Answer>?,
       provider: freezed == provider
           ? _value.provider
           : provider // ignore: cast_nullable_to_non_nullable
@@ -557,10 +561,6 @@ class __$$QueryResponseDataCopyWithImpl<$Res>
           ? _value._question
           : question // ignore: cast_nullable_to_non_nullable
               as List<Question>?,
-      RA: freezed == RA
-          ? _value.RA
-          : RA // ignore: cast_nullable_to_non_nullable
-              as bool?,
     ));
   }
 }
@@ -569,15 +569,15 @@ class __$$QueryResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$QueryResponseData implements QueryResponseData {
   const _$QueryResponseData(
-      {this.CD,
+      {this.AD,
+      this.RA,
       this.TC,
-      final List<Answer>? answer,
       this.status,
-      this.AD,
+      this.CD,
       this.RD,
+      final List<Answer>? answer,
       this.provider,
       final List<Question>? question,
-      this.RA,
       final String? $type})
       : _answer = answer,
         _question = question,
@@ -587,9 +587,17 @@ class _$QueryResponseData implements QueryResponseData {
       _$$QueryResponseDataFromJson(json);
 
   @override
-  final bool? CD;
+  final bool? AD;
+  @override
+  final bool? RA;
   @override
   final bool? TC;
+  @override
+  final int? status;
+  @override
+  final bool? CD;
+  @override
+  final bool? RD;
   final List<Answer>? _answer;
   @override
   List<Answer>? get answer {
@@ -599,12 +607,6 @@ class _$QueryResponseData implements QueryResponseData {
     return EqualUnmodifiableListView(value);
   }
 
-  @override
-  final int? status;
-  @override
-  final bool? AD;
-  @override
-  final bool? RD;
   @override
   final String? provider;
   final List<Question>? _question;
@@ -616,15 +618,12 @@ class _$QueryResponseData implements QueryResponseData {
     return EqualUnmodifiableListView(value);
   }
 
-  @override
-  final bool? RA;
-
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'QueryResponse(CD: $CD, TC: $TC, answer: $answer, status: $status, AD: $AD, RD: $RD, provider: $provider, question: $question, RA: $RA)';
+    return 'QueryResponse(AD: $AD, RA: $RA, TC: $TC, status: $status, CD: $CD, RD: $RD, answer: $answer, provider: $provider, question: $question)';
   }
 
   @override
@@ -632,31 +631,31 @@ class _$QueryResponseData implements QueryResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QueryResponseData &&
-            (identical(other.CD, CD) || other.CD == CD) &&
-            (identical(other.TC, TC) || other.TC == TC) &&
-            const DeepCollectionEquality().equals(other._answer, _answer) &&
-            (identical(other.status, status) || other.status == status) &&
             (identical(other.AD, AD) || other.AD == AD) &&
+            (identical(other.RA, RA) || other.RA == RA) &&
+            (identical(other.TC, TC) || other.TC == TC) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.CD, CD) || other.CD == CD) &&
             (identical(other.RD, RD) || other.RD == RD) &&
+            const DeepCollectionEquality().equals(other._answer, _answer) &&
             (identical(other.provider, provider) ||
                 other.provider == provider) &&
-            const DeepCollectionEquality().equals(other._question, _question) &&
-            (identical(other.RA, RA) || other.RA == RA));
+            const DeepCollectionEquality().equals(other._question, _question));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      CD,
-      TC,
-      const DeepCollectionEquality().hash(_answer),
-      status,
       AD,
+      RA,
+      TC,
+      status,
+      CD,
       RD,
+      const DeepCollectionEquality().hash(_answer),
       provider,
-      const DeepCollectionEquality().hash(_question),
-      RA);
+      const DeepCollectionEquality().hash(_question));
 
   @JsonKey(ignore: true)
   @override
@@ -668,60 +667,60 @@ class _$QueryResponseData implements QueryResponseData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            bool? CD,
-            bool? TC,
-            List<Answer>? answer,
-            int? status,
             bool? AD,
+            bool? RA,
+            bool? TC,
+            int? status,
+            bool? CD,
             bool? RD,
+            List<Answer>? answer,
             String? provider,
-            List<Question>? question,
-            bool? RA)
+            List<Question>? question)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(CD, TC, answer, status, AD, RD, provider, question, RA);
+    return $default(AD, RA, TC, status, CD, RD, answer, provider, question);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-            bool? CD,
-            bool? TC,
-            List<Answer>? answer,
-            int? status,
             bool? AD,
+            bool? RA,
+            bool? TC,
+            int? status,
+            bool? CD,
             bool? RD,
+            List<Answer>? answer,
             String? provider,
-            List<Question>? question,
-            bool? RA)?
+            List<Question>? question)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(
-        CD, TC, answer, status, AD, RD, provider, question, RA);
+        AD, RA, TC, status, CD, RD, answer, provider, question);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            bool? CD,
-            bool? TC,
-            List<Answer>? answer,
-            int? status,
             bool? AD,
+            bool? RA,
+            bool? TC,
+            int? status,
+            bool? CD,
             bool? RD,
+            List<Answer>? answer,
             String? provider,
-            List<Question>? question,
-            bool? RA)?
+            List<Question>? question)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(CD, TC, answer, status, AD, RD, provider, question, RA);
+      return $default(AD, RA, TC, status, CD, RD, answer, provider, question);
     }
     return orElse();
   }
@@ -767,28 +766,28 @@ class _$QueryResponseData implements QueryResponseData {
 
 abstract class QueryResponseData implements QueryResponse {
   const factory QueryResponseData(
-      {final bool? CD,
+      {final bool? AD,
+      final bool? RA,
       final bool? TC,
-      final List<Answer>? answer,
       final int? status,
-      final bool? AD,
+      final bool? CD,
       final bool? RD,
+      final List<Answer>? answer,
       final String? provider,
-      final List<Question>? question,
-      final bool? RA}) = _$QueryResponseData;
+      final List<Question>? question}) = _$QueryResponseData;
 
   factory QueryResponseData.fromJson(Map<String, dynamic> json) =
       _$QueryResponseData.fromJson;
 
-  bool? get CD;
-  bool? get TC;
-  List<Answer>? get answer;
-  int? get status;
   bool? get AD;
+  bool? get RA;
+  bool? get TC;
+  int? get status;
+  bool? get CD;
   bool? get RD;
+  List<Answer>? get answer;
   String? get provider;
   List<Question>? get question;
-  bool? get RA;
   @JsonKey(ignore: true)
   _$$QueryResponseDataCopyWith<_$QueryResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -876,15 +875,15 @@ class _$QueryResponseMerr implements QueryResponseMerr {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            bool? CD,
-            bool? TC,
-            List<Answer>? answer,
-            int? status,
             bool? AD,
+            bool? RA,
+            bool? TC,
+            int? status,
+            bool? CD,
             bool? RD,
+            List<Answer>? answer,
             String? provider,
-            List<Question>? question,
-            bool? RA)
+            List<Question>? question)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -895,15 +894,15 @@ class _$QueryResponseMerr implements QueryResponseMerr {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-            bool? CD,
-            bool? TC,
-            List<Answer>? answer,
-            int? status,
             bool? AD,
+            bool? RA,
+            bool? TC,
+            int? status,
+            bool? CD,
             bool? RD,
+            List<Answer>? answer,
             String? provider,
-            List<Question>? question,
-            bool? RA)?
+            List<Question>? question)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -914,15 +913,15 @@ class _$QueryResponseMerr implements QueryResponseMerr {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            bool? CD,
-            bool? TC,
-            List<Answer>? answer,
-            int? status,
             bool? AD,
+            bool? RA,
+            bool? TC,
+            int? status,
+            bool? CD,
             bool? RD,
+            List<Answer>? answer,
             String? provider,
-            List<Question>? question,
-            bool? RA)?
+            List<Question>? question)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

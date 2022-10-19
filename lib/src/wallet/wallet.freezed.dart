@@ -20,6 +20,9 @@ Account _$AccountFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Account {
+  /// wallet id
+  String? get id => throw _privateConstructorUsedError;
+
   /// name of the wallet
   String? get name => throw _privateConstructorUsedError;
 
@@ -29,9 +32,6 @@ mixin _$Account {
 
   /// description of the wallet
   String? get description => throw _privateConstructorUsedError;
-
-  /// wallet id
-  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,10 +44,10 @@ abstract class $AccountCopyWith<$Res> {
       _$AccountCopyWithImpl<$Res, Account>;
   @useResult
   $Res call(
-      {String? name,
+      {String? id,
+      String? name,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? balance,
-      String? description,
-      String? id});
+      String? description});
 }
 
 /// @nodoc
@@ -63,12 +63,16 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? balance = freezed,
     Object? description = freezed,
-    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -80,10 +84,6 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -97,10 +97,10 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? name,
+      {String? id,
+      String? name,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? balance,
-      String? description,
-      String? id});
+      String? description});
 }
 
 /// @nodoc
@@ -113,12 +113,16 @@ class __$$_AccountCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? balance = freezed,
     Object? description = freezed,
-    Object? id = freezed,
   }) {
     return _then(_$_Account(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -131,10 +135,6 @@ class __$$_AccountCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -143,13 +143,17 @@ class __$$_AccountCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Account implements _Account {
   const _$_Account(
-      {this.name,
+      {this.id,
+      this.name,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.balance,
-      this.description,
-      this.id});
+      this.description});
 
   factory _$_Account.fromJson(Map<String, dynamic> json) =>
       _$$_AccountFromJson(json);
+
+  /// wallet id
+  @override
+  final String? id;
 
   /// name of the wallet
   @override
@@ -164,13 +168,9 @@ class _$_Account implements _Account {
   @override
   final String? description;
 
-  /// wallet id
-  @override
-  final String? id;
-
   @override
   String toString() {
-    return 'Account(name: $name, balance: $balance, description: $description, id: $id)';
+    return 'Account(id: $id, name: $name, balance: $balance, description: $description)';
   }
 
   @override
@@ -178,16 +178,16 @@ class _$_Account implements _Account {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Account &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.balance, balance) || other.balance == balance) &&
             (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.id, id) || other.id == id));
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, balance, description, id);
+  int get hashCode => Object.hash(runtimeType, id, name, balance, description);
 
   @JsonKey(ignore: true)
   @override
@@ -205,14 +205,18 @@ class _$_Account implements _Account {
 
 abstract class _Account implements Account {
   const factory _Account(
-      {final String? name,
+      {final String? id,
+      final String? name,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? balance,
-      final String? description,
-      final String? id}) = _$_Account;
+      final String? description}) = _$_Account;
 
   factory _Account.fromJson(Map<String, dynamic> json) = _$_Account.fromJson;
 
+  @override
+
+  /// wallet id
+  String? get id;
   @override
 
   /// name of the wallet
@@ -226,10 +230,6 @@ abstract class _Account implements Account {
 
   /// description of the wallet
   String? get description;
-  @override
-
-  /// wallet id
-  String? get id;
   @override
   @JsonKey(ignore: true)
   _$$_AccountCopyWith<_$_Account> get copyWith =>
@@ -4266,6 +4266,9 @@ Transaction _$TransactionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Transaction {
+  /// reference note
+  String? get reference => throw _privateConstructorUsedError;
+
   /// amount in transaction
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get amount => throw _privateConstructorUsedError;
@@ -4278,9 +4281,6 @@ mixin _$Transaction {
 
   /// associated metadata
   Map<String, String>? get metadata => throw _privateConstructorUsedError;
-
-  /// reference note
-  String? get reference => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -4295,11 +4295,11 @@ abstract class $TransactionCopyWith<$Res> {
       _$TransactionCopyWithImpl<$Res, Transaction>;
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
+      {String? reference,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
       String? created,
       String? id,
-      Map<String, String>? metadata,
-      String? reference});
+      Map<String, String>? metadata});
 }
 
 /// @nodoc
@@ -4315,13 +4315,17 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? reference = freezed,
     Object? amount = freezed,
     Object? created = freezed,
     Object? id = freezed,
     Object? metadata = freezed,
-    Object? reference = freezed,
   }) {
     return _then(_value.copyWith(
+      reference: freezed == reference
+          ? _value.reference
+          : reference // ignore: cast_nullable_to_non_nullable
+              as String?,
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -4338,10 +4342,6 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
           ? _value.metadata
           : metadata // ignore: cast_nullable_to_non_nullable
               as Map<String, String>?,
-      reference: freezed == reference
-          ? _value.reference
-          : reference // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -4355,11 +4355,11 @@ abstract class _$$_TransactionCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
+      {String? reference,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
       String? created,
       String? id,
-      Map<String, String>? metadata,
-      String? reference});
+      Map<String, String>? metadata});
 }
 
 /// @nodoc
@@ -4373,13 +4373,17 @@ class __$$_TransactionCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? reference = freezed,
     Object? amount = freezed,
     Object? created = freezed,
     Object? id = freezed,
     Object? metadata = freezed,
-    Object? reference = freezed,
   }) {
     return _then(_$_Transaction(
+      reference: freezed == reference
+          ? _value.reference
+          : reference // ignore: cast_nullable_to_non_nullable
+              as String?,
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -4396,10 +4400,6 @@ class __$$_TransactionCopyWithImpl<$Res>
           ? _value._metadata
           : metadata // ignore: cast_nullable_to_non_nullable
               as Map<String, String>?,
-      reference: freezed == reference
-          ? _value.reference
-          : reference // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -4408,15 +4408,19 @@ class __$$_TransactionCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Transaction implements _Transaction {
   const _$_Transaction(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.amount,
+      {this.reference,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.amount,
       this.created,
       this.id,
-      final Map<String, String>? metadata,
-      this.reference})
+      final Map<String, String>? metadata})
       : _metadata = metadata;
 
   factory _$_Transaction.fromJson(Map<String, dynamic> json) =>
       _$$_TransactionFromJson(json);
+
+  /// reference note
+  @override
+  final String? reference;
 
   /// amount in transaction
   @override
@@ -4443,13 +4447,9 @@ class _$_Transaction implements _Transaction {
     return EqualUnmodifiableMapView(value);
   }
 
-  /// reference note
-  @override
-  final String? reference;
-
   @override
   String toString() {
-    return 'Transaction(amount: $amount, created: $created, id: $id, metadata: $metadata, reference: $reference)';
+    return 'Transaction(reference: $reference, amount: $amount, created: $created, id: $id, metadata: $metadata)';
   }
 
   @override
@@ -4457,18 +4457,18 @@ class _$_Transaction implements _Transaction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Transaction &&
+            (identical(other.reference, reference) ||
+                other.reference == reference) &&
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.created, created) || other.created == created) &&
             (identical(other.id, id) || other.id == id) &&
-            const DeepCollectionEquality().equals(other._metadata, _metadata) &&
-            (identical(other.reference, reference) ||
-                other.reference == reference));
+            const DeepCollectionEquality().equals(other._metadata, _metadata));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, amount, created, id,
-      const DeepCollectionEquality().hash(_metadata), reference);
+  int get hashCode => Object.hash(runtimeType, reference, amount, created, id,
+      const DeepCollectionEquality().hash(_metadata));
 
   @JsonKey(ignore: true)
   @override
@@ -4486,16 +4486,20 @@ class _$_Transaction implements _Transaction {
 
 abstract class _Transaction implements Transaction {
   const factory _Transaction(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+      {final String? reference,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? amount,
       final String? created,
       final String? id,
-      final Map<String, String>? metadata,
-      final String? reference}) = _$_Transaction;
+      final Map<String, String>? metadata}) = _$_Transaction;
 
   factory _Transaction.fromJson(Map<String, dynamic> json) =
       _$_Transaction.fromJson;
 
+  @override
+
+  /// reference note
+  String? get reference;
   @override
 
   /// amount in transaction
@@ -4513,10 +4517,6 @@ abstract class _Transaction implements Transaction {
 
   /// associated metadata
   Map<String, String>? get metadata;
-  @override
-
-  /// reference note
-  String? get reference;
   @override
   @JsonKey(ignore: true)
   _$$_TransactionCopyWith<_$_Transaction> get copyWith =>
@@ -5080,12 +5080,6 @@ TransferRequest _$TransferRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TransferRequest {
-  /// to wallet id
-  String? get to_id => throw _privateConstructorUsedError;
-
-  /// visible?
-  bool? get visible => throw _privateConstructorUsedError;
-
   /// amount to transfer
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get amount => throw _privateConstructorUsedError;
@@ -5095,6 +5089,12 @@ mixin _$TransferRequest {
 
   /// reference
   String? get reference => throw _privateConstructorUsedError;
+
+  /// to wallet id
+  String? get to_id => throw _privateConstructorUsedError;
+
+  /// visible?
+  bool? get visible => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -5109,11 +5109,11 @@ abstract class $TransferRequestCopyWith<$Res> {
       _$TransferRequestCopyWithImpl<$Res, TransferRequest>;
   @useResult
   $Res call(
-      {String? to_id,
-      bool? visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
       String? from_id,
-      String? reference});
+      String? reference,
+      String? to_id,
+      bool? visible});
 }
 
 /// @nodoc
@@ -5129,21 +5129,13 @@ class _$TransferRequestCopyWithImpl<$Res, $Val extends TransferRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? to_id = freezed,
-    Object? visible = freezed,
     Object? amount = freezed,
     Object? from_id = freezed,
     Object? reference = freezed,
+    Object? to_id = freezed,
+    Object? visible = freezed,
   }) {
     return _then(_value.copyWith(
-      to_id: freezed == to_id
-          ? _value.to_id
-          : to_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      visible: freezed == visible
-          ? _value.visible
-          : visible // ignore: cast_nullable_to_non_nullable
-              as bool?,
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -5156,6 +5148,14 @@ class _$TransferRequestCopyWithImpl<$Res, $Val extends TransferRequest>
           ? _value.reference
           : reference // ignore: cast_nullable_to_non_nullable
               as String?,
+      to_id: freezed == to_id
+          ? _value.to_id
+          : to_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      visible: freezed == visible
+          ? _value.visible
+          : visible // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -5169,11 +5169,11 @@ abstract class _$$_TransferRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? to_id,
-      bool? visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
       String? from_id,
-      String? reference});
+      String? reference,
+      String? to_id,
+      bool? visible});
 }
 
 /// @nodoc
@@ -5187,21 +5187,13 @@ class __$$_TransferRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? to_id = freezed,
-    Object? visible = freezed,
     Object? amount = freezed,
     Object? from_id = freezed,
     Object? reference = freezed,
+    Object? to_id = freezed,
+    Object? visible = freezed,
   }) {
     return _then(_$_TransferRequest(
-      to_id: freezed == to_id
-          ? _value.to_id
-          : to_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      visible: freezed == visible
-          ? _value.visible
-          : visible // ignore: cast_nullable_to_non_nullable
-              as bool?,
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -5214,6 +5206,14 @@ class __$$_TransferRequestCopyWithImpl<$Res>
           ? _value.reference
           : reference // ignore: cast_nullable_to_non_nullable
               as String?,
+      to_id: freezed == to_id
+          ? _value.to_id
+          : to_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      visible: freezed == visible
+          ? _value.visible
+          : visible // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -5222,22 +5222,14 @@ class __$$_TransferRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TransferRequest implements _TransferRequest {
   const _$_TransferRequest(
-      {this.to_id,
-      this.visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.amount,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.amount,
       this.from_id,
-      this.reference});
+      this.reference,
+      this.to_id,
+      this.visible});
 
   factory _$_TransferRequest.fromJson(Map<String, dynamic> json) =>
       _$$_TransferRequestFromJson(json);
-
-  /// to wallet id
-  @override
-  final String? to_id;
-
-  /// visible?
-  @override
-  final bool? visible;
 
   /// amount to transfer
   @override
@@ -5252,9 +5244,17 @@ class _$_TransferRequest implements _TransferRequest {
   @override
   final String? reference;
 
+  /// to wallet id
+  @override
+  final String? to_id;
+
+  /// visible?
+  @override
+  final bool? visible;
+
   @override
   String toString() {
-    return 'TransferRequest(to_id: $to_id, visible: $visible, amount: $amount, from_id: $from_id, reference: $reference)';
+    return 'TransferRequest(amount: $amount, from_id: $from_id, reference: $reference, to_id: $to_id, visible: $visible)';
   }
 
   @override
@@ -5262,18 +5262,18 @@ class _$_TransferRequest implements _TransferRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TransferRequest &&
-            (identical(other.to_id, to_id) || other.to_id == to_id) &&
-            (identical(other.visible, visible) || other.visible == visible) &&
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.from_id, from_id) || other.from_id == from_id) &&
             (identical(other.reference, reference) ||
-                other.reference == reference));
+                other.reference == reference) &&
+            (identical(other.to_id, to_id) || other.to_id == to_id) &&
+            (identical(other.visible, visible) || other.visible == visible));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, to_id, visible, amount, from_id, reference);
+      Object.hash(runtimeType, amount, from_id, reference, to_id, visible);
 
   @JsonKey(ignore: true)
   @override
@@ -5291,24 +5291,16 @@ class _$_TransferRequest implements _TransferRequest {
 
 abstract class _TransferRequest implements TransferRequest {
   const factory _TransferRequest(
-      {final String? to_id,
-      final bool? visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? amount,
       final String? from_id,
-      final String? reference}) = _$_TransferRequest;
+      final String? reference,
+      final String? to_id,
+      final bool? visible}) = _$_TransferRequest;
 
   factory _TransferRequest.fromJson(Map<String, dynamic> json) =
       _$_TransferRequest.fromJson;
 
-  @override
-
-  /// to wallet id
-  String? get to_id;
-  @override
-
-  /// visible?
-  bool? get visible;
   @override
 
   /// amount to transfer
@@ -5322,6 +5314,14 @@ abstract class _TransferRequest implements TransferRequest {
 
   /// reference
   String? get reference;
+  @override
+
+  /// to wallet id
+  String? get to_id;
+  @override
+
+  /// visible?
+  bool? get visible;
   @override
   @JsonKey(ignore: true)
   _$$_TransferRequestCopyWith<_$_TransferRequest> get copyWith =>

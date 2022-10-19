@@ -1325,8 +1325,10 @@ GetResponse _$GetResponseFromJson(Map<String, dynamic> json) {
 mixin _$GetResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? value, String? key,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl)
+    TResult Function(
+            String? key,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+            String? value)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
@@ -1334,10 +1336,9 @@ mixin _$GetResponse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-            String? value,
             String? key,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? ttl)?
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+            String? value)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
@@ -1345,10 +1346,9 @@ mixin _$GetResponse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            String? value,
             String? key,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? ttl)?
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+            String? value)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -1401,9 +1401,9 @@ abstract class _$$GetResponseDataCopyWith<$Res> {
       __$$GetResponseDataCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {String? value,
-      String? key,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl});
+      {String? key,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+      String? value});
 }
 
 /// @nodoc
@@ -1417,15 +1417,11 @@ class __$$GetResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
     Object? key = freezed,
     Object? ttl = freezed,
+    Object? value = freezed,
   }) {
     return _then(_$GetResponseData(
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String?,
       key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
@@ -1434,6 +1430,10 @@ class __$$GetResponseDataCopyWithImpl<$Res>
           ? _value.ttl
           : ttl // ignore: cast_nullable_to_non_nullable
               as int?,
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1442,18 +1442,14 @@ class __$$GetResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GetResponseData implements GetResponseData {
   const _$GetResponseData(
-      {this.value,
-      this.key,
+      {this.key,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.ttl,
+      this.value,
       final String? $type})
       : $type = $type ?? 'default';
 
   factory _$GetResponseData.fromJson(Map<String, dynamic> json) =>
       _$$GetResponseDataFromJson(json);
-
-  /// The value
-  @override
-  final String? value;
 
   /// The key
   @override
@@ -1464,12 +1460,16 @@ class _$GetResponseData implements GetResponseData {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? ttl;
 
+  /// The value
+  @override
+  final String? value;
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'GetResponse(value: $value, key: $key, ttl: $ttl)';
+    return 'GetResponse(key: $key, ttl: $ttl, value: $value)';
   }
 
   @override
@@ -1477,14 +1477,14 @@ class _$GetResponseData implements GetResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetResponseData &&
-            (identical(other.value, value) || other.value == value) &&
             (identical(other.key, key) || other.key == key) &&
-            (identical(other.ttl, ttl) || other.ttl == ttl));
+            (identical(other.ttl, ttl) || other.ttl == ttl) &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, value, key, ttl);
+  int get hashCode => Object.hash(runtimeType, key, ttl, value);
 
   @JsonKey(ignore: true)
   @override
@@ -1495,42 +1495,42 @@ class _$GetResponseData implements GetResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? value, String? key,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl)
+    TResult Function(
+            String? key,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+            String? value)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(value, key, ttl);
+    return $default(key, ttl, value);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-            String? value,
             String? key,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? ttl)?
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+            String? value)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(value, key, ttl);
+    return $default?.call(key, ttl, value);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            String? value,
             String? key,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? ttl)?
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+            String? value)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(value, key, ttl);
+      return $default(key, ttl, value);
     }
     return orElse();
   }
@@ -1576,16 +1576,12 @@ class _$GetResponseData implements GetResponseData {
 
 abstract class GetResponseData implements GetResponse {
   const factory GetResponseData(
-      {final String? value,
-      final String? key,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? ttl}) = _$GetResponseData;
+      {final String? key,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) final int? ttl,
+      final String? value}) = _$GetResponseData;
 
   factory GetResponseData.fromJson(Map<String, dynamic> json) =
       _$GetResponseData.fromJson;
-
-  /// The value
-  String? get value;
 
   /// The key
   String? get key;
@@ -1593,6 +1589,9 @@ abstract class GetResponseData implements GetResponse {
   /// Time to live in seconds
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get ttl;
+
+  /// The value
+  String? get value;
   @JsonKey(ignore: true)
   _$$GetResponseDataCopyWith<_$GetResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1679,8 +1678,10 @@ class _$GetResponseMerr implements GetResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? value, String? key,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl)
+    TResult Function(
+            String? key,
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+            String? value)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -1691,10 +1692,9 @@ class _$GetResponseMerr implements GetResponseMerr {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-            String? value,
             String? key,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? ttl)?
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+            String? value)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -1705,10 +1705,9 @@ class _$GetResponseMerr implements GetResponseMerr {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            String? value,
             String? key,
-            @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-                int? ttl)?
+            @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+            String? value)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -1777,12 +1776,12 @@ IncrementRequest _$IncrementRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$IncrementRequest {
+  /// The key to increment
+  String? get key => throw _privateConstructorUsedError;
+
   /// The amount to increment the value by
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get value => throw _privateConstructorUsedError;
-
-  /// The key to increment
-  String? get key => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1797,8 +1796,8 @@ abstract class $IncrementRequestCopyWith<$Res> {
       _$IncrementRequestCopyWithImpl<$Res, IncrementRequest>;
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
-      String? key});
+      {String? key,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value});
 }
 
 /// @nodoc
@@ -1814,18 +1813,18 @@ class _$IncrementRequestCopyWithImpl<$Res, $Val extends IncrementRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
     Object? key = freezed,
+    Object? value = freezed,
   }) {
     return _then(_value.copyWith(
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as int?,
       key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as String?,
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -1839,8 +1838,8 @@ abstract class _$$_IncrementRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
-      String? key});
+      {String? key,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value});
 }
 
 /// @nodoc
@@ -1854,18 +1853,18 @@ class __$$_IncrementRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
     Object? key = freezed,
+    Object? value = freezed,
   }) {
     return _then(_$_IncrementRequest(
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as int?,
       key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as String?,
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -1874,24 +1873,24 @@ class __$$_IncrementRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_IncrementRequest implements _IncrementRequest {
   const _$_IncrementRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.value,
-      this.key});
+      {this.key,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.value});
 
   factory _$_IncrementRequest.fromJson(Map<String, dynamic> json) =>
       _$$_IncrementRequestFromJson(json);
+
+  /// The key to increment
+  @override
+  final String? key;
 
   /// The amount to increment the value by
   @override
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? value;
 
-  /// The key to increment
-  @override
-  final String? key;
-
   @override
   String toString() {
-    return 'IncrementRequest(value: $value, key: $key)';
+    return 'IncrementRequest(key: $key, value: $value)';
   }
 
   @override
@@ -1899,13 +1898,13 @@ class _$_IncrementRequest implements _IncrementRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_IncrementRequest &&
-            (identical(other.value, value) || other.value == value) &&
-            (identical(other.key, key) || other.key == key));
+            (identical(other.key, key) || other.key == key) &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, value, key);
+  int get hashCode => Object.hash(runtimeType, key, value);
 
   @JsonKey(ignore: true)
   @override
@@ -1923,22 +1922,22 @@ class _$_IncrementRequest implements _IncrementRequest {
 
 abstract class _IncrementRequest implements IncrementRequest {
   const factory _IncrementRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? value,
-      final String? key}) = _$_IncrementRequest;
+      {final String? key,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          final int? value}) = _$_IncrementRequest;
 
   factory _IncrementRequest.fromJson(Map<String, dynamic> json) =
       _$_IncrementRequest.fromJson;
 
   @override
 
+  /// The key to increment
+  String? get key;
+  @override
+
   /// The amount to increment the value by
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get value;
-  @override
-
-  /// The key to increment
-  String? get key;
   @override
   @JsonKey(ignore: true)
   _$$_IncrementRequestCopyWith<_$_IncrementRequest> get copyWith =>
@@ -2878,15 +2877,15 @@ SetRequest _$SetRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SetRequest {
-  /// The key to update
-  String? get key => throw _privateConstructorUsedError;
-
   /// Time to live in seconds
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get ttl => throw _privateConstructorUsedError;
 
   /// The value to set
   String? get value => throw _privateConstructorUsedError;
+
+  /// The key to update
+  String? get key => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2901,9 +2900,9 @@ abstract class $SetRequestCopyWith<$Res> {
       _$SetRequestCopyWithImpl<$Res, SetRequest>;
   @useResult
   $Res call(
-      {String? key,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
-      String? value});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+      String? value,
+      String? key});
 }
 
 /// @nodoc
@@ -2919,15 +2918,11 @@ class _$SetRequestCopyWithImpl<$Res, $Val extends SetRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = freezed,
     Object? ttl = freezed,
     Object? value = freezed,
+    Object? key = freezed,
   }) {
     return _then(_value.copyWith(
-      key: freezed == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String?,
       ttl: freezed == ttl
           ? _value.ttl
           : ttl // ignore: cast_nullable_to_non_nullable
@@ -2935,6 +2930,10 @@ class _$SetRequestCopyWithImpl<$Res, $Val extends SetRequest>
       value: freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
+              as String?,
+      key: freezed == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -2949,9 +2948,9 @@ abstract class _$$_SetRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? key,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
-      String? value});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? ttl,
+      String? value,
+      String? key});
 }
 
 /// @nodoc
@@ -2965,15 +2964,11 @@ class __$$_SetRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = freezed,
     Object? ttl = freezed,
     Object? value = freezed,
+    Object? key = freezed,
   }) {
     return _then(_$_SetRequest(
-      key: freezed == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String?,
       ttl: freezed == ttl
           ? _value.ttl
           : ttl // ignore: cast_nullable_to_non_nullable
@@ -2981,6 +2976,10 @@ class __$$_SetRequestCopyWithImpl<$Res>
       value: freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
+              as String?,
+      key: freezed == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2990,16 +2989,12 @@ class __$$_SetRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SetRequest implements _SetRequest {
   const _$_SetRequest(
-      {this.key,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.ttl,
-      this.value});
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.ttl,
+      this.value,
+      this.key});
 
   factory _$_SetRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SetRequestFromJson(json);
-
-  /// The key to update
-  @override
-  final String? key;
 
   /// Time to live in seconds
   @override
@@ -3010,9 +3005,13 @@ class _$_SetRequest implements _SetRequest {
   @override
   final String? value;
 
+  /// The key to update
+  @override
+  final String? key;
+
   @override
   String toString() {
-    return 'SetRequest(key: $key, ttl: $ttl, value: $value)';
+    return 'SetRequest(ttl: $ttl, value: $value, key: $key)';
   }
 
   @override
@@ -3020,14 +3019,14 @@ class _$_SetRequest implements _SetRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SetRequest &&
-            (identical(other.key, key) || other.key == key) &&
             (identical(other.ttl, ttl) || other.ttl == ttl) &&
-            (identical(other.value, value) || other.value == value));
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.key, key) || other.key == key));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, key, ttl, value);
+  int get hashCode => Object.hash(runtimeType, ttl, value, key);
 
   @JsonKey(ignore: true)
   @override
@@ -3045,17 +3044,14 @@ class _$_SetRequest implements _SetRequest {
 
 abstract class _SetRequest implements SetRequest {
   const factory _SetRequest(
-      {final String? key,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) final int? ttl,
-      final String? value}) = _$_SetRequest;
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          final int? ttl,
+      final String? value,
+      final String? key}) = _$_SetRequest;
 
   factory _SetRequest.fromJson(Map<String, dynamic> json) =
       _$_SetRequest.fromJson;
 
-  @override
-
-  /// The key to update
-  String? get key;
   @override
 
   /// Time to live in seconds
@@ -3065,6 +3061,10 @@ abstract class _SetRequest implements SetRequest {
 
   /// The value to set
   String? get value;
+  @override
+
+  /// The key to update
+  String? get key;
   @override
   @JsonKey(ignore: true)
   _$$_SetRequestCopyWith<_$_SetRequest> get copyWith =>

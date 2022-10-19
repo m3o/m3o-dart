@@ -36,17 +36,17 @@ class DnsService {
 @Freezed()
 class Answer with _$Answer {
   const factory Answer({
-    /// name resolved
-    String? name,
-
-    /// type of record
-    int? type,
-
     /// time to live
     int? TTL,
 
     /// the answer
     String? data,
+
+    /// name resolved
+    String? name,
+
+    /// type of record
+    int? type,
   }) = _Answer;
   factory Answer.fromJson(Map<String, dynamic> json) => _$AnswerFromJson(json);
 }
@@ -67,15 +67,15 @@ class QueryRequest with _$QueryRequest {
 @Freezed()
 class QueryResponse with _$QueryResponse {
   const factory QueryResponse({
-    bool? CD,
-    bool? TC,
-    List<Answer>? answer,
-    int? status,
     bool? AD,
+    bool? RA,
+    bool? TC,
+    int? status,
+    bool? CD,
     bool? RD,
+    List<Answer>? answer,
     String? provider,
     List<Question>? question,
-    bool? RA,
   }) = QueryResponseData;
   const factory QueryResponse.Merr({Map<String, dynamic>? body}) =
       QueryResponseMerr;
