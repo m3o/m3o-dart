@@ -169,19 +169,19 @@ IpResponse _$IpResponseFromJson(Map<String, dynamic> json) {
 mixin _$IpResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? latency, String? status) $default, {
+    TResult Function(String? status, String? latency) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? latency, String? status)? $default, {
+    TResult? Function(String? status, String? latency)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? latency, String? status)? $default, {
+    TResult Function(String? status, String? latency)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -232,7 +232,7 @@ abstract class _$$IpResponseDataCopyWith<$Res> {
           _$IpResponseData value, $Res Function(_$IpResponseData) then) =
       __$$IpResponseDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({String? latency, String? status});
+  $Res call({String? status, String? latency});
 }
 
 /// @nodoc
@@ -246,17 +246,17 @@ class __$$IpResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? latency = freezed,
     Object? status = freezed,
+    Object? latency = freezed,
   }) {
     return _then(_$IpResponseData(
-      latency: freezed == latency
-          ? _value.latency
-          : latency // ignore: cast_nullable_to_non_nullable
-              as String?,
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
+              as String?,
+      latency: freezed == latency
+          ? _value.latency
+          : latency // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -265,26 +265,26 @@ class __$$IpResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$IpResponseData implements IpResponseData {
-  const _$IpResponseData({this.latency, this.status, final String? $type})
+  const _$IpResponseData({this.status, this.latency, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$IpResponseData.fromJson(Map<String, dynamic> json) =>
       _$$IpResponseDataFromJson(json);
 
-  /// average latency e.g 10ms
-  @override
-  final String? latency;
-
   /// response status
   @override
   final String? status;
+
+  /// average latency e.g 10ms
+  @override
+  final String? latency;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'IpResponse(latency: $latency, status: $status)';
+    return 'IpResponse(status: $status, latency: $latency)';
   }
 
   @override
@@ -292,13 +292,13 @@ class _$IpResponseData implements IpResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$IpResponseData &&
-            (identical(other.latency, latency) || other.latency == latency) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.latency, latency) || other.latency == latency));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, latency, status);
+  int get hashCode => Object.hash(runtimeType, status, latency);
 
   @JsonKey(ignore: true)
   @override
@@ -309,30 +309,30 @@ class _$IpResponseData implements IpResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? latency, String? status) $default, {
+    TResult Function(String? status, String? latency) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(latency, status);
+    return $default(status, latency);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? latency, String? status)? $default, {
+    TResult? Function(String? status, String? latency)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(latency, status);
+    return $default?.call(status, latency);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? latency, String? status)? $default, {
+    TResult Function(String? status, String? latency)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(latency, status);
+      return $default(status, latency);
     }
     return orElse();
   }
@@ -377,17 +377,17 @@ class _$IpResponseData implements IpResponseData {
 }
 
 abstract class IpResponseData implements IpResponse {
-  const factory IpResponseData({final String? latency, final String? status}) =
+  const factory IpResponseData({final String? status, final String? latency}) =
       _$IpResponseData;
 
   factory IpResponseData.fromJson(Map<String, dynamic> json) =
       _$IpResponseData.fromJson;
 
-  /// average latency e.g 10ms
-  String? get latency;
-
   /// response status
   String? get status;
+
+  /// average latency e.g 10ms
+  String? get latency;
   @JsonKey(ignore: true)
   _$$IpResponseDataCopyWith<_$IpResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -474,7 +474,7 @@ class _$IpResponseMerr implements IpResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? latency, String? status) $default, {
+    TResult Function(String? status, String? latency) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -483,7 +483,7 @@ class _$IpResponseMerr implements IpResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? latency, String? status)? $default, {
+    TResult? Function(String? status, String? latency)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -492,7 +492,7 @@ class _$IpResponseMerr implements IpResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? latency, String? status)? $default, {
+    TResult Function(String? status, String? latency)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {

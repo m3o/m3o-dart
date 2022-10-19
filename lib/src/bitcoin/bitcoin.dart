@@ -144,9 +144,6 @@ class LookupRequest with _$LookupRequest {
 @Freezed()
 class LookupResponse with _$LookupResponse {
   const factory LookupResponse({
-    /// address requested
-    String? address,
-
     /// final balanace
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString)
@@ -175,6 +172,9 @@ class LookupResponse with _$LookupResponse {
 
     /// list of transactions
     List<Transaction>? transactions,
+
+    /// address requested
+    String? address,
   }) = LookupResponseData;
   const factory LookupResponse.Merr({Map<String, dynamic>? body}) =
       LookupResponseMerr;
@@ -185,12 +185,12 @@ class LookupResponse with _$LookupResponse {
 @Freezed()
 class Output with _$Output {
   const factory Output({
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? tx_index,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
     String? address,
     String? hash,
     String? script,
     bool? spent,
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? tx_index,
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
   }) = _Output;
   factory Output.fromJson(Map<String, dynamic> json) => _$OutputFromJson(json);
 }
@@ -198,12 +198,12 @@ class Output with _$Output {
 @Freezed()
 class Prev with _$Prev {
   const factory Prev({
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
-    String? address,
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? n,
     String? script,
     bool? spent,
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? tx_index,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
+    String? address,
   }) = _Prev;
   factory Prev.fromJson(Map<String, dynamic> json) => _$PrevFromJson(json);
 }
@@ -236,12 +236,31 @@ class PriceResponse with _$PriceResponse {
 @Freezed()
 class Transaction with _$Transaction {
   const factory Transaction({
-    /// double spend
-    bool? double_spend,
+    /// result of transaction
 
-    /// fees
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? result,
 
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? fee,
+    /// the version
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? version,
+
+    /// weight
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? weight,
+
+    /// block height
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+        int? block_height,
+
+    /// transaction hash
+    String? hash,
+
+    /// inputs
+    List<Input>? inputs,
+
+    /// outputs
+    List<Output>? outputs,
 
     /// relay
     String? relay,
@@ -258,47 +277,28 @@ class Transaction with _$Transaction {
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? vout_sz,
 
-    /// weight
+    /// fees
 
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? weight,
-
-    /// transaction hash
-    String? hash,
-
-    /// lock time
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? lock_time,
-
-    /// outputs
-    List<Output>? outputs,
-
-    /// transaction size
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
-
-    /// the version
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? version,
-
-    /// balance after transaction
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? balance,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? fee,
 
     /// blck index
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? block_index,
 
-    /// result of transaction
+    /// lock time
 
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? result,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? lock_time,
 
-    /// block height
+    /// balance after transaction
 
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-        int? block_height,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? balance,
 
-    /// inputs
-    List<Input>? inputs,
+    /// transaction size
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
+
+    /// double spend
+    bool? double_spend,
   }) = _Transaction;
   factory Transaction.fromJson(Map<String, dynamic> json) =>
       _$TransactionFromJson(json);
@@ -317,25 +317,31 @@ class TransactionRequest with _$TransactionRequest {
 @Freezed()
 class TransactionResponse with _$TransactionResponse {
   const factory TransactionResponse({
-    /// block height
+    /// outputs
+    List<Output>? outputs,
 
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-        int? block_height,
+    /// vin
 
-    /// fees
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? fee,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? vin_sz,
 
     /// vout
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? vout_sz,
 
-    /// inputs
-    List<Input>? inputs,
+    /// transaction hash
+    String? hash,
+
+    /// lock time
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? lock_time,
 
     /// tx index
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? tx_index,
+
+    /// the version
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? version,
 
     /// weight
 
@@ -345,33 +351,27 @@ class TransactionResponse with _$TransactionResponse {
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? block_index,
 
-    /// transaction hash
-    String? hash,
-
-    /// outputs
-    List<Output>? outputs,
-
     /// relay
     String? relay,
+
+    /// double spend
+    bool? double_spend,
 
     /// transaction size
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
 
-    /// the version
+    /// inputs
+    List<Input>? inputs,
 
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? version,
+    /// block height
 
-    /// vin
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+        int? block_height,
 
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? vin_sz,
+    /// fees
 
-    /// double spend
-    bool? double_spend,
-
-    /// lock time
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? lock_time,
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? fee,
   }) = TransactionResponseData;
   const factory TransactionResponse.Merr({Map<String, dynamic>? body}) =
       TransactionResponseMerr;
