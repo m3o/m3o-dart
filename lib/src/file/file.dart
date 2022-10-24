@@ -170,6 +170,9 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class Record with _$Record {
   const factory Record({
+    /// Time the file was created e.g 2021-05-20T13:37:21Z
+    String? created,
+
     /// Any other associated metadata as a map of key-value pairs
     Map<String, String>? metadata,
 
@@ -185,9 +188,6 @@ class Record with _$Record {
 
     /// File contents
     String? content,
-
-    /// Time the file was created e.g 2021-05-20T13:37:21Z
-    String? created,
   }) = _Record;
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }

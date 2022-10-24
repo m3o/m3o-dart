@@ -31,37 +31,54 @@ class NewsService {
       throw Exception(e);
     }
   }
+
+  /// Get the top stories
+  Future<TopStoriesResponse> topStories(TopStoriesRequest req) async {
+    Request request = Request(
+      service: 'news',
+      endpoint: 'TopStories',
+      body: req.toJson(),
+    );
+
+    try {
+      Response res = await _client.call(request);
+      if (isError(res.body)) {
+        final err = Merr(res.toJson());
+        return TopStoriesResponse.Merr(body: err.b);
+      }
+      return TopStoriesResponseData.fromJson(res.body);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
 }
 
 @Freezed()
 class Article with _$Article {
   const factory Article({
-    /// image url
-    String? image_url,
+    /// the article language
+    String? language,
+
+    /// source of news
+    String? source,
+
+    /// categories
+    List<String>? categories,
 
     /// related keywords
     String? keywords,
 
-    /// the article language
-    String? language,
-
-    /// time it was published
-    String? published_at,
-
-    /// article id
-    String? id,
-
-    /// article description
-    String? description,
+    /// image url
+    String? image_url,
 
     /// the locale
     String? locale,
 
+    /// time it was published
+    String? published_at,
+
     /// first 60 characters of article body
     String? snippet,
-
-    /// source of news
-    String? source,
 
     /// article title
     String? title,
@@ -69,8 +86,11 @@ class Article with _$Article {
     /// url of the article
     String? url,
 
-    /// categories
-    List<String>? categories,
+    /// article description
+    String? description,
+
+    /// article id
+    String? id,
   }) = _Article;
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);
@@ -101,4 +121,31 @@ class HeadlinesResponse with _$HeadlinesResponse {
       HeadlinesResponseMerr;
   factory HeadlinesResponse.fromJson(Map<String, dynamic> json) =>
       _$HeadlinesResponseFromJson(json);
+}
+
+@Freezed()
+class TopStoriesRequest with _$TopStoriesRequest {
+  const factory TopStoriesRequest({
+    /// comma separated list of countries to include e.g us,ca
+    String? locale,
+
+    /// date published on in YYYY-MM-DD format
+    String? date,
+
+    /// comma separated list of languages to retrieve in e.g en,es
+    String? language,
+  }) = _TopStoriesRequest;
+  factory TopStoriesRequest.fromJson(Map<String, dynamic> json) =>
+      _$TopStoriesRequestFromJson(json);
+}
+
+@Freezed()
+class TopStoriesResponse with _$TopStoriesResponse {
+  const factory TopStoriesResponse({
+    List<Article>? articles,
+  }) = TopStoriesResponseData;
+  const factory TopStoriesResponse.Merr({Map<String, dynamic>? body}) =
+      TopStoriesResponseMerr;
+  factory TopStoriesResponse.fromJson(Map<String, dynamic> json) =>
+      _$TopStoriesResponseFromJson(json);
 }

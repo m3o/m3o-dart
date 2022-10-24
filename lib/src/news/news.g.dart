@@ -7,36 +7,36 @@ part of 'news.dart';
 // **************************************************************************
 
 _$_Article _$$_ArticleFromJson(Map<String, dynamic> json) => _$_Article(
-      image_url: json['image_url'] as String?,
-      keywords: json['keywords'] as String?,
       language: json['language'] as String?,
-      published_at: json['published_at'] as String?,
-      id: json['id'] as String?,
-      description: json['description'] as String?,
-      locale: json['locale'] as String?,
-      snippet: json['snippet'] as String?,
       source: json['source'] as String?,
-      title: json['title'] as String?,
-      url: json['url'] as String?,
       categories: (json['categories'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
+      keywords: json['keywords'] as String?,
+      image_url: json['image_url'] as String?,
+      locale: json['locale'] as String?,
+      published_at: json['published_at'] as String?,
+      snippet: json['snippet'] as String?,
+      title: json['title'] as String?,
+      url: json['url'] as String?,
+      description: json['description'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_ArticleToJson(_$_Article instance) =>
     <String, dynamic>{
-      'image_url': instance.image_url,
-      'keywords': instance.keywords,
       'language': instance.language,
-      'published_at': instance.published_at,
-      'id': instance.id,
-      'description': instance.description,
-      'locale': instance.locale,
-      'snippet': instance.snippet,
       'source': instance.source,
+      'categories': instance.categories,
+      'keywords': instance.keywords,
+      'image_url': instance.image_url,
+      'locale': instance.locale,
+      'published_at': instance.published_at,
+      'snippet': instance.snippet,
       'title': instance.title,
       'url': instance.url,
-      'categories': instance.categories,
+      'description': instance.description,
+      'id': instance.id,
     };
 
 _$_HeadlinesRequest _$$_HeadlinesRequestFromJson(Map<String, dynamic> json) =>
@@ -78,6 +78,51 @@ _$HeadlinesResponseMerr _$$HeadlinesResponseMerrFromJson(
 
 Map<String, dynamic> _$$HeadlinesResponseMerrToJson(
         _$HeadlinesResponseMerr instance) =>
+    <String, dynamic>{
+      'body': instance.body,
+      'runtimeType': instance.$type,
+    };
+
+_$_TopStoriesRequest _$$_TopStoriesRequestFromJson(Map<String, dynamic> json) =>
+    _$_TopStoriesRequest(
+      locale: json['locale'] as String?,
+      date: json['date'] as String?,
+      language: json['language'] as String?,
+    );
+
+Map<String, dynamic> _$$_TopStoriesRequestToJson(
+        _$_TopStoriesRequest instance) =>
+    <String, dynamic>{
+      'locale': instance.locale,
+      'date': instance.date,
+      'language': instance.language,
+    };
+
+_$TopStoriesResponseData _$$TopStoriesResponseDataFromJson(
+        Map<String, dynamic> json) =>
+    _$TopStoriesResponseData(
+      articles: (json['articles'] as List<dynamic>?)
+          ?.map((e) => Article.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$TopStoriesResponseDataToJson(
+        _$TopStoriesResponseData instance) =>
+    <String, dynamic>{
+      'articles': instance.articles,
+      'runtimeType': instance.$type,
+    };
+
+_$TopStoriesResponseMerr _$$TopStoriesResponseMerrFromJson(
+        Map<String, dynamic> json) =>
+    _$TopStoriesResponseMerr(
+      body: json['body'] as Map<String, dynamic>?,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$TopStoriesResponseMerrToJson(
+        _$TopStoriesResponseMerr instance) =>
     <String, dynamic>{
       'body': instance.body,
       'runtimeType': instance.$type,

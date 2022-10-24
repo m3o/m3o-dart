@@ -1433,6 +1433,9 @@ SearchRequest _$SearchRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SearchRequest {
+  /// Central position to search from
+  Point? get center => throw _privateConstructorUsedError;
+
   /// Maximum number of entities to return
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get limit => throw _privateConstructorUsedError;
@@ -1442,9 +1445,6 @@ mixin _$SearchRequest {
 
   /// type of entities to filter
   String? get type => throw _privateConstructorUsedError;
-
-  /// Central position to search from
-  Point? get center => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1459,10 +1459,10 @@ abstract class $SearchRequestCopyWith<$Res> {
       _$SearchRequestCopyWithImpl<$Res, SearchRequest>;
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit,
+      {Point? center,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit,
       double? radius,
-      String? type,
-      Point? center});
+      String? type});
 
   $PointCopyWith<$Res>? get center;
 }
@@ -1480,12 +1480,16 @@ class _$SearchRequestCopyWithImpl<$Res, $Val extends SearchRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? center = freezed,
     Object? limit = freezed,
     Object? radius = freezed,
     Object? type = freezed,
-    Object? center = freezed,
   }) {
     return _then(_value.copyWith(
+      center: freezed == center
+          ? _value.center
+          : center // ignore: cast_nullable_to_non_nullable
+              as Point?,
       limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
@@ -1498,10 +1502,6 @@ class _$SearchRequestCopyWithImpl<$Res, $Val extends SearchRequest>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      center: freezed == center
-          ? _value.center
-          : center // ignore: cast_nullable_to_non_nullable
-              as Point?,
     ) as $Val);
   }
 
@@ -1527,10 +1527,10 @@ abstract class _$$_SearchRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit,
+      {Point? center,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit,
       double? radius,
-      String? type,
-      Point? center});
+      String? type});
 
   @override
   $PointCopyWith<$Res>? get center;
@@ -1547,12 +1547,16 @@ class __$$_SearchRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? center = freezed,
     Object? limit = freezed,
     Object? radius = freezed,
     Object? type = freezed,
-    Object? center = freezed,
   }) {
     return _then(_$_SearchRequest(
+      center: freezed == center
+          ? _value.center
+          : center // ignore: cast_nullable_to_non_nullable
+              as Point?,
       limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
@@ -1565,10 +1569,6 @@ class __$$_SearchRequestCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      center: freezed == center
-          ? _value.center
-          : center // ignore: cast_nullable_to_non_nullable
-              as Point?,
     ));
   }
 }
@@ -1577,13 +1577,17 @@ class __$$_SearchRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SearchRequest implements _SearchRequest {
   const _$_SearchRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.limit,
+      {this.center,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.limit,
       this.radius,
-      this.type,
-      this.center});
+      this.type});
 
   factory _$_SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SearchRequestFromJson(json);
+
+  /// Central position to search from
+  @override
+  final Point? center;
 
   /// Maximum number of entities to return
   @override
@@ -1598,13 +1602,9 @@ class _$_SearchRequest implements _SearchRequest {
   @override
   final String? type;
 
-  /// Central position to search from
-  @override
-  final Point? center;
-
   @override
   String toString() {
-    return 'SearchRequest(limit: $limit, radius: $radius, type: $type, center: $center)';
+    return 'SearchRequest(center: $center, limit: $limit, radius: $radius, type: $type)';
   }
 
   @override
@@ -1612,15 +1612,15 @@ class _$_SearchRequest implements _SearchRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SearchRequest &&
+            (identical(other.center, center) || other.center == center) &&
             (identical(other.limit, limit) || other.limit == limit) &&
             (identical(other.radius, radius) || other.radius == radius) &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.center, center) || other.center == center));
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, limit, radius, type, center);
+  int get hashCode => Object.hash(runtimeType, center, limit, radius, type);
 
   @JsonKey(ignore: true)
   @override
@@ -1638,15 +1638,19 @@ class _$_SearchRequest implements _SearchRequest {
 
 abstract class _SearchRequest implements SearchRequest {
   const factory _SearchRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+      {final Point? center,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? limit,
       final double? radius,
-      final String? type,
-      final Point? center}) = _$_SearchRequest;
+      final String? type}) = _$_SearchRequest;
 
   factory _SearchRequest.fromJson(Map<String, dynamic> json) =
       _$_SearchRequest.fromJson;
 
+  @override
+
+  /// Central position to search from
+  Point? get center;
   @override
 
   /// Maximum number of entities to return
@@ -1660,10 +1664,6 @@ abstract class _SearchRequest implements SearchRequest {
 
   /// type of entities to filter
   String? get type;
-  @override
-
-  /// Central position to search from
-  Point? get center;
   @override
   @JsonKey(ignore: true)
   _$$_SearchRequestCopyWith<_$_SearchRequest> get copyWith =>

@@ -1671,6 +1671,9 @@ Record _$RecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Record {
+  /// Time the file was created e.g 2021-05-20T13:37:21Z
+  String? get created => throw _privateConstructorUsedError;
+
   /// Any other associated metadata as a map of key-value pairs
   Map<String, String>? get metadata => throw _privateConstructorUsedError;
 
@@ -1687,9 +1690,6 @@ mixin _$Record {
   /// File contents
   String? get content => throw _privateConstructorUsedError;
 
-  /// Time the file was created e.g 2021-05-20T13:37:21Z
-  String? get created => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RecordCopyWith<Record> get copyWith => throw _privateConstructorUsedError;
@@ -1701,12 +1701,12 @@ abstract class $RecordCopyWith<$Res> {
       _$RecordCopyWithImpl<$Res, Record>;
   @useResult
   $Res call(
-      {Map<String, String>? metadata,
+      {String? created,
+      Map<String, String>? metadata,
       String? path,
       String? project,
       String? updated,
-      String? content,
-      String? created});
+      String? content});
 }
 
 /// @nodoc
@@ -1722,14 +1722,18 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? created = freezed,
     Object? metadata = freezed,
     Object? path = freezed,
     Object? project = freezed,
     Object? updated = freezed,
     Object? content = freezed,
-    Object? created = freezed,
   }) {
     return _then(_value.copyWith(
+      created: freezed == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
       metadata: freezed == metadata
           ? _value.metadata
           : metadata // ignore: cast_nullable_to_non_nullable
@@ -1750,10 +1754,6 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String?,
-      created: freezed == created
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -1765,12 +1765,12 @@ abstract class _$$_RecordCopyWith<$Res> implements $RecordCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {Map<String, String>? metadata,
+      {String? created,
+      Map<String, String>? metadata,
       String? path,
       String? project,
       String? updated,
-      String? content,
-      String? created});
+      String? content});
 }
 
 /// @nodoc
@@ -1783,14 +1783,18 @@ class __$$_RecordCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? created = freezed,
     Object? metadata = freezed,
     Object? path = freezed,
     Object? project = freezed,
     Object? updated = freezed,
     Object? content = freezed,
-    Object? created = freezed,
   }) {
     return _then(_$_Record(
+      created: freezed == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
       metadata: freezed == metadata
           ? _value._metadata
           : metadata // ignore: cast_nullable_to_non_nullable
@@ -1811,10 +1815,6 @@ class __$$_RecordCopyWithImpl<$Res>
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String?,
-      created: freezed == created
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1823,16 +1823,20 @@ class __$$_RecordCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Record implements _Record {
   const _$_Record(
-      {final Map<String, String>? metadata,
+      {this.created,
+      final Map<String, String>? metadata,
       this.path,
       this.project,
       this.updated,
-      this.content,
-      this.created})
+      this.content})
       : _metadata = metadata;
 
   factory _$_Record.fromJson(Map<String, dynamic> json) =>
       _$$_RecordFromJson(json);
+
+  /// Time the file was created e.g 2021-05-20T13:37:21Z
+  @override
+  final String? created;
 
   /// Any other associated metadata as a map of key-value pairs
   final Map<String, String>? _metadata;
@@ -1863,13 +1867,9 @@ class _$_Record implements _Record {
   @override
   final String? content;
 
-  /// Time the file was created e.g 2021-05-20T13:37:21Z
-  @override
-  final String? created;
-
   @override
   String toString() {
-    return 'Record(metadata: $metadata, path: $path, project: $project, updated: $updated, content: $content, created: $created)';
+    return 'Record(created: $created, metadata: $metadata, path: $path, project: $project, updated: $updated, content: $content)';
   }
 
   @override
@@ -1877,24 +1877,24 @@ class _$_Record implements _Record {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Record &&
+            (identical(other.created, created) || other.created == created) &&
             const DeepCollectionEquality().equals(other._metadata, _metadata) &&
             (identical(other.path, path) || other.path == path) &&
             (identical(other.project, project) || other.project == project) &&
             (identical(other.updated, updated) || other.updated == updated) &&
-            (identical(other.content, content) || other.content == content) &&
-            (identical(other.created, created) || other.created == created));
+            (identical(other.content, content) || other.content == content));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      created,
       const DeepCollectionEquality().hash(_metadata),
       path,
       project,
       updated,
-      content,
-      created);
+      content);
 
   @JsonKey(ignore: true)
   @override
@@ -1912,15 +1912,19 @@ class _$_Record implements _Record {
 
 abstract class _Record implements Record {
   const factory _Record(
-      {final Map<String, String>? metadata,
+      {final String? created,
+      final Map<String, String>? metadata,
       final String? path,
       final String? project,
       final String? updated,
-      final String? content,
-      final String? created}) = _$_Record;
+      final String? content}) = _$_Record;
 
   factory _Record.fromJson(Map<String, dynamic> json) = _$_Record.fromJson;
 
+  @override
+
+  /// Time the file was created e.g 2021-05-20T13:37:21Z
+  String? get created;
   @override
 
   /// Any other associated metadata as a map of key-value pairs
@@ -1942,10 +1946,6 @@ abstract class _Record implements Record {
 
   /// File contents
   String? get content;
-  @override
-
-  /// Time the file was created e.g 2021-05-20T13:37:21Z
-  String? get created;
   @override
   @JsonKey(ignore: true)
   _$$_RecordCopyWith<_$_Record> get copyWith =>

@@ -171,19 +171,19 @@ ParseResponse _$ParseResponseFromJson(Map<String, dynamic> json) {
 mixin _$ParseResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? name, String? address) $default, {
+    TResult Function(String? address, String? name) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? name, String? address)? $default, {
+    TResult? Function(String? address, String? name)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? name, String? address)? $default, {
+    TResult Function(String? address, String? name)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -234,7 +234,7 @@ abstract class _$$ParseResponseDataCopyWith<$Res> {
           _$ParseResponseData value, $Res Function(_$ParseResponseData) then) =
       __$$ParseResponseDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({String? name, String? address});
+  $Res call({String? address, String? name});
 }
 
 /// @nodoc
@@ -248,17 +248,17 @@ class __$$ParseResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
     Object? address = freezed,
+    Object? name = freezed,
   }) {
     return _then(_$ParseResponseData(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -267,26 +267,26 @@ class __$$ParseResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ParseResponseData implements ParseResponseData {
-  const _$ParseResponseData({this.name, this.address, final String? $type})
+  const _$ParseResponseData({this.address, this.name, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$ParseResponseData.fromJson(Map<String, dynamic> json) =>
       _$$ParseResponseDataFromJson(json);
 
-  /// associated name e.g Joe Blogs
-  @override
-  final String? name;
-
   /// the email address
   @override
   final String? address;
+
+  /// associated name e.g Joe Blogs
+  @override
+  final String? name;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'ParseResponse(name: $name, address: $address)';
+    return 'ParseResponse(address: $address, name: $name)';
   }
 
   @override
@@ -294,13 +294,13 @@ class _$ParseResponseData implements ParseResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ParseResponseData &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.address, address) || other.address == address));
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, address);
+  int get hashCode => Object.hash(runtimeType, address, name);
 
   @JsonKey(ignore: true)
   @override
@@ -311,30 +311,30 @@ class _$ParseResponseData implements ParseResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? name, String? address) $default, {
+    TResult Function(String? address, String? name) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(name, address);
+    return $default(address, name);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? name, String? address)? $default, {
+    TResult? Function(String? address, String? name)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(name, address);
+    return $default?.call(address, name);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? name, String? address)? $default, {
+    TResult Function(String? address, String? name)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(name, address);
+      return $default(address, name);
     }
     return orElse();
   }
@@ -379,17 +379,17 @@ class _$ParseResponseData implements ParseResponseData {
 }
 
 abstract class ParseResponseData implements ParseResponse {
-  const factory ParseResponseData({final String? name, final String? address}) =
+  const factory ParseResponseData({final String? address, final String? name}) =
       _$ParseResponseData;
 
   factory ParseResponseData.fromJson(Map<String, dynamic> json) =
       _$ParseResponseData.fromJson;
 
-  /// associated name e.g Joe Blogs
-  String? get name;
-
   /// the email address
   String? get address;
+
+  /// associated name e.g Joe Blogs
+  String? get name;
   @JsonKey(ignore: true)
   _$$ParseResponseDataCopyWith<_$ParseResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -476,7 +476,7 @@ class _$ParseResponseMerr implements ParseResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? name, String? address) $default, {
+    TResult Function(String? address, String? name) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -485,7 +485,7 @@ class _$ParseResponseMerr implements ParseResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? name, String? address)? $default, {
+    TResult? Function(String? address, String? name)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -494,7 +494,7 @@ class _$ParseResponseMerr implements ParseResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? name, String? address)? $default, {
+    TResult Function(String? address, String? name)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
@@ -562,9 +562,6 @@ SendRequest _$SendRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SendRequest {
-  /// the html body
-  String? get html_body => throw _privateConstructorUsedError;
-
   /// an optional reply to email address
   String? get reply_to => throw _privateConstructorUsedError;
 
@@ -580,6 +577,9 @@ mixin _$SendRequest {
   /// the display name of the sender
   String? get from => throw _privateConstructorUsedError;
 
+  /// the html body
+  String? get html_body => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SendRequestCopyWith<SendRequest> get copyWith =>
@@ -593,12 +593,12 @@ abstract class $SendRequestCopyWith<$Res> {
       _$SendRequestCopyWithImpl<$Res, SendRequest>;
   @useResult
   $Res call(
-      {String? html_body,
-      String? reply_to,
+      {String? reply_to,
       String? subject,
       String? text_body,
       String? to,
-      String? from});
+      String? from,
+      String? html_body});
 }
 
 /// @nodoc
@@ -614,18 +614,14 @@ class _$SendRequestCopyWithImpl<$Res, $Val extends SendRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? html_body = freezed,
     Object? reply_to = freezed,
     Object? subject = freezed,
     Object? text_body = freezed,
     Object? to = freezed,
     Object? from = freezed,
+    Object? html_body = freezed,
   }) {
     return _then(_value.copyWith(
-      html_body: freezed == html_body
-          ? _value.html_body
-          : html_body // ignore: cast_nullable_to_non_nullable
-              as String?,
       reply_to: freezed == reply_to
           ? _value.reply_to
           : reply_to // ignore: cast_nullable_to_non_nullable
@@ -645,6 +641,10 @@ class _$SendRequestCopyWithImpl<$Res, $Val extends SendRequest>
       from: freezed == from
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
+              as String?,
+      html_body: freezed == html_body
+          ? _value.html_body
+          : html_body // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -659,12 +659,12 @@ abstract class _$$_SendRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? html_body,
-      String? reply_to,
+      {String? reply_to,
       String? subject,
       String? text_body,
       String? to,
-      String? from});
+      String? from,
+      String? html_body});
 }
 
 /// @nodoc
@@ -678,18 +678,14 @@ class __$$_SendRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? html_body = freezed,
     Object? reply_to = freezed,
     Object? subject = freezed,
     Object? text_body = freezed,
     Object? to = freezed,
     Object? from = freezed,
+    Object? html_body = freezed,
   }) {
     return _then(_$_SendRequest(
-      html_body: freezed == html_body
-          ? _value.html_body
-          : html_body // ignore: cast_nullable_to_non_nullable
-              as String?,
       reply_to: freezed == reply_to
           ? _value.reply_to
           : reply_to // ignore: cast_nullable_to_non_nullable
@@ -710,6 +706,10 @@ class __$$_SendRequestCopyWithImpl<$Res>
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
               as String?,
+      html_body: freezed == html_body
+          ? _value.html_body
+          : html_body // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -718,19 +718,15 @@ class __$$_SendRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SendRequest implements _SendRequest {
   const _$_SendRequest(
-      {this.html_body,
-      this.reply_to,
+      {this.reply_to,
       this.subject,
       this.text_body,
       this.to,
-      this.from});
+      this.from,
+      this.html_body});
 
   factory _$_SendRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SendRequestFromJson(json);
-
-  /// the html body
-  @override
-  final String? html_body;
 
   /// an optional reply to email address
   @override
@@ -752,9 +748,13 @@ class _$_SendRequest implements _SendRequest {
   @override
   final String? from;
 
+  /// the html body
+  @override
+  final String? html_body;
+
   @override
   String toString() {
-    return 'SendRequest(html_body: $html_body, reply_to: $reply_to, subject: $subject, text_body: $text_body, to: $to, from: $from)';
+    return 'SendRequest(reply_to: $reply_to, subject: $subject, text_body: $text_body, to: $to, from: $from, html_body: $html_body)';
   }
 
   @override
@@ -762,21 +762,21 @@ class _$_SendRequest implements _SendRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SendRequest &&
-            (identical(other.html_body, html_body) ||
-                other.html_body == html_body) &&
             (identical(other.reply_to, reply_to) ||
                 other.reply_to == reply_to) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.text_body, text_body) ||
                 other.text_body == text_body) &&
             (identical(other.to, to) || other.to == to) &&
-            (identical(other.from, from) || other.from == from));
+            (identical(other.from, from) || other.from == from) &&
+            (identical(other.html_body, html_body) ||
+                other.html_body == html_body));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, html_body, reply_to, subject, text_body, to, from);
+      runtimeType, reply_to, subject, text_body, to, from, html_body);
 
   @JsonKey(ignore: true)
   @override
@@ -794,20 +794,16 @@ class _$_SendRequest implements _SendRequest {
 
 abstract class _SendRequest implements SendRequest {
   const factory _SendRequest(
-      {final String? html_body,
-      final String? reply_to,
+      {final String? reply_to,
       final String? subject,
       final String? text_body,
       final String? to,
-      final String? from}) = _$_SendRequest;
+      final String? from,
+      final String? html_body}) = _$_SendRequest;
 
   factory _SendRequest.fromJson(Map<String, dynamic> json) =
       _$_SendRequest.fromJson;
 
-  @override
-
-  /// the html body
-  String? get html_body;
   @override
 
   /// an optional reply to email address
@@ -828,6 +824,10 @@ abstract class _SendRequest implements SendRequest {
 
   /// the display name of the sender
   String? get from;
+  @override
+
+  /// the html body
+  String? get html_body;
   @override
   @JsonKey(ignore: true)
   _$$_SendRequestCopyWith<_$_SendRequest> get copyWith =>

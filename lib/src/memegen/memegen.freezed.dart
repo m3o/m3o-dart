@@ -20,15 +20,6 @@ Box _$BoxFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Box {
-  /// text to display
-  String? get text => throw _privateConstructorUsedError;
-
-  /// width in pixels
-  int? get width => throw _privateConstructorUsedError;
-
-  /// x axis position
-  int? get x => throw _privateConstructorUsedError;
-
   /// y axis position
   int? get y => throw _privateConstructorUsedError;
 
@@ -41,6 +32,15 @@ mixin _$Box {
   /// outline color hex code
   String? get outline => throw _privateConstructorUsedError;
 
+  /// text to display
+  String? get text => throw _privateConstructorUsedError;
+
+  /// width in pixels
+  int? get width => throw _privateConstructorUsedError;
+
+  /// x axis position
+  int? get x => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $BoxCopyWith<Box> get copyWith => throw _privateConstructorUsedError;
@@ -52,13 +52,13 @@ abstract class $BoxCopyWith<$Res> {
       _$BoxCopyWithImpl<$Res, Box>;
   @useResult
   $Res call(
-      {String? text,
-      int? width,
-      int? x,
-      int? y,
+      {int? y,
       String? color,
       int? height,
-      String? outline});
+      String? outline,
+      String? text,
+      int? width,
+      int? x});
 }
 
 /// @nodoc
@@ -73,27 +73,15 @@ class _$BoxCopyWithImpl<$Res, $Val extends Box> implements $BoxCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? text = freezed,
-    Object? width = freezed,
-    Object? x = freezed,
     Object? y = freezed,
     Object? color = freezed,
     Object? height = freezed,
     Object? outline = freezed,
+    Object? text = freezed,
+    Object? width = freezed,
+    Object? x = freezed,
   }) {
     return _then(_value.copyWith(
-      text: freezed == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
-      width: freezed == width
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
-      x: freezed == x
-          ? _value.x
-          : x // ignore: cast_nullable_to_non_nullable
-              as int?,
       y: freezed == y
           ? _value.y
           : y // ignore: cast_nullable_to_non_nullable
@@ -110,6 +98,18 @@ class _$BoxCopyWithImpl<$Res, $Val extends Box> implements $BoxCopyWith<$Res> {
           ? _value.outline
           : outline // ignore: cast_nullable_to_non_nullable
               as String?,
+      text: freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      width: freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int?,
+      x: freezed == x
+          ? _value.x
+          : x // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -121,13 +121,13 @@ abstract class _$$_BoxCopyWith<$Res> implements $BoxCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? text,
-      int? width,
-      int? x,
-      int? y,
+      {int? y,
       String? color,
       int? height,
-      String? outline});
+      String? outline,
+      String? text,
+      int? width,
+      int? x});
 }
 
 /// @nodoc
@@ -139,27 +139,15 @@ class __$$_BoxCopyWithImpl<$Res> extends _$BoxCopyWithImpl<$Res, _$_Box>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? text = freezed,
-    Object? width = freezed,
-    Object? x = freezed,
     Object? y = freezed,
     Object? color = freezed,
     Object? height = freezed,
     Object? outline = freezed,
+    Object? text = freezed,
+    Object? width = freezed,
+    Object? x = freezed,
   }) {
     return _then(_$_Box(
-      text: freezed == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
-      width: freezed == width
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
-      x: freezed == x
-          ? _value.x
-          : x // ignore: cast_nullable_to_non_nullable
-              as int?,
       y: freezed == y
           ? _value.y
           : y // ignore: cast_nullable_to_non_nullable
@@ -176,6 +164,18 @@ class __$$_BoxCopyWithImpl<$Res> extends _$BoxCopyWithImpl<$Res, _$_Box>
           ? _value.outline
           : outline // ignore: cast_nullable_to_non_nullable
               as String?,
+      text: freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      width: freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int?,
+      x: freezed == x
+          ? _value.x
+          : x // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -184,27 +184,15 @@ class __$$_BoxCopyWithImpl<$Res> extends _$BoxCopyWithImpl<$Res, _$_Box>
 @JsonSerializable()
 class _$_Box implements _Box {
   const _$_Box(
-      {this.text,
-      this.width,
-      this.x,
-      this.y,
+      {this.y,
       this.color,
       this.height,
-      this.outline});
+      this.outline,
+      this.text,
+      this.width,
+      this.x});
 
   factory _$_Box.fromJson(Map<String, dynamic> json) => _$$_BoxFromJson(json);
-
-  /// text to display
-  @override
-  final String? text;
-
-  /// width in pixels
-  @override
-  final int? width;
-
-  /// x axis position
-  @override
-  final int? x;
 
   /// y axis position
   @override
@@ -222,9 +210,21 @@ class _$_Box implements _Box {
   @override
   final String? outline;
 
+  /// text to display
+  @override
+  final String? text;
+
+  /// width in pixels
+  @override
+  final int? width;
+
+  /// x axis position
+  @override
+  final int? x;
+
   @override
   String toString() {
-    return 'Box(text: $text, width: $width, x: $x, y: $y, color: $color, height: $height, outline: $outline)';
+    return 'Box(y: $y, color: $color, height: $height, outline: $outline, text: $text, width: $width, x: $x)';
   }
 
   @override
@@ -232,19 +232,19 @@ class _$_Box implements _Box {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Box &&
-            (identical(other.text, text) || other.text == text) &&
-            (identical(other.width, width) || other.width == width) &&
-            (identical(other.x, x) || other.x == x) &&
             (identical(other.y, y) || other.y == y) &&
             (identical(other.color, color) || other.color == color) &&
             (identical(other.height, height) || other.height == height) &&
-            (identical(other.outline, outline) || other.outline == outline));
+            (identical(other.outline, outline) || other.outline == outline) &&
+            (identical(other.text, text) || other.text == text) &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.x, x) || other.x == x));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, text, width, x, y, color, height, outline);
+      Object.hash(runtimeType, y, color, height, outline, text, width, x);
 
   @JsonKey(ignore: true)
   @override
@@ -262,28 +262,16 @@ class _$_Box implements _Box {
 
 abstract class _Box implements Box {
   const factory _Box(
-      {final String? text,
-      final int? width,
-      final int? x,
-      final int? y,
+      {final int? y,
       final String? color,
       final int? height,
-      final String? outline}) = _$_Box;
+      final String? outline,
+      final String? text,
+      final int? width,
+      final int? x}) = _$_Box;
 
   factory _Box.fromJson(Map<String, dynamic> json) = _$_Box.fromJson;
 
-  @override
-
-  /// text to display
-  String? get text;
-  @override
-
-  /// width in pixels
-  int? get width;
-  @override
-
-  /// x axis position
-  int? get x;
   @override
 
   /// y axis position
@@ -300,6 +288,18 @@ abstract class _Box implements Box {
 
   /// outline color hex code
   String? get outline;
+  @override
+
+  /// text to display
+  String? get text;
+  @override
+
+  /// width in pixels
+  int? get width;
+  @override
+
+  /// x axis position
+  int? get x;
   @override
   @JsonKey(ignore: true)
   _$$_BoxCopyWith<_$_Box> get copyWith => throw _privateConstructorUsedError;

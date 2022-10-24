@@ -76,15 +76,6 @@ class RoutingService {
 @Freezed()
 class Direction with _$Direction {
   const factory Direction({
-    /// distance to travel in meters
-    double? distance,
-
-    /// duration to travel in seconds
-    double? duration,
-
-    /// human readable instruction
-    String? instruction,
-
     /// intersections on route
     List<Intersection>? intersections,
 
@@ -96,6 +87,15 @@ class Direction with _$Direction {
 
     /// alternative reference
     String? reference,
+
+    /// distance to travel in meters
+    double? distance,
+
+    /// duration to travel in seconds
+    double? duration,
+
+    /// human readable instruction
+    String? instruction,
   }) = _Direction;
   factory Direction.fromJson(Map<String, dynamic> json) =>
       _$DirectionFromJson(json);
@@ -104,11 +104,11 @@ class Direction with _$Direction {
 @Freezed()
 class DirectionsRequest with _$DirectionsRequest {
   const factory DirectionsRequest({
-    /// The staring point for the journey
-    Point? origin,
-
     /// The destination of the journey
     Point? destination,
+
+    /// The staring point for the journey
+    Point? origin,
   }) = _DirectionsRequest;
   factory DirectionsRequest.fromJson(Map<String, dynamic> json) =>
       _$DirectionsRequestFromJson(json);
@@ -117,6 +117,9 @@ class DirectionsRequest with _$DirectionsRequest {
 @Freezed()
 class DirectionsResponse with _$DirectionsResponse {
   const factory DirectionsResponse({
+    /// The waypoints on the route
+    List<Waypoint>? waypoints,
+
     /// Turn by turn directions
     List<Direction>? directions,
 
@@ -125,9 +128,6 @@ class DirectionsResponse with _$DirectionsResponse {
 
     /// Estimated duration of the route in seconds
     double? duration,
-
-    /// The waypoints on the route
-    List<Waypoint>? waypoints,
   }) = DirectionsResponseData;
   const factory DirectionsResponse.Merr({Map<String, dynamic>? body}) =
       DirectionsResponseMerr;
@@ -138,6 +138,9 @@ class DirectionsResponse with _$DirectionsResponse {
 @Freezed()
 class EtaRequest with _$EtaRequest {
   const factory EtaRequest({
+    /// type of transport. Only "car" is supported currently.
+    String? type,
+
     /// The end point for the eta calculation
     Point? destination,
 
@@ -146,9 +149,6 @@ class EtaRequest with _$EtaRequest {
 
     /// speed in kilometers
     double? speed,
-
-    /// type of transport. Only "car" is supported currently.
-    String? type,
   }) = _EtaRequest;
   factory EtaRequest.fromJson(Map<String, dynamic> json) =>
       _$EtaRequestFromJson(json);
@@ -169,8 +169,8 @@ class EtaResponse with _$EtaResponse {
 @Freezed()
 class Intersection with _$Intersection {
   const factory Intersection({
-    Point? location,
     List<double>? bearings,
+    Point? location,
   }) = _Intersection;
   factory Intersection.fromJson(Map<String, dynamic> json) =>
       _$IntersectionFromJson(json);

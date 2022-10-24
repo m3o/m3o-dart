@@ -2630,6 +2630,9 @@ ReadRequest _$ReadRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReadRequest {
+  /// Read by id. Equivalent to 'id == "your-id"'
+  String? get id => throw _privateConstructorUsedError;
+
   /// Maximum number of records to return. Default limit is 25.
   /// Maximum limit is 1000. Anything higher will return an error.
   int? get limit => throw _privateConstructorUsedError;
@@ -2651,9 +2654,6 @@ mixin _$ReadRequest {
   /// Optional table name. Defaults to 'default'
   String? get table => throw _privateConstructorUsedError;
 
-  /// Read by id. Equivalent to 'id == "your-id"'
-  String? get id => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ReadRequestCopyWith<ReadRequest> get copyWith =>
@@ -2667,13 +2667,13 @@ abstract class $ReadRequestCopyWith<$Res> {
       _$ReadRequestCopyWithImpl<$Res, ReadRequest>;
   @useResult
   $Res call(
-      {int? limit,
+      {String? id,
+      int? limit,
       int? offset,
       String? order,
       String? orderBy,
       String? query,
-      String? table,
-      String? id});
+      String? table});
 }
 
 /// @nodoc
@@ -2689,15 +2689,19 @@ class _$ReadRequestCopyWithImpl<$Res, $Val extends ReadRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? limit = freezed,
     Object? offset = freezed,
     Object? order = freezed,
     Object? orderBy = freezed,
     Object? query = freezed,
     Object? table = freezed,
-    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
@@ -2721,10 +2725,6 @@ class _$ReadRequestCopyWithImpl<$Res, $Val extends ReadRequest>
       table: freezed == table
           ? _value.table
           : table // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -2739,13 +2739,13 @@ abstract class _$$_ReadRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? limit,
+      {String? id,
+      int? limit,
       int? offset,
       String? order,
       String? orderBy,
       String? query,
-      String? table,
-      String? id});
+      String? table});
 }
 
 /// @nodoc
@@ -2759,15 +2759,19 @@ class __$$_ReadRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? limit = freezed,
     Object? offset = freezed,
     Object? order = freezed,
     Object? orderBy = freezed,
     Object? query = freezed,
     Object? table = freezed,
-    Object? id = freezed,
   }) {
     return _then(_$_ReadRequest(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
@@ -2792,10 +2796,6 @@ class __$$_ReadRequestCopyWithImpl<$Res>
           ? _value.table
           : table // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2804,16 +2804,20 @@ class __$$_ReadRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ReadRequest implements _ReadRequest {
   const _$_ReadRequest(
-      {this.limit,
+      {this.id,
+      this.limit,
       this.offset,
       this.order,
       this.orderBy,
       this.query,
-      this.table,
-      this.id});
+      this.table});
 
   factory _$_ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ReadRequestFromJson(json);
+
+  /// Read by id. Equivalent to 'id == "your-id"'
+  @override
+  final String? id;
 
   /// Maximum number of records to return. Default limit is 25.
   /// Maximum limit is 1000. Anything higher will return an error.
@@ -2842,13 +2846,9 @@ class _$_ReadRequest implements _ReadRequest {
   @override
   final String? table;
 
-  /// Read by id. Equivalent to 'id == "your-id"'
-  @override
-  final String? id;
-
   @override
   String toString() {
-    return 'ReadRequest(limit: $limit, offset: $offset, order: $order, orderBy: $orderBy, query: $query, table: $table, id: $id)';
+    return 'ReadRequest(id: $id, limit: $limit, offset: $offset, order: $order, orderBy: $orderBy, query: $query, table: $table)';
   }
 
   @override
@@ -2856,19 +2856,19 @@ class _$_ReadRequest implements _ReadRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ReadRequest &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.limit, limit) || other.limit == limit) &&
             (identical(other.offset, offset) || other.offset == offset) &&
             (identical(other.order, order) || other.order == order) &&
             (identical(other.orderBy, orderBy) || other.orderBy == orderBy) &&
             (identical(other.query, query) || other.query == query) &&
-            (identical(other.table, table) || other.table == table) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.table, table) || other.table == table));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, limit, offset, order, orderBy, query, table, id);
+      Object.hash(runtimeType, id, limit, offset, order, orderBy, query, table);
 
   @JsonKey(ignore: true)
   @override
@@ -2886,17 +2886,21 @@ class _$_ReadRequest implements _ReadRequest {
 
 abstract class _ReadRequest implements ReadRequest {
   const factory _ReadRequest(
-      {final int? limit,
+      {final String? id,
+      final int? limit,
       final int? offset,
       final String? order,
       final String? orderBy,
       final String? query,
-      final String? table,
-      final String? id}) = _$_ReadRequest;
+      final String? table}) = _$_ReadRequest;
 
   factory _ReadRequest.fromJson(Map<String, dynamic> json) =
       _$_ReadRequest.fromJson;
 
+  @override
+
+  /// Read by id. Equivalent to 'id == "your-id"'
+  String? get id;
   @override
 
   /// Maximum number of records to return. Default limit is 25.
@@ -2924,10 +2928,6 @@ abstract class _ReadRequest implements ReadRequest {
 
   /// Optional table name. Defaults to 'default'
   String? get table;
-  @override
-
-  /// Read by id. Equivalent to 'id == "your-id"'
-  String? get id;
   @override
   @JsonKey(ignore: true)
   _$$_ReadRequestCopyWith<_$_ReadRequest> get copyWith =>
