@@ -1251,24 +1251,24 @@ ModerateResponse _$ModerateResponseFromJson(Map<String, dynamic> json) {
 mixin _$ModerateResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(bool? flagged, Map<String, double>? scores,
-            Map<String, bool>? categories)
+    TResult Function(Map<String, bool>? categories, bool? flagged,
+            Map<String, double>? scores)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(bool? flagged, Map<String, double>? scores,
-            Map<String, bool>? categories)?
+    TResult? Function(Map<String, bool>? categories, bool? flagged,
+            Map<String, double>? scores)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool? flagged, Map<String, double>? scores,
-            Map<String, bool>? categories)?
+    TResult Function(Map<String, bool>? categories, bool? flagged,
+            Map<String, double>? scores)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -1321,9 +1321,9 @@ abstract class _$$ModerateResponseDataCopyWith<$Res> {
       __$$ModerateResponseDataCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {bool? flagged,
-      Map<String, double>? scores,
-      Map<String, bool>? categories});
+      {Map<String, bool>? categories,
+      bool? flagged,
+      Map<String, double>? scores});
 }
 
 /// @nodoc
@@ -1337,11 +1337,15 @@ class __$$ModerateResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? categories = freezed,
     Object? flagged = freezed,
     Object? scores = freezed,
-    Object? categories = freezed,
   }) {
     return _then(_$ModerateResponseData(
+      categories: freezed == categories
+          ? _value._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as Map<String, bool>?,
       flagged: freezed == flagged
           ? _value.flagged
           : flagged // ignore: cast_nullable_to_non_nullable
@@ -1350,10 +1354,6 @@ class __$$ModerateResponseDataCopyWithImpl<$Res>
           ? _value._scores
           : scores // ignore: cast_nullable_to_non_nullable
               as Map<String, double>?,
-      categories: freezed == categories
-          ? _value._categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as Map<String, bool>?,
     ));
   }
 }
@@ -1362,16 +1362,28 @@ class __$$ModerateResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ModerateResponseData implements ModerateResponseData {
   const _$ModerateResponseData(
-      {this.flagged,
+      {final Map<String, bool>? categories,
+      this.flagged,
       final Map<String, double>? scores,
-      final Map<String, bool>? categories,
       final String? $type})
-      : _scores = scores,
-        _categories = categories,
+      : _categories = categories,
+        _scores = scores,
         $type = $type ?? 'default';
 
   factory _$ModerateResponseData.fromJson(Map<String, dynamic> json) =>
       _$$ModerateResponseDataFromJson(json);
+
+  /// categories tested and identified
+  final Map<String, bool>? _categories;
+
+  /// categories tested and identified
+  @override
+  Map<String, bool>? get categories {
+    final value = _categories;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   /// whether it was flagged or not
   @override
@@ -1389,24 +1401,12 @@ class _$ModerateResponseData implements ModerateResponseData {
     return EqualUnmodifiableMapView(value);
   }
 
-  /// categories tested and identified
-  final Map<String, bool>? _categories;
-
-  /// categories tested and identified
-  @override
-  Map<String, bool>? get categories {
-    final value = _categories;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'ModerateResponse(flagged: $flagged, scores: $scores, categories: $categories)';
+    return 'ModerateResponse(categories: $categories, flagged: $flagged, scores: $scores)';
   }
 
   @override
@@ -1414,19 +1414,19 @@ class _$ModerateResponseData implements ModerateResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ModerateResponseData &&
-            (identical(other.flagged, flagged) || other.flagged == flagged) &&
-            const DeepCollectionEquality().equals(other._scores, _scores) &&
             const DeepCollectionEquality()
-                .equals(other._categories, _categories));
+                .equals(other._categories, _categories) &&
+            (identical(other.flagged, flagged) || other.flagged == flagged) &&
+            const DeepCollectionEquality().equals(other._scores, _scores));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(_categories),
       flagged,
-      const DeepCollectionEquality().hash(_scores),
-      const DeepCollectionEquality().hash(_categories));
+      const DeepCollectionEquality().hash(_scores));
 
   @JsonKey(ignore: true)
   @override
@@ -1438,36 +1438,36 @@ class _$ModerateResponseData implements ModerateResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(bool? flagged, Map<String, double>? scores,
-            Map<String, bool>? categories)
+    TResult Function(Map<String, bool>? categories, bool? flagged,
+            Map<String, double>? scores)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(flagged, scores, categories);
+    return $default(categories, flagged, scores);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(bool? flagged, Map<String, double>? scores,
-            Map<String, bool>? categories)?
+    TResult? Function(Map<String, bool>? categories, bool? flagged,
+            Map<String, double>? scores)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(flagged, scores, categories);
+    return $default?.call(categories, flagged, scores);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool? flagged, Map<String, double>? scores,
-            Map<String, bool>? categories)?
+    TResult Function(Map<String, bool>? categories, bool? flagged,
+            Map<String, double>? scores)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(flagged, scores, categories);
+      return $default(categories, flagged, scores);
     }
     return orElse();
   }
@@ -1513,21 +1513,21 @@ class _$ModerateResponseData implements ModerateResponseData {
 
 abstract class ModerateResponseData implements ModerateResponse {
   const factory ModerateResponseData(
-      {final bool? flagged,
-      final Map<String, double>? scores,
-      final Map<String, bool>? categories}) = _$ModerateResponseData;
+      {final Map<String, bool>? categories,
+      final bool? flagged,
+      final Map<String, double>? scores}) = _$ModerateResponseData;
 
   factory ModerateResponseData.fromJson(Map<String, dynamic> json) =
       _$ModerateResponseData.fromJson;
+
+  /// categories tested and identified
+  Map<String, bool>? get categories;
 
   /// whether it was flagged or not
   bool? get flagged;
 
   /// related scores
   Map<String, double>? get scores;
-
-  /// categories tested and identified
-  Map<String, bool>? get categories;
   @JsonKey(ignore: true)
   _$$ModerateResponseDataCopyWith<_$ModerateResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1615,8 +1615,8 @@ class _$ModerateResponseMerr implements ModerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(bool? flagged, Map<String, double>? scores,
-            Map<String, bool>? categories)
+    TResult Function(Map<String, bool>? categories, bool? flagged,
+            Map<String, double>? scores)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -1626,8 +1626,8 @@ class _$ModerateResponseMerr implements ModerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(bool? flagged, Map<String, double>? scores,
-            Map<String, bool>? categories)?
+    TResult? Function(Map<String, bool>? categories, bool? flagged,
+            Map<String, double>? scores)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -1637,8 +1637,8 @@ class _$ModerateResponseMerr implements ModerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool? flagged, Map<String, double>? scores,
-            Map<String, bool>? categories)?
+    TResult Function(Map<String, bool>? categories, bool? flagged,
+            Map<String, double>? scores)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

@@ -58,12 +58,6 @@ class SearchResponse with _$SearchResponse {
 @Freezed()
 class SearchResult with _$SearchResult {
   const factory SearchResult({
-    /// kind of result; "search"
-    String? kind,
-
-    /// the result snippet
-    String? snippet,
-
     /// title of the result
     String? title,
 
@@ -75,6 +69,12 @@ class SearchResult with _$SearchResult {
 
     /// id of the result
     String? id,
+
+    /// kind of result; "search"
+    String? kind,
+
+    /// the result snippet
+    String? snippet,
   }) = _SearchResult;
   factory SearchResult.fromJson(Map<String, dynamic> json) =>
       _$SearchResultFromJson(json);

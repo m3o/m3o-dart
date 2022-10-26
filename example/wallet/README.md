@@ -4,12 +4,12 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/wallet/api](ht
 
 Endpoints:
 
-## Transfer
+## Credit
 
-Make a transfer from one wallet to another
+Add credit to a wallet
 
 
-[https://m3o.com/wallet/api#Transfer](https://m3o.com/wallet/api#Transfer)
+[https://m3o.com/wallet/api#Credit](https://m3o.com/wallet/api#Credit)
 
 ```dart
 import 'dart:io';
@@ -20,22 +20,21 @@ void main() async {
   final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "amount": "5",
-  "from_id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6",
-  "reference": "transfer money",
-  "to_id": "default",
+  "amount": "10",
+  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6",
+  "reference": "test credit",
   "visible": true
 ,};
 
-  TransferRequest req = TransferRequest.fromJson(payload);
+  CreditRequest req = CreditRequest.fromJson(payload);
 
   
   try {
 
-	TransferResponse res = await ser.transfer(req);
+	CreditResponse res = await ser.credit(req);
 
     res.map((value) => print(value),
-	  Merr: (TransferResponseMerr err) => print(err.body!['body']));	
+	  Merr: (CreditResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -72,42 +71,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (TransactionsResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Delete
-
-Delete a wallet
-
-
-[https://m3o.com/wallet/api#Delete](https://m3o.com/wallet/api#Delete)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/wallet/wallet.dart';
-
-void main() async {
-  final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
-,};
-
-  DeleteRequest req = DeleteRequest.fromJson(payload);
-
-  
-  try {
-
-	DeleteResponse res = await ser.delete(req);
-
-    res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -189,45 +152,6 @@ void main() async {
   }
 }
 ```
-## Credit
-
-Add credit to a wallet
-
-
-[https://m3o.com/wallet/api#Credit](https://m3o.com/wallet/api#Credit)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/wallet/wallet.dart';
-
-void main() async {
-  final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "amount": "10",
-  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6",
-  "reference": "test credit",
-  "visible": true
-,};
-
-  CreditRequest req = CreditRequest.fromJson(payload);
-
-  
-  try {
-
-	CreditResponse res = await ser.credit(req);
-
-    res.map((value) => print(value),
-	  Merr: (CreditResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Debit
 
 Debit a wallet
@@ -301,6 +225,46 @@ void main() async {
   }
 }
 ```
+## Transfer
+
+Make a transfer from one wallet to another
+
+
+[https://m3o.com/wallet/api#Transfer](https://m3o.com/wallet/api#Transfer)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/wallet/wallet.dart';
+
+void main() async {
+  final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "amount": "5",
+  "from_id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6",
+  "reference": "transfer money",
+  "to_id": "default",
+  "visible": true
+,};
+
+  TransferRequest req = TransferRequest.fromJson(payload);
+
+  
+  try {
+
+	TransferResponse res = await ser.transfer(req);
+
+    res.map((value) => print(value),
+	  Merr: (TransferResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Balance
 
 Get the balance of a wallet
@@ -329,6 +293,42 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (BalanceResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Delete
+
+Delete a wallet
+
+
+[https://m3o.com/wallet/api#Delete](https://m3o.com/wallet/api#Delete)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/wallet/wallet.dart';
+
+void main() async {
+  final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
+,};
+
+  DeleteRequest req = DeleteRequest.fromJson(payload);
+
+  
+  try {
+
+	DeleteResponse res = await ser.delete(req);
+
+    res.map((value) => print(value),
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

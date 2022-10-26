@@ -20,20 +20,20 @@ MovieInfo _$MovieInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MovieInfo {
-  String? get original_title => throw _privateConstructorUsedError;
-  String? get overview => throw _privateConstructorUsedError;
-  String? get release_date => throw _privateConstructorUsedError;
-  int? get id => throw _privateConstructorUsedError;
-  String? get original_language => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
-  int? get vote_count => throw _privateConstructorUsedError;
   bool? get adult => throw _privateConstructorUsedError;
+  String? get overview => throw _privateConstructorUsedError;
+  String? get poster_path => throw _privateConstructorUsedError;
+  String? get release_date => throw _privateConstructorUsedError;
   List<int>? get genre_ids => throw _privateConstructorUsedError;
   double? get popularity => throw _privateConstructorUsedError;
-  String? get backdrop_path => throw _privateConstructorUsedError;
-  String? get poster_path => throw _privateConstructorUsedError;
   bool? get video => throw _privateConstructorUsedError;
+  int? get vote_count => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   double? get vote_average => throw _privateConstructorUsedError;
+  String? get backdrop_path => throw _privateConstructorUsedError;
+  String? get original_language => throw _privateConstructorUsedError;
+  String? get original_title => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,20 +47,20 @@ abstract class $MovieInfoCopyWith<$Res> {
       _$MovieInfoCopyWithImpl<$Res, MovieInfo>;
   @useResult
   $Res call(
-      {String? original_title,
+      {bool? adult,
       String? overview,
+      String? poster_path,
       String? release_date,
-      int? id,
-      String? original_language,
-      String? title,
-      int? vote_count,
-      bool? adult,
       List<int>? genre_ids,
       double? popularity,
-      String? backdrop_path,
-      String? poster_path,
       bool? video,
-      double? vote_average});
+      int? vote_count,
+      int? id,
+      String? title,
+      double? vote_average,
+      String? backdrop_path,
+      String? original_language,
+      String? original_title});
 }
 
 /// @nodoc
@@ -76,54 +76,38 @@ class _$MovieInfoCopyWithImpl<$Res, $Val extends MovieInfo>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? original_title = freezed,
-    Object? overview = freezed,
-    Object? release_date = freezed,
-    Object? id = freezed,
-    Object? original_language = freezed,
-    Object? title = freezed,
-    Object? vote_count = freezed,
     Object? adult = freezed,
+    Object? overview = freezed,
+    Object? poster_path = freezed,
+    Object? release_date = freezed,
     Object? genre_ids = freezed,
     Object? popularity = freezed,
-    Object? backdrop_path = freezed,
-    Object? poster_path = freezed,
     Object? video = freezed,
+    Object? vote_count = freezed,
+    Object? id = freezed,
+    Object? title = freezed,
     Object? vote_average = freezed,
+    Object? backdrop_path = freezed,
+    Object? original_language = freezed,
+    Object? original_title = freezed,
   }) {
     return _then(_value.copyWith(
-      original_title: freezed == original_title
-          ? _value.original_title
-          : original_title // ignore: cast_nullable_to_non_nullable
-              as String?,
+      adult: freezed == adult
+          ? _value.adult
+          : adult // ignore: cast_nullable_to_non_nullable
+              as bool?,
       overview: freezed == overview
           ? _value.overview
           : overview // ignore: cast_nullable_to_non_nullable
+              as String?,
+      poster_path: freezed == poster_path
+          ? _value.poster_path
+          : poster_path // ignore: cast_nullable_to_non_nullable
               as String?,
       release_date: freezed == release_date
           ? _value.release_date
           : release_date // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      original_language: freezed == original_language
-          ? _value.original_language
-          : original_language // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      vote_count: freezed == vote_count
-          ? _value.vote_count
-          : vote_count // ignore: cast_nullable_to_non_nullable
-              as int?,
-      adult: freezed == adult
-          ? _value.adult
-          : adult // ignore: cast_nullable_to_non_nullable
-              as bool?,
       genre_ids: freezed == genre_ids
           ? _value.genre_ids
           : genre_ids // ignore: cast_nullable_to_non_nullable
@@ -132,22 +116,38 @@ class _$MovieInfoCopyWithImpl<$Res, $Val extends MovieInfo>
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
               as double?,
-      backdrop_path: freezed == backdrop_path
-          ? _value.backdrop_path
-          : backdrop_path // ignore: cast_nullable_to_non_nullable
-              as String?,
-      poster_path: freezed == poster_path
-          ? _value.poster_path
-          : poster_path // ignore: cast_nullable_to_non_nullable
-              as String?,
       video: freezed == video
           ? _value.video
           : video // ignore: cast_nullable_to_non_nullable
               as bool?,
+      vote_count: freezed == vote_count
+          ? _value.vote_count
+          : vote_count // ignore: cast_nullable_to_non_nullable
+              as int?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
       vote_average: freezed == vote_average
           ? _value.vote_average
           : vote_average // ignore: cast_nullable_to_non_nullable
               as double?,
+      backdrop_path: freezed == backdrop_path
+          ? _value.backdrop_path
+          : backdrop_path // ignore: cast_nullable_to_non_nullable
+              as String?,
+      original_language: freezed == original_language
+          ? _value.original_language
+          : original_language // ignore: cast_nullable_to_non_nullable
+              as String?,
+      original_title: freezed == original_title
+          ? _value.original_title
+          : original_title // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -160,20 +160,20 @@ abstract class _$$_MovieInfoCopyWith<$Res> implements $MovieInfoCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? original_title,
+      {bool? adult,
       String? overview,
+      String? poster_path,
       String? release_date,
-      int? id,
-      String? original_language,
-      String? title,
-      int? vote_count,
-      bool? adult,
       List<int>? genre_ids,
       double? popularity,
-      String? backdrop_path,
-      String? poster_path,
       bool? video,
-      double? vote_average});
+      int? vote_count,
+      int? id,
+      String? title,
+      double? vote_average,
+      String? backdrop_path,
+      String? original_language,
+      String? original_title});
 }
 
 /// @nodoc
@@ -187,54 +187,38 @@ class __$$_MovieInfoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? original_title = freezed,
-    Object? overview = freezed,
-    Object? release_date = freezed,
-    Object? id = freezed,
-    Object? original_language = freezed,
-    Object? title = freezed,
-    Object? vote_count = freezed,
     Object? adult = freezed,
+    Object? overview = freezed,
+    Object? poster_path = freezed,
+    Object? release_date = freezed,
     Object? genre_ids = freezed,
     Object? popularity = freezed,
-    Object? backdrop_path = freezed,
-    Object? poster_path = freezed,
     Object? video = freezed,
+    Object? vote_count = freezed,
+    Object? id = freezed,
+    Object? title = freezed,
     Object? vote_average = freezed,
+    Object? backdrop_path = freezed,
+    Object? original_language = freezed,
+    Object? original_title = freezed,
   }) {
     return _then(_$_MovieInfo(
-      original_title: freezed == original_title
-          ? _value.original_title
-          : original_title // ignore: cast_nullable_to_non_nullable
-              as String?,
+      adult: freezed == adult
+          ? _value.adult
+          : adult // ignore: cast_nullable_to_non_nullable
+              as bool?,
       overview: freezed == overview
           ? _value.overview
           : overview // ignore: cast_nullable_to_non_nullable
+              as String?,
+      poster_path: freezed == poster_path
+          ? _value.poster_path
+          : poster_path // ignore: cast_nullable_to_non_nullable
               as String?,
       release_date: freezed == release_date
           ? _value.release_date
           : release_date // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      original_language: freezed == original_language
-          ? _value.original_language
-          : original_language // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      vote_count: freezed == vote_count
-          ? _value.vote_count
-          : vote_count // ignore: cast_nullable_to_non_nullable
-              as int?,
-      adult: freezed == adult
-          ? _value.adult
-          : adult // ignore: cast_nullable_to_non_nullable
-              as bool?,
       genre_ids: freezed == genre_ids
           ? _value._genre_ids
           : genre_ids // ignore: cast_nullable_to_non_nullable
@@ -243,22 +227,38 @@ class __$$_MovieInfoCopyWithImpl<$Res>
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
               as double?,
-      backdrop_path: freezed == backdrop_path
-          ? _value.backdrop_path
-          : backdrop_path // ignore: cast_nullable_to_non_nullable
-              as String?,
-      poster_path: freezed == poster_path
-          ? _value.poster_path
-          : poster_path // ignore: cast_nullable_to_non_nullable
-              as String?,
       video: freezed == video
           ? _value.video
           : video // ignore: cast_nullable_to_non_nullable
               as bool?,
+      vote_count: freezed == vote_count
+          ? _value.vote_count
+          : vote_count // ignore: cast_nullable_to_non_nullable
+              as int?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
       vote_average: freezed == vote_average
           ? _value.vote_average
           : vote_average // ignore: cast_nullable_to_non_nullable
               as double?,
+      backdrop_path: freezed == backdrop_path
+          ? _value.backdrop_path
+          : backdrop_path // ignore: cast_nullable_to_non_nullable
+              as String?,
+      original_language: freezed == original_language
+          ? _value.original_language
+          : original_language // ignore: cast_nullable_to_non_nullable
+              as String?,
+      original_title: freezed == original_title
+          ? _value.original_title
+          : original_title // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -267,41 +267,33 @@ class __$$_MovieInfoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_MovieInfo implements _MovieInfo {
   const _$_MovieInfo(
-      {this.original_title,
+      {this.adult,
       this.overview,
+      this.poster_path,
       this.release_date,
-      this.id,
-      this.original_language,
-      this.title,
-      this.vote_count,
-      this.adult,
       final List<int>? genre_ids,
       this.popularity,
-      this.backdrop_path,
-      this.poster_path,
       this.video,
-      this.vote_average})
+      this.vote_count,
+      this.id,
+      this.title,
+      this.vote_average,
+      this.backdrop_path,
+      this.original_language,
+      this.original_title})
       : _genre_ids = genre_ids;
 
   factory _$_MovieInfo.fromJson(Map<String, dynamic> json) =>
       _$$_MovieInfoFromJson(json);
 
   @override
-  final String? original_title;
+  final bool? adult;
   @override
   final String? overview;
   @override
+  final String? poster_path;
+  @override
   final String? release_date;
-  @override
-  final int? id;
-  @override
-  final String? original_language;
-  @override
-  final String? title;
-  @override
-  final int? vote_count;
-  @override
-  final bool? adult;
   final List<int>? _genre_ids;
   @override
   List<int>? get genre_ids {
@@ -314,17 +306,25 @@ class _$_MovieInfo implements _MovieInfo {
   @override
   final double? popularity;
   @override
-  final String? backdrop_path;
-  @override
-  final String? poster_path;
-  @override
   final bool? video;
   @override
+  final int? vote_count;
+  @override
+  final int? id;
+  @override
+  final String? title;
+  @override
   final double? vote_average;
+  @override
+  final String? backdrop_path;
+  @override
+  final String? original_language;
+  @override
+  final String? original_title;
 
   @override
   String toString() {
-    return 'MovieInfo(original_title: $original_title, overview: $overview, release_date: $release_date, id: $id, original_language: $original_language, title: $title, vote_count: $vote_count, adult: $adult, genre_ids: $genre_ids, popularity: $popularity, backdrop_path: $backdrop_path, poster_path: $poster_path, video: $video, vote_average: $vote_average)';
+    return 'MovieInfo(adult: $adult, overview: $overview, poster_path: $poster_path, release_date: $release_date, genre_ids: $genre_ids, popularity: $popularity, video: $video, vote_count: $vote_count, id: $id, title: $title, vote_average: $vote_average, backdrop_path: $backdrop_path, original_language: $original_language, original_title: $original_title)';
   }
 
   @override
@@ -332,50 +332,50 @@ class _$_MovieInfo implements _MovieInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MovieInfo &&
-            (identical(other.original_title, original_title) ||
-                other.original_title == original_title) &&
+            (identical(other.adult, adult) || other.adult == adult) &&
             (identical(other.overview, overview) ||
                 other.overview == overview) &&
+            (identical(other.poster_path, poster_path) ||
+                other.poster_path == poster_path) &&
             (identical(other.release_date, release_date) ||
                 other.release_date == release_date) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.original_language, original_language) ||
-                other.original_language == original_language) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.vote_count, vote_count) ||
-                other.vote_count == vote_count) &&
-            (identical(other.adult, adult) || other.adult == adult) &&
             const DeepCollectionEquality()
                 .equals(other._genre_ids, _genre_ids) &&
             (identical(other.popularity, popularity) ||
                 other.popularity == popularity) &&
+            (identical(other.video, video) || other.video == video) &&
+            (identical(other.vote_count, vote_count) ||
+                other.vote_count == vote_count) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.vote_average, vote_average) ||
+                other.vote_average == vote_average) &&
             (identical(other.backdrop_path, backdrop_path) ||
                 other.backdrop_path == backdrop_path) &&
-            (identical(other.poster_path, poster_path) ||
-                other.poster_path == poster_path) &&
-            (identical(other.video, video) || other.video == video) &&
-            (identical(other.vote_average, vote_average) ||
-                other.vote_average == vote_average));
+            (identical(other.original_language, original_language) ||
+                other.original_language == original_language) &&
+            (identical(other.original_title, original_title) ||
+                other.original_title == original_title));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      original_title,
-      overview,
-      release_date,
-      id,
-      original_language,
-      title,
-      vote_count,
       adult,
+      overview,
+      poster_path,
+      release_date,
       const DeepCollectionEquality().hash(_genre_ids),
       popularity,
-      backdrop_path,
-      poster_path,
       video,
-      vote_average);
+      vote_count,
+      id,
+      title,
+      vote_average,
+      backdrop_path,
+      original_language,
+      original_title);
 
   @JsonKey(ignore: true)
   @override
@@ -393,52 +393,52 @@ class _$_MovieInfo implements _MovieInfo {
 
 abstract class _MovieInfo implements MovieInfo {
   const factory _MovieInfo(
-      {final String? original_title,
+      {final bool? adult,
       final String? overview,
+      final String? poster_path,
       final String? release_date,
-      final int? id,
-      final String? original_language,
-      final String? title,
-      final int? vote_count,
-      final bool? adult,
       final List<int>? genre_ids,
       final double? popularity,
-      final String? backdrop_path,
-      final String? poster_path,
       final bool? video,
-      final double? vote_average}) = _$_MovieInfo;
+      final int? vote_count,
+      final int? id,
+      final String? title,
+      final double? vote_average,
+      final String? backdrop_path,
+      final String? original_language,
+      final String? original_title}) = _$_MovieInfo;
 
   factory _MovieInfo.fromJson(Map<String, dynamic> json) =
       _$_MovieInfo.fromJson;
 
   @override
-  String? get original_title;
+  bool? get adult;
   @override
   String? get overview;
   @override
+  String? get poster_path;
+  @override
   String? get release_date;
-  @override
-  int? get id;
-  @override
-  String? get original_language;
-  @override
-  String? get title;
-  @override
-  int? get vote_count;
-  @override
-  bool? get adult;
   @override
   List<int>? get genre_ids;
   @override
   double? get popularity;
   @override
-  String? get backdrop_path;
-  @override
-  String? get poster_path;
-  @override
   bool? get video;
   @override
+  int? get vote_count;
+  @override
+  int? get id;
+  @override
+  String? get title;
+  @override
   double? get vote_average;
+  @override
+  String? get backdrop_path;
+  @override
+  String? get original_language;
+  @override
+  String? get original_title;
   @override
   @JsonKey(ignore: true)
   _$$_MovieInfoCopyWith<_$_MovieInfo> get copyWith =>
@@ -451,9 +451,6 @@ SearchRequest _$SearchRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SearchRequest {
-  /// a ISO 3166-1 code to filter release dates.
-  String? get region => throw _privateConstructorUsedError;
-
   /// year of making
   int? get year => throw _privateConstructorUsedError;
 
@@ -469,6 +466,9 @@ mixin _$SearchRequest {
   /// a text query to search
   String? get query => throw _privateConstructorUsedError;
 
+  /// a ISO 3166-1 code to filter release dates.
+  String? get region => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SearchRequestCopyWith<SearchRequest> get copyWith =>
@@ -482,12 +482,12 @@ abstract class $SearchRequestCopyWith<$Res> {
       _$SearchRequestCopyWithImpl<$Res, SearchRequest>;
   @useResult
   $Res call(
-      {String? region,
-      int? year,
+      {int? year,
       String? language,
       int? page,
       int? primary_release_year,
-      String? query});
+      String? query,
+      String? region});
 }
 
 /// @nodoc
@@ -503,18 +503,14 @@ class _$SearchRequestCopyWithImpl<$Res, $Val extends SearchRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? region = freezed,
     Object? year = freezed,
     Object? language = freezed,
     Object? page = freezed,
     Object? primary_release_year = freezed,
     Object? query = freezed,
+    Object? region = freezed,
   }) {
     return _then(_value.copyWith(
-      region: freezed == region
-          ? _value.region
-          : region // ignore: cast_nullable_to_non_nullable
-              as String?,
       year: freezed == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
@@ -534,6 +530,10 @@ class _$SearchRequestCopyWithImpl<$Res, $Val extends SearchRequest>
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
+              as String?,
+      region: freezed == region
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -548,12 +548,12 @@ abstract class _$$_SearchRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? region,
-      int? year,
+      {int? year,
       String? language,
       int? page,
       int? primary_release_year,
-      String? query});
+      String? query,
+      String? region});
 }
 
 /// @nodoc
@@ -567,18 +567,14 @@ class __$$_SearchRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? region = freezed,
     Object? year = freezed,
     Object? language = freezed,
     Object? page = freezed,
     Object? primary_release_year = freezed,
     Object? query = freezed,
+    Object? region = freezed,
   }) {
     return _then(_$_SearchRequest(
-      region: freezed == region
-          ? _value.region
-          : region // ignore: cast_nullable_to_non_nullable
-              as String?,
       year: freezed == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
@@ -599,6 +595,10 @@ class __$$_SearchRequestCopyWithImpl<$Res>
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String?,
+      region: freezed == region
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -607,19 +607,15 @@ class __$$_SearchRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SearchRequest implements _SearchRequest {
   const _$_SearchRequest(
-      {this.region,
-      this.year,
+      {this.year,
       this.language,
       this.page,
       this.primary_release_year,
-      this.query});
+      this.query,
+      this.region});
 
   factory _$_SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SearchRequestFromJson(json);
-
-  /// a ISO 3166-1 code to filter release dates.
-  @override
-  final String? region;
 
   /// year of making
   @override
@@ -641,9 +637,13 @@ class _$_SearchRequest implements _SearchRequest {
   @override
   final String? query;
 
+  /// a ISO 3166-1 code to filter release dates.
+  @override
+  final String? region;
+
   @override
   String toString() {
-    return 'SearchRequest(region: $region, year: $year, language: $language, page: $page, primary_release_year: $primary_release_year, query: $query)';
+    return 'SearchRequest(year: $year, language: $language, page: $page, primary_release_year: $primary_release_year, query: $query, region: $region)';
   }
 
   @override
@@ -651,20 +651,20 @@ class _$_SearchRequest implements _SearchRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SearchRequest &&
-            (identical(other.region, region) || other.region == region) &&
             (identical(other.year, year) || other.year == year) &&
             (identical(other.language, language) ||
                 other.language == language) &&
             (identical(other.page, page) || other.page == page) &&
             (identical(other.primary_release_year, primary_release_year) ||
                 other.primary_release_year == primary_release_year) &&
-            (identical(other.query, query) || other.query == query));
+            (identical(other.query, query) || other.query == query) &&
+            (identical(other.region, region) || other.region == region));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, region, year, language, page, primary_release_year, query);
+      runtimeType, year, language, page, primary_release_year, query, region);
 
   @JsonKey(ignore: true)
   @override
@@ -682,20 +682,16 @@ class _$_SearchRequest implements _SearchRequest {
 
 abstract class _SearchRequest implements SearchRequest {
   const factory _SearchRequest(
-      {final String? region,
-      final int? year,
+      {final int? year,
       final String? language,
       final int? page,
       final int? primary_release_year,
-      final String? query}) = _$_SearchRequest;
+      final String? query,
+      final String? region}) = _$_SearchRequest;
 
   factory _SearchRequest.fromJson(Map<String, dynamic> json) =
       _$_SearchRequest.fromJson;
 
-  @override
-
-  /// a ISO 3166-1 code to filter release dates.
-  String? get region;
   @override
 
   /// year of making
@@ -716,6 +712,10 @@ abstract class _SearchRequest implements SearchRequest {
 
   /// a text query to search
   String? get query;
+  @override
+
+  /// a ISO 3166-1 code to filter release dates.
+  String? get region;
   @override
   @JsonKey(ignore: true)
   _$$_SearchRequestCopyWith<_$_SearchRequest> get copyWith =>

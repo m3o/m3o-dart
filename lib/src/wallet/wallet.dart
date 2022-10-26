@@ -196,18 +196,18 @@ class WalletService {
 @Freezed()
 class Account with _$Account {
   const factory Account({
+    /// description of the wallet
+    String? description,
+
+    /// wallet id
+    String? id,
+
     /// name of the wallet
     String? name,
 
     /// current balance
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? balance,
-
-    /// description of the wallet
-    String? description,
-
-    /// wallet id
-    String? id,
   }) = _Account;
   factory Account.fromJson(Map<String, dynamic> json) =>
       _$AccountFromJson(json);
@@ -396,6 +396,10 @@ class ReadResponse with _$ReadResponse {
 @Freezed()
 class Transaction with _$Transaction {
   const factory Transaction({
+    /// amount in transaction
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
+
     /// time of transaction
     String? created,
 
@@ -407,10 +411,6 @@ class Transaction with _$Transaction {
 
     /// reference note
     String? reference,
-
-    /// amount in transaction
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
   }) = _Transaction;
   factory Transaction.fromJson(Map<String, dynamic> json) =>
       _$TransactionFromJson(json);

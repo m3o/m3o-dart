@@ -20,18 +20,17 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Profile {
-  /// the user id
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get id => throw _privateConstructorUsedError;
-
-  /// The user's profile picture
-  String? get image_url => throw _privateConstructorUsedError;
-
   /// the user's location
   String? get location => throw _privateConstructorUsedError;
 
+  /// display name of the user
+  String? get name => throw _privateConstructorUsedError;
+
   /// if the account is private
   bool? get private => throw _privateConstructorUsedError;
+
+  /// the account creation date
+  String? get created_at => throw _privateConstructorUsedError;
 
   /// the user description
   String? get description => throw _privateConstructorUsedError;
@@ -40,17 +39,18 @@ mixin _$Profile {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get followers => throw _privateConstructorUsedError;
 
-  /// display name of the user
-  String? get name => throw _privateConstructorUsedError;
+  /// the user id
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get id => throw _privateConstructorUsedError;
+
+  /// The user's profile picture
+  String? get image_url => throw _privateConstructorUsedError;
 
   /// the username
   String? get username => throw _privateConstructorUsedError;
 
   /// if the account is verified
   bool? get verified => throw _privateConstructorUsedError;
-
-  /// the account creation date
-  String? get created_at => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -63,16 +63,16 @@ abstract class $ProfileCopyWith<$Res> {
       _$ProfileCopyWithImpl<$Res, Profile>;
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
-      String? image_url,
-      String? location,
+      {String? location,
+      String? name,
       bool? private,
+      String? created_at,
       String? description,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
-      String? name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
+      String? image_url,
       String? username,
-      bool? verified,
-      String? created_at});
+      bool? verified});
 }
 
 /// @nodoc
@@ -88,34 +88,34 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? image_url = freezed,
     Object? location = freezed,
+    Object? name = freezed,
     Object? private = freezed,
+    Object? created_at = freezed,
     Object? description = freezed,
     Object? followers = freezed,
-    Object? name = freezed,
+    Object? id = freezed,
+    Object? image_url = freezed,
     Object? username = freezed,
     Object? verified = freezed,
-    Object? created_at = freezed,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      image_url: freezed == image_url
-          ? _value.image_url
-          : image_url // ignore: cast_nullable_to_non_nullable
-              as String?,
       location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
       private: freezed == private
           ? _value.private
           : private // ignore: cast_nullable_to_non_nullable
               as bool?,
+      created_at: freezed == created_at
+          ? _value.created_at
+          : created_at // ignore: cast_nullable_to_non_nullable
+              as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -124,9 +124,13 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
           ? _value.followers
           : followers // ignore: cast_nullable_to_non_nullable
               as int?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      image_url: freezed == image_url
+          ? _value.image_url
+          : image_url // ignore: cast_nullable_to_non_nullable
               as String?,
       username: freezed == username
           ? _value.username
@@ -136,10 +140,6 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
           ? _value.verified
           : verified // ignore: cast_nullable_to_non_nullable
               as bool?,
-      created_at: freezed == created_at
-          ? _value.created_at
-          : created_at // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -152,16 +152,16 @@ abstract class _$$_ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
-      String? image_url,
-      String? location,
+      {String? location,
+      String? name,
       bool? private,
+      String? created_at,
       String? description,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
-      String? name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
+      String? image_url,
       String? username,
-      bool? verified,
-      String? created_at});
+      bool? verified});
 }
 
 /// @nodoc
@@ -174,34 +174,34 @@ class __$$_ProfileCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? image_url = freezed,
     Object? location = freezed,
+    Object? name = freezed,
     Object? private = freezed,
+    Object? created_at = freezed,
     Object? description = freezed,
     Object? followers = freezed,
-    Object? name = freezed,
+    Object? id = freezed,
+    Object? image_url = freezed,
     Object? username = freezed,
     Object? verified = freezed,
-    Object? created_at = freezed,
   }) {
     return _then(_$_Profile(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      image_url: freezed == image_url
-          ? _value.image_url
-          : image_url // ignore: cast_nullable_to_non_nullable
-              as String?,
       location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
       private: freezed == private
           ? _value.private
           : private // ignore: cast_nullable_to_non_nullable
               as bool?,
+      created_at: freezed == created_at
+          ? _value.created_at
+          : created_at // ignore: cast_nullable_to_non_nullable
+              as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -210,9 +210,13 @@ class __$$_ProfileCopyWithImpl<$Res>
           ? _value.followers
           : followers // ignore: cast_nullable_to_non_nullable
               as int?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      image_url: freezed == image_url
+          ? _value.image_url
+          : image_url // ignore: cast_nullable_to_non_nullable
               as String?,
       username: freezed == username
           ? _value.username
@@ -222,10 +226,6 @@ class __$$_ProfileCopyWithImpl<$Res>
           ? _value.verified
           : verified // ignore: cast_nullable_to_non_nullable
               as bool?,
-      created_at: freezed == created_at
-          ? _value.created_at
-          : created_at // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -234,36 +234,35 @@ class __$$_ProfileCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Profile implements _Profile {
   const _$_Profile(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.id,
-      this.image_url,
-      this.location,
+      {this.location,
+      this.name,
       this.private,
+      this.created_at,
       this.description,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.followers,
-      this.name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.id,
+      this.image_url,
       this.username,
-      this.verified,
-      this.created_at});
+      this.verified});
 
   factory _$_Profile.fromJson(Map<String, dynamic> json) =>
       _$$_ProfileFromJson(json);
-
-  /// the user id
-  @override
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? id;
-
-  /// The user's profile picture
-  @override
-  final String? image_url;
 
   /// the user's location
   @override
   final String? location;
 
+  /// display name of the user
+  @override
+  final String? name;
+
   /// if the account is private
   @override
   final bool? private;
+
+  /// the account creation date
+  @override
+  final String? created_at;
 
   /// the user description
   @override
@@ -274,9 +273,14 @@ class _$_Profile implements _Profile {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? followers;
 
-  /// display name of the user
+  /// the user id
   @override
-  final String? name;
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? id;
+
+  /// The user's profile picture
+  @override
+  final String? image_url;
 
   /// the username
   @override
@@ -286,13 +290,9 @@ class _$_Profile implements _Profile {
   @override
   final bool? verified;
 
-  /// the account creation date
-  @override
-  final String? created_at;
-
   @override
   String toString() {
-    return 'Profile(id: $id, image_url: $image_url, location: $location, private: $private, description: $description, followers: $followers, name: $name, username: $username, verified: $verified, created_at: $created_at)';
+    return 'Profile(location: $location, name: $name, private: $private, created_at: $created_at, description: $description, followers: $followers, id: $id, image_url: $image_url, username: $username, verified: $verified)';
   }
 
   @override
@@ -300,29 +300,29 @@ class _$_Profile implements _Profile {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Profile &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.image_url, image_url) ||
-                other.image_url == image_url) &&
             (identical(other.location, location) ||
                 other.location == location) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.private, private) || other.private == private) &&
+            (identical(other.created_at, created_at) ||
+                other.created_at == created_at) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.followers, followers) ||
                 other.followers == followers) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.image_url, image_url) ||
+                other.image_url == image_url) &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.verified, verified) ||
-                other.verified == verified) &&
-            (identical(other.created_at, created_at) ||
-                other.created_at == created_at));
+                other.verified == verified));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, image_url, location, private,
-      description, followers, name, username, verified, created_at);
+  int get hashCode => Object.hash(runtimeType, location, name, private,
+      created_at, description, followers, id, image_url, username, verified);
 
   @JsonKey(ignore: true)
   @override
@@ -340,38 +340,37 @@ class _$_Profile implements _Profile {
 
 abstract class _Profile implements Profile {
   const factory _Profile(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? id,
-      final String? image_url,
-      final String? location,
+      {final String? location,
+      final String? name,
       final bool? private,
+      final String? created_at,
       final String? description,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? followers,
-      final String? name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          final int? id,
+      final String? image_url,
       final String? username,
-      final bool? verified,
-      final String? created_at}) = _$_Profile;
+      final bool? verified}) = _$_Profile;
 
   factory _Profile.fromJson(Map<String, dynamic> json) = _$_Profile.fromJson;
 
-  @override
-
-  /// the user id
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get id;
-  @override
-
-  /// The user's profile picture
-  String? get image_url;
   @override
 
   /// the user's location
   String? get location;
   @override
 
+  /// display name of the user
+  String? get name;
+  @override
+
   /// if the account is private
   bool? get private;
+  @override
+
+  /// the account creation date
+  String? get created_at;
   @override
 
   /// the user description
@@ -383,8 +382,13 @@ abstract class _Profile implements Profile {
   int? get followers;
   @override
 
-  /// display name of the user
-  String? get name;
+  /// the user id
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get id;
+  @override
+
+  /// The user's profile picture
+  String? get image_url;
   @override
 
   /// the username
@@ -393,10 +397,6 @@ abstract class _Profile implements Profile {
 
   /// if the account is verified
   bool? get verified;
-  @override
-
-  /// the account creation date
-  String? get created_at;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileCopyWith<_$_Profile> get copyWith =>
@@ -409,11 +409,11 @@ SearchRequest _$SearchRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SearchRequest {
-  /// number of tweets to return. default: 20
-  int? get limit => throw _privateConstructorUsedError;
-
   /// the query to search for
   String? get query => throw _privateConstructorUsedError;
+
+  /// number of tweets to return. default: 20
+  int? get limit => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -427,7 +427,7 @@ abstract class $SearchRequestCopyWith<$Res> {
           SearchRequest value, $Res Function(SearchRequest) then) =
       _$SearchRequestCopyWithImpl<$Res, SearchRequest>;
   @useResult
-  $Res call({int? limit, String? query});
+  $Res call({String? query, int? limit});
 }
 
 /// @nodoc
@@ -443,18 +443,18 @@ class _$SearchRequestCopyWithImpl<$Res, $Val extends SearchRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? limit = freezed,
     Object? query = freezed,
+    Object? limit = freezed,
   }) {
     return _then(_value.copyWith(
-      limit: freezed == limit
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int?,
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String?,
+      limit: freezed == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -467,7 +467,7 @@ abstract class _$$_SearchRequestCopyWith<$Res>
       __$$_SearchRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? limit, String? query});
+  $Res call({String? query, int? limit});
 }
 
 /// @nodoc
@@ -481,18 +481,18 @@ class __$$_SearchRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? limit = freezed,
     Object? query = freezed,
+    Object? limit = freezed,
   }) {
     return _then(_$_SearchRequest(
-      limit: freezed == limit
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int?,
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String?,
+      limit: freezed == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -500,22 +500,22 @@ class __$$_SearchRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SearchRequest implements _SearchRequest {
-  const _$_SearchRequest({this.limit, this.query});
+  const _$_SearchRequest({this.query, this.limit});
 
   factory _$_SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SearchRequestFromJson(json);
-
-  /// number of tweets to return. default: 20
-  @override
-  final int? limit;
 
   /// the query to search for
   @override
   final String? query;
 
+  /// number of tweets to return. default: 20
+  @override
+  final int? limit;
+
   @override
   String toString() {
-    return 'SearchRequest(limit: $limit, query: $query)';
+    return 'SearchRequest(query: $query, limit: $limit)';
   }
 
   @override
@@ -523,13 +523,13 @@ class _$_SearchRequest implements _SearchRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SearchRequest &&
-            (identical(other.limit, limit) || other.limit == limit) &&
-            (identical(other.query, query) || other.query == query));
+            (identical(other.query, query) || other.query == query) &&
+            (identical(other.limit, limit) || other.limit == limit));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, limit, query);
+  int get hashCode => Object.hash(runtimeType, query, limit);
 
   @JsonKey(ignore: true)
   @override
@@ -546,7 +546,7 @@ class _$_SearchRequest implements _SearchRequest {
 }
 
 abstract class _SearchRequest implements SearchRequest {
-  const factory _SearchRequest({final int? limit, final String? query}) =
+  const factory _SearchRequest({final String? query, final int? limit}) =
       _$_SearchRequest;
 
   factory _SearchRequest.fromJson(Map<String, dynamic> json) =
@@ -554,12 +554,12 @@ abstract class _SearchRequest implements SearchRequest {
 
   @override
 
-  /// number of tweets to return. default: 20
-  int? get limit;
-  @override
-
   /// the query to search for
   String? get query;
+  @override
+
+  /// number of tweets to return. default: 20
+  int? get limit;
   @override
   @JsonKey(ignore: true)
   _$$_SearchRequestCopyWith<_$_SearchRequest> get copyWith =>
@@ -2217,6 +2217,15 @@ Tweet _$TweetFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Tweet {
+  /// text of the tweet
+  String? get text => throw _privateConstructorUsedError;
+
+  /// username of the person who tweeted
+  String? get username => throw _privateConstructorUsedError;
+
+  /// time of tweet
+  String? get created_at => throw _privateConstructorUsedError;
+
   /// number of times favourited
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get favourited_count => throw _privateConstructorUsedError;
@@ -2229,15 +2238,6 @@ mixin _$Tweet {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get retweeted_count => throw _privateConstructorUsedError;
 
-  /// text of the tweet
-  String? get text => throw _privateConstructorUsedError;
-
-  /// username of the person who tweeted
-  String? get username => throw _privateConstructorUsedError;
-
-  /// time of tweet
-  String? get created_at => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TweetCopyWith<Tweet> get copyWith => throw _privateConstructorUsedError;
@@ -2249,15 +2249,15 @@ abstract class $TweetCopyWith<$Res> {
       _$TweetCopyWithImpl<$Res, Tweet>;
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+      {String? text,
+      String? username,
+      String? created_at,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? favourited_count,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? id,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? retweeted_count,
-      String? text,
-      String? username,
-      String? created_at});
+          int? retweeted_count});
 }
 
 /// @nodoc
@@ -2273,26 +2273,14 @@ class _$TweetCopyWithImpl<$Res, $Val extends Tweet>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? favourited_count = freezed,
-    Object? id = freezed,
-    Object? retweeted_count = freezed,
     Object? text = freezed,
     Object? username = freezed,
     Object? created_at = freezed,
+    Object? favourited_count = freezed,
+    Object? id = freezed,
+    Object? retweeted_count = freezed,
   }) {
     return _then(_value.copyWith(
-      favourited_count: freezed == favourited_count
-          ? _value.favourited_count
-          : favourited_count // ignore: cast_nullable_to_non_nullable
-              as int?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      retweeted_count: freezed == retweeted_count
-          ? _value.retweeted_count
-          : retweeted_count // ignore: cast_nullable_to_non_nullable
-              as int?,
       text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -2305,6 +2293,18 @@ class _$TweetCopyWithImpl<$Res, $Val extends Tweet>
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
               as String?,
+      favourited_count: freezed == favourited_count
+          ? _value.favourited_count
+          : favourited_count // ignore: cast_nullable_to_non_nullable
+              as int?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      retweeted_count: freezed == retweeted_count
+          ? _value.retweeted_count
+          : retweeted_count // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -2316,15 +2316,15 @@ abstract class _$$_TweetCopyWith<$Res> implements $TweetCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+      {String? text,
+      String? username,
+      String? created_at,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? favourited_count,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           int? id,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          int? retweeted_count,
-      String? text,
-      String? username,
-      String? created_at});
+          int? retweeted_count});
 }
 
 /// @nodoc
@@ -2336,26 +2336,14 @@ class __$$_TweetCopyWithImpl<$Res> extends _$TweetCopyWithImpl<$Res, _$_Tweet>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? favourited_count = freezed,
-    Object? id = freezed,
-    Object? retweeted_count = freezed,
     Object? text = freezed,
     Object? username = freezed,
     Object? created_at = freezed,
+    Object? favourited_count = freezed,
+    Object? id = freezed,
+    Object? retweeted_count = freezed,
   }) {
     return _then(_$_Tweet(
-      favourited_count: freezed == favourited_count
-          ? _value.favourited_count
-          : favourited_count // ignore: cast_nullable_to_non_nullable
-              as int?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      retweeted_count: freezed == retweeted_count
-          ? _value.retweeted_count
-          : retweeted_count // ignore: cast_nullable_to_non_nullable
-              as int?,
       text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -2368,6 +2356,18 @@ class __$$_TweetCopyWithImpl<$Res> extends _$TweetCopyWithImpl<$Res, _$_Tweet>
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
               as String?,
+      favourited_count: freezed == favourited_count
+          ? _value.favourited_count
+          : favourited_count // ignore: cast_nullable_to_non_nullable
+              as int?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      retweeted_count: freezed == retweeted_count
+          ? _value.retweeted_count
+          : retweeted_count // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -2376,18 +2376,30 @@ class __$$_TweetCopyWithImpl<$Res> extends _$TweetCopyWithImpl<$Res, _$_Tweet>
 @JsonSerializable()
 class _$_Tweet implements _Tweet {
   const _$_Tweet(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+      {this.text,
+      this.username,
+      this.created_at,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           this.favourited_count,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           this.id,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          this.retweeted_count,
-      this.text,
-      this.username,
-      this.created_at});
+          this.retweeted_count});
 
   factory _$_Tweet.fromJson(Map<String, dynamic> json) =>
       _$$_TweetFromJson(json);
+
+  /// text of the tweet
+  @override
+  final String? text;
+
+  /// username of the person who tweeted
+  @override
+  final String? username;
+
+  /// time of tweet
+  @override
+  final String? created_at;
 
   /// number of times favourited
   @override
@@ -2404,21 +2416,9 @@ class _$_Tweet implements _Tweet {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? retweeted_count;
 
-  /// text of the tweet
-  @override
-  final String? text;
-
-  /// username of the person who tweeted
-  @override
-  final String? username;
-
-  /// time of tweet
-  @override
-  final String? created_at;
-
   @override
   String toString() {
-    return 'Tweet(favourited_count: $favourited_count, id: $id, retweeted_count: $retweeted_count, text: $text, username: $username, created_at: $created_at)';
+    return 'Tweet(text: $text, username: $username, created_at: $created_at, favourited_count: $favourited_count, id: $id, retweeted_count: $retweeted_count)';
   }
 
   @override
@@ -2426,22 +2426,22 @@ class _$_Tweet implements _Tweet {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Tweet &&
-            (identical(other.favourited_count, favourited_count) ||
-                other.favourited_count == favourited_count) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.retweeted_count, retweeted_count) ||
-                other.retweeted_count == retweeted_count) &&
             (identical(other.text, text) || other.text == text) &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.created_at, created_at) ||
-                other.created_at == created_at));
+                other.created_at == created_at) &&
+            (identical(other.favourited_count, favourited_count) ||
+                other.favourited_count == favourited_count) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.retweeted_count, retweeted_count) ||
+                other.retweeted_count == retweeted_count));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, favourited_count, id,
-      retweeted_count, text, username, created_at);
+  int get hashCode => Object.hash(runtimeType, text, username, created_at,
+      favourited_count, id, retweeted_count);
 
   @JsonKey(ignore: true)
   @override
@@ -2459,18 +2459,30 @@ class _$_Tweet implements _Tweet {
 
 abstract class _Tweet implements Tweet {
   const factory _Tweet(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+      {final String? text,
+      final String? username,
+      final String? created_at,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? favourited_count,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? id,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? retweeted_count,
-      final String? text,
-      final String? username,
-      final String? created_at}) = _$_Tweet;
+          final int? retweeted_count}) = _$_Tweet;
 
   factory _Tweet.fromJson(Map<String, dynamic> json) = _$_Tweet.fromJson;
 
+  @override
+
+  /// text of the tweet
+  String? get text;
+  @override
+
+  /// username of the person who tweeted
+  String? get username;
+  @override
+
+  /// time of tweet
+  String? get created_at;
   @override
 
   /// number of times favourited
@@ -2486,18 +2498,6 @@ abstract class _Tweet implements Tweet {
   /// number of times retweeted
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get retweeted_count;
-  @override
-
-  /// text of the tweet
-  String? get text;
-  @override
-
-  /// username of the person who tweeted
-  String? get username;
-  @override
-
-  /// time of tweet
-  String? get created_at;
   @override
   @JsonKey(ignore: true)
   _$$_TweetCopyWith<_$_Tweet> get copyWith =>
