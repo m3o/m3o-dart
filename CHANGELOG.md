@@ -1,3 +1,9 @@
+## v1.0.212 - 2022-11-01
+
+[6fbcd8](https://github.com/micro/services/commit/6fbcd8974c006f7d95283d21536118bbb1b255db) add top stories endpoint
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.211...v1.0.212
+
 ## v1.0.211 - 2022-10-26
 
 [6fbcd8](https://github.com/micro/services/commit/6fbcd8974c006f7d95283d21536118bbb1b255db) add top stories endpoint
