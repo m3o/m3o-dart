@@ -36,6 +36,9 @@ class AvatarService {
 @Freezed()
 class GenerateRequest with _$GenerateRequest {
   const factory GenerateRequest({
+    /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
+    String? format,
+
     /// avatar's gender: `male` or `female`; default is `male`
     String? gender,
 
@@ -46,9 +49,6 @@ class GenerateRequest with _$GenerateRequest {
     /// if empty, every request generates a random avatar;
     /// if upload == true, username will be the CDN filename rather than a random uuid string
     String? username,
-
-    /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
-    String? format,
   }) = _GenerateRequest;
   factory GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$GenerateRequestFromJson(json);

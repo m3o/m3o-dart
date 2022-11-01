@@ -1683,6 +1683,8 @@ ResizeRequest _$ResizeRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ResizeRequest {
+  /// The image file to resize
+  String? get file => throw _privateConstructorUsedError;
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get height => throw _privateConstructorUsedError;
 
@@ -1705,9 +1707,6 @@ mixin _$ResizeRequest {
   /// will be cropped
   CropOptions? get cropOptions => throw _privateConstructorUsedError;
 
-  /// The image file to resize
-  String? get file => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ResizeRequestCopyWith<ResizeRequest> get copyWith =>
@@ -1721,14 +1720,14 @@ abstract class $ResizeRequestCopyWith<$Res> {
       _$ResizeRequestCopyWithImpl<$Res, ResizeRequest>;
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
+      {String? file,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
       String? name,
       bool? outputURL,
       String? url,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
       String? base64,
-      CropOptions? cropOptions,
-      String? file});
+      CropOptions? cropOptions});
 
   $CropOptionsCopyWith<$Res>? get cropOptions;
 }
@@ -1746,6 +1745,7 @@ class _$ResizeRequestCopyWithImpl<$Res, $Val extends ResizeRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? file = freezed,
     Object? height = freezed,
     Object? name = freezed,
     Object? outputURL = freezed,
@@ -1753,9 +1753,12 @@ class _$ResizeRequestCopyWithImpl<$Res, $Val extends ResizeRequest>
     Object? width = freezed,
     Object? base64 = freezed,
     Object? cropOptions = freezed,
-    Object? file = freezed,
   }) {
     return _then(_value.copyWith(
+      file: freezed == file
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as String?,
       height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -1784,10 +1787,6 @@ class _$ResizeRequestCopyWithImpl<$Res, $Val extends ResizeRequest>
           ? _value.cropOptions
           : cropOptions // ignore: cast_nullable_to_non_nullable
               as CropOptions?,
-      file: freezed == file
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 
@@ -1813,14 +1812,14 @@ abstract class _$$_ResizeRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
+      {String? file,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
       String? name,
       bool? outputURL,
       String? url,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? width,
       String? base64,
-      CropOptions? cropOptions,
-      String? file});
+      CropOptions? cropOptions});
 
   @override
   $CropOptionsCopyWith<$Res>? get cropOptions;
@@ -1837,6 +1836,7 @@ class __$$_ResizeRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? file = freezed,
     Object? height = freezed,
     Object? name = freezed,
     Object? outputURL = freezed,
@@ -1844,9 +1844,12 @@ class __$$_ResizeRequestCopyWithImpl<$Res>
     Object? width = freezed,
     Object? base64 = freezed,
     Object? cropOptions = freezed,
-    Object? file = freezed,
   }) {
     return _then(_$_ResizeRequest(
+      file: freezed == file
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as String?,
       height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -1875,10 +1878,6 @@ class __$$_ResizeRequestCopyWithImpl<$Res>
           ? _value.cropOptions
           : cropOptions // ignore: cast_nullable_to_non_nullable
               as CropOptions?,
-      file: freezed == file
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1887,18 +1886,21 @@ class __$$_ResizeRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ResizeRequest implements _ResizeRequest {
   const _$_ResizeRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.height,
+      {this.file,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.height,
       this.name,
       this.outputURL,
       this.url,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.width,
       this.base64,
-      this.cropOptions,
-      this.file});
+      this.cropOptions});
 
   factory _$_ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ResizeRequestFromJson(json);
 
+  /// The image file to resize
+  @override
+  final String? file;
   @override
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? height;
@@ -1928,13 +1930,9 @@ class _$_ResizeRequest implements _ResizeRequest {
   @override
   final CropOptions? cropOptions;
 
-  /// The image file to resize
-  @override
-  final String? file;
-
   @override
   String toString() {
-    return 'ResizeRequest(height: $height, name: $name, outputURL: $outputURL, url: $url, width: $width, base64: $base64, cropOptions: $cropOptions, file: $file)';
+    return 'ResizeRequest(file: $file, height: $height, name: $name, outputURL: $outputURL, url: $url, width: $width, base64: $base64, cropOptions: $cropOptions)';
   }
 
   @override
@@ -1942,6 +1940,7 @@ class _$_ResizeRequest implements _ResizeRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ResizeRequest &&
+            (identical(other.file, file) || other.file == file) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.outputURL, outputURL) ||
@@ -1950,14 +1949,13 @@ class _$_ResizeRequest implements _ResizeRequest {
             (identical(other.width, width) || other.width == width) &&
             (identical(other.base64, base64) || other.base64 == base64) &&
             (identical(other.cropOptions, cropOptions) ||
-                other.cropOptions == cropOptions) &&
-            (identical(other.file, file) || other.file == file));
+                other.cropOptions == cropOptions));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, height, name, outputURL, url,
-      width, base64, cropOptions, file);
+  int get hashCode => Object.hash(runtimeType, file, height, name, outputURL,
+      url, width, base64, cropOptions);
 
   @JsonKey(ignore: true)
   @override
@@ -1975,7 +1973,8 @@ class _$_ResizeRequest implements _ResizeRequest {
 
 abstract class _ResizeRequest implements ResizeRequest {
   const factory _ResizeRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+      {final String? file,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? height,
       final String? name,
       final bool? outputURL,
@@ -1983,12 +1982,15 @@ abstract class _ResizeRequest implements ResizeRequest {
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? width,
       final String? base64,
-      final CropOptions? cropOptions,
-      final String? file}) = _$_ResizeRequest;
+      final CropOptions? cropOptions}) = _$_ResizeRequest;
 
   factory _ResizeRequest.fromJson(Map<String, dynamic> json) =
       _$_ResizeRequest.fromJson;
 
+  @override
+
+  /// The image file to resize
+  String? get file;
   @override
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get height;
@@ -2017,10 +2019,6 @@ abstract class _ResizeRequest implements ResizeRequest {
   /// if provided, after resize, the image
   /// will be cropped
   CropOptions? get cropOptions;
-  @override
-
-  /// The image file to resize
-  String? get file;
   @override
   @JsonKey(ignore: true)
   _$$_ResizeRequestCopyWith<_$_ResizeRequest> get copyWith =>

@@ -20,11 +20,11 @@ Code _$CodeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Code {
-  /// e.g United States Dollar
-  String? get currency => throw _privateConstructorUsedError;
-
   /// e.g USD
   String? get name => throw _privateConstructorUsedError;
+
+  /// e.g United States Dollar
+  String? get currency => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $CodeCopyWith<$Res> {
   factory $CodeCopyWith(Code value, $Res Function(Code) then) =
       _$CodeCopyWithImpl<$Res, Code>;
   @useResult
-  $Res call({String? currency, String? name});
+  $Res call({String? name, String? currency});
 }
 
 /// @nodoc
@@ -52,17 +52,17 @@ class _$CodeCopyWithImpl<$Res, $Val extends Code>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currency = freezed,
     Object? name = freezed,
+    Object? currency = freezed,
   }) {
     return _then(_value.copyWith(
-      currency: freezed == currency
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      currency: freezed == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -74,7 +74,7 @@ abstract class _$$_CodeCopyWith<$Res> implements $CodeCopyWith<$Res> {
       __$$_CodeCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? currency, String? name});
+  $Res call({String? name, String? currency});
 }
 
 /// @nodoc
@@ -86,17 +86,17 @@ class __$$_CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res, _$_Code>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currency = freezed,
     Object? name = freezed,
+    Object? currency = freezed,
   }) {
     return _then(_$_Code(
-      currency: freezed == currency
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      currency: freezed == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -105,21 +105,21 @@ class __$$_CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res, _$_Code>
 /// @nodoc
 @JsonSerializable()
 class _$_Code implements _Code {
-  const _$_Code({this.currency, this.name});
+  const _$_Code({this.name, this.currency});
 
   factory _$_Code.fromJson(Map<String, dynamic> json) => _$$_CodeFromJson(json);
-
-  /// e.g United States Dollar
-  @override
-  final String? currency;
 
   /// e.g USD
   @override
   final String? name;
 
+  /// e.g United States Dollar
+  @override
+  final String? currency;
+
   @override
   String toString() {
-    return 'Code(currency: $currency, name: $name)';
+    return 'Code(name: $name, currency: $currency)';
   }
 
   @override
@@ -127,14 +127,14 @@ class _$_Code implements _Code {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Code &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.currency, currency) ||
-                other.currency == currency) &&
-            (identical(other.name, name) || other.name == name));
+                other.currency == currency));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, currency, name);
+  int get hashCode => Object.hash(runtimeType, name, currency);
 
   @JsonKey(ignore: true)
   @override
@@ -151,18 +151,18 @@ class _$_Code implements _Code {
 }
 
 abstract class _Code implements Code {
-  const factory _Code({final String? currency, final String? name}) = _$_Code;
+  const factory _Code({final String? name, final String? currency}) = _$_Code;
 
   factory _Code.fromJson(Map<String, dynamic> json) = _$_Code.fromJson;
 
   @override
 
-  /// e.g United States Dollar
-  String? get currency;
-  @override
-
   /// e.g USD
   String? get name;
+  @override
+
+  /// e.g United States Dollar
+  String? get currency;
   @override
   @JsonKey(ignore: true)
   _$$_CodeCopyWith<_$_Code> get copyWith => throw _privateConstructorUsedError;
@@ -1280,11 +1280,11 @@ HistoryRequest _$HistoryRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$HistoryRequest {
-  /// date formatted as YYYY-MM-DD
-  String? get date => throw _privateConstructorUsedError;
-
   /// currency code e.g USD
   String? get code => throw _privateConstructorUsedError;
+
+  /// date formatted as YYYY-MM-DD
+  String? get date => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1298,7 +1298,7 @@ abstract class $HistoryRequestCopyWith<$Res> {
           HistoryRequest value, $Res Function(HistoryRequest) then) =
       _$HistoryRequestCopyWithImpl<$Res, HistoryRequest>;
   @useResult
-  $Res call({String? date, String? code});
+  $Res call({String? code, String? date});
 }
 
 /// @nodoc
@@ -1314,17 +1314,17 @@ class _$HistoryRequestCopyWithImpl<$Res, $Val extends HistoryRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? date = freezed,
     Object? code = freezed,
+    Object? date = freezed,
   }) {
     return _then(_value.copyWith(
-      date: freezed == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String?,
       code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
+              as String?,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1338,7 +1338,7 @@ abstract class _$$_HistoryRequestCopyWith<$Res>
       __$$_HistoryRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? date, String? code});
+  $Res call({String? code, String? date});
 }
 
 /// @nodoc
@@ -1352,17 +1352,17 @@ class __$$_HistoryRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? date = freezed,
     Object? code = freezed,
+    Object? date = freezed,
   }) {
     return _then(_$_HistoryRequest(
-      date: freezed == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String?,
       code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
+              as String?,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1371,22 +1371,22 @@ class __$$_HistoryRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_HistoryRequest implements _HistoryRequest {
-  const _$_HistoryRequest({this.date, this.code});
+  const _$_HistoryRequest({this.code, this.date});
 
   factory _$_HistoryRequest.fromJson(Map<String, dynamic> json) =>
       _$$_HistoryRequestFromJson(json);
-
-  /// date formatted as YYYY-MM-DD
-  @override
-  final String? date;
 
   /// currency code e.g USD
   @override
   final String? code;
 
+  /// date formatted as YYYY-MM-DD
+  @override
+  final String? date;
+
   @override
   String toString() {
-    return 'HistoryRequest(date: $date, code: $code)';
+    return 'HistoryRequest(code: $code, date: $date)';
   }
 
   @override
@@ -1394,13 +1394,13 @@ class _$_HistoryRequest implements _HistoryRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HistoryRequest &&
-            (identical(other.date, date) || other.date == date) &&
-            (identical(other.code, code) || other.code == code));
+            (identical(other.code, code) || other.code == code) &&
+            (identical(other.date, date) || other.date == date));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, date, code);
+  int get hashCode => Object.hash(runtimeType, code, date);
 
   @JsonKey(ignore: true)
   @override
@@ -1417,7 +1417,7 @@ class _$_HistoryRequest implements _HistoryRequest {
 }
 
 abstract class _HistoryRequest implements HistoryRequest {
-  const factory _HistoryRequest({final String? date, final String? code}) =
+  const factory _HistoryRequest({final String? code, final String? date}) =
       _$_HistoryRequest;
 
   factory _HistoryRequest.fromJson(Map<String, dynamic> json) =
@@ -1425,12 +1425,12 @@ abstract class _HistoryRequest implements HistoryRequest {
 
   @override
 
-  /// date formatted as YYYY-MM-DD
-  String? get date;
-  @override
-
   /// currency code e.g USD
   String? get code;
+  @override
+
+  /// date formatted as YYYY-MM-DD
+  String? get date;
   @override
   @JsonKey(ignore: true)
   _$$_HistoryRequestCopyWith<_$_HistoryRequest> get copyWith =>
@@ -1454,21 +1454,21 @@ HistoryResponse _$HistoryResponseFromJson(Map<String, dynamic> json) {
 mixin _$HistoryResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? date, Map<String, double>? rates, String? code)
+    TResult Function(String? code, String? date, Map<String, double>? rates)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? date, Map<String, double>? rates, String? code)?
+    TResult? Function(String? code, String? date, Map<String, double>? rates)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? date, Map<String, double>? rates, String? code)?
+    TResult Function(String? code, String? date, Map<String, double>? rates)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -1520,7 +1520,7 @@ abstract class _$$HistoryResponseDataCopyWith<$Res> {
           $Res Function(_$HistoryResponseData) then) =
       __$$HistoryResponseDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({String? date, Map<String, double>? rates, String? code});
+  $Res call({String? code, String? date, Map<String, double>? rates});
 }
 
 /// @nodoc
@@ -1534,11 +1534,15 @@ class __$$HistoryResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? code = freezed,
     Object? date = freezed,
     Object? rates = freezed,
-    Object? code = freezed,
   }) {
     return _then(_$HistoryResponseData(
+      code: freezed == code
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String?,
       date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -1547,10 +1551,6 @@ class __$$HistoryResponseDataCopyWithImpl<$Res>
           ? _value._rates
           : rates // ignore: cast_nullable_to_non_nullable
               as Map<String, double>?,
-      code: freezed == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1559,15 +1559,19 @@ class __$$HistoryResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$HistoryResponseData implements HistoryResponseData {
   const _$HistoryResponseData(
-      {this.date,
+      {this.code,
+      this.date,
       final Map<String, double>? rates,
-      this.code,
       final String? $type})
       : _rates = rates,
         $type = $type ?? 'default';
 
   factory _$HistoryResponseData.fromJson(Map<String, dynamic> json) =>
       _$$HistoryResponseDataFromJson(json);
+
+  /// The code of the request
+  @override
+  final String? code;
 
   /// The date requested
   @override
@@ -1585,16 +1589,12 @@ class _$HistoryResponseData implements HistoryResponseData {
     return EqualUnmodifiableMapView(value);
   }
 
-  /// The code of the request
-  @override
-  final String? code;
-
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'HistoryResponse(date: $date, rates: $rates, code: $code)';
+    return 'HistoryResponse(code: $code, date: $date, rates: $rates)';
   }
 
   @override
@@ -1602,15 +1602,15 @@ class _$HistoryResponseData implements HistoryResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HistoryResponseData &&
+            (identical(other.code, code) || other.code == code) &&
             (identical(other.date, date) || other.date == date) &&
-            const DeepCollectionEquality().equals(other._rates, _rates) &&
-            (identical(other.code, code) || other.code == code));
+            const DeepCollectionEquality().equals(other._rates, _rates));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, date, const DeepCollectionEquality().hash(_rates), code);
+      runtimeType, code, date, const DeepCollectionEquality().hash(_rates));
 
   @JsonKey(ignore: true)
   @override
@@ -1622,33 +1622,33 @@ class _$HistoryResponseData implements HistoryResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? date, Map<String, double>? rates, String? code)
+    TResult Function(String? code, String? date, Map<String, double>? rates)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(date, rates, code);
+    return $default(code, date, rates);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? date, Map<String, double>? rates, String? code)?
+    TResult? Function(String? code, String? date, Map<String, double>? rates)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(date, rates, code);
+    return $default?.call(code, date, rates);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? date, Map<String, double>? rates, String? code)?
+    TResult Function(String? code, String? date, Map<String, double>? rates)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(date, rates, code);
+      return $default(code, date, rates);
     }
     return orElse();
   }
@@ -1694,21 +1694,21 @@ class _$HistoryResponseData implements HistoryResponseData {
 
 abstract class HistoryResponseData implements HistoryResponse {
   const factory HistoryResponseData(
-      {final String? date,
-      final Map<String, double>? rates,
-      final String? code}) = _$HistoryResponseData;
+      {final String? code,
+      final String? date,
+      final Map<String, double>? rates}) = _$HistoryResponseData;
 
   factory HistoryResponseData.fromJson(Map<String, dynamic> json) =
       _$HistoryResponseData.fromJson;
+
+  /// The code of the request
+  String? get code;
 
   /// The date requested
   String? get date;
 
   /// The rate for the day as code:rate
   Map<String, double>? get rates;
-
-  /// The code of the request
-  String? get code;
   @JsonKey(ignore: true)
   _$$HistoryResponseDataCopyWith<_$HistoryResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1796,7 +1796,7 @@ class _$HistoryResponseMerr implements HistoryResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? date, Map<String, double>? rates, String? code)
+    TResult Function(String? code, String? date, Map<String, double>? rates)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -1806,7 +1806,7 @@ class _$HistoryResponseMerr implements HistoryResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? date, Map<String, double>? rates, String? code)?
+    TResult? Function(String? code, String? date, Map<String, double>? rates)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -1816,7 +1816,7 @@ class _$HistoryResponseMerr implements HistoryResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? date, Map<String, double>? rates, String? code)?
+    TResult Function(String? code, String? date, Map<String, double>? rates)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

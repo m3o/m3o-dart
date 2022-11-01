@@ -1396,14 +1396,14 @@ ReadRequest _$ReadRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReadRequest {
+  /// number of events to read; default 25
+  int? get limit => throw _privateConstructorUsedError;
+
   /// offset for the events; default 0
   int? get offset => throw _privateConstructorUsedError;
 
   /// topic to read from
   String? get topic => throw _privateConstructorUsedError;
-
-  /// number of events to read; default 25
-  int? get limit => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1417,7 +1417,7 @@ abstract class $ReadRequestCopyWith<$Res> {
           ReadRequest value, $Res Function(ReadRequest) then) =
       _$ReadRequestCopyWithImpl<$Res, ReadRequest>;
   @useResult
-  $Res call({int? offset, String? topic, int? limit});
+  $Res call({int? limit, int? offset, String? topic});
 }
 
 /// @nodoc
@@ -1433,11 +1433,15 @@ class _$ReadRequestCopyWithImpl<$Res, $Val extends ReadRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? limit = freezed,
     Object? offset = freezed,
     Object? topic = freezed,
-    Object? limit = freezed,
   }) {
     return _then(_value.copyWith(
+      limit: freezed == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int?,
       offset: freezed == offset
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
@@ -1446,10 +1450,6 @@ class _$ReadRequestCopyWithImpl<$Res, $Val extends ReadRequest>
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: freezed == limit
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int?,
     ) as $Val);
   }
 }
@@ -1462,7 +1462,7 @@ abstract class _$$_ReadRequestCopyWith<$Res>
       __$$_ReadRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? offset, String? topic, int? limit});
+  $Res call({int? limit, int? offset, String? topic});
 }
 
 /// @nodoc
@@ -1476,11 +1476,15 @@ class __$$_ReadRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? limit = freezed,
     Object? offset = freezed,
     Object? topic = freezed,
-    Object? limit = freezed,
   }) {
     return _then(_$_ReadRequest(
+      limit: freezed == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int?,
       offset: freezed == offset
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
@@ -1489,10 +1493,6 @@ class __$$_ReadRequestCopyWithImpl<$Res>
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: freezed == limit
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -1500,10 +1500,14 @@ class __$$_ReadRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ReadRequest implements _ReadRequest {
-  const _$_ReadRequest({this.offset, this.topic, this.limit});
+  const _$_ReadRequest({this.limit, this.offset, this.topic});
 
   factory _$_ReadRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ReadRequestFromJson(json);
+
+  /// number of events to read; default 25
+  @override
+  final int? limit;
 
   /// offset for the events; default 0
   @override
@@ -1513,13 +1517,9 @@ class _$_ReadRequest implements _ReadRequest {
   @override
   final String? topic;
 
-  /// number of events to read; default 25
-  @override
-  final int? limit;
-
   @override
   String toString() {
-    return 'ReadRequest(offset: $offset, topic: $topic, limit: $limit)';
+    return 'ReadRequest(limit: $limit, offset: $offset, topic: $topic)';
   }
 
   @override
@@ -1527,14 +1527,14 @@ class _$_ReadRequest implements _ReadRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ReadRequest &&
+            (identical(other.limit, limit) || other.limit == limit) &&
             (identical(other.offset, offset) || other.offset == offset) &&
-            (identical(other.topic, topic) || other.topic == topic) &&
-            (identical(other.limit, limit) || other.limit == limit));
+            (identical(other.topic, topic) || other.topic == topic));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, offset, topic, limit);
+  int get hashCode => Object.hash(runtimeType, limit, offset, topic);
 
   @JsonKey(ignore: true)
   @override
@@ -1552,13 +1552,17 @@ class _$_ReadRequest implements _ReadRequest {
 
 abstract class _ReadRequest implements ReadRequest {
   const factory _ReadRequest(
-      {final int? offset,
-      final String? topic,
-      final int? limit}) = _$_ReadRequest;
+      {final int? limit,
+      final int? offset,
+      final String? topic}) = _$_ReadRequest;
 
   factory _ReadRequest.fromJson(Map<String, dynamic> json) =
       _$_ReadRequest.fromJson;
 
+  @override
+
+  /// number of events to read; default 25
+  int? get limit;
   @override
 
   /// offset for the events; default 0
@@ -1567,10 +1571,6 @@ abstract class _ReadRequest implements ReadRequest {
 
   /// topic to read from
   String? get topic;
-  @override
-
-  /// number of events to read; default 25
-  int? get limit;
   @override
   @JsonKey(ignore: true)
   _$$_ReadRequestCopyWith<_$_ReadRequest> get copyWith =>

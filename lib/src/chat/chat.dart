@@ -254,12 +254,6 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Group with _$Group {
   const factory Group({
-    /// list of users
-    List<String>? user_ids,
-
-    /// time of creation
-    String? created_at,
-
     /// description of the that
     String? description,
 
@@ -271,6 +265,12 @@ class Group with _$Group {
 
     /// whether its a private group
     bool? private,
+
+    /// list of users
+    List<String>? user_ids,
+
+    /// time of creation
+    String? created_at,
   }) = _Group;
   factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
 }
@@ -300,11 +300,11 @@ class HistoryResponse with _$HistoryResponse {
 @Freezed()
 class InviteRequest with _$InviteRequest {
   const factory InviteRequest({
-    /// the group id
-    String? group_id,
-
     /// the user id
     String? user_id,
+
+    /// the group id
+    String? group_id,
   }) = _InviteRequest;
   factory InviteRequest.fromJson(Map<String, dynamic> json) =>
       _$InviteRequestFromJson(json);
@@ -372,11 +372,11 @@ class KickResponse with _$KickResponse {
 @Freezed()
 class LeaveRequest with _$LeaveRequest {
   const factory LeaveRequest({
-    /// the user id
-    String? user_id,
-
     /// the group id
     String? group_id,
+
+    /// the user id
+    String? user_id,
   }) = _LeaveRequest;
   factory LeaveRequest.fromJson(Map<String, dynamic> json) =>
       _$LeaveRequestFromJson(json);
@@ -417,6 +417,9 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
+    /// text of the message
+    String? text,
+
     /// id of the user who sent the message
     String? user_id,
 
@@ -434,9 +437,6 @@ class Message with _$Message {
 
     /// subject of the message
     String? subject,
-
-    /// text of the message
-    String? text,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
@@ -445,6 +445,12 @@ class Message with _$Message {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
+    /// text of the message
+    String? text,
+
+    /// id of the user who sent the message
+    String? user_id,
+
     /// a client side id, should be validated by the server to make the request retry safe
     String? client,
 
@@ -453,12 +459,6 @@ class SendRequest with _$SendRequest {
 
     /// subject of the message
     String? subject,
-
-    /// text of the message
-    String? text,
-
-    /// id of the user who sent the message
-    String? user_id,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);

@@ -148,6 +148,12 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
+    /// the low price
+    double? low,
+
+    /// the open price
+    double? open,
+
     /// the crypto symbol
     String? symbol,
 
@@ -162,12 +168,6 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the peak price
     double? high,
-
-    /// the low price
-    double? low,
-
-    /// the open price
-    double? open,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -213,11 +213,11 @@ class PriceRequest with _$PriceRequest {
 @Freezed()
 class PriceResponse with _$PriceResponse {
   const factory PriceResponse({
-    /// the crypto symbol e.g BTCUSD
-    String? symbol,
-
     /// the last price
     double? price,
+
+    /// the crypto symbol e.g BTCUSD
+    String? symbol,
   }) = PriceResponseData;
   const factory PriceResponse.Merr({Map<String, dynamic>? body}) =
       PriceResponseMerr;
@@ -238,6 +238,12 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
+    /// the bid size
+    double? bid_size,
+
+    /// the crypto symbol
+    String? symbol,
+
     /// the UTC timestamp of the quote
     String? timestamp,
 
@@ -249,12 +255,6 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the bidding price
     double? bid_price,
-
-    /// the bid size
-    double? bid_size,
-
-    /// the crypto symbol
-    String? symbol,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;

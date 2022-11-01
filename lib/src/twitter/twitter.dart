@@ -96,14 +96,18 @@ class TwitterService {
 @Freezed()
 class Profile with _$Profile {
   const factory Profile({
-    /// the user's location
-    String? location,
+    /// the follower count
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
+
+    /// The user's profile picture
+    String? image_url,
 
     /// display name of the user
     String? name,
 
-    /// if the account is private
-    bool? private,
+    /// the username
+    String? username,
 
     /// the account creation date
     String? created_at,
@@ -111,19 +115,15 @@ class Profile with _$Profile {
     /// the user description
     String? description,
 
-    /// the follower count
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? followers,
-
     /// the user id
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? id,
 
-    /// The user's profile picture
-    String? image_url,
+    /// the user's location
+    String? location,
 
-    /// the username
-    String? username,
+    /// if the account is private
+    bool? private,
 
     /// if the account is verified
     bool? verified,
@@ -135,11 +135,11 @@ class Profile with _$Profile {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// the query to search for
-    String? query,
-
     /// number of tweets to return. default: 20
     int? limit,
+
+    /// the query to search for
+    String? query,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);

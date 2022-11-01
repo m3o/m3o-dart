@@ -197,6 +197,8 @@ class Rectangle with _$Rectangle {
 @Freezed()
 class ResizeRequest with _$ResizeRequest {
   const factory ResizeRequest({
+    /// The image file to resize
+    String? file,
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? height,
 
     /// output name of the image including extension, ie. "cat.png"
@@ -216,9 +218,6 @@ class ResizeRequest with _$ResizeRequest {
     /// if provided, after resize, the image
     /// will be cropped
     CropOptions? cropOptions,
-
-    /// The image file to resize
-    String? file,
   }) = _ResizeRequest;
   factory ResizeRequest.fromJson(Map<String, dynamic> json) =>
       _$ResizeRequestFromJson(json);

@@ -387,10 +387,10 @@ LookupRequest _$LookupRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LookupRequest {
+  String? get address => throw _privateConstructorUsedError;
   String? get city => throw _privateConstructorUsedError;
   String? get country => throw _privateConstructorUsedError;
   String? get postcode => throw _privateConstructorUsedError;
-  String? get address => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -404,7 +404,7 @@ abstract class $LookupRequestCopyWith<$Res> {
           LookupRequest value, $Res Function(LookupRequest) then) =
       _$LookupRequestCopyWithImpl<$Res, LookupRequest>;
   @useResult
-  $Res call({String? city, String? country, String? postcode, String? address});
+  $Res call({String? address, String? city, String? country, String? postcode});
 }
 
 /// @nodoc
@@ -420,12 +420,16 @@ class _$LookupRequestCopyWithImpl<$Res, $Val extends LookupRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? address = freezed,
     Object? city = freezed,
     Object? country = freezed,
     Object? postcode = freezed,
-    Object? address = freezed,
   }) {
     return _then(_value.copyWith(
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
       city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
@@ -437,10 +441,6 @@ class _$LookupRequestCopyWithImpl<$Res, $Val extends LookupRequest>
       postcode: freezed == postcode
           ? _value.postcode
           : postcode // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address: freezed == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -454,7 +454,7 @@ abstract class _$$_LookupRequestCopyWith<$Res>
       __$$_LookupRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? city, String? country, String? postcode, String? address});
+  $Res call({String? address, String? city, String? country, String? postcode});
 }
 
 /// @nodoc
@@ -468,12 +468,16 @@ class __$$_LookupRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? address = freezed,
     Object? city = freezed,
     Object? country = freezed,
     Object? postcode = freezed,
-    Object? address = freezed,
   }) {
     return _then(_$_LookupRequest(
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
       city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
@@ -486,10 +490,6 @@ class __$$_LookupRequestCopyWithImpl<$Res>
           ? _value.postcode
           : postcode // ignore: cast_nullable_to_non_nullable
               as String?,
-      address: freezed == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -498,23 +498,23 @@ class __$$_LookupRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_LookupRequest implements _LookupRequest {
   const _$_LookupRequest(
-      {this.city, this.country, this.postcode, this.address});
+      {this.address, this.city, this.country, this.postcode});
 
   factory _$_LookupRequest.fromJson(Map<String, dynamic> json) =>
       _$$_LookupRequestFromJson(json);
 
+  @override
+  final String? address;
   @override
   final String? city;
   @override
   final String? country;
   @override
   final String? postcode;
-  @override
-  final String? address;
 
   @override
   String toString() {
-    return 'LookupRequest(city: $city, country: $country, postcode: $postcode, address: $address)';
+    return 'LookupRequest(address: $address, city: $city, country: $country, postcode: $postcode)';
   }
 
   @override
@@ -522,17 +522,17 @@ class _$_LookupRequest implements _LookupRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LookupRequest &&
+            (identical(other.address, address) || other.address == address) &&
             (identical(other.city, city) || other.city == city) &&
             (identical(other.country, country) || other.country == country) &&
             (identical(other.postcode, postcode) ||
-                other.postcode == postcode) &&
-            (identical(other.address, address) || other.address == address));
+                other.postcode == postcode));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, city, country, postcode, address);
+      Object.hash(runtimeType, address, city, country, postcode);
 
   @JsonKey(ignore: true)
   @override
@@ -550,22 +550,22 @@ class _$_LookupRequest implements _LookupRequest {
 
 abstract class _LookupRequest implements LookupRequest {
   const factory _LookupRequest(
-      {final String? city,
+      {final String? address,
+      final String? city,
       final String? country,
-      final String? postcode,
-      final String? address}) = _$_LookupRequest;
+      final String? postcode}) = _$_LookupRequest;
 
   factory _LookupRequest.fromJson(Map<String, dynamic> json) =
       _$_LookupRequest.fromJson;
 
+  @override
+  String? get address;
   @override
   String? get city;
   @override
   String? get country;
   @override
   String? get postcode;
-  @override
-  String? get address;
   @override
   @JsonKey(ignore: true)
   _$$_LookupRequestCopyWith<_$_LookupRequest> get copyWith =>
@@ -1005,8 +1005,8 @@ ReverseRequest _$ReverseRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReverseRequest {
-  double? get longitude => throw _privateConstructorUsedError;
   double? get latitude => throw _privateConstructorUsedError;
+  double? get longitude => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1020,7 +1020,7 @@ abstract class $ReverseRequestCopyWith<$Res> {
           ReverseRequest value, $Res Function(ReverseRequest) then) =
       _$ReverseRequestCopyWithImpl<$Res, ReverseRequest>;
   @useResult
-  $Res call({double? longitude, double? latitude});
+  $Res call({double? latitude, double? longitude});
 }
 
 /// @nodoc
@@ -1036,17 +1036,17 @@ class _$ReverseRequestCopyWithImpl<$Res, $Val extends ReverseRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? longitude = freezed,
     Object? latitude = freezed,
+    Object? longitude = freezed,
   }) {
     return _then(_value.copyWith(
-      longitude: freezed == longitude
-          ? _value.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as double?,
       latitude: freezed == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
+              as double?,
+      longitude: freezed == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
               as double?,
     ) as $Val);
   }
@@ -1060,7 +1060,7 @@ abstract class _$$_ReverseRequestCopyWith<$Res>
       __$$_ReverseRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double? longitude, double? latitude});
+  $Res call({double? latitude, double? longitude});
 }
 
 /// @nodoc
@@ -1074,17 +1074,17 @@ class __$$_ReverseRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? longitude = freezed,
     Object? latitude = freezed,
+    Object? longitude = freezed,
   }) {
     return _then(_$_ReverseRequest(
-      longitude: freezed == longitude
-          ? _value.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as double?,
       latitude: freezed == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
+              as double?,
+      longitude: freezed == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
   }
@@ -1093,19 +1093,19 @@ class __$$_ReverseRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ReverseRequest implements _ReverseRequest {
-  const _$_ReverseRequest({this.longitude, this.latitude});
+  const _$_ReverseRequest({this.latitude, this.longitude});
 
   factory _$_ReverseRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ReverseRequestFromJson(json);
 
   @override
-  final double? longitude;
-  @override
   final double? latitude;
+  @override
+  final double? longitude;
 
   @override
   String toString() {
-    return 'ReverseRequest(longitude: $longitude, latitude: $latitude)';
+    return 'ReverseRequest(latitude: $latitude, longitude: $longitude)';
   }
 
   @override
@@ -1113,15 +1113,15 @@ class _$_ReverseRequest implements _ReverseRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ReverseRequest &&
-            (identical(other.longitude, longitude) ||
-                other.longitude == longitude) &&
             (identical(other.latitude, latitude) ||
-                other.latitude == latitude));
+                other.latitude == latitude) &&
+            (identical(other.longitude, longitude) ||
+                other.longitude == longitude));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, longitude, latitude);
+  int get hashCode => Object.hash(runtimeType, latitude, longitude);
 
   @JsonKey(ignore: true)
   @override
@@ -1139,15 +1139,15 @@ class _$_ReverseRequest implements _ReverseRequest {
 
 abstract class _ReverseRequest implements ReverseRequest {
   const factory _ReverseRequest(
-      {final double? longitude, final double? latitude}) = _$_ReverseRequest;
+      {final double? latitude, final double? longitude}) = _$_ReverseRequest;
 
   factory _ReverseRequest.fromJson(Map<String, dynamic> json) =
       _$_ReverseRequest.fromJson;
 
   @override
-  double? get longitude;
-  @override
   double? get latitude;
+  @override
+  double? get longitude;
   @override
   @JsonKey(ignore: true)
   _$$_ReverseRequestCopyWith<_$_ReverseRequest> get copyWith =>

@@ -7,18 +7,18 @@ part of 'wallet.dart';
 // **************************************************************************
 
 _$_Account _$$_AccountFromJson(Map<String, dynamic> json) => _$_Account(
+      balance: int64FromString(json['balance'] as String?),
       description: json['description'] as String?,
       id: json['id'] as String?,
       name: json['name'] as String?,
-      balance: int64FromString(json['balance'] as String?),
     );
 
 Map<String, dynamic> _$$_AccountToJson(_$_Account instance) =>
     <String, dynamic>{
+      'balance': int64ToString(instance.balance),
       'description': instance.description,
       'id': instance.id,
       'name': instance.name,
-      'balance': int64ToString(instance.balance),
     };
 
 _$_BalanceRequest _$$_BalanceRequestFromJson(Map<String, dynamic> json) =>
@@ -103,20 +103,20 @@ Map<String, dynamic> _$$CreateResponseMerrToJson(
 
 _$_CreditRequest _$$_CreditRequestFromJson(Map<String, dynamic> json) =>
     _$_CreditRequest(
+      reference: json['reference'] as String?,
+      visible: json['visible'] as bool?,
       amount: int64FromString(json['amount'] as String?),
       id: json['id'] as String?,
       idempotency_key: json['idempotency_key'] as String?,
-      reference: json['reference'] as String?,
-      visible: json['visible'] as bool?,
     );
 
 Map<String, dynamic> _$$_CreditRequestToJson(_$_CreditRequest instance) =>
     <String, dynamic>{
+      'reference': instance.reference,
+      'visible': instance.visible,
       'amount': int64ToString(instance.amount),
       'id': instance.id,
       'idempotency_key': instance.idempotency_key,
-      'reference': instance.reference,
-      'visible': instance.visible,
     };
 
 _$CreditResponseData _$$CreditResponseDataFromJson(Map<String, dynamic> json) =>
@@ -147,20 +147,20 @@ Map<String, dynamic> _$$CreditResponseMerrToJson(
 
 _$_DebitRequest _$$_DebitRequestFromJson(Map<String, dynamic> json) =>
     _$_DebitRequest(
+      visible: json['visible'] as bool?,
       amount: int64FromString(json['amount'] as String?),
       id: json['id'] as String?,
       idempotency_key: json['idempotency_key'] as String?,
       reference: json['reference'] as String?,
-      visible: json['visible'] as bool?,
     );
 
 Map<String, dynamic> _$$_DebitRequestToJson(_$_DebitRequest instance) =>
     <String, dynamic>{
+      'visible': instance.visible,
       'amount': int64ToString(instance.amount),
       'id': instance.id,
       'idempotency_key': instance.idempotency_key,
       'reference': instance.reference,
-      'visible': instance.visible,
     };
 
 _$DebitResponseData _$$DebitResponseDataFromJson(Map<String, dynamic> json) =>

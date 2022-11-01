@@ -61,35 +61,35 @@ class Record with _$Record {
     /// line two of address
     String? line_two,
 
-    /// dependent locality
-    String? locality,
-
-    /// post town
-    String? town,
-
-    /// building name
-    String? building_name,
-
-    /// line one of address
-    String? line_one,
-
-    /// organisation if present
-    String? organisation,
-
     /// the postcode
     String? postcode,
-
-    /// the premise
-    String? premise,
 
     /// street name
     String? street,
 
+    /// post town
+    String? town,
+
+    /// the premise
+    String? premise,
+
     /// the complete address
     String? summary,
 
+    /// building name
+    String? building_name,
+
     /// the county
     String? county,
+
+    /// line one of address
+    String? line_one,
+
+    /// dependent locality
+    String? locality,
+
+    /// organisation if present
+    String? organisation,
   }) = _Record;
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }

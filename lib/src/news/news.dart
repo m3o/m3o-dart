@@ -56,8 +56,14 @@ class NewsService {
 @Freezed()
 class Article with _$Article {
   const factory Article({
-    /// article id
-    String? id,
+    /// first 60 characters of article body
+    String? snippet,
+
+    /// categories
+    List<String>? categories,
+
+    /// article description
+    String? description,
 
     /// related keywords
     String? keywords,
@@ -68,15 +74,6 @@ class Article with _$Article {
     /// the locale
     String? locale,
 
-    /// first 60 characters of article body
-    String? snippet,
-
-    /// article description
-    String? description,
-
-    /// image url
-    String? image_url,
-
     /// time it was published
     String? published_at,
 
@@ -86,11 +83,14 @@ class Article with _$Article {
     /// article title
     String? title,
 
+    /// article id
+    String? id,
+
+    /// image url
+    String? image_url,
+
     /// url of the article
     String? url,
-
-    /// categories
-    List<String>? categories,
   }) = _Article;
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);
@@ -99,14 +99,14 @@ class Article with _$Article {
 @Freezed()
 class HeadlinesRequest with _$HeadlinesRequest {
   const factory HeadlinesRequest({
+    /// date published on in YYYY-MM-DD format
+    String? date,
+
     /// comma separated list of languages to retrieve in e.g en,es
     String? language,
 
     /// comma separated list of countries to include e.g us,ca
     String? locale,
-
-    /// date published on in YYYY-MM-DD format
-    String? date,
   }) = _HeadlinesRequest;
   factory HeadlinesRequest.fromJson(Map<String, dynamic> json) =>
       _$HeadlinesRequestFromJson(json);
@@ -126,14 +126,14 @@ class HeadlinesResponse with _$HeadlinesResponse {
 @Freezed()
 class TopStoriesRequest with _$TopStoriesRequest {
   const factory TopStoriesRequest({
+    /// date published on in YYYY-MM-DD format
+    String? date,
+
     /// comma separated list of languages to retrieve in e.g en,es
     String? language,
 
     /// comma separated list of countries to include e.g us,ca
     String? locale,
-
-    /// date published on in YYYY-MM-DD format
-    String? date,
   }) = _TopStoriesRequest;
   factory TopStoriesRequest.fromJson(Map<String, dynamic> json) =>
       _$TopStoriesRequestFromJson(json);
