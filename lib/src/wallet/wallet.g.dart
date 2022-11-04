@@ -103,20 +103,20 @@ Map<String, dynamic> _$$CreateResponseMerrToJson(
 
 _$_CreditRequest _$$_CreditRequestFromJson(Map<String, dynamic> json) =>
     _$_CreditRequest(
+      id: json['id'] as String?,
+      idempotency_key: json['idempotency_key'] as String?,
       reference: json['reference'] as String?,
       visible: json['visible'] as bool?,
       amount: int64FromString(json['amount'] as String?),
-      id: json['id'] as String?,
-      idempotency_key: json['idempotency_key'] as String?,
     );
 
 Map<String, dynamic> _$$_CreditRequestToJson(_$_CreditRequest instance) =>
     <String, dynamic>{
+      'id': instance.id,
+      'idempotency_key': instance.idempotency_key,
       'reference': instance.reference,
       'visible': instance.visible,
       'amount': int64ToString(instance.amount),
-      'id': instance.id,
-      'idempotency_key': instance.idempotency_key,
     };
 
 _$CreditResponseData _$$CreditResponseDataFromJson(Map<String, dynamic> json) =>
@@ -147,20 +147,20 @@ Map<String, dynamic> _$$CreditResponseMerrToJson(
 
 _$_DebitRequest _$$_DebitRequestFromJson(Map<String, dynamic> json) =>
     _$_DebitRequest(
-      visible: json['visible'] as bool?,
-      amount: int64FromString(json['amount'] as String?),
       id: json['id'] as String?,
       idempotency_key: json['idempotency_key'] as String?,
       reference: json['reference'] as String?,
+      visible: json['visible'] as bool?,
+      amount: int64FromString(json['amount'] as String?),
     );
 
 Map<String, dynamic> _$$_DebitRequestToJson(_$_DebitRequest instance) =>
     <String, dynamic>{
-      'visible': instance.visible,
-      'amount': int64ToString(instance.amount),
       'id': instance.id,
       'idempotency_key': instance.idempotency_key,
       'reference': instance.reference,
+      'visible': instance.visible,
+      'amount': int64ToString(instance.amount),
     };
 
 _$DebitResponseData _$$DebitResponseDataFromJson(Map<String, dynamic> json) =>
@@ -353,20 +353,20 @@ Map<String, dynamic> _$$TransactionsResponseMerrToJson(
 
 _$_TransferRequest _$$_TransferRequestFromJson(Map<String, dynamic> json) =>
     _$_TransferRequest(
-      visible: json['visible'] as bool?,
       amount: int64FromString(json['amount'] as String?),
       from_id: json['from_id'] as String?,
       reference: json['reference'] as String?,
       to_id: json['to_id'] as String?,
+      visible: json['visible'] as bool?,
     );
 
 Map<String, dynamic> _$$_TransferRequestToJson(_$_TransferRequest instance) =>
     <String, dynamic>{
-      'visible': instance.visible,
       'amount': int64ToString(instance.amount),
       'from_id': instance.from_id,
       'reference': instance.reference,
       'to_id': instance.to_id,
+      'visible': instance.visible,
     };
 
 _$TransferResponseData _$$TransferResponseDataFromJson(

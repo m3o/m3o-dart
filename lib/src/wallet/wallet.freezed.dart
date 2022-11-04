@@ -1400,6 +1400,12 @@ CreditRequest _$CreditRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreditRequest {
+  /// wallet id
+  String? get id => throw _privateConstructorUsedError;
+
+  /// idempotency key
+  String? get idempotency_key => throw _privateConstructorUsedError;
+
   /// reference note
   String? get reference => throw _privateConstructorUsedError;
 
@@ -1409,12 +1415,6 @@ mixin _$CreditRequest {
   /// amount to credit
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get amount => throw _privateConstructorUsedError;
-
-  /// wallet id
-  String? get id => throw _privateConstructorUsedError;
-
-  /// idempotency key
-  String? get idempotency_key => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1429,11 +1429,11 @@ abstract class $CreditRequestCopyWith<$Res> {
       _$CreditRequestCopyWithImpl<$Res, CreditRequest>;
   @useResult
   $Res call(
-      {String? reference,
+      {String? id,
+      String? idempotency_key,
+      String? reference,
       bool? visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
-      String? id,
-      String? idempotency_key});
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount});
 }
 
 /// @nodoc
@@ -1449,13 +1449,21 @@ class _$CreditRequestCopyWithImpl<$Res, $Val extends CreditRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
+    Object? idempotency_key = freezed,
     Object? reference = freezed,
     Object? visible = freezed,
     Object? amount = freezed,
-    Object? id = freezed,
-    Object? idempotency_key = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      idempotency_key: freezed == idempotency_key
+          ? _value.idempotency_key
+          : idempotency_key // ignore: cast_nullable_to_non_nullable
+              as String?,
       reference: freezed == reference
           ? _value.reference
           : reference // ignore: cast_nullable_to_non_nullable
@@ -1468,14 +1476,6 @@ class _$CreditRequestCopyWithImpl<$Res, $Val extends CreditRequest>
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as int?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      idempotency_key: freezed == idempotency_key
-          ? _value.idempotency_key
-          : idempotency_key // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -1489,11 +1489,11 @@ abstract class _$$_CreditRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? reference,
+      {String? id,
+      String? idempotency_key,
+      String? reference,
       bool? visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
-      String? id,
-      String? idempotency_key});
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount});
 }
 
 /// @nodoc
@@ -1507,13 +1507,21 @@ class __$$_CreditRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
+    Object? idempotency_key = freezed,
     Object? reference = freezed,
     Object? visible = freezed,
     Object? amount = freezed,
-    Object? id = freezed,
-    Object? idempotency_key = freezed,
   }) {
     return _then(_$_CreditRequest(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      idempotency_key: freezed == idempotency_key
+          ? _value.idempotency_key
+          : idempotency_key // ignore: cast_nullable_to_non_nullable
+              as String?,
       reference: freezed == reference
           ? _value.reference
           : reference // ignore: cast_nullable_to_non_nullable
@@ -1526,14 +1534,6 @@ class __$$_CreditRequestCopyWithImpl<$Res>
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as int?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      idempotency_key: freezed == idempotency_key
-          ? _value.idempotency_key
-          : idempotency_key // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1542,14 +1542,22 @@ class __$$_CreditRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_CreditRequest implements _CreditRequest {
   const _$_CreditRequest(
-      {this.reference,
+      {this.id,
+      this.idempotency_key,
+      this.reference,
       this.visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.amount,
-      this.id,
-      this.idempotency_key});
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.amount});
 
   factory _$_CreditRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreditRequestFromJson(json);
+
+  /// wallet id
+  @override
+  final String? id;
+
+  /// idempotency key
+  @override
+  final String? idempotency_key;
 
   /// reference note
   @override
@@ -1564,17 +1572,9 @@ class _$_CreditRequest implements _CreditRequest {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? amount;
 
-  /// wallet id
-  @override
-  final String? id;
-
-  /// idempotency key
-  @override
-  final String? idempotency_key;
-
   @override
   String toString() {
-    return 'CreditRequest(reference: $reference, visible: $visible, amount: $amount, id: $id, idempotency_key: $idempotency_key)';
+    return 'CreditRequest(id: $id, idempotency_key: $idempotency_key, reference: $reference, visible: $visible, amount: $amount)';
   }
 
   @override
@@ -1582,19 +1582,19 @@ class _$_CreditRequest implements _CreditRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreditRequest &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.idempotency_key, idempotency_key) ||
+                other.idempotency_key == idempotency_key) &&
             (identical(other.reference, reference) ||
                 other.reference == reference) &&
             (identical(other.visible, visible) || other.visible == visible) &&
-            (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.idempotency_key, idempotency_key) ||
-                other.idempotency_key == idempotency_key));
+            (identical(other.amount, amount) || other.amount == amount));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, reference, visible, amount, id, idempotency_key);
+      Object.hash(runtimeType, id, idempotency_key, reference, visible, amount);
 
   @JsonKey(ignore: true)
   @override
@@ -1612,16 +1612,24 @@ class _$_CreditRequest implements _CreditRequest {
 
 abstract class _CreditRequest implements CreditRequest {
   const factory _CreditRequest(
-      {final String? reference,
+      {final String? id,
+      final String? idempotency_key,
+      final String? reference,
       final bool? visible,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? amount,
-      final String? id,
-      final String? idempotency_key}) = _$_CreditRequest;
+          final int? amount}) = _$_CreditRequest;
 
   factory _CreditRequest.fromJson(Map<String, dynamic> json) =
       _$_CreditRequest.fromJson;
 
+  @override
+
+  /// wallet id
+  String? get id;
+  @override
+
+  /// idempotency key
+  String? get idempotency_key;
   @override
 
   /// reference note
@@ -1635,14 +1643,6 @@ abstract class _CreditRequest implements CreditRequest {
   /// amount to credit
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get amount;
-  @override
-
-  /// wallet id
-  String? get id;
-  @override
-
-  /// idempotency key
-  String? get idempotency_key;
   @override
   @JsonKey(ignore: true)
   _$$_CreditRequestCopyWith<_$_CreditRequest> get copyWith =>
@@ -2080,13 +2080,6 @@ DebitRequest _$DebitRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DebitRequest {
-  /// if the transaction is visible
-  bool? get visible => throw _privateConstructorUsedError;
-
-  /// amount to debit
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get amount => throw _privateConstructorUsedError;
-
   /// wallet
   String? get id => throw _privateConstructorUsedError;
 
@@ -2095,6 +2088,13 @@ mixin _$DebitRequest {
 
   /// reference note
   String? get reference => throw _privateConstructorUsedError;
+
+  /// if the transaction is visible
+  bool? get visible => throw _privateConstructorUsedError;
+
+  /// amount to debit
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get amount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2109,11 +2109,11 @@ abstract class $DebitRequestCopyWith<$Res> {
       _$DebitRequestCopyWithImpl<$Res, DebitRequest>;
   @useResult
   $Res call(
-      {bool? visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
-      String? id,
+      {String? id,
       String? idempotency_key,
-      String? reference});
+      String? reference,
+      bool? visible,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount});
 }
 
 /// @nodoc
@@ -2129,21 +2129,13 @@ class _$DebitRequestCopyWithImpl<$Res, $Val extends DebitRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? visible = freezed,
-    Object? amount = freezed,
     Object? id = freezed,
     Object? idempotency_key = freezed,
     Object? reference = freezed,
+    Object? visible = freezed,
+    Object? amount = freezed,
   }) {
     return _then(_value.copyWith(
-      visible: freezed == visible
-          ? _value.visible
-          : visible // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      amount: freezed == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as int?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -2156,6 +2148,14 @@ class _$DebitRequestCopyWithImpl<$Res, $Val extends DebitRequest>
           ? _value.reference
           : reference // ignore: cast_nullable_to_non_nullable
               as String?,
+      visible: freezed == visible
+          ? _value.visible
+          : visible // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      amount: freezed == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -2169,11 +2169,11 @@ abstract class _$$_DebitRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool? visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
-      String? id,
+      {String? id,
       String? idempotency_key,
-      String? reference});
+      String? reference,
+      bool? visible,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount});
 }
 
 /// @nodoc
@@ -2187,21 +2187,13 @@ class __$$_DebitRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? visible = freezed,
-    Object? amount = freezed,
     Object? id = freezed,
     Object? idempotency_key = freezed,
     Object? reference = freezed,
+    Object? visible = freezed,
+    Object? amount = freezed,
   }) {
     return _then(_$_DebitRequest(
-      visible: freezed == visible
-          ? _value.visible
-          : visible // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      amount: freezed == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as int?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -2214,6 +2206,14 @@ class __$$_DebitRequestCopyWithImpl<$Res>
           ? _value.reference
           : reference // ignore: cast_nullable_to_non_nullable
               as String?,
+      visible: freezed == visible
+          ? _value.visible
+          : visible // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      amount: freezed == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -2222,23 +2222,14 @@ class __$$_DebitRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_DebitRequest implements _DebitRequest {
   const _$_DebitRequest(
-      {this.visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.amount,
-      this.id,
+      {this.id,
       this.idempotency_key,
-      this.reference});
+      this.reference,
+      this.visible,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.amount});
 
   factory _$_DebitRequest.fromJson(Map<String, dynamic> json) =>
       _$$_DebitRequestFromJson(json);
-
-  /// if the transaction is visible
-  @override
-  final bool? visible;
-
-  /// amount to debit
-  @override
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? amount;
 
   /// wallet
   @override
@@ -2252,9 +2243,18 @@ class _$_DebitRequest implements _DebitRequest {
   @override
   final String? reference;
 
+  /// if the transaction is visible
+  @override
+  final bool? visible;
+
+  /// amount to debit
+  @override
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? amount;
+
   @override
   String toString() {
-    return 'DebitRequest(visible: $visible, amount: $amount, id: $id, idempotency_key: $idempotency_key, reference: $reference)';
+    return 'DebitRequest(id: $id, idempotency_key: $idempotency_key, reference: $reference, visible: $visible, amount: $amount)';
   }
 
   @override
@@ -2262,19 +2262,19 @@ class _$_DebitRequest implements _DebitRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DebitRequest &&
-            (identical(other.visible, visible) || other.visible == visible) &&
-            (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.idempotency_key, idempotency_key) ||
                 other.idempotency_key == idempotency_key) &&
             (identical(other.reference, reference) ||
-                other.reference == reference));
+                other.reference == reference) &&
+            (identical(other.visible, visible) || other.visible == visible) &&
+            (identical(other.amount, amount) || other.amount == amount));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, visible, amount, id, idempotency_key, reference);
+      Object.hash(runtimeType, id, idempotency_key, reference, visible, amount);
 
   @JsonKey(ignore: true)
   @override
@@ -2292,25 +2292,16 @@ class _$_DebitRequest implements _DebitRequest {
 
 abstract class _DebitRequest implements DebitRequest {
   const factory _DebitRequest(
-      {final bool? visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? amount,
-      final String? id,
+      {final String? id,
       final String? idempotency_key,
-      final String? reference}) = _$_DebitRequest;
+      final String? reference,
+      final bool? visible,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          final int? amount}) = _$_DebitRequest;
 
   factory _DebitRequest.fromJson(Map<String, dynamic> json) =
       _$_DebitRequest.fromJson;
 
-  @override
-
-  /// if the transaction is visible
-  bool? get visible;
-  @override
-
-  /// amount to debit
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get amount;
   @override
 
   /// wallet
@@ -2323,6 +2314,15 @@ abstract class _DebitRequest implements DebitRequest {
 
   /// reference note
   String? get reference;
+  @override
+
+  /// if the transaction is visible
+  bool? get visible;
+  @override
+
+  /// amount to debit
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get amount;
   @override
   @JsonKey(ignore: true)
   _$$_DebitRequestCopyWith<_$_DebitRequest> get copyWith =>
@@ -5080,9 +5080,6 @@ TransferRequest _$TransferRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TransferRequest {
-  /// visible?
-  bool? get visible => throw _privateConstructorUsedError;
-
   /// amount to transfer
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get amount => throw _privateConstructorUsedError;
@@ -5095,6 +5092,9 @@ mixin _$TransferRequest {
 
   /// to wallet id
   String? get to_id => throw _privateConstructorUsedError;
+
+  /// visible?
+  bool? get visible => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -5109,11 +5109,11 @@ abstract class $TransferRequestCopyWith<$Res> {
       _$TransferRequestCopyWithImpl<$Res, TransferRequest>;
   @useResult
   $Res call(
-      {bool? visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
       String? from_id,
       String? reference,
-      String? to_id});
+      String? to_id,
+      bool? visible});
 }
 
 /// @nodoc
@@ -5129,17 +5129,13 @@ class _$TransferRequestCopyWithImpl<$Res, $Val extends TransferRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? visible = freezed,
     Object? amount = freezed,
     Object? from_id = freezed,
     Object? reference = freezed,
     Object? to_id = freezed,
+    Object? visible = freezed,
   }) {
     return _then(_value.copyWith(
-      visible: freezed == visible
-          ? _value.visible
-          : visible // ignore: cast_nullable_to_non_nullable
-              as bool?,
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -5156,6 +5152,10 @@ class _$TransferRequestCopyWithImpl<$Res, $Val extends TransferRequest>
           ? _value.to_id
           : to_id // ignore: cast_nullable_to_non_nullable
               as String?,
+      visible: freezed == visible
+          ? _value.visible
+          : visible // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -5169,11 +5169,11 @@ abstract class _$$_TransferRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool? visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? amount,
       String? from_id,
       String? reference,
-      String? to_id});
+      String? to_id,
+      bool? visible});
 }
 
 /// @nodoc
@@ -5187,17 +5187,13 @@ class __$$_TransferRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? visible = freezed,
     Object? amount = freezed,
     Object? from_id = freezed,
     Object? reference = freezed,
     Object? to_id = freezed,
+    Object? visible = freezed,
   }) {
     return _then(_$_TransferRequest(
-      visible: freezed == visible
-          ? _value.visible
-          : visible // ignore: cast_nullable_to_non_nullable
-              as bool?,
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -5214,6 +5210,10 @@ class __$$_TransferRequestCopyWithImpl<$Res>
           ? _value.to_id
           : to_id // ignore: cast_nullable_to_non_nullable
               as String?,
+      visible: freezed == visible
+          ? _value.visible
+          : visible // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -5222,18 +5222,14 @@ class __$$_TransferRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TransferRequest implements _TransferRequest {
   const _$_TransferRequest(
-      {this.visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.amount,
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.amount,
       this.from_id,
       this.reference,
-      this.to_id});
+      this.to_id,
+      this.visible});
 
   factory _$_TransferRequest.fromJson(Map<String, dynamic> json) =>
       _$$_TransferRequestFromJson(json);
-
-  /// visible?
-  @override
-  final bool? visible;
 
   /// amount to transfer
   @override
@@ -5252,9 +5248,13 @@ class _$_TransferRequest implements _TransferRequest {
   @override
   final String? to_id;
 
+  /// visible?
+  @override
+  final bool? visible;
+
   @override
   String toString() {
-    return 'TransferRequest(visible: $visible, amount: $amount, from_id: $from_id, reference: $reference, to_id: $to_id)';
+    return 'TransferRequest(amount: $amount, from_id: $from_id, reference: $reference, to_id: $to_id, visible: $visible)';
   }
 
   @override
@@ -5262,18 +5262,18 @@ class _$_TransferRequest implements _TransferRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TransferRequest &&
-            (identical(other.visible, visible) || other.visible == visible) &&
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.from_id, from_id) || other.from_id == from_id) &&
             (identical(other.reference, reference) ||
                 other.reference == reference) &&
-            (identical(other.to_id, to_id) || other.to_id == to_id));
+            (identical(other.to_id, to_id) || other.to_id == to_id) &&
+            (identical(other.visible, visible) || other.visible == visible));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, visible, amount, from_id, reference, to_id);
+      Object.hash(runtimeType, amount, from_id, reference, to_id, visible);
 
   @JsonKey(ignore: true)
   @override
@@ -5291,20 +5291,16 @@ class _$_TransferRequest implements _TransferRequest {
 
 abstract class _TransferRequest implements TransferRequest {
   const factory _TransferRequest(
-      {final bool? visible,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? amount,
       final String? from_id,
       final String? reference,
-      final String? to_id}) = _$_TransferRequest;
+      final String? to_id,
+      final bool? visible}) = _$_TransferRequest;
 
   factory _TransferRequest.fromJson(Map<String, dynamic> json) =
       _$_TransferRequest.fromJson;
 
-  @override
-
-  /// visible?
-  bool? get visible;
   @override
 
   /// amount to transfer
@@ -5322,6 +5318,10 @@ abstract class _TransferRequest implements TransferRequest {
 
   /// to wallet id
   String? get to_id;
+  @override
+
+  /// visible?
+  bool? get visible;
   @override
   @JsonKey(ignore: true)
   _$$_TransferRequestCopyWith<_$_TransferRequest> get copyWith =>
