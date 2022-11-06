@@ -1,3 +1,9 @@
+## v1.0.214 - 2022-11-06
+
+[a769fe](https://github.com/micro/services/commit/a769fe20fd6d7b521264205e776ce55e12664684) Update README.md
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.213...v1.0.214
+
 ## v1.0.213 - 2022-11-04
 
 [f36e5e](https://github.com/micro/services/commit/f36e5eb3e4fbd58b351cfcc8786dee2da6a7a246) Update README.md
