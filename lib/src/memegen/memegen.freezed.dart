@@ -311,6 +311,12 @@ GenerateRequest _$GenerateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GenerateRequest {
+  /// top text
+  String? get top_text => throw _privateConstructorUsedError;
+
+  /// bottom text
+  String? get bottom_text => throw _privateConstructorUsedError;
+
   /// font: arial or impact
   String? get font => throw _privateConstructorUsedError;
 
@@ -319,12 +325,6 @@ mixin _$GenerateRequest {
 
   /// font size; defaults to 50px
   String? get max_font_size => throw _privateConstructorUsedError;
-
-  /// top text
-  String? get top_text => throw _privateConstructorUsedError;
-
-  /// bottom text
-  String? get bottom_text => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -339,11 +339,11 @@ abstract class $GenerateRequestCopyWith<$Res> {
       _$GenerateRequestCopyWithImpl<$Res, GenerateRequest>;
   @useResult
   $Res call(
-      {String? font,
+      {String? top_text,
+      String? bottom_text,
+      String? font,
       String? id,
-      String? max_font_size,
-      String? top_text,
-      String? bottom_text});
+      String? max_font_size});
 }
 
 /// @nodoc
@@ -359,13 +359,21 @@ class _$GenerateRequestCopyWithImpl<$Res, $Val extends GenerateRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? top_text = freezed,
+    Object? bottom_text = freezed,
     Object? font = freezed,
     Object? id = freezed,
     Object? max_font_size = freezed,
-    Object? top_text = freezed,
-    Object? bottom_text = freezed,
   }) {
     return _then(_value.copyWith(
+      top_text: freezed == top_text
+          ? _value.top_text
+          : top_text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bottom_text: freezed == bottom_text
+          ? _value.bottom_text
+          : bottom_text // ignore: cast_nullable_to_non_nullable
+              as String?,
       font: freezed == font
           ? _value.font
           : font // ignore: cast_nullable_to_non_nullable
@@ -377,14 +385,6 @@ class _$GenerateRequestCopyWithImpl<$Res, $Val extends GenerateRequest>
       max_font_size: freezed == max_font_size
           ? _value.max_font_size
           : max_font_size // ignore: cast_nullable_to_non_nullable
-              as String?,
-      top_text: freezed == top_text
-          ? _value.top_text
-          : top_text // ignore: cast_nullable_to_non_nullable
-              as String?,
-      bottom_text: freezed == bottom_text
-          ? _value.bottom_text
-          : bottom_text // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -399,11 +399,11 @@ abstract class _$$_GenerateRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? font,
+      {String? top_text,
+      String? bottom_text,
+      String? font,
       String? id,
-      String? max_font_size,
-      String? top_text,
-      String? bottom_text});
+      String? max_font_size});
 }
 
 /// @nodoc
@@ -417,13 +417,21 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? top_text = freezed,
+    Object? bottom_text = freezed,
     Object? font = freezed,
     Object? id = freezed,
     Object? max_font_size = freezed,
-    Object? top_text = freezed,
-    Object? bottom_text = freezed,
   }) {
     return _then(_$_GenerateRequest(
+      top_text: freezed == top_text
+          ? _value.top_text
+          : top_text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bottom_text: freezed == bottom_text
+          ? _value.bottom_text
+          : bottom_text // ignore: cast_nullable_to_non_nullable
+              as String?,
       font: freezed == font
           ? _value.font
           : font // ignore: cast_nullable_to_non_nullable
@@ -436,14 +444,6 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
           ? _value.max_font_size
           : max_font_size // ignore: cast_nullable_to_non_nullable
               as String?,
-      top_text: freezed == top_text
-          ? _value.top_text
-          : top_text // ignore: cast_nullable_to_non_nullable
-              as String?,
-      bottom_text: freezed == bottom_text
-          ? _value.bottom_text
-          : bottom_text // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -452,14 +452,22 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GenerateRequest implements _GenerateRequest {
   const _$_GenerateRequest(
-      {this.font,
+      {this.top_text,
+      this.bottom_text,
+      this.font,
       this.id,
-      this.max_font_size,
-      this.top_text,
-      this.bottom_text});
+      this.max_font_size});
 
   factory _$_GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_GenerateRequestFromJson(json);
+
+  /// top text
+  @override
+  final String? top_text;
+
+  /// bottom text
+  @override
+  final String? bottom_text;
 
   /// font: arial or impact
   @override
@@ -473,17 +481,9 @@ class _$_GenerateRequest implements _GenerateRequest {
   @override
   final String? max_font_size;
 
-  /// top text
-  @override
-  final String? top_text;
-
-  /// bottom text
-  @override
-  final String? bottom_text;
-
   @override
   String toString() {
-    return 'GenerateRequest(font: $font, id: $id, max_font_size: $max_font_size, top_text: $top_text, bottom_text: $bottom_text)';
+    return 'GenerateRequest(top_text: $top_text, bottom_text: $bottom_text, font: $font, id: $id, max_font_size: $max_font_size)';
   }
 
   @override
@@ -491,20 +491,20 @@ class _$_GenerateRequest implements _GenerateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GenerateRequest &&
-            (identical(other.font, font) || other.font == font) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.max_font_size, max_font_size) ||
-                other.max_font_size == max_font_size) &&
             (identical(other.top_text, top_text) ||
                 other.top_text == top_text) &&
             (identical(other.bottom_text, bottom_text) ||
-                other.bottom_text == bottom_text));
+                other.bottom_text == bottom_text) &&
+            (identical(other.font, font) || other.font == font) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.max_font_size, max_font_size) ||
+                other.max_font_size == max_font_size));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, font, id, max_font_size, top_text, bottom_text);
+      Object.hash(runtimeType, top_text, bottom_text, font, id, max_font_size);
 
   @JsonKey(ignore: true)
   @override
@@ -522,15 +522,23 @@ class _$_GenerateRequest implements _GenerateRequest {
 
 abstract class _GenerateRequest implements GenerateRequest {
   const factory _GenerateRequest(
-      {final String? font,
+      {final String? top_text,
+      final String? bottom_text,
+      final String? font,
       final String? id,
-      final String? max_font_size,
-      final String? top_text,
-      final String? bottom_text}) = _$_GenerateRequest;
+      final String? max_font_size}) = _$_GenerateRequest;
 
   factory _GenerateRequest.fromJson(Map<String, dynamic> json) =
       _$_GenerateRequest.fromJson;
 
+  @override
+
+  /// top text
+  String? get top_text;
+  @override
+
+  /// bottom text
+  String? get bottom_text;
   @override
 
   /// font: arial or impact
@@ -543,14 +551,6 @@ abstract class _GenerateRequest implements GenerateRequest {
 
   /// font size; defaults to 50px
   String? get max_font_size;
-  @override
-
-  /// top text
-  String? get top_text;
-  @override
-
-  /// bottom text
-  String? get bottom_text;
   @override
   @JsonKey(ignore: true)
   _$$_GenerateRequestCopyWith<_$_GenerateRequest> get copyWith =>
@@ -954,15 +954,6 @@ Template _$TemplateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Template {
-  /// name of the memegen
-  String? get name => throw _privateConstructorUsedError;
-
-  /// url of the memegen
-  String? get url => throw _privateConstructorUsedError;
-
-  /// width in pixels
-  int? get width => throw _privateConstructorUsedError;
-
   /// number of boxes used
   int? get box_count => throw _privateConstructorUsedError;
 
@@ -971,6 +962,15 @@ mixin _$Template {
 
   /// id of the memegen
   String? get id => throw _privateConstructorUsedError;
+
+  /// name of the memegen
+  String? get name => throw _privateConstructorUsedError;
+
+  /// url of the memegen
+  String? get url => throw _privateConstructorUsedError;
+
+  /// width in pixels
+  int? get width => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -984,12 +984,12 @@ abstract class $TemplateCopyWith<$Res> {
       _$TemplateCopyWithImpl<$Res, Template>;
   @useResult
   $Res call(
-      {String? name,
-      String? url,
-      int? width,
-      int? box_count,
+      {int? box_count,
       int? height,
-      String? id});
+      String? id,
+      String? name,
+      String? url,
+      int? width});
 }
 
 /// @nodoc
@@ -1005,26 +1005,14 @@ class _$TemplateCopyWithImpl<$Res, $Val extends Template>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? url = freezed,
-    Object? width = freezed,
     Object? box_count = freezed,
     Object? height = freezed,
     Object? id = freezed,
+    Object? name = freezed,
+    Object? url = freezed,
+    Object? width = freezed,
   }) {
     return _then(_value.copyWith(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: freezed == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      width: freezed == width
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
       box_count: freezed == box_count
           ? _value.box_count
           : box_count // ignore: cast_nullable_to_non_nullable
@@ -1037,6 +1025,18 @@ class _$TemplateCopyWithImpl<$Res, $Val extends Template>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      width: freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -1049,12 +1049,12 @@ abstract class _$$_TemplateCopyWith<$Res> implements $TemplateCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? name,
-      String? url,
-      int? width,
-      int? box_count,
+      {int? box_count,
       int? height,
-      String? id});
+      String? id,
+      String? name,
+      String? url,
+      int? width});
 }
 
 /// @nodoc
@@ -1068,26 +1068,14 @@ class __$$_TemplateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? url = freezed,
-    Object? width = freezed,
     Object? box_count = freezed,
     Object? height = freezed,
     Object? id = freezed,
+    Object? name = freezed,
+    Object? url = freezed,
+    Object? width = freezed,
   }) {
     return _then(_$_Template(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      url: freezed == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      width: freezed == width
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
       box_count: freezed == box_count
           ? _value.box_count
           : box_count // ignore: cast_nullable_to_non_nullable
@@ -1100,6 +1088,18 @@ class __$$_TemplateCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      width: freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -1108,22 +1108,10 @@ class __$$_TemplateCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Template implements _Template {
   const _$_Template(
-      {this.name, this.url, this.width, this.box_count, this.height, this.id});
+      {this.box_count, this.height, this.id, this.name, this.url, this.width});
 
   factory _$_Template.fromJson(Map<String, dynamic> json) =>
       _$$_TemplateFromJson(json);
-
-  /// name of the memegen
-  @override
-  final String? name;
-
-  /// url of the memegen
-  @override
-  final String? url;
-
-  /// width in pixels
-  @override
-  final int? width;
 
   /// number of boxes used
   @override
@@ -1137,9 +1125,21 @@ class _$_Template implements _Template {
   @override
   final String? id;
 
+  /// name of the memegen
+  @override
+  final String? name;
+
+  /// url of the memegen
+  @override
+  final String? url;
+
+  /// width in pixels
+  @override
+  final int? width;
+
   @override
   String toString() {
-    return 'Template(name: $name, url: $url, width: $width, box_count: $box_count, height: $height, id: $id)';
+    return 'Template(box_count: $box_count, height: $height, id: $id, name: $name, url: $url, width: $width)';
   }
 
   @override
@@ -1147,19 +1147,19 @@ class _$_Template implements _Template {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Template &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.url, url) || other.url == url) &&
-            (identical(other.width, width) || other.width == width) &&
             (identical(other.box_count, box_count) ||
                 other.box_count == box_count) &&
             (identical(other.height, height) || other.height == height) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.width, width) || other.width == width));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, url, width, box_count, height, id);
+      Object.hash(runtimeType, box_count, height, id, name, url, width);
 
   @JsonKey(ignore: true)
   @override
@@ -1177,27 +1177,15 @@ class _$_Template implements _Template {
 
 abstract class _Template implements Template {
   const factory _Template(
-      {final String? name,
-      final String? url,
-      final int? width,
-      final int? box_count,
+      {final int? box_count,
       final int? height,
-      final String? id}) = _$_Template;
+      final String? id,
+      final String? name,
+      final String? url,
+      final int? width}) = _$_Template;
 
   factory _Template.fromJson(Map<String, dynamic> json) = _$_Template.fromJson;
 
-  @override
-
-  /// name of the memegen
-  String? get name;
-  @override
-
-  /// url of the memegen
-  String? get url;
-  @override
-
-  /// width in pixels
-  int? get width;
   @override
 
   /// number of boxes used
@@ -1210,6 +1198,18 @@ abstract class _Template implements Template {
 
   /// id of the memegen
   String? get id;
+  @override
+
+  /// name of the memegen
+  String? get name;
+  @override
+
+  /// url of the memegen
+  String? get url;
+  @override
+
+  /// width in pixels
+  int? get width;
   @override
   @JsonKey(ignore: true)
   _$$_TemplateCopyWith<_$_Template> get copyWith =>

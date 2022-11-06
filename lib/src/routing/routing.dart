@@ -179,11 +179,11 @@ class Intersection with _$Intersection {
 @Freezed()
 class Maneuver with _$Maneuver {
   const factory Maneuver({
+    Point? location,
     String? action,
     double? bearing_after,
     double? bearing_before,
     String? direction,
-    Point? location,
   }) = _Maneuver;
   factory Maneuver.fromJson(Map<String, dynamic> json) =>
       _$ManeuverFromJson(json);

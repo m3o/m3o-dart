@@ -417,6 +417,12 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
+    /// a client side id, should be validated by the server to make the request retry safe
+    String? client,
+
+    /// id of the chat the message is being sent to / from
+    String? group_id,
+
     /// id of the message, allocated by the server
     String? id,
 
@@ -431,12 +437,6 @@ class Message with _$Message {
 
     /// id of the user who sent the message
     String? user_id,
-
-    /// a client side id, should be validated by the server to make the request retry safe
-    String? client,
-
-    /// id of the chat the message is being sent to / from
-    String? group_id,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
@@ -445,6 +445,9 @@ class Message with _$Message {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
+    /// a client side id, should be validated by the server to make the request retry safe
+    String? client,
+
     /// id of the group the message is being sent to / from
     String? group_id,
 
@@ -456,9 +459,6 @@ class SendRequest with _$SendRequest {
 
     /// id of the user who sent the message
     String? user_id,
-
-    /// a client side id, should be validated by the server to make the request retry safe
-    String? client,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);

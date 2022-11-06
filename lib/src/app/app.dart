@@ -234,11 +234,11 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class LogsRequest with _$LogsRequest {
   const factory LogsRequest({
-    /// type of logs to retrieve, currently supported options - "build"
-    String? logs_type,
-
     /// name of the app
     String? name,
+
+    /// type of logs to retrieve, currently supported options - "build"
+    String? logs_type,
   }) = _LogsRequest;
   factory LogsRequest.fromJson(Map<String, dynamic> json) =>
       _$LogsRequestFromJson(json);
@@ -342,6 +342,9 @@ class ResolveResponse with _$ResolveResponse {
 @Freezed()
 class RunRequest with _$RunRequest {
   const factory RunRequest({
+    /// source repository
+    String? repo,
+
     /// branch. defaults to master
     String? branch,
 
@@ -356,9 +359,6 @@ class RunRequest with _$RunRequest {
 
     /// region to run in
     String? region,
-
-    /// source repository
-    String? repo,
   }) = _RunRequest;
   factory RunRequest.fromJson(Map<String, dynamic> json) =>
       _$RunRequestFromJson(json);
@@ -379,20 +379,17 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
-    /// last updated
-    String? updated,
-
     /// app url
     String? url,
 
-    /// branch of code
-    String? branch,
-
-    /// time of creation
-    String? created,
+    /// raw backend endpoint
+    String? backend,
 
     /// custom domains
     List<String>? custom_domains,
+
+    /// associated env vars
+    Map<String, String>? env_vars,
 
     /// port running on
     int? port,
@@ -403,11 +400,14 @@ class Service with _$Service {
     /// status of the app
     String? status,
 
-    /// raw backend endpoint
-    String? backend,
+    /// last updated
+    String? updated,
 
-    /// associated env vars
-    Map<String, String>? env_vars,
+    /// branch of code
+    String? branch,
+
+    /// time of creation
+    String? created,
 
     /// unique id
     String? id,

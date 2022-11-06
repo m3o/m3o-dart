@@ -116,9 +116,6 @@ class PriceService {
 @Freezed()
 class AddRequest with _$AddRequest {
   const factory AddRequest({
-    /// name of the thing e.g bitcoin
-    String? name,
-
     /// price of the thing e.g 10001.00
     double? price,
 
@@ -133,6 +130,9 @@ class AddRequest with _$AddRequest {
 
     /// currency e.g USD
     String? currency,
+
+    /// name of the thing e.g bitcoin
+    String? name,
   }) = _AddRequest;
   factory AddRequest.fromJson(Map<String, dynamic> json) =>
       _$AddRequestFromJson(json);
@@ -212,14 +212,14 @@ class IndexResponse with _$IndexResponse {
 @Freezed()
 class ListRequest with _$ListRequest {
   const factory ListRequest({
+    /// offset to read from
+    int? offset,
+
     /// currency to get
     String? currency,
 
     /// limit number of values
     int? limit,
-
-    /// offset to read from
-    int? offset,
   }) = _ListRequest;
   factory ListRequest.fromJson(Map<String, dynamic> json) =>
       _$ListRequestFromJson(json);
@@ -239,10 +239,10 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Report with _$Report {
   const factory Report({
+    String? author,
     String? comment,
     String? name,
     String? symbol,
-    String? author,
   }) = _Report;
   factory Report.fromJson(Map<String, dynamic> json) => _$ReportFromJson(json);
 }
@@ -275,6 +275,12 @@ class ReportResponse with _$ReportResponse {
 @Freezed()
 class Value with _$Value {
   const factory Value({
+    /// time it was added
+    String? timestamp,
+
+    /// who added it
+    String? author,
+
     /// currency of thing
     String? currency,
 
@@ -289,12 +295,6 @@ class Value with _$Value {
 
     /// symbol of value
     String? symbol,
-
-    /// time it was added
-    String? timestamp,
-
-    /// who added it
-    String? author,
   }) = _Value;
   factory Value.fromJson(Map<String, dynamic> json) => _$ValueFromJson(json);
 }

@@ -96,9 +96,6 @@ class RssService {
 @Freezed()
 class AddRequest with _$AddRequest {
   const factory AddRequest({
-    /// category to add e.g news
-    String? category,
-
     /// rss feed name
     /// eg. a16z
     String? name,
@@ -106,6 +103,9 @@ class AddRequest with _$AddRequest {
     /// rss feed url
     /// eg. http://a16z.com/feed/
     String? url,
+
+    /// category to add e.g news
+    String? category,
   }) = _AddRequest;
   factory AddRequest.fromJson(Map<String, dynamic> json) =>
       _$AddRequestFromJson(json);
@@ -123,6 +123,15 @@ class AddResponse with _$AddResponse {
 @Freezed()
 class Entry with _$Entry {
   const factory Entry({
+    /// title of the entry
+    String? title,
+
+    /// article content
+    String? content,
+
+    /// data of the entry
+    String? date,
+
     /// the rss feed where it came from
     String? feed,
 
@@ -134,15 +143,6 @@ class Entry with _$Entry {
 
     /// article summary
     String? summary,
-
-    /// title of the entry
-    String? title,
-
-    /// article content
-    String? content,
-
-    /// data of the entry
-    String? date,
   }) = _Entry;
   factory Entry.fromJson(Map<String, dynamic> json) => _$EntryFromJson(json);
 }
@@ -150,10 +150,6 @@ class Entry with _$Entry {
 @Freezed()
 class Feed with _$Feed {
   const factory Feed({
-    /// rss feed url
-    /// eg. http://a16z.com/feed/
-    String? url,
-
     /// category of the feed e.g news
     String? category,
 
@@ -163,6 +159,10 @@ class Feed with _$Feed {
     /// rss feed name
     /// eg. a16z
     String? name,
+
+    /// rss feed url
+    /// eg. http://a16z.com/feed/
+    String? url,
   }) = _Feed;
   factory Feed.fromJson(Map<String, dynamic> json) => _$FeedFromJson(json);
 }
@@ -170,16 +170,16 @@ class Feed with _$Feed {
 @Freezed()
 class FeedRequest with _$FeedRequest {
   const factory FeedRequest({
+    /// offset entries
+
+    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? offset,
+
     /// limit entries returned
 
     @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? limit,
 
     /// rss feed name
     String? name,
-
-    /// offset entries
-
-    @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? offset,
   }) = _FeedRequest;
   factory FeedRequest.fromJson(Map<String, dynamic> json) =>
       _$FeedRequestFromJson(json);

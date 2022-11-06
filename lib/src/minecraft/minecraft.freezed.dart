@@ -768,11 +768,11 @@ PlayerSample _$PlayerSampleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PlayerSample {
-  /// unique id of player
-  String? get uuid => throw _privateConstructorUsedError;
-
   /// name of the player
   String? get name => throw _privateConstructorUsedError;
+
+  /// unique id of player
+  String? get uuid => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -786,7 +786,7 @@ abstract class $PlayerSampleCopyWith<$Res> {
           PlayerSample value, $Res Function(PlayerSample) then) =
       _$PlayerSampleCopyWithImpl<$Res, PlayerSample>;
   @useResult
-  $Res call({String? uuid, String? name});
+  $Res call({String? name, String? uuid});
 }
 
 /// @nodoc
@@ -802,17 +802,17 @@ class _$PlayerSampleCopyWithImpl<$Res, $Val extends PlayerSample>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
     Object? name = freezed,
+    Object? uuid = freezed,
   }) {
     return _then(_value.copyWith(
-      uuid: freezed == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      uuid: freezed == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -826,7 +826,7 @@ abstract class _$$_PlayerSampleCopyWith<$Res>
       __$$_PlayerSampleCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? uuid, String? name});
+  $Res call({String? name, String? uuid});
 }
 
 /// @nodoc
@@ -840,17 +840,17 @@ class __$$_PlayerSampleCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
     Object? name = freezed,
+    Object? uuid = freezed,
   }) {
     return _then(_$_PlayerSample(
-      uuid: freezed == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      uuid: freezed == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -859,22 +859,22 @@ class __$$_PlayerSampleCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PlayerSample implements _PlayerSample {
-  const _$_PlayerSample({this.uuid, this.name});
+  const _$_PlayerSample({this.name, this.uuid});
 
   factory _$_PlayerSample.fromJson(Map<String, dynamic> json) =>
       _$$_PlayerSampleFromJson(json);
-
-  /// unique id of player
-  @override
-  final String? uuid;
 
   /// name of the player
   @override
   final String? name;
 
+  /// unique id of player
+  @override
+  final String? uuid;
+
   @override
   String toString() {
-    return 'PlayerSample(uuid: $uuid, name: $name)';
+    return 'PlayerSample(name: $name, uuid: $uuid)';
   }
 
   @override
@@ -882,13 +882,13 @@ class _$_PlayerSample implements _PlayerSample {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PlayerSample &&
-            (identical(other.uuid, uuid) || other.uuid == uuid) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.uuid, uuid) || other.uuid == uuid));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uuid, name);
+  int get hashCode => Object.hash(runtimeType, name, uuid);
 
   @JsonKey(ignore: true)
   @override
@@ -905,7 +905,7 @@ class _$_PlayerSample implements _PlayerSample {
 }
 
 abstract class _PlayerSample implements PlayerSample {
-  const factory _PlayerSample({final String? uuid, final String? name}) =
+  const factory _PlayerSample({final String? name, final String? uuid}) =
       _$_PlayerSample;
 
   factory _PlayerSample.fromJson(Map<String, dynamic> json) =
@@ -913,12 +913,12 @@ abstract class _PlayerSample implements PlayerSample {
 
   @override
 
-  /// unique id of player
-  String? get uuid;
-  @override
-
   /// name of the player
   String? get name;
+  @override
+
+  /// unique id of player
+  String? get uuid;
   @override
   @JsonKey(ignore: true)
   _$$_PlayerSampleCopyWith<_$_PlayerSample> get copyWith =>

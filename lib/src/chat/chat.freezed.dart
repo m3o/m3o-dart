@@ -4812,6 +4812,12 @@ Message _$MessageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Message {
+  /// a client side id, should be validated by the server to make the request retry safe
+  String? get client => throw _privateConstructorUsedError;
+
+  /// id of the chat the message is being sent to / from
+  String? get group_id => throw _privateConstructorUsedError;
+
   /// id of the message, allocated by the server
   String? get id => throw _privateConstructorUsedError;
 
@@ -4827,12 +4833,6 @@ mixin _$Message {
   /// id of the user who sent the message
   String? get user_id => throw _privateConstructorUsedError;
 
-  /// a client side id, should be validated by the server to make the request retry safe
-  String? get client => throw _privateConstructorUsedError;
-
-  /// id of the chat the message is being sent to / from
-  String? get group_id => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MessageCopyWith<Message> get copyWith => throw _privateConstructorUsedError;
@@ -4844,13 +4844,13 @@ abstract class $MessageCopyWith<$Res> {
       _$MessageCopyWithImpl<$Res, Message>;
   @useResult
   $Res call(
-      {String? id,
+      {String? client,
+      String? group_id,
+      String? id,
       String? sent_at,
       String? subject,
       String? text,
-      String? user_id,
-      String? client,
-      String? group_id});
+      String? user_id});
 }
 
 /// @nodoc
@@ -4866,15 +4866,23 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? client = freezed,
+    Object? group_id = freezed,
     Object? id = freezed,
     Object? sent_at = freezed,
     Object? subject = freezed,
     Object? text = freezed,
     Object? user_id = freezed,
-    Object? client = freezed,
-    Object? group_id = freezed,
   }) {
     return _then(_value.copyWith(
+      client: freezed == client
+          ? _value.client
+          : client // ignore: cast_nullable_to_non_nullable
+              as String?,
+      group_id: freezed == group_id
+          ? _value.group_id
+          : group_id // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -4894,14 +4902,6 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
       user_id: freezed == user_id
           ? _value.user_id
           : user_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      client: freezed == client
-          ? _value.client
-          : client // ignore: cast_nullable_to_non_nullable
-              as String?,
-      group_id: freezed == group_id
-          ? _value.group_id
-          : group_id // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -4915,13 +4915,13 @@ abstract class _$$_MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? id,
+      {String? client,
+      String? group_id,
+      String? id,
       String? sent_at,
       String? subject,
       String? text,
-      String? user_id,
-      String? client,
-      String? group_id});
+      String? user_id});
 }
 
 /// @nodoc
@@ -4934,15 +4934,23 @@ class __$$_MessageCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? client = freezed,
+    Object? group_id = freezed,
     Object? id = freezed,
     Object? sent_at = freezed,
     Object? subject = freezed,
     Object? text = freezed,
     Object? user_id = freezed,
-    Object? client = freezed,
-    Object? group_id = freezed,
   }) {
     return _then(_$_Message(
+      client: freezed == client
+          ? _value.client
+          : client // ignore: cast_nullable_to_non_nullable
+              as String?,
+      group_id: freezed == group_id
+          ? _value.group_id
+          : group_id // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -4963,14 +4971,6 @@ class __$$_MessageCopyWithImpl<$Res>
           ? _value.user_id
           : user_id // ignore: cast_nullable_to_non_nullable
               as String?,
-      client: freezed == client
-          ? _value.client
-          : client // ignore: cast_nullable_to_non_nullable
-              as String?,
-      group_id: freezed == group_id
-          ? _value.group_id
-          : group_id // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -4979,16 +4979,24 @@ class __$$_MessageCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Message implements _Message {
   const _$_Message(
-      {this.id,
+      {this.client,
+      this.group_id,
+      this.id,
       this.sent_at,
       this.subject,
       this.text,
-      this.user_id,
-      this.client,
-      this.group_id});
+      this.user_id});
 
   factory _$_Message.fromJson(Map<String, dynamic> json) =>
       _$$_MessageFromJson(json);
+
+  /// a client side id, should be validated by the server to make the request retry safe
+  @override
+  final String? client;
+
+  /// id of the chat the message is being sent to / from
+  @override
+  final String? group_id;
 
   /// id of the message, allocated by the server
   @override
@@ -5010,17 +5018,9 @@ class _$_Message implements _Message {
   @override
   final String? user_id;
 
-  /// a client side id, should be validated by the server to make the request retry safe
-  @override
-  final String? client;
-
-  /// id of the chat the message is being sent to / from
-  @override
-  final String? group_id;
-
   @override
   String toString() {
-    return 'Message(id: $id, sent_at: $sent_at, subject: $subject, text: $text, user_id: $user_id, client: $client, group_id: $group_id)';
+    return 'Message(client: $client, group_id: $group_id, id: $id, sent_at: $sent_at, subject: $subject, text: $text, user_id: $user_id)';
   }
 
   @override
@@ -5028,20 +5028,20 @@ class _$_Message implements _Message {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Message &&
+            (identical(other.client, client) || other.client == client) &&
+            (identical(other.group_id, group_id) ||
+                other.group_id == group_id) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.sent_at, sent_at) || other.sent_at == sent_at) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.text, text) || other.text == text) &&
-            (identical(other.user_id, user_id) || other.user_id == user_id) &&
-            (identical(other.client, client) || other.client == client) &&
-            (identical(other.group_id, group_id) ||
-                other.group_id == group_id));
+            (identical(other.user_id, user_id) || other.user_id == user_id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, sent_at, subject, text, user_id, client, group_id);
+      runtimeType, client, group_id, id, sent_at, subject, text, user_id);
 
   @JsonKey(ignore: true)
   @override
@@ -5059,16 +5059,24 @@ class _$_Message implements _Message {
 
 abstract class _Message implements Message {
   const factory _Message(
-      {final String? id,
+      {final String? client,
+      final String? group_id,
+      final String? id,
       final String? sent_at,
       final String? subject,
       final String? text,
-      final String? user_id,
-      final String? client,
-      final String? group_id}) = _$_Message;
+      final String? user_id}) = _$_Message;
 
   factory _Message.fromJson(Map<String, dynamic> json) = _$_Message.fromJson;
 
+  @override
+
+  /// a client side id, should be validated by the server to make the request retry safe
+  String? get client;
+  @override
+
+  /// id of the chat the message is being sent to / from
+  String? get group_id;
   @override
 
   /// id of the message, allocated by the server
@@ -5090,14 +5098,6 @@ abstract class _Message implements Message {
   /// id of the user who sent the message
   String? get user_id;
   @override
-
-  /// a client side id, should be validated by the server to make the request retry safe
-  String? get client;
-  @override
-
-  /// id of the chat the message is being sent to / from
-  String? get group_id;
-  @override
   @JsonKey(ignore: true)
   _$$_MessageCopyWith<_$_Message> get copyWith =>
       throw _privateConstructorUsedError;
@@ -5109,6 +5109,9 @@ SendRequest _$SendRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SendRequest {
+  /// a client side id, should be validated by the server to make the request retry safe
+  String? get client => throw _privateConstructorUsedError;
+
   /// id of the group the message is being sent to / from
   String? get group_id => throw _privateConstructorUsedError;
 
@@ -5120,9 +5123,6 @@ mixin _$SendRequest {
 
   /// id of the user who sent the message
   String? get user_id => throw _privateConstructorUsedError;
-
-  /// a client side id, should be validated by the server to make the request retry safe
-  String? get client => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -5137,11 +5137,11 @@ abstract class $SendRequestCopyWith<$Res> {
       _$SendRequestCopyWithImpl<$Res, SendRequest>;
   @useResult
   $Res call(
-      {String? group_id,
+      {String? client,
+      String? group_id,
       String? subject,
       String? text,
-      String? user_id,
-      String? client});
+      String? user_id});
 }
 
 /// @nodoc
@@ -5157,13 +5157,17 @@ class _$SendRequestCopyWithImpl<$Res, $Val extends SendRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? client = freezed,
     Object? group_id = freezed,
     Object? subject = freezed,
     Object? text = freezed,
     Object? user_id = freezed,
-    Object? client = freezed,
   }) {
     return _then(_value.copyWith(
+      client: freezed == client
+          ? _value.client
+          : client // ignore: cast_nullable_to_non_nullable
+              as String?,
       group_id: freezed == group_id
           ? _value.group_id
           : group_id // ignore: cast_nullable_to_non_nullable
@@ -5179,10 +5183,6 @@ class _$SendRequestCopyWithImpl<$Res, $Val extends SendRequest>
       user_id: freezed == user_id
           ? _value.user_id
           : user_id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      client: freezed == client
-          ? _value.client
-          : client // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -5197,11 +5197,11 @@ abstract class _$$_SendRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? group_id,
+      {String? client,
+      String? group_id,
       String? subject,
       String? text,
-      String? user_id,
-      String? client});
+      String? user_id});
 }
 
 /// @nodoc
@@ -5215,13 +5215,17 @@ class __$$_SendRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? client = freezed,
     Object? group_id = freezed,
     Object? subject = freezed,
     Object? text = freezed,
     Object? user_id = freezed,
-    Object? client = freezed,
   }) {
     return _then(_$_SendRequest(
+      client: freezed == client
+          ? _value.client
+          : client // ignore: cast_nullable_to_non_nullable
+              as String?,
       group_id: freezed == group_id
           ? _value.group_id
           : group_id // ignore: cast_nullable_to_non_nullable
@@ -5238,10 +5242,6 @@ class __$$_SendRequestCopyWithImpl<$Res>
           ? _value.user_id
           : user_id // ignore: cast_nullable_to_non_nullable
               as String?,
-      client: freezed == client
-          ? _value.client
-          : client // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -5250,10 +5250,14 @@ class __$$_SendRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SendRequest implements _SendRequest {
   const _$_SendRequest(
-      {this.group_id, this.subject, this.text, this.user_id, this.client});
+      {this.client, this.group_id, this.subject, this.text, this.user_id});
 
   factory _$_SendRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SendRequestFromJson(json);
+
+  /// a client side id, should be validated by the server to make the request retry safe
+  @override
+  final String? client;
 
   /// id of the group the message is being sent to / from
   @override
@@ -5271,13 +5275,9 @@ class _$_SendRequest implements _SendRequest {
   @override
   final String? user_id;
 
-  /// a client side id, should be validated by the server to make the request retry safe
-  @override
-  final String? client;
-
   @override
   String toString() {
-    return 'SendRequest(group_id: $group_id, subject: $subject, text: $text, user_id: $user_id, client: $client)';
+    return 'SendRequest(client: $client, group_id: $group_id, subject: $subject, text: $text, user_id: $user_id)';
   }
 
   @override
@@ -5285,18 +5285,18 @@ class _$_SendRequest implements _SendRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SendRequest &&
+            (identical(other.client, client) || other.client == client) &&
             (identical(other.group_id, group_id) ||
                 other.group_id == group_id) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.text, text) || other.text == text) &&
-            (identical(other.user_id, user_id) || other.user_id == user_id) &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.user_id, user_id) || other.user_id == user_id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, group_id, subject, text, user_id, client);
+      Object.hash(runtimeType, client, group_id, subject, text, user_id);
 
   @JsonKey(ignore: true)
   @override
@@ -5314,15 +5314,19 @@ class _$_SendRequest implements _SendRequest {
 
 abstract class _SendRequest implements SendRequest {
   const factory _SendRequest(
-      {final String? group_id,
+      {final String? client,
+      final String? group_id,
       final String? subject,
       final String? text,
-      final String? user_id,
-      final String? client}) = _$_SendRequest;
+      final String? user_id}) = _$_SendRequest;
 
   factory _SendRequest.fromJson(Map<String, dynamic> json) =
       _$_SendRequest.fromJson;
 
+  @override
+
+  /// a client side id, should be validated by the server to make the request retry safe
+  String? get client;
   @override
 
   /// id of the group the message is being sent to / from
@@ -5339,10 +5343,6 @@ abstract class _SendRequest implements SendRequest {
 
   /// id of the user who sent the message
   String? get user_id;
-  @override
-
-  /// a client side id, should be validated by the server to make the request retry safe
-  String? get client;
   @override
   @JsonKey(ignore: true)
   _$$_SendRequestCopyWith<_$_SendRequest> get copyWith =>

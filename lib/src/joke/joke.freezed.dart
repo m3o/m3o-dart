@@ -20,11 +20,11 @@ JokeInfo _$JokeInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$JokeInfo {
+  String? get body => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
   String? get source => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
-  String? get body => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,11 +38,11 @@ abstract class $JokeInfoCopyWith<$Res> {
       _$JokeInfoCopyWithImpl<$Res, JokeInfo>;
   @useResult
   $Res call(
-      {String? category,
+      {String? body,
+      String? category,
       String? id,
       String? source,
-      String? title,
-      String? body});
+      String? title});
 }
 
 /// @nodoc
@@ -58,13 +58,17 @@ class _$JokeInfoCopyWithImpl<$Res, $Val extends JokeInfo>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? body = freezed,
     Object? category = freezed,
     Object? id = freezed,
     Object? source = freezed,
     Object? title = freezed,
-    Object? body = freezed,
   }) {
     return _then(_value.copyWith(
+      body: freezed == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String?,
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -80,10 +84,6 @@ class _$JokeInfoCopyWithImpl<$Res, $Val extends JokeInfo>
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      body: freezed == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -97,11 +97,11 @@ abstract class _$$_JokeInfoCopyWith<$Res> implements $JokeInfoCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? category,
+      {String? body,
+      String? category,
       String? id,
       String? source,
-      String? title,
-      String? body});
+      String? title});
 }
 
 /// @nodoc
@@ -115,13 +115,17 @@ class __$$_JokeInfoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? body = freezed,
     Object? category = freezed,
     Object? id = freezed,
     Object? source = freezed,
     Object? title = freezed,
-    Object? body = freezed,
   }) {
     return _then(_$_JokeInfo(
+      body: freezed == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String?,
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -138,10 +142,6 @@ class __$$_JokeInfoCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      body: freezed == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -150,11 +150,13 @@ class __$$_JokeInfoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_JokeInfo implements _JokeInfo {
   const _$_JokeInfo(
-      {this.category, this.id, this.source, this.title, this.body});
+      {this.body, this.category, this.id, this.source, this.title});
 
   factory _$_JokeInfo.fromJson(Map<String, dynamic> json) =>
       _$$_JokeInfoFromJson(json);
 
+  @override
+  final String? body;
   @override
   final String? category;
   @override
@@ -163,12 +165,10 @@ class _$_JokeInfo implements _JokeInfo {
   final String? source;
   @override
   final String? title;
-  @override
-  final String? body;
 
   @override
   String toString() {
-    return 'JokeInfo(category: $category, id: $id, source: $source, title: $title, body: $body)';
+    return 'JokeInfo(body: $body, category: $category, id: $id, source: $source, title: $title)';
   }
 
   @override
@@ -176,18 +176,18 @@ class _$_JokeInfo implements _JokeInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_JokeInfo &&
+            (identical(other.body, body) || other.body == body) &&
             (identical(other.category, category) ||
                 other.category == category) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.source, source) || other.source == source) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.body, body) || other.body == body));
+            (identical(other.title, title) || other.title == title));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, category, id, source, title, body);
+      Object.hash(runtimeType, body, category, id, source, title);
 
   @JsonKey(ignore: true)
   @override
@@ -205,14 +205,16 @@ class _$_JokeInfo implements _JokeInfo {
 
 abstract class _JokeInfo implements JokeInfo {
   const factory _JokeInfo(
-      {final String? category,
+      {final String? body,
+      final String? category,
       final String? id,
       final String? source,
-      final String? title,
-      final String? body}) = _$_JokeInfo;
+      final String? title}) = _$_JokeInfo;
 
   factory _JokeInfo.fromJson(Map<String, dynamic> json) = _$_JokeInfo.fromJson;
 
+  @override
+  String? get body;
   @override
   String? get category;
   @override
@@ -221,8 +223,6 @@ abstract class _JokeInfo implements JokeInfo {
   String? get source;
   @override
   String? get title;
-  @override
-  String? get body;
   @override
   @JsonKey(ignore: true)
   _$$_JokeInfoCopyWith<_$_JokeInfo> get copyWith =>

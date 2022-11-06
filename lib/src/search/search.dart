@@ -188,14 +188,14 @@ class Field with _$Field {
 @Freezed()
 class IndexRequest with _$IndexRequest {
   const factory IndexRequest({
+    /// The data to index
+    Map<String, dynamic>? data,
+
     /// Optional ID for the record
     String? id,
 
     /// The index this record belongs to
     String? index,
-
-    /// The data to index
-    Map<String, dynamic>? data,
   }) = _IndexRequest;
   factory IndexRequest.fromJson(Map<String, dynamic> json) =>
       _$IndexRequestFromJson(json);
@@ -216,11 +216,11 @@ class IndexResponse with _$IndexResponse {
 @Freezed()
 class Record with _$Record {
   const factory Record({
-    /// The ID for this record. If blank, one will be generated
-    String? id,
-
     /// The JSON contents of the record
     Map<String, dynamic>? data,
+
+    /// The ID for this record. If blank, one will be generated
+    String? id,
   }) = _Record;
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }
@@ -228,11 +228,11 @@ class Record with _$Record {
 @Freezed()
 class SearchRequest with _$SearchRequest {
   const factory SearchRequest({
-    /// The index the record belongs to
-    String? index,
-
     /// The query. See docs for query language examples
     String? query,
+
+    /// The index the record belongs to
+    String? index,
   }) = _SearchRequest;
   factory SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$SearchRequestFromJson(json);

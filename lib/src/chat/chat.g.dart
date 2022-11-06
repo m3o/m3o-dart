@@ -341,42 +341,42 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
     };
 
 _$_Message _$$_MessageFromJson(Map<String, dynamic> json) => _$_Message(
+      client: json['client'] as String?,
+      group_id: json['group_id'] as String?,
       id: json['id'] as String?,
       sent_at: json['sent_at'] as String?,
       subject: json['subject'] as String?,
       text: json['text'] as String?,
       user_id: json['user_id'] as String?,
-      client: json['client'] as String?,
-      group_id: json['group_id'] as String?,
     );
 
 Map<String, dynamic> _$$_MessageToJson(_$_Message instance) =>
     <String, dynamic>{
+      'client': instance.client,
+      'group_id': instance.group_id,
       'id': instance.id,
       'sent_at': instance.sent_at,
       'subject': instance.subject,
       'text': instance.text,
       'user_id': instance.user_id,
-      'client': instance.client,
-      'group_id': instance.group_id,
     };
 
 _$_SendRequest _$$_SendRequestFromJson(Map<String, dynamic> json) =>
     _$_SendRequest(
+      client: json['client'] as String?,
       group_id: json['group_id'] as String?,
       subject: json['subject'] as String?,
       text: json['text'] as String?,
       user_id: json['user_id'] as String?,
-      client: json['client'] as String?,
     );
 
 Map<String, dynamic> _$$_SendRequestToJson(_$_SendRequest instance) =>
     <String, dynamic>{
+      'client': instance.client,
       'group_id': instance.group_id,
       'subject': instance.subject,
       'text': instance.text,
       'user_id': instance.user_id,
-      'client': instance.client,
     };
 
 _$SendResponseData _$$SendResponseDataFromJson(Map<String, dynamic> json) =>

@@ -116,6 +116,12 @@ class CryptoService {
 @Freezed()
 class Article with _$Article {
   const factory Article({
+    /// title of the article
+    String? title,
+
+    /// the source url
+    String? url,
+
     /// the date published
     String? date,
 
@@ -124,12 +130,6 @@ class Article with _$Article {
 
     /// the source
     String? source,
-
-    /// title of the article
-    String? title,
-
-    /// the source url
-    String? url,
   }) = _Article;
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);
@@ -148,9 +148,6 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
-    /// the open price
-    double? open,
-
     /// the crypto symbol
     String? symbol,
 
@@ -168,6 +165,9 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the low price
     double? low,
+
+    /// the open price
+    double? open,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -238,6 +238,9 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
+    /// the crypto symbol
+    String? symbol,
+
     /// the UTC timestamp of the quote
     String? timestamp,
 
@@ -252,9 +255,6 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the bid size
     double? bid_size,
-
-    /// the crypto symbol
-    String? symbol,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;
@@ -265,8 +265,8 @@ class QuoteResponse with _$QuoteResponse {
 @Freezed()
 class Symbol with _$Symbol {
   const factory Symbol({
-    String? name,
     String? symbol,
+    String? name,
   }) = _Symbol;
   factory Symbol.fromJson(Map<String, dynamic> json) => _$SymbolFromJson(json);
 }
