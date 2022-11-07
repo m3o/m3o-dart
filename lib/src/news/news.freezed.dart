@@ -20,8 +20,11 @@ Article _$ArticleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Article {
-  /// time it was published
-  String? get published_at => throw _privateConstructorUsedError;
+  /// image url
+  String? get image_url => throw _privateConstructorUsedError;
+
+  /// the locale
+  String? get locale => throw _privateConstructorUsedError;
 
   /// first 60 characters of article body
   String? get snippet => throw _privateConstructorUsedError;
@@ -35,26 +38,23 @@ mixin _$Article {
   /// article id
   String? get id => throw _privateConstructorUsedError;
 
-  /// image url
-  String? get image_url => throw _privateConstructorUsedError;
-
   /// related keywords
   String? get keywords => throw _privateConstructorUsedError;
-
-  /// the locale
-  String? get locale => throw _privateConstructorUsedError;
-
-  /// article title
-  String? get title => throw _privateConstructorUsedError;
-
-  /// categories
-  List<String>? get categories => throw _privateConstructorUsedError;
 
   /// the article language
   String? get language => throw _privateConstructorUsedError;
 
+  /// time it was published
+  String? get published_at => throw _privateConstructorUsedError;
+
+  /// article title
+  String? get title => throw _privateConstructorUsedError;
+
   /// url of the article
   String? get url => throw _privateConstructorUsedError;
+
+  /// categories
+  List<String>? get categories => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -67,18 +67,18 @@ abstract class $ArticleCopyWith<$Res> {
       _$ArticleCopyWithImpl<$Res, Article>;
   @useResult
   $Res call(
-      {String? published_at,
+      {String? image_url,
+      String? locale,
       String? snippet,
       String? source,
       String? description,
       String? id,
-      String? image_url,
       String? keywords,
-      String? locale,
-      String? title,
-      List<String>? categories,
       String? language,
-      String? url});
+      String? published_at,
+      String? title,
+      String? url,
+      List<String>? categories});
 }
 
 /// @nodoc
@@ -94,23 +94,27 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? published_at = freezed,
+    Object? image_url = freezed,
+    Object? locale = freezed,
     Object? snippet = freezed,
     Object? source = freezed,
     Object? description = freezed,
     Object? id = freezed,
-    Object? image_url = freezed,
     Object? keywords = freezed,
-    Object? locale = freezed,
-    Object? title = freezed,
-    Object? categories = freezed,
     Object? language = freezed,
+    Object? published_at = freezed,
+    Object? title = freezed,
     Object? url = freezed,
+    Object? categories = freezed,
   }) {
     return _then(_value.copyWith(
-      published_at: freezed == published_at
-          ? _value.published_at
-          : published_at // ignore: cast_nullable_to_non_nullable
+      image_url: freezed == image_url
+          ? _value.image_url
+          : image_url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      locale: freezed == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
               as String?,
       snippet: freezed == snippet
           ? _value.snippet
@@ -128,34 +132,30 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      image_url: freezed == image_url
-          ? _value.image_url
-          : image_url // ignore: cast_nullable_to_non_nullable
-              as String?,
       keywords: freezed == keywords
           ? _value.keywords
           : keywords // ignore: cast_nullable_to_non_nullable
               as String?,
-      locale: freezed == locale
-          ? _value.locale
-          : locale // ignore: cast_nullable_to_non_nullable
+      language: freezed == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String?,
+      published_at: freezed == published_at
+          ? _value.published_at
+          : published_at // ignore: cast_nullable_to_non_nullable
               as String?,
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      categories: freezed == categories
-          ? _value.categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      language: freezed == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String?,
       url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
+      categories: freezed == categories
+          ? _value.categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -168,18 +168,18 @@ abstract class _$$_ArticleCopyWith<$Res> implements $ArticleCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? published_at,
+      {String? image_url,
+      String? locale,
       String? snippet,
       String? source,
       String? description,
       String? id,
-      String? image_url,
       String? keywords,
-      String? locale,
-      String? title,
-      List<String>? categories,
       String? language,
-      String? url});
+      String? published_at,
+      String? title,
+      String? url,
+      List<String>? categories});
 }
 
 /// @nodoc
@@ -192,23 +192,27 @@ class __$$_ArticleCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? published_at = freezed,
+    Object? image_url = freezed,
+    Object? locale = freezed,
     Object? snippet = freezed,
     Object? source = freezed,
     Object? description = freezed,
     Object? id = freezed,
-    Object? image_url = freezed,
     Object? keywords = freezed,
-    Object? locale = freezed,
-    Object? title = freezed,
-    Object? categories = freezed,
     Object? language = freezed,
+    Object? published_at = freezed,
+    Object? title = freezed,
     Object? url = freezed,
+    Object? categories = freezed,
   }) {
     return _then(_$_Article(
-      published_at: freezed == published_at
-          ? _value.published_at
-          : published_at // ignore: cast_nullable_to_non_nullable
+      image_url: freezed == image_url
+          ? _value.image_url
+          : image_url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      locale: freezed == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
               as String?,
       snippet: freezed == snippet
           ? _value.snippet
@@ -226,34 +230,30 @@ class __$$_ArticleCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      image_url: freezed == image_url
-          ? _value.image_url
-          : image_url // ignore: cast_nullable_to_non_nullable
-              as String?,
       keywords: freezed == keywords
           ? _value.keywords
           : keywords // ignore: cast_nullable_to_non_nullable
               as String?,
-      locale: freezed == locale
-          ? _value.locale
-          : locale // ignore: cast_nullable_to_non_nullable
+      language: freezed == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String?,
+      published_at: freezed == published_at
+          ? _value.published_at
+          : published_at // ignore: cast_nullable_to_non_nullable
               as String?,
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      categories: freezed == categories
-          ? _value._categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      language: freezed == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String?,
       url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
+      categories: freezed == categories
+          ? _value._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -262,26 +262,30 @@ class __$$_ArticleCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Article implements _Article {
   const _$_Article(
-      {this.published_at,
+      {this.image_url,
+      this.locale,
       this.snippet,
       this.source,
       this.description,
       this.id,
-      this.image_url,
       this.keywords,
-      this.locale,
-      this.title,
-      final List<String>? categories,
       this.language,
-      this.url})
+      this.published_at,
+      this.title,
+      this.url,
+      final List<String>? categories})
       : _categories = categories;
 
   factory _$_Article.fromJson(Map<String, dynamic> json) =>
       _$$_ArticleFromJson(json);
 
-  /// time it was published
+  /// image url
   @override
-  final String? published_at;
+  final String? image_url;
+
+  /// the locale
+  @override
+  final String? locale;
 
   /// first 60 characters of article body
   @override
@@ -299,21 +303,25 @@ class _$_Article implements _Article {
   @override
   final String? id;
 
-  /// image url
-  @override
-  final String? image_url;
-
   /// related keywords
   @override
   final String? keywords;
 
-  /// the locale
+  /// the article language
   @override
-  final String? locale;
+  final String? language;
+
+  /// time it was published
+  @override
+  final String? published_at;
 
   /// article title
   @override
   final String? title;
+
+  /// url of the article
+  @override
+  final String? url;
 
   /// categories
   final List<String>? _categories;
@@ -327,17 +335,9 @@ class _$_Article implements _Article {
     return EqualUnmodifiableListView(value);
   }
 
-  /// the article language
-  @override
-  final String? language;
-
-  /// url of the article
-  @override
-  final String? url;
-
   @override
   String toString() {
-    return 'Article(published_at: $published_at, snippet: $snippet, source: $source, description: $description, id: $id, image_url: $image_url, keywords: $keywords, locale: $locale, title: $title, categories: $categories, language: $language, url: $url)';
+    return 'Article(image_url: $image_url, locale: $locale, snippet: $snippet, source: $source, description: $description, id: $id, keywords: $keywords, language: $language, published_at: $published_at, title: $title, url: $url, categories: $categories)';
   }
 
   @override
@@ -345,42 +345,42 @@ class _$_Article implements _Article {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Article &&
-            (identical(other.published_at, published_at) ||
-                other.published_at == published_at) &&
+            (identical(other.image_url, image_url) ||
+                other.image_url == image_url) &&
+            (identical(other.locale, locale) || other.locale == locale) &&
             (identical(other.snippet, snippet) || other.snippet == snippet) &&
             (identical(other.source, source) || other.source == source) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.image_url, image_url) ||
-                other.image_url == image_url) &&
             (identical(other.keywords, keywords) ||
                 other.keywords == keywords) &&
-            (identical(other.locale, locale) || other.locale == locale) &&
-            (identical(other.title, title) || other.title == title) &&
-            const DeepCollectionEquality()
-                .equals(other._categories, _categories) &&
             (identical(other.language, language) ||
                 other.language == language) &&
-            (identical(other.url, url) || other.url == url));
+            (identical(other.published_at, published_at) ||
+                other.published_at == published_at) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.url, url) || other.url == url) &&
+            const DeepCollectionEquality()
+                .equals(other._categories, _categories));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      published_at,
+      image_url,
+      locale,
       snippet,
       source,
       description,
       id,
-      image_url,
       keywords,
-      locale,
-      title,
-      const DeepCollectionEquality().hash(_categories),
       language,
-      url);
+      published_at,
+      title,
+      url,
+      const DeepCollectionEquality().hash(_categories));
 
   @JsonKey(ignore: true)
   @override
@@ -398,25 +398,29 @@ class _$_Article implements _Article {
 
 abstract class _Article implements Article {
   const factory _Article(
-      {final String? published_at,
+      {final String? image_url,
+      final String? locale,
       final String? snippet,
       final String? source,
       final String? description,
       final String? id,
-      final String? image_url,
       final String? keywords,
-      final String? locale,
-      final String? title,
-      final List<String>? categories,
       final String? language,
-      final String? url}) = _$_Article;
+      final String? published_at,
+      final String? title,
+      final String? url,
+      final List<String>? categories}) = _$_Article;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$_Article.fromJson;
 
   @override
 
-  /// time it was published
-  String? get published_at;
+  /// image url
+  String? get image_url;
+  @override
+
+  /// the locale
+  String? get locale;
   @override
 
   /// first 60 characters of article body
@@ -435,32 +439,28 @@ abstract class _Article implements Article {
   String? get id;
   @override
 
-  /// image url
-  String? get image_url;
-  @override
-
   /// related keywords
   String? get keywords;
-  @override
-
-  /// the locale
-  String? get locale;
-  @override
-
-  /// article title
-  String? get title;
-  @override
-
-  /// categories
-  List<String>? get categories;
   @override
 
   /// the article language
   String? get language;
   @override
 
+  /// time it was published
+  String? get published_at;
+  @override
+
+  /// article title
+  String? get title;
+  @override
+
   /// url of the article
   String? get url;
+  @override
+
+  /// categories
+  List<String>? get categories;
   @override
   @JsonKey(ignore: true)
   _$$_ArticleCopyWith<_$_Article> get copyWith =>
@@ -1059,14 +1059,14 @@ TopStoriesRequest _$TopStoriesRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TopStoriesRequest {
+  /// comma separated list of countries to include e.g us,ca
+  String? get locale => throw _privateConstructorUsedError;
+
   /// date published on in YYYY-MM-DD format
   String? get date => throw _privateConstructorUsedError;
 
   /// comma separated list of languages to retrieve in e.g en,es
   String? get language => throw _privateConstructorUsedError;
-
-  /// comma separated list of countries to include e.g us,ca
-  String? get locale => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1080,7 +1080,7 @@ abstract class $TopStoriesRequestCopyWith<$Res> {
           TopStoriesRequest value, $Res Function(TopStoriesRequest) then) =
       _$TopStoriesRequestCopyWithImpl<$Res, TopStoriesRequest>;
   @useResult
-  $Res call({String? date, String? language, String? locale});
+  $Res call({String? locale, String? date, String? language});
 }
 
 /// @nodoc
@@ -1096,11 +1096,15 @@ class _$TopStoriesRequestCopyWithImpl<$Res, $Val extends TopStoriesRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? locale = freezed,
     Object? date = freezed,
     Object? language = freezed,
-    Object? locale = freezed,
   }) {
     return _then(_value.copyWith(
+      locale: freezed == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as String?,
       date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -1108,10 +1112,6 @@ class _$TopStoriesRequestCopyWithImpl<$Res, $Val extends TopStoriesRequest>
       language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String?,
-      locale: freezed == locale
-          ? _value.locale
-          : locale // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1125,7 +1125,7 @@ abstract class _$$_TopStoriesRequestCopyWith<$Res>
       __$$_TopStoriesRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? date, String? language, String? locale});
+  $Res call({String? locale, String? date, String? language});
 }
 
 /// @nodoc
@@ -1139,11 +1139,15 @@ class __$$_TopStoriesRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? locale = freezed,
     Object? date = freezed,
     Object? language = freezed,
-    Object? locale = freezed,
   }) {
     return _then(_$_TopStoriesRequest(
+      locale: freezed == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as String?,
       date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -1152,10 +1156,6 @@ class __$$_TopStoriesRequestCopyWithImpl<$Res>
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as String?,
-      locale: freezed == locale
-          ? _value.locale
-          : locale // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1163,10 +1163,14 @@ class __$$_TopStoriesRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_TopStoriesRequest implements _TopStoriesRequest {
-  const _$_TopStoriesRequest({this.date, this.language, this.locale});
+  const _$_TopStoriesRequest({this.locale, this.date, this.language});
 
   factory _$_TopStoriesRequest.fromJson(Map<String, dynamic> json) =>
       _$$_TopStoriesRequestFromJson(json);
+
+  /// comma separated list of countries to include e.g us,ca
+  @override
+  final String? locale;
 
   /// date published on in YYYY-MM-DD format
   @override
@@ -1176,13 +1180,9 @@ class _$_TopStoriesRequest implements _TopStoriesRequest {
   @override
   final String? language;
 
-  /// comma separated list of countries to include e.g us,ca
-  @override
-  final String? locale;
-
   @override
   String toString() {
-    return 'TopStoriesRequest(date: $date, language: $language, locale: $locale)';
+    return 'TopStoriesRequest(locale: $locale, date: $date, language: $language)';
   }
 
   @override
@@ -1190,15 +1190,15 @@ class _$_TopStoriesRequest implements _TopStoriesRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TopStoriesRequest &&
+            (identical(other.locale, locale) || other.locale == locale) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.language, language) ||
-                other.language == language) &&
-            (identical(other.locale, locale) || other.locale == locale));
+                other.language == language));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, date, language, locale);
+  int get hashCode => Object.hash(runtimeType, locale, date, language);
 
   @JsonKey(ignore: true)
   @override
@@ -1217,13 +1217,17 @@ class _$_TopStoriesRequest implements _TopStoriesRequest {
 
 abstract class _TopStoriesRequest implements TopStoriesRequest {
   const factory _TopStoriesRequest(
-      {final String? date,
-      final String? language,
-      final String? locale}) = _$_TopStoriesRequest;
+      {final String? locale,
+      final String? date,
+      final String? language}) = _$_TopStoriesRequest;
 
   factory _TopStoriesRequest.fromJson(Map<String, dynamic> json) =
       _$_TopStoriesRequest.fromJson;
 
+  @override
+
+  /// comma separated list of countries to include e.g us,ca
+  String? get locale;
   @override
 
   /// date published on in YYYY-MM-DD format
@@ -1232,10 +1236,6 @@ abstract class _TopStoriesRequest implements TopStoriesRequest {
 
   /// comma separated list of languages to retrieve in e.g en,es
   String? get language;
-  @override
-
-  /// comma separated list of countries to include e.g us,ca
-  String? get locale;
   @override
   @JsonKey(ignore: true)
   _$$_TopStoriesRequestCopyWith<_$_TopStoriesRequest> get copyWith =>

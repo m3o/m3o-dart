@@ -96,11 +96,11 @@ class CurrencyService {
 @Freezed()
 class Code with _$Code {
   const factory Code({
-    /// e.g United States Dollar
-    String? currency,
-
     /// e.g USD
     String? name,
+
+    /// e.g United States Dollar
+    String? currency,
   }) = _Code;
   factory Code.fromJson(Map<String, dynamic> json) => _$CodeFromJson(json);
 }
@@ -142,6 +142,9 @@ class ConvertRequest with _$ConvertRequest {
 @Freezed()
 class ConvertResponse with _$ConvertResponse {
   const factory ConvertResponse({
+    /// the target code e.g GBP
+    String? to,
+
     /// converted amount e.g 7.10
     double? amount,
 
@@ -150,9 +153,6 @@ class ConvertResponse with _$ConvertResponse {
 
     /// conversion rate e.g 0.71
     double? rate,
-
-    /// the target code e.g GBP
-    String? to,
   }) = ConvertResponseData;
   const factory ConvertResponse.Merr({Map<String, dynamic>? body}) =
       ConvertResponseMerr;
@@ -163,11 +163,11 @@ class ConvertResponse with _$ConvertResponse {
 @Freezed()
 class HistoryRequest with _$HistoryRequest {
   const factory HistoryRequest({
-    /// date formatted as YYYY-MM-DD
-    String? date,
-
     /// currency code e.g USD
     String? code,
+
+    /// date formatted as YYYY-MM-DD
+    String? date,
   }) = _HistoryRequest;
   factory HistoryRequest.fromJson(Map<String, dynamic> json) =>
       _$HistoryRequestFromJson(json);

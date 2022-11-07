@@ -20,6 +20,9 @@ AddRequest _$AddRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AddRequest {
+  /// name of the thing e.g bitcoin
+  String? get name => throw _privateConstructorUsedError;
+
   /// price of the thing e.g 10001.00
   double? get price => throw _privateConstructorUsedError;
 
@@ -35,9 +38,6 @@ mixin _$AddRequest {
   /// currency e.g USD
   String? get currency => throw _privateConstructorUsedError;
 
-  /// name of the thing e.g bitcoin
-  String? get name => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AddRequestCopyWith<AddRequest> get copyWith =>
@@ -51,12 +51,12 @@ abstract class $AddRequestCopyWith<$Res> {
       _$AddRequestCopyWithImpl<$Res, AddRequest>;
   @useResult
   $Res call(
-      {double? price,
+      {String? name,
+      double? price,
       String? source,
       String? symbol,
       String? author,
-      String? currency,
-      String? name});
+      String? currency});
 }
 
 /// @nodoc
@@ -72,14 +72,18 @@ class _$AddRequestCopyWithImpl<$Res, $Val extends AddRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? name = freezed,
     Object? price = freezed,
     Object? source = freezed,
     Object? symbol = freezed,
     Object? author = freezed,
     Object? currency = freezed,
-    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
@@ -99,10 +103,6 @@ class _$AddRequestCopyWithImpl<$Res, $Val extends AddRequest>
       currency: freezed == currency
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -117,12 +117,12 @@ abstract class _$$_AddRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {double? price,
+      {String? name,
+      double? price,
       String? source,
       String? symbol,
       String? author,
-      String? currency,
-      String? name});
+      String? currency});
 }
 
 /// @nodoc
@@ -136,14 +136,18 @@ class __$$_AddRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? name = freezed,
     Object? price = freezed,
     Object? source = freezed,
     Object? symbol = freezed,
     Object? author = freezed,
     Object? currency = freezed,
-    Object? name = freezed,
   }) {
     return _then(_$_AddRequest(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
@@ -164,10 +168,6 @@ class __$$_AddRequestCopyWithImpl<$Res>
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -176,15 +176,19 @@ class __$$_AddRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_AddRequest implements _AddRequest {
   const _$_AddRequest(
-      {this.price,
+      {this.name,
+      this.price,
       this.source,
       this.symbol,
       this.author,
-      this.currency,
-      this.name});
+      this.currency});
 
   factory _$_AddRequest.fromJson(Map<String, dynamic> json) =>
       _$$_AddRequestFromJson(json);
+
+  /// name of the thing e.g bitcoin
+  @override
+  final String? name;
 
   /// price of the thing e.g 10001.00
   @override
@@ -206,13 +210,9 @@ class _$_AddRequest implements _AddRequest {
   @override
   final String? currency;
 
-  /// name of the thing e.g bitcoin
-  @override
-  final String? name;
-
   @override
   String toString() {
-    return 'AddRequest(price: $price, source: $source, symbol: $symbol, author: $author, currency: $currency, name: $name)';
+    return 'AddRequest(name: $name, price: $price, source: $source, symbol: $symbol, author: $author, currency: $currency)';
   }
 
   @override
@@ -220,19 +220,19 @@ class _$_AddRequest implements _AddRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddRequest &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.price, price) || other.price == price) &&
             (identical(other.source, source) || other.source == source) &&
             (identical(other.symbol, symbol) || other.symbol == symbol) &&
             (identical(other.author, author) || other.author == author) &&
             (identical(other.currency, currency) ||
-                other.currency == currency) &&
-            (identical(other.name, name) || other.name == name));
+                other.currency == currency));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, price, source, symbol, author, currency, name);
+      Object.hash(runtimeType, name, price, source, symbol, author, currency);
 
   @JsonKey(ignore: true)
   @override
@@ -250,16 +250,20 @@ class _$_AddRequest implements _AddRequest {
 
 abstract class _AddRequest implements AddRequest {
   const factory _AddRequest(
-      {final double? price,
+      {final String? name,
+      final double? price,
       final String? source,
       final String? symbol,
       final String? author,
-      final String? currency,
-      final String? name}) = _$_AddRequest;
+      final String? currency}) = _$_AddRequest;
 
   factory _AddRequest.fromJson(Map<String, dynamic> json) =
       _$_AddRequest.fromJson;
 
+  @override
+
+  /// name of the thing e.g bitcoin
+  String? get name;
   @override
 
   /// price of the thing e.g 10001.00
@@ -280,10 +284,6 @@ abstract class _AddRequest implements AddRequest {
 
   /// currency e.g USD
   String? get currency;
-  @override
-
-  /// name of the thing e.g bitcoin
-  String? get name;
   @override
   @JsonKey(ignore: true)
   _$$_AddRequestCopyWith<_$_AddRequest> get copyWith =>
@@ -1936,14 +1936,14 @@ ListRequest _$ListRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListRequest {
+  /// limit number of values
+  int? get limit => throw _privateConstructorUsedError;
+
   /// offset to read from
   int? get offset => throw _privateConstructorUsedError;
 
   /// currency to get
   String? get currency => throw _privateConstructorUsedError;
-
-  /// limit number of values
-  int? get limit => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1957,7 +1957,7 @@ abstract class $ListRequestCopyWith<$Res> {
           ListRequest value, $Res Function(ListRequest) then) =
       _$ListRequestCopyWithImpl<$Res, ListRequest>;
   @useResult
-  $Res call({int? offset, String? currency, int? limit});
+  $Res call({int? limit, int? offset, String? currency});
 }
 
 /// @nodoc
@@ -1973,11 +1973,15 @@ class _$ListRequestCopyWithImpl<$Res, $Val extends ListRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? limit = freezed,
     Object? offset = freezed,
     Object? currency = freezed,
-    Object? limit = freezed,
   }) {
     return _then(_value.copyWith(
+      limit: freezed == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int?,
       offset: freezed == offset
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
@@ -1986,10 +1990,6 @@ class _$ListRequestCopyWithImpl<$Res, $Val extends ListRequest>
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: freezed == limit
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int?,
     ) as $Val);
   }
 }
@@ -2002,7 +2002,7 @@ abstract class _$$_ListRequestCopyWith<$Res>
       __$$_ListRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? offset, String? currency, int? limit});
+  $Res call({int? limit, int? offset, String? currency});
 }
 
 /// @nodoc
@@ -2016,11 +2016,15 @@ class __$$_ListRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? limit = freezed,
     Object? offset = freezed,
     Object? currency = freezed,
-    Object? limit = freezed,
   }) {
     return _then(_$_ListRequest(
+      limit: freezed == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int?,
       offset: freezed == offset
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
@@ -2029,10 +2033,6 @@ class __$$_ListRequestCopyWithImpl<$Res>
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: freezed == limit
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -2040,10 +2040,14 @@ class __$$_ListRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ListRequest implements _ListRequest {
-  const _$_ListRequest({this.offset, this.currency, this.limit});
+  const _$_ListRequest({this.limit, this.offset, this.currency});
 
   factory _$_ListRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ListRequestFromJson(json);
+
+  /// limit number of values
+  @override
+  final int? limit;
 
   /// offset to read from
   @override
@@ -2053,13 +2057,9 @@ class _$_ListRequest implements _ListRequest {
   @override
   final String? currency;
 
-  /// limit number of values
-  @override
-  final int? limit;
-
   @override
   String toString() {
-    return 'ListRequest(offset: $offset, currency: $currency, limit: $limit)';
+    return 'ListRequest(limit: $limit, offset: $offset, currency: $currency)';
   }
 
   @override
@@ -2067,15 +2067,15 @@ class _$_ListRequest implements _ListRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ListRequest &&
+            (identical(other.limit, limit) || other.limit == limit) &&
             (identical(other.offset, offset) || other.offset == offset) &&
             (identical(other.currency, currency) ||
-                other.currency == currency) &&
-            (identical(other.limit, limit) || other.limit == limit));
+                other.currency == currency));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, offset, currency, limit);
+  int get hashCode => Object.hash(runtimeType, limit, offset, currency);
 
   @JsonKey(ignore: true)
   @override
@@ -2093,13 +2093,17 @@ class _$_ListRequest implements _ListRequest {
 
 abstract class _ListRequest implements ListRequest {
   const factory _ListRequest(
-      {final int? offset,
-      final String? currency,
-      final int? limit}) = _$_ListRequest;
+      {final int? limit,
+      final int? offset,
+      final String? currency}) = _$_ListRequest;
 
   factory _ListRequest.fromJson(Map<String, dynamic> json) =
       _$_ListRequest.fromJson;
 
+  @override
+
+  /// limit number of values
+  int? get limit;
   @override
 
   /// offset to read from
@@ -2108,10 +2112,6 @@ abstract class _ListRequest implements ListRequest {
 
   /// currency to get
   String? get currency;
-  @override
-
-  /// limit number of values
-  int? get limit;
   @override
   @JsonKey(ignore: true)
   _$$_ListRequestCopyWith<_$_ListRequest> get copyWith =>
@@ -2519,10 +2519,10 @@ Report _$ReportFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Report {
-  String? get author => throw _privateConstructorUsedError;
   String? get comment => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get symbol => throw _privateConstructorUsedError;
+  String? get author => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2534,7 +2534,7 @@ abstract class $ReportCopyWith<$Res> {
   factory $ReportCopyWith(Report value, $Res Function(Report) then) =
       _$ReportCopyWithImpl<$Res, Report>;
   @useResult
-  $Res call({String? author, String? comment, String? name, String? symbol});
+  $Res call({String? comment, String? name, String? symbol, String? author});
 }
 
 /// @nodoc
@@ -2550,16 +2550,12 @@ class _$ReportCopyWithImpl<$Res, $Val extends Report>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? author = freezed,
     Object? comment = freezed,
     Object? name = freezed,
     Object? symbol = freezed,
+    Object? author = freezed,
   }) {
     return _then(_value.copyWith(
-      author: freezed == author
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
-              as String?,
       comment: freezed == comment
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
@@ -2572,6 +2568,10 @@ class _$ReportCopyWithImpl<$Res, $Val extends Report>
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String?,
+      author: freezed == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -2582,7 +2582,7 @@ abstract class _$$_ReportCopyWith<$Res> implements $ReportCopyWith<$Res> {
       __$$_ReportCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? author, String? comment, String? name, String? symbol});
+  $Res call({String? comment, String? name, String? symbol, String? author});
 }
 
 /// @nodoc
@@ -2595,16 +2595,12 @@ class __$$_ReportCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? author = freezed,
     Object? comment = freezed,
     Object? name = freezed,
     Object? symbol = freezed,
+    Object? author = freezed,
   }) {
     return _then(_$_Report(
-      author: freezed == author
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
-              as String?,
       comment: freezed == comment
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
@@ -2617,6 +2613,10 @@ class __$$_ReportCopyWithImpl<$Res>
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String?,
+      author: freezed == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2624,23 +2624,23 @@ class __$$_ReportCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Report implements _Report {
-  const _$_Report({this.author, this.comment, this.name, this.symbol});
+  const _$_Report({this.comment, this.name, this.symbol, this.author});
 
   factory _$_Report.fromJson(Map<String, dynamic> json) =>
       _$$_ReportFromJson(json);
 
-  @override
-  final String? author;
   @override
   final String? comment;
   @override
   final String? name;
   @override
   final String? symbol;
+  @override
+  final String? author;
 
   @override
   String toString() {
-    return 'Report(author: $author, comment: $comment, name: $name, symbol: $symbol)';
+    return 'Report(comment: $comment, name: $name, symbol: $symbol, author: $author)';
   }
 
   @override
@@ -2648,15 +2648,15 @@ class _$_Report implements _Report {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Report &&
-            (identical(other.author, author) || other.author == author) &&
             (identical(other.comment, comment) || other.comment == comment) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.symbol, symbol) || other.symbol == symbol));
+            (identical(other.symbol, symbol) || other.symbol == symbol) &&
+            (identical(other.author, author) || other.author == author));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, author, comment, name, symbol);
+  int get hashCode => Object.hash(runtimeType, comment, name, symbol, author);
 
   @JsonKey(ignore: true)
   @override
@@ -2674,21 +2674,21 @@ class _$_Report implements _Report {
 
 abstract class _Report implements Report {
   const factory _Report(
-      {final String? author,
-      final String? comment,
+      {final String? comment,
       final String? name,
-      final String? symbol}) = _$_Report;
+      final String? symbol,
+      final String? author}) = _$_Report;
 
   factory _Report.fromJson(Map<String, dynamic> json) = _$_Report.fromJson;
 
-  @override
-  String? get author;
   @override
   String? get comment;
   @override
   String? get name;
   @override
   String? get symbol;
+  @override
+  String? get author;
   @override
   @JsonKey(ignore: true)
   _$$_ReportCopyWith<_$_Report> get copyWith =>
@@ -2701,14 +2701,14 @@ ReportRequest _$ReportRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReportRequest {
-  /// additional comment
-  String? get comment => throw _privateConstructorUsedError;
-
   /// name of value
   String? get name => throw _privateConstructorUsedError;
 
   /// symbol of value
   String? get symbol => throw _privateConstructorUsedError;
+
+  /// additional comment
+  String? get comment => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2722,7 +2722,7 @@ abstract class $ReportRequestCopyWith<$Res> {
           ReportRequest value, $Res Function(ReportRequest) then) =
       _$ReportRequestCopyWithImpl<$Res, ReportRequest>;
   @useResult
-  $Res call({String? comment, String? name, String? symbol});
+  $Res call({String? name, String? symbol, String? comment});
 }
 
 /// @nodoc
@@ -2738,15 +2738,11 @@ class _$ReportRequestCopyWithImpl<$Res, $Val extends ReportRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? comment = freezed,
     Object? name = freezed,
     Object? symbol = freezed,
+    Object? comment = freezed,
   }) {
     return _then(_value.copyWith(
-      comment: freezed == comment
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -2754,6 +2750,10 @@ class _$ReportRequestCopyWithImpl<$Res, $Val extends ReportRequest>
       symbol: freezed == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
+              as String?,
+      comment: freezed == comment
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -2767,7 +2767,7 @@ abstract class _$$_ReportRequestCopyWith<$Res>
       __$$_ReportRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? comment, String? name, String? symbol});
+  $Res call({String? name, String? symbol, String? comment});
 }
 
 /// @nodoc
@@ -2781,15 +2781,11 @@ class __$$_ReportRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? comment = freezed,
     Object? name = freezed,
     Object? symbol = freezed,
+    Object? comment = freezed,
   }) {
     return _then(_$_ReportRequest(
-      comment: freezed == comment
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -2798,6 +2794,10 @@ class __$$_ReportRequestCopyWithImpl<$Res>
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String?,
+      comment: freezed == comment
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2805,14 +2805,10 @@ class __$$_ReportRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ReportRequest implements _ReportRequest {
-  const _$_ReportRequest({this.comment, this.name, this.symbol});
+  const _$_ReportRequest({this.name, this.symbol, this.comment});
 
   factory _$_ReportRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ReportRequestFromJson(json);
-
-  /// additional comment
-  @override
-  final String? comment;
 
   /// name of value
   @override
@@ -2822,9 +2818,13 @@ class _$_ReportRequest implements _ReportRequest {
   @override
   final String? symbol;
 
+  /// additional comment
+  @override
+  final String? comment;
+
   @override
   String toString() {
-    return 'ReportRequest(comment: $comment, name: $name, symbol: $symbol)';
+    return 'ReportRequest(name: $name, symbol: $symbol, comment: $comment)';
   }
 
   @override
@@ -2832,14 +2832,14 @@ class _$_ReportRequest implements _ReportRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ReportRequest &&
-            (identical(other.comment, comment) || other.comment == comment) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.symbol, symbol) || other.symbol == symbol));
+            (identical(other.symbol, symbol) || other.symbol == symbol) &&
+            (identical(other.comment, comment) || other.comment == comment));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, comment, name, symbol);
+  int get hashCode => Object.hash(runtimeType, name, symbol, comment);
 
   @JsonKey(ignore: true)
   @override
@@ -2857,17 +2857,13 @@ class _$_ReportRequest implements _ReportRequest {
 
 abstract class _ReportRequest implements ReportRequest {
   const factory _ReportRequest(
-      {final String? comment,
-      final String? name,
-      final String? symbol}) = _$_ReportRequest;
+      {final String? name,
+      final String? symbol,
+      final String? comment}) = _$_ReportRequest;
 
   factory _ReportRequest.fromJson(Map<String, dynamic> json) =
       _$_ReportRequest.fromJson;
 
-  @override
-
-  /// additional comment
-  String? get comment;
   @override
 
   /// name of value
@@ -2876,6 +2872,10 @@ abstract class _ReportRequest implements ReportRequest {
 
   /// symbol of value
   String? get symbol;
+  @override
+
+  /// additional comment
+  String? get comment;
   @override
   @JsonKey(ignore: true)
   _$$_ReportRequestCopyWith<_$_ReportRequest> get copyWith =>
@@ -3244,6 +3244,9 @@ Value _$ValueFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Value {
+  /// symbol of value
+  String? get symbol => throw _privateConstructorUsedError;
+
   /// time it was added
   String? get timestamp => throw _privateConstructorUsedError;
 
@@ -3262,9 +3265,6 @@ mixin _$Value {
   /// where it came from
   String? get source => throw _privateConstructorUsedError;
 
-  /// symbol of value
-  String? get symbol => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ValueCopyWith<Value> get copyWith => throw _privateConstructorUsedError;
@@ -3276,13 +3276,13 @@ abstract class $ValueCopyWith<$Res> {
       _$ValueCopyWithImpl<$Res, Value>;
   @useResult
   $Res call(
-      {String? timestamp,
+      {String? symbol,
+      String? timestamp,
       String? author,
       String? currency,
       String? name,
       double? price,
-      String? source,
-      String? symbol});
+      String? source});
 }
 
 /// @nodoc
@@ -3298,15 +3298,19 @@ class _$ValueCopyWithImpl<$Res, $Val extends Value>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? symbol = freezed,
     Object? timestamp = freezed,
     Object? author = freezed,
     Object? currency = freezed,
     Object? name = freezed,
     Object? price = freezed,
     Object? source = freezed,
-    Object? symbol = freezed,
   }) {
     return _then(_value.copyWith(
+      symbol: freezed == symbol
+          ? _value.symbol
+          : symbol // ignore: cast_nullable_to_non_nullable
+              as String?,
       timestamp: freezed == timestamp
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
@@ -3330,10 +3334,6 @@ class _$ValueCopyWithImpl<$Res, $Val extends Value>
       source: freezed == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
-              as String?,
-      symbol: freezed == symbol
-          ? _value.symbol
-          : symbol // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -3346,13 +3346,13 @@ abstract class _$$_ValueCopyWith<$Res> implements $ValueCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? timestamp,
+      {String? symbol,
+      String? timestamp,
       String? author,
       String? currency,
       String? name,
       double? price,
-      String? source,
-      String? symbol});
+      String? source});
 }
 
 /// @nodoc
@@ -3364,15 +3364,19 @@ class __$$_ValueCopyWithImpl<$Res> extends _$ValueCopyWithImpl<$Res, _$_Value>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? symbol = freezed,
     Object? timestamp = freezed,
     Object? author = freezed,
     Object? currency = freezed,
     Object? name = freezed,
     Object? price = freezed,
     Object? source = freezed,
-    Object? symbol = freezed,
   }) {
     return _then(_$_Value(
+      symbol: freezed == symbol
+          ? _value.symbol
+          : symbol // ignore: cast_nullable_to_non_nullable
+              as String?,
       timestamp: freezed == timestamp
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
@@ -3397,10 +3401,6 @@ class __$$_ValueCopyWithImpl<$Res> extends _$ValueCopyWithImpl<$Res, _$_Value>
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as String?,
-      symbol: freezed == symbol
-          ? _value.symbol
-          : symbol // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -3409,16 +3409,20 @@ class __$$_ValueCopyWithImpl<$Res> extends _$ValueCopyWithImpl<$Res, _$_Value>
 @JsonSerializable()
 class _$_Value implements _Value {
   const _$_Value(
-      {this.timestamp,
+      {this.symbol,
+      this.timestamp,
       this.author,
       this.currency,
       this.name,
       this.price,
-      this.source,
-      this.symbol});
+      this.source});
 
   factory _$_Value.fromJson(Map<String, dynamic> json) =>
       _$$_ValueFromJson(json);
+
+  /// symbol of value
+  @override
+  final String? symbol;
 
   /// time it was added
   @override
@@ -3444,13 +3448,9 @@ class _$_Value implements _Value {
   @override
   final String? source;
 
-  /// symbol of value
-  @override
-  final String? symbol;
-
   @override
   String toString() {
-    return 'Value(timestamp: $timestamp, author: $author, currency: $currency, name: $name, price: $price, source: $source, symbol: $symbol)';
+    return 'Value(symbol: $symbol, timestamp: $timestamp, author: $author, currency: $currency, name: $name, price: $price, source: $source)';
   }
 
   @override
@@ -3458,6 +3458,7 @@ class _$_Value implements _Value {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Value &&
+            (identical(other.symbol, symbol) || other.symbol == symbol) &&
             (identical(other.timestamp, timestamp) ||
                 other.timestamp == timestamp) &&
             (identical(other.author, author) || other.author == author) &&
@@ -3465,14 +3466,13 @@ class _$_Value implements _Value {
                 other.currency == currency) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.price, price) || other.price == price) &&
-            (identical(other.source, source) || other.source == source) &&
-            (identical(other.symbol, symbol) || other.symbol == symbol));
+            (identical(other.source, source) || other.source == source));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, timestamp, author, currency, name, price, source, symbol);
+      runtimeType, symbol, timestamp, author, currency, name, price, source);
 
   @JsonKey(ignore: true)
   @override
@@ -3490,16 +3490,20 @@ class _$_Value implements _Value {
 
 abstract class _Value implements Value {
   const factory _Value(
-      {final String? timestamp,
+      {final String? symbol,
+      final String? timestamp,
       final String? author,
       final String? currency,
       final String? name,
       final double? price,
-      final String? source,
-      final String? symbol}) = _$_Value;
+      final String? source}) = _$_Value;
 
   factory _Value.fromJson(Map<String, dynamic> json) = _$_Value.fromJson;
 
+  @override
+
+  /// symbol of value
+  String? get symbol;
   @override
 
   /// time it was added
@@ -3524,10 +3528,6 @@ abstract class _Value implements Value {
 
   /// where it came from
   String? get source;
-  @override
-
-  /// symbol of value
-  String? get symbol;
   @override
   @JsonKey(ignore: true)
   _$$_ValueCopyWith<_$_Value> get copyWith =>

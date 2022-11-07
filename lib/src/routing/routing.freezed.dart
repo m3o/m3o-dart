@@ -1855,11 +1855,11 @@ Maneuver _$ManeuverFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Maneuver {
-  Point? get location => throw _privateConstructorUsedError;
   String? get action => throw _privateConstructorUsedError;
   double? get bearing_after => throw _privateConstructorUsedError;
   double? get bearing_before => throw _privateConstructorUsedError;
   String? get direction => throw _privateConstructorUsedError;
+  Point? get location => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1873,11 +1873,11 @@ abstract class $ManeuverCopyWith<$Res> {
       _$ManeuverCopyWithImpl<$Res, Maneuver>;
   @useResult
   $Res call(
-      {Point? location,
-      String? action,
+      {String? action,
       double? bearing_after,
       double? bearing_before,
-      String? direction});
+      String? direction,
+      Point? location});
 
   $PointCopyWith<$Res>? get location;
 }
@@ -1895,17 +1895,13 @@ class _$ManeuverCopyWithImpl<$Res, $Val extends Maneuver>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? location = freezed,
     Object? action = freezed,
     Object? bearing_after = freezed,
     Object? bearing_before = freezed,
     Object? direction = freezed,
+    Object? location = freezed,
   }) {
     return _then(_value.copyWith(
-      location: freezed == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as Point?,
       action: freezed == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -1922,6 +1918,10 @@ class _$ManeuverCopyWithImpl<$Res, $Val extends Maneuver>
           ? _value.direction
           : direction // ignore: cast_nullable_to_non_nullable
               as String?,
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as Point?,
     ) as $Val);
   }
 
@@ -1946,11 +1946,11 @@ abstract class _$$_ManeuverCopyWith<$Res> implements $ManeuverCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {Point? location,
-      String? action,
+      {String? action,
       double? bearing_after,
       double? bearing_before,
-      String? direction});
+      String? direction,
+      Point? location});
 
   @override
   $PointCopyWith<$Res>? get location;
@@ -1967,17 +1967,13 @@ class __$$_ManeuverCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? location = freezed,
     Object? action = freezed,
     Object? bearing_after = freezed,
     Object? bearing_before = freezed,
     Object? direction = freezed,
+    Object? location = freezed,
   }) {
     return _then(_$_Maneuver(
-      location: freezed == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as Point?,
       action: freezed == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -1994,6 +1990,10 @@ class __$$_ManeuverCopyWithImpl<$Res>
           ? _value.direction
           : direction // ignore: cast_nullable_to_non_nullable
               as String?,
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as Point?,
     ));
   }
 }
@@ -2002,17 +2002,15 @@ class __$$_ManeuverCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Maneuver implements _Maneuver {
   const _$_Maneuver(
-      {this.location,
-      this.action,
+      {this.action,
       this.bearing_after,
       this.bearing_before,
-      this.direction});
+      this.direction,
+      this.location});
 
   factory _$_Maneuver.fromJson(Map<String, dynamic> json) =>
       _$$_ManeuverFromJson(json);
 
-  @override
-  final Point? location;
   @override
   final String? action;
   @override
@@ -2021,10 +2019,12 @@ class _$_Maneuver implements _Maneuver {
   final double? bearing_before;
   @override
   final String? direction;
+  @override
+  final Point? location;
 
   @override
   String toString() {
-    return 'Maneuver(location: $location, action: $action, bearing_after: $bearing_after, bearing_before: $bearing_before, direction: $direction)';
+    return 'Maneuver(action: $action, bearing_after: $bearing_after, bearing_before: $bearing_before, direction: $direction, location: $location)';
   }
 
   @override
@@ -2032,21 +2032,21 @@ class _$_Maneuver implements _Maneuver {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Maneuver &&
-            (identical(other.location, location) ||
-                other.location == location) &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.bearing_after, bearing_after) ||
                 other.bearing_after == bearing_after) &&
             (identical(other.bearing_before, bearing_before) ||
                 other.bearing_before == bearing_before) &&
             (identical(other.direction, direction) ||
-                other.direction == direction));
+                other.direction == direction) &&
+            (identical(other.location, location) ||
+                other.location == location));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, location, action, bearing_after, bearing_before, direction);
+      runtimeType, action, bearing_after, bearing_before, direction, location);
 
   @JsonKey(ignore: true)
   @override
@@ -2064,16 +2064,14 @@ class _$_Maneuver implements _Maneuver {
 
 abstract class _Maneuver implements Maneuver {
   const factory _Maneuver(
-      {final Point? location,
-      final String? action,
+      {final String? action,
       final double? bearing_after,
       final double? bearing_before,
-      final String? direction}) = _$_Maneuver;
+      final String? direction,
+      final Point? location}) = _$_Maneuver;
 
   factory _Maneuver.fromJson(Map<String, dynamic> json) = _$_Maneuver.fromJson;
 
-  @override
-  Point? get location;
   @override
   String? get action;
   @override
@@ -2082,6 +2080,8 @@ abstract class _Maneuver implements Maneuver {
   double? get bearing_before;
   @override
   String? get direction;
+  @override
+  Point? get location;
   @override
   @JsonKey(ignore: true)
   _$$_ManeuverCopyWith<_$_Maneuver> get copyWith =>

@@ -1692,14 +1692,14 @@ IndexRequest _$IndexRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$IndexRequest {
+  /// The index this record belongs to
+  String? get index => throw _privateConstructorUsedError;
+
   /// The data to index
   Map<String, dynamic>? get data => throw _privateConstructorUsedError;
 
   /// Optional ID for the record
   String? get id => throw _privateConstructorUsedError;
-
-  /// The index this record belongs to
-  String? get index => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1713,7 +1713,7 @@ abstract class $IndexRequestCopyWith<$Res> {
           IndexRequest value, $Res Function(IndexRequest) then) =
       _$IndexRequestCopyWithImpl<$Res, IndexRequest>;
   @useResult
-  $Res call({Map<String, dynamic>? data, String? id, String? index});
+  $Res call({String? index, Map<String, dynamic>? data, String? id});
 }
 
 /// @nodoc
@@ -1729,11 +1729,15 @@ class _$IndexRequestCopyWithImpl<$Res, $Val extends IndexRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? index = freezed,
     Object? data = freezed,
     Object? id = freezed,
-    Object? index = freezed,
   }) {
     return _then(_value.copyWith(
+      index: freezed == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as String?,
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1741,10 +1745,6 @@ class _$IndexRequestCopyWithImpl<$Res, $Val extends IndexRequest>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      index: freezed == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1758,7 +1758,7 @@ abstract class _$$_IndexRequestCopyWith<$Res>
       __$$_IndexRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, dynamic>? data, String? id, String? index});
+  $Res call({String? index, Map<String, dynamic>? data, String? id});
 }
 
 /// @nodoc
@@ -1772,11 +1772,15 @@ class __$$_IndexRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? index = freezed,
     Object? data = freezed,
     Object? id = freezed,
-    Object? index = freezed,
   }) {
     return _then(_$_IndexRequest(
+      index: freezed == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as String?,
       data: freezed == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1785,10 +1789,6 @@ class __$$_IndexRequestCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      index: freezed == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1796,11 +1796,15 @@ class __$$_IndexRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_IndexRequest implements _IndexRequest {
-  const _$_IndexRequest({final Map<String, dynamic>? data, this.id, this.index})
+  const _$_IndexRequest({this.index, final Map<String, dynamic>? data, this.id})
       : _data = data;
 
   factory _$_IndexRequest.fromJson(Map<String, dynamic> json) =>
       _$$_IndexRequestFromJson(json);
+
+  /// The index this record belongs to
+  @override
+  final String? index;
 
   /// The data to index
   final Map<String, dynamic>? _data;
@@ -1818,13 +1822,9 @@ class _$_IndexRequest implements _IndexRequest {
   @override
   final String? id;
 
-  /// The index this record belongs to
-  @override
-  final String? index;
-
   @override
   String toString() {
-    return 'IndexRequest(data: $data, id: $id, index: $index)';
+    return 'IndexRequest(index: $index, data: $data, id: $id)';
   }
 
   @override
@@ -1832,15 +1832,15 @@ class _$_IndexRequest implements _IndexRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_IndexRequest &&
+            (identical(other.index, index) || other.index == index) &&
             const DeepCollectionEquality().equals(other._data, _data) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.index, index) || other.index == index));
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_data), id, index);
+      runtimeType, index, const DeepCollectionEquality().hash(_data), id);
 
   @JsonKey(ignore: true)
   @override
@@ -1858,13 +1858,17 @@ class _$_IndexRequest implements _IndexRequest {
 
 abstract class _IndexRequest implements IndexRequest {
   const factory _IndexRequest(
-      {final Map<String, dynamic>? data,
-      final String? id,
-      final String? index}) = _$_IndexRequest;
+      {final String? index,
+      final Map<String, dynamic>? data,
+      final String? id}) = _$_IndexRequest;
 
   factory _IndexRequest.fromJson(Map<String, dynamic> json) =
       _$_IndexRequest.fromJson;
 
+  @override
+
+  /// The index this record belongs to
+  String? get index;
   @override
 
   /// The data to index
@@ -1873,10 +1877,6 @@ abstract class _IndexRequest implements IndexRequest {
 
   /// Optional ID for the record
   String? get id;
-  @override
-
-  /// The index this record belongs to
-  String? get index;
   @override
   @JsonKey(ignore: true)
   _$$_IndexRequestCopyWith<_$_IndexRequest> get copyWith =>
@@ -2457,11 +2457,11 @@ SearchRequest _$SearchRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SearchRequest {
-  /// The query. See docs for query language examples
-  String? get query => throw _privateConstructorUsedError;
-
   /// The index the record belongs to
   String? get index => throw _privateConstructorUsedError;
+
+  /// The query. See docs for query language examples
+  String? get query => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2475,7 +2475,7 @@ abstract class $SearchRequestCopyWith<$Res> {
           SearchRequest value, $Res Function(SearchRequest) then) =
       _$SearchRequestCopyWithImpl<$Res, SearchRequest>;
   @useResult
-  $Res call({String? query, String? index});
+  $Res call({String? index, String? query});
 }
 
 /// @nodoc
@@ -2491,17 +2491,17 @@ class _$SearchRequestCopyWithImpl<$Res, $Val extends SearchRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? query = freezed,
     Object? index = freezed,
+    Object? query = freezed,
   }) {
     return _then(_value.copyWith(
-      query: freezed == query
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as String?,
       index: freezed == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
+              as String?,
+      query: freezed == query
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -2515,7 +2515,7 @@ abstract class _$$_SearchRequestCopyWith<$Res>
       __$$_SearchRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? query, String? index});
+  $Res call({String? index, String? query});
 }
 
 /// @nodoc
@@ -2529,17 +2529,17 @@ class __$$_SearchRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? query = freezed,
     Object? index = freezed,
+    Object? query = freezed,
   }) {
     return _then(_$_SearchRequest(
-      query: freezed == query
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as String?,
       index: freezed == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
+              as String?,
+      query: freezed == query
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2548,22 +2548,22 @@ class __$$_SearchRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SearchRequest implements _SearchRequest {
-  const _$_SearchRequest({this.query, this.index});
+  const _$_SearchRequest({this.index, this.query});
 
   factory _$_SearchRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SearchRequestFromJson(json);
-
-  /// The query. See docs for query language examples
-  @override
-  final String? query;
 
   /// The index the record belongs to
   @override
   final String? index;
 
+  /// The query. See docs for query language examples
+  @override
+  final String? query;
+
   @override
   String toString() {
-    return 'SearchRequest(query: $query, index: $index)';
+    return 'SearchRequest(index: $index, query: $query)';
   }
 
   @override
@@ -2571,13 +2571,13 @@ class _$_SearchRequest implements _SearchRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SearchRequest &&
-            (identical(other.query, query) || other.query == query) &&
-            (identical(other.index, index) || other.index == index));
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.query, query) || other.query == query));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, query, index);
+  int get hashCode => Object.hash(runtimeType, index, query);
 
   @JsonKey(ignore: true)
   @override
@@ -2594,7 +2594,7 @@ class _$_SearchRequest implements _SearchRequest {
 }
 
 abstract class _SearchRequest implements SearchRequest {
-  const factory _SearchRequest({final String? query, final String? index}) =
+  const factory _SearchRequest({final String? index, final String? query}) =
       _$_SearchRequest;
 
   factory _SearchRequest.fromJson(Map<String, dynamic> json) =
@@ -2602,12 +2602,12 @@ abstract class _SearchRequest implements SearchRequest {
 
   @override
 
-  /// The query. See docs for query language examples
-  String? get query;
-  @override
-
   /// The index the record belongs to
   String? get index;
+  @override
+
+  /// The query. See docs for query language examples
+  String? get query;
   @override
   @JsonKey(ignore: true)
   _$$_SearchRequestCopyWith<_$_SearchRequest> get copyWith =>

@@ -516,12 +516,6 @@ Job _$JobFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Job {
-  /// callback url e.g https://google.com
-  String? get callback => throw _privateConstructorUsedError;
-
-  /// description
-  String? get description => throw _privateConstructorUsedError;
-
   /// job id
   String? get id => throw _privateConstructorUsedError;
 
@@ -530,6 +524,12 @@ mixin _$Job {
 
   /// name
   String? get name => throw _privateConstructorUsedError;
+
+  /// callback url e.g https://google.com
+  String? get callback => throw _privateConstructorUsedError;
+
+  /// description
+  String? get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -542,11 +542,11 @@ abstract class $JobCopyWith<$Res> {
       _$JobCopyWithImpl<$Res, Job>;
   @useResult
   $Res call(
-      {String? callback,
-      String? description,
-      String? id,
+      {String? id,
       String? interval,
-      String? name});
+      String? name,
+      String? callback,
+      String? description});
 }
 
 /// @nodoc
@@ -561,21 +561,13 @@ class _$JobCopyWithImpl<$Res, $Val extends Job> implements $JobCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? callback = freezed,
-    Object? description = freezed,
     Object? id = freezed,
     Object? interval = freezed,
     Object? name = freezed,
+    Object? callback = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      callback: freezed == callback
-          ? _value.callback
-          : callback // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -587,6 +579,14 @@ class _$JobCopyWithImpl<$Res, $Val extends Job> implements $JobCopyWith<$Res> {
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      callback: freezed == callback
+          ? _value.callback
+          : callback // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -599,11 +599,11 @@ abstract class _$$_JobCopyWith<$Res> implements $JobCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? callback,
-      String? description,
-      String? id,
+      {String? id,
       String? interval,
-      String? name});
+      String? name,
+      String? callback,
+      String? description});
 }
 
 /// @nodoc
@@ -615,21 +615,13 @@ class __$$_JobCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res, _$_Job>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? callback = freezed,
-    Object? description = freezed,
     Object? id = freezed,
     Object? interval = freezed,
     Object? name = freezed,
+    Object? callback = freezed,
+    Object? description = freezed,
   }) {
     return _then(_$_Job(
-      callback: freezed == callback
-          ? _value.callback
-          : callback // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -642,6 +634,14 @@ class __$$_JobCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res, _$_Job>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      callback: freezed == callback
+          ? _value.callback
+          : callback // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -650,17 +650,9 @@ class __$$_JobCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res, _$_Job>
 @JsonSerializable()
 class _$_Job implements _Job {
   const _$_Job(
-      {this.callback, this.description, this.id, this.interval, this.name});
+      {this.id, this.interval, this.name, this.callback, this.description});
 
   factory _$_Job.fromJson(Map<String, dynamic> json) => _$$_JobFromJson(json);
-
-  /// callback url e.g https://google.com
-  @override
-  final String? callback;
-
-  /// description
-  @override
-  final String? description;
 
   /// job id
   @override
@@ -674,9 +666,17 @@ class _$_Job implements _Job {
   @override
   final String? name;
 
+  /// callback url e.g https://google.com
+  @override
+  final String? callback;
+
+  /// description
+  @override
+  final String? description;
+
   @override
   String toString() {
-    return 'Job(callback: $callback, description: $description, id: $id, interval: $interval, name: $name)';
+    return 'Job(id: $id, interval: $interval, name: $name, callback: $callback, description: $description)';
   }
 
   @override
@@ -684,20 +684,20 @@ class _$_Job implements _Job {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Job &&
-            (identical(other.callback, callback) ||
-                other.callback == callback) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.interval, interval) ||
                 other.interval == interval) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.callback, callback) ||
+                other.callback == callback) &&
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, callback, description, id, interval, name);
+      Object.hash(runtimeType, id, interval, name, callback, description);
 
   @JsonKey(ignore: true)
   @override
@@ -715,22 +715,14 @@ class _$_Job implements _Job {
 
 abstract class _Job implements Job {
   const factory _Job(
-      {final String? callback,
-      final String? description,
-      final String? id,
+      {final String? id,
       final String? interval,
-      final String? name}) = _$_Job;
+      final String? name,
+      final String? callback,
+      final String? description}) = _$_Job;
 
   factory _Job.fromJson(Map<String, dynamic> json) = _$_Job.fromJson;
 
-  @override
-
-  /// callback url e.g https://google.com
-  String? get callback;
-  @override
-
-  /// description
-  String? get description;
   @override
 
   /// job id
@@ -743,6 +735,14 @@ abstract class _Job implements Job {
 
   /// name
   String? get name;
+  @override
+
+  /// callback url e.g https://google.com
+  String? get callback;
+  @override
+
+  /// description
+  String? get description;
   @override
   @JsonKey(ignore: true)
   _$$_JobCopyWith<_$_Job> get copyWith => throw _privateConstructorUsedError;

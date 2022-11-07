@@ -8,39 +8,39 @@ part of 'stock.dart';
 
 _$_HistoryRequest _$$_HistoryRequestFromJson(Map<String, dynamic> json) =>
     _$_HistoryRequest(
-      date: json['date'] as String?,
       stock: json['stock'] as String?,
+      date: json['date'] as String?,
     );
 
 Map<String, dynamic> _$$_HistoryRequestToJson(_$_HistoryRequest instance) =>
     <String, dynamic>{
-      'date': instance.date,
       'stock': instance.stock,
+      'date': instance.date,
     };
 
 _$HistoryResponseData _$$HistoryResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$HistoryResponseData(
+      volume: json['volume'] as int?,
       close: (json['close'] as num?)?.toDouble(),
       date: json['date'] as String?,
       high: (json['high'] as num?)?.toDouble(),
       low: (json['low'] as num?)?.toDouble(),
       open: (json['open'] as num?)?.toDouble(),
       symbol: json['symbol'] as String?,
-      volume: json['volume'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$HistoryResponseDataToJson(
         _$HistoryResponseData instance) =>
     <String, dynamic>{
+      'volume': instance.volume,
       'close': instance.close,
       'date': instance.date,
       'high': instance.high,
       'low': instance.low,
       'open': instance.open,
       'symbol': instance.symbol,
-      'volume': instance.volume,
       'runtimeType': instance.$type,
     };
 
