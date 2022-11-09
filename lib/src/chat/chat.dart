@@ -254,6 +254,9 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Group with _$Group {
   const factory Group({
+    /// description of the that
+    String? description,
+
     /// unique group id
     String? id,
 
@@ -268,9 +271,6 @@ class Group with _$Group {
 
     /// time of creation
     String? created_at,
-
-    /// description of the that
-    String? description,
   }) = _Group;
   factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
 }
@@ -417,6 +417,15 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class Message with _$Message {
   const factory Message({
+    /// time the message was sent in RFC3339 format
+    String? sent_at,
+
+    /// subject of the message
+    String? subject,
+
+    /// text of the message
+    String? text,
+
     /// id of the user who sent the message
     String? user_id,
 
@@ -428,15 +437,6 @@ class Message with _$Message {
 
     /// id of the message, allocated by the server
     String? id,
-
-    /// time the message was sent in RFC3339 format
-    String? sent_at,
-
-    /// subject of the message
-    String? subject,
-
-    /// text of the message
-    String? text,
   }) = _Message;
   factory Message.fromJson(Map<String, dynamic> json) =>
       _$MessageFromJson(json);
@@ -445,12 +445,6 @@ class Message with _$Message {
 @Freezed()
 class SendRequest with _$SendRequest {
   const factory SendRequest({
-    /// id of the group the message is being sent to / from
-    String? group_id,
-
-    /// subject of the message
-    String? subject,
-
     /// text of the message
     String? text,
 
@@ -459,6 +453,12 @@ class SendRequest with _$SendRequest {
 
     /// a client side id, should be validated by the server to make the request retry safe
     String? client,
+
+    /// id of the group the message is being sent to / from
+    String? group_id,
+
+    /// subject of the message
+    String? subject,
   }) = _SendRequest;
   factory SendRequest.fromJson(Map<String, dynamic> json) =>
       _$SendRequestFromJson(json);

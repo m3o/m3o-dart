@@ -560,11 +560,11 @@ TcpRequest _$TcpRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TcpRequest {
-  /// address to dial
-  String? get address => throw _privateConstructorUsedError;
-
   /// optional data to send
   String? get data => throw _privateConstructorUsedError;
+
+  /// address to dial
+  String? get address => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -578,7 +578,7 @@ abstract class $TcpRequestCopyWith<$Res> {
           TcpRequest value, $Res Function(TcpRequest) then) =
       _$TcpRequestCopyWithImpl<$Res, TcpRequest>;
   @useResult
-  $Res call({String? address, String? data});
+  $Res call({String? data, String? address});
 }
 
 /// @nodoc
@@ -594,17 +594,17 @@ class _$TcpRequestCopyWithImpl<$Res, $Val extends TcpRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
     Object? data = freezed,
+    Object? address = freezed,
   }) {
     return _then(_value.copyWith(
-      address: freezed == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String?,
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
+              as String?,
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -618,7 +618,7 @@ abstract class _$$_TcpRequestCopyWith<$Res>
       __$$_TcpRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? address, String? data});
+  $Res call({String? data, String? address});
 }
 
 /// @nodoc
@@ -632,17 +632,17 @@ class __$$_TcpRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
     Object? data = freezed,
+    Object? address = freezed,
   }) {
     return _then(_$_TcpRequest(
-      address: freezed == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String?,
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
+              as String?,
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -651,22 +651,22 @@ class __$$_TcpRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_TcpRequest implements _TcpRequest {
-  const _$_TcpRequest({this.address, this.data});
+  const _$_TcpRequest({this.data, this.address});
 
   factory _$_TcpRequest.fromJson(Map<String, dynamic> json) =>
       _$$_TcpRequestFromJson(json);
-
-  /// address to dial
-  @override
-  final String? address;
 
   /// optional data to send
   @override
   final String? data;
 
+  /// address to dial
+  @override
+  final String? address;
+
   @override
   String toString() {
-    return 'TcpRequest(address: $address, data: $data)';
+    return 'TcpRequest(data: $data, address: $address)';
   }
 
   @override
@@ -674,13 +674,13 @@ class _$_TcpRequest implements _TcpRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TcpRequest &&
-            (identical(other.address, address) || other.address == address) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.address, address) || other.address == address));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, address, data);
+  int get hashCode => Object.hash(runtimeType, data, address);
 
   @JsonKey(ignore: true)
   @override
@@ -697,7 +697,7 @@ class _$_TcpRequest implements _TcpRequest {
 }
 
 abstract class _TcpRequest implements TcpRequest {
-  const factory _TcpRequest({final String? address, final String? data}) =
+  const factory _TcpRequest({final String? data, final String? address}) =
       _$_TcpRequest;
 
   factory _TcpRequest.fromJson(Map<String, dynamic> json) =
@@ -705,12 +705,12 @@ abstract class _TcpRequest implements TcpRequest {
 
   @override
 
-  /// address to dial
-  String? get address;
-  @override
-
   /// optional data to send
   String? get data;
+  @override
+
+  /// address to dial
+  String? get address;
   @override
   @JsonKey(ignore: true)
   _$$_TcpRequestCopyWith<_$_TcpRequest> get copyWith =>

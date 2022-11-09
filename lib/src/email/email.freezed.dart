@@ -562,15 +562,6 @@ SendRequest _$SendRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SendRequest {
-  /// the email subject
-  String? get subject => throw _privateConstructorUsedError;
-
-  /// the text body
-  String? get text_body => throw _privateConstructorUsedError;
-
-  /// the email address of the recipient
-  String? get to => throw _privateConstructorUsedError;
-
   /// the display name of the sender
   String? get from => throw _privateConstructorUsedError;
 
@@ -579,6 +570,15 @@ mixin _$SendRequest {
 
   /// an optional reply to email address
   String? get reply_to => throw _privateConstructorUsedError;
+
+  /// the email subject
+  String? get subject => throw _privateConstructorUsedError;
+
+  /// the text body
+  String? get text_body => throw _privateConstructorUsedError;
+
+  /// the email address of the recipient
+  String? get to => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -593,12 +593,12 @@ abstract class $SendRequestCopyWith<$Res> {
       _$SendRequestCopyWithImpl<$Res, SendRequest>;
   @useResult
   $Res call(
-      {String? subject,
-      String? text_body,
-      String? to,
-      String? from,
+      {String? from,
       String? html_body,
-      String? reply_to});
+      String? reply_to,
+      String? subject,
+      String? text_body,
+      String? to});
 }
 
 /// @nodoc
@@ -614,26 +614,14 @@ class _$SendRequestCopyWithImpl<$Res, $Val extends SendRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? subject = freezed,
-    Object? text_body = freezed,
-    Object? to = freezed,
     Object? from = freezed,
     Object? html_body = freezed,
     Object? reply_to = freezed,
+    Object? subject = freezed,
+    Object? text_body = freezed,
+    Object? to = freezed,
   }) {
     return _then(_value.copyWith(
-      subject: freezed == subject
-          ? _value.subject
-          : subject // ignore: cast_nullable_to_non_nullable
-              as String?,
-      text_body: freezed == text_body
-          ? _value.text_body
-          : text_body // ignore: cast_nullable_to_non_nullable
-              as String?,
-      to: freezed == to
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as String?,
       from: freezed == from
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
@@ -645,6 +633,18 @@ class _$SendRequestCopyWithImpl<$Res, $Val extends SendRequest>
       reply_to: freezed == reply_to
           ? _value.reply_to
           : reply_to // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subject: freezed == subject
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text_body: freezed == text_body
+          ? _value.text_body
+          : text_body // ignore: cast_nullable_to_non_nullable
+              as String?,
+      to: freezed == to
+          ? _value.to
+          : to // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -659,12 +659,12 @@ abstract class _$$_SendRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? subject,
-      String? text_body,
-      String? to,
-      String? from,
+      {String? from,
       String? html_body,
-      String? reply_to});
+      String? reply_to,
+      String? subject,
+      String? text_body,
+      String? to});
 }
 
 /// @nodoc
@@ -678,26 +678,14 @@ class __$$_SendRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? subject = freezed,
-    Object? text_body = freezed,
-    Object? to = freezed,
     Object? from = freezed,
     Object? html_body = freezed,
     Object? reply_to = freezed,
+    Object? subject = freezed,
+    Object? text_body = freezed,
+    Object? to = freezed,
   }) {
     return _then(_$_SendRequest(
-      subject: freezed == subject
-          ? _value.subject
-          : subject // ignore: cast_nullable_to_non_nullable
-              as String?,
-      text_body: freezed == text_body
-          ? _value.text_body
-          : text_body // ignore: cast_nullable_to_non_nullable
-              as String?,
-      to: freezed == to
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as String?,
       from: freezed == from
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
@@ -710,6 +698,18 @@ class __$$_SendRequestCopyWithImpl<$Res>
           ? _value.reply_to
           : reply_to // ignore: cast_nullable_to_non_nullable
               as String?,
+      subject: freezed == subject
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text_body: freezed == text_body
+          ? _value.text_body
+          : text_body // ignore: cast_nullable_to_non_nullable
+              as String?,
+      to: freezed == to
+          ? _value.to
+          : to // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -718,27 +718,15 @@ class __$$_SendRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SendRequest implements _SendRequest {
   const _$_SendRequest(
-      {this.subject,
-      this.text_body,
-      this.to,
-      this.from,
+      {this.from,
       this.html_body,
-      this.reply_to});
+      this.reply_to,
+      this.subject,
+      this.text_body,
+      this.to});
 
   factory _$_SendRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SendRequestFromJson(json);
-
-  /// the email subject
-  @override
-  final String? subject;
-
-  /// the text body
-  @override
-  final String? text_body;
-
-  /// the email address of the recipient
-  @override
-  final String? to;
 
   /// the display name of the sender
   @override
@@ -752,9 +740,21 @@ class _$_SendRequest implements _SendRequest {
   @override
   final String? reply_to;
 
+  /// the email subject
+  @override
+  final String? subject;
+
+  /// the text body
+  @override
+  final String? text_body;
+
+  /// the email address of the recipient
+  @override
+  final String? to;
+
   @override
   String toString() {
-    return 'SendRequest(subject: $subject, text_body: $text_body, to: $to, from: $from, html_body: $html_body, reply_to: $reply_to)';
+    return 'SendRequest(from: $from, html_body: $html_body, reply_to: $reply_to, subject: $subject, text_body: $text_body, to: $to)';
   }
 
   @override
@@ -762,21 +762,21 @@ class _$_SendRequest implements _SendRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SendRequest &&
-            (identical(other.subject, subject) || other.subject == subject) &&
-            (identical(other.text_body, text_body) ||
-                other.text_body == text_body) &&
-            (identical(other.to, to) || other.to == to) &&
             (identical(other.from, from) || other.from == from) &&
             (identical(other.html_body, html_body) ||
                 other.html_body == html_body) &&
             (identical(other.reply_to, reply_to) ||
-                other.reply_to == reply_to));
+                other.reply_to == reply_to) &&
+            (identical(other.subject, subject) || other.subject == subject) &&
+            (identical(other.text_body, text_body) ||
+                other.text_body == text_body) &&
+            (identical(other.to, to) || other.to == to));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, subject, text_body, to, from, html_body, reply_to);
+      runtimeType, from, html_body, reply_to, subject, text_body, to);
 
   @JsonKey(ignore: true)
   @override
@@ -794,28 +794,16 @@ class _$_SendRequest implements _SendRequest {
 
 abstract class _SendRequest implements SendRequest {
   const factory _SendRequest(
-      {final String? subject,
-      final String? text_body,
-      final String? to,
-      final String? from,
+      {final String? from,
       final String? html_body,
-      final String? reply_to}) = _$_SendRequest;
+      final String? reply_to,
+      final String? subject,
+      final String? text_body,
+      final String? to}) = _$_SendRequest;
 
   factory _SendRequest.fromJson(Map<String, dynamic> json) =
       _$_SendRequest.fromJson;
 
-  @override
-
-  /// the email subject
-  String? get subject;
-  @override
-
-  /// the text body
-  String? get text_body;
-  @override
-
-  /// the email address of the recipient
-  String? get to;
   @override
 
   /// the display name of the sender
@@ -828,6 +816,18 @@ abstract class _SendRequest implements SendRequest {
 
   /// an optional reply to email address
   String? get reply_to;
+  @override
+
+  /// the email subject
+  String? get subject;
+  @override
+
+  /// the text body
+  String? get text_body;
+  @override
+
+  /// the email address of the recipient
+  String? get to;
   @override
   @JsonKey(ignore: true)
   _$$_SendRequestCopyWith<_$_SendRequest> get copyWith =>

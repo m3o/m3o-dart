@@ -379,8 +379,26 @@ class RunResponse with _$RunResponse {
 @Freezed()
 class Service with _$Service {
   const factory Service({
+    /// region running in
+    String? region,
+
     /// source repository
     String? repo,
+
+    /// raw backend endpoint
+    String? backend,
+
+    /// branch of code
+    String? branch,
+
+    /// associated env vars
+    Map<String, String>? env_vars,
+
+    /// name of the app
+    String? name,
+
+    /// port running on
+    int? port,
 
     /// status of the app
     String? status,
@@ -391,29 +409,11 @@ class Service with _$Service {
     /// app url
     String? url,
 
-    /// branch of code
-    String? branch,
-
     /// time of creation
     String? created,
 
-    /// name of the app
-    String? name,
-
-    /// port running on
-    int? port,
-
-    /// region running in
-    String? region,
-
-    /// raw backend endpoint
-    String? backend,
-
     /// custom domains
     List<String>? custom_domains,
-
-    /// associated env vars
-    Map<String, String>? env_vars,
 
     /// unique id
     String? id,

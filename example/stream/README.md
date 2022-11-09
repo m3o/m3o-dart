@@ -4,42 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/stream/api](ht
 
 Endpoints:
 
-## ListMessages
-
-List messages for a given channel
-
-
-[https://m3o.com/stream/api#ListMessages](https://m3o.com/stream/api#ListMessages)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/stream/stream.dart';
-
-void main() async {
-  final ser = StreamService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "channel": "general"
-,};
-
-  ListMessagesRequest req = ListMessagesRequest.fromJson(payload);
-
-  
-  try {
-
-	ListMessagesResponse res = await ser.listMessages(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListMessagesResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## ListChannels
 
 List all the active channels
@@ -140,6 +104,42 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (SendMessageResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## ListMessages
+
+List messages for a given channel
+
+
+[https://m3o.com/stream/api#ListMessages](https://m3o.com/stream/api#ListMessages)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/stream/stream.dart';
+
+void main() async {
+  final ser = StreamService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "channel": "general"
+,};
+
+  ListMessagesRequest req = ListMessagesRequest.fromJson(payload);
+
+  
+  try {
+
+	ListMessagesResponse res = await ser.listMessages(req);
+
+    res.map((value) => print(value),
+	  Merr: (ListMessagesResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

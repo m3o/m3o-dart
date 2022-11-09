@@ -22,15 +22,15 @@ Map<String, dynamic> _$$_ChannelToJson(_$_Channel instance) =>
 _$_CreateChannelRequest _$$_CreateChannelRequestFromJson(
         Map<String, dynamic> json) =>
     _$_CreateChannelRequest(
-      name: json['name'] as String?,
       description: json['description'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateChannelRequestToJson(
         _$_CreateChannelRequest instance) =>
     <String, dynamic>{
-      'name': instance.name,
       'description': instance.description,
+      'name': instance.name,
     };
 
 _$CreateChannelResponseData _$$CreateChannelResponseDataFromJson(

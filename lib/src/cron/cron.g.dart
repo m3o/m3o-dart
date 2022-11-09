@@ -41,19 +41,19 @@ Map<String, dynamic> _$$DeleteResponseMerrToJson(
     };
 
 _$_Job _$$_JobFromJson(Map<String, dynamic> json) => _$_Job(
-      id: json['id'] as String?,
       interval: json['interval'] as String?,
       name: json['name'] as String?,
       callback: json['callback'] as String?,
       description: json['description'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_JobToJson(_$_Job instance) => <String, dynamic>{
-      'id': instance.id,
       'interval': instance.interval,
       'name': instance.name,
       'callback': instance.callback,
       'description': instance.description,
+      'id': instance.id,
     };
 
 _$_JobsRequest _$$_JobsRequestFromJson(Map<String, dynamic> json) =>
@@ -90,20 +90,20 @@ Map<String, dynamic> _$$JobsResponseMerrToJson(_$JobsResponseMerr instance) =>
 
 _$_ScheduleRequest _$$_ScheduleRequestFromJson(Map<String, dynamic> json) =>
     _$_ScheduleRequest(
+      description: json['description'] as String?,
       id: json['id'] as String?,
       interval: json['interval'] as String?,
       name: json['name'] as String?,
       callback: json['callback'] as String?,
-      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$$_ScheduleRequestToJson(_$_ScheduleRequest instance) =>
     <String, dynamic>{
+      'description': instance.description,
       'id': instance.id,
       'interval': instance.interval,
       'name': instance.name,
       'callback': instance.callback,
-      'description': instance.description,
     };
 
 _$ScheduleResponseData _$$ScheduleResponseDataFromJson(

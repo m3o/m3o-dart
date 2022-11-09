@@ -171,24 +171,24 @@ HistoryResponse _$HistoryResponseFromJson(Map<String, dynamic> json) {
 mixin _$HistoryResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? volume, double? close, String? date, double? high,
-            double? low, double? open, String? symbol)
+    TResult Function(double? low, double? open, String? symbol, double? volume,
+            double? close, String? date, double? high)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(double? volume, double? close, String? date, double? high,
-            double? low, double? open, String? symbol)?
+    TResult? Function(double? low, double? open, String? symbol, double? volume,
+            double? close, String? date, double? high)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? volume, double? close, String? date, double? high,
-            double? low, double? open, String? symbol)?
+    TResult Function(double? low, double? open, String? symbol, double? volume,
+            double? close, String? date, double? high)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -241,13 +241,13 @@ abstract class _$$HistoryResponseDataCopyWith<$Res> {
       __$$HistoryResponseDataCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {double? volume,
+      {double? low,
+      double? open,
+      String? symbol,
+      double? volume,
       double? close,
       String? date,
-      double? high,
-      double? low,
-      double? open,
-      String? symbol});
+      double? high});
 }
 
 /// @nodoc
@@ -261,15 +261,27 @@ class __$$HistoryResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? low = freezed,
+    Object? open = freezed,
+    Object? symbol = freezed,
     Object? volume = freezed,
     Object? close = freezed,
     Object? date = freezed,
     Object? high = freezed,
-    Object? low = freezed,
-    Object? open = freezed,
-    Object? symbol = freezed,
   }) {
     return _then(_$HistoryResponseData(
+      low: freezed == low
+          ? _value.low
+          : low // ignore: cast_nullable_to_non_nullable
+              as double?,
+      open: freezed == open
+          ? _value.open
+          : open // ignore: cast_nullable_to_non_nullable
+              as double?,
+      symbol: freezed == symbol
+          ? _value.symbol
+          : symbol // ignore: cast_nullable_to_non_nullable
+              as String?,
       volume: freezed == volume
           ? _value.volume
           : volume // ignore: cast_nullable_to_non_nullable
@@ -286,18 +298,6 @@ class __$$HistoryResponseDataCopyWithImpl<$Res>
           ? _value.high
           : high // ignore: cast_nullable_to_non_nullable
               as double?,
-      low: freezed == low
-          ? _value.low
-          : low // ignore: cast_nullable_to_non_nullable
-              as double?,
-      open: freezed == open
-          ? _value.open
-          : open // ignore: cast_nullable_to_non_nullable
-              as double?,
-      symbol: freezed == symbol
-          ? _value.symbol
-          : symbol // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -306,18 +306,30 @@ class __$$HistoryResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$HistoryResponseData implements HistoryResponseData {
   const _$HistoryResponseData(
-      {this.volume,
+      {this.low,
+      this.open,
+      this.symbol,
+      this.volume,
       this.close,
       this.date,
       this.high,
-      this.low,
-      this.open,
-      this.symbol,
       final String? $type})
       : $type = $type ?? 'default';
 
   factory _$HistoryResponseData.fromJson(Map<String, dynamic> json) =>
       _$$HistoryResponseDataFromJson(json);
+
+  /// the low price
+  @override
+  final double? low;
+
+  /// the open price
+  @override
+  final double? open;
+
+  /// the forex symbol
+  @override
+  final String? symbol;
 
   /// the volume
   @override
@@ -335,24 +347,12 @@ class _$HistoryResponseData implements HistoryResponseData {
   @override
   final double? high;
 
-  /// the low price
-  @override
-  final double? low;
-
-  /// the open price
-  @override
-  final double? open;
-
-  /// the forex symbol
-  @override
-  final String? symbol;
-
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'HistoryResponse(volume: $volume, close: $close, date: $date, high: $high, low: $low, open: $open, symbol: $symbol)';
+    return 'HistoryResponse(low: $low, open: $open, symbol: $symbol, volume: $volume, close: $close, date: $date, high: $high)';
   }
 
   @override
@@ -360,19 +360,19 @@ class _$HistoryResponseData implements HistoryResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HistoryResponseData &&
+            (identical(other.low, low) || other.low == low) &&
+            (identical(other.open, open) || other.open == open) &&
+            (identical(other.symbol, symbol) || other.symbol == symbol) &&
             (identical(other.volume, volume) || other.volume == volume) &&
             (identical(other.close, close) || other.close == close) &&
             (identical(other.date, date) || other.date == date) &&
-            (identical(other.high, high) || other.high == high) &&
-            (identical(other.low, low) || other.low == low) &&
-            (identical(other.open, open) || other.open == open) &&
-            (identical(other.symbol, symbol) || other.symbol == symbol));
+            (identical(other.high, high) || other.high == high));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, volume, close, date, high, low, open, symbol);
+      Object.hash(runtimeType, low, open, symbol, volume, close, date, high);
 
   @JsonKey(ignore: true)
   @override
@@ -384,36 +384,36 @@ class _$HistoryResponseData implements HistoryResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? volume, double? close, String? date, double? high,
-            double? low, double? open, String? symbol)
+    TResult Function(double? low, double? open, String? symbol, double? volume,
+            double? close, String? date, double? high)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(volume, close, date, high, low, open, symbol);
+    return $default(low, open, symbol, volume, close, date, high);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(double? volume, double? close, String? date, double? high,
-            double? low, double? open, String? symbol)?
+    TResult? Function(double? low, double? open, String? symbol, double? volume,
+            double? close, String? date, double? high)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(volume, close, date, high, low, open, symbol);
+    return $default?.call(low, open, symbol, volume, close, date, high);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? volume, double? close, String? date, double? high,
-            double? low, double? open, String? symbol)?
+    TResult Function(double? low, double? open, String? symbol, double? volume,
+            double? close, String? date, double? high)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(volume, close, date, high, low, open, symbol);
+      return $default(low, open, symbol, volume, close, date, high);
     }
     return orElse();
   }
@@ -459,16 +459,25 @@ class _$HistoryResponseData implements HistoryResponseData {
 
 abstract class HistoryResponseData implements HistoryResponse {
   const factory HistoryResponseData(
-      {final double? volume,
+      {final double? low,
+      final double? open,
+      final String? symbol,
+      final double? volume,
       final double? close,
       final String? date,
-      final double? high,
-      final double? low,
-      final double? open,
-      final String? symbol}) = _$HistoryResponseData;
+      final double? high}) = _$HistoryResponseData;
 
   factory HistoryResponseData.fromJson(Map<String, dynamic> json) =
       _$HistoryResponseData.fromJson;
+
+  /// the low price
+  double? get low;
+
+  /// the open price
+  double? get open;
+
+  /// the forex symbol
+  String? get symbol;
 
   /// the volume
   double? get volume;
@@ -481,15 +490,6 @@ abstract class HistoryResponseData implements HistoryResponse {
 
   /// the peak price
   double? get high;
-
-  /// the low price
-  double? get low;
-
-  /// the open price
-  double? get open;
-
-  /// the forex symbol
-  String? get symbol;
   @JsonKey(ignore: true)
   _$$HistoryResponseDataCopyWith<_$HistoryResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -577,8 +577,8 @@ class _$HistoryResponseMerr implements HistoryResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(double? volume, double? close, String? date, double? high,
-            double? low, double? open, String? symbol)
+    TResult Function(double? low, double? open, String? symbol, double? volume,
+            double? close, String? date, double? high)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -588,8 +588,8 @@ class _$HistoryResponseMerr implements HistoryResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(double? volume, double? close, String? date, double? high,
-            double? low, double? open, String? symbol)?
+    TResult? Function(double? low, double? open, String? symbol, double? volume,
+            double? close, String? date, double? high)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -599,8 +599,8 @@ class _$HistoryResponseMerr implements HistoryResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(double? volume, double? close, String? date, double? high,
-            double? low, double? open, String? symbol)?
+    TResult Function(double? low, double? open, String? symbol, double? volume,
+            double? close, String? date, double? high)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

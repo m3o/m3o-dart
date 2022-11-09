@@ -95,9 +95,6 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Job with _$Job {
   const factory Job({
-    /// job id
-    String? id,
-
     /// scheduled interval
     String? interval,
 
@@ -109,6 +106,9 @@ class Job with _$Job {
 
     /// description
     String? description,
+
+    /// job id
+    String? id,
   }) = _Job;
   factory Job.fromJson(Map<String, dynamic> json) => _$JobFromJson(json);
 }
@@ -135,6 +135,9 @@ class JobsResponse with _$JobsResponse {
 @Freezed()
 class ScheduleRequest with _$ScheduleRequest {
   const factory ScheduleRequest({
+    /// description
+    String? description,
+
     /// unique id of job (optional)
     String? id,
 
@@ -146,9 +149,6 @@ class ScheduleRequest with _$ScheduleRequest {
 
     /// callback url e.g https://google.com
     String? callback,
-
-    /// description
-    String? description,
   }) = _ScheduleRequest;
   factory ScheduleRequest.fromJson(Map<String, dynamic> json) =>
       _$ScheduleRequestFromJson(json);
