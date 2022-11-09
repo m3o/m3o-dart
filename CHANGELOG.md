@@ -1,3 +1,9 @@
+## v1.0.218 - 2022-11-09
+
+[0311e6](https://github.com/micro/services/commit/0311e694b2731bd2f7fa91948b4af8b9f8de5aba) readme updates
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.217...v1.0.218
+
 ## v1.0.217 - 2022-11-09
 
 [076057](https://github.com/micro/services/commit/0760577d20ea2afa743bc8af89058d5b99fcadec) increase price
