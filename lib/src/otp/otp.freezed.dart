@@ -20,6 +20,9 @@ GenerateRequest _$GenerateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GenerateRequest {
+  /// unique id, email or user to generate an OTP for
+  String? get id => throw _privateConstructorUsedError;
+
   /// number of characters (default: 6)
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get size => throw _privateConstructorUsedError;
@@ -27,9 +30,6 @@ mixin _$GenerateRequest {
   /// expiration in seconds (default: 60)
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get expiry => throw _privateConstructorUsedError;
-
-  /// unique id, email or user to generate an OTP for
-  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,9 +44,9 @@ abstract class $GenerateRequestCopyWith<$Res> {
       _$GenerateRequestCopyWithImpl<$Res, GenerateRequest>;
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? expiry,
-      String? id});
+      {String? id,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? expiry});
 }
 
 /// @nodoc
@@ -62,11 +62,15 @@ class _$GenerateRequestCopyWithImpl<$Res, $Val extends GenerateRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? size = freezed,
     Object? expiry = freezed,
-    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
@@ -75,10 +79,6 @@ class _$GenerateRequestCopyWithImpl<$Res, $Val extends GenerateRequest>
           ? _value.expiry
           : expiry // ignore: cast_nullable_to_non_nullable
               as int?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -92,9 +92,9 @@ abstract class _$$_GenerateRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? expiry,
-      String? id});
+      {String? id,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? expiry});
 }
 
 /// @nodoc
@@ -108,11 +108,15 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? size = freezed,
     Object? expiry = freezed,
-    Object? id = freezed,
   }) {
     return _then(_$_GenerateRequest(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
@@ -121,10 +125,6 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
           ? _value.expiry
           : expiry // ignore: cast_nullable_to_non_nullable
               as int?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -133,12 +133,16 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GenerateRequest implements _GenerateRequest {
   const _$_GenerateRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.size,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.expiry,
-      this.id});
+      {this.id,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.size,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.expiry});
 
   factory _$_GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_GenerateRequestFromJson(json);
+
+  /// unique id, email or user to generate an OTP for
+  @override
+  final String? id;
 
   /// number of characters (default: 6)
   @override
@@ -150,13 +154,9 @@ class _$_GenerateRequest implements _GenerateRequest {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? expiry;
 
-  /// unique id, email or user to generate an OTP for
-  @override
-  final String? id;
-
   @override
   String toString() {
-    return 'GenerateRequest(size: $size, expiry: $expiry, id: $id)';
+    return 'GenerateRequest(id: $id, size: $size, expiry: $expiry)';
   }
 
   @override
@@ -164,14 +164,14 @@ class _$_GenerateRequest implements _GenerateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GenerateRequest &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.size, size) || other.size == size) &&
-            (identical(other.expiry, expiry) || other.expiry == expiry) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.expiry, expiry) || other.expiry == expiry));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, size, expiry, id);
+  int get hashCode => Object.hash(runtimeType, id, size, expiry);
 
   @JsonKey(ignore: true)
   @override
@@ -189,15 +189,19 @@ class _$_GenerateRequest implements _GenerateRequest {
 
 abstract class _GenerateRequest implements GenerateRequest {
   const factory _GenerateRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+      {final String? id,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
           final int? size,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? expiry,
-      final String? id}) = _$_GenerateRequest;
+          final int? expiry}) = _$_GenerateRequest;
 
   factory _GenerateRequest.fromJson(Map<String, dynamic> json) =
       _$_GenerateRequest.fromJson;
 
+  @override
+
+  /// unique id, email or user to generate an OTP for
+  String? get id;
   @override
 
   /// number of characters (default: 6)
@@ -208,10 +212,6 @@ abstract class _GenerateRequest implements GenerateRequest {
   /// expiration in seconds (default: 60)
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get expiry;
-  @override
-
-  /// unique id, email or user to generate an OTP for
-  String? get id;
   @override
   @JsonKey(ignore: true)
   _$$_GenerateRequestCopyWith<_$_GenerateRequest> get copyWith =>

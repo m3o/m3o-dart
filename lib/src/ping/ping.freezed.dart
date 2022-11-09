@@ -734,19 +734,19 @@ TcpResponse _$TcpResponseFromJson(Map<String, dynamic> json) {
 mixin _$TcpResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? data, String? status) $default, {
+    TResult Function(String? status, String? data) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? data, String? status)? $default, {
+    TResult? Function(String? status, String? data)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? data, String? status)? $default, {
+    TResult Function(String? status, String? data)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -797,7 +797,7 @@ abstract class _$$TcpResponseDataCopyWith<$Res> {
           _$TcpResponseData value, $Res Function(_$TcpResponseData) then) =
       __$$TcpResponseDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({String? data, String? status});
+  $Res call({String? status, String? data});
 }
 
 /// @nodoc
@@ -811,17 +811,17 @@ class __$$TcpResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
     Object? status = freezed,
+    Object? data = freezed,
   }) {
     return _then(_$TcpResponseData(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as String?,
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
+              as String?,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -830,26 +830,26 @@ class __$$TcpResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$TcpResponseData implements TcpResponseData {
-  const _$TcpResponseData({this.data, this.status, final String? $type})
+  const _$TcpResponseData({this.status, this.data, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$TcpResponseData.fromJson(Map<String, dynamic> json) =>
       _$$TcpResponseDataFromJson(json);
 
-  /// response data if any
-  @override
-  final String? data;
-
   /// response status
   @override
   final String? status;
+
+  /// response data if any
+  @override
+  final String? data;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'TcpResponse(data: $data, status: $status)';
+    return 'TcpResponse(status: $status, data: $data)';
   }
 
   @override
@@ -857,13 +857,13 @@ class _$TcpResponseData implements TcpResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TcpResponseData &&
-            (identical(other.data, data) || other.data == data) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, data, status);
+  int get hashCode => Object.hash(runtimeType, status, data);
 
   @JsonKey(ignore: true)
   @override
@@ -874,30 +874,30 @@ class _$TcpResponseData implements TcpResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? data, String? status) $default, {
+    TResult Function(String? status, String? data) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(data, status);
+    return $default(status, data);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? data, String? status)? $default, {
+    TResult? Function(String? status, String? data)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(data, status);
+    return $default?.call(status, data);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? data, String? status)? $default, {
+    TResult Function(String? status, String? data)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(data, status);
+      return $default(status, data);
     }
     return orElse();
   }
@@ -942,17 +942,17 @@ class _$TcpResponseData implements TcpResponseData {
 }
 
 abstract class TcpResponseData implements TcpResponse {
-  const factory TcpResponseData({final String? data, final String? status}) =
+  const factory TcpResponseData({final String? status, final String? data}) =
       _$TcpResponseData;
 
   factory TcpResponseData.fromJson(Map<String, dynamic> json) =
       _$TcpResponseData.fromJson;
 
-  /// response data if any
-  String? get data;
-
   /// response status
   String? get status;
+
+  /// response data if any
+  String? get data;
   @JsonKey(ignore: true)
   _$$TcpResponseDataCopyWith<_$TcpResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1039,7 +1039,7 @@ class _$TcpResponseMerr implements TcpResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? data, String? status) $default, {
+    TResult Function(String? status, String? data) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -1048,7 +1048,7 @@ class _$TcpResponseMerr implements TcpResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? data, String? status)? $default, {
+    TResult? Function(String? status, String? data)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -1057,7 +1057,7 @@ class _$TcpResponseMerr implements TcpResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? data, String? status)? $default, {
+    TResult Function(String? status, String? data)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
@@ -1125,11 +1125,11 @@ UrlRequest _$UrlRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UrlRequest {
-  /// method of the call
-  String? get method => throw _privateConstructorUsedError;
-
   /// address to use
   String? get address => throw _privateConstructorUsedError;
+
+  /// method of the call
+  String? get method => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1143,7 +1143,7 @@ abstract class $UrlRequestCopyWith<$Res> {
           UrlRequest value, $Res Function(UrlRequest) then) =
       _$UrlRequestCopyWithImpl<$Res, UrlRequest>;
   @useResult
-  $Res call({String? method, String? address});
+  $Res call({String? address, String? method});
 }
 
 /// @nodoc
@@ -1159,17 +1159,17 @@ class _$UrlRequestCopyWithImpl<$Res, $Val extends UrlRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? method = freezed,
     Object? address = freezed,
+    Object? method = freezed,
   }) {
     return _then(_value.copyWith(
-      method: freezed == method
-          ? _value.method
-          : method // ignore: cast_nullable_to_non_nullable
-              as String?,
       address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      method: freezed == method
+          ? _value.method
+          : method // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1183,7 +1183,7 @@ abstract class _$$_UrlRequestCopyWith<$Res>
       __$$_UrlRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? method, String? address});
+  $Res call({String? address, String? method});
 }
 
 /// @nodoc
@@ -1197,17 +1197,17 @@ class __$$_UrlRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? method = freezed,
     Object? address = freezed,
+    Object? method = freezed,
   }) {
     return _then(_$_UrlRequest(
-      method: freezed == method
-          ? _value.method
-          : method // ignore: cast_nullable_to_non_nullable
-              as String?,
       address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      method: freezed == method
+          ? _value.method
+          : method // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1216,22 +1216,22 @@ class __$$_UrlRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UrlRequest implements _UrlRequest {
-  const _$_UrlRequest({this.method, this.address});
+  const _$_UrlRequest({this.address, this.method});
 
   factory _$_UrlRequest.fromJson(Map<String, dynamic> json) =>
       _$$_UrlRequestFromJson(json);
-
-  /// method of the call
-  @override
-  final String? method;
 
   /// address to use
   @override
   final String? address;
 
+  /// method of the call
+  @override
+  final String? method;
+
   @override
   String toString() {
-    return 'UrlRequest(method: $method, address: $address)';
+    return 'UrlRequest(address: $address, method: $method)';
   }
 
   @override
@@ -1239,13 +1239,13 @@ class _$_UrlRequest implements _UrlRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UrlRequest &&
-            (identical(other.method, method) || other.method == method) &&
-            (identical(other.address, address) || other.address == address));
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.method, method) || other.method == method));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, method, address);
+  int get hashCode => Object.hash(runtimeType, address, method);
 
   @JsonKey(ignore: true)
   @override
@@ -1262,7 +1262,7 @@ class _$_UrlRequest implements _UrlRequest {
 }
 
 abstract class _UrlRequest implements UrlRequest {
-  const factory _UrlRequest({final String? method, final String? address}) =
+  const factory _UrlRequest({final String? address, final String? method}) =
       _$_UrlRequest;
 
   factory _UrlRequest.fromJson(Map<String, dynamic> json) =
@@ -1270,12 +1270,12 @@ abstract class _UrlRequest implements UrlRequest {
 
   @override
 
-  /// method of the call
-  String? get method;
-  @override
-
   /// address to use
   String? get address;
+  @override
+
+  /// method of the call
+  String? get method;
   @override
   @JsonKey(ignore: true)
   _$$_UrlRequestCopyWith<_$_UrlRequest> get copyWith =>

@@ -89,12 +89,12 @@ Map<String, dynamic> _$$_ModerateRequestToJson(_$_ModerateRequest instance) =>
 _$ModerateResponseData _$$ModerateResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$ModerateResponseData(
+      categories: (json['categories'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as bool),
+      ),
       flagged: json['flagged'] as bool?,
       scores: (json['scores'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, (e as num).toDouble()),
-      ),
-      categories: (json['categories'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as bool),
       ),
       $type: json['runtimeType'] as String?,
     );
@@ -102,9 +102,9 @@ _$ModerateResponseData _$$ModerateResponseDataFromJson(
 Map<String, dynamic> _$$ModerateResponseDataToJson(
         _$ModerateResponseData instance) =>
     <String, dynamic>{
+      'categories': instance.categories,
       'flagged': instance.flagged,
       'scores': instance.scores,
-      'categories': instance.categories,
       'runtimeType': instance.$type,
     };
 

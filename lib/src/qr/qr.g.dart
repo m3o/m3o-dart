@@ -7,17 +7,17 @@ part of 'qr.dart';
 // **************************************************************************
 
 _$_Code _$$_CodeFromJson(Map<String, dynamic> json) => _$_Code(
+      created: json['created'] as String?,
       file: json['file'] as String?,
       id: json['id'] as String?,
       text: json['text'] as String?,
-      created: json['created'] as String?,
     );
 
 Map<String, dynamic> _$$_CodeToJson(_$_Code instance) => <String, dynamic>{
+      'created': instance.created,
       'file': instance.file,
       'id': instance.id,
       'text': instance.text,
-      'created': instance.created,
     };
 
 _$_CodesRequest _$$_CodesRequestFromJson(Map<String, dynamic> json) =>

@@ -20,12 +20,6 @@ ClassifyRequest _$ClassifyRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ClassifyRequest {
-  /// The raw body of the email including headers etc per RFC 822. Alternatively, use the other parameters to correctly format the message
-  String? get email_body => throw _privateConstructorUsedError;
-
-  /// The email address it has been sent from
-  String? get from => throw _privateConstructorUsedError;
-
   /// the HTML version of the email body
   String? get html_body => throw _privateConstructorUsedError;
 
@@ -37,6 +31,12 @@ mixin _$ClassifyRequest {
 
   /// The email address it is being sent to
   String? get to => throw _privateConstructorUsedError;
+
+  /// The raw body of the email including headers etc per RFC 822. Alternatively, use the other parameters to correctly format the message
+  String? get email_body => throw _privateConstructorUsedError;
+
+  /// The email address it has been sent from
+  String? get from => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,12 +51,12 @@ abstract class $ClassifyRequestCopyWith<$Res> {
       _$ClassifyRequestCopyWithImpl<$Res, ClassifyRequest>;
   @useResult
   $Res call(
-      {String? email_body,
-      String? from,
-      String? html_body,
+      {String? html_body,
       String? subject,
       String? text_body,
-      String? to});
+      String? to,
+      String? email_body,
+      String? from});
 }
 
 /// @nodoc
@@ -72,22 +72,14 @@ class _$ClassifyRequestCopyWithImpl<$Res, $Val extends ClassifyRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email_body = freezed,
-    Object? from = freezed,
     Object? html_body = freezed,
     Object? subject = freezed,
     Object? text_body = freezed,
     Object? to = freezed,
+    Object? email_body = freezed,
+    Object? from = freezed,
   }) {
     return _then(_value.copyWith(
-      email_body: freezed == email_body
-          ? _value.email_body
-          : email_body // ignore: cast_nullable_to_non_nullable
-              as String?,
-      from: freezed == from
-          ? _value.from
-          : from // ignore: cast_nullable_to_non_nullable
-              as String?,
       html_body: freezed == html_body
           ? _value.html_body
           : html_body // ignore: cast_nullable_to_non_nullable
@@ -103,6 +95,14 @@ class _$ClassifyRequestCopyWithImpl<$Res, $Val extends ClassifyRequest>
       to: freezed == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email_body: freezed == email_body
+          ? _value.email_body
+          : email_body // ignore: cast_nullable_to_non_nullable
+              as String?,
+      from: freezed == from
+          ? _value.from
+          : from // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -117,12 +117,12 @@ abstract class _$$_ClassifyRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? email_body,
-      String? from,
-      String? html_body,
+      {String? html_body,
       String? subject,
       String? text_body,
-      String? to});
+      String? to,
+      String? email_body,
+      String? from});
 }
 
 /// @nodoc
@@ -136,22 +136,14 @@ class __$$_ClassifyRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email_body = freezed,
-    Object? from = freezed,
     Object? html_body = freezed,
     Object? subject = freezed,
     Object? text_body = freezed,
     Object? to = freezed,
+    Object? email_body = freezed,
+    Object? from = freezed,
   }) {
     return _then(_$_ClassifyRequest(
-      email_body: freezed == email_body
-          ? _value.email_body
-          : email_body // ignore: cast_nullable_to_non_nullable
-              as String?,
-      from: freezed == from
-          ? _value.from
-          : from // ignore: cast_nullable_to_non_nullable
-              as String?,
       html_body: freezed == html_body
           ? _value.html_body
           : html_body // ignore: cast_nullable_to_non_nullable
@@ -168,6 +160,14 @@ class __$$_ClassifyRequestCopyWithImpl<$Res>
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
               as String?,
+      email_body: freezed == email_body
+          ? _value.email_body
+          : email_body // ignore: cast_nullable_to_non_nullable
+              as String?,
+      from: freezed == from
+          ? _value.from
+          : from // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -176,23 +176,15 @@ class __$$_ClassifyRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ClassifyRequest implements _ClassifyRequest {
   const _$_ClassifyRequest(
-      {this.email_body,
-      this.from,
-      this.html_body,
+      {this.html_body,
       this.subject,
       this.text_body,
-      this.to});
+      this.to,
+      this.email_body,
+      this.from});
 
   factory _$_ClassifyRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ClassifyRequestFromJson(json);
-
-  /// The raw body of the email including headers etc per RFC 822. Alternatively, use the other parameters to correctly format the message
-  @override
-  final String? email_body;
-
-  /// The email address it has been sent from
-  @override
-  final String? from;
 
   /// the HTML version of the email body
   @override
@@ -210,9 +202,17 @@ class _$_ClassifyRequest implements _ClassifyRequest {
   @override
   final String? to;
 
+  /// The raw body of the email including headers etc per RFC 822. Alternatively, use the other parameters to correctly format the message
+  @override
+  final String? email_body;
+
+  /// The email address it has been sent from
+  @override
+  final String? from;
+
   @override
   String toString() {
-    return 'ClassifyRequest(email_body: $email_body, from: $from, html_body: $html_body, subject: $subject, text_body: $text_body, to: $to)';
+    return 'ClassifyRequest(html_body: $html_body, subject: $subject, text_body: $text_body, to: $to, email_body: $email_body, from: $from)';
   }
 
   @override
@@ -220,21 +220,21 @@ class _$_ClassifyRequest implements _ClassifyRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ClassifyRequest &&
-            (identical(other.email_body, email_body) ||
-                other.email_body == email_body) &&
-            (identical(other.from, from) || other.from == from) &&
             (identical(other.html_body, html_body) ||
                 other.html_body == html_body) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.text_body, text_body) ||
                 other.text_body == text_body) &&
-            (identical(other.to, to) || other.to == to));
+            (identical(other.to, to) || other.to == to) &&
+            (identical(other.email_body, email_body) ||
+                other.email_body == email_body) &&
+            (identical(other.from, from) || other.from == from));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, email_body, from, html_body, subject, text_body, to);
+      runtimeType, html_body, subject, text_body, to, email_body, from);
 
   @JsonKey(ignore: true)
   @override
@@ -252,24 +252,16 @@ class _$_ClassifyRequest implements _ClassifyRequest {
 
 abstract class _ClassifyRequest implements ClassifyRequest {
   const factory _ClassifyRequest(
-      {final String? email_body,
-      final String? from,
-      final String? html_body,
+      {final String? html_body,
       final String? subject,
       final String? text_body,
-      final String? to}) = _$_ClassifyRequest;
+      final String? to,
+      final String? email_body,
+      final String? from}) = _$_ClassifyRequest;
 
   factory _ClassifyRequest.fromJson(Map<String, dynamic> json) =
       _$_ClassifyRequest.fromJson;
 
-  @override
-
-  /// The raw body of the email including headers etc per RFC 822. Alternatively, use the other parameters to correctly format the message
-  String? get email_body;
-  @override
-
-  /// The email address it has been sent from
-  String? get from;
   @override
 
   /// the HTML version of the email body
@@ -286,6 +278,14 @@ abstract class _ClassifyRequest implements ClassifyRequest {
 
   /// The email address it is being sent to
   String? get to;
+  @override
+
+  /// The raw body of the email including headers etc per RFC 822. Alternatively, use the other parameters to correctly format the message
+  String? get email_body;
+  @override
+
+  /// The email address it has been sent from
+  String? get from;
   @override
   @JsonKey(ignore: true)
   _$$_ClassifyRequestCopyWith<_$_ClassifyRequest> get copyWith =>
@@ -309,21 +309,21 @@ ClassifyResponse _$ClassifyResponseFromJson(Map<String, dynamic> json) {
 mixin _$ClassifyResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(bool? is_spam, double? score, List<String>? details)
+    TResult Function(List<String>? details, bool? is_spam, double? score)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(bool? is_spam, double? score, List<String>? details)?
+    TResult? Function(List<String>? details, bool? is_spam, double? score)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool? is_spam, double? score, List<String>? details)?
+    TResult Function(List<String>? details, bool? is_spam, double? score)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -375,7 +375,7 @@ abstract class _$$ClassifyResponseDataCopyWith<$Res> {
           $Res Function(_$ClassifyResponseData) then) =
       __$$ClassifyResponseDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({bool? is_spam, double? score, List<String>? details});
+  $Res call({List<String>? details, bool? is_spam, double? score});
 }
 
 /// @nodoc
@@ -389,11 +389,15 @@ class __$$ClassifyResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? details = freezed,
     Object? is_spam = freezed,
     Object? score = freezed,
-    Object? details = freezed,
   }) {
     return _then(_$ClassifyResponseData(
+      details: freezed == details
+          ? _value._details
+          : details // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       is_spam: freezed == is_spam
           ? _value.is_spam
           : is_spam // ignore: cast_nullable_to_non_nullable
@@ -402,10 +406,6 @@ class __$$ClassifyResponseDataCopyWithImpl<$Res>
           ? _value.score
           : score // ignore: cast_nullable_to_non_nullable
               as double?,
-      details: freezed == details
-          ? _value._details
-          : details // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
     ));
   }
 }
@@ -414,23 +414,15 @@ class __$$ClassifyResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ClassifyResponseData implements ClassifyResponseData {
   const _$ClassifyResponseData(
-      {this.is_spam,
+      {final List<String>? details,
+      this.is_spam,
       this.score,
-      final List<String>? details,
       final String? $type})
       : _details = details,
         $type = $type ?? 'default';
 
   factory _$ClassifyResponseData.fromJson(Map<String, dynamic> json) =>
       _$$ClassifyResponseDataFromJson(json);
-
-  /// Is it spam? Returns true if its score is > 5
-  @override
-  final bool? is_spam;
-
-  /// The score evaluated for this email. A higher number means it is more likely to be spam
-  @override
-  final double? score;
 
   /// The rules that have contributed to this score
   final List<String>? _details;
@@ -444,12 +436,20 @@ class _$ClassifyResponseData implements ClassifyResponseData {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Is it spam? Returns true if its score is > 5
+  @override
+  final bool? is_spam;
+
+  /// The score evaluated for this email. A higher number means it is more likely to be spam
+  @override
+  final double? score;
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'ClassifyResponse(is_spam: $is_spam, score: $score, details: $details)';
+    return 'ClassifyResponse(details: $details, is_spam: $is_spam, score: $score)';
   }
 
   @override
@@ -457,15 +457,15 @@ class _$ClassifyResponseData implements ClassifyResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ClassifyResponseData &&
+            const DeepCollectionEquality().equals(other._details, _details) &&
             (identical(other.is_spam, is_spam) || other.is_spam == is_spam) &&
-            (identical(other.score, score) || other.score == score) &&
-            const DeepCollectionEquality().equals(other._details, _details));
+            (identical(other.score, score) || other.score == score));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, is_spam, score,
-      const DeepCollectionEquality().hash(_details));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_details), is_spam, score);
 
   @JsonKey(ignore: true)
   @override
@@ -477,33 +477,33 @@ class _$ClassifyResponseData implements ClassifyResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(bool? is_spam, double? score, List<String>? details)
+    TResult Function(List<String>? details, bool? is_spam, double? score)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(is_spam, score, details);
+    return $default(details, is_spam, score);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(bool? is_spam, double? score, List<String>? details)?
+    TResult? Function(List<String>? details, bool? is_spam, double? score)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(is_spam, score, details);
+    return $default?.call(details, is_spam, score);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool? is_spam, double? score, List<String>? details)?
+    TResult Function(List<String>? details, bool? is_spam, double? score)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(is_spam, score, details);
+      return $default(details, is_spam, score);
     }
     return orElse();
   }
@@ -549,21 +549,21 @@ class _$ClassifyResponseData implements ClassifyResponseData {
 
 abstract class ClassifyResponseData implements ClassifyResponse {
   const factory ClassifyResponseData(
-      {final bool? is_spam,
-      final double? score,
-      final List<String>? details}) = _$ClassifyResponseData;
+      {final List<String>? details,
+      final bool? is_spam,
+      final double? score}) = _$ClassifyResponseData;
 
   factory ClassifyResponseData.fromJson(Map<String, dynamic> json) =
       _$ClassifyResponseData.fromJson;
+
+  /// The rules that have contributed to this score
+  List<String>? get details;
 
   /// Is it spam? Returns true if its score is > 5
   bool? get is_spam;
 
   /// The score evaluated for this email. A higher number means it is more likely to be spam
   double? get score;
-
-  /// The rules that have contributed to this score
-  List<String>? get details;
   @JsonKey(ignore: true)
   _$$ClassifyResponseDataCopyWith<_$ClassifyResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -651,7 +651,7 @@ class _$ClassifyResponseMerr implements ClassifyResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(bool? is_spam, double? score, List<String>? details)
+    TResult Function(List<String>? details, bool? is_spam, double? score)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -661,7 +661,7 @@ class _$ClassifyResponseMerr implements ClassifyResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(bool? is_spam, double? score, List<String>? details)?
+    TResult? Function(List<String>? details, bool? is_spam, double? score)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -671,7 +671,7 @@ class _$ClassifyResponseMerr implements ClassifyResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool? is_spam, double? score, List<String>? details)?
+    TResult Function(List<String>? details, bool? is_spam, double? score)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

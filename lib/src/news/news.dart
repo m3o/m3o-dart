@@ -56,11 +56,17 @@ class NewsService {
 @Freezed()
 class Article with _$Article {
   const factory Article({
+    /// image url
+    String? image_url,
+
     /// related keywords
     String? keywords,
 
     /// the article language
     String? language,
+
+    /// the locale
+    String? locale,
 
     /// first 60 characters of article body
     String? snippet,
@@ -74,23 +80,17 @@ class Article with _$Article {
     /// categories
     List<String>? categories,
 
-    /// article description
-    String? description,
-
     /// article id
     String? id,
+
+    /// time it was published
+    String? published_at,
 
     /// url of the article
     String? url,
 
-    /// image url
-    String? image_url,
-
-    /// the locale
-    String? locale,
-
-    /// time it was published
-    String? published_at,
+    /// article description
+    String? description,
   }) = _Article;
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);
@@ -99,14 +99,14 @@ class Article with _$Article {
 @Freezed()
 class HeadlinesRequest with _$HeadlinesRequest {
   const factory HeadlinesRequest({
+    /// date published on in YYYY-MM-DD format
+    String? date,
+
     /// comma separated list of languages to retrieve in e.g en,es
     String? language,
 
     /// comma separated list of countries to include e.g us,ca
     String? locale,
-
-    /// date published on in YYYY-MM-DD format
-    String? date,
   }) = _HeadlinesRequest;
   factory HeadlinesRequest.fromJson(Map<String, dynamic> json) =>
       _$HeadlinesRequestFromJson(json);
@@ -126,14 +126,14 @@ class HeadlinesResponse with _$HeadlinesResponse {
 @Freezed()
 class TopStoriesRequest with _$TopStoriesRequest {
   const factory TopStoriesRequest({
+    /// comma separated list of languages to retrieve in e.g en,es
+    String? language,
+
     /// comma separated list of countries to include e.g us,ca
     String? locale,
 
     /// date published on in YYYY-MM-DD format
     String? date,
-
-    /// comma separated list of languages to retrieve in e.g en,es
-    String? language,
   }) = _TopStoriesRequest;
   factory TopStoriesRequest.fromJson(Map<String, dynamic> json) =>
       _$TopStoriesRequestFromJson(json);
