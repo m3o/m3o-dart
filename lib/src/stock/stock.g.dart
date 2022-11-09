@@ -70,15 +70,15 @@ Map<String, dynamic> _$$_PriceRequestToJson(_$_PriceRequest instance) =>
 
 _$PriceResponseData _$$PriceResponseDataFromJson(Map<String, dynamic> json) =>
     _$PriceResponseData(
-      symbol: json['symbol'] as String?,
       price: (json['price'] as num?)?.toDouble(),
+      symbol: json['symbol'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$PriceResponseDataToJson(_$PriceResponseData instance) =>
     <String, dynamic>{
-      'symbol': instance.symbol,
       'price': instance.price,
+      'symbol': instance.symbol,
       'runtimeType': instance.$type,
     };
 

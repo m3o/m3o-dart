@@ -548,11 +548,11 @@ CheckRequest _$CheckRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CheckRequest {
-  /// text/code to check
-  String? get text => throw _privateConstructorUsedError;
-
   /// instruction hint e.g check the grammar
   String? get instruction => throw _privateConstructorUsedError;
+
+  /// text/code to check
+  String? get text => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -566,7 +566,7 @@ abstract class $CheckRequestCopyWith<$Res> {
           CheckRequest value, $Res Function(CheckRequest) then) =
       _$CheckRequestCopyWithImpl<$Res, CheckRequest>;
   @useResult
-  $Res call({String? text, String? instruction});
+  $Res call({String? instruction, String? text});
 }
 
 /// @nodoc
@@ -582,17 +582,17 @@ class _$CheckRequestCopyWithImpl<$Res, $Val extends CheckRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? text = freezed,
     Object? instruction = freezed,
+    Object? text = freezed,
   }) {
     return _then(_value.copyWith(
-      text: freezed == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
       instruction: freezed == instruction
           ? _value.instruction
           : instruction // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text: freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -606,7 +606,7 @@ abstract class _$$_CheckRequestCopyWith<$Res>
       __$$_CheckRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? text, String? instruction});
+  $Res call({String? instruction, String? text});
 }
 
 /// @nodoc
@@ -620,17 +620,17 @@ class __$$_CheckRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? text = freezed,
     Object? instruction = freezed,
+    Object? text = freezed,
   }) {
     return _then(_$_CheckRequest(
-      text: freezed == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
       instruction: freezed == instruction
           ? _value.instruction
           : instruction // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text: freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -639,22 +639,22 @@ class __$$_CheckRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CheckRequest implements _CheckRequest {
-  const _$_CheckRequest({this.text, this.instruction});
+  const _$_CheckRequest({this.instruction, this.text});
 
   factory _$_CheckRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CheckRequestFromJson(json);
-
-  /// text/code to check
-  @override
-  final String? text;
 
   /// instruction hint e.g check the grammar
   @override
   final String? instruction;
 
+  /// text/code to check
+  @override
+  final String? text;
+
   @override
   String toString() {
-    return 'CheckRequest(text: $text, instruction: $instruction)';
+    return 'CheckRequest(instruction: $instruction, text: $text)';
   }
 
   @override
@@ -662,14 +662,14 @@ class _$_CheckRequest implements _CheckRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CheckRequest &&
-            (identical(other.text, text) || other.text == text) &&
             (identical(other.instruction, instruction) ||
-                other.instruction == instruction));
+                other.instruction == instruction) &&
+            (identical(other.text, text) || other.text == text));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, text, instruction);
+  int get hashCode => Object.hash(runtimeType, instruction, text);
 
   @JsonKey(ignore: true)
   @override
@@ -686,7 +686,7 @@ class _$_CheckRequest implements _CheckRequest {
 }
 
 abstract class _CheckRequest implements CheckRequest {
-  const factory _CheckRequest({final String? text, final String? instruction}) =
+  const factory _CheckRequest({final String? instruction, final String? text}) =
       _$_CheckRequest;
 
   factory _CheckRequest.fromJson(Map<String, dynamic> json) =
@@ -694,12 +694,12 @@ abstract class _CheckRequest implements CheckRequest {
 
   @override
 
-  /// text/code to check
-  String? get text;
-  @override
-
   /// instruction hint e.g check the grammar
   String? get instruction;
+  @override
+
+  /// text/code to check
+  String? get text;
   @override
   @JsonKey(ignore: true)
   _$$_CheckRequestCopyWith<_$_CheckRequest> get copyWith =>

@@ -56,6 +56,9 @@ class WordleService {
 @Freezed()
 class Char with _$Char {
   const factory Char({
+    /// position in the string
+    int? position,
+
     /// whether it was correct
     bool? correct,
 
@@ -64,9 +67,6 @@ class Char with _$Char {
 
     /// the character itself
     String? letter,
-
-    /// position in the string
-    int? position,
   }) = _Char;
   factory Char.fromJson(Map<String, dynamic> json) => _$CharFromJson(json);
 }
@@ -90,11 +90,11 @@ class Guess with _$Guess {
 @Freezed()
 class GuessRequest with _$GuessRequest {
   const factory GuessRequest({
-    /// guess word
-    String? word,
-
     /// player
     String? player,
+
+    /// guess word
+    String? word,
   }) = _GuessRequest;
   factory GuessRequest.fromJson(Map<String, dynamic> json) =>
       _$GuessRequestFromJson(json);
@@ -103,6 +103,9 @@ class GuessRequest with _$GuessRequest {
 @Freezed()
 class GuessResponse with _$GuessResponse {
   const factory GuessResponse({
+    /// number of tries left
+    int? tries_left,
+
     /// the actual word if failed
     String? answer,
 
@@ -114,9 +117,6 @@ class GuessResponse with _$GuessResponse {
 
     /// informational message
     String? status,
-
-    /// number of tries left
-    int? tries_left,
   }) = GuessResponseData;
   const factory GuessResponse.Merr({Map<String, dynamic>? body}) =
       GuessResponseMerr;

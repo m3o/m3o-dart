@@ -98,11 +98,11 @@ class CallResponse with _$CallResponse {
 @Freezed()
 class CheckRequest with _$CheckRequest {
   const factory CheckRequest({
-    /// text/code to check
-    String? text,
-
     /// instruction hint e.g check the grammar
     String? instruction,
+
+    /// text/code to check
+    String? text,
   }) = _CheckRequest;
   factory CheckRequest.fromJson(Map<String, dynamic> json) =>
       _$CheckRequestFromJson(json);

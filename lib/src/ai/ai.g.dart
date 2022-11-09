@@ -42,14 +42,14 @@ Map<String, dynamic> _$$CallResponseMerrToJson(_$CallResponseMerr instance) =>
 
 _$_CheckRequest _$$_CheckRequestFromJson(Map<String, dynamic> json) =>
     _$_CheckRequest(
-      text: json['text'] as String?,
       instruction: json['instruction'] as String?,
+      text: json['text'] as String?,
     );
 
 Map<String, dynamic> _$$_CheckRequestToJson(_$_CheckRequest instance) =>
     <String, dynamic>{
-      'text': instance.text,
       'instruction': instance.instruction,
+      'text': instance.text,
     };
 
 _$CheckResponseData _$$CheckResponseDataFromJson(Map<String, dynamic> json) =>

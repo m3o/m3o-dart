@@ -20,6 +20,9 @@ GenerateRequest _$GenerateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GenerateRequest {
+  /// include uppercase letters
+  bool? get uppercase => throw _privateConstructorUsedError;
+
   /// password length; defaults to 8 chars
   int? get length => throw _privateConstructorUsedError;
 
@@ -31,9 +34,6 @@ mixin _$GenerateRequest {
 
   /// include special characters (!@#$%&*)
   bool? get special => throw _privateConstructorUsedError;
-
-  /// include uppercase letters
-  bool? get uppercase => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,11 +48,11 @@ abstract class $GenerateRequestCopyWith<$Res> {
       _$GenerateRequestCopyWithImpl<$Res, GenerateRequest>;
   @useResult
   $Res call(
-      {int? length,
+      {bool? uppercase,
+      int? length,
       bool? lowercase,
       bool? numbers,
-      bool? special,
-      bool? uppercase});
+      bool? special});
 }
 
 /// @nodoc
@@ -68,13 +68,17 @@ class _$GenerateRequestCopyWithImpl<$Res, $Val extends GenerateRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? uppercase = freezed,
     Object? length = freezed,
     Object? lowercase = freezed,
     Object? numbers = freezed,
     Object? special = freezed,
-    Object? uppercase = freezed,
   }) {
     return _then(_value.copyWith(
+      uppercase: freezed == uppercase
+          ? _value.uppercase
+          : uppercase // ignore: cast_nullable_to_non_nullable
+              as bool?,
       length: freezed == length
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
@@ -90,10 +94,6 @@ class _$GenerateRequestCopyWithImpl<$Res, $Val extends GenerateRequest>
       special: freezed == special
           ? _value.special
           : special // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      uppercase: freezed == uppercase
-          ? _value.uppercase
-          : uppercase // ignore: cast_nullable_to_non_nullable
               as bool?,
     ) as $Val);
   }
@@ -108,11 +108,11 @@ abstract class _$$_GenerateRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? length,
+      {bool? uppercase,
+      int? length,
       bool? lowercase,
       bool? numbers,
-      bool? special,
-      bool? uppercase});
+      bool? special});
 }
 
 /// @nodoc
@@ -126,13 +126,17 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? uppercase = freezed,
     Object? length = freezed,
     Object? lowercase = freezed,
     Object? numbers = freezed,
     Object? special = freezed,
-    Object? uppercase = freezed,
   }) {
     return _then(_$_GenerateRequest(
+      uppercase: freezed == uppercase
+          ? _value.uppercase
+          : uppercase // ignore: cast_nullable_to_non_nullable
+              as bool?,
       length: freezed == length
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
@@ -149,10 +153,6 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
           ? _value.special
           : special // ignore: cast_nullable_to_non_nullable
               as bool?,
-      uppercase: freezed == uppercase
-          ? _value.uppercase
-          : uppercase // ignore: cast_nullable_to_non_nullable
-              as bool?,
     ));
   }
 }
@@ -161,14 +161,18 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GenerateRequest implements _GenerateRequest {
   const _$_GenerateRequest(
-      {this.length,
+      {this.uppercase,
+      this.length,
       this.lowercase,
       this.numbers,
-      this.special,
-      this.uppercase});
+      this.special});
 
   factory _$_GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_GenerateRequestFromJson(json);
+
+  /// include uppercase letters
+  @override
+  final bool? uppercase;
 
   /// password length; defaults to 8 chars
   @override
@@ -186,13 +190,9 @@ class _$_GenerateRequest implements _GenerateRequest {
   @override
   final bool? special;
 
-  /// include uppercase letters
-  @override
-  final bool? uppercase;
-
   @override
   String toString() {
-    return 'GenerateRequest(length: $length, lowercase: $lowercase, numbers: $numbers, special: $special, uppercase: $uppercase)';
+    return 'GenerateRequest(uppercase: $uppercase, length: $length, lowercase: $lowercase, numbers: $numbers, special: $special)';
   }
 
   @override
@@ -200,19 +200,19 @@ class _$_GenerateRequest implements _GenerateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GenerateRequest &&
+            (identical(other.uppercase, uppercase) ||
+                other.uppercase == uppercase) &&
             (identical(other.length, length) || other.length == length) &&
             (identical(other.lowercase, lowercase) ||
                 other.lowercase == lowercase) &&
             (identical(other.numbers, numbers) || other.numbers == numbers) &&
-            (identical(other.special, special) || other.special == special) &&
-            (identical(other.uppercase, uppercase) ||
-                other.uppercase == uppercase));
+            (identical(other.special, special) || other.special == special));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, length, lowercase, numbers, special, uppercase);
+      Object.hash(runtimeType, uppercase, length, lowercase, numbers, special);
 
   @JsonKey(ignore: true)
   @override
@@ -230,15 +230,19 @@ class _$_GenerateRequest implements _GenerateRequest {
 
 abstract class _GenerateRequest implements GenerateRequest {
   const factory _GenerateRequest(
-      {final int? length,
+      {final bool? uppercase,
+      final int? length,
       final bool? lowercase,
       final bool? numbers,
-      final bool? special,
-      final bool? uppercase}) = _$_GenerateRequest;
+      final bool? special}) = _$_GenerateRequest;
 
   factory _GenerateRequest.fromJson(Map<String, dynamic> json) =
       _$_GenerateRequest.fromJson;
 
+  @override
+
+  /// include uppercase letters
+  bool? get uppercase;
   @override
 
   /// password length; defaults to 8 chars
@@ -255,10 +259,6 @@ abstract class _GenerateRequest implements GenerateRequest {
 
   /// include special characters (!@#$%&*)
   bool? get special;
-  @override
-
-  /// include uppercase letters
-  bool? get uppercase;
   @override
   @JsonKey(ignore: true)
   _$$_GenerateRequestCopyWith<_$_GenerateRequest> get copyWith =>

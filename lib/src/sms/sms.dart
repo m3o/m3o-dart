@@ -52,11 +52,11 @@ class SendRequest with _$SendRequest {
 @Freezed()
 class SendResponse with _$SendResponse {
   const factory SendResponse({
-    /// will return "ok" if successful
-    String? status,
-
     /// any additional info
     String? info,
+
+    /// will return "ok" if successful
+    String? status,
   }) = SendResponseData;
   const factory SendResponse.Merr({Map<String, dynamic>? body}) =
       SendResponseMerr;

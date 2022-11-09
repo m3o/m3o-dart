@@ -63,31 +63,31 @@ Map<String, dynamic> _$$_EntryToJson(_$_Entry instance) => <String, dynamic>{
     };
 
 _$_Feed _$$_FeedFromJson(Map<String, dynamic> json) => _$_Feed(
-      url: json['url'] as String?,
       category: json['category'] as String?,
       id: json['id'] as String?,
       name: json['name'] as String?,
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic> _$$_FeedToJson(_$_Feed instance) => <String, dynamic>{
-      'url': instance.url,
       'category': instance.category,
       'id': instance.id,
       'name': instance.name,
+      'url': instance.url,
     };
 
 _$_FeedRequest _$$_FeedRequestFromJson(Map<String, dynamic> json) =>
     _$_FeedRequest(
+      limit: int64FromString(json['limit'] as String?),
       name: json['name'] as String?,
       offset: int64FromString(json['offset'] as String?),
-      limit: int64FromString(json['limit'] as String?),
     );
 
 Map<String, dynamic> _$$_FeedRequestToJson(_$_FeedRequest instance) =>
     <String, dynamic>{
+      'limit': int64ToString(instance.limit),
       'name': instance.name,
       'offset': int64ToString(instance.offset),
-      'limit': int64ToString(instance.limit),
     };
 
 _$FeedResponseData _$$FeedResponseDataFromJson(Map<String, dynamic> json) =>
