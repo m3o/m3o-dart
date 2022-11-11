@@ -4,40 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/notes/api](htt
 
 Endpoints:
 
-## List
-
-List all the notes
-
-
-[https://m3o.com/notes/api#List](https://m3o.com/notes/api#List)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/notes/notes.dart';
-
-void main() async {
-  final ser = NotesService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{};
-
-  ListRequest req = ListRequest.fromJson(payload);
-
-  
-  try {
-
-	ListResponse res = await ser.list(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Update
 
 Update a note
@@ -217,6 +183,40 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (ReadResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## List
+
+List all the notes
+
+
+[https://m3o.com/notes/api#List](https://m3o.com/notes/api#List)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/notes/notes.dart';
+
+void main() async {
+  final ser = NotesService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  ListRequest req = ListRequest.fromJson(payload);
+
+  
+  try {
+
+	ListResponse res = await ser.list(req);
+
+    res.map((value) => print(value),
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

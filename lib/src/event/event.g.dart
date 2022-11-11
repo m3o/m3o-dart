@@ -8,16 +8,16 @@ part of 'event.dart';
 
 _$_ConsumeRequest _$$_ConsumeRequestFromJson(Map<String, dynamic> json) =>
     _$_ConsumeRequest(
+      topic: json['topic'] as String?,
       group: json['group'] as String?,
       offset: json['offset'] as String?,
-      topic: json['topic'] as String?,
     );
 
 Map<String, dynamic> _$$_ConsumeRequestToJson(_$_ConsumeRequest instance) =>
     <String, dynamic>{
+      'topic': instance.topic,
       'group': instance.group,
       'offset': instance.offset,
-      'topic': instance.topic,
     };
 
 _$ConsumeResponseData _$$ConsumeResponseDataFromJson(
@@ -68,14 +68,14 @@ Map<String, dynamic> _$$_EvToJson(_$_Ev instance) => <String, dynamic>{
 
 _$_PublishRequest _$$_PublishRequestFromJson(Map<String, dynamic> json) =>
     _$_PublishRequest(
-      message: json['message'] as Map<String, dynamic>?,
       topic: json['topic'] as String?,
+      message: json['message'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$$_PublishRequestToJson(_$_PublishRequest instance) =>
     <String, dynamic>{
-      'message': instance.message,
       'topic': instance.topic,
+      'message': instance.message,
     };
 
 _$PublishResponseData _$$PublishResponseDataFromJson(
