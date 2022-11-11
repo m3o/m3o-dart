@@ -1233,6 +1233,12 @@ ScheduleRequest _$ScheduleRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ScheduleRequest {
+  /// callback url e.g https://google.com
+  String? get callback => throw _privateConstructorUsedError;
+
+  /// description
+  String? get description => throw _privateConstructorUsedError;
+
   /// unique id of job (optional)
   String? get id => throw _privateConstructorUsedError;
 
@@ -1241,12 +1247,6 @@ mixin _$ScheduleRequest {
 
   /// name of cron
   String? get name => throw _privateConstructorUsedError;
-
-  /// callback url e.g https://google.com
-  String? get callback => throw _privateConstructorUsedError;
-
-  /// description
-  String? get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1261,11 +1261,11 @@ abstract class $ScheduleRequestCopyWith<$Res> {
       _$ScheduleRequestCopyWithImpl<$Res, ScheduleRequest>;
   @useResult
   $Res call(
-      {String? id,
+      {String? callback,
+      String? description,
+      String? id,
       String? interval,
-      String? name,
-      String? callback,
-      String? description});
+      String? name});
 }
 
 /// @nodoc
@@ -1281,13 +1281,21 @@ class _$ScheduleRequestCopyWithImpl<$Res, $Val extends ScheduleRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? callback = freezed,
+    Object? description = freezed,
     Object? id = freezed,
     Object? interval = freezed,
     Object? name = freezed,
-    Object? callback = freezed,
-    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
+      callback: freezed == callback
+          ? _value.callback
+          : callback // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1299,14 +1307,6 @@ class _$ScheduleRequestCopyWithImpl<$Res, $Val extends ScheduleRequest>
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      callback: freezed == callback
-          ? _value.callback
-          : callback // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1321,11 +1321,11 @@ abstract class _$$_ScheduleRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? id,
+      {String? callback,
+      String? description,
+      String? id,
       String? interval,
-      String? name,
-      String? callback,
-      String? description});
+      String? name});
 }
 
 /// @nodoc
@@ -1339,13 +1339,21 @@ class __$$_ScheduleRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? callback = freezed,
+    Object? description = freezed,
     Object? id = freezed,
     Object? interval = freezed,
     Object? name = freezed,
-    Object? callback = freezed,
-    Object? description = freezed,
   }) {
     return _then(_$_ScheduleRequest(
+      callback: freezed == callback
+          ? _value.callback
+          : callback // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1358,14 +1366,6 @@ class __$$_ScheduleRequestCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      callback: freezed == callback
-          ? _value.callback
-          : callback // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1374,10 +1374,18 @@ class __$$_ScheduleRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ScheduleRequest implements _ScheduleRequest {
   const _$_ScheduleRequest(
-      {this.id, this.interval, this.name, this.callback, this.description});
+      {this.callback, this.description, this.id, this.interval, this.name});
 
   factory _$_ScheduleRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ScheduleRequestFromJson(json);
+
+  /// callback url e.g https://google.com
+  @override
+  final String? callback;
+
+  /// description
+  @override
+  final String? description;
 
   /// unique id of job (optional)
   @override
@@ -1391,17 +1399,9 @@ class _$_ScheduleRequest implements _ScheduleRequest {
   @override
   final String? name;
 
-  /// callback url e.g https://google.com
-  @override
-  final String? callback;
-
-  /// description
-  @override
-  final String? description;
-
   @override
   String toString() {
-    return 'ScheduleRequest(id: $id, interval: $interval, name: $name, callback: $callback, description: $description)';
+    return 'ScheduleRequest(callback: $callback, description: $description, id: $id, interval: $interval, name: $name)';
   }
 
   @override
@@ -1409,20 +1409,20 @@ class _$_ScheduleRequest implements _ScheduleRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ScheduleRequest &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.interval, interval) ||
-                other.interval == interval) &&
-            (identical(other.name, name) || other.name == name) &&
             (identical(other.callback, callback) ||
                 other.callback == callback) &&
             (identical(other.description, description) ||
-                other.description == description));
+                other.description == description) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.interval, interval) ||
+                other.interval == interval) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, interval, name, callback, description);
+      Object.hash(runtimeType, callback, description, id, interval, name);
 
   @JsonKey(ignore: true)
   @override
@@ -1440,15 +1440,23 @@ class _$_ScheduleRequest implements _ScheduleRequest {
 
 abstract class _ScheduleRequest implements ScheduleRequest {
   const factory _ScheduleRequest(
-      {final String? id,
+      {final String? callback,
+      final String? description,
+      final String? id,
       final String? interval,
-      final String? name,
-      final String? callback,
-      final String? description}) = _$_ScheduleRequest;
+      final String? name}) = _$_ScheduleRequest;
 
   factory _ScheduleRequest.fromJson(Map<String, dynamic> json) =
       _$_ScheduleRequest.fromJson;
 
+  @override
+
+  /// callback url e.g https://google.com
+  String? get callback;
+  @override
+
+  /// description
+  String? get description;
   @override
 
   /// unique id of job (optional)
@@ -1461,14 +1469,6 @@ abstract class _ScheduleRequest implements ScheduleRequest {
 
   /// name of cron
   String? get name;
-  @override
-
-  /// callback url e.g https://google.com
-  String? get callback;
-  @override
-
-  /// description
-  String? get description;
   @override
   @JsonKey(ignore: true)
   _$$_ScheduleRequestCopyWith<_$_ScheduleRequest> get copyWith =>

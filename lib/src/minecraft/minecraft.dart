@@ -79,11 +79,11 @@ class PingResponse with _$PingResponse {
 @Freezed()
 class PlayerSample with _$PlayerSample {
   const factory PlayerSample({
-    /// name of the player
-    String? name,
-
     /// unique id of player
     String? uuid,
+
+    /// name of the player
+    String? name,
   }) = _PlayerSample;
   factory PlayerSample.fromJson(Map<String, dynamic> json) =>
       _$PlayerSampleFromJson(json);

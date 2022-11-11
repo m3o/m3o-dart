@@ -20,11 +20,6 @@ GenerateRequest _$GenerateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GenerateRequest {
-  /// avatar's username, unique username will generate the unique avatar;
-  /// if empty, every request generates a random avatar;
-  /// if upload == true, username will be the CDN filename rather than a random uuid string
-  String? get username => throw _privateConstructorUsedError;
-
   /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
   String? get format => throw _privateConstructorUsedError;
 
@@ -33,6 +28,11 @@ mixin _$GenerateRequest {
 
   /// set to true to upload to the M3O CDN and receive the url
   bool? get upload => throw _privateConstructorUsedError;
+
+  /// avatar's username, unique username will generate the unique avatar;
+  /// if empty, every request generates a random avatar;
+  /// if upload == true, username will be the CDN filename rather than a random uuid string
+  String? get username => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +46,7 @@ abstract class $GenerateRequestCopyWith<$Res> {
           GenerateRequest value, $Res Function(GenerateRequest) then) =
       _$GenerateRequestCopyWithImpl<$Res, GenerateRequest>;
   @useResult
-  $Res call({String? username, String? format, String? gender, bool? upload});
+  $Res call({String? format, String? gender, bool? upload, String? username});
 }
 
 /// @nodoc
@@ -62,16 +62,12 @@ class _$GenerateRequestCopyWithImpl<$Res, $Val extends GenerateRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = freezed,
     Object? format = freezed,
     Object? gender = freezed,
     Object? upload = freezed,
+    Object? username = freezed,
   }) {
     return _then(_value.copyWith(
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
       format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
@@ -84,6 +80,10 @@ class _$GenerateRequestCopyWithImpl<$Res, $Val extends GenerateRequest>
           ? _value.upload
           : upload // ignore: cast_nullable_to_non_nullable
               as bool?,
+      username: freezed == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -96,7 +96,7 @@ abstract class _$$_GenerateRequestCopyWith<$Res>
       __$$_GenerateRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? username, String? format, String? gender, bool? upload});
+  $Res call({String? format, String? gender, bool? upload, String? username});
 }
 
 /// @nodoc
@@ -110,16 +110,12 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = freezed,
     Object? format = freezed,
     Object? gender = freezed,
     Object? upload = freezed,
+    Object? username = freezed,
   }) {
     return _then(_$_GenerateRequest(
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
       format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
@@ -132,6 +128,10 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
           ? _value.upload
           : upload // ignore: cast_nullable_to_non_nullable
               as bool?,
+      username: freezed == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -140,16 +140,10 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GenerateRequest implements _GenerateRequest {
   const _$_GenerateRequest(
-      {this.username, this.format, this.gender, this.upload});
+      {this.format, this.gender, this.upload, this.username});
 
   factory _$_GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_GenerateRequestFromJson(json);
-
-  /// avatar's username, unique username will generate the unique avatar;
-  /// if empty, every request generates a random avatar;
-  /// if upload == true, username will be the CDN filename rather than a random uuid string
-  @override
-  final String? username;
 
   /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
   @override
@@ -163,9 +157,15 @@ class _$_GenerateRequest implements _GenerateRequest {
   @override
   final bool? upload;
 
+  /// avatar's username, unique username will generate the unique avatar;
+  /// if empty, every request generates a random avatar;
+  /// if upload == true, username will be the CDN filename rather than a random uuid string
+  @override
+  final String? username;
+
   @override
   String toString() {
-    return 'GenerateRequest(username: $username, format: $format, gender: $gender, upload: $upload)';
+    return 'GenerateRequest(format: $format, gender: $gender, upload: $upload, username: $username)';
   }
 
   @override
@@ -173,17 +173,17 @@ class _$_GenerateRequest implements _GenerateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GenerateRequest &&
-            (identical(other.username, username) ||
-                other.username == username) &&
             (identical(other.format, format) || other.format == format) &&
             (identical(other.gender, gender) || other.gender == gender) &&
-            (identical(other.upload, upload) || other.upload == upload));
+            (identical(other.upload, upload) || other.upload == upload) &&
+            (identical(other.username, username) ||
+                other.username == username));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, username, format, gender, upload);
+      Object.hash(runtimeType, format, gender, upload, username);
 
   @JsonKey(ignore: true)
   @override
@@ -201,20 +201,14 @@ class _$_GenerateRequest implements _GenerateRequest {
 
 abstract class _GenerateRequest implements GenerateRequest {
   const factory _GenerateRequest(
-      {final String? username,
-      final String? format,
+      {final String? format,
       final String? gender,
-      final bool? upload}) = _$_GenerateRequest;
+      final bool? upload,
+      final String? username}) = _$_GenerateRequest;
 
   factory _GenerateRequest.fromJson(Map<String, dynamic> json) =
       _$_GenerateRequest.fromJson;
 
-  @override
-
-  /// avatar's username, unique username will generate the unique avatar;
-  /// if empty, every request generates a random avatar;
-  /// if upload == true, username will be the CDN filename rather than a random uuid string
-  String? get username;
   @override
 
   /// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
@@ -227,6 +221,12 @@ abstract class _GenerateRequest implements GenerateRequest {
 
   /// set to true to upload to the M3O CDN and receive the url
   bool? get upload;
+  @override
+
+  /// avatar's username, unique username will generate the unique avatar;
+  /// if empty, every request generates a random avatar;
+  /// if upload == true, username will be the CDN filename rather than a random uuid string
+  String? get username;
   @override
   @JsonKey(ignore: true)
   _$$_GenerateRequestCopyWith<_$_GenerateRequest> get copyWith =>
@@ -250,19 +250,19 @@ GenerateResponse _$GenerateResponseFromJson(Map<String, dynamic> json) {
 mixin _$GenerateResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? base64, String? url) $default, {
+    TResult Function(String? url, String? base64) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? base64, String? url)? $default, {
+    TResult? Function(String? url, String? base64)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? base64, String? url)? $default, {
+    TResult Function(String? url, String? base64)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -313,7 +313,7 @@ abstract class _$$GenerateResponseDataCopyWith<$Res> {
           $Res Function(_$GenerateResponseData) then) =
       __$$GenerateResponseDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({String? base64, String? url});
+  $Res call({String? url, String? base64});
 }
 
 /// @nodoc
@@ -327,17 +327,17 @@ class __$$GenerateResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? base64 = freezed,
     Object? url = freezed,
+    Object? base64 = freezed,
   }) {
     return _then(_$GenerateResponseData(
-      base64: freezed == base64
-          ? _value.base64
-          : base64 // ignore: cast_nullable_to_non_nullable
-              as String?,
       url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      base64: freezed == base64
+          ? _value.base64
+          : base64 // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -346,26 +346,26 @@ class __$$GenerateResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$GenerateResponseData implements GenerateResponseData {
-  const _$GenerateResponseData({this.base64, this.url, final String? $type})
+  const _$GenerateResponseData({this.url, this.base64, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$GenerateResponseData.fromJson(Map<String, dynamic> json) =>
       _$$GenerateResponseDataFromJson(json);
 
-  /// base64 encoded string of the avatar image
-  @override
-  final String? base64;
-
   /// M3O's CDN url of the avatar image
   @override
   final String? url;
+
+  /// base64 encoded string of the avatar image
+  @override
+  final String? base64;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'GenerateResponse(base64: $base64, url: $url)';
+    return 'GenerateResponse(url: $url, base64: $base64)';
   }
 
   @override
@@ -373,13 +373,13 @@ class _$GenerateResponseData implements GenerateResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateResponseData &&
-            (identical(other.base64, base64) || other.base64 == base64) &&
-            (identical(other.url, url) || other.url == url));
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.base64, base64) || other.base64 == base64));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, base64, url);
+  int get hashCode => Object.hash(runtimeType, url, base64);
 
   @JsonKey(ignore: true)
   @override
@@ -391,30 +391,30 @@ class _$GenerateResponseData implements GenerateResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? base64, String? url) $default, {
+    TResult Function(String? url, String? base64) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(base64, url);
+    return $default(url, base64);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? base64, String? url)? $default, {
+    TResult? Function(String? url, String? base64)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(base64, url);
+    return $default?.call(url, base64);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? base64, String? url)? $default, {
+    TResult Function(String? url, String? base64)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(base64, url);
+      return $default(url, base64);
     }
     return orElse();
   }
@@ -460,16 +460,16 @@ class _$GenerateResponseData implements GenerateResponseData {
 
 abstract class GenerateResponseData implements GenerateResponse {
   const factory GenerateResponseData(
-      {final String? base64, final String? url}) = _$GenerateResponseData;
+      {final String? url, final String? base64}) = _$GenerateResponseData;
 
   factory GenerateResponseData.fromJson(Map<String, dynamic> json) =
       _$GenerateResponseData.fromJson;
 
-  /// base64 encoded string of the avatar image
-  String? get base64;
-
   /// M3O's CDN url of the avatar image
   String? get url;
+
+  /// base64 encoded string of the avatar image
+  String? get base64;
   @JsonKey(ignore: true)
   _$$GenerateResponseDataCopyWith<_$GenerateResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -557,7 +557,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? base64, String? url) $default, {
+    TResult Function(String? url, String? base64) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -566,7 +566,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? base64, String? url)? $default, {
+    TResult? Function(String? url, String? base64)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -575,7 +575,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? base64, String? url)? $default, {
+    TResult Function(String? url, String? base64)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {

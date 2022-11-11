@@ -4,6 +4,78 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/space/api](htt
 
 Endpoints:
 
+## List
+
+List the objects in space
+
+
+[https://m3o.com/space/api#List](https://m3o.com/space/api#List)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/space/space.dart';
+
+void main() async {
+  final ser = SpaceService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "prefix": "images/"
+,};
+
+  ListRequest req = ListRequest.fromJson(payload);
+
+  
+  try {
+
+	ListResponse res = await ser.list(req);
+
+    res.map((value) => print(value),
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Head
+
+Retrieve meta information about an object
+
+
+[https://m3o.com/space/api#Head](https://m3o.com/space/api#Head)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/space/space.dart';
+
+void main() async {
+  final ser = SpaceService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "name": "images/file.jpg"
+,};
+
+  HeadRequest req = HeadRequest.fromJson(payload);
+
+  
+  try {
+
+	HeadResponse res = await ser.head(req);
+
+    res.map((value) => print(value),
+	  Merr: (HeadResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Read
 
 Read an object in space
@@ -216,78 +288,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## List
-
-List the objects in space
-
-
-[https://m3o.com/space/api#List](https://m3o.com/space/api#List)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/space/space.dart';
-
-void main() async {
-  final ser = SpaceService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "prefix": "images/"
-,};
-
-  ListRequest req = ListRequest.fromJson(payload);
-
-  
-  try {
-
-	ListResponse res = await ser.list(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Head
-
-Retrieve meta information about an object
-
-
-[https://m3o.com/space/api#Head](https://m3o.com/space/api#Head)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/space/space.dart';
-
-void main() async {
-  final ser = SpaceService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "name": "images/file.jpg"
-,};
-
-  HeadRequest req = HeadRequest.fromJson(payload);
-
-  
-  try {
-
-	HeadResponse res = await ser.head(req);
-
-    res.map((value) => print(value),
-	  Merr: (HeadResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

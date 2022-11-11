@@ -701,19 +701,19 @@ SubscribeResponse _$SubscribeResponseFromJson(Map<String, dynamic> json) {
 mixin _$SubscribeResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? message, String? topic) $default, {
+    TResult Function(String? topic, Map<String, dynamic>? message) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Map<String, dynamic>? message, String? topic)? $default, {
+    TResult? Function(String? topic, Map<String, dynamic>? message)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? message, String? topic)? $default, {
+    TResult Function(String? topic, Map<String, dynamic>? message)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -764,7 +764,7 @@ abstract class _$$SubscribeResponseDataCopyWith<$Res> {
           $Res Function(_$SubscribeResponseData) then) =
       __$$SubscribeResponseDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({Map<String, dynamic>? message, String? topic});
+  $Res call({String? topic, Map<String, dynamic>? message});
 }
 
 /// @nodoc
@@ -778,18 +778,18 @@ class __$$SubscribeResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
     Object? topic = freezed,
+    Object? message = freezed,
   }) {
     return _then(_$SubscribeResponseData(
-      message: freezed == message
-          ? _value._message
-          : message // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
       topic: freezed == topic
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String?,
+      message: freezed == message
+          ? _value._message
+          : message // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -798,12 +798,16 @@ class __$$SubscribeResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SubscribeResponseData implements SubscribeResponseData {
   const _$SubscribeResponseData(
-      {final Map<String, dynamic>? message, this.topic, final String? $type})
+      {this.topic, final Map<String, dynamic>? message, final String? $type})
       : _message = message,
         $type = $type ?? 'default';
 
   factory _$SubscribeResponseData.fromJson(Map<String, dynamic> json) =>
       _$$SubscribeResponseDataFromJson(json);
+
+  /// The topic subscribed to
+  @override
+  final String? topic;
 
   /// The next json message on the topic
   final Map<String, dynamic>? _message;
@@ -817,16 +821,12 @@ class _$SubscribeResponseData implements SubscribeResponseData {
     return EqualUnmodifiableMapView(value);
   }
 
-  /// The topic subscribed to
-  @override
-  final String? topic;
-
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'SubscribeResponse(message: $message, topic: $topic)';
+    return 'SubscribeResponse(topic: $topic, message: $message)';
   }
 
   @override
@@ -834,14 +834,14 @@ class _$SubscribeResponseData implements SubscribeResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SubscribeResponseData &&
-            const DeepCollectionEquality().equals(other._message, _message) &&
-            (identical(other.topic, topic) || other.topic == topic));
+            (identical(other.topic, topic) || other.topic == topic) &&
+            const DeepCollectionEquality().equals(other._message, _message));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_message), topic);
+      runtimeType, topic, const DeepCollectionEquality().hash(_message));
 
   @JsonKey(ignore: true)
   @override
@@ -853,30 +853,30 @@ class _$SubscribeResponseData implements SubscribeResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? message, String? topic) $default, {
+    TResult Function(String? topic, Map<String, dynamic>? message) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(message, topic);
+    return $default(topic, message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Map<String, dynamic>? message, String? topic)? $default, {
+    TResult? Function(String? topic, Map<String, dynamic>? message)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(message, topic);
+    return $default?.call(topic, message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? message, String? topic)? $default, {
+    TResult Function(String? topic, Map<String, dynamic>? message)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(message, topic);
+      return $default(topic, message);
     }
     return orElse();
   }
@@ -922,17 +922,17 @@ class _$SubscribeResponseData implements SubscribeResponseData {
 
 abstract class SubscribeResponseData implements SubscribeResponse {
   const factory SubscribeResponseData(
-      {final Map<String, dynamic>? message,
-      final String? topic}) = _$SubscribeResponseData;
+      {final String? topic,
+      final Map<String, dynamic>? message}) = _$SubscribeResponseData;
 
   factory SubscribeResponseData.fromJson(Map<String, dynamic> json) =
       _$SubscribeResponseData.fromJson;
 
-  /// The next json message on the topic
-  Map<String, dynamic>? get message;
-
   /// The topic subscribed to
   String? get topic;
+
+  /// The next json message on the topic
+  Map<String, dynamic>? get message;
   @JsonKey(ignore: true)
   _$$SubscribeResponseDataCopyWith<_$SubscribeResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1020,7 +1020,7 @@ class _$SubscribeResponseMerr implements SubscribeResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? message, String? topic) $default, {
+    TResult Function(String? topic, Map<String, dynamic>? message) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -1029,7 +1029,7 @@ class _$SubscribeResponseMerr implements SubscribeResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Map<String, dynamic>? message, String? topic)? $default, {
+    TResult? Function(String? topic, Map<String, dynamic>? message)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -1038,7 +1038,7 @@ class _$SubscribeResponseMerr implements SubscribeResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, dynamic>? message, String? topic)? $default, {
+    TResult Function(String? topic, Map<String, dynamic>? message)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {

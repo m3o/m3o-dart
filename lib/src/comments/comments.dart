@@ -141,6 +141,12 @@ class CommentsService {
 @Freezed()
 class Comment with _$Comment {
   const factory Comment({
+    /// unique id for the comment, generated if not specified
+    String? id,
+
+    /// subject of the comment
+    String? subject,
+
     /// text of the comment
     String? text,
 
@@ -149,12 +155,6 @@ class Comment with _$Comment {
 
     /// time at which the comment was created
     String? created,
-
-    /// unique id for the comment, generated if not specified
-    String? id,
-
-    /// subject of the comment
-    String? subject,
   }) = _Comment;
   factory Comment.fromJson(Map<String, dynamic> json) =>
       _$CommentFromJson(json);
