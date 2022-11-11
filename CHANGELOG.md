@@ -1,3 +1,9 @@
+## v1.0.220 - 2022-11-11
+
+[6f8542](https://github.com/micro/services/commit/6f854232c5711a97b0999dd7ea94b0697ca7defd) .
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.219...v1.0.220
+
 ## v1.0.219 - 2022-11-11
 
 [060c7a](https://github.com/micro/services/commit/060c7a3b0256122eb8ce3bfbd540e874e8889909) charge for holidays
