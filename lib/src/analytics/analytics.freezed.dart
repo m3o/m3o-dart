@@ -558,15 +558,15 @@ Event _$EventFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Event {
-  /// the amount of times the event was triggered
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get value => throw _privateConstructorUsedError;
-
   /// time at which the event was created
   String? get created => throw _privateConstructorUsedError;
 
   /// event name
   String? get name => throw _privateConstructorUsedError;
+
+  /// the amount of times the event was triggered
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get value => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -579,9 +579,9 @@ abstract class $EventCopyWith<$Res> {
       _$EventCopyWithImpl<$Res, Event>;
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
-      String? created,
-      String? name});
+      {String? created,
+      String? name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value});
 }
 
 /// @nodoc
@@ -597,15 +597,11 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
     Object? created = freezed,
     Object? name = freezed,
+    Object? value = freezed,
   }) {
     return _then(_value.copyWith(
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as int?,
       created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
@@ -614,6 +610,10 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -625,9 +625,9 @@ abstract class _$$_EventCopyWith<$Res> implements $EventCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
-      String? created,
-      String? name});
+      {String? created,
+      String? name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value});
 }
 
 /// @nodoc
@@ -639,15 +639,11 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
     Object? created = freezed,
     Object? name = freezed,
+    Object? value = freezed,
   }) {
     return _then(_$_Event(
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as int?,
       created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
@@ -656,6 +652,10 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -664,17 +664,12 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
 @JsonSerializable()
 class _$_Event implements _Event {
   const _$_Event(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.value,
-      this.created,
-      this.name});
+      {this.created,
+      this.name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.value});
 
   factory _$_Event.fromJson(Map<String, dynamic> json) =>
       _$$_EventFromJson(json);
-
-  /// the amount of times the event was triggered
-  @override
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  final int? value;
 
   /// time at which the event was created
   @override
@@ -684,9 +679,14 @@ class _$_Event implements _Event {
   @override
   final String? name;
 
+  /// the amount of times the event was triggered
+  @override
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  final int? value;
+
   @override
   String toString() {
-    return 'Event(value: $value, created: $created, name: $name)';
+    return 'Event(created: $created, name: $name, value: $value)';
   }
 
   @override
@@ -694,14 +694,14 @@ class _$_Event implements _Event {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Event &&
-            (identical(other.value, value) || other.value == value) &&
             (identical(other.created, created) || other.created == created) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, value, created, name);
+  int get hashCode => Object.hash(runtimeType, created, name, value);
 
   @JsonKey(ignore: true)
   @override
@@ -719,18 +719,13 @@ class _$_Event implements _Event {
 
 abstract class _Event implements Event {
   const factory _Event(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? value,
-      final String? created,
-      final String? name}) = _$_Event;
+      {final String? created,
+      final String? name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          final int? value}) = _$_Event;
 
   factory _Event.fromJson(Map<String, dynamic> json) = _$_Event.fromJson;
 
-  @override
-
-  /// the amount of times the event was triggered
-  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-  int? get value;
   @override
 
   /// time at which the event was created
@@ -739,6 +734,11 @@ abstract class _Event implements Event {
 
   /// event name
   String? get name;
+  @override
+
+  /// the amount of times the event was triggered
+  @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+  int? get value;
   @override
   @JsonKey(ignore: true)
   _$$_EventCopyWith<_$_Event> get copyWith =>

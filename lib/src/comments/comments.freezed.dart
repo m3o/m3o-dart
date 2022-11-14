@@ -260,11 +260,11 @@ CreateRequest _$CreateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateRequest {
-  /// comment items
-  String? get text => throw _privateConstructorUsedError;
-
   /// comment subject
   String? get subject => throw _privateConstructorUsedError;
+
+  /// comment items
+  String? get text => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -278,7 +278,7 @@ abstract class $CreateRequestCopyWith<$Res> {
           CreateRequest value, $Res Function(CreateRequest) then) =
       _$CreateRequestCopyWithImpl<$Res, CreateRequest>;
   @useResult
-  $Res call({String? text, String? subject});
+  $Res call({String? subject, String? text});
 }
 
 /// @nodoc
@@ -294,17 +294,17 @@ class _$CreateRequestCopyWithImpl<$Res, $Val extends CreateRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? text = freezed,
     Object? subject = freezed,
+    Object? text = freezed,
   }) {
     return _then(_value.copyWith(
-      text: freezed == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
       subject: freezed == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text: freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -318,7 +318,7 @@ abstract class _$$_CreateRequestCopyWith<$Res>
       __$$_CreateRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? text, String? subject});
+  $Res call({String? subject, String? text});
 }
 
 /// @nodoc
@@ -332,17 +332,17 @@ class __$$_CreateRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? text = freezed,
     Object? subject = freezed,
+    Object? text = freezed,
   }) {
     return _then(_$_CreateRequest(
-      text: freezed == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
       subject: freezed == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text: freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -351,22 +351,22 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateRequest implements _CreateRequest {
-  const _$_CreateRequest({this.text, this.subject});
+  const _$_CreateRequest({this.subject, this.text});
 
   factory _$_CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateRequestFromJson(json);
-
-  /// comment items
-  @override
-  final String? text;
 
   /// comment subject
   @override
   final String? subject;
 
+  /// comment items
+  @override
+  final String? text;
+
   @override
   String toString() {
-    return 'CreateRequest(text: $text, subject: $subject)';
+    return 'CreateRequest(subject: $subject, text: $text)';
   }
 
   @override
@@ -374,13 +374,13 @@ class _$_CreateRequest implements _CreateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateRequest &&
-            (identical(other.text, text) || other.text == text) &&
-            (identical(other.subject, subject) || other.subject == subject));
+            (identical(other.subject, subject) || other.subject == subject) &&
+            (identical(other.text, text) || other.text == text));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, text, subject);
+  int get hashCode => Object.hash(runtimeType, subject, text);
 
   @JsonKey(ignore: true)
   @override
@@ -397,7 +397,7 @@ class _$_CreateRequest implements _CreateRequest {
 }
 
 abstract class _CreateRequest implements CreateRequest {
-  const factory _CreateRequest({final String? text, final String? subject}) =
+  const factory _CreateRequest({final String? subject, final String? text}) =
       _$_CreateRequest;
 
   factory _CreateRequest.fromJson(Map<String, dynamic> json) =
@@ -405,12 +405,12 @@ abstract class _CreateRequest implements CreateRequest {
 
   @override
 
-  /// comment items
-  String? get text;
-  @override
-
   /// comment subject
   String? get subject;
+  @override
+
+  /// comment items
+  String? get text;
   @override
   @JsonKey(ignore: true)
   _$$_CreateRequestCopyWith<_$_CreateRequest> get copyWith =>
@@ -1522,19 +1522,19 @@ EventsResponse _$EventsResponseFromJson(Map<String, dynamic> json) {
 mixin _$EventsResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Comment? comment, String? event) $default, {
+    TResult Function(String? event, Comment? comment) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Comment? comment, String? event)? $default, {
+    TResult? Function(String? event, Comment? comment)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Comment? comment, String? event)? $default, {
+    TResult Function(String? event, Comment? comment)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -1585,7 +1585,7 @@ abstract class _$$EventsResponseDataCopyWith<$Res> {
           $Res Function(_$EventsResponseData) then) =
       __$$EventsResponseDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({Comment? comment, String? event});
+  $Res call({String? event, Comment? comment});
 
   $CommentCopyWith<$Res>? get comment;
 }
@@ -1601,18 +1601,18 @@ class __$$EventsResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? comment = freezed,
     Object? event = freezed,
+    Object? comment = freezed,
   }) {
     return _then(_$EventsResponseData(
-      comment: freezed == comment
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
-              as Comment?,
       event: freezed == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as String?,
+      comment: freezed == comment
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
+              as Comment?,
     ));
   }
 
@@ -1632,26 +1632,26 @@ class __$$EventsResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$EventsResponseData implements EventsResponseData {
-  const _$EventsResponseData({this.comment, this.event, final String? $type})
+  const _$EventsResponseData({this.event, this.comment, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$EventsResponseData.fromJson(Map<String, dynamic> json) =>
       _$$EventsResponseDataFromJson(json);
 
-  /// the comment which the operation occured on
-  @override
-  final Comment? comment;
-
   /// the event which occured; create, delete, update
   @override
   final String? event;
+
+  /// the comment which the operation occured on
+  @override
+  final Comment? comment;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'EventsResponse(comment: $comment, event: $event)';
+    return 'EventsResponse(event: $event, comment: $comment)';
   }
 
   @override
@@ -1659,13 +1659,13 @@ class _$EventsResponseData implements EventsResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EventsResponseData &&
-            (identical(other.comment, comment) || other.comment == comment) &&
-            (identical(other.event, event) || other.event == event));
+            (identical(other.event, event) || other.event == event) &&
+            (identical(other.comment, comment) || other.comment == comment));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, comment, event);
+  int get hashCode => Object.hash(runtimeType, event, comment);
 
   @JsonKey(ignore: true)
   @override
@@ -1677,30 +1677,30 @@ class _$EventsResponseData implements EventsResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Comment? comment, String? event) $default, {
+    TResult Function(String? event, Comment? comment) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(comment, event);
+    return $default(event, comment);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Comment? comment, String? event)? $default, {
+    TResult? Function(String? event, Comment? comment)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(comment, event);
+    return $default?.call(event, comment);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Comment? comment, String? event)? $default, {
+    TResult Function(String? event, Comment? comment)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(comment, event);
+      return $default(event, comment);
     }
     return orElse();
   }
@@ -1746,16 +1746,16 @@ class _$EventsResponseData implements EventsResponseData {
 
 abstract class EventsResponseData implements EventsResponse {
   const factory EventsResponseData(
-      {final Comment? comment, final String? event}) = _$EventsResponseData;
+      {final String? event, final Comment? comment}) = _$EventsResponseData;
 
   factory EventsResponseData.fromJson(Map<String, dynamic> json) =
       _$EventsResponseData.fromJson;
 
-  /// the comment which the operation occured on
-  Comment? get comment;
-
   /// the event which occured; create, delete, update
   String? get event;
+
+  /// the comment which the operation occured on
+  Comment? get comment;
   @JsonKey(ignore: true)
   _$$EventsResponseDataCopyWith<_$EventsResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1843,7 +1843,7 @@ class _$EventsResponseMerr implements EventsResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Comment? comment, String? event) $default, {
+    TResult Function(String? event, Comment? comment) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -1852,7 +1852,7 @@ class _$EventsResponseMerr implements EventsResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Comment? comment, String? event)? $default, {
+    TResult? Function(String? event, Comment? comment)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -1861,7 +1861,7 @@ class _$EventsResponseMerr implements EventsResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Comment? comment, String? event)? $default, {
+    TResult Function(String? event, Comment? comment)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {

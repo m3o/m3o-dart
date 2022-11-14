@@ -20,9 +20,6 @@ Answer _$AnswerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Answer {
-  /// type of record
-  int? get type => throw _privateConstructorUsedError;
-
   /// time to live
   int? get TTL => throw _privateConstructorUsedError;
 
@@ -31,6 +28,9 @@ mixin _$Answer {
 
   /// name resolved
   String? get name => throw _privateConstructorUsedError;
+
+  /// type of record
+  int? get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +42,7 @@ abstract class $AnswerCopyWith<$Res> {
   factory $AnswerCopyWith(Answer value, $Res Function(Answer) then) =
       _$AnswerCopyWithImpl<$Res, Answer>;
   @useResult
-  $Res call({int? type, int? TTL, String? data, String? name});
+  $Res call({int? TTL, String? data, String? name, int? type});
 }
 
 /// @nodoc
@@ -58,16 +58,12 @@ class _$AnswerCopyWithImpl<$Res, $Val extends Answer>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = freezed,
     Object? TTL = freezed,
     Object? data = freezed,
     Object? name = freezed,
+    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as int?,
       TTL: freezed == TTL
           ? _value.TTL
           : TTL // ignore: cast_nullable_to_non_nullable
@@ -80,6 +76,10 @@ class _$AnswerCopyWithImpl<$Res, $Val extends Answer>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -90,7 +90,7 @@ abstract class _$$_AnswerCopyWith<$Res> implements $AnswerCopyWith<$Res> {
       __$$_AnswerCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? type, int? TTL, String? data, String? name});
+  $Res call({int? TTL, String? data, String? name, int? type});
 }
 
 /// @nodoc
@@ -103,16 +103,12 @@ class __$$_AnswerCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = freezed,
     Object? TTL = freezed,
     Object? data = freezed,
     Object? name = freezed,
+    Object? type = freezed,
   }) {
     return _then(_$_Answer(
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as int?,
       TTL: freezed == TTL
           ? _value.TTL
           : TTL // ignore: cast_nullable_to_non_nullable
@@ -125,6 +121,10 @@ class __$$_AnswerCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -132,14 +132,10 @@ class __$$_AnswerCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Answer implements _Answer {
-  const _$_Answer({this.type, this.TTL, this.data, this.name});
+  const _$_Answer({this.TTL, this.data, this.name, this.type});
 
   factory _$_Answer.fromJson(Map<String, dynamic> json) =>
       _$$_AnswerFromJson(json);
-
-  /// type of record
-  @override
-  final int? type;
 
   /// time to live
   @override
@@ -153,9 +149,13 @@ class _$_Answer implements _Answer {
   @override
   final String? name;
 
+  /// type of record
+  @override
+  final int? type;
+
   @override
   String toString() {
-    return 'Answer(type: $type, TTL: $TTL, data: $data, name: $name)';
+    return 'Answer(TTL: $TTL, data: $data, name: $name, type: $type)';
   }
 
   @override
@@ -163,15 +163,15 @@ class _$_Answer implements _Answer {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Answer &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.TTL, TTL) || other.TTL == TTL) &&
             (identical(other.data, data) || other.data == data) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, TTL, data, name);
+  int get hashCode => Object.hash(runtimeType, TTL, data, name, type);
 
   @JsonKey(ignore: true)
   @override
@@ -189,17 +189,13 @@ class _$_Answer implements _Answer {
 
 abstract class _Answer implements Answer {
   const factory _Answer(
-      {final int? type,
-      final int? TTL,
+      {final int? TTL,
       final String? data,
-      final String? name}) = _$_Answer;
+      final String? name,
+      final int? type}) = _$_Answer;
 
   factory _Answer.fromJson(Map<String, dynamic> json) = _$_Answer.fromJson;
 
-  @override
-
-  /// type of record
-  int? get type;
   @override
 
   /// time to live
@@ -213,8 +209,146 @@ abstract class _Answer implements Answer {
   /// name resolved
   String? get name;
   @override
+
+  /// type of record
+  int? get type;
+  @override
   @JsonKey(ignore: true)
   _$$_AnswerCopyWith<_$_Answer> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Domain _$DomainFromJson(Map<String, dynamic> json) {
+  return _Domain.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Domain {
+  /// domain id
+  String? get id => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $DomainCopyWith<Domain> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DomainCopyWith<$Res> {
+  factory $DomainCopyWith(Domain value, $Res Function(Domain) then) =
+      _$DomainCopyWithImpl<$Res, Domain>;
+  @useResult
+  $Res call({String? id});
+}
+
+/// @nodoc
+class _$DomainCopyWithImpl<$Res, $Val extends Domain>
+    implements $DomainCopyWith<$Res> {
+  _$DomainCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_DomainCopyWith<$Res> implements $DomainCopyWith<$Res> {
+  factory _$$_DomainCopyWith(_$_Domain value, $Res Function(_$_Domain) then) =
+      __$$_DomainCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? id});
+}
+
+/// @nodoc
+class __$$_DomainCopyWithImpl<$Res>
+    extends _$DomainCopyWithImpl<$Res, _$_Domain>
+    implements _$$_DomainCopyWith<$Res> {
+  __$$_DomainCopyWithImpl(_$_Domain _value, $Res Function(_$_Domain) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_$_Domain(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Domain implements _Domain {
+  const _$_Domain({this.id});
+
+  factory _$_Domain.fromJson(Map<String, dynamic> json) =>
+      _$$_DomainFromJson(json);
+
+  /// domain id
+  @override
+  final String? id;
+
+  @override
+  String toString() {
+    return 'Domain(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Domain &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_DomainCopyWith<_$_Domain> get copyWith =>
+      __$$_DomainCopyWithImpl<_$_Domain>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_DomainToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Domain implements Domain {
+  const factory _Domain({final String? id}) = _$_Domain;
+
+  factory _Domain.fromJson(Map<String, dynamic> json) = _$_Domain.fromJson;
+
+  @override
+
+  /// domain id
+  String? get id;
+  @override
+  @JsonKey(ignore: true)
+  _$$_DomainCopyWith<_$_Domain> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -399,15 +533,15 @@ mixin _$QueryResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            bool? TC,
-            List<Question>? question,
             int? status,
             bool? AD,
             bool? CD,
             bool? RA,
             bool? RD,
             List<Answer>? answer,
-            String? provider)
+            String? provider,
+            List<Question>? question,
+            bool? TC)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
@@ -415,15 +549,15 @@ mixin _$QueryResponse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-            bool? TC,
-            List<Question>? question,
             int? status,
             bool? AD,
             bool? CD,
             bool? RA,
             bool? RD,
             List<Answer>? answer,
-            String? provider)?
+            String? provider,
+            List<Question>? question,
+            bool? TC)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
@@ -431,15 +565,15 @@ mixin _$QueryResponse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            bool? TC,
-            List<Question>? question,
             int? status,
             bool? AD,
             bool? CD,
             bool? RA,
             bool? RD,
             List<Answer>? answer,
-            String? provider)?
+            String? provider,
+            List<Question>? question,
+            bool? TC)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -492,15 +626,15 @@ abstract class _$$QueryResponseDataCopyWith<$Res> {
       __$$QueryResponseDataCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {bool? TC,
-      List<Question>? question,
-      int? status,
+      {int? status,
       bool? AD,
       bool? CD,
       bool? RA,
       bool? RD,
       List<Answer>? answer,
-      String? provider});
+      String? provider,
+      List<Question>? question,
+      bool? TC});
 }
 
 /// @nodoc
@@ -514,8 +648,6 @@ class __$$QueryResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? TC = freezed,
-    Object? question = freezed,
     Object? status = freezed,
     Object? AD = freezed,
     Object? CD = freezed,
@@ -523,16 +655,10 @@ class __$$QueryResponseDataCopyWithImpl<$Res>
     Object? RD = freezed,
     Object? answer = freezed,
     Object? provider = freezed,
+    Object? question = freezed,
+    Object? TC = freezed,
   }) {
     return _then(_$QueryResponseData(
-      TC: freezed == TC
-          ? _value.TC
-          : TC // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      question: freezed == question
-          ? _value._question
-          : question // ignore: cast_nullable_to_non_nullable
-              as List<Question>?,
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -561,6 +687,14 @@ class __$$QueryResponseDataCopyWithImpl<$Res>
           ? _value.provider
           : provider // ignore: cast_nullable_to_non_nullable
               as String?,
+      question: freezed == question
+          ? _value._question
+          : question // ignore: cast_nullable_to_non_nullable
+              as List<Question>?,
+      TC: freezed == TC
+          ? _value.TC
+          : TC // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -569,33 +703,22 @@ class __$$QueryResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$QueryResponseData implements QueryResponseData {
   const _$QueryResponseData(
-      {this.TC,
-      final List<Question>? question,
-      this.status,
+      {this.status,
       this.AD,
       this.CD,
       this.RA,
       this.RD,
       final List<Answer>? answer,
       this.provider,
+      final List<Question>? question,
+      this.TC,
       final String? $type})
-      : _question = question,
-        _answer = answer,
+      : _answer = answer,
+        _question = question,
         $type = $type ?? 'default';
 
   factory _$QueryResponseData.fromJson(Map<String, dynamic> json) =>
       _$$QueryResponseDataFromJson(json);
-
-  @override
-  final bool? TC;
-  final List<Question>? _question;
-  @override
-  List<Question>? get question {
-    final value = _question;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
 
   @override
   final int? status;
@@ -618,13 +741,24 @@ class _$QueryResponseData implements QueryResponseData {
 
   @override
   final String? provider;
+  final List<Question>? _question;
+  @override
+  List<Question>? get question {
+    final value = _question;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final bool? TC;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'QueryResponse(TC: $TC, question: $question, status: $status, AD: $AD, CD: $CD, RA: $RA, RD: $RD, answer: $answer, provider: $provider)';
+    return 'QueryResponse(status: $status, AD: $AD, CD: $CD, RA: $RA, RD: $RD, answer: $answer, provider: $provider, question: $question, TC: $TC)';
   }
 
   @override
@@ -632,8 +766,6 @@ class _$QueryResponseData implements QueryResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QueryResponseData &&
-            (identical(other.TC, TC) || other.TC == TC) &&
-            const DeepCollectionEquality().equals(other._question, _question) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.AD, AD) || other.AD == AD) &&
             (identical(other.CD, CD) || other.CD == CD) &&
@@ -641,22 +773,24 @@ class _$QueryResponseData implements QueryResponseData {
             (identical(other.RD, RD) || other.RD == RD) &&
             const DeepCollectionEquality().equals(other._answer, _answer) &&
             (identical(other.provider, provider) ||
-                other.provider == provider));
+                other.provider == provider) &&
+            const DeepCollectionEquality().equals(other._question, _question) &&
+            (identical(other.TC, TC) || other.TC == TC));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      TC,
-      const DeepCollectionEquality().hash(_question),
       status,
       AD,
       CD,
       RA,
       RD,
       const DeepCollectionEquality().hash(_answer),
-      provider);
+      provider,
+      const DeepCollectionEquality().hash(_question),
+      TC);
 
   @JsonKey(ignore: true)
   @override
@@ -668,60 +802,60 @@ class _$QueryResponseData implements QueryResponseData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            bool? TC,
-            List<Question>? question,
             int? status,
             bool? AD,
             bool? CD,
             bool? RA,
             bool? RD,
             List<Answer>? answer,
-            String? provider)
+            String? provider,
+            List<Question>? question,
+            bool? TC)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(TC, question, status, AD, CD, RA, RD, answer, provider);
+    return $default(status, AD, CD, RA, RD, answer, provider, question, TC);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-            bool? TC,
-            List<Question>? question,
             int? status,
             bool? AD,
             bool? CD,
             bool? RA,
             bool? RD,
             List<Answer>? answer,
-            String? provider)?
+            String? provider,
+            List<Question>? question,
+            bool? TC)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return $default?.call(
-        TC, question, status, AD, CD, RA, RD, answer, provider);
+        status, AD, CD, RA, RD, answer, provider, question, TC);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            bool? TC,
-            List<Question>? question,
             int? status,
             bool? AD,
             bool? CD,
             bool? RA,
             bool? RD,
             List<Answer>? answer,
-            String? provider)?
+            String? provider,
+            List<Question>? question,
+            bool? TC)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(TC, question, status, AD, CD, RA, RD, answer, provider);
+      return $default(status, AD, CD, RA, RD, answer, provider, question, TC);
     }
     return orElse();
   }
@@ -767,21 +901,19 @@ class _$QueryResponseData implements QueryResponseData {
 
 abstract class QueryResponseData implements QueryResponse {
   const factory QueryResponseData(
-      {final bool? TC,
-      final List<Question>? question,
-      final int? status,
+      {final int? status,
       final bool? AD,
       final bool? CD,
       final bool? RA,
       final bool? RD,
       final List<Answer>? answer,
-      final String? provider}) = _$QueryResponseData;
+      final String? provider,
+      final List<Question>? question,
+      final bool? TC}) = _$QueryResponseData;
 
   factory QueryResponseData.fromJson(Map<String, dynamic> json) =
       _$QueryResponseData.fromJson;
 
-  bool? get TC;
-  List<Question>? get question;
   int? get status;
   bool? get AD;
   bool? get CD;
@@ -789,6 +921,8 @@ abstract class QueryResponseData implements QueryResponse {
   bool? get RD;
   List<Answer>? get answer;
   String? get provider;
+  List<Question>? get question;
+  bool? get TC;
   @JsonKey(ignore: true)
   _$$QueryResponseDataCopyWith<_$QueryResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -876,15 +1010,15 @@ class _$QueryResponseMerr implements QueryResponseMerr {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            bool? TC,
-            List<Question>? question,
             int? status,
             bool? AD,
             bool? CD,
             bool? RA,
             bool? RD,
             List<Answer>? answer,
-            String? provider)
+            String? provider,
+            List<Question>? question,
+            bool? TC)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -895,15 +1029,15 @@ class _$QueryResponseMerr implements QueryResponseMerr {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-            bool? TC,
-            List<Question>? question,
             int? status,
             bool? AD,
             bool? CD,
             bool? RA,
             bool? RD,
             List<Answer>? answer,
-            String? provider)?
+            String? provider,
+            List<Question>? question,
+            bool? TC)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -914,15 +1048,15 @@ class _$QueryResponseMerr implements QueryResponseMerr {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            bool? TC,
-            List<Question>? question,
             int? status,
             bool? AD,
             bool? CD,
             bool? RA,
             bool? RD,
             List<Answer>? answer,
-            String? provider)?
+            String? provider,
+            List<Question>? question,
+            bool? TC)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -991,11 +1125,11 @@ Question _$QuestionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Question {
-  /// type of record
-  int? get type => throw _privateConstructorUsedError;
-
   /// name to query
   String? get name => throw _privateConstructorUsedError;
+
+  /// type of record
+  int? get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1008,7 +1142,7 @@ abstract class $QuestionCopyWith<$Res> {
   factory $QuestionCopyWith(Question value, $Res Function(Question) then) =
       _$QuestionCopyWithImpl<$Res, Question>;
   @useResult
-  $Res call({int? type, String? name});
+  $Res call({String? name, int? type});
 }
 
 /// @nodoc
@@ -1024,18 +1158,18 @@ class _$QuestionCopyWithImpl<$Res, $Val extends Question>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = freezed,
     Object? name = freezed,
+    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as int?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -1047,7 +1181,7 @@ abstract class _$$_QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
       __$$_QuestionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? type, String? name});
+  $Res call({String? name, int? type});
 }
 
 /// @nodoc
@@ -1061,18 +1195,18 @@ class __$$_QuestionCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = freezed,
     Object? name = freezed,
+    Object? type = freezed,
   }) {
     return _then(_$_Question(
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as int?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -1080,22 +1214,22 @@ class __$$_QuestionCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Question implements _Question {
-  const _$_Question({this.type, this.name});
+  const _$_Question({this.name, this.type});
 
   factory _$_Question.fromJson(Map<String, dynamic> json) =>
       _$$_QuestionFromJson(json);
-
-  /// type of record
-  @override
-  final int? type;
 
   /// name to query
   @override
   final String? name;
 
+  /// type of record
+  @override
+  final int? type;
+
   @override
   String toString() {
-    return 'Question(type: $type, name: $name)';
+    return 'Question(name: $name, type: $type)';
   }
 
   @override
@@ -1103,13 +1237,13 @@ class _$_Question implements _Question {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Question &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, name);
+  int get hashCode => Object.hash(runtimeType, name, type);
 
   @JsonKey(ignore: true)
   @override
@@ -1126,20 +1260,944 @@ class _$_Question implements _Question {
 }
 
 abstract class _Question implements Question {
-  const factory _Question({final int? type, final String? name}) = _$_Question;
+  const factory _Question({final String? name, final int? type}) = _$_Question;
 
   factory _Question.fromJson(Map<String, dynamic> json) = _$_Question.fromJson;
 
   @override
 
-  /// type of record
-  int? get type;
-  @override
-
   /// name to query
   String? get name;
   @override
+
+  /// type of record
+  int? get type;
+  @override
   @JsonKey(ignore: true)
   _$$_QuestionCopyWith<_$_Question> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+WhoisRequest _$WhoisRequestFromJson(Map<String, dynamic> json) {
+  return _WhoisRequest.fromJson(json);
+}
+
+/// @nodoc
+mixin _$WhoisRequest {
+  String? get domain => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $WhoisRequestCopyWith<WhoisRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $WhoisRequestCopyWith<$Res> {
+  factory $WhoisRequestCopyWith(
+          WhoisRequest value, $Res Function(WhoisRequest) then) =
+      _$WhoisRequestCopyWithImpl<$Res, WhoisRequest>;
+  @useResult
+  $Res call({String? domain});
+}
+
+/// @nodoc
+class _$WhoisRequestCopyWithImpl<$Res, $Val extends WhoisRequest>
+    implements $WhoisRequestCopyWith<$Res> {
+  _$WhoisRequestCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? domain = freezed,
+  }) {
+    return _then(_value.copyWith(
+      domain: freezed == domain
+          ? _value.domain
+          : domain // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_WhoisRequestCopyWith<$Res>
+    implements $WhoisRequestCopyWith<$Res> {
+  factory _$$_WhoisRequestCopyWith(
+          _$_WhoisRequest value, $Res Function(_$_WhoisRequest) then) =
+      __$$_WhoisRequestCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? domain});
+}
+
+/// @nodoc
+class __$$_WhoisRequestCopyWithImpl<$Res>
+    extends _$WhoisRequestCopyWithImpl<$Res, _$_WhoisRequest>
+    implements _$$_WhoisRequestCopyWith<$Res> {
+  __$$_WhoisRequestCopyWithImpl(
+      _$_WhoisRequest _value, $Res Function(_$_WhoisRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? domain = freezed,
+  }) {
+    return _then(_$_WhoisRequest(
+      domain: freezed == domain
+          ? _value.domain
+          : domain // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_WhoisRequest implements _WhoisRequest {
+  const _$_WhoisRequest({this.domain});
+
+  factory _$_WhoisRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_WhoisRequestFromJson(json);
+
+  @override
+  final String? domain;
+
+  @override
+  String toString() {
+    return 'WhoisRequest(domain: $domain)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_WhoisRequest &&
+            (identical(other.domain, domain) || other.domain == domain));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, domain);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_WhoisRequestCopyWith<_$_WhoisRequest> get copyWith =>
+      __$$_WhoisRequestCopyWithImpl<_$_WhoisRequest>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_WhoisRequestToJson(
+      this,
+    );
+  }
+}
+
+abstract class _WhoisRequest implements WhoisRequest {
+  const factory _WhoisRequest({final String? domain}) = _$_WhoisRequest;
+
+  factory _WhoisRequest.fromJson(Map<String, dynamic> json) =
+      _$_WhoisRequest.fromJson;
+
+  @override
+  String? get domain;
+  @override
+  @JsonKey(ignore: true)
+  _$$_WhoisRequestCopyWith<_$_WhoisRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+WhoisResponse _$WhoisResponseFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'default':
+      return WhoisResponseData.fromJson(json);
+    case 'Merr':
+      return WhoisResponseMerr.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'WhoisResponse',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
+/// @nodoc
+mixin _$WhoisResponse {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String? abuse_email,
+            String? abuse_phone,
+            String? registrar_id,
+            String? updated,
+            String? registrar,
+            String? registrar_url,
+            List<String>? status,
+            String? created,
+            String? domain,
+            String? expiry,
+            String? id,
+            List<String>? nameservers,
+            String? whois_server)
+        $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String? abuse_email,
+            String? abuse_phone,
+            String? registrar_id,
+            String? updated,
+            String? registrar,
+            String? registrar_url,
+            List<String>? status,
+            String? created,
+            String? domain,
+            String? expiry,
+            String? id,
+            List<String>? nameservers,
+            String? whois_server)?
+        $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String? abuse_email,
+            String? abuse_phone,
+            String? registrar_id,
+            String? updated,
+            String? registrar,
+            String? registrar_url,
+            List<String>? status,
+            String? created,
+            String? domain,
+            String? expiry,
+            String? id,
+            List<String>? nameservers,
+            String? whois_server)?
+        $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(WhoisResponseData value) $default, {
+    required TResult Function(WhoisResponseMerr value) Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(WhoisResponseData value)? $default, {
+    TResult? Function(WhoisResponseMerr value)? Merr,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(WhoisResponseData value)? $default, {
+    TResult Function(WhoisResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $WhoisResponseCopyWith<$Res> {
+  factory $WhoisResponseCopyWith(
+          WhoisResponse value, $Res Function(WhoisResponse) then) =
+      _$WhoisResponseCopyWithImpl<$Res, WhoisResponse>;
+}
+
+/// @nodoc
+class _$WhoisResponseCopyWithImpl<$Res, $Val extends WhoisResponse>
+    implements $WhoisResponseCopyWith<$Res> {
+  _$WhoisResponseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$WhoisResponseDataCopyWith<$Res> {
+  factory _$$WhoisResponseDataCopyWith(
+          _$WhoisResponseData value, $Res Function(_$WhoisResponseData) then) =
+      __$$WhoisResponseDataCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String? abuse_email,
+      String? abuse_phone,
+      String? registrar_id,
+      String? updated,
+      String? registrar,
+      String? registrar_url,
+      List<String>? status,
+      String? created,
+      String? domain,
+      String? expiry,
+      String? id,
+      List<String>? nameservers,
+      String? whois_server});
+}
+
+/// @nodoc
+class __$$WhoisResponseDataCopyWithImpl<$Res>
+    extends _$WhoisResponseCopyWithImpl<$Res, _$WhoisResponseData>
+    implements _$$WhoisResponseDataCopyWith<$Res> {
+  __$$WhoisResponseDataCopyWithImpl(
+      _$WhoisResponseData _value, $Res Function(_$WhoisResponseData) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? abuse_email = freezed,
+    Object? abuse_phone = freezed,
+    Object? registrar_id = freezed,
+    Object? updated = freezed,
+    Object? registrar = freezed,
+    Object? registrar_url = freezed,
+    Object? status = freezed,
+    Object? created = freezed,
+    Object? domain = freezed,
+    Object? expiry = freezed,
+    Object? id = freezed,
+    Object? nameservers = freezed,
+    Object? whois_server = freezed,
+  }) {
+    return _then(_$WhoisResponseData(
+      abuse_email: freezed == abuse_email
+          ? _value.abuse_email
+          : abuse_email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      abuse_phone: freezed == abuse_phone
+          ? _value.abuse_phone
+          : abuse_phone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      registrar_id: freezed == registrar_id
+          ? _value.registrar_id
+          : registrar_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updated: freezed == updated
+          ? _value.updated
+          : updated // ignore: cast_nullable_to_non_nullable
+              as String?,
+      registrar: freezed == registrar
+          ? _value.registrar
+          : registrar // ignore: cast_nullable_to_non_nullable
+              as String?,
+      registrar_url: freezed == registrar_url
+          ? _value.registrar_url
+          : registrar_url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      status: freezed == status
+          ? _value._status
+          : status // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      created: freezed == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
+      domain: freezed == domain
+          ? _value.domain
+          : domain // ignore: cast_nullable_to_non_nullable
+              as String?,
+      expiry: freezed == expiry
+          ? _value.expiry
+          : expiry // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      nameservers: freezed == nameservers
+          ? _value._nameservers
+          : nameservers // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      whois_server: freezed == whois_server
+          ? _value.whois_server
+          : whois_server // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$WhoisResponseData implements WhoisResponseData {
+  const _$WhoisResponseData(
+      {this.abuse_email,
+      this.abuse_phone,
+      this.registrar_id,
+      this.updated,
+      this.registrar,
+      this.registrar_url,
+      final List<String>? status,
+      this.created,
+      this.domain,
+      this.expiry,
+      this.id,
+      final List<String>? nameservers,
+      this.whois_server,
+      final String? $type})
+      : _status = status,
+        _nameservers = nameservers,
+        $type = $type ?? 'default';
+
+  factory _$WhoisResponseData.fromJson(Map<String, dynamic> json) =>
+      _$$WhoisResponseDataFromJson(json);
+
+  /// abuse email
+  @override
+  final String? abuse_email;
+
+  /// abuse phone
+  @override
+  final String? abuse_phone;
+
+  /// the registrar iana id
+  @override
+  final String? registrar_id;
+
+  /// time of update
+  @override
+  final String? updated;
+
+  /// the registrar
+  @override
+  final String? registrar;
+
+  /// registrar
+  @override
+  final String? registrar_url;
+
+  /// status of domain
+  final List<String>? _status;
+
+  /// status of domain
+  @override
+  List<String>? get status {
+    final value = _status;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  /// time of creation
+  @override
+  final String? created;
+
+  /// domain name
+  @override
+  final String? domain;
+
+  /// time of expiry
+  @override
+  final String? expiry;
+
+  /// domain id
+  @override
+  final String? id;
+
+  /// nameservers
+  final List<String>? _nameservers;
+
+  /// nameservers
+  @override
+  List<String>? get nameservers {
+    final value = _nameservers;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  /// whois server
+  @override
+  final String? whois_server;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'WhoisResponse(abuse_email: $abuse_email, abuse_phone: $abuse_phone, registrar_id: $registrar_id, updated: $updated, registrar: $registrar, registrar_url: $registrar_url, status: $status, created: $created, domain: $domain, expiry: $expiry, id: $id, nameservers: $nameservers, whois_server: $whois_server)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$WhoisResponseData &&
+            (identical(other.abuse_email, abuse_email) ||
+                other.abuse_email == abuse_email) &&
+            (identical(other.abuse_phone, abuse_phone) ||
+                other.abuse_phone == abuse_phone) &&
+            (identical(other.registrar_id, registrar_id) ||
+                other.registrar_id == registrar_id) &&
+            (identical(other.updated, updated) || other.updated == updated) &&
+            (identical(other.registrar, registrar) ||
+                other.registrar == registrar) &&
+            (identical(other.registrar_url, registrar_url) ||
+                other.registrar_url == registrar_url) &&
+            const DeepCollectionEquality().equals(other._status, _status) &&
+            (identical(other.created, created) || other.created == created) &&
+            (identical(other.domain, domain) || other.domain == domain) &&
+            (identical(other.expiry, expiry) || other.expiry == expiry) &&
+            (identical(other.id, id) || other.id == id) &&
+            const DeepCollectionEquality()
+                .equals(other._nameservers, _nameservers) &&
+            (identical(other.whois_server, whois_server) ||
+                other.whois_server == whois_server));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      abuse_email,
+      abuse_phone,
+      registrar_id,
+      updated,
+      registrar,
+      registrar_url,
+      const DeepCollectionEquality().hash(_status),
+      created,
+      domain,
+      expiry,
+      id,
+      const DeepCollectionEquality().hash(_nameservers),
+      whois_server);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$WhoisResponseDataCopyWith<_$WhoisResponseData> get copyWith =>
+      __$$WhoisResponseDataCopyWithImpl<_$WhoisResponseData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String? abuse_email,
+            String? abuse_phone,
+            String? registrar_id,
+            String? updated,
+            String? registrar,
+            String? registrar_url,
+            List<String>? status,
+            String? created,
+            String? domain,
+            String? expiry,
+            String? id,
+            List<String>? nameservers,
+            String? whois_server)
+        $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) {
+    return $default(
+        abuse_email,
+        abuse_phone,
+        registrar_id,
+        updated,
+        registrar,
+        registrar_url,
+        status,
+        created,
+        domain,
+        expiry,
+        id,
+        nameservers,
+        whois_server);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String? abuse_email,
+            String? abuse_phone,
+            String? registrar_id,
+            String? updated,
+            String? registrar,
+            String? registrar_url,
+            List<String>? status,
+            String? created,
+            String? domain,
+            String? expiry,
+            String? id,
+            List<String>? nameservers,
+            String? whois_server)?
+        $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
+  }) {
+    return $default?.call(
+        abuse_email,
+        abuse_phone,
+        registrar_id,
+        updated,
+        registrar,
+        registrar_url,
+        status,
+        created,
+        domain,
+        expiry,
+        id,
+        nameservers,
+        whois_server);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String? abuse_email,
+            String? abuse_phone,
+            String? registrar_id,
+            String? updated,
+            String? registrar,
+            String? registrar_url,
+            List<String>? status,
+            String? created,
+            String? domain,
+            String? expiry,
+            String? id,
+            List<String>? nameservers,
+            String? whois_server)?
+        $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(
+          abuse_email,
+          abuse_phone,
+          registrar_id,
+          updated,
+          registrar,
+          registrar_url,
+          status,
+          created,
+          domain,
+          expiry,
+          id,
+          nameservers,
+          whois_server);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(WhoisResponseData value) $default, {
+    required TResult Function(WhoisResponseMerr value) Merr,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(WhoisResponseData value)? $default, {
+    TResult? Function(WhoisResponseMerr value)? Merr,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(WhoisResponseData value)? $default, {
+    TResult Function(WhoisResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$WhoisResponseDataToJson(
+      this,
+    );
+  }
+}
+
+abstract class WhoisResponseData implements WhoisResponse {
+  const factory WhoisResponseData(
+      {final String? abuse_email,
+      final String? abuse_phone,
+      final String? registrar_id,
+      final String? updated,
+      final String? registrar,
+      final String? registrar_url,
+      final List<String>? status,
+      final String? created,
+      final String? domain,
+      final String? expiry,
+      final String? id,
+      final List<String>? nameservers,
+      final String? whois_server}) = _$WhoisResponseData;
+
+  factory WhoisResponseData.fromJson(Map<String, dynamic> json) =
+      _$WhoisResponseData.fromJson;
+
+  /// abuse email
+  String? get abuse_email;
+
+  /// abuse phone
+  String? get abuse_phone;
+
+  /// the registrar iana id
+  String? get registrar_id;
+
+  /// time of update
+  String? get updated;
+
+  /// the registrar
+  String? get registrar;
+
+  /// registrar
+  String? get registrar_url;
+
+  /// status of domain
+  List<String>? get status;
+
+  /// time of creation
+  String? get created;
+
+  /// domain name
+  String? get domain;
+
+  /// time of expiry
+  String? get expiry;
+
+  /// domain id
+  String? get id;
+
+  /// nameservers
+  List<String>? get nameservers;
+
+  /// whois server
+  String? get whois_server;
+  @JsonKey(ignore: true)
+  _$$WhoisResponseDataCopyWith<_$WhoisResponseData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$WhoisResponseMerrCopyWith<$Res> {
+  factory _$$WhoisResponseMerrCopyWith(
+          _$WhoisResponseMerr value, $Res Function(_$WhoisResponseMerr) then) =
+      __$$WhoisResponseMerrCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic>? body});
+}
+
+/// @nodoc
+class __$$WhoisResponseMerrCopyWithImpl<$Res>
+    extends _$WhoisResponseCopyWithImpl<$Res, _$WhoisResponseMerr>
+    implements _$$WhoisResponseMerrCopyWith<$Res> {
+  __$$WhoisResponseMerrCopyWithImpl(
+      _$WhoisResponseMerr _value, $Res Function(_$WhoisResponseMerr) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? body = freezed,
+  }) {
+    return _then(_$WhoisResponseMerr(
+      body: freezed == body
+          ? _value._body
+          : body // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$WhoisResponseMerr implements WhoisResponseMerr {
+  const _$WhoisResponseMerr(
+      {final Map<String, dynamic>? body, final String? $type})
+      : _body = body,
+        $type = $type ?? 'Merr';
+
+  factory _$WhoisResponseMerr.fromJson(Map<String, dynamic> json) =>
+      _$$WhoisResponseMerrFromJson(json);
+
+  final Map<String, dynamic>? _body;
+  @override
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'WhoisResponse.Merr(body: $body)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$WhoisResponseMerr &&
+            const DeepCollectionEquality().equals(other._body, _body));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$WhoisResponseMerrCopyWith<_$WhoisResponseMerr> get copyWith =>
+      __$$WhoisResponseMerrCopyWithImpl<_$WhoisResponseMerr>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String? abuse_email,
+            String? abuse_phone,
+            String? registrar_id,
+            String? updated,
+            String? registrar,
+            String? registrar_url,
+            List<String>? status,
+            String? created,
+            String? domain,
+            String? expiry,
+            String? id,
+            List<String>? nameservers,
+            String? whois_server)
+        $default, {
+    required TResult Function(Map<String, dynamic>? body) Merr,
+  }) {
+    return Merr(body);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String? abuse_email,
+            String? abuse_phone,
+            String? registrar_id,
+            String? updated,
+            String? registrar,
+            String? registrar_url,
+            List<String>? status,
+            String? created,
+            String? domain,
+            String? expiry,
+            String? id,
+            List<String>? nameservers,
+            String? whois_server)?
+        $default, {
+    TResult? Function(Map<String, dynamic>? body)? Merr,
+  }) {
+    return Merr?.call(body);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String? abuse_email,
+            String? abuse_phone,
+            String? registrar_id,
+            String? updated,
+            String? registrar,
+            String? registrar_url,
+            List<String>? status,
+            String? created,
+            String? domain,
+            String? expiry,
+            String? id,
+            List<String>? nameservers,
+            String? whois_server)?
+        $default, {
+    TResult Function(Map<String, dynamic>? body)? Merr,
+    required TResult orElse(),
+  }) {
+    if (Merr != null) {
+      return Merr(body);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(WhoisResponseData value) $default, {
+    required TResult Function(WhoisResponseMerr value) Merr,
+  }) {
+    return Merr(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(WhoisResponseData value)? $default, {
+    TResult? Function(WhoisResponseMerr value)? Merr,
+  }) {
+    return Merr?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(WhoisResponseData value)? $default, {
+    TResult Function(WhoisResponseMerr value)? Merr,
+    required TResult orElse(),
+  }) {
+    if (Merr != null) {
+      return Merr(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$WhoisResponseMerrToJson(
+      this,
+    );
+  }
+}
+
+abstract class WhoisResponseMerr implements WhoisResponse {
+  const factory WhoisResponseMerr({final Map<String, dynamic>? body}) =
+      _$WhoisResponseMerr;
+
+  factory WhoisResponseMerr.fromJson(Map<String, dynamic> json) =
+      _$WhoisResponseMerr.fromJson;
+
+  Map<String, dynamic>? get body;
+  @JsonKey(ignore: true)
+  _$$WhoisResponseMerrCopyWith<_$WhoisResponseMerr> get copyWith =>
       throw _privateConstructorUsedError;
 }

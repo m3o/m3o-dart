@@ -31,14 +31,31 @@ class DnsService {
       throw Exception(e);
     }
   }
+
+  /// Check who owns a domain
+  Future<WhoisResponse> whois(WhoisRequest req) async {
+    Request request = Request(
+      service: 'dns',
+      endpoint: 'Whois',
+      body: req.toJson(),
+    );
+
+    try {
+      Response res = await _client.call(request);
+      if (isError(res.body)) {
+        final err = Merr(res.toJson());
+        return WhoisResponse.Merr(body: err.b);
+      }
+      return WhoisResponseData.fromJson(res.body);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
 }
 
 @Freezed()
 class Answer with _$Answer {
   const factory Answer({
-    /// type of record
-    int? type,
-
     /// time to live
     int? TTL,
 
@@ -47,8 +64,20 @@ class Answer with _$Answer {
 
     /// name resolved
     String? name,
+
+    /// type of record
+    int? type,
   }) = _Answer;
   factory Answer.fromJson(Map<String, dynamic> json) => _$AnswerFromJson(json);
+}
+
+@Freezed()
+class Domain with _$Domain {
+  const factory Domain({
+    /// domain id
+    String? id,
+  }) = _Domain;
+  factory Domain.fromJson(Map<String, dynamic> json) => _$DomainFromJson(json);
 }
 
 @Freezed()
@@ -67,8 +96,6 @@ class QueryRequest with _$QueryRequest {
 @Freezed()
 class QueryResponse with _$QueryResponse {
   const factory QueryResponse({
-    bool? TC,
-    List<Question>? question,
     int? status,
     bool? AD,
     bool? CD,
@@ -76,6 +103,8 @@ class QueryResponse with _$QueryResponse {
     bool? RD,
     List<Answer>? answer,
     String? provider,
+    List<Question>? question,
+    bool? TC,
   }) = QueryResponseData;
   const factory QueryResponse.Merr({Map<String, dynamic>? body}) =
       QueryResponseMerr;
@@ -86,12 +115,69 @@ class QueryResponse with _$QueryResponse {
 @Freezed()
 class Question with _$Question {
   const factory Question({
-    /// type of record
-    int? type,
-
     /// name to query
     String? name,
+
+    /// type of record
+    int? type,
   }) = _Question;
   factory Question.fromJson(Map<String, dynamic> json) =>
       _$QuestionFromJson(json);
+}
+
+@Freezed()
+class WhoisRequest with _$WhoisRequest {
+  const factory WhoisRequest({
+    String? domain,
+  }) = _WhoisRequest;
+  factory WhoisRequest.fromJson(Map<String, dynamic> json) =>
+      _$WhoisRequestFromJson(json);
+}
+
+@Freezed()
+class WhoisResponse with _$WhoisResponse {
+  const factory WhoisResponse({
+    /// abuse email
+    String? abuse_email,
+
+    /// abuse phone
+    String? abuse_phone,
+
+    /// the registrar iana id
+    String? registrar_id,
+
+    /// time of update
+    String? updated,
+
+    /// the registrar
+    String? registrar,
+
+    /// registrar
+    String? registrar_url,
+
+    /// status of domain
+    List<String>? status,
+
+    /// time of creation
+    String? created,
+
+    /// domain name
+    String? domain,
+
+    /// time of expiry
+    String? expiry,
+
+    /// domain id
+    String? id,
+
+    /// nameservers
+    List<String>? nameservers,
+
+    /// whois server
+    String? whois_server,
+  }) = WhoisResponseData;
+  const factory WhoisResponse.Merr({Map<String, dynamic>? body}) =
+      WhoisResponseMerr;
+  factory WhoisResponse.fromJson(Map<String, dynamic> json) =>
+      _$WhoisResponseFromJson(json);
 }

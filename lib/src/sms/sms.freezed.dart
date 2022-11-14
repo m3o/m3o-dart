@@ -20,14 +20,14 @@ SendRequest _$SendRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SendRequest {
+  /// the main body of the message to send
+  String? get message => throw _privateConstructorUsedError;
+
   /// the destination phone number including the international dialling code (e.g. +44)
   String? get to => throw _privateConstructorUsedError;
 
   /// who is the message from? The message will be suffixed with "Sent from <from>"
   String? get from => throw _privateConstructorUsedError;
-
-  /// the main body of the message to send
-  String? get message => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $SendRequestCopyWith<$Res> {
           SendRequest value, $Res Function(SendRequest) then) =
       _$SendRequestCopyWithImpl<$Res, SendRequest>;
   @useResult
-  $Res call({String? to, String? from, String? message});
+  $Res call({String? message, String? to, String? from});
 }
 
 /// @nodoc
@@ -57,11 +57,15 @@ class _$SendRequestCopyWithImpl<$Res, $Val extends SendRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? message = freezed,
     Object? to = freezed,
     Object? from = freezed,
-    Object? message = freezed,
   }) {
     return _then(_value.copyWith(
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
       to: freezed == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
@@ -69,10 +73,6 @@ class _$SendRequestCopyWithImpl<$Res, $Val extends SendRequest>
       from: freezed == from
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
-              as String?,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -86,7 +86,7 @@ abstract class _$$_SendRequestCopyWith<$Res>
       __$$_SendRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? to, String? from, String? message});
+  $Res call({String? message, String? to, String? from});
 }
 
 /// @nodoc
@@ -100,11 +100,15 @@ class __$$_SendRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? message = freezed,
     Object? to = freezed,
     Object? from = freezed,
-    Object? message = freezed,
   }) {
     return _then(_$_SendRequest(
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
       to: freezed == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
@@ -113,10 +117,6 @@ class __$$_SendRequestCopyWithImpl<$Res>
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
               as String?,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -124,10 +124,14 @@ class __$$_SendRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SendRequest implements _SendRequest {
-  const _$_SendRequest({this.to, this.from, this.message});
+  const _$_SendRequest({this.message, this.to, this.from});
 
   factory _$_SendRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SendRequestFromJson(json);
+
+  /// the main body of the message to send
+  @override
+  final String? message;
 
   /// the destination phone number including the international dialling code (e.g. +44)
   @override
@@ -137,13 +141,9 @@ class _$_SendRequest implements _SendRequest {
   @override
   final String? from;
 
-  /// the main body of the message to send
-  @override
-  final String? message;
-
   @override
   String toString() {
-    return 'SendRequest(to: $to, from: $from, message: $message)';
+    return 'SendRequest(message: $message, to: $to, from: $from)';
   }
 
   @override
@@ -151,14 +151,14 @@ class _$_SendRequest implements _SendRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SendRequest &&
+            (identical(other.message, message) || other.message == message) &&
             (identical(other.to, to) || other.to == to) &&
-            (identical(other.from, from) || other.from == from) &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.from, from) || other.from == from));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, to, from, message);
+  int get hashCode => Object.hash(runtimeType, message, to, from);
 
   @JsonKey(ignore: true)
   @override
@@ -176,13 +176,17 @@ class _$_SendRequest implements _SendRequest {
 
 abstract class _SendRequest implements SendRequest {
   const factory _SendRequest(
-      {final String? to,
-      final String? from,
-      final String? message}) = _$_SendRequest;
+      {final String? message,
+      final String? to,
+      final String? from}) = _$_SendRequest;
 
   factory _SendRequest.fromJson(Map<String, dynamic> json) =
       _$_SendRequest.fromJson;
 
+  @override
+
+  /// the main body of the message to send
+  String? get message;
   @override
 
   /// the destination phone number including the international dialling code (e.g. +44)
@@ -191,10 +195,6 @@ abstract class _SendRequest implements SendRequest {
 
   /// who is the message from? The message will be suffixed with "Sent from <from>"
   String? get from;
-  @override
-
-  /// the main body of the message to send
-  String? get message;
   @override
   @JsonKey(ignore: true)
   _$$_SendRequestCopyWith<_$_SendRequest> get copyWith =>
