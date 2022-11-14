@@ -1,3 +1,9 @@
+## v1.0.222 - 2022-11-14
+
+[823af9](https://github.com/micro/services/commit/823af9309185c5164194c274ff0d6c52732aa929) fix typo
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.221...v1.0.222
+
 ## v1.0.220 - 2022-11-11
 
 [6f8542](https://github.com/micro/services/commit/6f854232c5711a97b0999dd7ea94b0697ca7defd) .
