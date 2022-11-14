@@ -8,14 +8,14 @@ part of 'url.dart';
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      id: json['id'] as String?,
       destinationURL: json['destinationURL'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'destinationURL': instance.destinationURL,
+      'id': instance.id,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -120,14 +120,14 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
 
 _$_ResolveRequest _$$_ResolveRequestFromJson(Map<String, dynamic> json) =>
     _$_ResolveRequest(
-      shortURL: json['shortURL'] as String?,
       id: json['id'] as String?,
+      shortURL: json['shortURL'] as String?,
     );
 
 Map<String, dynamic> _$$_ResolveRequestToJson(_$_ResolveRequest instance) =>
     <String, dynamic>{
-      'shortURL': instance.shortURL,
       'id': instance.id,
+      'shortURL': instance.shortURL,
     };
 
 _$ResolveResponseData _$$ResolveResponseDataFromJson(
@@ -215,16 +215,16 @@ Map<String, dynamic> _$$_URLPairToJson(_$_URLPair instance) =>
 
 _$_UpdateRequest _$$_UpdateRequestFromJson(Map<String, dynamic> json) =>
     _$_UpdateRequest(
+      shortURL: json['shortURL'] as String?,
       destinationURL: json['destinationURL'] as String?,
       id: json['id'] as String?,
-      shortURL: json['shortURL'] as String?,
     );
 
 Map<String, dynamic> _$$_UpdateRequestToJson(_$_UpdateRequest instance) =>
     <String, dynamic>{
+      'shortURL': instance.shortURL,
       'destinationURL': instance.destinationURL,
       'id': instance.id,
-      'shortURL': instance.shortURL,
     };
 
 _$UpdateResponseData _$$UpdateResponseDataFromJson(Map<String, dynamic> json) =>

@@ -133,14 +133,14 @@ class ModerateRequest with _$ModerateRequest {
 @Freezed()
 class ModerateResponse with _$ModerateResponse {
   const factory ModerateResponse({
-    /// categories tested and identified
-    Map<String, bool>? categories,
-
     /// whether it was flagged or not
     bool? flagged,
 
     /// related scores
     Map<String, double>? scores,
+
+    /// categories tested and identified
+    Map<String, bool>? categories,
   }) = ModerateResponseData;
   const factory ModerateResponse.Merr({Map<String, dynamic>? body}) =
       ModerateResponseMerr;

@@ -36,18 +36,18 @@ Map<String, dynamic> _$$_LocationToJson(_$_Location instance) =>
 
 _$_LookupRequest _$$_LookupRequestFromJson(Map<String, dynamic> json) =>
     _$_LookupRequest(
-      country: json['country'] as String?,
-      postcode: json['postcode'] as String?,
       address: json['address'] as String?,
       city: json['city'] as String?,
+      country: json['country'] as String?,
+      postcode: json['postcode'] as String?,
     );
 
 Map<String, dynamic> _$$_LookupRequestToJson(_$_LookupRequest instance) =>
     <String, dynamic>{
-      'country': instance.country,
-      'postcode': instance.postcode,
       'address': instance.address,
       'city': instance.city,
+      'country': instance.country,
+      'postcode': instance.postcode,
     };
 
 _$LookupResponseData _$$LookupResponseDataFromJson(Map<String, dynamic> json) =>

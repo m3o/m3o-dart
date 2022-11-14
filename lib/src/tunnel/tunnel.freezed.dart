@@ -20,6 +20,9 @@ SendRequest _$SendRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SendRequest {
+  /// request params to include
+  Map<String, String>? get params => throw _privateConstructorUsedError;
+
   /// path to request e.g /news
   String? get path => throw _privateConstructorUsedError;
 
@@ -38,9 +41,6 @@ mixin _$SendRequest {
   /// method of the request e.g GET, POST, DELETE
   String? get method => throw _privateConstructorUsedError;
 
-  /// request params to include
-  Map<String, String>? get params => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SendRequestCopyWith<SendRequest> get copyWith =>
@@ -54,13 +54,13 @@ abstract class $SendRequestCopyWith<$Res> {
       _$SendRequestCopyWithImpl<$Res, SendRequest>;
   @useResult
   $Res call(
-      {String? path,
+      {Map<String, String>? params,
+      String? path,
       String? url,
       String? body,
       Map<String, String>? headers,
       String? host,
-      String? method,
-      Map<String, String>? params});
+      String? method});
 }
 
 /// @nodoc
@@ -76,15 +76,19 @@ class _$SendRequestCopyWithImpl<$Res, $Val extends SendRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? params = freezed,
     Object? path = freezed,
     Object? url = freezed,
     Object? body = freezed,
     Object? headers = freezed,
     Object? host = freezed,
     Object? method = freezed,
-    Object? params = freezed,
   }) {
     return _then(_value.copyWith(
+      params: freezed == params
+          ? _value.params
+          : params // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
       path: freezed == path
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
@@ -109,10 +113,6 @@ class _$SendRequestCopyWithImpl<$Res, $Val extends SendRequest>
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
               as String?,
-      params: freezed == params
-          ? _value.params
-          : params // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>?,
     ) as $Val);
   }
 }
@@ -126,13 +126,13 @@ abstract class _$$_SendRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? path,
+      {Map<String, String>? params,
+      String? path,
       String? url,
       String? body,
       Map<String, String>? headers,
       String? host,
-      String? method,
-      Map<String, String>? params});
+      String? method});
 }
 
 /// @nodoc
@@ -146,15 +146,19 @@ class __$$_SendRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? params = freezed,
     Object? path = freezed,
     Object? url = freezed,
     Object? body = freezed,
     Object? headers = freezed,
     Object? host = freezed,
     Object? method = freezed,
-    Object? params = freezed,
   }) {
     return _then(_$_SendRequest(
+      params: freezed == params
+          ? _value._params
+          : params // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
       path: freezed == path
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
@@ -179,10 +183,6 @@ class __$$_SendRequestCopyWithImpl<$Res>
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
               as String?,
-      params: freezed == params
-          ? _value._params
-          : params // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>?,
     ));
   }
 }
@@ -191,18 +191,30 @@ class __$$_SendRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SendRequest implements _SendRequest {
   const _$_SendRequest(
-      {this.path,
+      {final Map<String, String>? params,
+      this.path,
       this.url,
       this.body,
       final Map<String, String>? headers,
       this.host,
-      this.method,
-      final Map<String, String>? params})
-      : _headers = headers,
-        _params = params;
+      this.method})
+      : _params = params,
+        _headers = headers;
 
   factory _$_SendRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SendRequestFromJson(json);
+
+  /// request params to include
+  final Map<String, String>? _params;
+
+  /// request params to include
+  @override
+  Map<String, String>? get params {
+    final value = _params;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   /// path to request e.g /news
   @override
@@ -236,21 +248,9 @@ class _$_SendRequest implements _SendRequest {
   @override
   final String? method;
 
-  /// request params to include
-  final Map<String, String>? _params;
-
-  /// request params to include
-  @override
-  Map<String, String>? get params {
-    final value = _params;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
   @override
   String toString() {
-    return 'SendRequest(path: $path, url: $url, body: $body, headers: $headers, host: $host, method: $method, params: $params)';
+    return 'SendRequest(params: $params, path: $path, url: $url, body: $body, headers: $headers, host: $host, method: $method)';
   }
 
   @override
@@ -258,26 +258,26 @@ class _$_SendRequest implements _SendRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SendRequest &&
+            const DeepCollectionEquality().equals(other._params, _params) &&
             (identical(other.path, path) || other.path == path) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.body, body) || other.body == body) &&
             const DeepCollectionEquality().equals(other._headers, _headers) &&
             (identical(other.host, host) || other.host == host) &&
-            (identical(other.method, method) || other.method == method) &&
-            const DeepCollectionEquality().equals(other._params, _params));
+            (identical(other.method, method) || other.method == method));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(_params),
       path,
       url,
       body,
       const DeepCollectionEquality().hash(_headers),
       host,
-      method,
-      const DeepCollectionEquality().hash(_params));
+      method);
 
   @JsonKey(ignore: true)
   @override
@@ -295,17 +295,21 @@ class _$_SendRequest implements _SendRequest {
 
 abstract class _SendRequest implements SendRequest {
   const factory _SendRequest(
-      {final String? path,
+      {final Map<String, String>? params,
+      final String? path,
       final String? url,
       final String? body,
       final Map<String, String>? headers,
       final String? host,
-      final String? method,
-      final Map<String, String>? params}) = _$_SendRequest;
+      final String? method}) = _$_SendRequest;
 
   factory _SendRequest.fromJson(Map<String, dynamic> json) =
       _$_SendRequest.fromJson;
 
+  @override
+
+  /// request params to include
+  Map<String, String>? get params;
   @override
 
   /// path to request e.g /news
@@ -331,10 +335,6 @@ abstract class _SendRequest implements SendRequest {
   /// method of the request e.g GET, POST, DELETE
   String? get method;
   @override
-
-  /// request params to include
-  Map<String, String>? get params;
-  @override
   @JsonKey(ignore: true)
   _$$_SendRequestCopyWith<_$_SendRequest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -357,24 +357,24 @@ SendResponse _$SendResponseFromJson(Map<String, dynamic> json) {
 mixin _$SendResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)
+    TResult Function(String? body, Map<String, String>? headers, String? status,
+            int? status_code)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)?
+    TResult? Function(String? body, Map<String, String>? headers,
+            String? status, int? status_code)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)?
+    TResult Function(String? body, Map<String, String>? headers, String? status,
+            int? status_code)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -427,10 +427,10 @@ abstract class _$$SendResponseDataCopyWith<$Res> {
       __$$SendResponseDataCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {Map<String, String>? headers,
+      {String? body,
+      Map<String, String>? headers,
       String? status,
-      int? status_code,
-      String? body});
+      int? status_code});
 }
 
 /// @nodoc
@@ -444,12 +444,16 @@ class __$$SendResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? body = freezed,
     Object? headers = freezed,
     Object? status = freezed,
     Object? status_code = freezed,
-    Object? body = freezed,
   }) {
     return _then(_$SendResponseData(
+      body: freezed == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String?,
       headers: freezed == headers
           ? _value._headers
           : headers // ignore: cast_nullable_to_non_nullable
@@ -462,10 +466,6 @@ class __$$SendResponseDataCopyWithImpl<$Res>
           ? _value.status_code
           : status_code // ignore: cast_nullable_to_non_nullable
               as int?,
-      body: freezed == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -474,16 +474,20 @@ class __$$SendResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SendResponseData implements SendResponseData {
   const _$SendResponseData(
-      {final Map<String, String>? headers,
+      {this.body,
+      final Map<String, String>? headers,
       this.status,
       this.status_code,
-      this.body,
       final String? $type})
       : _headers = headers,
         $type = $type ?? 'default';
 
   factory _$SendResponseData.fromJson(Map<String, dynamic> json) =>
       _$$SendResponseDataFromJson(json);
+
+  /// body of the response
+  @override
+  final String? body;
 
   /// headers included
   final Map<String, String>? _headers;
@@ -505,16 +509,12 @@ class _$SendResponseData implements SendResponseData {
   @override
   final int? status_code;
 
-  /// body of the response
-  @override
-  final String? body;
-
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'SendResponse(headers: $headers, status: $status, status_code: $status_code, body: $body)';
+    return 'SendResponse(body: $body, headers: $headers, status: $status, status_code: $status_code)';
   }
 
   @override
@@ -522,17 +522,17 @@ class _$SendResponseData implements SendResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SendResponseData &&
+            (identical(other.body, body) || other.body == body) &&
             const DeepCollectionEquality().equals(other._headers, _headers) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.status_code, status_code) ||
-                other.status_code == status_code) &&
-            (identical(other.body, body) || other.body == body));
+                other.status_code == status_code));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_headers), status, status_code, body);
+  int get hashCode => Object.hash(runtimeType, body,
+      const DeepCollectionEquality().hash(_headers), status, status_code);
 
   @JsonKey(ignore: true)
   @override
@@ -543,36 +543,36 @@ class _$SendResponseData implements SendResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)
+    TResult Function(String? body, Map<String, String>? headers, String? status,
+            int? status_code)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(headers, status, status_code, body);
+    return $default(body, headers, status, status_code);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)?
+    TResult? Function(String? body, Map<String, String>? headers,
+            String? status, int? status_code)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(headers, status, status_code, body);
+    return $default?.call(body, headers, status, status_code);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)?
+    TResult Function(String? body, Map<String, String>? headers, String? status,
+            int? status_code)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(headers, status, status_code, body);
+      return $default(body, headers, status, status_code);
     }
     return orElse();
   }
@@ -618,13 +618,16 @@ class _$SendResponseData implements SendResponseData {
 
 abstract class SendResponseData implements SendResponse {
   const factory SendResponseData(
-      {final Map<String, String>? headers,
+      {final String? body,
+      final Map<String, String>? headers,
       final String? status,
-      final int? status_code,
-      final String? body}) = _$SendResponseData;
+      final int? status_code}) = _$SendResponseData;
 
   factory SendResponseData.fromJson(Map<String, dynamic> json) =
       _$SendResponseData.fromJson;
+
+  /// body of the response
+  String? get body;
 
   /// headers included
   Map<String, String>? get headers;
@@ -634,9 +637,6 @@ abstract class SendResponseData implements SendResponse {
 
   /// the status code
   int? get status_code;
-
-  /// body of the response
-  String? get body;
   @JsonKey(ignore: true)
   _$$SendResponseDataCopyWith<_$SendResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -723,8 +723,8 @@ class _$SendResponseMerr implements SendResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)
+    TResult Function(String? body, Map<String, String>? headers, String? status,
+            int? status_code)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -734,8 +734,8 @@ class _$SendResponseMerr implements SendResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)?
+    TResult? Function(String? body, Map<String, String>? headers,
+            String? status, int? status_code)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -745,8 +745,8 @@ class _$SendResponseMerr implements SendResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, String>? headers, String? status,
-            int? status_code, String? body)?
+    TResult Function(String? body, Map<String, String>? headers, String? status,
+            int? status_code)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

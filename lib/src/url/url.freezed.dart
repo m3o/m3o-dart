@@ -20,11 +20,11 @@ CreateRequest _$CreateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateRequest {
-  /// a unique id e.g uuid or my-url
-  String? get id => throw _privateConstructorUsedError;
-
   /// destination url
   String? get destinationURL => throw _privateConstructorUsedError;
+
+  /// a unique id e.g uuid or my-url
+  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +38,7 @@ abstract class $CreateRequestCopyWith<$Res> {
           CreateRequest value, $Res Function(CreateRequest) then) =
       _$CreateRequestCopyWithImpl<$Res, CreateRequest>;
   @useResult
-  $Res call({String? id, String? destinationURL});
+  $Res call({String? destinationURL, String? id});
 }
 
 /// @nodoc
@@ -54,17 +54,17 @@ class _$CreateRequestCopyWithImpl<$Res, $Val extends CreateRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
     Object? destinationURL = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       destinationURL: freezed == destinationURL
           ? _value.destinationURL
           : destinationURL // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -78,7 +78,7 @@ abstract class _$$_CreateRequestCopyWith<$Res>
       __$$_CreateRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? id, String? destinationURL});
+  $Res call({String? destinationURL, String? id});
 }
 
 /// @nodoc
@@ -92,17 +92,17 @@ class __$$_CreateRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
     Object? destinationURL = freezed,
+    Object? id = freezed,
   }) {
     return _then(_$_CreateRequest(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       destinationURL: freezed == destinationURL
           ? _value.destinationURL
           : destinationURL // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -111,22 +111,22 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateRequest implements _CreateRequest {
-  const _$_CreateRequest({this.id, this.destinationURL});
+  const _$_CreateRequest({this.destinationURL, this.id});
 
   factory _$_CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateRequestFromJson(json);
-
-  /// a unique id e.g uuid or my-url
-  @override
-  final String? id;
 
   /// destination url
   @override
   final String? destinationURL;
 
+  /// a unique id e.g uuid or my-url
+  @override
+  final String? id;
+
   @override
   String toString() {
-    return 'CreateRequest(id: $id, destinationURL: $destinationURL)';
+    return 'CreateRequest(destinationURL: $destinationURL, id: $id)';
   }
 
   @override
@@ -134,14 +134,14 @@ class _$_CreateRequest implements _CreateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateRequest &&
-            (identical(other.id, id) || other.id == id) &&
             (identical(other.destinationURL, destinationURL) ||
-                other.destinationURL == destinationURL));
+                other.destinationURL == destinationURL) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, destinationURL);
+  int get hashCode => Object.hash(runtimeType, destinationURL, id);
 
   @JsonKey(ignore: true)
   @override
@@ -159,19 +159,19 @@ class _$_CreateRequest implements _CreateRequest {
 
 abstract class _CreateRequest implements CreateRequest {
   const factory _CreateRequest(
-      {final String? id, final String? destinationURL}) = _$_CreateRequest;
+      {final String? destinationURL, final String? id}) = _$_CreateRequest;
 
   factory _CreateRequest.fromJson(Map<String, dynamic> json) =
       _$_CreateRequest.fromJson;
 
   @override
 
-  /// a unique id e.g uuid or my-url
-  String? get id;
-  @override
-
   /// destination url
   String? get destinationURL;
+  @override
+
+  /// a unique id e.g uuid or my-url
+  String? get id;
   @override
   @JsonKey(ignore: true)
   _$$_CreateRequestCopyWith<_$_CreateRequest> get copyWith =>
@@ -1649,11 +1649,11 @@ ResolveRequest _$ResolveRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ResolveRequest {
-  /// short url to resolve
-  String? get shortURL => throw _privateConstructorUsedError;
-
   /// resolve by id
   String? get id => throw _privateConstructorUsedError;
+
+  /// short url to resolve
+  String? get shortURL => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1667,7 +1667,7 @@ abstract class $ResolveRequestCopyWith<$Res> {
           ResolveRequest value, $Res Function(ResolveRequest) then) =
       _$ResolveRequestCopyWithImpl<$Res, ResolveRequest>;
   @useResult
-  $Res call({String? shortURL, String? id});
+  $Res call({String? id, String? shortURL});
 }
 
 /// @nodoc
@@ -1683,17 +1683,17 @@ class _$ResolveRequestCopyWithImpl<$Res, $Val extends ResolveRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? shortURL = freezed,
     Object? id = freezed,
+    Object? shortURL = freezed,
   }) {
     return _then(_value.copyWith(
-      shortURL: freezed == shortURL
-          ? _value.shortURL
-          : shortURL // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      shortURL: freezed == shortURL
+          ? _value.shortURL
+          : shortURL // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1707,7 +1707,7 @@ abstract class _$$_ResolveRequestCopyWith<$Res>
       __$$_ResolveRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? shortURL, String? id});
+  $Res call({String? id, String? shortURL});
 }
 
 /// @nodoc
@@ -1721,17 +1721,17 @@ class __$$_ResolveRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? shortURL = freezed,
     Object? id = freezed,
+    Object? shortURL = freezed,
   }) {
     return _then(_$_ResolveRequest(
-      shortURL: freezed == shortURL
-          ? _value.shortURL
-          : shortURL // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      shortURL: freezed == shortURL
+          ? _value.shortURL
+          : shortURL // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1740,22 +1740,22 @@ class __$$_ResolveRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ResolveRequest implements _ResolveRequest {
-  const _$_ResolveRequest({this.shortURL, this.id});
+  const _$_ResolveRequest({this.id, this.shortURL});
 
   factory _$_ResolveRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ResolveRequestFromJson(json);
-
-  /// short url to resolve
-  @override
-  final String? shortURL;
 
   /// resolve by id
   @override
   final String? id;
 
+  /// short url to resolve
+  @override
+  final String? shortURL;
+
   @override
   String toString() {
-    return 'ResolveRequest(shortURL: $shortURL, id: $id)';
+    return 'ResolveRequest(id: $id, shortURL: $shortURL)';
   }
 
   @override
@@ -1763,14 +1763,14 @@ class _$_ResolveRequest implements _ResolveRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ResolveRequest &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.shortURL, shortURL) ||
-                other.shortURL == shortURL) &&
-            (identical(other.id, id) || other.id == id));
+                other.shortURL == shortURL));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, shortURL, id);
+  int get hashCode => Object.hash(runtimeType, id, shortURL);
 
   @JsonKey(ignore: true)
   @override
@@ -1787,7 +1787,7 @@ class _$_ResolveRequest implements _ResolveRequest {
 }
 
 abstract class _ResolveRequest implements ResolveRequest {
-  const factory _ResolveRequest({final String? shortURL, final String? id}) =
+  const factory _ResolveRequest({final String? id, final String? shortURL}) =
       _$_ResolveRequest;
 
   factory _ResolveRequest.fromJson(Map<String, dynamic> json) =
@@ -1795,12 +1795,12 @@ abstract class _ResolveRequest implements ResolveRequest {
 
   @override
 
-  /// short url to resolve
-  String? get shortURL;
-  @override
-
   /// resolve by id
   String? get id;
+  @override
+
+  /// short url to resolve
+  String? get shortURL;
   @override
   @JsonKey(ignore: true)
   _$$_ResolveRequestCopyWith<_$_ResolveRequest> get copyWith =>
@@ -2988,14 +2988,14 @@ UpdateRequest _$UpdateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UpdateRequest {
+  /// update by short url
+  String? get shortURL => throw _privateConstructorUsedError;
+
   /// the destination to update to
   String? get destinationURL => throw _privateConstructorUsedError;
 
   /// update by id
   String? get id => throw _privateConstructorUsedError;
-
-  /// update by short url
-  String? get shortURL => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -3009,7 +3009,7 @@ abstract class $UpdateRequestCopyWith<$Res> {
           UpdateRequest value, $Res Function(UpdateRequest) then) =
       _$UpdateRequestCopyWithImpl<$Res, UpdateRequest>;
   @useResult
-  $Res call({String? destinationURL, String? id, String? shortURL});
+  $Res call({String? shortURL, String? destinationURL, String? id});
 }
 
 /// @nodoc
@@ -3025,11 +3025,15 @@ class _$UpdateRequestCopyWithImpl<$Res, $Val extends UpdateRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? shortURL = freezed,
     Object? destinationURL = freezed,
     Object? id = freezed,
-    Object? shortURL = freezed,
   }) {
     return _then(_value.copyWith(
+      shortURL: freezed == shortURL
+          ? _value.shortURL
+          : shortURL // ignore: cast_nullable_to_non_nullable
+              as String?,
       destinationURL: freezed == destinationURL
           ? _value.destinationURL
           : destinationURL // ignore: cast_nullable_to_non_nullable
@@ -3037,10 +3041,6 @@ class _$UpdateRequestCopyWithImpl<$Res, $Val extends UpdateRequest>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      shortURL: freezed == shortURL
-          ? _value.shortURL
-          : shortURL // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -3054,7 +3054,7 @@ abstract class _$$_UpdateRequestCopyWith<$Res>
       __$$_UpdateRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? destinationURL, String? id, String? shortURL});
+  $Res call({String? shortURL, String? destinationURL, String? id});
 }
 
 /// @nodoc
@@ -3068,11 +3068,15 @@ class __$$_UpdateRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? shortURL = freezed,
     Object? destinationURL = freezed,
     Object? id = freezed,
-    Object? shortURL = freezed,
   }) {
     return _then(_$_UpdateRequest(
+      shortURL: freezed == shortURL
+          ? _value.shortURL
+          : shortURL // ignore: cast_nullable_to_non_nullable
+              as String?,
       destinationURL: freezed == destinationURL
           ? _value.destinationURL
           : destinationURL // ignore: cast_nullable_to_non_nullable
@@ -3081,10 +3085,6 @@ class __$$_UpdateRequestCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      shortURL: freezed == shortURL
-          ? _value.shortURL
-          : shortURL // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -3092,10 +3092,14 @@ class __$$_UpdateRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UpdateRequest implements _UpdateRequest {
-  const _$_UpdateRequest({this.destinationURL, this.id, this.shortURL});
+  const _$_UpdateRequest({this.shortURL, this.destinationURL, this.id});
 
   factory _$_UpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateRequestFromJson(json);
+
+  /// update by short url
+  @override
+  final String? shortURL;
 
   /// the destination to update to
   @override
@@ -3105,13 +3109,9 @@ class _$_UpdateRequest implements _UpdateRequest {
   @override
   final String? id;
 
-  /// update by short url
-  @override
-  final String? shortURL;
-
   @override
   String toString() {
-    return 'UpdateRequest(destinationURL: $destinationURL, id: $id, shortURL: $shortURL)';
+    return 'UpdateRequest(shortURL: $shortURL, destinationURL: $destinationURL, id: $id)';
   }
 
   @override
@@ -3119,16 +3119,16 @@ class _$_UpdateRequest implements _UpdateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpdateRequest &&
+            (identical(other.shortURL, shortURL) ||
+                other.shortURL == shortURL) &&
             (identical(other.destinationURL, destinationURL) ||
                 other.destinationURL == destinationURL) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.shortURL, shortURL) ||
-                other.shortURL == shortURL));
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, destinationURL, id, shortURL);
+  int get hashCode => Object.hash(runtimeType, shortURL, destinationURL, id);
 
   @JsonKey(ignore: true)
   @override
@@ -3146,13 +3146,17 @@ class _$_UpdateRequest implements _UpdateRequest {
 
 abstract class _UpdateRequest implements UpdateRequest {
   const factory _UpdateRequest(
-      {final String? destinationURL,
-      final String? id,
-      final String? shortURL}) = _$_UpdateRequest;
+      {final String? shortURL,
+      final String? destinationURL,
+      final String? id}) = _$_UpdateRequest;
 
   factory _UpdateRequest.fromJson(Map<String, dynamic> json) =
       _$_UpdateRequest.fromJson;
 
+  @override
+
+  /// update by short url
+  String? get shortURL;
   @override
 
   /// the destination to update to
@@ -3161,10 +3165,6 @@ abstract class _UpdateRequest implements UpdateRequest {
 
   /// update by id
   String? get id;
-  @override
-
-  /// update by short url
-  String? get shortURL;
   @override
   @JsonKey(ignore: true)
   _$$_UpdateRequestCopyWith<_$_UpdateRequest> get copyWith =>

@@ -1704,6 +1704,9 @@ List _$ListFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$List {
+  /// items within the list
+  List? get items => throw _privateConstructorUsedError;
+
   /// name of the list
   String? get name => throw _privateConstructorUsedError;
 
@@ -1716,9 +1719,6 @@ mixin _$List {
   /// unique id for the list, generated if not specified
   String? get id => throw _privateConstructorUsedError;
 
-  /// items within the list
-  List? get items => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ListCopyWith<List> get copyWith => throw _privateConstructorUsedError;
@@ -1730,11 +1730,11 @@ abstract class $ListCopyWith<$Res> {
       _$ListCopyWithImpl<$Res, List>;
   @useResult
   $Res call(
-      {String? name,
+      {List? items,
+      String? name,
       String? updated,
       String? created,
-      String? id,
-      List? items});
+      String? id});
 
   $ListCopyWith<$Res>? get items;
 }
@@ -1752,13 +1752,17 @@ class _$ListCopyWithImpl<$Res, $Val extends List>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? items = freezed,
     Object? name = freezed,
     Object? updated = freezed,
     Object? created = freezed,
     Object? id = freezed,
-    Object? items = freezed,
   }) {
     return _then(_value.copyWith(
+      items: freezed == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1775,10 +1779,6 @@ class _$ListCopyWithImpl<$Res, $Val extends List>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      items: freezed == items
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
-              as List?,
     ) as $Val);
   }
 
@@ -1802,11 +1802,11 @@ abstract class _$$_ListCopyWith<$Res> implements $ListCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? name,
+      {List? items,
+      String? name,
       String? updated,
       String? created,
-      String? id,
-      List? items});
+      String? id});
 
   @override
   $ListCopyWith<$Res>? get items;
@@ -1821,13 +1821,17 @@ class __$$_ListCopyWithImpl<$Res> extends _$ListCopyWithImpl<$Res, _$_List>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? items = freezed,
     Object? name = freezed,
     Object? updated = freezed,
     Object? created = freezed,
     Object? id = freezed,
-    Object? items = freezed,
   }) {
     return _then(_$_List(
+      items: freezed == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1844,10 +1848,6 @@ class __$$_ListCopyWithImpl<$Res> extends _$ListCopyWithImpl<$Res, _$_List>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      items: freezed == items
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
-              as List?,
     ));
   }
 }
@@ -1855,9 +1855,13 @@ class __$$_ListCopyWithImpl<$Res> extends _$ListCopyWithImpl<$Res, _$_List>
 /// @nodoc
 @JsonSerializable()
 class _$_List implements _List {
-  const _$_List({this.name, this.updated, this.created, this.id, this.items});
+  const _$_List({this.items, this.name, this.updated, this.created, this.id});
 
   factory _$_List.fromJson(Map<String, dynamic> json) => _$$_ListFromJson(json);
+
+  /// items within the list
+  @override
+  final List? items;
 
   /// name of the list
   @override
@@ -1875,13 +1879,9 @@ class _$_List implements _List {
   @override
   final String? id;
 
-  /// items within the list
-  @override
-  final List? items;
-
   @override
   String toString() {
-    return 'List(name: $name, updated: $updated, created: $created, id: $id, items: $items)';
+    return 'List(items: $items, name: $name, updated: $updated, created: $created, id: $id)';
   }
 
   @override
@@ -1889,17 +1889,17 @@ class _$_List implements _List {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_List &&
+            (identical(other.items, items) || other.items == items) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.updated, updated) || other.updated == updated) &&
             (identical(other.created, created) || other.created == created) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.items, items) || other.items == items));
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, updated, created, id, items);
+      Object.hash(runtimeType, items, name, updated, created, id);
 
   @JsonKey(ignore: true)
   @override
@@ -1917,14 +1917,18 @@ class _$_List implements _List {
 
 abstract class _List implements List {
   const factory _List(
-      {final String? name,
+      {final List? items,
+      final String? name,
       final String? updated,
       final String? created,
-      final String? id,
-      final List? items}) = _$_List;
+      final String? id}) = _$_List;
 
   factory _List.fromJson(Map<String, dynamic> json) = _$_List.fromJson;
 
+  @override
+
+  /// items within the list
+  List? get items;
   @override
 
   /// name of the list
@@ -1941,10 +1945,6 @@ abstract class _List implements List {
 
   /// unique id for the list, generated if not specified
   String? get id;
-  @override
-
-  /// items within the list
-  List? get items;
   @override
   @JsonKey(ignore: true)
   _$$_ListCopyWith<_$_List> get copyWith => throw _privateConstructorUsedError;

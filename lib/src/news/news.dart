@@ -59,6 +59,24 @@ class Article with _$Article {
     /// related keywords
     String? keywords,
 
+    /// first 60 characters of article body
+    String? snippet,
+
+    /// source of news
+    String? source,
+
+    /// categories
+    List<String>? categories,
+
+    /// article description
+    String? description,
+
+    /// article id
+    String? id,
+
+    /// image url
+    String? image_url,
+
     /// the article language
     String? language,
 
@@ -73,24 +91,6 @@ class Article with _$Article {
 
     /// url of the article
     String? url,
-
-    /// article id
-    String? id,
-
-    /// image url
-    String? image_url,
-
-    /// first 60 characters of article body
-    String? snippet,
-
-    /// source of news
-    String? source,
-
-    /// categories
-    List<String>? categories,
-
-    /// article description
-    String? description,
   }) = _Article;
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);
@@ -126,14 +126,14 @@ class HeadlinesResponse with _$HeadlinesResponse {
 @Freezed()
 class TopStoriesRequest with _$TopStoriesRequest {
   const factory TopStoriesRequest({
-    /// comma separated list of languages to retrieve in e.g en,es
-    String? language,
-
     /// comma separated list of countries to include e.g us,ca
     String? locale,
 
     /// date published on in YYYY-MM-DD format
     String? date,
+
+    /// comma separated list of languages to retrieve in e.g en,es
+    String? language,
   }) = _TopStoriesRequest;
   factory TopStoriesRequest.fromJson(Map<String, dynamic> json) =>
       _$TopStoriesRequestFromJson(json);
