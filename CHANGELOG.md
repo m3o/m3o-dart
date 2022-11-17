@@ -1,3 +1,9 @@
+## v1.0.223 - 2022-11-17
+
+[aaee29](https://github.com/micro/services/commit/aaee29da6a20680d683f3738d7d5e02737a0ed04) add secret service
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.222...v1.0.223
+
 ## v1.0.222 - 2022-11-14
 
 [823af9](https://github.com/micro/services/commit/823af9309185c5164194c274ff0d6c52732aa929) fix typo
