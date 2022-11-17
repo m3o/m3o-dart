@@ -95,6 +95,9 @@ class DeleteResponse with _$DeleteResponse {
 @Freezed()
 class Job with _$Job {
   const factory Job({
+    /// scheduled interval
+    String? interval,
+
     /// name
     String? name,
 
@@ -106,9 +109,6 @@ class Job with _$Job {
 
     /// job id
     String? id,
-
-    /// scheduled interval
-    String? interval,
   }) = _Job;
   factory Job.fromJson(Map<String, dynamic> json) => _$JobFromJson(json);
 }

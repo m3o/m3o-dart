@@ -72,6 +72,9 @@ Map<String, dynamic> _$$_LookupRequestToJson(_$_LookupRequest instance) =>
 
 _$LookupResponseData _$$LookupResponseDataFromJson(Map<String, dynamic> json) =>
     _$LookupResponseData(
+      transactions: (json['transactions'] as List<dynamic>?)
+          ?.map((e) => Transaction.fromJson(e as Map<String, dynamic>))
+          .toList(),
       address: json['address'] as String?,
       final_balance: int64FromString(json['final_balance'] as String?),
       hash: json['hash'] as String?,
@@ -79,15 +82,13 @@ _$LookupResponseData _$$LookupResponseDataFromJson(Map<String, dynamic> json) =>
       num_unredeemed: int64FromString(json['num_unredeemed'] as String?),
       total_received: int64FromString(json['total_received'] as String?),
       total_sent: int64FromString(json['total_sent'] as String?),
-      transactions: (json['transactions'] as List<dynamic>?)
-          ?.map((e) => Transaction.fromJson(e as Map<String, dynamic>))
-          .toList(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$LookupResponseDataToJson(
         _$LookupResponseData instance) =>
     <String, dynamic>{
+      'transactions': instance.transactions,
       'address': instance.address,
       'final_balance': int64ToString(instance.final_balance),
       'hash': instance.hash,
@@ -95,7 +96,6 @@ Map<String, dynamic> _$$LookupResponseDataToJson(
       'num_unredeemed': int64ToString(instance.num_unredeemed),
       'total_received': int64ToString(instance.total_received),
       'total_sent': int64ToString(instance.total_sent),
-      'transactions': instance.transactions,
       'runtimeType': instance.$type,
     };
 
@@ -113,21 +113,21 @@ Map<String, dynamic> _$$LookupResponseMerrToJson(
     };
 
 _$_Output _$$_OutputFromJson(Map<String, dynamic> json) => _$_Output(
-      spent: json['spent'] as bool?,
-      tx_index: int64FromString(json['tx_index'] as String?),
-      value: int64FromString(json['value'] as String?),
       address: json['address'] as String?,
       hash: json['hash'] as String?,
       script: json['script'] as String?,
+      spent: json['spent'] as bool?,
+      tx_index: int64FromString(json['tx_index'] as String?),
+      value: int64FromString(json['value'] as String?),
     );
 
 Map<String, dynamic> _$$_OutputToJson(_$_Output instance) => <String, dynamic>{
-      'spent': instance.spent,
-      'tx_index': int64ToString(instance.tx_index),
-      'value': int64ToString(instance.value),
       'address': instance.address,
       'hash': instance.hash,
       'script': instance.script,
+      'spent': instance.spent,
+      'tx_index': int64ToString(instance.tx_index),
+      'value': int64ToString(instance.value),
     };
 
 _$_Prev _$$_PrevFromJson(Map<String, dynamic> json) => _$_Prev(
@@ -186,48 +186,48 @@ Map<String, dynamic> _$$PriceResponseMerrToJson(_$PriceResponseMerr instance) =>
 
 _$_Transaction _$$_TransactionFromJson(Map<String, dynamic> json) =>
     _$_Transaction(
-      version: int64FromString(json['version'] as String?),
-      vin_sz: int64FromString(json['vin_sz'] as String?),
-      weight: int64FromString(json['weight'] as String?),
-      fee: int64FromString(json['fee'] as String?),
+      block_height: int64FromString(json['block_height'] as String?),
       hash: json['hash'] as String?,
+      lock_time: int64FromString(json['lock_time'] as String?),
       size: int64FromString(json['size'] as String?),
+      fee: int64FromString(json['fee'] as String?),
+      relay: json['relay'] as String?,
       tx_index: int64FromString(json['tx_index'] as String?),
+      vout_sz: int64FromString(json['vout_sz'] as String?),
+      weight: int64FromString(json['weight'] as String?),
+      balance: int64FromString(json['balance'] as String?),
+      inputs: (json['inputs'] as List<dynamic>?)
+          ?.map((e) => Input.fromJson(e as Map<String, dynamic>))
+          .toList(),
       outputs: (json['outputs'] as List<dynamic>?)
           ?.map((e) => Output.fromJson(e as Map<String, dynamic>))
           .toList(),
       result: int64FromString(json['result'] as String?),
-      balance: int64FromString(json['balance'] as String?),
-      lock_time: int64FromString(json['lock_time'] as String?),
-      relay: json['relay'] as String?,
-      vout_sz: int64FromString(json['vout_sz'] as String?),
-      block_height: int64FromString(json['block_height'] as String?),
+      version: int64FromString(json['version'] as String?),
       block_index: int64FromString(json['block_index'] as String?),
       double_spend: json['double_spend'] as bool?,
-      inputs: (json['inputs'] as List<dynamic>?)
-          ?.map((e) => Input.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      vin_sz: int64FromString(json['vin_sz'] as String?),
     );
 
 Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) =>
     <String, dynamic>{
-      'version': int64ToString(instance.version),
-      'vin_sz': int64ToString(instance.vin_sz),
-      'weight': int64ToString(instance.weight),
-      'fee': int64ToString(instance.fee),
+      'block_height': int64ToString(instance.block_height),
       'hash': instance.hash,
+      'lock_time': int64ToString(instance.lock_time),
       'size': int64ToString(instance.size),
+      'fee': int64ToString(instance.fee),
+      'relay': instance.relay,
       'tx_index': int64ToString(instance.tx_index),
+      'vout_sz': int64ToString(instance.vout_sz),
+      'weight': int64ToString(instance.weight),
+      'balance': int64ToString(instance.balance),
+      'inputs': instance.inputs,
       'outputs': instance.outputs,
       'result': int64ToString(instance.result),
-      'balance': int64ToString(instance.balance),
-      'lock_time': int64ToString(instance.lock_time),
-      'relay': instance.relay,
-      'vout_sz': int64ToString(instance.vout_sz),
-      'block_height': int64ToString(instance.block_height),
+      'version': int64ToString(instance.version),
       'block_index': int64ToString(instance.block_index),
       'double_spend': instance.double_spend,
-      'inputs': instance.inputs,
+      'vin_sz': int64ToString(instance.vin_sz),
     };
 
 _$_TransactionRequest _$$_TransactionRequestFromJson(
@@ -246,24 +246,24 @@ _$TransactionResponseData _$$TransactionResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$TransactionResponseData(
       block_index: int64FromString(json['block_index'] as String?),
+      double_spend: json['double_spend'] as bool?,
+      hash: json['hash'] as String?,
+      relay: json['relay'] as String?,
+      fee: int64FromString(json['fee'] as String?),
+      vout_sz: int64FromString(json['vout_sz'] as String?),
+      weight: int64FromString(json['weight'] as String?),
+      block_height: int64FromString(json['block_height'] as String?),
+      lock_time: int64FromString(json['lock_time'] as String?),
+      tx_index: int64FromString(json['tx_index'] as String?),
+      vin_sz: int64FromString(json['vin_sz'] as String?),
       inputs: (json['inputs'] as List<dynamic>?)
           ?.map((e) => Input.fromJson(e as Map<String, dynamic>))
           .toList(),
       outputs: (json['outputs'] as List<dynamic>?)
           ?.map((e) => Output.fromJson(e as Map<String, dynamic>))
           .toList(),
-      relay: json['relay'] as String?,
-      vin_sz: int64FromString(json['vin_sz'] as String?),
-      vout_sz: int64FromString(json['vout_sz'] as String?),
-      block_height: int64FromString(json['block_height'] as String?),
-      double_spend: json['double_spend'] as bool?,
-      weight: int64FromString(json['weight'] as String?),
-      version: int64FromString(json['version'] as String?),
-      fee: int64FromString(json['fee'] as String?),
-      hash: json['hash'] as String?,
-      lock_time: int64FromString(json['lock_time'] as String?),
       size: int64FromString(json['size'] as String?),
-      tx_index: int64FromString(json['tx_index'] as String?),
+      version: int64FromString(json['version'] as String?),
       $type: json['runtimeType'] as String?,
     );
 
@@ -271,20 +271,20 @@ Map<String, dynamic> _$$TransactionResponseDataToJson(
         _$TransactionResponseData instance) =>
     <String, dynamic>{
       'block_index': int64ToString(instance.block_index),
+      'double_spend': instance.double_spend,
+      'hash': instance.hash,
+      'relay': instance.relay,
+      'fee': int64ToString(instance.fee),
+      'vout_sz': int64ToString(instance.vout_sz),
+      'weight': int64ToString(instance.weight),
+      'block_height': int64ToString(instance.block_height),
+      'lock_time': int64ToString(instance.lock_time),
+      'tx_index': int64ToString(instance.tx_index),
+      'vin_sz': int64ToString(instance.vin_sz),
       'inputs': instance.inputs,
       'outputs': instance.outputs,
-      'relay': instance.relay,
-      'vin_sz': int64ToString(instance.vin_sz),
-      'vout_sz': int64ToString(instance.vout_sz),
-      'block_height': int64ToString(instance.block_height),
-      'double_spend': instance.double_spend,
-      'weight': int64ToString(instance.weight),
-      'version': int64ToString(instance.version),
-      'fee': int64ToString(instance.fee),
-      'hash': instance.hash,
-      'lock_time': int64ToString(instance.lock_time),
       'size': int64ToString(instance.size),
-      'tx_index': int64ToString(instance.tx_index),
+      'version': int64ToString(instance.version),
       'runtimeType': instance.$type,
     };
 

@@ -76,9 +76,9 @@ class LocationService {
 @Freezed()
 class Entity with _$Entity {
   const factory Entity({
-    String? id,
     Point? location,
     String? type,
+    String? id,
   }) = _Entity;
   factory Entity.fromJson(Map<String, dynamic> json) => _$EntityFromJson(json);
 }

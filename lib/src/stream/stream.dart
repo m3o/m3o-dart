@@ -112,11 +112,11 @@ class Channel with _$Channel {
 @Freezed()
 class CreateChannelRequest with _$CreateChannelRequest {
   const factory CreateChannelRequest({
-    /// description for the channel
-    String? description,
-
     /// name of the channel
     String? name,
+
+    /// description for the channel
+    String? description,
   }) = _CreateChannelRequest;
   factory CreateChannelRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateChannelRequestFromJson(json);
@@ -152,11 +152,11 @@ class ListChannelsResponse with _$ListChannelsResponse {
 @Freezed()
 class ListMessagesRequest with _$ListMessagesRequest {
   const factory ListMessagesRequest({
-    /// The channel to subscribe to
-    String? channel,
-
     /// number of message to return
     int? limit,
+
+    /// The channel to subscribe to
+    String? channel,
   }) = _ListMessagesRequest;
   factory ListMessagesRequest.fromJson(Map<String, dynamic> json) =>
       _$ListMessagesRequestFromJson(json);
@@ -165,11 +165,11 @@ class ListMessagesRequest with _$ListMessagesRequest {
 @Freezed()
 class ListMessagesResponse with _$ListMessagesResponse {
   const factory ListMessagesResponse({
-    /// Messages are chronological order
-    List<Message>? messages,
-
     /// The channel subscribed to
     String? channel,
+
+    /// Messages are chronological order
+    List<Message>? messages,
   }) = ListMessagesResponseData;
   const factory ListMessagesResponse.Merr({Map<String, dynamic>? body}) =
       ListMessagesResponseMerr;
@@ -202,11 +202,11 @@ class Message with _$Message {
 @Freezed()
 class SendMessageRequest with _$SendMessageRequest {
   const factory SendMessageRequest({
-    /// The message text to send
-    String? text,
-
     /// The channel to send to
     String? channel,
+
+    /// The message text to send
+    String? text,
   }) = _SendMessageRequest;
   factory SendMessageRequest.fromJson(Map<String, dynamic> json) =>
       _$SendMessageRequestFromJson(json);

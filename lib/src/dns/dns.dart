@@ -56,9 +56,6 @@ class DnsService {
 @Freezed()
 class Answer with _$Answer {
   const factory Answer({
-    /// type of record
-    int? type,
-
     /// time to live
     int? TTL,
 
@@ -67,6 +64,9 @@ class Answer with _$Answer {
 
     /// name resolved
     String? name,
+
+    /// type of record
+    int? type,
   }) = _Answer;
   factory Answer.fromJson(Map<String, dynamic> json) => _$AnswerFromJson(json);
 }
@@ -96,15 +96,15 @@ class QueryRequest with _$QueryRequest {
 @Freezed()
 class QueryResponse with _$QueryResponse {
   const factory QueryResponse({
-    List<Question>? question,
-    bool? AD,
-    bool? RA,
-    String? provider,
     List<Answer>? answer,
-    int? status,
-    bool? CD,
+    bool? AD,
     bool? RD,
     bool? TC,
+    String? provider,
+    List<Question>? question,
+    int? status,
+    bool? CD,
+    bool? RA,
   }) = QueryResponseData;
   const factory QueryResponse.Merr({Map<String, dynamic>? body}) =
       QueryResponseMerr;
@@ -137,32 +137,14 @@ class WhoisRequest with _$WhoisRequest {
 @Freezed()
 class WhoisResponse with _$WhoisResponse {
   const factory WhoisResponse({
-    /// time of creation
-    String? created,
-
-    /// domain name
-    String? domain,
-
-    /// the registrar
-    String? registrar,
-
-    /// time of update
-    String? updated,
-
     /// whois server
     String? whois_server,
 
     /// abuse email
     String? abuse_email,
 
-    /// time of expiry
-    String? expiry,
-
-    /// domain id
-    String? id,
-
-    /// nameservers
-    List<String>? nameservers,
+    /// domain name
+    String? domain,
 
     /// the registrar iana id
     String? registrar_id,
@@ -173,8 +155,26 @@ class WhoisResponse with _$WhoisResponse {
     /// status of domain
     List<String>? status,
 
+    /// time of update
+    String? updated,
+
     /// abuse phone
     String? abuse_phone,
+
+    /// time of creation
+    String? created,
+
+    /// time of expiry
+    String? expiry,
+
+    /// domain id
+    String? id,
+
+    /// nameservers
+    List<String>? nameservers,
+
+    /// the registrar
+    String? registrar,
   }) = WhoisResponseData;
   const factory WhoisResponse.Merr({Map<String, dynamic>? body}) =
       WhoisResponseMerr;

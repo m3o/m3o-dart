@@ -7,17 +7,17 @@ part of 'dns.dart';
 // **************************************************************************
 
 _$_Answer _$$_AnswerFromJson(Map<String, dynamic> json) => _$_Answer(
-      type: json['type'] as int?,
       TTL: json['TTL'] as int?,
       data: json['data'] as String?,
       name: json['name'] as String?,
+      type: json['type'] as int?,
     );
 
 Map<String, dynamic> _$$_AnswerToJson(_$_Answer instance) => <String, dynamic>{
-      'type': instance.type,
       'TTL': instance.TTL,
       'data': instance.data,
       'name': instance.name,
+      'type': instance.type,
     };
 
 _$_Domain _$$_DomainFromJson(Map<String, dynamic> json) => _$_Domain(
@@ -42,33 +42,33 @@ Map<String, dynamic> _$$_QueryRequestToJson(_$_QueryRequest instance) =>
 
 _$QueryResponseData _$$QueryResponseDataFromJson(Map<String, dynamic> json) =>
     _$QueryResponseData(
-      question: (json['question'] as List<dynamic>?)
-          ?.map((e) => Question.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      AD: json['AD'] as bool?,
-      RA: json['RA'] as bool?,
-      provider: json['provider'] as String?,
       answer: (json['answer'] as List<dynamic>?)
           ?.map((e) => Answer.fromJson(e as Map<String, dynamic>))
           .toList(),
-      status: json['status'] as int?,
-      CD: json['CD'] as bool?,
+      AD: json['AD'] as bool?,
       RD: json['RD'] as bool?,
       TC: json['TC'] as bool?,
+      provider: json['provider'] as String?,
+      question: (json['question'] as List<dynamic>?)
+          ?.map((e) => Question.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      status: json['status'] as int?,
+      CD: json['CD'] as bool?,
+      RA: json['RA'] as bool?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$QueryResponseDataToJson(_$QueryResponseData instance) =>
     <String, dynamic>{
-      'question': instance.question,
-      'AD': instance.AD,
-      'RA': instance.RA,
-      'provider': instance.provider,
       'answer': instance.answer,
-      'status': instance.status,
-      'CD': instance.CD,
+      'AD': instance.AD,
       'RD': instance.RD,
       'TC': instance.TC,
+      'provider': instance.provider,
+      'question': instance.question,
+      'status': instance.status,
+      'CD': instance.CD,
+      'RA': instance.RA,
       'runtimeType': instance.$type,
     };
 
@@ -107,40 +107,40 @@ Map<String, dynamic> _$$_WhoisRequestToJson(_$_WhoisRequest instance) =>
 
 _$WhoisResponseData _$$WhoisResponseDataFromJson(Map<String, dynamic> json) =>
     _$WhoisResponseData(
-      created: json['created'] as String?,
-      domain: json['domain'] as String?,
-      registrar: json['registrar'] as String?,
-      updated: json['updated'] as String?,
       whois_server: json['whois_server'] as String?,
       abuse_email: json['abuse_email'] as String?,
+      domain: json['domain'] as String?,
+      registrar_id: json['registrar_id'] as String?,
+      registrar_url: json['registrar_url'] as String?,
+      status:
+          (json['status'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      updated: json['updated'] as String?,
+      abuse_phone: json['abuse_phone'] as String?,
+      created: json['created'] as String?,
       expiry: json['expiry'] as String?,
       id: json['id'] as String?,
       nameservers: (json['nameservers'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      registrar_id: json['registrar_id'] as String?,
-      registrar_url: json['registrar_url'] as String?,
-      status:
-          (json['status'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      abuse_phone: json['abuse_phone'] as String?,
+      registrar: json['registrar'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$WhoisResponseDataToJson(_$WhoisResponseData instance) =>
     <String, dynamic>{
-      'created': instance.created,
-      'domain': instance.domain,
-      'registrar': instance.registrar,
-      'updated': instance.updated,
       'whois_server': instance.whois_server,
       'abuse_email': instance.abuse_email,
-      'expiry': instance.expiry,
-      'id': instance.id,
-      'nameservers': instance.nameservers,
+      'domain': instance.domain,
       'registrar_id': instance.registrar_id,
       'registrar_url': instance.registrar_url,
       'status': instance.status,
+      'updated': instance.updated,
       'abuse_phone': instance.abuse_phone,
+      'created': instance.created,
+      'expiry': instance.expiry,
+      'id': instance.id,
+      'nameservers': instance.nameservers,
+      'registrar': instance.registrar,
       'runtimeType': instance.$type,
     };
 

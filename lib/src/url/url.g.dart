@@ -8,14 +8,14 @@ part of 'url.dart';
 
 _$_CreateRequest _$$_CreateRequestFromJson(Map<String, dynamic> json) =>
     _$_CreateRequest(
-      destinationURL: json['destinationURL'] as String?,
       id: json['id'] as String?,
+      destinationURL: json['destinationURL'] as String?,
     );
 
 Map<String, dynamic> _$$_CreateRequestToJson(_$_CreateRequest instance) =>
     <String, dynamic>{
-      'destinationURL': instance.destinationURL,
       'id': instance.id,
+      'destinationURL': instance.destinationURL,
     };
 
 _$CreateResponseData _$$CreateResponseDataFromJson(Map<String, dynamic> json) =>
@@ -48,14 +48,14 @@ Map<String, dynamic> _$$CreateResponseMerrToJson(
 
 _$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
     _$_DeleteRequest(
-      id: json['id'] as String?,
       shortURL: json['shortURL'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_DeleteRequestToJson(_$_DeleteRequest instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'shortURL': instance.shortURL,
+      'id': instance.id,
     };
 
 _$DeleteResponseData _$$DeleteResponseDataFromJson(Map<String, dynamic> json) =>
