@@ -1,3 +1,9 @@
+## v1.0.224 - 2022-11-17
+
+[a9db8b](https://github.com/micro/services/commit/a9db8bcc1b39f3a411aef5bb4ebd39a1dbaa2d21) update readme
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.223...v1.0.224
+
 ## v1.0.223 - 2022-11-17
 
 [aaee29](https://github.com/micro/services/commit/aaee29da6a20680d683f3738d7d5e02737a0ed04) add secret service
