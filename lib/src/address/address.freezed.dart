@@ -578,6 +578,18 @@ mixin _$Record {
   /// building name
   String? get building_name => throw _privateConstructorUsedError;
 
+  /// the county
+  String? get county => throw _privateConstructorUsedError;
+
+  /// organisation if present
+  String? get organisation => throw _privateConstructorUsedError;
+
+  /// the postcode
+  String? get postcode => throw _privateConstructorUsedError;
+
+  /// street name
+  String? get street => throw _privateConstructorUsedError;
+
   /// line one of address
   String? get line_one => throw _privateConstructorUsedError;
 
@@ -587,26 +599,14 @@ mixin _$Record {
   /// dependent locality
   String? get locality => throw _privateConstructorUsedError;
 
-  /// organisation if present
-  String? get organisation => throw _privateConstructorUsedError;
-
-  /// the postcode
-  String? get postcode => throw _privateConstructorUsedError;
-
   /// the premise
   String? get premise => throw _privateConstructorUsedError;
 
-  /// street name
-  String? get street => throw _privateConstructorUsedError;
-
-  /// the county
-  String? get county => throw _privateConstructorUsedError;
+  /// the complete address
+  String? get summary => throw _privateConstructorUsedError;
 
   /// post town
   String? get town => throw _privateConstructorUsedError;
-
-  /// the complete address
-  String? get summary => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -620,16 +620,16 @@ abstract class $RecordCopyWith<$Res> {
   @useResult
   $Res call(
       {String? building_name,
+      String? county,
+      String? organisation,
+      String? postcode,
+      String? street,
       String? line_one,
       String? line_two,
       String? locality,
-      String? organisation,
-      String? postcode,
       String? premise,
-      String? street,
-      String? county,
-      String? town,
-      String? summary});
+      String? summary,
+      String? town});
 }
 
 /// @nodoc
@@ -646,21 +646,37 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
   @override
   $Res call({
     Object? building_name = freezed,
+    Object? county = freezed,
+    Object? organisation = freezed,
+    Object? postcode = freezed,
+    Object? street = freezed,
     Object? line_one = freezed,
     Object? line_two = freezed,
     Object? locality = freezed,
-    Object? organisation = freezed,
-    Object? postcode = freezed,
     Object? premise = freezed,
-    Object? street = freezed,
-    Object? county = freezed,
-    Object? town = freezed,
     Object? summary = freezed,
+    Object? town = freezed,
   }) {
     return _then(_value.copyWith(
       building_name: freezed == building_name
           ? _value.building_name
           : building_name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      county: freezed == county
+          ? _value.county
+          : county // ignore: cast_nullable_to_non_nullable
+              as String?,
+      organisation: freezed == organisation
+          ? _value.organisation
+          : organisation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      postcode: freezed == postcode
+          ? _value.postcode
+          : postcode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      street: freezed == street
+          ? _value.street
+          : street // ignore: cast_nullable_to_non_nullable
               as String?,
       line_one: freezed == line_one
           ? _value.line_one
@@ -674,33 +690,17 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
           ? _value.locality
           : locality // ignore: cast_nullable_to_non_nullable
               as String?,
-      organisation: freezed == organisation
-          ? _value.organisation
-          : organisation // ignore: cast_nullable_to_non_nullable
-              as String?,
-      postcode: freezed == postcode
-          ? _value.postcode
-          : postcode // ignore: cast_nullable_to_non_nullable
-              as String?,
       premise: freezed == premise
           ? _value.premise
           : premise // ignore: cast_nullable_to_non_nullable
               as String?,
-      street: freezed == street
-          ? _value.street
-          : street // ignore: cast_nullable_to_non_nullable
-              as String?,
-      county: freezed == county
-          ? _value.county
-          : county // ignore: cast_nullable_to_non_nullable
+      summary: freezed == summary
+          ? _value.summary
+          : summary // ignore: cast_nullable_to_non_nullable
               as String?,
       town: freezed == town
           ? _value.town
           : town // ignore: cast_nullable_to_non_nullable
-              as String?,
-      summary: freezed == summary
-          ? _value.summary
-          : summary // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -714,16 +714,16 @@ abstract class _$$_RecordCopyWith<$Res> implements $RecordCopyWith<$Res> {
   @useResult
   $Res call(
       {String? building_name,
+      String? county,
+      String? organisation,
+      String? postcode,
+      String? street,
       String? line_one,
       String? line_two,
       String? locality,
-      String? organisation,
-      String? postcode,
       String? premise,
-      String? street,
-      String? county,
-      String? town,
-      String? summary});
+      String? summary,
+      String? town});
 }
 
 /// @nodoc
@@ -737,21 +737,37 @@ class __$$_RecordCopyWithImpl<$Res>
   @override
   $Res call({
     Object? building_name = freezed,
+    Object? county = freezed,
+    Object? organisation = freezed,
+    Object? postcode = freezed,
+    Object? street = freezed,
     Object? line_one = freezed,
     Object? line_two = freezed,
     Object? locality = freezed,
-    Object? organisation = freezed,
-    Object? postcode = freezed,
     Object? premise = freezed,
-    Object? street = freezed,
-    Object? county = freezed,
-    Object? town = freezed,
     Object? summary = freezed,
+    Object? town = freezed,
   }) {
     return _then(_$_Record(
       building_name: freezed == building_name
           ? _value.building_name
           : building_name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      county: freezed == county
+          ? _value.county
+          : county // ignore: cast_nullable_to_non_nullable
+              as String?,
+      organisation: freezed == organisation
+          ? _value.organisation
+          : organisation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      postcode: freezed == postcode
+          ? _value.postcode
+          : postcode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      street: freezed == street
+          ? _value.street
+          : street // ignore: cast_nullable_to_non_nullable
               as String?,
       line_one: freezed == line_one
           ? _value.line_one
@@ -765,33 +781,17 @@ class __$$_RecordCopyWithImpl<$Res>
           ? _value.locality
           : locality // ignore: cast_nullable_to_non_nullable
               as String?,
-      organisation: freezed == organisation
-          ? _value.organisation
-          : organisation // ignore: cast_nullable_to_non_nullable
-              as String?,
-      postcode: freezed == postcode
-          ? _value.postcode
-          : postcode // ignore: cast_nullable_to_non_nullable
-              as String?,
       premise: freezed == premise
           ? _value.premise
           : premise // ignore: cast_nullable_to_non_nullable
               as String?,
-      street: freezed == street
-          ? _value.street
-          : street // ignore: cast_nullable_to_non_nullable
-              as String?,
-      county: freezed == county
-          ? _value.county
-          : county // ignore: cast_nullable_to_non_nullable
+      summary: freezed == summary
+          ? _value.summary
+          : summary // ignore: cast_nullable_to_non_nullable
               as String?,
       town: freezed == town
           ? _value.town
           : town // ignore: cast_nullable_to_non_nullable
-              as String?,
-      summary: freezed == summary
-          ? _value.summary
-          : summary // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -802,16 +802,16 @@ class __$$_RecordCopyWithImpl<$Res>
 class _$_Record implements _Record {
   const _$_Record(
       {this.building_name,
+      this.county,
+      this.organisation,
+      this.postcode,
+      this.street,
       this.line_one,
       this.line_two,
       this.locality,
-      this.organisation,
-      this.postcode,
       this.premise,
-      this.street,
-      this.county,
-      this.town,
-      this.summary});
+      this.summary,
+      this.town});
 
   factory _$_Record.fromJson(Map<String, dynamic> json) =>
       _$$_RecordFromJson(json);
@@ -819,6 +819,22 @@ class _$_Record implements _Record {
   /// building name
   @override
   final String? building_name;
+
+  /// the county
+  @override
+  final String? county;
+
+  /// organisation if present
+  @override
+  final String? organisation;
+
+  /// the postcode
+  @override
+  final String? postcode;
+
+  /// street name
+  @override
+  final String? street;
 
   /// line one of address
   @override
@@ -832,37 +848,21 @@ class _$_Record implements _Record {
   @override
   final String? locality;
 
-  /// organisation if present
-  @override
-  final String? organisation;
-
-  /// the postcode
-  @override
-  final String? postcode;
-
   /// the premise
   @override
   final String? premise;
-
-  /// street name
-  @override
-  final String? street;
-
-  /// the county
-  @override
-  final String? county;
-
-  /// post town
-  @override
-  final String? town;
 
   /// the complete address
   @override
   final String? summary;
 
+  /// post town
+  @override
+  final String? town;
+
   @override
   String toString() {
-    return 'Record(building_name: $building_name, line_one: $line_one, line_two: $line_two, locality: $locality, organisation: $organisation, postcode: $postcode, premise: $premise, street: $street, county: $county, town: $town, summary: $summary)';
+    return 'Record(building_name: $building_name, county: $county, organisation: $organisation, postcode: $postcode, street: $street, line_one: $line_one, line_two: $line_two, locality: $locality, premise: $premise, summary: $summary, town: $town)';
   }
 
   @override
@@ -872,21 +872,21 @@ class _$_Record implements _Record {
             other is _$_Record &&
             (identical(other.building_name, building_name) ||
                 other.building_name == building_name) &&
+            (identical(other.county, county) || other.county == county) &&
+            (identical(other.organisation, organisation) ||
+                other.organisation == organisation) &&
+            (identical(other.postcode, postcode) ||
+                other.postcode == postcode) &&
+            (identical(other.street, street) || other.street == street) &&
             (identical(other.line_one, line_one) ||
                 other.line_one == line_one) &&
             (identical(other.line_two, line_two) ||
                 other.line_two == line_two) &&
             (identical(other.locality, locality) ||
                 other.locality == locality) &&
-            (identical(other.organisation, organisation) ||
-                other.organisation == organisation) &&
-            (identical(other.postcode, postcode) ||
-                other.postcode == postcode) &&
             (identical(other.premise, premise) || other.premise == premise) &&
-            (identical(other.street, street) || other.street == street) &&
-            (identical(other.county, county) || other.county == county) &&
-            (identical(other.town, town) || other.town == town) &&
-            (identical(other.summary, summary) || other.summary == summary));
+            (identical(other.summary, summary) || other.summary == summary) &&
+            (identical(other.town, town) || other.town == town));
   }
 
   @JsonKey(ignore: true)
@@ -894,16 +894,16 @@ class _$_Record implements _Record {
   int get hashCode => Object.hash(
       runtimeType,
       building_name,
+      county,
+      organisation,
+      postcode,
+      street,
       line_one,
       line_two,
       locality,
-      organisation,
-      postcode,
       premise,
-      street,
-      county,
-      town,
-      summary);
+      summary,
+      town);
 
   @JsonKey(ignore: true)
   @override
@@ -922,16 +922,16 @@ class _$_Record implements _Record {
 abstract class _Record implements Record {
   const factory _Record(
       {final String? building_name,
+      final String? county,
+      final String? organisation,
+      final String? postcode,
+      final String? street,
       final String? line_one,
       final String? line_two,
       final String? locality,
-      final String? organisation,
-      final String? postcode,
       final String? premise,
-      final String? street,
-      final String? county,
-      final String? town,
-      final String? summary}) = _$_Record;
+      final String? summary,
+      final String? town}) = _$_Record;
 
   factory _Record.fromJson(Map<String, dynamic> json) = _$_Record.fromJson;
 
@@ -939,6 +939,22 @@ abstract class _Record implements Record {
 
   /// building name
   String? get building_name;
+  @override
+
+  /// the county
+  String? get county;
+  @override
+
+  /// organisation if present
+  String? get organisation;
+  @override
+
+  /// the postcode
+  String? get postcode;
+  @override
+
+  /// street name
+  String? get street;
   @override
 
   /// line one of address
@@ -953,32 +969,16 @@ abstract class _Record implements Record {
   String? get locality;
   @override
 
-  /// organisation if present
-  String? get organisation;
-  @override
-
-  /// the postcode
-  String? get postcode;
-  @override
-
   /// the premise
   String? get premise;
   @override
 
-  /// street name
-  String? get street;
-  @override
-
-  /// the county
-  String? get county;
+  /// the complete address
+  String? get summary;
   @override
 
   /// post town
   String? get town;
-  @override
-
-  /// the complete address
-  String? get summary;
   @override
   @JsonKey(ignore: true)
   _$$_RecordCopyWith<_$_Record> get copyWith =>

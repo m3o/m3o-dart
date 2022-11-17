@@ -6,7 +6,7 @@ void main() async {
   final ser = DnsService(Platform.environment['M3O_API_TOKEN']!);
 
   final payload = <String, dynamic>{
-    "domaine": "x.com",
+    "domain": "x.com",
   };
 
   WhoisRequest req = WhoisRequest.fromJson(payload);

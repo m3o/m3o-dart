@@ -163,11 +163,11 @@ class Comment with _$Comment {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// comment items
-    String? text,
-
     /// comment subject
     String? subject,
+
+    /// comment items
+    String? text,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);

@@ -20,14 +20,14 @@ CreateRequest _$CreateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateRequest {
-  /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
-  String? get name => throw _privateConstructorUsedError;
-
   /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
   String? get object => throw _privateConstructorUsedError;
 
   /// Who can see this object? "public" or "private", defaults to "private"
   String? get visibility => throw _privateConstructorUsedError;
+
+  /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
+  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $CreateRequestCopyWith<$Res> {
           CreateRequest value, $Res Function(CreateRequest) then) =
       _$CreateRequestCopyWithImpl<$Res, CreateRequest>;
   @useResult
-  $Res call({String? name, String? object, String? visibility});
+  $Res call({String? object, String? visibility, String? name});
 }
 
 /// @nodoc
@@ -57,15 +57,11 @@ class _$CreateRequestCopyWithImpl<$Res, $Val extends CreateRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
     Object? object = freezed,
     Object? visibility = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       object: freezed == object
           ? _value.object
           : object // ignore: cast_nullable_to_non_nullable
@@ -73,6 +69,10 @@ class _$CreateRequestCopyWithImpl<$Res, $Val extends CreateRequest>
       visibility: freezed == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -86,7 +86,7 @@ abstract class _$$_CreateRequestCopyWith<$Res>
       __$$_CreateRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? name, String? object, String? visibility});
+  $Res call({String? object, String? visibility, String? name});
 }
 
 /// @nodoc
@@ -100,15 +100,11 @@ class __$$_CreateRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
     Object? object = freezed,
     Object? visibility = freezed,
+    Object? name = freezed,
   }) {
     return _then(_$_CreateRequest(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       object: freezed == object
           ? _value.object
           : object // ignore: cast_nullable_to_non_nullable
@@ -117,6 +113,10 @@ class __$$_CreateRequestCopyWithImpl<$Res>
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -124,14 +124,10 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateRequest implements _CreateRequest {
-  const _$_CreateRequest({this.name, this.object, this.visibility});
+  const _$_CreateRequest({this.object, this.visibility, this.name});
 
   factory _$_CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateRequestFromJson(json);
-
-  /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
-  @override
-  final String? name;
 
   /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
   @override
@@ -141,9 +137,13 @@ class _$_CreateRequest implements _CreateRequest {
   @override
   final String? visibility;
 
+  /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
+  @override
+  final String? name;
+
   @override
   String toString() {
-    return 'CreateRequest(name: $name, object: $object, visibility: $visibility)';
+    return 'CreateRequest(object: $object, visibility: $visibility, name: $name)';
   }
 
   @override
@@ -151,15 +151,15 @@ class _$_CreateRequest implements _CreateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateRequest &&
-            (identical(other.name, name) || other.name == name) &&
             (identical(other.object, object) || other.object == object) &&
             (identical(other.visibility, visibility) ||
-                other.visibility == visibility));
+                other.visibility == visibility) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, object, visibility);
+  int get hashCode => Object.hash(runtimeType, object, visibility, name);
 
   @JsonKey(ignore: true)
   @override
@@ -177,17 +177,13 @@ class _$_CreateRequest implements _CreateRequest {
 
 abstract class _CreateRequest implements CreateRequest {
   const factory _CreateRequest(
-      {final String? name,
-      final String? object,
-      final String? visibility}) = _$_CreateRequest;
+      {final String? object,
+      final String? visibility,
+      final String? name}) = _$_CreateRequest;
 
   factory _CreateRequest.fromJson(Map<String, dynamic> json) =
       _$_CreateRequest.fromJson;
 
-  @override
-
-  /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
-  String? get name;
   @override
 
   /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
@@ -196,6 +192,10 @@ abstract class _CreateRequest implements CreateRequest {
 
   /// Who can see this object? "public" or "private", defaults to "private"
   String? get visibility;
+  @override
+
+  /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$$_CreateRequestCopyWith<_$_CreateRequest> get copyWith =>

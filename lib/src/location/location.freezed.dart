@@ -20,9 +20,9 @@ Entity _$EntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Entity {
-  String? get type => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
   Point? get location => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $EntityCopyWith<$Res> {
   factory $EntityCopyWith(Entity value, $Res Function(Entity) then) =
       _$EntityCopyWithImpl<$Res, Entity>;
   @useResult
-  $Res call({String? type, String? id, Point? location});
+  $Res call({String? id, Point? location, String? type});
 
   $PointCopyWith<$Res>? get location;
 }
@@ -52,15 +52,11 @@ class _$EntityCopyWithImpl<$Res, $Val extends Entity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = freezed,
     Object? id = freezed,
     Object? location = freezed,
+    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -69,6 +65,10 @@ class _$EntityCopyWithImpl<$Res, $Val extends Entity>
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as Point?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -91,7 +91,7 @@ abstract class _$$_EntityCopyWith<$Res> implements $EntityCopyWith<$Res> {
       __$$_EntityCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? type, String? id, Point? location});
+  $Res call({String? id, Point? location, String? type});
 
   @override
   $PointCopyWith<$Res>? get location;
@@ -107,15 +107,11 @@ class __$$_EntityCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = freezed,
     Object? id = freezed,
     Object? location = freezed,
+    Object? type = freezed,
   }) {
     return _then(_$_Entity(
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -124,6 +120,10 @@ class __$$_EntityCopyWithImpl<$Res>
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as Point?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -131,21 +131,21 @@ class __$$_EntityCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Entity implements _Entity {
-  const _$_Entity({this.type, this.id, this.location});
+  const _$_Entity({this.id, this.location, this.type});
 
   factory _$_Entity.fromJson(Map<String, dynamic> json) =>
       _$$_EntityFromJson(json);
 
   @override
-  final String? type;
-  @override
   final String? id;
   @override
   final Point? location;
+  @override
+  final String? type;
 
   @override
   String toString() {
-    return 'Entity(type: $type, id: $id, location: $location)';
+    return 'Entity(id: $id, location: $location, type: $type)';
   }
 
   @override
@@ -153,15 +153,15 @@ class _$_Entity implements _Entity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Entity &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.location, location) ||
-                other.location == location));
+                other.location == location) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, id, location);
+  int get hashCode => Object.hash(runtimeType, id, location, type);
 
   @JsonKey(ignore: true)
   @override
@@ -179,18 +179,18 @@ class _$_Entity implements _Entity {
 
 abstract class _Entity implements Entity {
   const factory _Entity(
-      {final String? type,
-      final String? id,
-      final Point? location}) = _$_Entity;
+      {final String? id,
+      final Point? location,
+      final String? type}) = _$_Entity;
 
   factory _Entity.fromJson(Map<String, dynamic> json) = _$_Entity.fromJson;
 
   @override
-  String? get type;
-  @override
   String? get id;
   @override
   Point? get location;
+  @override
+  String? get type;
   @override
   @JsonKey(ignore: true)
   _$$_EntityCopyWith<_$_Entity> get copyWith =>

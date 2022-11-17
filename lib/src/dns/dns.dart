@@ -56,6 +56,9 @@ class DnsService {
 @Freezed()
 class Answer with _$Answer {
   const factory Answer({
+    /// type of record
+    int? type,
+
     /// time to live
     int? TTL,
 
@@ -64,9 +67,6 @@ class Answer with _$Answer {
 
     /// name resolved
     String? name,
-
-    /// type of record
-    int? type,
   }) = _Answer;
   factory Answer.fromJson(Map<String, dynamic> json) => _$AnswerFromJson(json);
 }
@@ -83,11 +83,11 @@ class Domain with _$Domain {
 @Freezed()
 class QueryRequest with _$QueryRequest {
   const factory QueryRequest({
-    /// type of query e.g A, AAAA, MX, SRV
-    String? type,
-
     /// name to resolve
     String? name,
+
+    /// type of query e.g A, AAAA, MX, SRV
+    String? type,
   }) = _QueryRequest;
   factory QueryRequest.fromJson(Map<String, dynamic> json) =>
       _$QueryRequestFromJson(json);
@@ -96,15 +96,15 @@ class QueryRequest with _$QueryRequest {
 @Freezed()
 class QueryResponse with _$QueryResponse {
   const factory QueryResponse({
+    List<Question>? question,
     bool? AD,
     bool? RA,
-    bool? RD,
-    bool? TC,
     String? provider,
+    List<Answer>? answer,
     int? status,
     bool? CD,
-    List<Answer>? answer,
-    List<Question>? question,
+    bool? RD,
+    bool? TC,
   }) = QueryResponseData;
   const factory QueryResponse.Merr({Map<String, dynamic>? body}) =
       QueryResponseMerr;
@@ -137,8 +137,17 @@ class WhoisRequest with _$WhoisRequest {
 @Freezed()
 class WhoisResponse with _$WhoisResponse {
   const factory WhoisResponse({
-    /// status of domain
-    List<String>? status,
+    /// time of creation
+    String? created,
+
+    /// domain name
+    String? domain,
+
+    /// the registrar
+    String? registrar,
+
+    /// time of update
+    String? updated,
 
     /// whois server
     String? whois_server,
@@ -146,35 +155,26 @@ class WhoisResponse with _$WhoisResponse {
     /// abuse email
     String? abuse_email,
 
-    /// abuse phone
-    String? abuse_phone,
-
-    /// time of creation
-    String? created,
-
     /// time of expiry
     String? expiry,
 
     /// domain id
     String? id,
 
-    /// the registrar iana id
-    String? registrar_id,
-
-    /// domain name
-    String? domain,
-
     /// nameservers
     List<String>? nameservers,
 
-    /// the registrar
-    String? registrar,
+    /// the registrar iana id
+    String? registrar_id,
 
     /// registrar
     String? registrar_url,
 
-    /// time of update
-    String? updated,
+    /// status of domain
+    List<String>? status,
+
+    /// abuse phone
+    String? abuse_phone,
   }) = WhoisResponseData;
   const factory WhoisResponse.Merr({Map<String, dynamic>? body}) =
       WhoisResponseMerr;

@@ -7,30 +7,30 @@ part of 'twitter.dart';
 // **************************************************************************
 
 _$_Profile _$$_ProfileFromJson(Map<String, dynamic> json) => _$_Profile(
-      description: json['description'] as String?,
-      id: int64FromString(json['id'] as String?),
-      location: json['location'] as String?,
-      verified: json['verified'] as bool?,
       private: json['private'] as bool?,
-      username: json['username'] as String?,
-      created_at: json['created_at'] as String?,
+      verified: json['verified'] as bool?,
       followers: int64FromString(json['followers'] as String?),
       image_url: json['image_url'] as String?,
       name: json['name'] as String?,
+      location: json['location'] as String?,
+      username: json['username'] as String?,
+      created_at: json['created_at'] as String?,
+      description: json['description'] as String?,
+      id: int64FromString(json['id'] as String?),
     );
 
 Map<String, dynamic> _$$_ProfileToJson(_$_Profile instance) =>
     <String, dynamic>{
-      'description': instance.description,
-      'id': int64ToString(instance.id),
-      'location': instance.location,
-      'verified': instance.verified,
       'private': instance.private,
-      'username': instance.username,
-      'created_at': instance.created_at,
+      'verified': instance.verified,
       'followers': int64ToString(instance.followers),
       'image_url': instance.image_url,
       'name': instance.name,
+      'location': instance.location,
+      'username': instance.username,
+      'created_at': instance.created_at,
+      'description': instance.description,
+      'id': int64ToString(instance.id),
     };
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
@@ -191,19 +191,19 @@ Map<String, dynamic> _$$_UserRequestToJson(_$_UserRequest instance) =>
 
 _$UserResponseData _$$UserResponseDataFromJson(Map<String, dynamic> json) =>
     _$UserResponseData(
-      profile: json['profile'] == null
-          ? null
-          : Profile.fromJson(json['profile'] as Map<String, dynamic>),
       status: json['status'] == null
           ? null
           : Tweet.fromJson(json['status'] as Map<String, dynamic>),
+      profile: json['profile'] == null
+          ? null
+          : Profile.fromJson(json['profile'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$UserResponseDataToJson(_$UserResponseData instance) =>
     <String, dynamic>{
-      'profile': instance.profile,
       'status': instance.status,
+      'profile': instance.profile,
       'runtimeType': instance.$type,
     };
 

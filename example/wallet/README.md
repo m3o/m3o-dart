@@ -41,12 +41,12 @@ void main() async {
   }
 }
 ```
-## List
+## Debit
 
-List your wallets
+Debit a wallet
 
 
-[https://m3o.com/wallet/api#List](https://m3o.com/wallet/api#List)
+[https://m3o.com/wallet/api#Debit](https://m3o.com/wallet/api#Debit)
 
 ```dart
 import 'dart:io';
@@ -56,17 +56,22 @@ import 'package:m3o/src/wallet/wallet.dart';
 void main() async {
   final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
  
-  final payload = <String, dynamic>{};
+  final payload = <String, dynamic>{
+  "amount": "5",
+  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6",
+  "reference": "test debit",
+  "visible": true
+,};
 
-  ListRequest req = ListRequest.fromJson(payload);
+  DebitRequest req = DebitRequest.fromJson(payload);
 
   
   try {
 
-	ListResponse res = await ser.list(req);
+	DebitResponse res = await ser.debit(req);
 
     res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
+	  Merr: (DebitResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -226,12 +231,12 @@ void main() async {
   }
 }
 ```
-## Debit
+## List
 
-Debit a wallet
+List your wallets
 
 
-[https://m3o.com/wallet/api#Debit](https://m3o.com/wallet/api#Debit)
+[https://m3o.com/wallet/api#List](https://m3o.com/wallet/api#List)
 
 ```dart
 import 'dart:io';
@@ -241,22 +246,17 @@ import 'package:m3o/src/wallet/wallet.dart';
 void main() async {
   final ser = WalletService(Platform.environment['M3O_API_TOKEN']!);
  
-  final payload = <String, dynamic>{
-  "amount": "5",
-  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6",
-  "reference": "test debit",
-  "visible": true
-,};
+  final payload = <String, dynamic>{};
 
-  DebitRequest req = DebitRequest.fromJson(payload);
+  ListRequest req = ListRequest.fromJson(payload);
 
   
   try {
 
-	DebitResponse res = await ser.debit(req);
+	ListResponse res = await ser.list(req);
 
     res.map((value) => print(value),
-	  Merr: (DebitResponseMerr err) => print(err.body!['body']));	
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

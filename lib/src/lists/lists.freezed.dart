@@ -20,11 +20,11 @@ CreateRequest _$CreateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateRequest {
-  /// list items
-  List? get items => throw _privateConstructorUsedError;
-
   /// list name
   String? get name => throw _privateConstructorUsedError;
+
+  /// list items
+  List? get items => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +38,7 @@ abstract class $CreateRequestCopyWith<$Res> {
           CreateRequest value, $Res Function(CreateRequest) then) =
       _$CreateRequestCopyWithImpl<$Res, CreateRequest>;
   @useResult
-  $Res call({List? items, String? name});
+  $Res call({String? name, List? items});
 
   $ListCopyWith<$Res>? get items;
 }
@@ -56,18 +56,18 @@ class _$CreateRequestCopyWithImpl<$Res, $Val extends CreateRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? items = freezed,
     Object? name = freezed,
+    Object? items = freezed,
   }) {
     return _then(_value.copyWith(
-      items: freezed == items
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
-              as List?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      items: freezed == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List?,
     ) as $Val);
   }
 
@@ -92,7 +92,7 @@ abstract class _$$_CreateRequestCopyWith<$Res>
       __$$_CreateRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List? items, String? name});
+  $Res call({String? name, List? items});
 
   @override
   $ListCopyWith<$Res>? get items;
@@ -109,18 +109,18 @@ class __$$_CreateRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? items = freezed,
     Object? name = freezed,
+    Object? items = freezed,
   }) {
     return _then(_$_CreateRequest(
-      items: freezed == items
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
-              as List?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      items: freezed == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List?,
     ));
   }
 }
@@ -128,22 +128,22 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateRequest implements _CreateRequest {
-  const _$_CreateRequest({this.items, this.name});
+  const _$_CreateRequest({this.name, this.items});
 
   factory _$_CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateRequestFromJson(json);
-
-  /// list items
-  @override
-  final List? items;
 
   /// list name
   @override
   final String? name;
 
+  /// list items
+  @override
+  final List? items;
+
   @override
   String toString() {
-    return 'CreateRequest(items: $items, name: $name)';
+    return 'CreateRequest(name: $name, items: $items)';
   }
 
   @override
@@ -151,13 +151,13 @@ class _$_CreateRequest implements _CreateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateRequest &&
-            (identical(other.items, items) || other.items == items) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.items, items) || other.items == items));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, items, name);
+  int get hashCode => Object.hash(runtimeType, name, items);
 
   @JsonKey(ignore: true)
   @override
@@ -174,7 +174,7 @@ class _$_CreateRequest implements _CreateRequest {
 }
 
 abstract class _CreateRequest implements CreateRequest {
-  const factory _CreateRequest({final List? items, final String? name}) =
+  const factory _CreateRequest({final String? name, final List? items}) =
       _$_CreateRequest;
 
   factory _CreateRequest.fromJson(Map<String, dynamic> json) =
@@ -182,12 +182,12 @@ abstract class _CreateRequest implements CreateRequest {
 
   @override
 
-  /// list items
-  List? get items;
-  @override
-
   /// list name
   String? get name;
+  @override
+
+  /// list items
+  List? get items;
   @override
   @JsonKey(ignore: true)
   _$$_CreateRequestCopyWith<_$_CreateRequest> get copyWith =>

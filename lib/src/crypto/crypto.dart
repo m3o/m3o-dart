@@ -116,6 +116,12 @@ class CryptoService {
 @Freezed()
 class Article with _$Article {
   const factory Article({
+    /// title of the article
+    String? title,
+
+    /// the source url
+    String? url,
+
     /// the date published
     String? date,
 
@@ -124,12 +130,6 @@ class Article with _$Article {
 
     /// the source
     String? source,
-
-    /// title of the article
-    String? title,
-
-    /// the source url
-    String? url,
   }) = _Article;
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);
@@ -148,12 +148,6 @@ class HistoryRequest with _$HistoryRequest {
 @Freezed()
 class HistoryResponse with _$HistoryResponse {
   const factory HistoryResponse({
-    /// the open price
-    double? open,
-
-    /// the crypto symbol
-    String? symbol,
-
     /// the volume
     double? volume,
 
@@ -168,6 +162,12 @@ class HistoryResponse with _$HistoryResponse {
 
     /// the low price
     double? low,
+
+    /// the open price
+    double? open,
+
+    /// the crypto symbol
+    String? symbol,
   }) = HistoryResponseData;
   const factory HistoryResponse.Merr({Map<String, dynamic>? body}) =
       HistoryResponseMerr;
@@ -238,15 +238,6 @@ class QuoteRequest with _$QuoteRequest {
 @Freezed()
 class QuoteResponse with _$QuoteResponse {
   const factory QuoteResponse({
-    /// the asking price
-    double? ask_price,
-
-    /// the ask size
-    double? ask_size,
-
-    /// the bidding price
-    double? bid_price,
-
     /// the bid size
     double? bid_size,
 
@@ -255,6 +246,15 @@ class QuoteResponse with _$QuoteResponse {
 
     /// the UTC timestamp of the quote
     String? timestamp,
+
+    /// the asking price
+    double? ask_price,
+
+    /// the ask size
+    double? ask_size,
+
+    /// the bidding price
+    double? bid_price,
   }) = QuoteResponseData;
   const factory QuoteResponse.Merr({Map<String, dynamic>? body}) =
       QuoteResponseMerr;

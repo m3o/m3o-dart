@@ -1042,6 +1042,9 @@ EtaRequest _$EtaRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EtaRequest {
+  /// type of transport. Only "car" is supported currently.
+  String? get type => throw _privateConstructorUsedError;
+
   /// The end point for the eta calculation
   Point? get destination => throw _privateConstructorUsedError;
 
@@ -1050,9 +1053,6 @@ mixin _$EtaRequest {
 
   /// speed in kilometers
   double? get speed => throw _privateConstructorUsedError;
-
-  /// type of transport. Only "car" is supported currently.
-  String? get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1066,7 +1066,7 @@ abstract class $EtaRequestCopyWith<$Res> {
           EtaRequest value, $Res Function(EtaRequest) then) =
       _$EtaRequestCopyWithImpl<$Res, EtaRequest>;
   @useResult
-  $Res call({Point? destination, Point? origin, double? speed, String? type});
+  $Res call({String? type, Point? destination, Point? origin, double? speed});
 
   $PointCopyWith<$Res>? get destination;
   $PointCopyWith<$Res>? get origin;
@@ -1085,12 +1085,16 @@ class _$EtaRequestCopyWithImpl<$Res, $Val extends EtaRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = freezed,
     Object? destination = freezed,
     Object? origin = freezed,
     Object? speed = freezed,
-    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
       destination: freezed == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
@@ -1103,10 +1107,6 @@ class _$EtaRequestCopyWithImpl<$Res, $Val extends EtaRequest>
           ? _value.speed
           : speed // ignore: cast_nullable_to_non_nullable
               as double?,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 
@@ -1143,7 +1143,7 @@ abstract class _$$_EtaRequestCopyWith<$Res>
       __$$_EtaRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Point? destination, Point? origin, double? speed, String? type});
+  $Res call({String? type, Point? destination, Point? origin, double? speed});
 
   @override
   $PointCopyWith<$Res>? get destination;
@@ -1162,12 +1162,16 @@ class __$$_EtaRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = freezed,
     Object? destination = freezed,
     Object? origin = freezed,
     Object? speed = freezed,
-    Object? type = freezed,
   }) {
     return _then(_$_EtaRequest(
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
       destination: freezed == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
@@ -1180,10 +1184,6 @@ class __$$_EtaRequestCopyWithImpl<$Res>
           ? _value.speed
           : speed // ignore: cast_nullable_to_non_nullable
               as double?,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1191,10 +1191,14 @@ class __$$_EtaRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_EtaRequest implements _EtaRequest {
-  const _$_EtaRequest({this.destination, this.origin, this.speed, this.type});
+  const _$_EtaRequest({this.type, this.destination, this.origin, this.speed});
 
   factory _$_EtaRequest.fromJson(Map<String, dynamic> json) =>
       _$$_EtaRequestFromJson(json);
+
+  /// type of transport. Only "car" is supported currently.
+  @override
+  final String? type;
 
   /// The end point for the eta calculation
   @override
@@ -1208,13 +1212,9 @@ class _$_EtaRequest implements _EtaRequest {
   @override
   final double? speed;
 
-  /// type of transport. Only "car" is supported currently.
-  @override
-  final String? type;
-
   @override
   String toString() {
-    return 'EtaRequest(destination: $destination, origin: $origin, speed: $speed, type: $type)';
+    return 'EtaRequest(type: $type, destination: $destination, origin: $origin, speed: $speed)';
   }
 
   @override
@@ -1222,17 +1222,17 @@ class _$_EtaRequest implements _EtaRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EtaRequest &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.destination, destination) ||
                 other.destination == destination) &&
             (identical(other.origin, origin) || other.origin == origin) &&
-            (identical(other.speed, speed) || other.speed == speed) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.speed, speed) || other.speed == speed));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, destination, origin, speed, type);
+      Object.hash(runtimeType, type, destination, origin, speed);
 
   @JsonKey(ignore: true)
   @override
@@ -1250,14 +1250,18 @@ class _$_EtaRequest implements _EtaRequest {
 
 abstract class _EtaRequest implements EtaRequest {
   const factory _EtaRequest(
-      {final Point? destination,
+      {final String? type,
+      final Point? destination,
       final Point? origin,
-      final double? speed,
-      final String? type}) = _$_EtaRequest;
+      final double? speed}) = _$_EtaRequest;
 
   factory _EtaRequest.fromJson(Map<String, dynamic> json) =
       _$_EtaRequest.fromJson;
 
+  @override
+
+  /// type of transport. Only "car" is supported currently.
+  String? get type;
   @override
 
   /// The end point for the eta calculation
@@ -1270,10 +1274,6 @@ abstract class _EtaRequest implements EtaRequest {
 
   /// speed in kilometers
   double? get speed;
-  @override
-
-  /// type of transport. Only "car" is supported currently.
-  String? get type;
   @override
   @JsonKey(ignore: true)
   _$$_EtaRequestCopyWith<_$_EtaRequest> get copyWith =>
@@ -1855,11 +1855,11 @@ Maneuver _$ManeuverFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Maneuver {
+  double? get bearing_before => throw _privateConstructorUsedError;
+  String? get direction => throw _privateConstructorUsedError;
   Point? get location => throw _privateConstructorUsedError;
   String? get action => throw _privateConstructorUsedError;
   double? get bearing_after => throw _privateConstructorUsedError;
-  double? get bearing_before => throw _privateConstructorUsedError;
-  String? get direction => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1873,11 +1873,11 @@ abstract class $ManeuverCopyWith<$Res> {
       _$ManeuverCopyWithImpl<$Res, Maneuver>;
   @useResult
   $Res call(
-      {Point? location,
+      {double? bearing_before,
+      String? direction,
+      Point? location,
       String? action,
-      double? bearing_after,
-      double? bearing_before,
-      String? direction});
+      double? bearing_after});
 
   $PointCopyWith<$Res>? get location;
 }
@@ -1895,13 +1895,21 @@ class _$ManeuverCopyWithImpl<$Res, $Val extends Maneuver>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? bearing_before = freezed,
+    Object? direction = freezed,
     Object? location = freezed,
     Object? action = freezed,
     Object? bearing_after = freezed,
-    Object? bearing_before = freezed,
-    Object? direction = freezed,
   }) {
     return _then(_value.copyWith(
+      bearing_before: freezed == bearing_before
+          ? _value.bearing_before
+          : bearing_before // ignore: cast_nullable_to_non_nullable
+              as double?,
+      direction: freezed == direction
+          ? _value.direction
+          : direction // ignore: cast_nullable_to_non_nullable
+              as String?,
       location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -1914,14 +1922,6 @@ class _$ManeuverCopyWithImpl<$Res, $Val extends Maneuver>
           ? _value.bearing_after
           : bearing_after // ignore: cast_nullable_to_non_nullable
               as double?,
-      bearing_before: freezed == bearing_before
-          ? _value.bearing_before
-          : bearing_before // ignore: cast_nullable_to_non_nullable
-              as double?,
-      direction: freezed == direction
-          ? _value.direction
-          : direction // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 
@@ -1946,11 +1946,11 @@ abstract class _$$_ManeuverCopyWith<$Res> implements $ManeuverCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {Point? location,
+      {double? bearing_before,
+      String? direction,
+      Point? location,
       String? action,
-      double? bearing_after,
-      double? bearing_before,
-      String? direction});
+      double? bearing_after});
 
   @override
   $PointCopyWith<$Res>? get location;
@@ -1967,13 +1967,21 @@ class __$$_ManeuverCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? bearing_before = freezed,
+    Object? direction = freezed,
     Object? location = freezed,
     Object? action = freezed,
     Object? bearing_after = freezed,
-    Object? bearing_before = freezed,
-    Object? direction = freezed,
   }) {
     return _then(_$_Maneuver(
+      bearing_before: freezed == bearing_before
+          ? _value.bearing_before
+          : bearing_before // ignore: cast_nullable_to_non_nullable
+              as double?,
+      direction: freezed == direction
+          ? _value.direction
+          : direction // ignore: cast_nullable_to_non_nullable
+              as String?,
       location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -1986,14 +1994,6 @@ class __$$_ManeuverCopyWithImpl<$Res>
           ? _value.bearing_after
           : bearing_after // ignore: cast_nullable_to_non_nullable
               as double?,
-      bearing_before: freezed == bearing_before
-          ? _value.bearing_before
-          : bearing_before // ignore: cast_nullable_to_non_nullable
-              as double?,
-      direction: freezed == direction
-          ? _value.direction
-          : direction // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2002,29 +2002,29 @@ class __$$_ManeuverCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Maneuver implements _Maneuver {
   const _$_Maneuver(
-      {this.location,
+      {this.bearing_before,
+      this.direction,
+      this.location,
       this.action,
-      this.bearing_after,
-      this.bearing_before,
-      this.direction});
+      this.bearing_after});
 
   factory _$_Maneuver.fromJson(Map<String, dynamic> json) =>
       _$$_ManeuverFromJson(json);
 
+  @override
+  final double? bearing_before;
+  @override
+  final String? direction;
   @override
   final Point? location;
   @override
   final String? action;
   @override
   final double? bearing_after;
-  @override
-  final double? bearing_before;
-  @override
-  final String? direction;
 
   @override
   String toString() {
-    return 'Maneuver(location: $location, action: $action, bearing_after: $bearing_after, bearing_before: $bearing_before, direction: $direction)';
+    return 'Maneuver(bearing_before: $bearing_before, direction: $direction, location: $location, action: $action, bearing_after: $bearing_after)';
   }
 
   @override
@@ -2032,21 +2032,21 @@ class _$_Maneuver implements _Maneuver {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Maneuver &&
+            (identical(other.bearing_before, bearing_before) ||
+                other.bearing_before == bearing_before) &&
+            (identical(other.direction, direction) ||
+                other.direction == direction) &&
             (identical(other.location, location) ||
                 other.location == location) &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.bearing_after, bearing_after) ||
-                other.bearing_after == bearing_after) &&
-            (identical(other.bearing_before, bearing_before) ||
-                other.bearing_before == bearing_before) &&
-            (identical(other.direction, direction) ||
-                other.direction == direction));
+                other.bearing_after == bearing_after));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, location, action, bearing_after, bearing_before, direction);
+      runtimeType, bearing_before, direction, location, action, bearing_after);
 
   @JsonKey(ignore: true)
   @override
@@ -2064,24 +2064,24 @@ class _$_Maneuver implements _Maneuver {
 
 abstract class _Maneuver implements Maneuver {
   const factory _Maneuver(
-      {final Point? location,
+      {final double? bearing_before,
+      final String? direction,
+      final Point? location,
       final String? action,
-      final double? bearing_after,
-      final double? bearing_before,
-      final String? direction}) = _$_Maneuver;
+      final double? bearing_after}) = _$_Maneuver;
 
   factory _Maneuver.fromJson(Map<String, dynamic> json) = _$_Maneuver.fromJson;
 
+  @override
+  double? get bearing_before;
+  @override
+  String? get direction;
   @override
   Point? get location;
   @override
   String? get action;
   @override
   double? get bearing_after;
-  @override
-  double? get bearing_before;
-  @override
-  String? get direction;
   @override
   @JsonKey(ignore: true)
   _$$_ManeuverCopyWith<_$_Maneuver> get copyWith =>
@@ -2252,11 +2252,11 @@ RouteRequest _$RouteRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RouteRequest {
-  /// Point of destination for the trip
-  Point? get destination => throw _privateConstructorUsedError;
-
   /// Point of origin for the trip
   Point? get origin => throw _privateConstructorUsedError;
+
+  /// Point of destination for the trip
+  Point? get destination => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2270,10 +2270,10 @@ abstract class $RouteRequestCopyWith<$Res> {
           RouteRequest value, $Res Function(RouteRequest) then) =
       _$RouteRequestCopyWithImpl<$Res, RouteRequest>;
   @useResult
-  $Res call({Point? destination, Point? origin});
+  $Res call({Point? origin, Point? destination});
 
-  $PointCopyWith<$Res>? get destination;
   $PointCopyWith<$Res>? get origin;
+  $PointCopyWith<$Res>? get destination;
 }
 
 /// @nodoc
@@ -2289,31 +2289,19 @@ class _$RouteRequestCopyWithImpl<$Res, $Val extends RouteRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? destination = freezed,
     Object? origin = freezed,
+    Object? destination = freezed,
   }) {
     return _then(_value.copyWith(
-      destination: freezed == destination
-          ? _value.destination
-          : destination // ignore: cast_nullable_to_non_nullable
-              as Point?,
       origin: freezed == origin
           ? _value.origin
           : origin // ignore: cast_nullable_to_non_nullable
               as Point?,
+      destination: freezed == destination
+          ? _value.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as Point?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PointCopyWith<$Res>? get destination {
-    if (_value.destination == null) {
-      return null;
-    }
-
-    return $PointCopyWith<$Res>(_value.destination!, (value) {
-      return _then(_value.copyWith(destination: value) as $Val);
-    });
   }
 
   @override
@@ -2327,6 +2315,18 @@ class _$RouteRequestCopyWithImpl<$Res, $Val extends RouteRequest>
       return _then(_value.copyWith(origin: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PointCopyWith<$Res>? get destination {
+    if (_value.destination == null) {
+      return null;
+    }
+
+    return $PointCopyWith<$Res>(_value.destination!, (value) {
+      return _then(_value.copyWith(destination: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -2337,12 +2337,12 @@ abstract class _$$_RouteRequestCopyWith<$Res>
       __$$_RouteRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Point? destination, Point? origin});
+  $Res call({Point? origin, Point? destination});
 
   @override
-  $PointCopyWith<$Res>? get destination;
-  @override
   $PointCopyWith<$Res>? get origin;
+  @override
+  $PointCopyWith<$Res>? get destination;
 }
 
 /// @nodoc
@@ -2356,17 +2356,17 @@ class __$$_RouteRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? destination = freezed,
     Object? origin = freezed,
+    Object? destination = freezed,
   }) {
     return _then(_$_RouteRequest(
-      destination: freezed == destination
-          ? _value.destination
-          : destination // ignore: cast_nullable_to_non_nullable
-              as Point?,
       origin: freezed == origin
           ? _value.origin
           : origin // ignore: cast_nullable_to_non_nullable
+              as Point?,
+      destination: freezed == destination
+          ? _value.destination
+          : destination // ignore: cast_nullable_to_non_nullable
               as Point?,
     ));
   }
@@ -2375,22 +2375,22 @@ class __$$_RouteRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RouteRequest implements _RouteRequest {
-  const _$_RouteRequest({this.destination, this.origin});
+  const _$_RouteRequest({this.origin, this.destination});
 
   factory _$_RouteRequest.fromJson(Map<String, dynamic> json) =>
       _$$_RouteRequestFromJson(json);
-
-  /// Point of destination for the trip
-  @override
-  final Point? destination;
 
   /// Point of origin for the trip
   @override
   final Point? origin;
 
+  /// Point of destination for the trip
+  @override
+  final Point? destination;
+
   @override
   String toString() {
-    return 'RouteRequest(destination: $destination, origin: $origin)';
+    return 'RouteRequest(origin: $origin, destination: $destination)';
   }
 
   @override
@@ -2398,14 +2398,14 @@ class _$_RouteRequest implements _RouteRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RouteRequest &&
+            (identical(other.origin, origin) || other.origin == origin) &&
             (identical(other.destination, destination) ||
-                other.destination == destination) &&
-            (identical(other.origin, origin) || other.origin == origin));
+                other.destination == destination));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, destination, origin);
+  int get hashCode => Object.hash(runtimeType, origin, destination);
 
   @JsonKey(ignore: true)
   @override
@@ -2422,7 +2422,7 @@ class _$_RouteRequest implements _RouteRequest {
 }
 
 abstract class _RouteRequest implements RouteRequest {
-  const factory _RouteRequest({final Point? destination, final Point? origin}) =
+  const factory _RouteRequest({final Point? origin, final Point? destination}) =
       _$_RouteRequest;
 
   factory _RouteRequest.fromJson(Map<String, dynamic> json) =
@@ -2430,12 +2430,12 @@ abstract class _RouteRequest implements RouteRequest {
 
   @override
 
-  /// Point of destination for the trip
-  Point? get destination;
-  @override
-
   /// Point of origin for the trip
   Point? get origin;
+  @override
+
+  /// Point of destination for the trip
+  Point? get destination;
   @override
   @JsonKey(ignore: true)
   _$$_RouteRequestCopyWith<_$_RouteRequest> get copyWith =>
