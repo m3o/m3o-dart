@@ -112,11 +112,11 @@ class Channel with _$Channel {
 @Freezed()
 class CreateChannelRequest with _$CreateChannelRequest {
   const factory CreateChannelRequest({
-    /// name of the channel
-    String? name,
-
     /// description for the channel
     String? description,
+
+    /// name of the channel
+    String? name,
   }) = _CreateChannelRequest;
   factory CreateChannelRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateChannelRequestFromJson(json);
@@ -152,11 +152,11 @@ class ListChannelsResponse with _$ListChannelsResponse {
 @Freezed()
 class ListMessagesRequest with _$ListMessagesRequest {
   const factory ListMessagesRequest({
-    /// number of message to return
-    int? limit,
-
     /// The channel to subscribe to
     String? channel,
+
+    /// number of message to return
+    int? limit,
   }) = _ListMessagesRequest;
   factory ListMessagesRequest.fromJson(Map<String, dynamic> json) =>
       _$ListMessagesRequestFromJson(json);

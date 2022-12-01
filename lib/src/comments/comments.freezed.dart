@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'comments.dart';
 
@@ -707,6 +707,7 @@ class _$CreateResponseMerr implements CreateResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1250,6 +1251,7 @@ class _$DeleteResponseMerr implements DeleteResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1808,6 +1810,7 @@ class _$EventsResponseMerr implements EventsResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -2127,6 +2130,7 @@ class _$ListResponseData implements ListResponseData {
   List<Comment>? get comments {
     final value = _comments;
     if (value == null) return null;
+    if (_comments is EqualUnmodifiableListView) return _comments;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -2289,6 +2293,7 @@ class _$ListResponseMerr implements ListResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -2831,6 +2836,7 @@ class _$ReadResponseMerr implements ReadResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -3386,6 +3392,7 @@ class _$UpdateResponseMerr implements UpdateResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }

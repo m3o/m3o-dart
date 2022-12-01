@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'analytics.dart';
 
@@ -437,6 +437,7 @@ class _$DeleteResponseMerr implements DeleteResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -558,15 +559,15 @@ Event _$EventFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Event {
-  /// time at which the event was created
-  String? get created => throw _privateConstructorUsedError;
-
   /// event name
   String? get name => throw _privateConstructorUsedError;
 
   /// the amount of times the event was triggered
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get value => throw _privateConstructorUsedError;
+
+  /// time at which the event was created
+  String? get created => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -579,9 +580,9 @@ abstract class $EventCopyWith<$Res> {
       _$EventCopyWithImpl<$Res, Event>;
   @useResult
   $Res call(
-      {String? created,
-      String? name,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value});
+      {String? name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
+      String? created});
 }
 
 /// @nodoc
@@ -597,15 +598,11 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? created = freezed,
     Object? name = freezed,
     Object? value = freezed,
+    Object? created = freezed,
   }) {
     return _then(_value.copyWith(
-      created: freezed == created
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -614,6 +611,10 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int?,
+      created: freezed == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -625,9 +626,9 @@ abstract class _$$_EventCopyWith<$Res> implements $EventCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? created,
-      String? name,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value});
+      {String? name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? value,
+      String? created});
 }
 
 /// @nodoc
@@ -639,15 +640,11 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? created = freezed,
     Object? name = freezed,
     Object? value = freezed,
+    Object? created = freezed,
   }) {
     return _then(_$_Event(
-      created: freezed == created
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -656,6 +653,10 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int?,
+      created: freezed == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -664,16 +665,12 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
 @JsonSerializable()
 class _$_Event implements _Event {
   const _$_Event(
-      {this.created,
-      this.name,
-      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.value});
+      {this.name,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.value,
+      this.created});
 
   factory _$_Event.fromJson(Map<String, dynamic> json) =>
       _$$_EventFromJson(json);
-
-  /// time at which the event was created
-  @override
-  final String? created;
 
   /// event name
   @override
@@ -684,9 +681,13 @@ class _$_Event implements _Event {
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? value;
 
+  /// time at which the event was created
+  @override
+  final String? created;
+
   @override
   String toString() {
-    return 'Event(created: $created, name: $name, value: $value)';
+    return 'Event(name: $name, value: $value, created: $created)';
   }
 
   @override
@@ -694,14 +695,14 @@ class _$_Event implements _Event {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Event &&
-            (identical(other.created, created) || other.created == created) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.value, value) || other.value == value));
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.created, created) || other.created == created));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, created, name, value);
+  int get hashCode => Object.hash(runtimeType, name, value, created);
 
   @JsonKey(ignore: true)
   @override
@@ -719,17 +720,13 @@ class _$_Event implements _Event {
 
 abstract class _Event implements Event {
   const factory _Event(
-      {final String? created,
-      final String? name,
+      {final String? name,
       @JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? value}) = _$_Event;
+          final int? value,
+      final String? created}) = _$_Event;
 
   factory _Event.fromJson(Map<String, dynamic> json) = _$_Event.fromJson;
 
-  @override
-
-  /// time at which the event was created
-  String? get created;
   @override
 
   /// event name
@@ -739,6 +736,10 @@ abstract class _Event implements Event {
   /// the amount of times the event was triggered
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get value;
+  @override
+
+  /// time at which the event was created
+  String? get created;
   @override
   @JsonKey(ignore: true)
   _$$_EventCopyWith<_$_Event> get copyWith =>
@@ -946,6 +947,7 @@ class _$ListResponseData implements ListResponseData {
   List<Event>? get events {
     final value = _events;
     if (value == null) return null;
+    if (_events is EqualUnmodifiableListView) return _events;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -1107,6 +1109,7 @@ class _$ListResponseMerr implements ListResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1643,6 +1646,7 @@ class _$ReadResponseMerr implements ReadResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -2137,6 +2141,7 @@ class _$TrackResponseMerr implements TrackResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }

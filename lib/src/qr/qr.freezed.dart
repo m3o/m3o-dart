@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'qr.dart';
 
@@ -20,15 +20,15 @@ Code _$CodeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Code {
-  /// text of the QR code
-  String? get text => throw _privateConstructorUsedError;
-
   /// time of creation
   String? get created => throw _privateConstructorUsedError;
 
   /// file name
   String? get file => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
+
+  /// text of the QR code
+  String? get text => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,7 +40,7 @@ abstract class $CodeCopyWith<$Res> {
   factory $CodeCopyWith(Code value, $Res Function(Code) then) =
       _$CodeCopyWithImpl<$Res, Code>;
   @useResult
-  $Res call({String? text, String? created, String? file, String? id});
+  $Res call({String? created, String? file, String? id, String? text});
 }
 
 /// @nodoc
@@ -56,16 +56,12 @@ class _$CodeCopyWithImpl<$Res, $Val extends Code>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? text = freezed,
     Object? created = freezed,
     Object? file = freezed,
     Object? id = freezed,
+    Object? text = freezed,
   }) {
     return _then(_value.copyWith(
-      text: freezed == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
       created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
@@ -77,6 +73,10 @@ class _$CodeCopyWithImpl<$Res, $Val extends Code>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text: freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -88,7 +88,7 @@ abstract class _$$_CodeCopyWith<$Res> implements $CodeCopyWith<$Res> {
       __$$_CodeCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? text, String? created, String? file, String? id});
+  $Res call({String? created, String? file, String? id, String? text});
 }
 
 /// @nodoc
@@ -100,16 +100,12 @@ class __$$_CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res, _$_Code>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? text = freezed,
     Object? created = freezed,
     Object? file = freezed,
     Object? id = freezed,
+    Object? text = freezed,
   }) {
     return _then(_$_Code(
-      text: freezed == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
       created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
@@ -122,6 +118,10 @@ class __$$_CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res, _$_Code>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      text: freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -129,13 +129,9 @@ class __$$_CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res, _$_Code>
 /// @nodoc
 @JsonSerializable()
 class _$_Code implements _Code {
-  const _$_Code({this.text, this.created, this.file, this.id});
+  const _$_Code({this.created, this.file, this.id, this.text});
 
   factory _$_Code.fromJson(Map<String, dynamic> json) => _$$_CodeFromJson(json);
-
-  /// text of the QR code
-  @override
-  final String? text;
 
   /// time of creation
   @override
@@ -147,9 +143,13 @@ class _$_Code implements _Code {
   @override
   final String? id;
 
+  /// text of the QR code
+  @override
+  final String? text;
+
   @override
   String toString() {
-    return 'Code(text: $text, created: $created, file: $file, id: $id)';
+    return 'Code(created: $created, file: $file, id: $id, text: $text)';
   }
 
   @override
@@ -157,15 +157,15 @@ class _$_Code implements _Code {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Code &&
-            (identical(other.text, text) || other.text == text) &&
             (identical(other.created, created) || other.created == created) &&
             (identical(other.file, file) || other.file == file) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.text, text) || other.text == text));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, text, created, file, id);
+  int get hashCode => Object.hash(runtimeType, created, file, id, text);
 
   @JsonKey(ignore: true)
   @override
@@ -183,17 +183,13 @@ class _$_Code implements _Code {
 
 abstract class _Code implements Code {
   const factory _Code(
-      {final String? text,
-      final String? created,
+      {final String? created,
       final String? file,
-      final String? id}) = _$_Code;
+      final String? id,
+      final String? text}) = _$_Code;
 
   factory _Code.fromJson(Map<String, dynamic> json) = _$_Code.fromJson;
 
-  @override
-
-  /// text of the QR code
-  String? get text;
   @override
 
   /// time of creation
@@ -204,6 +200,10 @@ abstract class _Code implements Code {
   String? get file;
   @override
   String? get id;
+  @override
+
+  /// text of the QR code
+  String? get text;
   @override
   @JsonKey(ignore: true)
   _$$_CodeCopyWith<_$_Code> get copyWith => throw _privateConstructorUsedError;
@@ -410,6 +410,7 @@ class _$CodesResponseData implements CodesResponseData {
   List<Code>? get codes {
     final value = _codes;
     if (value == null) return null;
+    if (_codes is EqualUnmodifiableListView) return _codes;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -571,6 +572,7 @@ class _$CodesResponseMerr implements CodesResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -691,12 +693,12 @@ GenerateRequest _$GenerateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GenerateRequest {
+  /// the text to encode as a QR code (URL, phone number, email, etc)
+  String? get text => throw _privateConstructorUsedError;
+
   /// the size (height and width) in pixels of the generated QR code. Defaults to 256
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get size => throw _privateConstructorUsedError;
-
-  /// the text to encode as a QR code (URL, phone number, email, etc)
-  String? get text => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -711,8 +713,8 @@ abstract class $GenerateRequestCopyWith<$Res> {
       _$GenerateRequestCopyWithImpl<$Res, GenerateRequest>;
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
-      String? text});
+      {String? text,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size});
 }
 
 /// @nodoc
@@ -728,18 +730,18 @@ class _$GenerateRequestCopyWithImpl<$Res, $Val extends GenerateRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? size = freezed,
     Object? text = freezed,
+    Object? size = freezed,
   }) {
     return _then(_value.copyWith(
-      size: freezed == size
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int?,
       text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
+      size: freezed == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -753,8 +755,8 @@ abstract class _$$_GenerateRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size,
-      String? text});
+      {String? text,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) int? size});
 }
 
 /// @nodoc
@@ -768,18 +770,18 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? size = freezed,
     Object? text = freezed,
+    Object? size = freezed,
   }) {
     return _then(_$_GenerateRequest(
-      size: freezed == size
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int?,
       text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String?,
+      size: freezed == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -788,24 +790,24 @@ class __$$_GenerateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GenerateRequest implements _GenerateRequest {
   const _$_GenerateRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString) this.size,
-      this.text});
+      {this.text,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString) this.size});
 
   factory _$_GenerateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_GenerateRequestFromJson(json);
+
+  /// the text to encode as a QR code (URL, phone number, email, etc)
+  @override
+  final String? text;
 
   /// the size (height and width) in pixels of the generated QR code. Defaults to 256
   @override
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   final int? size;
 
-  /// the text to encode as a QR code (URL, phone number, email, etc)
-  @override
-  final String? text;
-
   @override
   String toString() {
-    return 'GenerateRequest(size: $size, text: $text)';
+    return 'GenerateRequest(text: $text, size: $size)';
   }
 
   @override
@@ -813,13 +815,13 @@ class _$_GenerateRequest implements _GenerateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GenerateRequest &&
-            (identical(other.size, size) || other.size == size) &&
-            (identical(other.text, text) || other.text == text));
+            (identical(other.text, text) || other.text == text) &&
+            (identical(other.size, size) || other.size == size));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, size, text);
+  int get hashCode => Object.hash(runtimeType, text, size);
 
   @JsonKey(ignore: true)
   @override
@@ -837,22 +839,22 @@ class _$_GenerateRequest implements _GenerateRequest {
 
 abstract class _GenerateRequest implements GenerateRequest {
   const factory _GenerateRequest(
-      {@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-          final int? size,
-      final String? text}) = _$_GenerateRequest;
+      {final String? text,
+      @JsonKey(fromJson: int64FromString, toJson: int64ToString)
+          final int? size}) = _$_GenerateRequest;
 
   factory _GenerateRequest.fromJson(Map<String, dynamic> json) =
       _$_GenerateRequest.fromJson;
 
   @override
 
+  /// the text to encode as a QR code (URL, phone number, email, etc)
+  String? get text;
+  @override
+
   /// the size (height and width) in pixels of the generated QR code. Defaults to 256
   @JsonKey(fromJson: int64FromString, toJson: int64ToString)
   int? get size;
-  @override
-
-  /// the text to encode as a QR code (URL, phone number, email, etc)
-  String? get text;
   @override
   @JsonKey(ignore: true)
   _$$_GenerateRequestCopyWith<_$_GenerateRequest> get copyWith =>
@@ -1135,6 +1137,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }

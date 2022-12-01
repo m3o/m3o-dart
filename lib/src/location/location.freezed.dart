@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'location.dart';
 
@@ -20,9 +20,9 @@ Entity _$EntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Entity {
+  String? get id => throw _privateConstructorUsedError;
   Point? get location => throw _privateConstructorUsedError;
   String? get type => throw _privateConstructorUsedError;
-  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $EntityCopyWith<$Res> {
   factory $EntityCopyWith(Entity value, $Res Function(Entity) then) =
       _$EntityCopyWithImpl<$Res, Entity>;
   @useResult
-  $Res call({Point? location, String? type, String? id});
+  $Res call({String? id, Point? location, String? type});
 
   $PointCopyWith<$Res>? get location;
 }
@@ -52,11 +52,15 @@ class _$EntityCopyWithImpl<$Res, $Val extends Entity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? location = freezed,
     Object? type = freezed,
-    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -64,10 +68,6 @@ class _$EntityCopyWithImpl<$Res, $Val extends Entity>
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -91,7 +91,7 @@ abstract class _$$_EntityCopyWith<$Res> implements $EntityCopyWith<$Res> {
       __$$_EntityCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Point? location, String? type, String? id});
+  $Res call({String? id, Point? location, String? type});
 
   @override
   $PointCopyWith<$Res>? get location;
@@ -107,11 +107,15 @@ class __$$_EntityCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? location = freezed,
     Object? type = freezed,
-    Object? id = freezed,
   }) {
     return _then(_$_Entity(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -120,10 +124,6 @@ class __$$_EntityCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -131,21 +131,21 @@ class __$$_EntityCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Entity implements _Entity {
-  const _$_Entity({this.location, this.type, this.id});
+  const _$_Entity({this.id, this.location, this.type});
 
   factory _$_Entity.fromJson(Map<String, dynamic> json) =>
       _$$_EntityFromJson(json);
 
   @override
+  final String? id;
+  @override
   final Point? location;
   @override
   final String? type;
-  @override
-  final String? id;
 
   @override
   String toString() {
-    return 'Entity(location: $location, type: $type, id: $id)';
+    return 'Entity(id: $id, location: $location, type: $type)';
   }
 
   @override
@@ -153,15 +153,15 @@ class _$_Entity implements _Entity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Entity &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.location, location) ||
                 other.location == location) &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, location, type, id);
+  int get hashCode => Object.hash(runtimeType, id, location, type);
 
   @JsonKey(ignore: true)
   @override
@@ -179,18 +179,18 @@ class _$_Entity implements _Entity {
 
 abstract class _Entity implements Entity {
   const factory _Entity(
-      {final Point? location,
-      final String? type,
-      final String? id}) = _$_Entity;
+      {final String? id,
+      final Point? location,
+      final String? type}) = _$_Entity;
 
   factory _Entity.fromJson(Map<String, dynamic> json) = _$_Entity.fromJson;
 
   @override
+  String? get id;
+  @override
   Point? get location;
   @override
   String? get type;
-  @override
-  String? get id;
   @override
   @JsonKey(ignore: true)
   _$$_EntityCopyWith<_$_Entity> get copyWith =>
@@ -806,6 +806,7 @@ class _$ReadResponseMerr implements ReadResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1313,6 +1314,7 @@ class _$SaveResponseMerr implements SaveResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1791,6 +1793,7 @@ class _$SearchResponseData implements SearchResponseData {
   List<Entity>? get entities {
     final value = _entities;
     if (value == null) return null;
+    if (_entities is EqualUnmodifiableListView) return _entities;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -1953,6 +1956,7 @@ class _$SearchResponseMerr implements SearchResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }

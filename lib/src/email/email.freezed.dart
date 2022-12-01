@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'email.dart';
 
@@ -442,6 +442,7 @@ class _$ParseResponseMerr implements ParseResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -562,9 +563,6 @@ SendRequest _$SendRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SendRequest {
-  /// the email address of the recipient
-  String? get to => throw _privateConstructorUsedError;
-
   /// the display name of the sender
   String? get from => throw _privateConstructorUsedError;
 
@@ -580,6 +578,9 @@ mixin _$SendRequest {
   /// the text body
   String? get text_body => throw _privateConstructorUsedError;
 
+  /// the email address of the recipient
+  String? get to => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SendRequestCopyWith<SendRequest> get copyWith =>
@@ -593,12 +594,12 @@ abstract class $SendRequestCopyWith<$Res> {
       _$SendRequestCopyWithImpl<$Res, SendRequest>;
   @useResult
   $Res call(
-      {String? to,
-      String? from,
+      {String? from,
       String? html_body,
       String? reply_to,
       String? subject,
-      String? text_body});
+      String? text_body,
+      String? to});
 }
 
 /// @nodoc
@@ -614,18 +615,14 @@ class _$SendRequestCopyWithImpl<$Res, $Val extends SendRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? to = freezed,
     Object? from = freezed,
     Object? html_body = freezed,
     Object? reply_to = freezed,
     Object? subject = freezed,
     Object? text_body = freezed,
+    Object? to = freezed,
   }) {
     return _then(_value.copyWith(
-      to: freezed == to
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as String?,
       from: freezed == from
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
@@ -645,6 +642,10 @@ class _$SendRequestCopyWithImpl<$Res, $Val extends SendRequest>
       text_body: freezed == text_body
           ? _value.text_body
           : text_body // ignore: cast_nullable_to_non_nullable
+              as String?,
+      to: freezed == to
+          ? _value.to
+          : to // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -659,12 +660,12 @@ abstract class _$$_SendRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? to,
-      String? from,
+      {String? from,
       String? html_body,
       String? reply_to,
       String? subject,
-      String? text_body});
+      String? text_body,
+      String? to});
 }
 
 /// @nodoc
@@ -678,18 +679,14 @@ class __$$_SendRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? to = freezed,
     Object? from = freezed,
     Object? html_body = freezed,
     Object? reply_to = freezed,
     Object? subject = freezed,
     Object? text_body = freezed,
+    Object? to = freezed,
   }) {
     return _then(_$_SendRequest(
-      to: freezed == to
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as String?,
       from: freezed == from
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
@@ -710,6 +707,10 @@ class __$$_SendRequestCopyWithImpl<$Res>
           ? _value.text_body
           : text_body // ignore: cast_nullable_to_non_nullable
               as String?,
+      to: freezed == to
+          ? _value.to
+          : to // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -718,19 +719,15 @@ class __$$_SendRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SendRequest implements _SendRequest {
   const _$_SendRequest(
-      {this.to,
-      this.from,
+      {this.from,
       this.html_body,
       this.reply_to,
       this.subject,
-      this.text_body});
+      this.text_body,
+      this.to});
 
   factory _$_SendRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SendRequestFromJson(json);
-
-  /// the email address of the recipient
-  @override
-  final String? to;
 
   /// the display name of the sender
   @override
@@ -752,9 +749,13 @@ class _$_SendRequest implements _SendRequest {
   @override
   final String? text_body;
 
+  /// the email address of the recipient
+  @override
+  final String? to;
+
   @override
   String toString() {
-    return 'SendRequest(to: $to, from: $from, html_body: $html_body, reply_to: $reply_to, subject: $subject, text_body: $text_body)';
+    return 'SendRequest(from: $from, html_body: $html_body, reply_to: $reply_to, subject: $subject, text_body: $text_body, to: $to)';
   }
 
   @override
@@ -762,7 +763,6 @@ class _$_SendRequest implements _SendRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SendRequest &&
-            (identical(other.to, to) || other.to == to) &&
             (identical(other.from, from) || other.from == from) &&
             (identical(other.html_body, html_body) ||
                 other.html_body == html_body) &&
@@ -770,13 +770,14 @@ class _$_SendRequest implements _SendRequest {
                 other.reply_to == reply_to) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.text_body, text_body) ||
-                other.text_body == text_body));
+                other.text_body == text_body) &&
+            (identical(other.to, to) || other.to == to));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, to, from, html_body, reply_to, subject, text_body);
+      runtimeType, from, html_body, reply_to, subject, text_body, to);
 
   @JsonKey(ignore: true)
   @override
@@ -794,20 +795,16 @@ class _$_SendRequest implements _SendRequest {
 
 abstract class _SendRequest implements SendRequest {
   const factory _SendRequest(
-      {final String? to,
-      final String? from,
+      {final String? from,
       final String? html_body,
       final String? reply_to,
       final String? subject,
-      final String? text_body}) = _$_SendRequest;
+      final String? text_body,
+      final String? to}) = _$_SendRequest;
 
   factory _SendRequest.fromJson(Map<String, dynamic> json) =
       _$_SendRequest.fromJson;
 
-  @override
-
-  /// the email address of the recipient
-  String? get to;
   @override
 
   /// the display name of the sender
@@ -828,6 +825,10 @@ abstract class _SendRequest implements SendRequest {
 
   /// the text body
   String? get text_body;
+  @override
+
+  /// the email address of the recipient
+  String? get to;
   @override
   @JsonKey(ignore: true)
   _$$_SendRequestCopyWith<_$_SendRequest> get copyWith =>
@@ -1074,6 +1075,7 @@ class _$SendResponseMerr implements SendResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1599,6 +1601,7 @@ class _$ValidateResponseMerr implements ValidateResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }

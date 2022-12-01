@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'secret.dart';
 
@@ -418,6 +418,7 @@ class _$DeleteResponseMerr implements DeleteResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1051,6 +1052,7 @@ class _$GetResponseMerr implements GetResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1372,6 +1374,7 @@ class _$ListResponseData implements ListResponseData {
   List<String>? get keys {
     final value = _keys;
     if (value == null) return null;
+    if (_keys is EqualUnmodifiableListView) return _keys;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -1533,6 +1536,7 @@ class _$ListResponseMerr implements ListResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1653,14 +1657,14 @@ SetRequest _$SetRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SetRequest {
+  /// The value to set
+  String? get value => throw _privateConstructorUsedError;
+
   /// The key to update
   String? get key => throw _privateConstructorUsedError;
 
   /// Optional path e.g bar/baz
   String? get path => throw _privateConstructorUsedError;
-
-  /// The value to set
-  String? get value => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1674,7 +1678,7 @@ abstract class $SetRequestCopyWith<$Res> {
           SetRequest value, $Res Function(SetRequest) then) =
       _$SetRequestCopyWithImpl<$Res, SetRequest>;
   @useResult
-  $Res call({String? key, String? path, String? value});
+  $Res call({String? value, String? key, String? path});
 }
 
 /// @nodoc
@@ -1690,11 +1694,15 @@ class _$SetRequestCopyWithImpl<$Res, $Val extends SetRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? value = freezed,
     Object? key = freezed,
     Object? path = freezed,
-    Object? value = freezed,
   }) {
     return _then(_value.copyWith(
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String?,
       key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
@@ -1702,10 +1710,6 @@ class _$SetRequestCopyWithImpl<$Res, $Val extends SetRequest>
       path: freezed == path
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
-              as String?,
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1719,7 +1723,7 @@ abstract class _$$_SetRequestCopyWith<$Res>
       __$$_SetRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? key, String? path, String? value});
+  $Res call({String? value, String? key, String? path});
 }
 
 /// @nodoc
@@ -1733,11 +1737,15 @@ class __$$_SetRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? value = freezed,
     Object? key = freezed,
     Object? path = freezed,
-    Object? value = freezed,
   }) {
     return _then(_$_SetRequest(
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String?,
       key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
@@ -1746,10 +1754,6 @@ class __$$_SetRequestCopyWithImpl<$Res>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String?,
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1757,10 +1761,14 @@ class __$$_SetRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SetRequest implements _SetRequest {
-  const _$_SetRequest({this.key, this.path, this.value});
+  const _$_SetRequest({this.value, this.key, this.path});
 
   factory _$_SetRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SetRequestFromJson(json);
+
+  /// The value to set
+  @override
+  final String? value;
 
   /// The key to update
   @override
@@ -1770,13 +1778,9 @@ class _$_SetRequest implements _SetRequest {
   @override
   final String? path;
 
-  /// The value to set
-  @override
-  final String? value;
-
   @override
   String toString() {
-    return 'SetRequest(key: $key, path: $path, value: $value)';
+    return 'SetRequest(value: $value, key: $key, path: $path)';
   }
 
   @override
@@ -1784,14 +1788,14 @@ class _$_SetRequest implements _SetRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SetRequest &&
+            (identical(other.value, value) || other.value == value) &&
             (identical(other.key, key) || other.key == key) &&
-            (identical(other.path, path) || other.path == path) &&
-            (identical(other.value, value) || other.value == value));
+            (identical(other.path, path) || other.path == path));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, key, path, value);
+  int get hashCode => Object.hash(runtimeType, value, key, path);
 
   @JsonKey(ignore: true)
   @override
@@ -1809,13 +1813,17 @@ class _$_SetRequest implements _SetRequest {
 
 abstract class _SetRequest implements SetRequest {
   const factory _SetRequest(
-      {final String? key,
-      final String? path,
-      final String? value}) = _$_SetRequest;
+      {final String? value,
+      final String? key,
+      final String? path}) = _$_SetRequest;
 
   factory _SetRequest.fromJson(Map<String, dynamic> json) =
       _$_SetRequest.fromJson;
 
+  @override
+
+  /// The value to set
+  String? get value;
   @override
 
   /// The key to update
@@ -1824,10 +1832,6 @@ abstract class _SetRequest implements SetRequest {
 
   /// Optional path e.g bar/baz
   String? get path;
-  @override
-
-  /// The value to set
-  String? get value;
   @override
   @JsonKey(ignore: true)
   _$$_SetRequestCopyWith<_$_SetRequest> get copyWith =>
@@ -2074,6 +2078,7 @@ class _$SetResponseMerr implements SetResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }

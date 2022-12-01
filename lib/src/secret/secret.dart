@@ -173,14 +173,14 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class SetRequest with _$SetRequest {
   const factory SetRequest({
+    /// The value to set
+    String? value,
+
     /// The key to update
     String? key,
 
     /// Optional path e.g bar/baz
     String? path,
-
-    /// The value to set
-    String? value,
   }) = _SetRequest;
   factory SetRequest.fromJson(Map<String, dynamic> json) =>
       _$SetRequestFromJson(json);

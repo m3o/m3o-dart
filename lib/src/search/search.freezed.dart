@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'search.dart';
 
@@ -398,6 +398,7 @@ class _$CreateIndexResponseMerr implements CreateIndexResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -897,6 +898,7 @@ class _$DeleteIndexResponseMerr implements DeleteIndexResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1416,6 +1418,7 @@ class _$DeleteResponseMerr implements DeleteResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1692,14 +1695,14 @@ IndexRequest _$IndexRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$IndexRequest {
+  /// The data to index
+  Map<String, dynamic>? get data => throw _privateConstructorUsedError;
+
   /// Optional ID for the record
   String? get id => throw _privateConstructorUsedError;
 
   /// The index this record belongs to
   String? get index => throw _privateConstructorUsedError;
-
-  /// The data to index
-  Map<String, dynamic>? get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1713,7 +1716,7 @@ abstract class $IndexRequestCopyWith<$Res> {
           IndexRequest value, $Res Function(IndexRequest) then) =
       _$IndexRequestCopyWithImpl<$Res, IndexRequest>;
   @useResult
-  $Res call({String? id, String? index, Map<String, dynamic>? data});
+  $Res call({Map<String, dynamic>? data, String? id, String? index});
 }
 
 /// @nodoc
@@ -1729,11 +1732,15 @@ class _$IndexRequestCopyWithImpl<$Res, $Val extends IndexRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? data = freezed,
     Object? id = freezed,
     Object? index = freezed,
-    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1742,10 +1749,6 @@ class _$IndexRequestCopyWithImpl<$Res, $Val extends IndexRequest>
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as String?,
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -1758,7 +1761,7 @@ abstract class _$$_IndexRequestCopyWith<$Res>
       __$$_IndexRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? id, String? index, Map<String, dynamic>? data});
+  $Res call({Map<String, dynamic>? data, String? id, String? index});
 }
 
 /// @nodoc
@@ -1772,11 +1775,15 @@ class __$$_IndexRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? data = freezed,
     Object? id = freezed,
     Object? index = freezed,
-    Object? data = freezed,
   }) {
     return _then(_$_IndexRequest(
+      data: freezed == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1785,10 +1792,6 @@ class __$$_IndexRequestCopyWithImpl<$Res>
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as String?,
-      data: freezed == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
     ));
   }
 }
@@ -1796,19 +1799,11 @@ class __$$_IndexRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_IndexRequest implements _IndexRequest {
-  const _$_IndexRequest({this.id, this.index, final Map<String, dynamic>? data})
+  const _$_IndexRequest({final Map<String, dynamic>? data, this.id, this.index})
       : _data = data;
 
   factory _$_IndexRequest.fromJson(Map<String, dynamic> json) =>
       _$$_IndexRequestFromJson(json);
-
-  /// Optional ID for the record
-  @override
-  final String? id;
-
-  /// The index this record belongs to
-  @override
-  final String? index;
 
   /// The data to index
   final Map<String, dynamic>? _data;
@@ -1818,13 +1813,22 @@ class _$_IndexRequest implements _IndexRequest {
   Map<String, dynamic>? get data {
     final value = _data;
     if (value == null) return null;
+    if (_data is EqualUnmodifiableMapView) return _data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
 
+  /// Optional ID for the record
+  @override
+  final String? id;
+
+  /// The index this record belongs to
+  @override
+  final String? index;
+
   @override
   String toString() {
-    return 'IndexRequest(id: $id, index: $index, data: $data)';
+    return 'IndexRequest(data: $data, id: $id, index: $index)';
   }
 
   @override
@@ -1832,15 +1836,15 @@ class _$_IndexRequest implements _IndexRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_IndexRequest &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.index, index) || other.index == index) &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            (identical(other.index, index) || other.index == index));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, index, const DeepCollectionEquality().hash(_data));
+      runtimeType, const DeepCollectionEquality().hash(_data), id, index);
 
   @JsonKey(ignore: true)
   @override
@@ -1858,13 +1862,17 @@ class _$_IndexRequest implements _IndexRequest {
 
 abstract class _IndexRequest implements IndexRequest {
   const factory _IndexRequest(
-      {final String? id,
-      final String? index,
-      final Map<String, dynamic>? data}) = _$_IndexRequest;
+      {final Map<String, dynamic>? data,
+      final String? id,
+      final String? index}) = _$_IndexRequest;
 
   factory _IndexRequest.fromJson(Map<String, dynamic> json) =
       _$_IndexRequest.fromJson;
 
+  @override
+
+  /// The data to index
+  Map<String, dynamic>? get data;
   @override
 
   /// Optional ID for the record
@@ -1873,10 +1881,6 @@ abstract class _IndexRequest implements IndexRequest {
 
   /// The index this record belongs to
   String? get index;
-  @override
-
-  /// The data to index
-  Map<String, dynamic>? get data;
   @override
   @JsonKey(ignore: true)
   _$$_IndexRequestCopyWith<_$_IndexRequest> get copyWith =>
@@ -2171,6 +2175,7 @@ class _$IndexResponseMerr implements IndexResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -2291,11 +2296,11 @@ Record _$RecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Record {
-  /// The ID for this record. If blank, one will be generated
-  String? get id => throw _privateConstructorUsedError;
-
   /// The JSON contents of the record
   Map<String, dynamic>? get data => throw _privateConstructorUsedError;
+
+  /// The ID for this record. If blank, one will be generated
+  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2307,7 +2312,7 @@ abstract class $RecordCopyWith<$Res> {
   factory $RecordCopyWith(Record value, $Res Function(Record) then) =
       _$RecordCopyWithImpl<$Res, Record>;
   @useResult
-  $Res call({String? id, Map<String, dynamic>? data});
+  $Res call({Map<String, dynamic>? data, String? id});
 }
 
 /// @nodoc
@@ -2323,18 +2328,18 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
     Object? data = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -2345,7 +2350,7 @@ abstract class _$$_RecordCopyWith<$Res> implements $RecordCopyWith<$Res> {
       __$$_RecordCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? id, Map<String, dynamic>? data});
+  $Res call({Map<String, dynamic>? data, String? id});
 }
 
 /// @nodoc
@@ -2358,18 +2363,18 @@ class __$$_RecordCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
     Object? data = freezed,
+    Object? id = freezed,
   }) {
     return _then(_$_Record(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       data: freezed == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2377,14 +2382,10 @@ class __$$_RecordCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Record implements _Record {
-  const _$_Record({this.id, final Map<String, dynamic>? data}) : _data = data;
+  const _$_Record({final Map<String, dynamic>? data, this.id}) : _data = data;
 
   factory _$_Record.fromJson(Map<String, dynamic> json) =>
       _$$_RecordFromJson(json);
-
-  /// The ID for this record. If blank, one will be generated
-  @override
-  final String? id;
 
   /// The JSON contents of the record
   final Map<String, dynamic>? _data;
@@ -2394,13 +2395,18 @@ class _$_Record implements _Record {
   Map<String, dynamic>? get data {
     final value = _data;
     if (value == null) return null;
+    if (_data is EqualUnmodifiableMapView) return _data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
 
+  /// The ID for this record. If blank, one will be generated
+  @override
+  final String? id;
+
   @override
   String toString() {
-    return 'Record(id: $id, data: $data)';
+    return 'Record(data: $data, id: $id)';
   }
 
   @override
@@ -2408,14 +2414,14 @@ class _$_Record implements _Record {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Record &&
-            (identical(other.id, id) || other.id == id) &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, const DeepCollectionEquality().hash(_data));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data), id);
 
   @JsonKey(ignore: true)
   @override
@@ -2432,19 +2438,19 @@ class _$_Record implements _Record {
 }
 
 abstract class _Record implements Record {
-  const factory _Record({final String? id, final Map<String, dynamic>? data}) =
+  const factory _Record({final Map<String, dynamic>? data, final String? id}) =
       _$_Record;
 
   factory _Record.fromJson(Map<String, dynamic> json) = _$_Record.fromJson;
 
   @override
 
-  /// The ID for this record. If blank, one will be generated
-  String? get id;
-  @override
-
   /// The JSON contents of the record
   Map<String, dynamic>? get data;
+  @override
+
+  /// The ID for this record. If blank, one will be generated
+  String? get id;
   @override
   @JsonKey(ignore: true)
   _$$_RecordCopyWith<_$_Record> get copyWith =>
@@ -2737,6 +2743,7 @@ class _$SearchResponseData implements SearchResponseData {
   List<Record>? get records {
     final value = _records;
     if (value == null) return null;
+    if (_records is EqualUnmodifiableListView) return _records;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -2900,6 +2907,7 @@ class _$SearchResponseMerr implements SearchResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }

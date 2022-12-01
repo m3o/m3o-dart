@@ -30,45 +30,45 @@ Map<String, dynamic> _$$_DomainToJson(_$_Domain instance) => <String, dynamic>{
 
 _$_QueryRequest _$$_QueryRequestFromJson(Map<String, dynamic> json) =>
     _$_QueryRequest(
-      name: json['name'] as String?,
       type: json['type'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$_QueryRequestToJson(_$_QueryRequest instance) =>
     <String, dynamic>{
-      'name': instance.name,
       'type': instance.type,
+      'name': instance.name,
     };
 
 _$QueryResponseData _$$QueryResponseDataFromJson(Map<String, dynamic> json) =>
     _$QueryResponseData(
+      AD: json['AD'] as bool?,
+      CD: json['CD'] as bool?,
+      RD: json['RD'] as bool?,
       answer: (json['answer'] as List<dynamic>?)
           ?.map((e) => Answer.fromJson(e as Map<String, dynamic>))
           .toList(),
-      AD: json['AD'] as bool?,
-      RD: json['RD'] as bool?,
-      TC: json['TC'] as bool?,
-      provider: json['provider'] as String?,
       question: (json['question'] as List<dynamic>?)
           ?.map((e) => Question.fromJson(e as Map<String, dynamic>))
           .toList(),
       status: json['status'] as int?,
-      CD: json['CD'] as bool?,
       RA: json['RA'] as bool?,
+      TC: json['TC'] as bool?,
+      provider: json['provider'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$QueryResponseDataToJson(_$QueryResponseData instance) =>
     <String, dynamic>{
-      'answer': instance.answer,
       'AD': instance.AD,
+      'CD': instance.CD,
       'RD': instance.RD,
-      'TC': instance.TC,
-      'provider': instance.provider,
+      'answer': instance.answer,
       'question': instance.question,
       'status': instance.status,
-      'CD': instance.CD,
       'RA': instance.RA,
+      'TC': instance.TC,
+      'provider': instance.provider,
       'runtimeType': instance.$type,
     };
 
@@ -107,40 +107,40 @@ Map<String, dynamic> _$$_WhoisRequestToJson(_$_WhoisRequest instance) =>
 
 _$WhoisResponseData _$$WhoisResponseDataFromJson(Map<String, dynamic> json) =>
     _$WhoisResponseData(
-      whois_server: json['whois_server'] as String?,
       abuse_email: json['abuse_email'] as String?,
-      domain: json['domain'] as String?,
-      registrar_id: json['registrar_id'] as String?,
-      registrar_url: json['registrar_url'] as String?,
-      status:
-          (json['status'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      updated: json['updated'] as String?,
       abuse_phone: json['abuse_phone'] as String?,
       created: json['created'] as String?,
       expiry: json['expiry'] as String?,
       id: json['id'] as String?,
+      registrar: json['registrar'] as String?,
+      registrar_url: json['registrar_url'] as String?,
+      domain: json['domain'] as String?,
       nameservers: (json['nameservers'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      registrar: json['registrar'] as String?,
+      registrar_id: json['registrar_id'] as String?,
+      status:
+          (json['status'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      updated: json['updated'] as String?,
+      whois_server: json['whois_server'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$WhoisResponseDataToJson(_$WhoisResponseData instance) =>
     <String, dynamic>{
-      'whois_server': instance.whois_server,
       'abuse_email': instance.abuse_email,
-      'domain': instance.domain,
-      'registrar_id': instance.registrar_id,
-      'registrar_url': instance.registrar_url,
-      'status': instance.status,
-      'updated': instance.updated,
       'abuse_phone': instance.abuse_phone,
       'created': instance.created,
       'expiry': instance.expiry,
       'id': instance.id,
-      'nameservers': instance.nameservers,
       'registrar': instance.registrar,
+      'registrar_url': instance.registrar_url,
+      'domain': instance.domain,
+      'nameservers': instance.nameservers,
+      'registrar_id': instance.registrar_id,
+      'status': instance.status,
+      'updated': instance.updated,
+      'whois_server': instance.whois_server,
       'runtimeType': instance.$type,
     };
 

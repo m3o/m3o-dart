@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'translate.dart';
 
@@ -20,6 +20,10 @@ TextRequest _$TextRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TextRequest {
+  /// Target language, format in ISO-639-1 codes
+  /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
+  String? get target => throw _privateConstructorUsedError;
+
   /// The contents to be translated
   String? get content => throw _privateConstructorUsedError;
 
@@ -34,10 +38,6 @@ mixin _$TextRequest {
   /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
   String? get source => throw _privateConstructorUsedError;
 
-  /// Target language, format in ISO-639-1 codes
-  /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
-  String? get target => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TextRequestCopyWith<TextRequest> get copyWith =>
@@ -51,11 +51,11 @@ abstract class $TextRequestCopyWith<$Res> {
       _$TextRequestCopyWithImpl<$Res, TextRequest>;
   @useResult
   $Res call(
-      {String? content,
+      {String? target,
+      String? content,
       String? format,
       String? model,
-      String? source,
-      String? target});
+      String? source});
 }
 
 /// @nodoc
@@ -71,13 +71,17 @@ class _$TextRequestCopyWithImpl<$Res, $Val extends TextRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? target = freezed,
     Object? content = freezed,
     Object? format = freezed,
     Object? model = freezed,
     Object? source = freezed,
-    Object? target = freezed,
   }) {
     return _then(_value.copyWith(
+      target: freezed == target
+          ? _value.target
+          : target // ignore: cast_nullable_to_non_nullable
+              as String?,
       content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -93,10 +97,6 @@ class _$TextRequestCopyWithImpl<$Res, $Val extends TextRequest>
       source: freezed == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
-              as String?,
-      target: freezed == target
-          ? _value.target
-          : target // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -111,11 +111,11 @@ abstract class _$$_TextRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? content,
+      {String? target,
+      String? content,
       String? format,
       String? model,
-      String? source,
-      String? target});
+      String? source});
 }
 
 /// @nodoc
@@ -129,13 +129,17 @@ class __$$_TextRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? target = freezed,
     Object? content = freezed,
     Object? format = freezed,
     Object? model = freezed,
     Object? source = freezed,
-    Object? target = freezed,
   }) {
     return _then(_$_TextRequest(
+      target: freezed == target
+          ? _value.target
+          : target // ignore: cast_nullable_to_non_nullable
+              as String?,
       content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -152,10 +156,6 @@ class __$$_TextRequestCopyWithImpl<$Res>
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as String?,
-      target: freezed == target
-          ? _value.target
-          : target // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -164,10 +164,15 @@ class __$$_TextRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TextRequest implements _TextRequest {
   const _$_TextRequest(
-      {this.content, this.format, this.model, this.source, this.target});
+      {this.target, this.content, this.format, this.model, this.source});
 
   factory _$_TextRequest.fromJson(Map<String, dynamic> json) =>
       _$$_TextRequestFromJson(json);
+
+  /// Target language, format in ISO-639-1 codes
+  /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
+  @override
+  final String? target;
 
   /// The contents to be translated
   @override
@@ -187,14 +192,9 @@ class _$_TextRequest implements _TextRequest {
   @override
   final String? source;
 
-  /// Target language, format in ISO-639-1 codes
-  /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
-  @override
-  final String? target;
-
   @override
   String toString() {
-    return 'TextRequest(content: $content, format: $format, model: $model, source: $source, target: $target)';
+    return 'TextRequest(target: $target, content: $content, format: $format, model: $model, source: $source)';
   }
 
   @override
@@ -202,17 +202,17 @@ class _$_TextRequest implements _TextRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TextRequest &&
+            (identical(other.target, target) || other.target == target) &&
             (identical(other.content, content) || other.content == content) &&
             (identical(other.format, format) || other.format == format) &&
             (identical(other.model, model) || other.model == model) &&
-            (identical(other.source, source) || other.source == source) &&
-            (identical(other.target, target) || other.target == target));
+            (identical(other.source, source) || other.source == source));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, content, format, model, source, target);
+      Object.hash(runtimeType, target, content, format, model, source);
 
   @JsonKey(ignore: true)
   @override
@@ -230,15 +230,20 @@ class _$_TextRequest implements _TextRequest {
 
 abstract class _TextRequest implements TextRequest {
   const factory _TextRequest(
-      {final String? content,
+      {final String? target,
+      final String? content,
       final String? format,
       final String? model,
-      final String? source,
-      final String? target}) = _$_TextRequest;
+      final String? source}) = _$_TextRequest;
 
   factory _TextRequest.fromJson(Map<String, dynamic> json) =
       _$_TextRequest.fromJson;
 
+  @override
+
+  /// Target language, format in ISO-639-1 codes
+  /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
+  String? get target;
   @override
 
   /// The contents to be translated
@@ -257,11 +262,6 @@ abstract class _TextRequest implements TextRequest {
   /// Source language, format in ISO-639-1 codes
   /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
   String? get source;
-  @override
-
-  /// Target language, format in ISO-639-1 codes
-  /// See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
-  String? get target;
   @override
   @JsonKey(ignore: true)
   _$$_TextRequestCopyWith<_$_TextRequest> get copyWith =>
@@ -558,6 +558,7 @@ class _$TextResponseMerr implements TextResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -678,14 +679,14 @@ Translation _$TranslationFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Translation {
+  /// The source of the query string
+  String? get source => throw _privateConstructorUsedError;
+
   /// The translation result
   String? get text => throw _privateConstructorUsedError;
 
   /// The model used in translation
   String? get model => throw _privateConstructorUsedError;
-
-  /// The source of the query string
-  String? get source => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -699,7 +700,7 @@ abstract class $TranslationCopyWith<$Res> {
           Translation value, $Res Function(Translation) then) =
       _$TranslationCopyWithImpl<$Res, Translation>;
   @useResult
-  $Res call({String? text, String? model, String? source});
+  $Res call({String? source, String? text, String? model});
 }
 
 /// @nodoc
@@ -715,11 +716,15 @@ class _$TranslationCopyWithImpl<$Res, $Val extends Translation>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? source = freezed,
     Object? text = freezed,
     Object? model = freezed,
-    Object? source = freezed,
   }) {
     return _then(_value.copyWith(
+      source: freezed == source
+          ? _value.source
+          : source // ignore: cast_nullable_to_non_nullable
+              as String?,
       text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -727,10 +732,6 @@ class _$TranslationCopyWithImpl<$Res, $Val extends Translation>
       model: freezed == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
-              as String?,
-      source: freezed == source
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -744,7 +745,7 @@ abstract class _$$_TranslationCopyWith<$Res>
       __$$_TranslationCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? text, String? model, String? source});
+  $Res call({String? source, String? text, String? model});
 }
 
 /// @nodoc
@@ -758,11 +759,15 @@ class __$$_TranslationCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? source = freezed,
     Object? text = freezed,
     Object? model = freezed,
-    Object? source = freezed,
   }) {
     return _then(_$_Translation(
+      source: freezed == source
+          ? _value.source
+          : source // ignore: cast_nullable_to_non_nullable
+              as String?,
       text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -771,10 +776,6 @@ class __$$_TranslationCopyWithImpl<$Res>
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as String?,
-      source: freezed == source
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -782,10 +783,14 @@ class __$$_TranslationCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Translation implements _Translation {
-  const _$_Translation({this.text, this.model, this.source});
+  const _$_Translation({this.source, this.text, this.model});
 
   factory _$_Translation.fromJson(Map<String, dynamic> json) =>
       _$$_TranslationFromJson(json);
+
+  /// The source of the query string
+  @override
+  final String? source;
 
   /// The translation result
   @override
@@ -795,13 +800,9 @@ class _$_Translation implements _Translation {
   @override
   final String? model;
 
-  /// The source of the query string
-  @override
-  final String? source;
-
   @override
   String toString() {
-    return 'Translation(text: $text, model: $model, source: $source)';
+    return 'Translation(source: $source, text: $text, model: $model)';
   }
 
   @override
@@ -809,14 +810,14 @@ class _$_Translation implements _Translation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Translation &&
+            (identical(other.source, source) || other.source == source) &&
             (identical(other.text, text) || other.text == text) &&
-            (identical(other.model, model) || other.model == model) &&
-            (identical(other.source, source) || other.source == source));
+            (identical(other.model, model) || other.model == model));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, text, model, source);
+  int get hashCode => Object.hash(runtimeType, source, text, model);
 
   @JsonKey(ignore: true)
   @override
@@ -834,13 +835,17 @@ class _$_Translation implements _Translation {
 
 abstract class _Translation implements Translation {
   const factory _Translation(
-      {final String? text,
-      final String? model,
-      final String? source}) = _$_Translation;
+      {final String? source,
+      final String? text,
+      final String? model}) = _$_Translation;
 
   factory _Translation.fromJson(Map<String, dynamic> json) =
       _$_Translation.fromJson;
 
+  @override
+
+  /// The source of the query string
+  String? get source;
   @override
 
   /// The translation result
@@ -849,10 +854,6 @@ abstract class _Translation implements Translation {
 
   /// The model used in translation
   String? get model;
-  @override
-
-  /// The source of the query string
-  String? get source;
   @override
   @JsonKey(ignore: true)
   _$$_TranslationCopyWith<_$_Translation> get copyWith =>

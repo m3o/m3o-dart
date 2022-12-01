@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'holidays.dart';
 
@@ -216,6 +216,7 @@ class _$CountriesResponseData implements CountriesResponseData {
   List<Country>? get countries {
     final value = _countries;
     if (value == null) return null;
+    if (_countries is EqualUnmodifiableListView) return _countries;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -379,6 +380,7 @@ class _$CountriesResponseMerr implements CountriesResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -657,6 +659,9 @@ Holiday _$HolidayFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Holiday {
+  /// the country this holiday occurs in
+  String? get country_code => throw _privateConstructorUsedError;
+
   /// date of the holiday in yyyy-mm-dd format
   String? get date => throw _privateConstructorUsedError;
 
@@ -672,9 +677,6 @@ mixin _$Holiday {
   /// the type of holiday Public, Bank, School, Authorities, Optional, Observance
   List<String>? get types => throw _privateConstructorUsedError;
 
-  /// the country this holiday occurs in
-  String? get country_code => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $HolidayCopyWith<Holiday> get copyWith => throw _privateConstructorUsedError;
@@ -686,12 +688,12 @@ abstract class $HolidayCopyWith<$Res> {
       _$HolidayCopyWithImpl<$Res, Holiday>;
   @useResult
   $Res call(
-      {String? date,
+      {String? country_code,
+      String? date,
       String? local_name,
       String? name,
       List<String>? regions,
-      List<String>? types,
-      String? country_code});
+      List<String>? types});
 }
 
 /// @nodoc
@@ -707,14 +709,18 @@ class _$HolidayCopyWithImpl<$Res, $Val extends Holiday>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? country_code = freezed,
     Object? date = freezed,
     Object? local_name = freezed,
     Object? name = freezed,
     Object? regions = freezed,
     Object? types = freezed,
-    Object? country_code = freezed,
   }) {
     return _then(_value.copyWith(
+      country_code: freezed == country_code
+          ? _value.country_code
+          : country_code // ignore: cast_nullable_to_non_nullable
+              as String?,
       date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -735,10 +741,6 @@ class _$HolidayCopyWithImpl<$Res, $Val extends Holiday>
           ? _value.types
           : types // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      country_code: freezed == country_code
-          ? _value.country_code
-          : country_code // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -751,12 +753,12 @@ abstract class _$$_HolidayCopyWith<$Res> implements $HolidayCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? date,
+      {String? country_code,
+      String? date,
       String? local_name,
       String? name,
       List<String>? regions,
-      List<String>? types,
-      String? country_code});
+      List<String>? types});
 }
 
 /// @nodoc
@@ -769,14 +771,18 @@ class __$$_HolidayCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? country_code = freezed,
     Object? date = freezed,
     Object? local_name = freezed,
     Object? name = freezed,
     Object? regions = freezed,
     Object? types = freezed,
-    Object? country_code = freezed,
   }) {
     return _then(_$_Holiday(
+      country_code: freezed == country_code
+          ? _value.country_code
+          : country_code // ignore: cast_nullable_to_non_nullable
+              as String?,
       date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -797,10 +803,6 @@ class __$$_HolidayCopyWithImpl<$Res>
           ? _value._types
           : types // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      country_code: freezed == country_code
-          ? _value.country_code
-          : country_code // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -809,17 +811,21 @@ class __$$_HolidayCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Holiday implements _Holiday {
   const _$_Holiday(
-      {this.date,
+      {this.country_code,
+      this.date,
       this.local_name,
       this.name,
       final List<String>? regions,
-      final List<String>? types,
-      this.country_code})
+      final List<String>? types})
       : _regions = regions,
         _types = types;
 
   factory _$_Holiday.fromJson(Map<String, dynamic> json) =>
       _$$_HolidayFromJson(json);
+
+  /// the country this holiday occurs in
+  @override
+  final String? country_code;
 
   /// date of the holiday in yyyy-mm-dd format
   @override
@@ -841,6 +847,7 @@ class _$_Holiday implements _Holiday {
   List<String>? get regions {
     final value = _regions;
     if (value == null) return null;
+    if (_regions is EqualUnmodifiableListView) return _regions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -853,17 +860,14 @@ class _$_Holiday implements _Holiday {
   List<String>? get types {
     final value = _types;
     if (value == null) return null;
+    if (_types is EqualUnmodifiableListView) return _types;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  /// the country this holiday occurs in
-  @override
-  final String? country_code;
-
   @override
   String toString() {
-    return 'Holiday(date: $date, local_name: $local_name, name: $name, regions: $regions, types: $types, country_code: $country_code)';
+    return 'Holiday(country_code: $country_code, date: $date, local_name: $local_name, name: $name, regions: $regions, types: $types)';
   }
 
   @override
@@ -871,26 +875,26 @@ class _$_Holiday implements _Holiday {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Holiday &&
+            (identical(other.country_code, country_code) ||
+                other.country_code == country_code) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.local_name, local_name) ||
                 other.local_name == local_name) &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality().equals(other._regions, _regions) &&
-            const DeepCollectionEquality().equals(other._types, _types) &&
-            (identical(other.country_code, country_code) ||
-                other.country_code == country_code));
+            const DeepCollectionEquality().equals(other._types, _types));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      country_code,
       date,
       local_name,
       name,
       const DeepCollectionEquality().hash(_regions),
-      const DeepCollectionEquality().hash(_types),
-      country_code);
+      const DeepCollectionEquality().hash(_types));
 
   @JsonKey(ignore: true)
   @override
@@ -908,15 +912,19 @@ class _$_Holiday implements _Holiday {
 
 abstract class _Holiday implements Holiday {
   const factory _Holiday(
-      {final String? date,
+      {final String? country_code,
+      final String? date,
       final String? local_name,
       final String? name,
       final List<String>? regions,
-      final List<String>? types,
-      final String? country_code}) = _$_Holiday;
+      final List<String>? types}) = _$_Holiday;
 
   factory _Holiday.fromJson(Map<String, dynamic> json) = _$_Holiday.fromJson;
 
+  @override
+
+  /// the country this holiday occurs in
+  String? get country_code;
   @override
 
   /// date of the holiday in yyyy-mm-dd format
@@ -937,10 +945,6 @@ abstract class _Holiday implements Holiday {
 
   /// the type of holiday Public, Bank, School, Authorities, Optional, Observance
   List<String>? get types;
-  @override
-
-  /// the country this holiday occurs in
-  String? get country_code;
   @override
   @JsonKey(ignore: true)
   _$$_HolidayCopyWith<_$_Holiday> get copyWith =>
@@ -1242,6 +1246,7 @@ class _$ListResponseData implements ListResponseData {
   List<Holiday>? get holidays {
     final value = _holidays;
     if (value == null) return null;
+    if (_holidays is EqualUnmodifiableListView) return _holidays;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -1403,6 +1408,7 @@ class _$ListResponseMerr implements ListResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }

@@ -118,16 +118,16 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
 
 _$_SetRequest _$$_SetRequestFromJson(Map<String, dynamic> json) =>
     _$_SetRequest(
+      value: json['value'] as String?,
       key: json['key'] as String?,
       path: json['path'] as String?,
-      value: json['value'] as String?,
     );
 
 Map<String, dynamic> _$$_SetRequestToJson(_$_SetRequest instance) =>
     <String, dynamic>{
+      'value': instance.value,
       'key': instance.key,
       'path': instance.path,
-      'value': instance.value,
     };
 
 _$SetResponseData _$$SetResponseDataFromJson(Map<String, dynamic> json) =>

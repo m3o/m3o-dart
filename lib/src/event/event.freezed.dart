@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'event.dart';
 
@@ -20,14 +20,14 @@ ConsumeRequest _$ConsumeRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ConsumeRequest {
+  /// Optional group for the subscription
+  String? get group => throw _privateConstructorUsedError;
+
   /// Optional offset to read from e.g "2006-01-02T15:04:05.999Z07:00"
   String? get offset => throw _privateConstructorUsedError;
 
   /// The topic to subscribe to
   String? get topic => throw _privateConstructorUsedError;
-
-  /// Optional group for the subscription
-  String? get group => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $ConsumeRequestCopyWith<$Res> {
           ConsumeRequest value, $Res Function(ConsumeRequest) then) =
       _$ConsumeRequestCopyWithImpl<$Res, ConsumeRequest>;
   @useResult
-  $Res call({String? offset, String? topic, String? group});
+  $Res call({String? group, String? offset, String? topic});
 }
 
 /// @nodoc
@@ -57,11 +57,15 @@ class _$ConsumeRequestCopyWithImpl<$Res, $Val extends ConsumeRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? group = freezed,
     Object? offset = freezed,
     Object? topic = freezed,
-    Object? group = freezed,
   }) {
     return _then(_value.copyWith(
+      group: freezed == group
+          ? _value.group
+          : group // ignore: cast_nullable_to_non_nullable
+              as String?,
       offset: freezed == offset
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
@@ -69,10 +73,6 @@ class _$ConsumeRequestCopyWithImpl<$Res, $Val extends ConsumeRequest>
       topic: freezed == topic
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
-              as String?,
-      group: freezed == group
-          ? _value.group
-          : group // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -86,7 +86,7 @@ abstract class _$$_ConsumeRequestCopyWith<$Res>
       __$$_ConsumeRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? offset, String? topic, String? group});
+  $Res call({String? group, String? offset, String? topic});
 }
 
 /// @nodoc
@@ -100,11 +100,15 @@ class __$$_ConsumeRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? group = freezed,
     Object? offset = freezed,
     Object? topic = freezed,
-    Object? group = freezed,
   }) {
     return _then(_$_ConsumeRequest(
+      group: freezed == group
+          ? _value.group
+          : group // ignore: cast_nullable_to_non_nullable
+              as String?,
       offset: freezed == offset
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
@@ -113,10 +117,6 @@ class __$$_ConsumeRequestCopyWithImpl<$Res>
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String?,
-      group: freezed == group
-          ? _value.group
-          : group // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -124,10 +124,14 @@ class __$$_ConsumeRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ConsumeRequest implements _ConsumeRequest {
-  const _$_ConsumeRequest({this.offset, this.topic, this.group});
+  const _$_ConsumeRequest({this.group, this.offset, this.topic});
 
   factory _$_ConsumeRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ConsumeRequestFromJson(json);
+
+  /// Optional group for the subscription
+  @override
+  final String? group;
 
   /// Optional offset to read from e.g "2006-01-02T15:04:05.999Z07:00"
   @override
@@ -137,13 +141,9 @@ class _$_ConsumeRequest implements _ConsumeRequest {
   @override
   final String? topic;
 
-  /// Optional group for the subscription
-  @override
-  final String? group;
-
   @override
   String toString() {
-    return 'ConsumeRequest(offset: $offset, topic: $topic, group: $group)';
+    return 'ConsumeRequest(group: $group, offset: $offset, topic: $topic)';
   }
 
   @override
@@ -151,14 +151,14 @@ class _$_ConsumeRequest implements _ConsumeRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ConsumeRequest &&
+            (identical(other.group, group) || other.group == group) &&
             (identical(other.offset, offset) || other.offset == offset) &&
-            (identical(other.topic, topic) || other.topic == topic) &&
-            (identical(other.group, group) || other.group == group));
+            (identical(other.topic, topic) || other.topic == topic));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, offset, topic, group);
+  int get hashCode => Object.hash(runtimeType, group, offset, topic);
 
   @JsonKey(ignore: true)
   @override
@@ -176,13 +176,17 @@ class _$_ConsumeRequest implements _ConsumeRequest {
 
 abstract class _ConsumeRequest implements ConsumeRequest {
   const factory _ConsumeRequest(
-      {final String? offset,
-      final String? topic,
-      final String? group}) = _$_ConsumeRequest;
+      {final String? group,
+      final String? offset,
+      final String? topic}) = _$_ConsumeRequest;
 
   factory _ConsumeRequest.fromJson(Map<String, dynamic> json) =
       _$_ConsumeRequest.fromJson;
 
+  @override
+
+  /// Optional group for the subscription
+  String? get group;
   @override
 
   /// Optional offset to read from e.g "2006-01-02T15:04:05.999Z07:00"
@@ -191,10 +195,6 @@ abstract class _ConsumeRequest implements ConsumeRequest {
 
   /// The topic to subscribe to
   String? get topic;
-  @override
-
-  /// Optional group for the subscription
-  String? get group;
   @override
   @JsonKey(ignore: true)
   _$$_ConsumeRequestCopyWith<_$_ConsumeRequest> get copyWith =>
@@ -358,6 +358,7 @@ class _$ConsumeResponseData implements ConsumeResponseData {
   Map<String, dynamic>? get message {
     final value = _message;
     if (value == null) return null;
+    if (_message is EqualUnmodifiableMapView) return _message;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -551,6 +552,7 @@ class _$ConsumeResponseMerr implements ConsumeResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -792,6 +794,7 @@ class _$_Ev implements _Ev {
   Map<String, dynamic>? get message {
     final value = _message;
     if (value == null) return null;
+    if (_message is EqualUnmodifiableMapView) return _message;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -866,11 +869,11 @@ PublishRequest _$PublishRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PublishRequest {
-  /// The json message to publish
-  Map<String, dynamic>? get message => throw _privateConstructorUsedError;
-
   /// The topic to publish to
   String? get topic => throw _privateConstructorUsedError;
+
+  /// The json message to publish
+  Map<String, dynamic>? get message => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -884,7 +887,7 @@ abstract class $PublishRequestCopyWith<$Res> {
           PublishRequest value, $Res Function(PublishRequest) then) =
       _$PublishRequestCopyWithImpl<$Res, PublishRequest>;
   @useResult
-  $Res call({Map<String, dynamic>? message, String? topic});
+  $Res call({String? topic, Map<String, dynamic>? message});
 }
 
 /// @nodoc
@@ -900,18 +903,18 @@ class _$PublishRequestCopyWithImpl<$Res, $Val extends PublishRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
     Object? topic = freezed,
+    Object? message = freezed,
   }) {
     return _then(_value.copyWith(
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
       topic: freezed == topic
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String?,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -924,7 +927,7 @@ abstract class _$$_PublishRequestCopyWith<$Res>
       __$$_PublishRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, dynamic>? message, String? topic});
+  $Res call({String? topic, Map<String, dynamic>? message});
 }
 
 /// @nodoc
@@ -938,18 +941,18 @@ class __$$_PublishRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
     Object? topic = freezed,
+    Object? message = freezed,
   }) {
     return _then(_$_PublishRequest(
-      message: freezed == message
-          ? _value._message
-          : message // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
       topic: freezed == topic
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String?,
+      message: freezed == message
+          ? _value._message
+          : message // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -957,11 +960,15 @@ class __$$_PublishRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PublishRequest implements _PublishRequest {
-  const _$_PublishRequest({final Map<String, dynamic>? message, this.topic})
+  const _$_PublishRequest({this.topic, final Map<String, dynamic>? message})
       : _message = message;
 
   factory _$_PublishRequest.fromJson(Map<String, dynamic> json) =>
       _$$_PublishRequestFromJson(json);
+
+  /// The topic to publish to
+  @override
+  final String? topic;
 
   /// The json message to publish
   final Map<String, dynamic>? _message;
@@ -971,17 +978,14 @@ class _$_PublishRequest implements _PublishRequest {
   Map<String, dynamic>? get message {
     final value = _message;
     if (value == null) return null;
+    if (_message is EqualUnmodifiableMapView) return _message;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
 
-  /// The topic to publish to
-  @override
-  final String? topic;
-
   @override
   String toString() {
-    return 'PublishRequest(message: $message, topic: $topic)';
+    return 'PublishRequest(topic: $topic, message: $message)';
   }
 
   @override
@@ -989,14 +993,14 @@ class _$_PublishRequest implements _PublishRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PublishRequest &&
-            const DeepCollectionEquality().equals(other._message, _message) &&
-            (identical(other.topic, topic) || other.topic == topic));
+            (identical(other.topic, topic) || other.topic == topic) &&
+            const DeepCollectionEquality().equals(other._message, _message));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_message), topic);
+      runtimeType, topic, const DeepCollectionEquality().hash(_message));
 
   @JsonKey(ignore: true)
   @override
@@ -1014,20 +1018,20 @@ class _$_PublishRequest implements _PublishRequest {
 
 abstract class _PublishRequest implements PublishRequest {
   const factory _PublishRequest(
-      {final Map<String, dynamic>? message,
-      final String? topic}) = _$_PublishRequest;
+      {final String? topic,
+      final Map<String, dynamic>? message}) = _$_PublishRequest;
 
   factory _PublishRequest.fromJson(Map<String, dynamic> json) =
       _$_PublishRequest.fromJson;
 
   @override
 
-  /// The json message to publish
-  Map<String, dynamic>? get message;
-  @override
-
   /// The topic to publish to
   String? get topic;
+  @override
+
+  /// The json message to publish
+  Map<String, dynamic>? get message;
   @override
   @JsonKey(ignore: true)
   _$$_PublishRequestCopyWith<_$_PublishRequest> get copyWith =>
@@ -1275,6 +1279,7 @@ class _$PublishResponseMerr implements PublishResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1700,6 +1705,7 @@ class _$ReadResponseData implements ReadResponseData {
   List<Ev>? get events {
     final value = _events;
     if (value == null) return null;
+    if (_events is EqualUnmodifiableListView) return _events;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -1861,6 +1867,7 @@ class _$ReadResponseMerr implements ReadResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }

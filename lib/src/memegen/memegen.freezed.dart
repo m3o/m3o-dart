@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'memegen.dart';
 
@@ -833,6 +833,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -954,12 +955,6 @@ Template _$TemplateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Template {
-  /// height in pixels
-  int? get height => throw _privateConstructorUsedError;
-
-  /// id of the memegen
-  String? get id => throw _privateConstructorUsedError;
-
   /// name of the memegen
   String? get name => throw _privateConstructorUsedError;
 
@@ -971,6 +966,12 @@ mixin _$Template {
 
   /// number of boxes used
   int? get box_count => throw _privateConstructorUsedError;
+
+  /// height in pixels
+  int? get height => throw _privateConstructorUsedError;
+
+  /// id of the memegen
+  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -984,12 +985,12 @@ abstract class $TemplateCopyWith<$Res> {
       _$TemplateCopyWithImpl<$Res, Template>;
   @useResult
   $Res call(
-      {int? height,
-      String? id,
-      String? name,
+      {String? name,
       String? url,
       int? width,
-      int? box_count});
+      int? box_count,
+      int? height,
+      String? id});
 }
 
 /// @nodoc
@@ -1005,22 +1006,14 @@ class _$TemplateCopyWithImpl<$Res, $Val extends Template>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? height = freezed,
-    Object? id = freezed,
     Object? name = freezed,
     Object? url = freezed,
     Object? width = freezed,
     Object? box_count = freezed,
+    Object? height = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
-      height: freezed == height
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as int?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1037,6 +1030,14 @@ class _$TemplateCopyWithImpl<$Res, $Val extends Template>
           ? _value.box_count
           : box_count // ignore: cast_nullable_to_non_nullable
               as int?,
+      height: freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -1049,12 +1050,12 @@ abstract class _$$_TemplateCopyWith<$Res> implements $TemplateCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int? height,
-      String? id,
-      String? name,
+      {String? name,
       String? url,
       int? width,
-      int? box_count});
+      int? box_count,
+      int? height,
+      String? id});
 }
 
 /// @nodoc
@@ -1068,22 +1069,14 @@ class __$$_TemplateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? height = freezed,
-    Object? id = freezed,
     Object? name = freezed,
     Object? url = freezed,
     Object? width = freezed,
     Object? box_count = freezed,
+    Object? height = freezed,
+    Object? id = freezed,
   }) {
     return _then(_$_Template(
-      height: freezed == height
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as int?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1100,6 +1093,14 @@ class __$$_TemplateCopyWithImpl<$Res>
           ? _value.box_count
           : box_count // ignore: cast_nullable_to_non_nullable
               as int?,
+      height: freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1108,18 +1109,10 @@ class __$$_TemplateCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Template implements _Template {
   const _$_Template(
-      {this.height, this.id, this.name, this.url, this.width, this.box_count});
+      {this.name, this.url, this.width, this.box_count, this.height, this.id});
 
   factory _$_Template.fromJson(Map<String, dynamic> json) =>
       _$$_TemplateFromJson(json);
-
-  /// height in pixels
-  @override
-  final int? height;
-
-  /// id of the memegen
-  @override
-  final String? id;
 
   /// name of the memegen
   @override
@@ -1137,9 +1130,17 @@ class _$_Template implements _Template {
   @override
   final int? box_count;
 
+  /// height in pixels
+  @override
+  final int? height;
+
+  /// id of the memegen
+  @override
+  final String? id;
+
   @override
   String toString() {
-    return 'Template(height: $height, id: $id, name: $name, url: $url, width: $width, box_count: $box_count)';
+    return 'Template(name: $name, url: $url, width: $width, box_count: $box_count, height: $height, id: $id)';
   }
 
   @override
@@ -1147,19 +1148,19 @@ class _$_Template implements _Template {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Template &&
-            (identical(other.height, height) || other.height == height) &&
-            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.box_count, box_count) ||
-                other.box_count == box_count));
+                other.box_count == box_count) &&
+            (identical(other.height, height) || other.height == height) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, height, id, name, url, width, box_count);
+      Object.hash(runtimeType, name, url, width, box_count, height, id);
 
   @JsonKey(ignore: true)
   @override
@@ -1177,23 +1178,15 @@ class _$_Template implements _Template {
 
 abstract class _Template implements Template {
   const factory _Template(
-      {final int? height,
-      final String? id,
-      final String? name,
+      {final String? name,
       final String? url,
       final int? width,
-      final int? box_count}) = _$_Template;
+      final int? box_count,
+      final int? height,
+      final String? id}) = _$_Template;
 
   factory _Template.fromJson(Map<String, dynamic> json) = _$_Template.fromJson;
 
-  @override
-
-  /// height in pixels
-  int? get height;
-  @override
-
-  /// id of the memegen
-  String? get id;
   @override
 
   /// name of the memegen
@@ -1210,6 +1203,14 @@ abstract class _Template implements Template {
 
   /// number of boxes used
   int? get box_count;
+  @override
+
+  /// height in pixels
+  int? get height;
+  @override
+
+  /// id of the memegen
+  String? get id;
   @override
   @JsonKey(ignore: true)
   _$$_TemplateCopyWith<_$_Template> get copyWith =>
@@ -1418,6 +1419,7 @@ class _$TemplatesResponseData implements TemplatesResponseData {
   List<Template>? get templates {
     final value = _templates;
     if (value == null) return null;
+    if (_templates is EqualUnmodifiableListView) return _templates;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -1581,6 +1583,7 @@ class _$TemplatesResponseMerr implements TemplatesResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'currency.dart';
 
@@ -369,6 +369,7 @@ class _$CodesResponseData implements CodesResponseData {
   List<Code>? get codes {
     final value = _codes;
     if (value == null) return null;
+    if (_codes is EqualUnmodifiableListView) return _codes;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -530,6 +531,7 @@ class _$CodesResponseMerr implements CodesResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1156,6 +1158,7 @@ class _$ConvertResponseMerr implements ConvertResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1280,11 +1283,11 @@ HistoryRequest _$HistoryRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$HistoryRequest {
-  /// date formatted as YYYY-MM-DD
-  String? get date => throw _privateConstructorUsedError;
-
   /// currency code e.g USD
   String? get code => throw _privateConstructorUsedError;
+
+  /// date formatted as YYYY-MM-DD
+  String? get date => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1298,7 +1301,7 @@ abstract class $HistoryRequestCopyWith<$Res> {
           HistoryRequest value, $Res Function(HistoryRequest) then) =
       _$HistoryRequestCopyWithImpl<$Res, HistoryRequest>;
   @useResult
-  $Res call({String? date, String? code});
+  $Res call({String? code, String? date});
 }
 
 /// @nodoc
@@ -1314,17 +1317,17 @@ class _$HistoryRequestCopyWithImpl<$Res, $Val extends HistoryRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? date = freezed,
     Object? code = freezed,
+    Object? date = freezed,
   }) {
     return _then(_value.copyWith(
-      date: freezed == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String?,
       code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
+              as String?,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1338,7 +1341,7 @@ abstract class _$$_HistoryRequestCopyWith<$Res>
       __$$_HistoryRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? date, String? code});
+  $Res call({String? code, String? date});
 }
 
 /// @nodoc
@@ -1352,17 +1355,17 @@ class __$$_HistoryRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? date = freezed,
     Object? code = freezed,
+    Object? date = freezed,
   }) {
     return _then(_$_HistoryRequest(
-      date: freezed == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String?,
       code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
+              as String?,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1371,22 +1374,22 @@ class __$$_HistoryRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_HistoryRequest implements _HistoryRequest {
-  const _$_HistoryRequest({this.date, this.code});
+  const _$_HistoryRequest({this.code, this.date});
 
   factory _$_HistoryRequest.fromJson(Map<String, dynamic> json) =>
       _$$_HistoryRequestFromJson(json);
-
-  /// date formatted as YYYY-MM-DD
-  @override
-  final String? date;
 
   /// currency code e.g USD
   @override
   final String? code;
 
+  /// date formatted as YYYY-MM-DD
+  @override
+  final String? date;
+
   @override
   String toString() {
-    return 'HistoryRequest(date: $date, code: $code)';
+    return 'HistoryRequest(code: $code, date: $date)';
   }
 
   @override
@@ -1394,13 +1397,13 @@ class _$_HistoryRequest implements _HistoryRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HistoryRequest &&
-            (identical(other.date, date) || other.date == date) &&
-            (identical(other.code, code) || other.code == code));
+            (identical(other.code, code) || other.code == code) &&
+            (identical(other.date, date) || other.date == date));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, date, code);
+  int get hashCode => Object.hash(runtimeType, code, date);
 
   @JsonKey(ignore: true)
   @override
@@ -1417,7 +1420,7 @@ class _$_HistoryRequest implements _HistoryRequest {
 }
 
 abstract class _HistoryRequest implements HistoryRequest {
-  const factory _HistoryRequest({final String? date, final String? code}) =
+  const factory _HistoryRequest({final String? code, final String? date}) =
       _$_HistoryRequest;
 
   factory _HistoryRequest.fromJson(Map<String, dynamic> json) =
@@ -1425,12 +1428,12 @@ abstract class _HistoryRequest implements HistoryRequest {
 
   @override
 
-  /// date formatted as YYYY-MM-DD
-  String? get date;
-  @override
-
   /// currency code e.g USD
   String? get code;
+  @override
+
+  /// date formatted as YYYY-MM-DD
+  String? get date;
   @override
   @JsonKey(ignore: true)
   _$$_HistoryRequestCopyWith<_$_HistoryRequest> get copyWith =>
@@ -1454,21 +1457,21 @@ HistoryResponse _$HistoryResponseFromJson(Map<String, dynamic> json) {
 mixin _$HistoryResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, double>? rates, String? code, String? date)
+    TResult Function(String? code, String? date, Map<String, double>? rates)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Map<String, double>? rates, String? code, String? date)?
+    TResult? Function(String? code, String? date, Map<String, double>? rates)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, double>? rates, String? code, String? date)?
+    TResult Function(String? code, String? date, Map<String, double>? rates)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -1520,7 +1523,7 @@ abstract class _$$HistoryResponseDataCopyWith<$Res> {
           $Res Function(_$HistoryResponseData) then) =
       __$$HistoryResponseDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({Map<String, double>? rates, String? code, String? date});
+  $Res call({String? code, String? date, Map<String, double>? rates});
 }
 
 /// @nodoc
@@ -1534,15 +1537,11 @@ class __$$HistoryResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rates = freezed,
     Object? code = freezed,
     Object? date = freezed,
+    Object? rates = freezed,
   }) {
     return _then(_$HistoryResponseData(
-      rates: freezed == rates
-          ? _value._rates
-          : rates // ignore: cast_nullable_to_non_nullable
-              as Map<String, double>?,
       code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -1551,6 +1550,10 @@ class __$$HistoryResponseDataCopyWithImpl<$Res>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String?,
+      rates: freezed == rates
+          ? _value._rates
+          : rates // ignore: cast_nullable_to_non_nullable
+              as Map<String, double>?,
     ));
   }
 }
@@ -1559,27 +1562,15 @@ class __$$HistoryResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$HistoryResponseData implements HistoryResponseData {
   const _$HistoryResponseData(
-      {final Map<String, double>? rates,
-      this.code,
+      {this.code,
       this.date,
+      final Map<String, double>? rates,
       final String? $type})
       : _rates = rates,
         $type = $type ?? 'default';
 
   factory _$HistoryResponseData.fromJson(Map<String, dynamic> json) =>
       _$$HistoryResponseDataFromJson(json);
-
-  /// The rate for the day as code:rate
-  final Map<String, double>? _rates;
-
-  /// The rate for the day as code:rate
-  @override
-  Map<String, double>? get rates {
-    final value = _rates;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
 
   /// The code of the request
   @override
@@ -1589,12 +1580,25 @@ class _$HistoryResponseData implements HistoryResponseData {
   @override
   final String? date;
 
+  /// The rate for the day as code:rate
+  final Map<String, double>? _rates;
+
+  /// The rate for the day as code:rate
+  @override
+  Map<String, double>? get rates {
+    final value = _rates;
+    if (value == null) return null;
+    if (_rates is EqualUnmodifiableMapView) return _rates;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'HistoryResponse(rates: $rates, code: $code, date: $date)';
+    return 'HistoryResponse(code: $code, date: $date, rates: $rates)';
   }
 
   @override
@@ -1602,15 +1606,15 @@ class _$HistoryResponseData implements HistoryResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HistoryResponseData &&
-            const DeepCollectionEquality().equals(other._rates, _rates) &&
             (identical(other.code, code) || other.code == code) &&
-            (identical(other.date, date) || other.date == date));
+            (identical(other.date, date) || other.date == date) &&
+            const DeepCollectionEquality().equals(other._rates, _rates));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_rates), code, date);
+      runtimeType, code, date, const DeepCollectionEquality().hash(_rates));
 
   @JsonKey(ignore: true)
   @override
@@ -1622,33 +1626,33 @@ class _$HistoryResponseData implements HistoryResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, double>? rates, String? code, String? date)
+    TResult Function(String? code, String? date, Map<String, double>? rates)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(rates, code, date);
+    return $default(code, date, rates);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Map<String, double>? rates, String? code, String? date)?
+    TResult? Function(String? code, String? date, Map<String, double>? rates)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(rates, code, date);
+    return $default?.call(code, date, rates);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, double>? rates, String? code, String? date)?
+    TResult Function(String? code, String? date, Map<String, double>? rates)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(rates, code, date);
+      return $default(code, date, rates);
     }
     return orElse();
   }
@@ -1694,21 +1698,21 @@ class _$HistoryResponseData implements HistoryResponseData {
 
 abstract class HistoryResponseData implements HistoryResponse {
   const factory HistoryResponseData(
-      {final Map<String, double>? rates,
-      final String? code,
-      final String? date}) = _$HistoryResponseData;
+      {final String? code,
+      final String? date,
+      final Map<String, double>? rates}) = _$HistoryResponseData;
 
   factory HistoryResponseData.fromJson(Map<String, dynamic> json) =
       _$HistoryResponseData.fromJson;
-
-  /// The rate for the day as code:rate
-  Map<String, double>? get rates;
 
   /// The code of the request
   String? get code;
 
   /// The date requested
   String? get date;
+
+  /// The rate for the day as code:rate
+  Map<String, double>? get rates;
   @JsonKey(ignore: true)
   _$$HistoryResponseDataCopyWith<_$HistoryResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1761,6 +1765,7 @@ class _$HistoryResponseMerr implements HistoryResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1796,7 +1801,7 @@ class _$HistoryResponseMerr implements HistoryResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(Map<String, double>? rates, String? code, String? date)
+    TResult Function(String? code, String? date, Map<String, double>? rates)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -1806,7 +1811,7 @@ class _$HistoryResponseMerr implements HistoryResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Map<String, double>? rates, String? code, String? date)?
+    TResult? Function(String? code, String? date, Map<String, double>? rates)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -1816,7 +1821,7 @@ class _$HistoryResponseMerr implements HistoryResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Map<String, double>? rates, String? code, String? date)?
+    TResult Function(String? code, String? date, Map<String, double>? rates)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -2152,6 +2157,7 @@ class _$RatesResponseData implements RatesResponseData {
   Map<String, double>? get rates {
     final value = _rates;
     if (value == null) return null;
+    if (_rates is EqualUnmodifiableMapView) return _rates;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -2319,6 +2325,7 @@ class _$RatesResponseMerr implements RatesResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }

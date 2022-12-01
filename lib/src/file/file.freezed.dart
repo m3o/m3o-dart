@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'file.dart';
 
@@ -418,6 +418,7 @@ class _$DeleteResponseMerr implements DeleteResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -825,6 +826,7 @@ class _$ListResponseData implements ListResponseData {
   List<Record>? get files {
     final value = _files;
     if (value == null) return null;
+    if (_files is EqualUnmodifiableListView) return _files;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -986,6 +988,7 @@ class _$ListResponseMerr implements ListResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1551,6 +1554,7 @@ class _$ReadResponseMerr implements ReadResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1671,6 +1675,12 @@ Record _$RecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Record {
+  /// Any other associated metadata as a map of key-value pairs
+  Map<String, String>? get metadata => throw _privateConstructorUsedError;
+
+  /// Path to file or folder eg. '/documents/text-files/file.txt'.
+  String? get path => throw _privateConstructorUsedError;
+
   /// A custom project to group files
   /// eg. file-of-mywebsite.com
   String? get project => throw _privateConstructorUsedError;
@@ -1684,12 +1694,6 @@ mixin _$Record {
   /// Time the file was created e.g 2021-05-20T13:37:21Z
   String? get created => throw _privateConstructorUsedError;
 
-  /// Any other associated metadata as a map of key-value pairs
-  Map<String, String>? get metadata => throw _privateConstructorUsedError;
-
-  /// Path to file or folder eg. '/documents/text-files/file.txt'.
-  String? get path => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RecordCopyWith<Record> get copyWith => throw _privateConstructorUsedError;
@@ -1701,12 +1705,12 @@ abstract class $RecordCopyWith<$Res> {
       _$RecordCopyWithImpl<$Res, Record>;
   @useResult
   $Res call(
-      {String? project,
+      {Map<String, String>? metadata,
+      String? path,
+      String? project,
       String? updated,
       String? content,
-      String? created,
-      Map<String, String>? metadata,
-      String? path});
+      String? created});
 }
 
 /// @nodoc
@@ -1722,14 +1726,22 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? metadata = freezed,
+    Object? path = freezed,
     Object? project = freezed,
     Object? updated = freezed,
     Object? content = freezed,
     Object? created = freezed,
-    Object? metadata = freezed,
-    Object? path = freezed,
   }) {
     return _then(_value.copyWith(
+      metadata: freezed == metadata
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
+      path: freezed == path
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String?,
       project: freezed == project
           ? _value.project
           : project // ignore: cast_nullable_to_non_nullable
@@ -1745,14 +1757,6 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
       created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
-              as String?,
-      metadata: freezed == metadata
-          ? _value.metadata
-          : metadata // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>?,
-      path: freezed == path
-          ? _value.path
-          : path // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1765,12 +1769,12 @@ abstract class _$$_RecordCopyWith<$Res> implements $RecordCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? project,
+      {Map<String, String>? metadata,
+      String? path,
+      String? project,
       String? updated,
       String? content,
-      String? created,
-      Map<String, String>? metadata,
-      String? path});
+      String? created});
 }
 
 /// @nodoc
@@ -1783,14 +1787,22 @@ class __$$_RecordCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? metadata = freezed,
+    Object? path = freezed,
     Object? project = freezed,
     Object? updated = freezed,
     Object? content = freezed,
     Object? created = freezed,
-    Object? metadata = freezed,
-    Object? path = freezed,
   }) {
     return _then(_$_Record(
+      metadata: freezed == metadata
+          ? _value._metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
+      path: freezed == path
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String?,
       project: freezed == project
           ? _value.project
           : project // ignore: cast_nullable_to_non_nullable
@@ -1807,14 +1819,6 @@ class __$$_RecordCopyWithImpl<$Res>
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
               as String?,
-      metadata: freezed == metadata
-          ? _value._metadata
-          : metadata // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>?,
-      path: freezed == path
-          ? _value.path
-          : path // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1823,16 +1827,33 @@ class __$$_RecordCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Record implements _Record {
   const _$_Record(
-      {this.project,
+      {final Map<String, String>? metadata,
+      this.path,
+      this.project,
       this.updated,
       this.content,
-      this.created,
-      final Map<String, String>? metadata,
-      this.path})
+      this.created})
       : _metadata = metadata;
 
   factory _$_Record.fromJson(Map<String, dynamic> json) =>
       _$$_RecordFromJson(json);
+
+  /// Any other associated metadata as a map of key-value pairs
+  final Map<String, String>? _metadata;
+
+  /// Any other associated metadata as a map of key-value pairs
+  @override
+  Map<String, String>? get metadata {
+    final value = _metadata;
+    if (value == null) return null;
+    if (_metadata is EqualUnmodifiableMapView) return _metadata;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  /// Path to file or folder eg. '/documents/text-files/file.txt'.
+  @override
+  final String? path;
 
   /// A custom project to group files
   /// eg. file-of-mywebsite.com
@@ -1851,25 +1872,9 @@ class _$_Record implements _Record {
   @override
   final String? created;
 
-  /// Any other associated metadata as a map of key-value pairs
-  final Map<String, String>? _metadata;
-
-  /// Any other associated metadata as a map of key-value pairs
-  @override
-  Map<String, String>? get metadata {
-    final value = _metadata;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  /// Path to file or folder eg. '/documents/text-files/file.txt'.
-  @override
-  final String? path;
-
   @override
   String toString() {
-    return 'Record(project: $project, updated: $updated, content: $content, created: $created, metadata: $metadata, path: $path)';
+    return 'Record(metadata: $metadata, path: $path, project: $project, updated: $updated, content: $content, created: $created)';
   }
 
   @override
@@ -1877,18 +1882,24 @@ class _$_Record implements _Record {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Record &&
+            const DeepCollectionEquality().equals(other._metadata, _metadata) &&
+            (identical(other.path, path) || other.path == path) &&
             (identical(other.project, project) || other.project == project) &&
             (identical(other.updated, updated) || other.updated == updated) &&
             (identical(other.content, content) || other.content == content) &&
-            (identical(other.created, created) || other.created == created) &&
-            const DeepCollectionEquality().equals(other._metadata, _metadata) &&
-            (identical(other.path, path) || other.path == path));
+            (identical(other.created, created) || other.created == created));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, project, updated, content,
-      created, const DeepCollectionEquality().hash(_metadata), path);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_metadata),
+      path,
+      project,
+      updated,
+      content,
+      created);
 
   @JsonKey(ignore: true)
   @override
@@ -1906,15 +1917,23 @@ class _$_Record implements _Record {
 
 abstract class _Record implements Record {
   const factory _Record(
-      {final String? project,
+      {final Map<String, String>? metadata,
+      final String? path,
+      final String? project,
       final String? updated,
       final String? content,
-      final String? created,
-      final Map<String, String>? metadata,
-      final String? path}) = _$_Record;
+      final String? created}) = _$_Record;
 
   factory _Record.fromJson(Map<String, dynamic> json) = _$_Record.fromJson;
 
+  @override
+
+  /// Any other associated metadata as a map of key-value pairs
+  Map<String, String>? get metadata;
+  @override
+
+  /// Path to file or folder eg. '/documents/text-files/file.txt'.
+  String? get path;
   @override
 
   /// A custom project to group files
@@ -1932,14 +1951,6 @@ abstract class _Record implements Record {
 
   /// Time the file was created e.g 2021-05-20T13:37:21Z
   String? get created;
-  @override
-
-  /// Any other associated metadata as a map of key-value pairs
-  Map<String, String>? get metadata;
-  @override
-
-  /// Path to file or folder eg. '/documents/text-files/file.txt'.
-  String? get path;
   @override
   @JsonKey(ignore: true)
   _$$_RecordCopyWith<_$_Record> get copyWith =>
@@ -2400,6 +2411,7 @@ class _$SaveResponseMerr implements SaveResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }

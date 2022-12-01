@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'db.dart';
 
@@ -428,6 +428,7 @@ class _$CountResponseMerr implements CountResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -548,14 +549,14 @@ CreateRequest _$CreateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateRequest {
+  /// optional record id to use
+  String? get id => throw _privateConstructorUsedError;
+
   /// JSON encoded record or records (can be array or object)
   Map<String, dynamic>? get record => throw _privateConstructorUsedError;
 
   /// Optional table name. Defaults to 'default'
   String? get table => throw _privateConstructorUsedError;
-
-  /// optional record id to use
-  String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -569,7 +570,7 @@ abstract class $CreateRequestCopyWith<$Res> {
           CreateRequest value, $Res Function(CreateRequest) then) =
       _$CreateRequestCopyWithImpl<$Res, CreateRequest>;
   @useResult
-  $Res call({Map<String, dynamic>? record, String? table, String? id});
+  $Res call({String? id, Map<String, dynamic>? record, String? table});
 }
 
 /// @nodoc
@@ -585,11 +586,15 @@ class _$CreateRequestCopyWithImpl<$Res, $Val extends CreateRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? record = freezed,
     Object? table = freezed,
-    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       record: freezed == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -597,10 +602,6 @@ class _$CreateRequestCopyWithImpl<$Res, $Val extends CreateRequest>
       table: freezed == table
           ? _value.table
           : table // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -614,7 +615,7 @@ abstract class _$$_CreateRequestCopyWith<$Res>
       __$$_CreateRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, dynamic>? record, String? table, String? id});
+  $Res call({String? id, Map<String, dynamic>? record, String? table});
 }
 
 /// @nodoc
@@ -628,11 +629,15 @@ class __$$_CreateRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? record = freezed,
     Object? table = freezed,
-    Object? id = freezed,
   }) {
     return _then(_$_CreateRequest(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       record: freezed == record
           ? _value._record
           : record // ignore: cast_nullable_to_non_nullable
@@ -640,10 +645,6 @@ class __$$_CreateRequestCopyWithImpl<$Res>
       table: freezed == table
           ? _value.table
           : table // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -653,11 +654,15 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_CreateRequest implements _CreateRequest {
   const _$_CreateRequest(
-      {final Map<String, dynamic>? record, this.table, this.id})
+      {this.id, final Map<String, dynamic>? record, this.table})
       : _record = record;
 
   factory _$_CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateRequestFromJson(json);
+
+  /// optional record id to use
+  @override
+  final String? id;
 
   /// JSON encoded record or records (can be array or object)
   final Map<String, dynamic>? _record;
@@ -667,6 +672,7 @@ class _$_CreateRequest implements _CreateRequest {
   Map<String, dynamic>? get record {
     final value = _record;
     if (value == null) return null;
+    if (_record is EqualUnmodifiableMapView) return _record;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -675,13 +681,9 @@ class _$_CreateRequest implements _CreateRequest {
   @override
   final String? table;
 
-  /// optional record id to use
-  @override
-  final String? id;
-
   @override
   String toString() {
-    return 'CreateRequest(record: $record, table: $table, id: $id)';
+    return 'CreateRequest(id: $id, record: $record, table: $table)';
   }
 
   @override
@@ -689,15 +691,15 @@ class _$_CreateRequest implements _CreateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateRequest &&
+            (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality().equals(other._record, _record) &&
-            (identical(other.table, table) || other.table == table) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.table, table) || other.table == table));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_record), table, id);
+      runtimeType, id, const DeepCollectionEquality().hash(_record), table);
 
   @JsonKey(ignore: true)
   @override
@@ -715,13 +717,17 @@ class _$_CreateRequest implements _CreateRequest {
 
 abstract class _CreateRequest implements CreateRequest {
   const factory _CreateRequest(
-      {final Map<String, dynamic>? record,
-      final String? table,
-      final String? id}) = _$_CreateRequest;
+      {final String? id,
+      final Map<String, dynamic>? record,
+      final String? table}) = _$_CreateRequest;
 
   factory _CreateRequest.fromJson(Map<String, dynamic> json) =
       _$_CreateRequest.fromJson;
 
+  @override
+
+  /// optional record id to use
+  String? get id;
   @override
 
   /// JSON encoded record or records (can be array or object)
@@ -730,10 +736,6 @@ abstract class _CreateRequest implements CreateRequest {
 
   /// Optional table name. Defaults to 'default'
   String? get table;
-  @override
-
-  /// optional record id to use
-  String? get id;
   @override
   @JsonKey(ignore: true)
   _$$_CreateRequestCopyWith<_$_CreateRequest> get copyWith =>
@@ -1015,6 +1017,7 @@ class _$CreateResponseMerr implements CreateResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -1534,6 +1537,7 @@ class _$DeleteResponseMerr implements DeleteResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -2026,6 +2030,7 @@ class _$DropTableResponseMerr implements DropTableResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -2346,6 +2351,7 @@ class _$ListTablesResponseData implements ListTablesResponseData {
   List<String>? get tables {
     final value = _tables;
     if (value == null) return null;
+    if (_tables is EqualUnmodifiableListView) return _tables;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -2509,6 +2515,7 @@ class _$ListTablesResponseMerr implements ListTablesResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -3058,6 +3065,7 @@ class _$ReadResponseData implements ReadResponseData {
   List<Map<String, dynamic>>? get records {
     final value = _records;
     if (value == null) return null;
+    if (_records is EqualUnmodifiableListView) return _records;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -3220,6 +3228,7 @@ class _$ReadResponseMerr implements ReadResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -3740,6 +3749,7 @@ class _$RenameTableResponseMerr implements RenameTableResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -4232,6 +4242,7 @@ class _$TruncateResponseMerr implements TruncateResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -4476,6 +4487,7 @@ class _$_UpdateRequest implements _UpdateRequest {
   Map<String, dynamic>? get record {
     final value = _record;
     if (value == null) return null;
+    if (_record is EqualUnmodifiableMapView) return _record;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -4786,6 +4798,7 @@ class _$UpdateResponseMerr implements UpdateResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }

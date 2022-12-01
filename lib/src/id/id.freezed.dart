@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'id.dart';
 
@@ -171,19 +171,19 @@ GenerateResponse _$GenerateResponseFromJson(Map<String, dynamic> json) {
 mixin _$GenerateResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? id, String? type) $default, {
+    TResult Function(String? type, String? id) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? id, String? type)? $default, {
+    TResult? Function(String? type, String? id)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? id, String? type)? $default, {
+    TResult Function(String? type, String? id)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) =>
@@ -234,7 +234,7 @@ abstract class _$$GenerateResponseDataCopyWith<$Res> {
           $Res Function(_$GenerateResponseData) then) =
       __$$GenerateResponseDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({String? id, String? type});
+  $Res call({String? type, String? id});
 }
 
 /// @nodoc
@@ -248,17 +248,17 @@ class __$$GenerateResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
     Object? type = freezed,
+    Object? id = freezed,
   }) {
     return _then(_$GenerateResponseData(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -267,26 +267,26 @@ class __$$GenerateResponseDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$GenerateResponseData implements GenerateResponseData {
-  const _$GenerateResponseData({this.id, this.type, final String? $type})
+  const _$GenerateResponseData({this.type, this.id, final String? $type})
       : $type = $type ?? 'default';
 
   factory _$GenerateResponseData.fromJson(Map<String, dynamic> json) =>
       _$$GenerateResponseDataFromJson(json);
 
-  /// the unique id generated
-  @override
-  final String? id;
-
   /// the type of id generated
   @override
   final String? type;
+
+  /// the unique id generated
+  @override
+  final String? id;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'GenerateResponse(id: $id, type: $type)';
+    return 'GenerateResponse(type: $type, id: $id)';
   }
 
   @override
@@ -294,13 +294,13 @@ class _$GenerateResponseData implements GenerateResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateResponseData &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, type);
+  int get hashCode => Object.hash(runtimeType, type, id);
 
   @JsonKey(ignore: true)
   @override
@@ -312,30 +312,30 @@ class _$GenerateResponseData implements GenerateResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? id, String? type) $default, {
+    TResult Function(String? type, String? id) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(id, type);
+    return $default(type, id);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? id, String? type)? $default, {
+    TResult? Function(String? type, String? id)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(id, type);
+    return $default?.call(type, id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? id, String? type)? $default, {
+    TResult Function(String? type, String? id)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(id, type);
+      return $default(type, id);
     }
     return orElse();
   }
@@ -380,17 +380,17 @@ class _$GenerateResponseData implements GenerateResponseData {
 }
 
 abstract class GenerateResponseData implements GenerateResponse {
-  const factory GenerateResponseData({final String? id, final String? type}) =
+  const factory GenerateResponseData({final String? type, final String? id}) =
       _$GenerateResponseData;
 
   factory GenerateResponseData.fromJson(Map<String, dynamic> json) =
       _$GenerateResponseData.fromJson;
 
-  /// the unique id generated
-  String? get id;
-
   /// the type of id generated
   String? get type;
+
+  /// the unique id generated
+  String? get id;
   @JsonKey(ignore: true)
   _$$GenerateResponseDataCopyWith<_$GenerateResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -443,6 +443,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -478,7 +479,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? id, String? type) $default, {
+    TResult Function(String? type, String? id) $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
     return Merr(body);
@@ -487,7 +488,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? id, String? type)? $default, {
+    TResult? Function(String? type, String? id)? $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
     return Merr?.call(body);
@@ -496,7 +497,7 @@ class _$GenerateResponseMerr implements GenerateResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? id, String? type)? $default, {
+    TResult Function(String? type, String? id)? $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
@@ -759,6 +760,7 @@ class _$TypesResponseData implements TypesResponseData {
   List<String>? get types {
     final value = _types;
     if (value == null) return null;
+    if (_types is EqualUnmodifiableListView) return _types;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -920,6 +922,7 @@ class _$TypesResponseMerr implements TypesResponseMerr {
   Map<String, dynamic>? get body {
     final value = _body;
     if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
