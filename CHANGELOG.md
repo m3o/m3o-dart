@@ -1,3 +1,9 @@
+## v1.0.226 - 2022-12-14
+
+[864c3b](https://github.com/micro/services/commit/864c3be5ee974e287357b12f2351cd733ebc1c57) fix opensea handler
+
+**Full Changelog**: https://github.com/m3o/m3o-dart/compare/v1.0.225...v1.0.226
+
 ## v1.0.225 - 2022-12-01
 
 [a9db8b](https://github.com/micro/services/commit/a9db8bcc1b39f3a411aef5bb4ebd39a1dbaa2d21) update readme
