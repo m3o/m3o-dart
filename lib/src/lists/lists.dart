@@ -141,11 +141,11 @@ class ListsService {
 @Freezed()
 class CreateRequest with _$CreateRequest {
   const factory CreateRequest({
-    /// list name
-    String? name,
-
     /// list items
     List<String>? items,
+
+    /// list name
+    String? name,
   }) = _CreateRequest;
   factory CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateRequestFromJson(json);
@@ -197,11 +197,11 @@ class EventsRequest with _$EventsRequest {
 @Freezed()
 class EventsResponse with _$EventsResponse {
   const factory EventsResponse({
-    /// the list which the operation occured on
-    List? list,
-
     /// the event which occured; create, delete, update
     String? event,
+
+    /// the list which the operation occured on
+    List? list,
   }) = EventsResponseData;
   const factory EventsResponse.Merr({Map<String, dynamic>? body}) =
       EventsResponseMerr;
@@ -212,9 +212,6 @@ class EventsResponse with _$EventsResponse {
 @Freezed()
 class List with _$List {
   const factory List({
-    /// name of the list
-    String? name,
-
     /// time at which the list was updated
     String? updated,
 
@@ -226,6 +223,9 @@ class List with _$List {
 
     /// items within the list
     List<String>? items,
+
+    /// name of the list
+    String? name,
   }) = _List;
   factory List.fromJson(Map<String, dynamic> json) => _$ListFromJson(json);
 }

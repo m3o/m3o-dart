@@ -20,11 +20,11 @@ Code _$CodeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Code {
-  /// e.g United States Dollar
-  String? get currency => throw _privateConstructorUsedError;
-
   /// e.g USD
   String? get name => throw _privateConstructorUsedError;
+
+  /// e.g United States Dollar
+  String? get currency => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $CodeCopyWith<$Res> {
   factory $CodeCopyWith(Code value, $Res Function(Code) then) =
       _$CodeCopyWithImpl<$Res, Code>;
   @useResult
-  $Res call({String? currency, String? name});
+  $Res call({String? name, String? currency});
 }
 
 /// @nodoc
@@ -52,17 +52,17 @@ class _$CodeCopyWithImpl<$Res, $Val extends Code>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currency = freezed,
     Object? name = freezed,
+    Object? currency = freezed,
   }) {
     return _then(_value.copyWith(
-      currency: freezed == currency
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      currency: freezed == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -74,7 +74,7 @@ abstract class _$$_CodeCopyWith<$Res> implements $CodeCopyWith<$Res> {
       __$$_CodeCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? currency, String? name});
+  $Res call({String? name, String? currency});
 }
 
 /// @nodoc
@@ -86,17 +86,17 @@ class __$$_CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res, _$_Code>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currency = freezed,
     Object? name = freezed,
+    Object? currency = freezed,
   }) {
     return _then(_$_Code(
-      currency: freezed == currency
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      currency: freezed == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -105,21 +105,21 @@ class __$$_CodeCopyWithImpl<$Res> extends _$CodeCopyWithImpl<$Res, _$_Code>
 /// @nodoc
 @JsonSerializable()
 class _$_Code implements _Code {
-  const _$_Code({this.currency, this.name});
+  const _$_Code({this.name, this.currency});
 
   factory _$_Code.fromJson(Map<String, dynamic> json) => _$$_CodeFromJson(json);
-
-  /// e.g United States Dollar
-  @override
-  final String? currency;
 
   /// e.g USD
   @override
   final String? name;
 
+  /// e.g United States Dollar
+  @override
+  final String? currency;
+
   @override
   String toString() {
-    return 'Code(currency: $currency, name: $name)';
+    return 'Code(name: $name, currency: $currency)';
   }
 
   @override
@@ -127,14 +127,14 @@ class _$_Code implements _Code {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Code &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.currency, currency) ||
-                other.currency == currency) &&
-            (identical(other.name, name) || other.name == name));
+                other.currency == currency));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, currency, name);
+  int get hashCode => Object.hash(runtimeType, name, currency);
 
   @JsonKey(ignore: true)
   @override
@@ -151,18 +151,18 @@ class _$_Code implements _Code {
 }
 
 abstract class _Code implements Code {
-  const factory _Code({final String? currency, final String? name}) = _$_Code;
+  const factory _Code({final String? name, final String? currency}) = _$_Code;
 
   factory _Code.fromJson(Map<String, dynamic> json) = _$_Code.fromJson;
 
   @override
 
-  /// e.g United States Dollar
-  String? get currency;
-  @override
-
   /// e.g USD
   String? get name;
+  @override
+
+  /// e.g United States Dollar
+  String? get currency;
   @override
   @JsonKey(ignore: true)
   _$$_CodeCopyWith<_$_Code> get copyWith => throw _privateConstructorUsedError;

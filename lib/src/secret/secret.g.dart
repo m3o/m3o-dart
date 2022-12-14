@@ -8,14 +8,14 @@ part of 'secret.dart';
 
 _$_DeleteRequest _$$_DeleteRequestFromJson(Map<String, dynamic> json) =>
     _$_DeleteRequest(
-      key: json['key'] as String?,
       path: json['path'] as String?,
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$$_DeleteRequestToJson(_$_DeleteRequest instance) =>
     <String, dynamic>{
-      'key': instance.key,
       'path': instance.path,
+      'key': instance.key,
     };
 
 _$DeleteResponseData _$$DeleteResponseDataFromJson(Map<String, dynamic> json) =>
@@ -56,21 +56,21 @@ Map<String, dynamic> _$$_GetRequestToJson(_$_GetRequest instance) =>
 
 _$GetResponseData _$$GetResponseDataFromJson(Map<String, dynamic> json) =>
     _$GetResponseData(
-      created: json['created'] as String?,
-      key: json['key'] as String?,
       path: json['path'] as String?,
       updated: json['updated'] as String?,
       value: json['value'] as String?,
+      created: json['created'] as String?,
+      key: json['key'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$GetResponseDataToJson(_$GetResponseData instance) =>
     <String, dynamic>{
-      'created': instance.created,
-      'key': instance.key,
       'path': instance.path,
       'updated': instance.updated,
       'value': instance.value,
+      'created': instance.created,
+      'key': instance.key,
       'runtimeType': instance.$type,
     };
 
@@ -118,16 +118,16 @@ Map<String, dynamic> _$$ListResponseMerrToJson(_$ListResponseMerr instance) =>
 
 _$_SetRequest _$$_SetRequestFromJson(Map<String, dynamic> json) =>
     _$_SetRequest(
-      value: json['value'] as String?,
       key: json['key'] as String?,
       path: json['path'] as String?,
+      value: json['value'] as String?,
     );
 
 Map<String, dynamic> _$$_SetRequestToJson(_$_SetRequest instance) =>
     <String, dynamic>{
-      'value': instance.value,
       'key': instance.key,
       'path': instance.path,
+      'value': instance.value,
     };
 
 _$SetResponseData _$$SetResponseDataFromJson(Map<String, dynamic> json) =>

@@ -7,17 +7,17 @@ part of 'location.dart';
 // **************************************************************************
 
 _$_Entity _$$_EntityFromJson(Map<String, dynamic> json) => _$_Entity(
-      id: json['id'] as String?,
       location: json['location'] == null
           ? null
           : Point.fromJson(json['location'] as Map<String, dynamic>),
       type: json['type'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_EntityToJson(_$_Entity instance) => <String, dynamic>{
-      'id': instance.id,
       'location': instance.location,
       'type': instance.type,
+      'id': instance.id,
     };
 
 _$_Point _$$_PointFromJson(Map<String, dynamic> json) => _$_Point(
@@ -104,20 +104,20 @@ Map<String, dynamic> _$$SaveResponseMerrToJson(_$SaveResponseMerr instance) =>
 
 _$_SearchRequest _$$_SearchRequestFromJson(Map<String, dynamic> json) =>
     _$_SearchRequest(
+      radius: (json['radius'] as num?)?.toDouble(),
+      type: json['type'] as String?,
       center: json['center'] == null
           ? null
           : Point.fromJson(json['center'] as Map<String, dynamic>),
       limit: int64FromString(json['limit'] as String?),
-      radius: (json['radius'] as num?)?.toDouble(),
-      type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$$_SearchRequestToJson(_$_SearchRequest instance) =>
     <String, dynamic>{
-      'center': instance.center,
-      'limit': int64ToString(instance.limit),
       'radius': instance.radius,
       'type': instance.type,
+      'center': instance.center,
+      'limit': int64ToString(instance.limit),
     };
 
 _$SearchResponseData _$$SearchResponseDataFromJson(Map<String, dynamic> json) =>

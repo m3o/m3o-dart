@@ -20,11 +20,11 @@ DeleteRequest _$DeleteRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DeleteRequest {
-  /// The key to delete
-  String? get key => throw _privateConstructorUsedError;
-
   /// Optional path
   String? get path => throw _privateConstructorUsedError;
+
+  /// The key to delete
+  String? get key => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +38,7 @@ abstract class $DeleteRequestCopyWith<$Res> {
           DeleteRequest value, $Res Function(DeleteRequest) then) =
       _$DeleteRequestCopyWithImpl<$Res, DeleteRequest>;
   @useResult
-  $Res call({String? key, String? path});
+  $Res call({String? path, String? key});
 }
 
 /// @nodoc
@@ -54,17 +54,17 @@ class _$DeleteRequestCopyWithImpl<$Res, $Val extends DeleteRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = freezed,
     Object? path = freezed,
+    Object? key = freezed,
   }) {
     return _then(_value.copyWith(
-      key: freezed == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String?,
       path: freezed == path
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
+              as String?,
+      key: freezed == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -78,7 +78,7 @@ abstract class _$$_DeleteRequestCopyWith<$Res>
       __$$_DeleteRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? key, String? path});
+  $Res call({String? path, String? key});
 }
 
 /// @nodoc
@@ -92,17 +92,17 @@ class __$$_DeleteRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = freezed,
     Object? path = freezed,
+    Object? key = freezed,
   }) {
     return _then(_$_DeleteRequest(
-      key: freezed == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String?,
       path: freezed == path
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
+              as String?,
+      key: freezed == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -111,22 +111,22 @@ class __$$_DeleteRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_DeleteRequest implements _DeleteRequest {
-  const _$_DeleteRequest({this.key, this.path});
+  const _$_DeleteRequest({this.path, this.key});
 
   factory _$_DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$$_DeleteRequestFromJson(json);
-
-  /// The key to delete
-  @override
-  final String? key;
 
   /// Optional path
   @override
   final String? path;
 
+  /// The key to delete
+  @override
+  final String? key;
+
   @override
   String toString() {
-    return 'DeleteRequest(key: $key, path: $path)';
+    return 'DeleteRequest(path: $path, key: $key)';
   }
 
   @override
@@ -134,13 +134,13 @@ class _$_DeleteRequest implements _DeleteRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DeleteRequest &&
-            (identical(other.key, key) || other.key == key) &&
-            (identical(other.path, path) || other.path == path));
+            (identical(other.path, path) || other.path == path) &&
+            (identical(other.key, key) || other.key == key));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, key, path);
+  int get hashCode => Object.hash(runtimeType, path, key);
 
   @JsonKey(ignore: true)
   @override
@@ -157,7 +157,7 @@ class _$_DeleteRequest implements _DeleteRequest {
 }
 
 abstract class _DeleteRequest implements DeleteRequest {
-  const factory _DeleteRequest({final String? key, final String? path}) =
+  const factory _DeleteRequest({final String? path, final String? key}) =
       _$_DeleteRequest;
 
   factory _DeleteRequest.fromJson(Map<String, dynamic> json) =
@@ -165,12 +165,12 @@ abstract class _DeleteRequest implements DeleteRequest {
 
   @override
 
-  /// The key to delete
-  String? get key;
-  @override
-
   /// Optional path
   String? get path;
+  @override
+
+  /// The key to delete
+  String? get key;
   @override
   @JsonKey(ignore: true)
   _$$_DeleteRequestCopyWith<_$_DeleteRequest> get copyWith =>
@@ -714,24 +714,24 @@ GetResponse _$GetResponseFromJson(Map<String, dynamic> json) {
 mixin _$GetResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? created, String? key, String? path,
-            String? updated, String? value)
+    TResult Function(String? path, String? updated, String? value,
+            String? created, String? key)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? created, String? key, String? path,
-            String? updated, String? value)?
+    TResult? Function(String? path, String? updated, String? value,
+            String? created, String? key)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? created, String? key, String? path,
-            String? updated, String? value)?
+    TResult Function(String? path, String? updated, String? value,
+            String? created, String? key)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -784,11 +784,11 @@ abstract class _$$GetResponseDataCopyWith<$Res> {
       __$$GetResponseDataCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {String? created,
-      String? key,
-      String? path,
+      {String? path,
       String? updated,
-      String? value});
+      String? value,
+      String? created,
+      String? key});
 }
 
 /// @nodoc
@@ -802,21 +802,13 @@ class __$$GetResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? created = freezed,
-    Object? key = freezed,
     Object? path = freezed,
     Object? updated = freezed,
     Object? value = freezed,
+    Object? created = freezed,
+    Object? key = freezed,
   }) {
     return _then(_$GetResponseData(
-      created: freezed == created
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
-      key: freezed == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String?,
       path: freezed == path
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
@@ -829,6 +821,14 @@ class __$$GetResponseDataCopyWithImpl<$Res>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String?,
+      created: freezed == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
+      key: freezed == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -837,24 +837,16 @@ class __$$GetResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GetResponseData implements GetResponseData {
   const _$GetResponseData(
-      {this.created,
-      this.key,
-      this.path,
+      {this.path,
       this.updated,
       this.value,
+      this.created,
+      this.key,
       final String? $type})
       : $type = $type ?? 'default';
 
   factory _$GetResponseData.fromJson(Map<String, dynamic> json) =>
       _$$GetResponseDataFromJson(json);
-
-  /// time of creation
-  @override
-  final String? created;
-
-  /// The key e.g foo
-  @override
-  final String? key;
 
   /// Path of value e.g bar/baz
   @override
@@ -868,12 +860,20 @@ class _$GetResponseData implements GetResponseData {
   @override
   final String? value;
 
+  /// time of creation
+  @override
+  final String? created;
+
+  /// The key e.g foo
+  @override
+  final String? key;
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'GetResponse(created: $created, key: $key, path: $path, updated: $updated, value: $value)';
+    return 'GetResponse(path: $path, updated: $updated, value: $value, created: $created, key: $key)';
   }
 
   @override
@@ -881,17 +881,17 @@ class _$GetResponseData implements GetResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetResponseData &&
-            (identical(other.created, created) || other.created == created) &&
-            (identical(other.key, key) || other.key == key) &&
             (identical(other.path, path) || other.path == path) &&
             (identical(other.updated, updated) || other.updated == updated) &&
-            (identical(other.value, value) || other.value == value));
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.created, created) || other.created == created) &&
+            (identical(other.key, key) || other.key == key));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, created, key, path, updated, value);
+      Object.hash(runtimeType, path, updated, value, created, key);
 
   @JsonKey(ignore: true)
   @override
@@ -902,36 +902,36 @@ class _$GetResponseData implements GetResponseData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? created, String? key, String? path,
-            String? updated, String? value)
+    TResult Function(String? path, String? updated, String? value,
+            String? created, String? key)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(created, key, path, updated, value);
+    return $default(path, updated, value, created, key);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? created, String? key, String? path,
-            String? updated, String? value)?
+    TResult? Function(String? path, String? updated, String? value,
+            String? created, String? key)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(created, key, path, updated, value);
+    return $default?.call(path, updated, value, created, key);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? created, String? key, String? path,
-            String? updated, String? value)?
+    TResult Function(String? path, String? updated, String? value,
+            String? created, String? key)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(created, key, path, updated, value);
+      return $default(path, updated, value, created, key);
     }
     return orElse();
   }
@@ -977,20 +977,14 @@ class _$GetResponseData implements GetResponseData {
 
 abstract class GetResponseData implements GetResponse {
   const factory GetResponseData(
-      {final String? created,
-      final String? key,
-      final String? path,
+      {final String? path,
       final String? updated,
-      final String? value}) = _$GetResponseData;
+      final String? value,
+      final String? created,
+      final String? key}) = _$GetResponseData;
 
   factory GetResponseData.fromJson(Map<String, dynamic> json) =
       _$GetResponseData.fromJson;
-
-  /// time of creation
-  String? get created;
-
-  /// The key e.g foo
-  String? get key;
 
   /// Path of value e.g bar/baz
   String? get path;
@@ -1000,6 +994,12 @@ abstract class GetResponseData implements GetResponse {
 
   /// The value e.g cat
   String? get value;
+
+  /// time of creation
+  String? get created;
+
+  /// The key e.g foo
+  String? get key;
   @JsonKey(ignore: true)
   _$$GetResponseDataCopyWith<_$GetResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1087,8 +1087,8 @@ class _$GetResponseMerr implements GetResponseMerr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? created, String? key, String? path,
-            String? updated, String? value)
+    TResult Function(String? path, String? updated, String? value,
+            String? created, String? key)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -1098,8 +1098,8 @@ class _$GetResponseMerr implements GetResponseMerr {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? created, String? key, String? path,
-            String? updated, String? value)?
+    TResult? Function(String? path, String? updated, String? value,
+            String? created, String? key)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -1109,8 +1109,8 @@ class _$GetResponseMerr implements GetResponseMerr {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? created, String? key, String? path,
-            String? updated, String? value)?
+    TResult Function(String? path, String? updated, String? value,
+            String? created, String? key)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -1657,14 +1657,14 @@ SetRequest _$SetRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SetRequest {
-  /// The value to set
-  String? get value => throw _privateConstructorUsedError;
-
   /// The key to update
   String? get key => throw _privateConstructorUsedError;
 
   /// Optional path e.g bar/baz
   String? get path => throw _privateConstructorUsedError;
+
+  /// The value to set
+  String? get value => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1678,7 +1678,7 @@ abstract class $SetRequestCopyWith<$Res> {
           SetRequest value, $Res Function(SetRequest) then) =
       _$SetRequestCopyWithImpl<$Res, SetRequest>;
   @useResult
-  $Res call({String? value, String? key, String? path});
+  $Res call({String? key, String? path, String? value});
 }
 
 /// @nodoc
@@ -1694,15 +1694,11 @@ class _$SetRequestCopyWithImpl<$Res, $Val extends SetRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
     Object? key = freezed,
     Object? path = freezed,
+    Object? value = freezed,
   }) {
     return _then(_value.copyWith(
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String?,
       key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
@@ -1710,6 +1706,10 @@ class _$SetRequestCopyWithImpl<$Res, $Val extends SetRequest>
       path: freezed == path
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
+              as String?,
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1723,7 +1723,7 @@ abstract class _$$_SetRequestCopyWith<$Res>
       __$$_SetRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? value, String? key, String? path});
+  $Res call({String? key, String? path, String? value});
 }
 
 /// @nodoc
@@ -1737,15 +1737,11 @@ class __$$_SetRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
     Object? key = freezed,
     Object? path = freezed,
+    Object? value = freezed,
   }) {
     return _then(_$_SetRequest(
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String?,
       key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
@@ -1754,6 +1750,10 @@ class __$$_SetRequestCopyWithImpl<$Res>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String?,
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1761,14 +1761,10 @@ class __$$_SetRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SetRequest implements _SetRequest {
-  const _$_SetRequest({this.value, this.key, this.path});
+  const _$_SetRequest({this.key, this.path, this.value});
 
   factory _$_SetRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SetRequestFromJson(json);
-
-  /// The value to set
-  @override
-  final String? value;
 
   /// The key to update
   @override
@@ -1778,9 +1774,13 @@ class _$_SetRequest implements _SetRequest {
   @override
   final String? path;
 
+  /// The value to set
+  @override
+  final String? value;
+
   @override
   String toString() {
-    return 'SetRequest(value: $value, key: $key, path: $path)';
+    return 'SetRequest(key: $key, path: $path, value: $value)';
   }
 
   @override
@@ -1788,14 +1788,14 @@ class _$_SetRequest implements _SetRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SetRequest &&
-            (identical(other.value, value) || other.value == value) &&
             (identical(other.key, key) || other.key == key) &&
-            (identical(other.path, path) || other.path == path));
+            (identical(other.path, path) || other.path == path) &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, value, key, path);
+  int get hashCode => Object.hash(runtimeType, key, path, value);
 
   @JsonKey(ignore: true)
   @override
@@ -1813,17 +1813,13 @@ class _$_SetRequest implements _SetRequest {
 
 abstract class _SetRequest implements SetRequest {
   const factory _SetRequest(
-      {final String? value,
-      final String? key,
-      final String? path}) = _$_SetRequest;
+      {final String? key,
+      final String? path,
+      final String? value}) = _$_SetRequest;
 
   factory _SetRequest.fromJson(Map<String, dynamic> json) =
       _$_SetRequest.fromJson;
 
-  @override
-
-  /// The value to set
-  String? get value;
   @override
 
   /// The key to update
@@ -1832,6 +1828,10 @@ abstract class _SetRequest implements SetRequest {
 
   /// Optional path e.g bar/baz
   String? get path;
+  @override
+
+  /// The value to set
+  String? get value;
   @override
   @JsonKey(ignore: true)
   _$$_SetRequestCopyWith<_$_SetRequest> get copyWith =>

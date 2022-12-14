@@ -4,12 +4,12 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/chat/api](http
 
 Endpoints:
 
-## Leave
+## Delete
 
-Leave a group
+Delete a group
 
 
-[https://m3o.com/chat/api#Leave](https://m3o.com/chat/api#Leave)
+[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
 
 ```dart
 import 'dart:io';
@@ -20,19 +20,18 @@ void main() async {
   final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-1"
+  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
 ,};
 
-  LeaveRequest req = LeaveRequest.fromJson(payload);
+  DeleteRequest req = DeleteRequest.fromJson(payload);
 
   
   try {
 
-	LeaveResponse res = await ser.leave(req);
+	DeleteResponse res = await ser.delete(req);
 
     res.map((value) => print(value),
-	  Merr: (LeaveResponseMerr err) => print(err.body!['body']));	
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -41,12 +40,13 @@ void main() async {
   }
 }
 ```
-## List
+## Send
 
-List available chats
+Connect to a chat to receive a stream of messages
+Send a message to a chat
 
 
-[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
+[https://m3o.com/chat/api#Send](https://m3o.com/chat/api#Send)
 
 ```dart
 import 'dart:io';
@@ -56,17 +56,23 @@ import 'package:m3o/src/chat/chat.dart';
 void main() async {
   final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
  
-  final payload = <String, dynamic>{};
+  final payload = <String, dynamic>{
+  "client": "web",
+  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "subject": "Random",
+  "text": "Hey whats up?",
+  "user_id": "user-1"
+,};
 
-  ListRequest req = ListRequest.fromJson(payload);
+  SendRequest req = SendRequest.fromJson(payload);
 
   
   try {
 
-	ListResponse res = await ser.list(req);
+	SendResponse res = await ser.send(req);
 
     res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
+	  Merr: (SendResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -103,82 +109,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Join
-
-Join a group
-
-
-[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/chat/chat.dart';
-
-void main() async {
-  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-2"
-,};
-
-  JoinRequest req = JoinRequest.fromJson(payload);
-
-  
-  	
-  try {
-
-    final res = await ser.join(req);
-
-	  await for (var sr in res) {
-	  sr.map((value) => print(value),
-		Merr: (JoinResponseMerr err) => print(err.body));
-	  }
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Kick
-
-Kick a user from a group
-
-
-[https://m3o.com/chat/api#Kick](https://m3o.com/chat/api#Kick)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/chat/chat.dart';
-
-void main() async {
-  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-1"
-,};
-
-  KickRequest req = KickRequest.fromJson(payload);
-
-  
-  try {
-
-	KickResponse res = await ser.kick(req);
-
-    res.map((value) => print(value),
-	  Merr: (KickResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -224,12 +154,46 @@ void main() async {
   }
 }
 ```
-## Delete
+## List
 
-Delete a group
+List available chats
 
 
-[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
+[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/chat/chat.dart';
+
+void main() async {
+  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  ListRequest req = ListRequest.fromJson(payload);
+
+  
+  try {
+
+	ListResponse res = await ser.list(req);
+
+    res.map((value) => print(value),
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Kick
+
+Kick a user from a group
+
+
+[https://m3o.com/chat/api#Kick](https://m3o.com/chat/api#Kick)
 
 ```dart
 import 'dart:io';
@@ -240,18 +204,56 @@ void main() async {
   final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
+  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-1"
 ,};
 
-  DeleteRequest req = DeleteRequest.fromJson(payload);
+  KickRequest req = KickRequest.fromJson(payload);
 
   
   try {
 
-	DeleteResponse res = await ser.delete(req);
+	KickResponse res = await ser.kick(req);
 
     res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+	  Merr: (KickResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Leave
+
+Leave a group
+
+
+[https://m3o.com/chat/api#Leave](https://m3o.com/chat/api#Leave)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/chat/chat.dart';
+
+void main() async {
+  final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-1"
+,};
+
+  LeaveRequest req = LeaveRequest.fromJson(payload);
+
+  
+  try {
+
+	LeaveResponse res = await ser.leave(req);
+
+    res.map((value) => print(value),
+	  Merr: (LeaveResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -297,13 +299,12 @@ void main() async {
   }
 }
 ```
-## Send
+## Join
 
-Connect to a chat to receive a stream of messages
-Send a message to a chat
+Join a group
 
 
-[https://m3o.com/chat/api#Send](https://m3o.com/chat/api#Send)
+[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
 
 ```dart
 import 'dart:io';
@@ -314,23 +315,22 @@ void main() async {
   final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "client": "web",
   "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "subject": "Random",
-  "text": "Hey whats up?",
-  "user_id": "user-1"
+  "user_id": "user-2"
 ,};
 
-  SendRequest req = SendRequest.fromJson(payload);
+  JoinRequest req = JoinRequest.fromJson(payload);
 
   
+  	
   try {
 
-	SendResponse res = await ser.send(req);
+    final res = await ser.join(req);
 
-    res.map((value) => print(value),
-	  Merr: (SendResponseMerr err) => print(err.body!['body']));	
-  
+	  await for (var sr in res) {
+	  sr.map((value) => print(value),
+		Merr: (JoinResponseMerr err) => print(err.body));
+	  }
   } catch (e) {
     print(e);
   } finally {

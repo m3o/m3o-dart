@@ -4,6 +4,76 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/secret/api](ht
 
 Endpoints:
 
+## Delete
+
+Delete a secret. If key not found a success response is returned.
+
+
+[https://m3o.com/secret/api#Delete](https://m3o.com/secret/api#Delete)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/secret/secret.dart';
+
+void main() async {
+  final ser = SecretService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "key": "foo"
+,};
+
+  DeleteRequest req = DeleteRequest.fromJson(payload);
+
+  
+  try {
+
+	DeleteResponse res = await ser.delete(req);
+
+    res.map((value) => print(value),
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## List
+
+List all the available secrets
+
+
+[https://m3o.com/secret/api#List](https://m3o.com/secret/api#List)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/secret/secret.dart';
+
+void main() async {
+  final ser = SecretService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{};
+
+  ListRequest req = ListRequest.fromJson(payload);
+
+  
+  try {
+
+	ListResponse res = await ser.list(req);
+
+    res.map((value) => print(value),
+	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
 ## Set
 
 Set a secret. Overwrites any existing value already set.
@@ -69,76 +139,6 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (GetResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Delete
-
-Delete a secret. If key not found a success response is returned.
-
-
-[https://m3o.com/secret/api#Delete](https://m3o.com/secret/api#Delete)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/secret/secret.dart';
-
-void main() async {
-  final ser = SecretService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "key": "foo"
-,};
-
-  DeleteRequest req = DeleteRequest.fromJson(payload);
-
-  
-  try {
-
-	DeleteResponse res = await ser.delete(req);
-
-    res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## List
-
-List all the available secrets
-
-
-[https://m3o.com/secret/api#List](https://m3o.com/secret/api#List)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/secret/secret.dart';
-
-void main() async {
-  final ser = SecretService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{};
-
-  ListRequest req = ListRequest.fromJson(payload);
-
-  
-  try {
-
-	ListResponse res = await ser.list(req);
-
-    res.map((value) => print(value),
-	  Merr: (ListResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

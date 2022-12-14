@@ -20,11 +20,11 @@ CreateRequest _$CreateRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateRequest {
-  /// note title
-  String? get title => throw _privateConstructorUsedError;
-
   /// note text
   String? get text => throw _privateConstructorUsedError;
+
+  /// note title
+  String? get title => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +38,7 @@ abstract class $CreateRequestCopyWith<$Res> {
           CreateRequest value, $Res Function(CreateRequest) then) =
       _$CreateRequestCopyWithImpl<$Res, CreateRequest>;
   @useResult
-  $Res call({String? title, String? text});
+  $Res call({String? text, String? title});
 }
 
 /// @nodoc
@@ -54,17 +54,17 @@ class _$CreateRequestCopyWithImpl<$Res, $Val extends CreateRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = freezed,
     Object? text = freezed,
+    Object? title = freezed,
   }) {
     return _then(_value.copyWith(
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
       text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -78,7 +78,7 @@ abstract class _$$_CreateRequestCopyWith<$Res>
       __$$_CreateRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? title, String? text});
+  $Res call({String? text, String? title});
 }
 
 /// @nodoc
@@ -92,17 +92,17 @@ class __$$_CreateRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = freezed,
     Object? text = freezed,
+    Object? title = freezed,
   }) {
     return _then(_$_CreateRequest(
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
       text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -111,22 +111,22 @@ class __$$_CreateRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateRequest implements _CreateRequest {
-  const _$_CreateRequest({this.title, this.text});
+  const _$_CreateRequest({this.text, this.title});
 
   factory _$_CreateRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CreateRequestFromJson(json);
-
-  /// note title
-  @override
-  final String? title;
 
   /// note text
   @override
   final String? text;
 
+  /// note title
+  @override
+  final String? title;
+
   @override
   String toString() {
-    return 'CreateRequest(title: $title, text: $text)';
+    return 'CreateRequest(text: $text, title: $title)';
   }
 
   @override
@@ -134,13 +134,13 @@ class _$_CreateRequest implements _CreateRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateRequest &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.text, text) || other.text == text));
+            (identical(other.text, text) || other.text == text) &&
+            (identical(other.title, title) || other.title == title));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, title, text);
+  int get hashCode => Object.hash(runtimeType, text, title);
 
   @JsonKey(ignore: true)
   @override
@@ -157,7 +157,7 @@ class _$_CreateRequest implements _CreateRequest {
 }
 
 abstract class _CreateRequest implements CreateRequest {
-  const factory _CreateRequest({final String? title, final String? text}) =
+  const factory _CreateRequest({final String? text, final String? title}) =
       _$_CreateRequest;
 
   factory _CreateRequest.fromJson(Map<String, dynamic> json) =
@@ -165,12 +165,12 @@ abstract class _CreateRequest implements CreateRequest {
 
   @override
 
-  /// note title
-  String? get title;
-  @override
-
   /// note text
   String? get text;
+  @override
+
+  /// note title
+  String? get title;
   @override
   @JsonKey(ignore: true)
   _$$_CreateRequestCopyWith<_$_CreateRequest> get copyWith =>
@@ -2172,6 +2172,9 @@ Note _$NoteFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Note {
+  /// time at which the note was updated
+  String? get updated => throw _privateConstructorUsedError;
+
   /// time at which the note was created
   String? get created => throw _privateConstructorUsedError;
 
@@ -2184,9 +2187,6 @@ mixin _$Note {
   /// title of the note
   String? get title => throw _privateConstructorUsedError;
 
-  /// time at which the note was updated
-  String? get updated => throw _privateConstructorUsedError;
-
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $NoteCopyWith<Note> get copyWith => throw _privateConstructorUsedError;
@@ -2198,11 +2198,11 @@ abstract class $NoteCopyWith<$Res> {
       _$NoteCopyWithImpl<$Res, Note>;
   @useResult
   $Res call(
-      {String? created,
+      {String? updated,
+      String? created,
       String? id,
       String? text,
-      String? title,
-      String? updated});
+      String? title});
 }
 
 /// @nodoc
@@ -2218,13 +2218,17 @@ class _$NoteCopyWithImpl<$Res, $Val extends Note>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? updated = freezed,
     Object? created = freezed,
     Object? id = freezed,
     Object? text = freezed,
     Object? title = freezed,
-    Object? updated = freezed,
   }) {
     return _then(_value.copyWith(
+      updated: freezed == updated
+          ? _value.updated
+          : updated // ignore: cast_nullable_to_non_nullable
+              as String?,
       created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
@@ -2240,10 +2244,6 @@ class _$NoteCopyWithImpl<$Res, $Val extends Note>
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      updated: freezed == updated
-          ? _value.updated
-          : updated // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -2256,11 +2256,11 @@ abstract class _$$_NoteCopyWith<$Res> implements $NoteCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? created,
+      {String? updated,
+      String? created,
       String? id,
       String? text,
-      String? title,
-      String? updated});
+      String? title});
 }
 
 /// @nodoc
@@ -2272,13 +2272,17 @@ class __$$_NoteCopyWithImpl<$Res> extends _$NoteCopyWithImpl<$Res, _$_Note>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? updated = freezed,
     Object? created = freezed,
     Object? id = freezed,
     Object? text = freezed,
     Object? title = freezed,
-    Object? updated = freezed,
   }) {
     return _then(_$_Note(
+      updated: freezed == updated
+          ? _value.updated
+          : updated // ignore: cast_nullable_to_non_nullable
+              as String?,
       created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
@@ -2295,10 +2299,6 @@ class __$$_NoteCopyWithImpl<$Res> extends _$NoteCopyWithImpl<$Res, _$_Note>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      updated: freezed == updated
-          ? _value.updated
-          : updated // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -2306,9 +2306,13 @@ class __$$_NoteCopyWithImpl<$Res> extends _$NoteCopyWithImpl<$Res, _$_Note>
 /// @nodoc
 @JsonSerializable()
 class _$_Note implements _Note {
-  const _$_Note({this.created, this.id, this.text, this.title, this.updated});
+  const _$_Note({this.updated, this.created, this.id, this.text, this.title});
 
   factory _$_Note.fromJson(Map<String, dynamic> json) => _$$_NoteFromJson(json);
+
+  /// time at which the note was updated
+  @override
+  final String? updated;
 
   /// time at which the note was created
   @override
@@ -2326,13 +2330,9 @@ class _$_Note implements _Note {
   @override
   final String? title;
 
-  /// time at which the note was updated
-  @override
-  final String? updated;
-
   @override
   String toString() {
-    return 'Note(created: $created, id: $id, text: $text, title: $title, updated: $updated)';
+    return 'Note(updated: $updated, created: $created, id: $id, text: $text, title: $title)';
   }
 
   @override
@@ -2340,17 +2340,17 @@ class _$_Note implements _Note {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Note &&
+            (identical(other.updated, updated) || other.updated == updated) &&
             (identical(other.created, created) || other.created == created) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.text, text) || other.text == text) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.updated, updated) || other.updated == updated));
+            (identical(other.title, title) || other.title == title));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, created, id, text, title, updated);
+      Object.hash(runtimeType, updated, created, id, text, title);
 
   @JsonKey(ignore: true)
   @override
@@ -2368,14 +2368,18 @@ class _$_Note implements _Note {
 
 abstract class _Note implements Note {
   const factory _Note(
-      {final String? created,
+      {final String? updated,
+      final String? created,
       final String? id,
       final String? text,
-      final String? title,
-      final String? updated}) = _$_Note;
+      final String? title}) = _$_Note;
 
   factory _Note.fromJson(Map<String, dynamic> json) = _$_Note.fromJson;
 
+  @override
+
+  /// time at which the note was updated
+  String? get updated;
   @override
 
   /// time at which the note was created
@@ -2392,10 +2396,6 @@ abstract class _Note implements Note {
 
   /// title of the note
   String? get title;
-  @override
-
-  /// time at which the note was updated
-  String? get updated;
   @override
   @JsonKey(ignore: true)
   _$$_NoteCopyWith<_$_Note> get copyWith => throw _privateConstructorUsedError;

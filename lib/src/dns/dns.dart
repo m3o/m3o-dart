@@ -83,11 +83,11 @@ class Domain with _$Domain {
 @Freezed()
 class QueryRequest with _$QueryRequest {
   const factory QueryRequest({
-    /// type of query e.g A, AAAA, MX, SRV
-    String? type,
-
     /// name to resolve
     String? name,
+
+    /// type of query e.g A, AAAA, MX, SRV
+    String? type,
   }) = _QueryRequest;
   factory QueryRequest.fromJson(Map<String, dynamic> json) =>
       _$QueryRequestFromJson(json);
@@ -97,14 +97,14 @@ class QueryRequest with _$QueryRequest {
 class QueryResponse with _$QueryResponse {
   const factory QueryResponse({
     bool? AD,
-    bool? CD,
+    bool? RA,
     bool? RD,
+    String? provider,
+    int? status,
+    bool? CD,
+    bool? TC,
     List<Answer>? answer,
     List<Question>? question,
-    int? status,
-    bool? RA,
-    bool? TC,
-    String? provider,
   }) = QueryResponseData;
   const factory QueryResponse.Merr({Map<String, dynamic>? body}) =
       QueryResponseMerr;
@@ -140,26 +140,26 @@ class WhoisResponse with _$WhoisResponse {
     /// abuse email
     String? abuse_email,
 
-    /// abuse phone
-    String? abuse_phone,
-
     /// time of creation
     String? created,
 
     /// time of expiry
     String? expiry,
 
-    /// domain id
-    String? id,
-
     /// the registrar
     String? registrar,
 
-    /// registrar
-    String? registrar_url,
+    /// time of update
+    String? updated,
+
+    /// abuse phone
+    String? abuse_phone,
 
     /// domain name
     String? domain,
+
+    /// domain id
+    String? id,
 
     /// nameservers
     List<String>? nameservers,
@@ -167,11 +167,11 @@ class WhoisResponse with _$WhoisResponse {
     /// the registrar iana id
     String? registrar_id,
 
+    /// registrar
+    String? registrar_url,
+
     /// status of domain
     List<String>? status,
-
-    /// time of update
-    String? updated,
 
     /// whois server
     String? whois_server,

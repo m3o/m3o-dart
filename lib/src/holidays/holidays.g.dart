@@ -43,14 +43,14 @@ Map<String, dynamic> _$$CountriesResponseMerrToJson(
     };
 
 _$_Country _$$_CountryFromJson(Map<String, dynamic> json) => _$_Country(
-      code: json['code'] as String?,
       name: json['name'] as String?,
+      code: json['code'] as String?,
     );
 
 Map<String, dynamic> _$$_CountryToJson(_$_Country instance) =>
     <String, dynamic>{
-      'code': instance.code,
       'name': instance.name,
+      'code': instance.code,
     };
 
 _$_Holiday _$$_HolidayFromJson(Map<String, dynamic> json) => _$_Holiday(

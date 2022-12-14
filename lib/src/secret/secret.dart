@@ -96,11 +96,11 @@ class SecretService {
 @Freezed()
 class DeleteRequest with _$DeleteRequest {
   const factory DeleteRequest({
-    /// The key to delete
-    String? key,
-
     /// Optional path
     String? path,
+
+    /// The key to delete
+    String? key,
   }) = _DeleteRequest;
   factory DeleteRequest.fromJson(Map<String, dynamic> json) =>
       _$DeleteRequestFromJson(json);
@@ -131,12 +131,6 @@ class GetRequest with _$GetRequest {
 @Freezed()
 class GetResponse with _$GetResponse {
   const factory GetResponse({
-    /// time of creation
-    String? created,
-
-    /// The key e.g foo
-    String? key,
-
     /// Path of value e.g bar/baz
     String? path,
 
@@ -145,6 +139,12 @@ class GetResponse with _$GetResponse {
 
     /// The value e.g cat
     String? value,
+
+    /// time of creation
+    String? created,
+
+    /// The key e.g foo
+    String? key,
   }) = GetResponseData;
   const factory GetResponse.Merr({Map<String, dynamic>? body}) =
       GetResponseMerr;
@@ -173,14 +173,14 @@ class ListResponse with _$ListResponse {
 @Freezed()
 class SetRequest with _$SetRequest {
   const factory SetRequest({
-    /// The value to set
-    String? value,
-
     /// The key to update
     String? key,
 
     /// Optional path e.g bar/baz
     String? path,
+
+    /// The value to set
+    String? value,
   }) = _SetRequest;
   factory SetRequest.fromJson(Map<String, dynamic> json) =>
       _$SetRequestFromJson(json);

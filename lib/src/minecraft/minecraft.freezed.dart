@@ -172,14 +172,14 @@ mixin _$PingResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? version,
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
-            List<PlayerSample>? sample,
-            String? version,
-            String? favicon)
+            List<PlayerSample>? sample)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) =>
@@ -187,14 +187,14 @@ mixin _$PingResponse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+            String? version,
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
-            List<PlayerSample>? sample,
-            String? version,
-            String? favicon)?
+            List<PlayerSample>? sample)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) =>
@@ -202,14 +202,14 @@ mixin _$PingResponse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? version,
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
-            List<PlayerSample>? sample,
-            String? version,
-            String? favicon)?
+            List<PlayerSample>? sample)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
@@ -262,14 +262,14 @@ abstract class _$$PingResponseDataCopyWith<$Res> {
       __$$PingResponseDataCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {int? latency,
+      {String? version,
+      String? favicon,
+      int? latency,
       int? max_players,
       String? motd,
       int? players,
       int? protocol,
-      List<PlayerSample>? sample,
-      String? version,
-      String? favicon});
+      List<PlayerSample>? sample});
 }
 
 /// @nodoc
@@ -283,16 +283,24 @@ class __$$PingResponseDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? version = freezed,
+    Object? favicon = freezed,
     Object? latency = freezed,
     Object? max_players = freezed,
     Object? motd = freezed,
     Object? players = freezed,
     Object? protocol = freezed,
     Object? sample = freezed,
-    Object? version = freezed,
-    Object? favicon = freezed,
   }) {
     return _then(_$PingResponseData(
+      version: freezed == version
+          ? _value.version
+          : version // ignore: cast_nullable_to_non_nullable
+              as String?,
+      favicon: freezed == favicon
+          ? _value.favicon
+          : favicon // ignore: cast_nullable_to_non_nullable
+              as String?,
       latency: freezed == latency
           ? _value.latency
           : latency // ignore: cast_nullable_to_non_nullable
@@ -317,14 +325,6 @@ class __$$PingResponseDataCopyWithImpl<$Res>
           ? _value._sample
           : sample // ignore: cast_nullable_to_non_nullable
               as List<PlayerSample>?,
-      version: freezed == version
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as String?,
-      favicon: freezed == favicon
-          ? _value.favicon
-          : favicon // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -333,20 +333,28 @@ class __$$PingResponseDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PingResponseData implements PingResponseData {
   const _$PingResponseData(
-      {this.latency,
+      {this.version,
+      this.favicon,
+      this.latency,
       this.max_players,
       this.motd,
       this.players,
       this.protocol,
       final List<PlayerSample>? sample,
-      this.version,
-      this.favicon,
       final String? $type})
       : _sample = sample,
         $type = $type ?? 'default';
 
   factory _$PingResponseData.fromJson(Map<String, dynamic> json) =>
       _$$PingResponseDataFromJson(json);
+
+  /// Version of the server
+  @override
+  final String? version;
+
+  /// Favicon in base64
+  @override
+  final String? favicon;
 
   /// Latency (ms) between us and the server (EU)
   @override
@@ -381,20 +389,12 @@ class _$PingResponseData implements PingResponseData {
     return EqualUnmodifiableListView(value);
   }
 
-  /// Version of the server
-  @override
-  final String? version;
-
-  /// Favicon in base64
-  @override
-  final String? favicon;
-
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'PingResponse(latency: $latency, max_players: $max_players, motd: $motd, players: $players, protocol: $protocol, sample: $sample, version: $version, favicon: $favicon)';
+    return 'PingResponse(version: $version, favicon: $favicon, latency: $latency, max_players: $max_players, motd: $motd, players: $players, protocol: $protocol, sample: $sample)';
   }
 
   @override
@@ -402,6 +402,8 @@ class _$PingResponseData implements PingResponseData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PingResponseData &&
+            (identical(other.version, version) || other.version == version) &&
+            (identical(other.favicon, favicon) || other.favicon == favicon) &&
             (identical(other.latency, latency) || other.latency == latency) &&
             (identical(other.max_players, max_players) ||
                 other.max_players == max_players) &&
@@ -409,23 +411,21 @@ class _$PingResponseData implements PingResponseData {
             (identical(other.players, players) || other.players == players) &&
             (identical(other.protocol, protocol) ||
                 other.protocol == protocol) &&
-            const DeepCollectionEquality().equals(other._sample, _sample) &&
-            (identical(other.version, version) || other.version == version) &&
-            (identical(other.favicon, favicon) || other.favicon == favicon));
+            const DeepCollectionEquality().equals(other._sample, _sample));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      version,
+      favicon,
       latency,
       max_players,
       motd,
       players,
       protocol,
-      const DeepCollectionEquality().hash(_sample),
-      version,
-      favicon);
+      const DeepCollectionEquality().hash(_sample));
 
   @JsonKey(ignore: true)
   @override
@@ -437,59 +437,59 @@ class _$PingResponseData implements PingResponseData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? version,
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
-            List<PlayerSample>? sample,
-            String? version,
-            String? favicon)
+            List<PlayerSample>? sample)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
-    return $default(latency, max_players, motd, players, protocol, sample,
-        version, favicon);
+    return $default(version, favicon, latency, max_players, motd, players,
+        protocol, sample);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+            String? version,
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
-            List<PlayerSample>? sample,
-            String? version,
-            String? favicon)?
+            List<PlayerSample>? sample)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
-    return $default?.call(latency, max_players, motd, players, protocol, sample,
-        version, favicon);
+    return $default?.call(version, favicon, latency, max_players, motd, players,
+        protocol, sample);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? version,
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
-            List<PlayerSample>? sample,
-            String? version,
-            String? favicon)?
+            List<PlayerSample>? sample)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(latency, max_players, motd, players, protocol, sample,
-          version, favicon);
+      return $default(version, favicon, latency, max_players, motd, players,
+          protocol, sample);
     }
     return orElse();
   }
@@ -535,17 +535,23 @@ class _$PingResponseData implements PingResponseData {
 
 abstract class PingResponseData implements PingResponse {
   const factory PingResponseData(
-      {final int? latency,
+      {final String? version,
+      final String? favicon,
+      final int? latency,
       final int? max_players,
       final String? motd,
       final int? players,
       final int? protocol,
-      final List<PlayerSample>? sample,
-      final String? version,
-      final String? favicon}) = _$PingResponseData;
+      final List<PlayerSample>? sample}) = _$PingResponseData;
 
   factory PingResponseData.fromJson(Map<String, dynamic> json) =
       _$PingResponseData.fromJson;
+
+  /// Version of the server
+  String? get version;
+
+  /// Favicon in base64
+  String? get favicon;
 
   /// Latency (ms) between us and the server (EU)
   int? get latency;
@@ -564,12 +570,6 @@ abstract class PingResponseData implements PingResponse {
 
   /// List of connected players
   List<PlayerSample>? get sample;
-
-  /// Version of the server
-  String? get version;
-
-  /// Favicon in base64
-  String? get favicon;
   @JsonKey(ignore: true)
   _$$PingResponseDataCopyWith<_$PingResponseData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -658,14 +658,14 @@ class _$PingResponseMerr implements PingResponseMerr {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? version,
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
-            List<PlayerSample>? sample,
-            String? version,
-            String? favicon)
+            List<PlayerSample>? sample)
         $default, {
     required TResult Function(Map<String, dynamic>? body) Merr,
   }) {
@@ -676,14 +676,14 @@ class _$PingResponseMerr implements PingResponseMerr {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+            String? version,
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
-            List<PlayerSample>? sample,
-            String? version,
-            String? favicon)?
+            List<PlayerSample>? sample)?
         $default, {
     TResult? Function(Map<String, dynamic>? body)? Merr,
   }) {
@@ -694,14 +694,14 @@ class _$PingResponseMerr implements PingResponseMerr {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? version,
+            String? favicon,
             int? latency,
             int? max_players,
             String? motd,
             int? players,
             int? protocol,
-            List<PlayerSample>? sample,
-            String? version,
-            String? favicon)?
+            List<PlayerSample>? sample)?
         $default, {
     TResult Function(Map<String, dynamic>? body)? Merr,
     required TResult orElse(),

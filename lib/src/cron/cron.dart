@@ -135,6 +135,9 @@ class JobsResponse with _$JobsResponse {
 @Freezed()
 class ScheduleRequest with _$ScheduleRequest {
   const factory ScheduleRequest({
+    /// interval e.g * * * * *
+    String? interval,
+
     /// name of cron
     String? name,
 
@@ -146,9 +149,6 @@ class ScheduleRequest with _$ScheduleRequest {
 
     /// unique id of job (optional)
     String? id,
-
-    /// interval e.g * * * * *
-    String? interval,
   }) = _ScheduleRequest;
   factory ScheduleRequest.fromJson(Map<String, dynamic> json) =>
       _$ScheduleRequestFromJson(json);

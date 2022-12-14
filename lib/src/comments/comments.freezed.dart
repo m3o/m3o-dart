@@ -20,9 +20,6 @@ Comment _$CommentFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Comment {
-  /// time at which the comment was created
-  String? get created => throw _privateConstructorUsedError;
-
   /// unique id for the comment, generated if not specified
   String? get id => throw _privateConstructorUsedError;
 
@@ -35,6 +32,9 @@ mixin _$Comment {
   /// time at which the comment was updated
   String? get updated => throw _privateConstructorUsedError;
 
+  /// time at which the comment was created
+  String? get created => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CommentCopyWith<Comment> get copyWith => throw _privateConstructorUsedError;
@@ -46,11 +46,11 @@ abstract class $CommentCopyWith<$Res> {
       _$CommentCopyWithImpl<$Res, Comment>;
   @useResult
   $Res call(
-      {String? created,
-      String? id,
+      {String? id,
       String? subject,
       String? text,
-      String? updated});
+      String? updated,
+      String? created});
 }
 
 /// @nodoc
@@ -66,17 +66,13 @@ class _$CommentCopyWithImpl<$Res, $Val extends Comment>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? created = freezed,
     Object? id = freezed,
     Object? subject = freezed,
     Object? text = freezed,
     Object? updated = freezed,
+    Object? created = freezed,
   }) {
     return _then(_value.copyWith(
-      created: freezed == created
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -92,6 +88,10 @@ class _$CommentCopyWithImpl<$Res, $Val extends Comment>
       updated: freezed == updated
           ? _value.updated
           : updated // ignore: cast_nullable_to_non_nullable
+              as String?,
+      created: freezed == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -105,11 +105,11 @@ abstract class _$$_CommentCopyWith<$Res> implements $CommentCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? created,
-      String? id,
+      {String? id,
       String? subject,
       String? text,
-      String? updated});
+      String? updated,
+      String? created});
 }
 
 /// @nodoc
@@ -122,17 +122,13 @@ class __$$_CommentCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? created = freezed,
     Object? id = freezed,
     Object? subject = freezed,
     Object? text = freezed,
     Object? updated = freezed,
+    Object? created = freezed,
   }) {
     return _then(_$_Comment(
-      created: freezed == created
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -149,6 +145,10 @@ class __$$_CommentCopyWithImpl<$Res>
           ? _value.updated
           : updated // ignore: cast_nullable_to_non_nullable
               as String?,
+      created: freezed == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -157,14 +157,10 @@ class __$$_CommentCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Comment implements _Comment {
   const _$_Comment(
-      {this.created, this.id, this.subject, this.text, this.updated});
+      {this.id, this.subject, this.text, this.updated, this.created});
 
   factory _$_Comment.fromJson(Map<String, dynamic> json) =>
       _$$_CommentFromJson(json);
-
-  /// time at which the comment was created
-  @override
-  final String? created;
 
   /// unique id for the comment, generated if not specified
   @override
@@ -182,9 +178,13 @@ class _$_Comment implements _Comment {
   @override
   final String? updated;
 
+  /// time at which the comment was created
+  @override
+  final String? created;
+
   @override
   String toString() {
-    return 'Comment(created: $created, id: $id, subject: $subject, text: $text, updated: $updated)';
+    return 'Comment(id: $id, subject: $subject, text: $text, updated: $updated, created: $created)';
   }
 
   @override
@@ -192,17 +192,17 @@ class _$_Comment implements _Comment {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Comment &&
-            (identical(other.created, created) || other.created == created) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.text, text) || other.text == text) &&
-            (identical(other.updated, updated) || other.updated == updated));
+            (identical(other.updated, updated) || other.updated == updated) &&
+            (identical(other.created, created) || other.created == created));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, created, id, subject, text, updated);
+      Object.hash(runtimeType, id, subject, text, updated, created);
 
   @JsonKey(ignore: true)
   @override
@@ -220,18 +220,14 @@ class _$_Comment implements _Comment {
 
 abstract class _Comment implements Comment {
   const factory _Comment(
-      {final String? created,
-      final String? id,
+      {final String? id,
       final String? subject,
       final String? text,
-      final String? updated}) = _$_Comment;
+      final String? updated,
+      final String? created}) = _$_Comment;
 
   factory _Comment.fromJson(Map<String, dynamic> json) = _$_Comment.fromJson;
 
-  @override
-
-  /// time at which the comment was created
-  String? get created;
   @override
 
   /// unique id for the comment, generated if not specified
@@ -248,6 +244,10 @@ abstract class _Comment implements Comment {
 
   /// time at which the comment was updated
   String? get updated;
+  @override
+
+  /// time at which the comment was created
+  String? get created;
   @override
   @JsonKey(ignore: true)
   _$$_CommentCopyWith<_$_Comment> get copyWith =>
